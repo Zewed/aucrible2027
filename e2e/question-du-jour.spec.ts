@@ -459,3 +459,37 @@ test.describe("sur un petit téléphone", () => {
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
   });
 });
+
+/** La carte réponse (le libellé cliquable) d'une option. */
+const carteReponse = (page: Page, libelle: string) =>
+  page.getByRole("radiogroup", { name: "Les options" }).locator("label").filter({ has: page.getByRole("radio", { name: libelle }) });
+
+test("toucher « 64 ans » colore la carte C, la soulève et la marque « Ta carte » ; les autres restent blanches", async ({ page }) => {
+  await page.goto("/");
+  await choisir(page, "64 ans");
+  const choisie = carteReponse(page, "64 ans");
+  await expect(choisie.getByText("Ta carte", { exact: true })).toBeVisible();
+  const face = choisie.locator(".opt-face");
+  await expect.poll(() => fond(face)).toBe(ORANGE);
+  expect(await face.evaluate((el) => getComputedStyle(el).transform)).not.toBe("none");
+
+  for (const libelle of ["60 ans", "62 ans", "65 ans ou plus", "À la carte, avec un système à points"]) {
+    const autre = carteReponse(page, libelle);
+    expect(await fond(autre.locator(".opt-face"))).toBe("rgb(255, 255, 255)");
+    await expect(autre.getByText("Ta carte", { exact: true })).toBeHidden();
+  }
+});
+
+test("avec « réduire les animations », la carte choisie est marquée aussitôt, sans mouvement", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await carteReponse(page, "64 ans").getByText("64 ans", { exact: true }).click();
+  const choisie = carteReponse(page, "64 ans");
+  const etat = await choisie.evaluate((el) => ({
+    animations: document.getAnimations().length,
+    fond: getComputedStyle(el.querySelector(".opt-face")!).backgroundColor,
+    etiquette: getComputedStyle(el.querySelector(".picked")!).opacity,
+  }));
+  expect(etat).toEqual({ animations: 0, fond: ORANGE, etiquette: "1" });
+  await expect(choisie.getByText("Ta carte", { exact: true })).toBeVisible();
+});
