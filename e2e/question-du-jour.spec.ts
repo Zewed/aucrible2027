@@ -897,3 +897,20 @@ test("après A, la révélation dit « opposé·e à » Nicolas Dupont-Aignan et
   expect(await nomsDe(opposes(page))).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
   await expect(page.getByText("Opposé·e : carte la plus éloignée (E).")).toBeVisible();
 });
+
+test("après « Je ne sais pas », la révélation montre les cinq options, leurs candidats et « Position inconnue »", async ({ page }) => {
+  await repondre(page, "Je ne sais pas");
+  await expect(blocsDOption(page)).toHaveCount(5);
+  expect(await nomsSous(page, "Option A : 60 ans")).toEqual(["Fabien Roussel", "Jean-Luc Mélenchon", "Nathalie Arthaud"]);
+  expect(await nomsSous(page, "Option E : À la carte, avec un système à points")).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
+  expect(await nomsSous(page, "Position inconnue")).toEqual(["David Lisnard", "François Ruffin"]);
+});
+
+test("après « Je ne sais pas », la révélation n'affiche ni aligné·e, ni proche, ni opposé·e", async ({ page }) => {
+  await repondre(page, "Je ne sais pas");
+  await expect(blocsDOption(page).first()).toBeVisible();
+  for (const texte of ["Sur ce sujet, tu es aligné·e avec", "et proche de", "opposé·e à"]) {
+    await expect(page.getByText(texte)).toHaveCount(0);
+  }
+  await expect(page.getByRole("region", { name: "Alignement sur ce sujet" })).toHaveCount(0);
+});
