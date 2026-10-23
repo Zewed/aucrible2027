@@ -3,6 +3,7 @@
 # sourcées avant toute mise en ligne.
 numero: 24
 date: 2026-10-23
+theme: travail-retraites
 question: À quel âge devrait-on pouvoir partir à la retraite ?
 options:
   - id: A

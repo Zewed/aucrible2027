@@ -4,9 +4,11 @@ import { parse } from "yaml";
 
 export type Candidat = { id: string; nom: string; parti: string };
 export type Option = { id: string; libelle: string };
+export type Theme = { id: string; nom: string; classe: string };
 export type Question = {
   numero: number;
   date: string;
+  theme: string;
   question: string;
   options: Option[];
   positions: Record<string, string>;
@@ -16,6 +18,10 @@ const RACINE = path.join(process.cwd(), "content");
 
 export function lireCandidats(): Candidat[] {
   return parse(readFileSync(path.join(RACINE, "candidats.yaml"), "utf8"));
+}
+
+export function lireThemes(): Theme[] {
+  return parse(readFileSync(path.join(RACINE, "themes.yaml"), "utf8"));
 }
 
 export function lireQuestions(): Question[] {

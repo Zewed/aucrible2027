@@ -1,0 +1,28 @@
+# DONNÉES DE DÉMONSTRATION : question et positions inventées pour développer l'app.
+# Rien n'est vérifié : à remplacer par une fiche sourcée avant toute mise en ligne.
+numero: 25
+date: 2026-10-24
+theme: ecologie-energie
+question: Faut-il sortir du nucléaire ?
+options:
+  - id: A
+    libelle: Oui, d'ici 2045
+  - id: B
+    libelle: Réduire sa part, sans en sortir
+  - id: C
+    libelle: Garder le parc actuel
+  - id: D
+    libelle: Construire de nouveaux réacteurs
+positions:
+  arthaud: A
+  tondelier: A
+  melenchon: A
+  ruffin: B
+  glucksmann: B
+  attal: C
+  philippe: D
+  le-pen: D
+  retailleau: D
+  zemmour: D
+  roussel: D
+  dupont-aignan: D
