@@ -2142,7 +2142,7 @@ test.describe("le plateau place le pion « toi » sur les deux axes", () => {
     await vingtTroisReponses(page);
     await page.goto("/resultats");
     const plateau = page.getByRole("region", { name: "Ton plateau" });
-    await expect(plateau.getByText("TOI", { exact: true })).toBeVisible();
+    await expect(plateau.locator(".field .you").getByText("TOI", { exact: true })).toBeVisible();
     const { x, y } = await placeDuToi(page);
     expect(x).toBeGreaterThan(0.35);
     expect(x).toBeLessThan(0.5);
@@ -2188,6 +2188,8 @@ test.describe("le plateau nomme ses deux axes", () => {
   async function etiquettes(page: Page) {
     await vingtTroisReponses(page);
     await page.goto("/resultats");
+    // Le classement complet arrive après le rendu serveur et pousse le plateau : mesurer une fois la page posée.
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
     const plateau = page.getByRole("region", { name: "Ton plateau" });
     const boite = async (texte: string) => {
       const etiquette = plateau.getByText(texte);
@@ -2235,7 +2237,7 @@ test.describe("les 13 candidats sont posés en pions identiques", () => {
     await vingtTroisReponses(page);
     await page.goto("/resultats");
     const plateau = page.getByRole("region", { name: "Ton plateau" });
-    await expect(plateau.getByText("TOI", { exact: true })).toBeVisible();
+    await expect(plateau.locator(".field .you").getByText("TOI", { exact: true })).toBeVisible();
     return plateau.locator(".field .pawn").evaluateAll((pions) =>
       pions.map((pion) => {
         const s = getComputedStyle(pion);
@@ -2264,5 +2266,34 @@ test.describe("les 13 candidats sont posés en pions identiques", () => {
       return c;
     });
     expect([...new Set(pions.map((p) => p.teinte))]).toEqual([encre]);
+  });
+});
+
+test.describe("la légende relie chaque pion à son candidat", () => {
+  /** Les lignes de la légende du plateau, dans l'ordre : initiales et nom. */
+  async function legende(page: Page) {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const liste = page.getByRole("region", { name: "Ton plateau" }).getByRole("list", { name: "Légende du plateau" });
+    await expect(liste.getByRole("listitem")).toHaveCount(14);
+    return liste.getByRole("listitem").evaluateAll((lignes) =>
+      lignes.map((ligne) => ({ initiales: ligne.querySelector(".pawn")!.textContent!.trim(), nom: ligne.querySelector(".pawn + span")!.textContent!.trim() })),
+    );
+  }
+
+  test("pour chacun des 13 pions du plateau, la légende a une ligne aux mêmes initiales et au nom complet, dont FRu pour François Ruffin et FRo pour Fabien Roussel", async ({ page }) => {
+    const lignes = await legende(page);
+    expect(lignes[0]).toEqual({ initiales: "TOI", nom: "Toi, ton camembert" });
+    const candidats = Object.fromEntries(lignes.slice(1).map(({ initiales, nom }) => [nom, initiales]));
+    expect(candidats).toEqual(INITIALES);
+    const surLePlateau = await page.getByRole("region", { name: "Ton plateau" }).locator(".field .pawn").allInnerTexts();
+    expect(surLePlateau.sort()).toEqual(lignes.slice(1).map((l) => l.initiales).sort());
+  });
+
+  test("la légende range les candidats dans un ordre qui n'est ni celui du classement ni l'ordre alphabétique", async ({ page }) => {
+    const noms = (await legende(page)).slice(1).map((l) => l.nom);
+    const classement = (await lignesDuClassement(page)).map(([, nom]) => nom);
+    expect(noms).not.toEqual(classement);
+    expect(noms).not.toEqual([...noms].sort((a, b) => a.localeCompare(b, "fr")));
   });
 });

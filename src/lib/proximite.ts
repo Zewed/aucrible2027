@@ -21,6 +21,13 @@ function score(question: QuestionDuCalcul, electeur: string, candidat: string): 
   return 1 - Math.abs(rang - rangDuCandidat) / Math.max(echelle.length - 1, 1);
 }
 
+/** Le nombre de réponses à partir duquel les candidats s'affichent (SPEC.md : « à partir d'environ 10 réponses »). */
+export const SEUIL_DES_RESULTATS = 10;
+
+/** Les réponses qui entrent dans le calcul : « Je ne sais pas » n'y entre pas, en attendant que ce soit tranché. */
+export const reponsesComptees = (questions: QuestionDuCalcul[], reponses: Record<number, Reponse>) =>
+  questions.filter((q) => reponses[q.numero] && reponses[q.numero].option !== JE_NE_SAIS_PAS).length;
+
 /** Un candidat du classement et sa proximité en % ; null tant qu'aucune réponse ne le concerne. */
 export type Proximite = { candidat: Candidat; pourcentage: number | null };
 
