@@ -705,3 +705,31 @@ test("les 11 candidats rangés sous une option ont tous une source, lisible en e
     expect(await source.evaluate((el) => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
   }
 });
+
+/** La ligne d'un candidat révélé, sous son option. */
+const ligneDe = (page: Page, nom: string) =>
+  quiDefendQuoi(page).getByRole("listitem").filter({ has: page.getByText(nom, { exact: true }) });
+
+test("sur la révélation n° 24, Roussel porte « position officielle », Arthaud et Le Pen « position déduite »", async ({ page }) => {
+  await repondre(page, "62 ans");
+  await expect(ligneDe(page, "Fabien Roussel").getByText("position officielle", { exact: true })).toBeVisible();
+  for (const nom of ["Nathalie Arthaud", "Marine Le Pen"]) {
+    await expect(ligneDe(page, nom).getByText("position déduite", { exact: true })).toBeVisible();
+  }
+});
+
+test("les 11 candidats sourcés portent l'un ou l'autre badge, jamais les deux : 5 officielles, 6 déduites", async ({ page }) => {
+  await repondre(page, "62 ans");
+  const lignes = quiDefendQuoi(page).getByRole("article").getByRole("listitem");
+  await expect(lignes).toHaveCount(11);
+  let officielles = 0;
+  let deduites = 0;
+  for (const ligne of await lignes.all()) {
+    const o = await ligne.getByText("position officielle", { exact: true }).filter({ visible: true }).count();
+    const d = await ligne.getByText("position déduite", { exact: true }).filter({ visible: true }).count();
+    expect(o + d).toBe(1);
+    officielles += o;
+    deduites += d;
+  }
+  expect({ officielles, deduites }).toEqual({ officielles: 5, deduites: 6 });
+});

@@ -1,10 +1,28 @@
 "use client";
 
 import { NumeroQuestion } from "@/components/NumeroQuestion";
-import type { Candidat, Question, Theme } from "@/lib/contenu";
+import type { Candidat, Position, Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
 import { useCoteClient } from "@/lib/cote-client";
 import { lireReponseEnCours, type ReponseEnCours } from "@/lib/reponses";
+
+function Badge({ statut }: { statut: Position["statut"] }) {
+  return statut === "officielle" ? (
+    <span className="badge badge--off">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M3 8.5l3.2 3.2L13 4.8" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }} />
+      </svg>{" "}
+      position officielle
+    </span>
+  ) : (
+    <span className="badge badge--ded">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M2 9c2-4 4-4 6 0s4 4 6 0" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.4, strokeLinecap: "round" }} />
+      </svg>{" "}
+      position déduite
+    </span>
+  );
+}
 
 const nombreDeCandidats = (n: number) => `${n} candidat${n > 1 ? "s" : ""}`;
 
@@ -87,6 +105,7 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
                         <span className="def-name one">{c.nom}</span>
                         <span className="def-src">
                           <span className="def-doc one">{question.positions[c.id].source}</span>
+                          <Badge statut={question.positions[c.id].statut} />
                         </span>
                       </li>
                     ))}
