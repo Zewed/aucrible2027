@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { Fragment, Suspense } from "react";
-import { CompteARebours } from "@/components/CompteARebours";
+import { BandeauRetour } from "@/components/BandeauRetour";
 import { AJour, ListeDeRattrapage, TuileARattraper } from "@/components/ListeDeRattrapage";
 import { PartDuTheme } from "@/components/PuceTheme";
 import { lireThemes, type Theme } from "@/lib/contenu";
@@ -62,18 +61,7 @@ async function Rattrapage() {
 
   return (
     <>
-      <div className="strip">
-        <Link className="back" href="/">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              d="M19 12H6M11 6l-6 6 6 6"
-              style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }}
-            />
-          </svg>
-          Question du jour
-        </Link>
-        <CompteARebours jour={jour} />
-      </div>
+      <BandeauRetour jour={jour} />
 
       <main className="catch">
         <section className="catch-hero" aria-labelledby="titre">

@@ -1746,3 +1746,21 @@ test.describe("tout rattrapé, la liste dit « Tu es à jour ! »", () => {
     await expect(page.getByText(/Reviens demain/)).toHaveCount(0);
   });
 });
+
+test.describe("l'électeur ouvre « Mes résultats »", () => {
+  test("depuis la fiche de la question n° 24, toucher « Mes résultats » ouvre la page « Mes résultats »", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
+    await page.getByRole("link", { name: "Mes résultats" }).click();
+    await expect(page).toHaveURL(/\/resultats$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." })).toBeVisible();
+  });
+
+  test("sur cette page, le lien « Question du jour » en haut ramène à la fiche de la question n° 24", async ({ page }) => {
+    await page.goto("/resultats");
+    await page.getByRole("link", { name: "Question du jour" }).click();
+    await expect(page).toHaveURL(/\/$/);
+    await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" }).filter({ visible: true })).toBeVisible();
+    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toBeVisible();
+  });
+});
