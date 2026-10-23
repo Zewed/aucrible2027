@@ -9,7 +9,7 @@ import type { Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
 import { tirerGraine } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
-import { aujourdhuiAParis } from "@/lib/date";
+import { aujourdhuiAParis, dateLisible } from "@/lib/date";
 import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
 
 const IMPORTANCES = [
@@ -18,7 +18,32 @@ const IMPORTANCES = [
   { poids: 3, libelle: "Essentiel" },
 ];
 
-export function QuestionDuJour({ questions, themes }: { questions: Question[]; themes: Theme[] }) {
+/** Ce que montre l'accueil quand il n'y a pas de question à poser : une carte, un message. */
+function Annonce({ message }: { message: string }) {
+  return (
+    <main className="today">
+      <div className="left">
+        <div className="deck">
+          <article className="qcard" aria-labelledby="annonce">
+            <div className="qcard-body">
+              <h1 id="annonce">{message}</h1>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+  );
+}
+
+export function QuestionDuJour({
+  questions,
+  prochaineParution,
+  themes,
+}: {
+  questions: Question[];
+  prochaineParution: string | null;
+  themes: Theme[];
+}) {
   const router = useRouter();
   const [choix, setChoix] = useState<string | null>(null);
   const [poids, setPoids] = useState<number | null>(null);
@@ -41,6 +66,15 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
       {question && <NumeroQuestion numero={question.numero} date={question.date} avecJour />}
     </div>
   );
+  if (questions.length === 0 && prochaineParution) {
+    // Texte provisoire : le message exact reste à trancher (ticket 040).
+    return (
+      <>
+        {bandeau}
+        <Annonce message={`La première question arrive le ${dateLisible(prochaineParution, true)}.`} />
+      </>
+    );
+  }
   if (!question || !theme) return bandeau;
 
   function valider(evenement: React.FormEvent) {

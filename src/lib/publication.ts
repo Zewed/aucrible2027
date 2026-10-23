@@ -21,3 +21,9 @@ export async function lireQuestionsPubliees(): Promise<Question[]> {
   const jour = aujourdhuiAParis(await maintenant());
   return lireQuestions().filter((q) => q.date <= jour);
 }
+
+/** La date de la prochaine fiche à paraître, ou null s'il n'y en a aucune : sa date seulement, jamais son contenu. */
+export async function lireProchaineParution(): Promise<string | null> {
+  const jour = aujourdhuiAParis(await maintenant());
+  return lireQuestions().find((q) => q.date > jour)?.date ?? null;
+}

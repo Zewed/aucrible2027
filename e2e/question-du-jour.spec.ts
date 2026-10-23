@@ -1181,3 +1181,21 @@ test.describe("le compte à rebours avant le 1er tour", () => {
     await expect(compteARebours(page)).toHaveText("J-1 avant le 1er tour");
   });
 });
+
+test.describe("avant la première question, l'accueil dit quand elle arrive", () => {
+  // La première fiche de démonstration est datée du jeudi 22 octobre 2026.
+  test("le 20 octobre, l'accueil donne la date de la première question et ne montre aucune question", async ({ page }) => {
+    await fixerLeJour(page, "2026-10-20T09:00:00+02:00");
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: /première question.*jeudi 22 octobre/i })).toBeVisible();
+    await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
+    await expect(page.getByText(/^Question n° /)).toHaveCount(0);
+  });
+
+  test("le jour de la première fiche, la question apparaît à la place du message", async ({ page }) => {
+    await fixerLeJour(page, "2026-10-22T09:00:00+02:00");
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: "Faut-il encadrer les loyers dans les grandes villes ?" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /première question/i })).toHaveCount(0);
+  });
+});
