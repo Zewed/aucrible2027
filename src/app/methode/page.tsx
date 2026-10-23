@@ -2,30 +2,12 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { PisteDuPlateau } from "@/components/PisteDuPlateau";
+import { DeDesRegles, RayuresDesThemes } from "@/components/Regles";
 import type { Candidat } from "@/lib/contenu";
 import { melanger } from "@/lib/melange";
 import { lireAujourdhui, lireCandidatsEnLice } from "@/lib/publication";
 import "../regles.css";
 import "./methode.css";
-
-/** Le dé à cinq points de l'en-tête des règles (maquettes/methode.html). */
-function DeDesRegles() {
-  return (
-    <svg viewBox="0 0 40 40" aria-hidden="true">
-      <rect x="1" y="3" width="38" height="36" rx="9" style={{ fill: "var(--muted)" }} />
-      <rect x="1" y="1" width="38" height="35" rx="9" style={{ fill: "var(--ink)" }} />
-      {[
-        [12, 10],
-        [28, 10],
-        [20, 18.5],
-        [12, 27],
-        [28, 27],
-      ].map(([cx, cy]) => (
-        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="3.6" style={{ fill: "var(--chalk)" }} />
-      ))}
-    </svg>
-  );
-}
 
 /** L'illustration du haut de page : une fiche, ses trois options, et un dé (maquettes/methode.html). */
 function Illustration() {
@@ -61,8 +43,6 @@ function Illustration() {
     </div>
   );
 }
-
-const COULEURS = ["eco", "trav", "ecol", "immi", "secu", "sante", "educ", "loge", "euro", "inst", "soc"];
 
 /**
  * Règle n° 1 : le score d'une question, sur une échelle (exemple de la question n° 24 sur la retraite) ou tout ou rien
@@ -667,11 +647,7 @@ async function Methode() {
             </div>
             <Illustration />
           </div>
-          <div className="stripes11" aria-hidden="true">
-            {COULEURS.map((c) => (
-              <i key={c} style={{ background: `var(--${c})` }}></i>
-            ))}
-          </div>
+          <RayuresDesThemes />
         </section>
         <div className="leaf-grid">
           <div className="rules">
