@@ -244,9 +244,62 @@ function RegleDeLImportance() {
   );
 }
 
+/** L'exemple de la règle n° 3 : quatre questions d'un candidat, dont une sans source. */
+const QUATRE_QUESTIONS = [
+  { numero: 21, score: "80\u00a0%" },
+  { numero: 22, score: "55\u00a0%" },
+  { numero: 23, score: null },
+  { numero: 24, score: "67\u00a0%" },
+];
+
+/** Règle n° 3 : une position inconnue sort du calcul pour ce candidat, comme le fait `classement`. */
+function RegleDesInconnues() {
+  return (
+    <article className="rule theme-immi" id="r3" aria-labelledby="r3-t">
+      <header className="rule-head">
+        <span className="rule-n" aria-hidden="true">
+          3
+        </span>
+        <p className="rule-k">Règle n° 3</p>
+        <h2 id="r3-t">Position inconnue&nbsp;: la question est sautée</h2>
+      </header>
+      <div className="rule-body split">
+        <div className="rule-txt">
+          <p>
+            Si on ne trouve aucune source pour la position d&apos;un candidat sur une question, elle est notée <b>«&nbsp;inconnue&nbsp;»</b>.
+          </p>
+          <p>
+            Pour ce candidat, la question est <b>exclue du calcul</b>&nbsp;: elle ne lui donne aucun point et ne lui en retire aucun.
+            Elle ne compte pas non plus dans le maximum possible.
+          </p>
+          <p>
+            <b>On ne devine jamais.</b> Une case vide vaut mieux qu&apos;une case inventée.
+          </p>
+        </div>
+        <figure className="demo" aria-label="Quatre questions, dont une inconnue">
+          <figcaption className="demo-k">
+            <i></i>Pour un candidat donné
+          </figcaption>
+          <ul className="cards4">
+            {QUATRE_QUESTIONS.map(({ numero, score }) => (
+              <li key={numero} className={score ? undefined : "void"}>
+                <span className="q">Q. {numero}</span>
+                <b>{score ?? "inconnue"}</b>
+              </li>
+            ))}
+          </ul>
+          <p className="demo-cap">
+            <b>Comptées&nbsp;: 3 questions sur 4.</b> La case en pointillés disparaît du calcul.
+          </p>
+        </figure>
+      </div>
+    </article>
+  );
+}
+
 /**
  * La page « Méthode de calcul et sources » (maquettes/methode.html), règle par règle. Le sommaire « Aller à la règle »,
- * la version de la méthode et le pied de page ne sont portés par aucun ticket ; les règles 3 à 8 viennent ensuite.
+ * la version de la méthode et le pied de page ne sont portés par aucun ticket ; la règle n° 4 n'en a pas non plus ; les règles 5 à 8 viennent ensuite.
  */
 async function Methode() {
   const jour = await lireAujourdhui();
@@ -283,6 +336,7 @@ async function Methode() {
           <div className="rules">
             <RegleDuScore />
             <RegleDeLImportance />
+            <RegleDesInconnues />
           </div>
         </div>
       </main>
