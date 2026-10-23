@@ -1,0 +1,70 @@
+e2e/question-du-jour.spec.ts
+  s_613931134209e1::t_8e1434b1f8f999 1-25
+  s_613931134209e1::t_81cadaf6d13a0e 38-50
+  s_613931134209e1::t_b52ac647c6b1bb 26-33,35-37
+  s_613931134209e1::t_fd7c6ecf1fca0f 34
+eslint.config.mjs
+  s_613931134209e1::t_e8de9f4e165a16 1-18
+src/lib/contenu.ts
+  s_613931134209e1::t_d39677989444af 1-28
+src/app/revelation/page.tsx
+  s_613931134209e1::t_fd7c6ecf1fca0f 1-10
+playwright.config.ts
+  s_613931134209e1::t_8e1434b1f8f999 1-18,20-23
+  s_613931134209e1::t_31cc72f0a0e2ed 19
+src/components/QuestionDuJour.tsx
+  s_613931134209e1::t_d39677989444af 1-3,5,7-12,15-46
+  s_613931134209e1::t_634f3b12607d4c 4,6,13-14
+src/lib/cote-client.ts
+  s_613931134209e1::t_634f3b12607d4c 1-8
+content/questions/024-retraite.yaml
+  s_613931134209e1::t_d39677989444af 1-29
+AGENTS.md
+  s_613931134209e1::t_e8de9f4e165a16 1-9
+src/app/globals.css
+  s_613931134209e1::t_e8de9f4e165a16 1-2,4
+  s_613931134209e1::t_d39677989444af 3
+next.config.ts
+  s_613931134209e1::t_e8de9f4e165a16 1-9
+src/app/layout.tsx
+  s_613931134209e1::t_e8de9f4e165a16 1-4,7-10,12-15
+  s_613931134209e1::t_d39677989444af 5-6,11
+content/candidats.yaml
+  s_613931134209e1::t_d39677989444af 1-40
+pnpm-workspace.yaml
+  s_613931134209e1::t_e8de9f4e165a16 1-3
+src/app/page.tsx
+  s_613931134209e1::t_d39677989444af 1-10
+src/lib/reponses.ts
+  s_613931134209e1::t_634f3b12607d4c 10-12
+  s_613931134209e1::t_d39677989444af 1-9,13
+src/components/Revelation.tsx
+  s_613931134209e1::t_fd7c6ecf1fca0f 1-3,5-7,10-27
+  s_613931134209e1::t_634f3b12607d4c 4,8-9
+.veebee/tickets/001-valider-une-option-de-la-question-du-jour-revele-les.md
+  s_613931134209e1::t_e1f1364d7fd799 8
+tsconfig.json
+  s_613931134209e1::t_e8de9f4e165a16 1-34
+src/lib/date.ts
+  s_613931134209e1::t_d39677989444af 1-4
+package.json
+  s_613931134209e1::t_e8de9f4e165a16 1-29
+pnpm-lock.yaml
+  s_613931134209e1::t_2d4a439b6b1338 1-3877
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "70465ad90a71060ecebf848484103a138ea23aec",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
