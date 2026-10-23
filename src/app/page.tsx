@@ -1,10 +1,6 @@
 import { QuestionDuJour } from "@/components/QuestionDuJour";
-import { lireQuestions } from "@/lib/contenu";
+import { lireQuestions, lireThemes } from "@/lib/contenu";
 
 export default function Accueil() {
-  return (
-    <main>
-      <QuestionDuJour questions={lireQuestions()} />
-    </main>
-  );
+  return <QuestionDuJour questions={lireQuestions()} themes={lireThemes()} />;
 }

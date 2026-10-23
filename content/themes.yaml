@@ -1,0 +1,34 @@
+# Les 11 thèmes, en rotation (SPEC.md, « Thèmes »). La classe donne la couleur du thème.
+- id: economie-impots
+  nom: Économie & impôts
+  classe: theme-eco
+- id: travail-retraites
+  nom: Travail & retraites
+  classe: theme-trav
+- id: ecologie-energie
+  nom: Écologie & énergie
+  classe: theme-ecol
+- id: immigration
+  nom: Immigration
+  classe: theme-immi
+- id: securite-justice
+  nom: Sécurité & justice
+  classe: theme-secu
+- id: sante
+  nom: Santé
+  classe: theme-sante
+- id: education-jeunesse
+  nom: Éducation & jeunesse
+  classe: theme-educ
+- id: logement
+  nom: Logement
+  classe: theme-loge
+- id: europe-international
+  nom: Europe & international
+  classe: theme-euro
+- id: institutions-democratie
+  nom: Institutions & démocratie
+  classe: theme-inst
+- id: societe
+  nom: Société
+  classe: theme-soc

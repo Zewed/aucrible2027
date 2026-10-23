@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
 const CANDIDATS = [
   "Marine Le Pen", "Jean-Luc Mélenchon", "Édouard Philippe", "Raphaël Glucksmann",
@@ -6,6 +6,12 @@ const CANDIDATS = [
   "Marine Tondelier", "Fabien Roussel", "Nicolas Dupont-Aignan", "François Ruffin",
   "Nathalie Arthaud",
 ];
+
+/** Choisir une option comme le fait l'électeur : en touchant sa carte. */
+async function choisir(page: Page, libelle: string) {
+  await page.getByRole("radiogroup", { name: "Les options" }).getByText(libelle, { exact: true }).click();
+  await expect(page.getByRole("radio", { name: libelle })).toBeChecked();
+}
 
 test.beforeEach(async ({ page }) => {
   await page.clock.setFixedTime(new Date("2026-10-23T09:00:00+02:00"));
@@ -26,7 +32,7 @@ test("le 23 octobre 2026, l'accueil affiche la question du jour, ses cinq option
 
 test("valider « À la carte, avec un système à points » révèle Nicolas Dupont-Aignan et Édouard Philippe", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("radio", { name: "À la carte, avec un système à points" }).check();
+  await choisir(page, "À la carte, avec un système à points");
   await page.getByRole("button", { name: "Valider ma réponse" }).click();
 
   await expect(page).toHaveURL(/\/revelation$/);
@@ -38,7 +44,7 @@ test("valider « À la carte, avec un système à points » révèle Nicolas Dup
 
 test("valider « 62 ans » révèle Marine Le Pen, Marine Tondelier et Raphaël Glucksmann", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("radio", { name: "62 ans" }).check();
+  await choisir(page, "62 ans");
   await page.getByRole("button", { name: "Valider ma réponse" }).click();
 
   const defenseurs = page.getByRole("list", { name: "Ils défendent ton option" });
@@ -47,4 +53,22 @@ test("valider « 62 ans » révèle Marine Le Pen, Marine Tondelier et Raphaël 
     await expect(defenseurs.getByText(nom)).toBeVisible();
   }
   await expect(defenseurs.getByText("Édouard Philippe")).toHaveCount(0);
+});
+
+test("la carte de la question n° 24 affiche la puce « Travail & retraites » au-dessus de la question", async ({ page }) => {
+  await page.goto("/");
+  const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+  const puce = carte.getByText("Travail & retraites", { exact: true });
+  await expect(puce).toBeVisible();
+  const question = carte.getByRole("heading", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+  const [hautPuce, hautQuestion] = await Promise.all([puce.boundingBox(), question.boundingBox()]);
+  expect(hautPuce!.y).toBeLessThan(hautQuestion!.y);
+});
+
+test("une question d'un autre thème affiche son propre thème dans la puce", async ({ page }) => {
+  await page.clock.setFixedTime(new Date("2026-10-24T09:00:00+02:00"));
+  await page.goto("/");
+  const carte = page.getByRole("article", { name: "Faut-il sortir du nucléaire ?" });
+  await expect(carte.getByText("Écologie & énergie", { exact: true })).toBeVisible();
+  await expect(carte.getByText("Travail & retraites", { exact: true })).toHaveCount(0);
 });
