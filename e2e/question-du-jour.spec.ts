@@ -1906,3 +1906,19 @@ test.describe("une option voisine sur l'échelle compte en partie", () => {
     for (let i = 1; i < pourcentages.length; i++) expect(pourcentages[i]).toBeLessThan(pourcentages[i - 1]);
   });
 });
+
+test.describe("une option hors échelle compte tout ou rien", () => {
+  test("à la n° 24, le % de Nicolas Dupont-Aignan (position E, « À la carte ») est le plus haut avec E, et le même avec D et avec A", async ({ page }) => {
+    const avecE = await pourcentageAvecLa24(page, "E", "Nicolas Dupont-Aignan", 3);
+    const avecD = await pourcentageAvecLa24(page, "D", "Nicolas Dupont-Aignan", 3);
+    const avecA = await pourcentageAvecLa24(page, "A", "Nicolas Dupont-Aignan", 3);
+    expect(avecE).toBeGreaterThan(avecD);
+    expect(avecD).toBe(avecA);
+  });
+
+  test("le % de Bruno Retailleau (position D) est le même que l'électeur réponde E ou A", async ({ page }) => {
+    const avecE = await pourcentageAvecLa24(page, "E", "Bruno Retailleau", 3);
+    const avecA = await pourcentageAvecLa24(page, "A", "Bruno Retailleau", 3);
+    expect(avecE).toBe(avecA);
+  });
+});

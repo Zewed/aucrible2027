@@ -47,6 +47,8 @@ options:
     implique: Chacun part quand il veut ; la pension dépend des points acquis.
     defenseurs: Plus de liberté, et les mêmes règles pour tous les métiers.
     critiques: "La valeur du point peut baisser : la pension devient moins prévisible."
+    # Ne se range pas entre les âges (maquettes/methode.html) : compte 1 si la carte est la même, 0 sinon.
+    horsEchelle: true
 pourAllerPlusLoin:
   - titre: COR, rapport annuel 2025
     url: https://www.cor-retraites.fr/
