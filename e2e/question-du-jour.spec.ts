@@ -3001,3 +3001,11 @@ test.describe("la fiche affiche le parti du candidat", () => {
     expect(new Set(couleurs).size).toBe(1);
   });
 });
+
+test("la fiche de Marine Tondelier affiche le statut de sa candidature, sous le parti", async ({ page }) => {
+  await page.goto("/candidat/tondelier");
+  const statut = page.locator(".id-card .status");
+  await expect(statut).toHaveText("Candidature déclarée — vote des adhérents prévu du 10 au 13 décembre 2026");
+  const [parti, ligne] = await Promise.all([page.locator(".id-card .party").boundingBox(), statut.boundingBox()]);
+  expect(ligne!.y).toBeGreaterThan(parti!.y + parti!.height - 1);
+});
