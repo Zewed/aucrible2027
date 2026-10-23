@@ -92,6 +92,7 @@ export function Revelation({
   const choisie = question.options[rangChoisi];
   const importance = reponse.importance;
   const serie = reponse.duJour ? joursDAffilee(Object.values(reponses), reponse.jour) : 0;
+  const nombreDeReponses = Object.keys(reponses).length;
   const alignes = melanger(
     candidats.filter((c) => question.positions[c.id]?.option === reponse.option),
     reponse.graine - 1,
@@ -262,8 +263,13 @@ export function Revelation({
             )}
           </div>
         </section>
-        {/* « Voir mes résultats », l'autre action de la maquette, attend la page des résultats. */}
         <div className="rev-actions">
+          <Link className="go" href="/resultats">
+            Voir mes résultats{" "}
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
+            </svg>
+          </Link>
           <Link className="act second" href="/rattrapage">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect x="3" y="6" width="13" height="15" rx="3" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.4 }} />
@@ -271,6 +277,10 @@ export function Revelation({
             </svg>
             Rattraper d&apos;autres questions
           </Link>
+          <p className="go-note">
+            Ton classement est recalculé avec cette {nombreDeReponses}
+            <sup>{nombreDeReponses === 1 ? "re" : "e"}</sup>&nbsp;réponse.
+          </p>
         </div>
         {question.pourAllerPlusLoin && question.pourAllerPlusLoin.length > 0 && (
           <section className="more" aria-labelledby="pour-aller-plus-loin">
