@@ -11,7 +11,7 @@ async function Resultats() {
   // Le navigateur ne reçoit des fiches publiées que ce que le calcul lit.
   const duCalcul: QuestionDuCalcul[] = questions.map((q) => ({
     numero: q.numero,
-    options: q.options.map((o) => ({ id: o.id })),
+    options: q.options.map((o) => ({ id: o.id, horsEchelle: o.horsEchelle })),
     positions: Object.fromEntries(Object.entries(q.positions).map(([id, p]) => [id, { option: p.option }])),
   }));
   return (
