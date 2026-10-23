@@ -1272,3 +1272,24 @@ test.describe("aucune nouvelle question ne paraît pendant le silence électoral
     }
   });
 });
+
+test.describe("pendant le silence électoral, l'accueil explique pourquoi", () => {
+  test.beforeEach(async ({ page }) => {
+    await fixerLeJour(page, "2027-04-17T09:00:00+02:00");
+    await page.goto("/");
+  });
+
+  test("le samedi 17 avril 2027, la carte face cachée « J-1 avant le 1er tour · dimanche 18 avril 2027 » remplace la question", async ({ page }) => {
+    const carte = page.locator(".qcard.back");
+    await expect(carte).toBeVisible();
+    await expect(carte.getByText(/^J\s*-\s*1$/)).toBeVisible();
+    await expect(carte.getByText("avant le 1er tour", { exact: true })).toBeVisible();
+    await expect(carte.getByText("dimanche 18 avril 2027", { exact: true })).toBeVisible();
+    await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
+  });
+
+  test("l'accueil titre « Silence électoral. » et explique que la loi interdit toute publication la veille et le jour du vote", async ({ page }) => {
+    await expect(page.getByRole("heading", { level: 1, name: "Silence électoral." })).toBeVisible();
+    await expect(page.getByText(/La loi interdit toute nouvelle publication la veille et le jour du vote\./)).toBeVisible();
+  });
+});

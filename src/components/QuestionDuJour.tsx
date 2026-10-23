@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
+import { Silence } from "@/components/Silence";
 import type { Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
 import { tirerGraine } from "@/lib/melange";
+import { silenceEnCours } from "@/lib/silence";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis, dateLisible } from "@/lib/date";
 import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
@@ -66,6 +68,15 @@ export function QuestionDuJour({
       {question && <NumeroQuestion numero={question.numero} date={question.date} avecJour />}
     </div>
   );
+  const silence = silenceEnCours(jour);
+  if (silence) {
+    return (
+      <>
+        {bandeau}
+        <Silence jour={jour} silence={silence} />
+      </>
+    );
+  }
   if (questions.length === 0 && prochaineParution) {
     // Texte provisoire : le message exact reste à trancher (ticket 040).
     return (

@@ -33,6 +33,16 @@ export function lireThemes(): Theme[] {
   return parse(readFileSync(path.join(RACINE, "themes.yaml"), "utf8"));
 }
 
+/** Une fiche, ou rien si elle a été retirée entre la lecture du dossier et la sienne. */
+function lireFiche(chemin: string): Question[] {
+  try {
+    return [parse(readFileSync(chemin, "utf8")) as Question];
+  } catch (erreur) {
+    if ((erreur as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw erreur;
+  }
+}
+
 /** Les fiches de content/questions, plus, pour les tests de bout en bout seulement, celles du dossier de test. */
 export function lireQuestions(): Question[] {
   const dossiers = [path.join(RACINE, "questions")];
@@ -41,7 +51,7 @@ export function lireQuestions(): Question[] {
     .flatMap((dossier) =>
       readdirSync(dossier)
         .filter((fichier) => fichier.endsWith(".yaml"))
-        .map((fichier) => parse(readFileSync(path.join(dossier, fichier), "utf8")) as Question),
+        .flatMap((fichier) => lireFiche(path.join(dossier, fichier))),
     )
     .map((q) => ({ ...q, date: String(q.date) }))
     .sort((a, b) => a.date.localeCompare(b.date));
