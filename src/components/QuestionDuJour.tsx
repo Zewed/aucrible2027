@@ -104,7 +104,7 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
             </label>
           ))}
         </div>
-        <button type="submit" className="go">Valider ma réponse</button>
+        <button type="submit" className="go" aria-disabled={!choix}>Valider ma réponse</button>
       </form>
     </main>
     </>
