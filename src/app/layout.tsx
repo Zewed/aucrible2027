@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
+import { EnTete } from "@/components/EnTete";
 import "./kit.css";
 import "./globals.css";
 
@@ -14,7 +15,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fr" className={`${affiche.variable} ${texte.variable}`}>
-      <body>{children}</body>
+      <body>
+        <EnTete />
+        {children}
+      </body>
     </html>
   );
 }
