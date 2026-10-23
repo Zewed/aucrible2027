@@ -1,0 +1,23 @@
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_6c404fa0647d01 12-17,21,130-153
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_b655ca4c581b5d 563-600
+.veebee/tickets/018-l-electeur-choisit-l-importance-du-sujet-1-2-3.md
+  s_2c9a7110ce04dd::t_5e0d5dcda0cf3c 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1bfd52f49447052b562fd3501e2f5fb1f85b10df",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
