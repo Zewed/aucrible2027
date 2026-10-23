@@ -3309,3 +3309,34 @@ test.describe("un candidat retiré sort du classement", () => {
     );
   });
 });
+
+test.describe("la fiche d'un candidat retiré dit quand et qui il soutient", () => {
+  /** La fiche de Marine Tondelier, avec son retrait de test du 14/12/2026, ouverte le jour donné. */
+  async function ficheApresLeRetrait(page: Page, jour = "2026-12-15T09:00:00+01:00") {
+    await fixerLeJour(page, jour);
+    await page.context().addCookies([{ name: "aucrible-candidats-de-test", value: "retrait", url: "http://localhost:3127" }]);
+    await page.goto("/candidat/tondelier");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Marine Tondelier");
+  }
+
+  test("la fiche d'une candidate retirée affiche « Marine Tondelier s'est retirée le 14/12/2026 et soutient Raphaël Glucksmann. » et « Sa fiche reste consultable, mais elle sort du classement. »", async ({ page }) => {
+    await ficheApresLeRetrait(page);
+    await expect(page.locator(".gone p")).toHaveText([
+      "Marine Tondelier s'est retirée le 14/12/2026 et soutient Raphaël Glucksmann.",
+      "Sa fiche reste consultable, mais elle sort du classement.",
+    ]);
+  });
+
+  test("toucher « Raphaël Glucksmann » dans cette phrase ouvre la fiche de Raphaël Glucksmann", async ({ page }) => {
+    await ficheApresLeRetrait(page);
+    await page.locator(".gone").getByRole("link", { name: "Raphaël Glucksmann" }).click();
+    await page.waitForURL(/\/candidat\/glucksmann$/);
+    await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toHaveText("Raphaël Glucksmann");
+  });
+
+  test("avant le jour du retrait, la fiche n'en dit rien", async ({ page }) => {
+    await ficheApresLeRetrait(page, "2026-12-13T09:00:00+01:00");
+    await expect(page.getByRole("region", { name: "Ses positions" })).toBeVisible();
+    await expect(page.locator(".gone")).toHaveCount(0);
+  });
+});

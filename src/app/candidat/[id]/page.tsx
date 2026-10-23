@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
 import { ProximiteDuCandidat } from "@/components/ProximiteDuCandidat";
 import { PartDuTheme } from "@/components/PuceTheme";
-import { lireThemes, type Position, type Question, type Theme } from "@/lib/contenu";
+import { lireThemes, type Candidat, type Position, type Question, type Theme } from "@/lib/contenu";
 import { lireAujourdhui, lireCandidatsEnLice, lireLesCandidats, lireQuestionsDuCalcul, lireQuestionsPubliees } from "@/lib/publication";
 import "./candidat.css";
 
@@ -24,6 +24,35 @@ function Badge({ statut }: { statut: Position["statut"] }) {
       </svg>
       position déduite
     </span>
+  );
+}
+
+const RETIRE = { feminin: "retirée", masculin: "retiré" } as const;
+
+/**
+ * Le retrait d'un candidat : son jour, celui qu'il soutient (un lien vers sa fiche), et ce que devient sa fiche.
+ * « Elle » est la fiche : la phrase ne dépend pas du candidat.
+ */
+function Retrait({ candidat, candidats }: { candidat: Candidat; candidats: Candidat[] }) {
+  const { date, soutien, accord } = candidat.retrait!;
+  const soutenu = candidats.find((c) => c.id === soutien);
+  return (
+    <div className="gone">
+      <span className="pawn pawn--paper" aria-hidden="true">
+        {candidat.initiales}
+      </span>
+      <p>
+        {candidat.nom} s&apos;est {accord ? RETIRE[accord] : "retiré·e"} le {date.split("-").reverse().join("/")}
+        {soutenu && (
+          <>
+            {" "}
+            et soutient <Link href={`/candidat/${soutenu.id}`}>{soutenu.nom}</Link>
+          </>
+        )}
+        .
+      </p>
+      <p className="gone-note">Sa fiche reste consultable, mais elle sort du classement.</p>
+    </div>
   );
 }
 
@@ -178,7 +207,12 @@ async function FicheCandidat({ id }: { id: string }) {
                 </p>
               )}
             </section>
-            <ProximiteDuCandidat questions={duCalcul} candidats={enLice} candidatId={candidat.id} />
+            {/* La maquette montre le retrait en bas de page, en annotation : il prend ici la place de la proximité. */}
+            {enLice.some((c) => c.id === candidat.id) ? (
+              <ProximiteDuCandidat questions={duCalcul} candidats={enLice} candidatId={candidat.id} />
+            ) : (
+              <Retrait candidat={candidat} candidats={candidats} />
+            )}
           </aside>
           <div className="fiche-main">
             <section aria-labelledby="h-pos">

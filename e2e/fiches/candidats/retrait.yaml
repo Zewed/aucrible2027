@@ -2,4 +2,4 @@
 # (cookie aucrible-candidats-de-test). Ils complètent content/candidats.yaml, candidat par candidat.
 # Le retrait de Marine Tondelier est celui de maquettes/candidat.html, inventé : il ne dit rien de sa candidature réelle.
 - id: tondelier
-  retrait: { date: "2026-12-14", soutien: glucksmann }
+  retrait: { date: "2026-12-14", soutien: glucksmann, accord: feminin }

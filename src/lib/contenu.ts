@@ -4,8 +4,11 @@ import { parse } from "yaml";
 
 /** Où en est la candidature : son état (« Candidature déclarée ») et ce qui suit, en une phrase. */
 export type StatutDeCandidature = { etat: string; suite?: string };
-/** Le retrait d'un candidat : son jour (AAAA-MM-JJ) et le candidat qu'il soutient. */
-export type Retrait = { date: string; soutien: string };
+/**
+ * Le retrait d'un candidat : son jour (AAAA-MM-JJ), le candidat qu'il soutient s'il en nomme un, et l'accord de
+ * « retiré », que l'auteur du contenu écrit ; sans accord, la fiche écrit « retiré·e », comme SPEC.md.
+ */
+export type Retrait = { date: string; soutien?: string; accord?: "feminin" | "masculin" };
 export type Candidat = { id: string; nom: string; parti: string; initiales: string; statut?: StatutDeCandidature; retrait?: Retrait };
 export type Option = {
   id: string;
