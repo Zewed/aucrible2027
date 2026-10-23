@@ -914,3 +914,46 @@ test("après « Je ne sais pas », la révélation n'affiche ni aligné·e, ni p
   }
   await expect(page.getByRole("region", { name: "Alignement sur ce sujet" })).toHaveCount(0);
 });
+
+/** Le minutage du retournement de chaque bloc de « Qui défend quoi », dans l'ordre de la page. */
+const minutages = (page: Page) =>
+  quiDefendQuoi(page)
+    .getByRole("article")
+    .evaluateAll((blocs) =>
+      blocs.map((bloc) => {
+        const animations = bloc.getAnimations();
+        const timing = animations[0]?.effect?.getComputedTiming();
+        return {
+          nom: bloc.getAttribute("aria-labelledby"),
+          animations: animations.length,
+          debut: Number(timing?.delay ?? 0),
+          fin: Number(timing?.endTime ?? 0),
+        };
+      }),
+    );
+
+test("en arrivant sur la révélation, les blocs A à E puis « Position inconnue » se retournent l'un après l'autre, tous posés en moins de 2 s", async ({ page }) => {
+  await repondre(page, "62 ans");
+  const blocs = await minutages(page);
+  expect(blocs).toHaveLength(6);
+  for (const bloc of blocs) expect(bloc.animations).toBe(1);
+  for (let i = 1; i < blocs.length; i++) expect(blocs[i].debut).toBeGreaterThan(blocs[i - 1].debut);
+  expect(Math.max(...blocs.map((b) => b.fin))).toBeLessThan(2000);
+  await page.waitForTimeout(2000);
+  const poses = await quiDefendQuoi(page).getByRole("article").evaluateAll((bs) => bs.map((b) => [getComputedStyle(b).opacity, getComputedStyle(b).transform]));
+  // Posé : opaque, sans rotation ni décalage (la fin du retournement laisse la matrice identité).
+  for (const [opacite, transformation] of poses) {
+    expect(opacite).toBe("1");
+    expect(["none", "matrix(1, 0, 0, 1, 0, 0)"]).toContain(transformation);
+  }
+});
+
+test("avec « réduire les animations », les blocs sont posés d'emblée, sans retournement", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await repondre(page, "62 ans");
+  const blocs = await minutages(page);
+  expect(blocs).toHaveLength(6);
+  for (const bloc of blocs) expect(bloc.animations).toBe(0);
+  const poses = await quiDefendQuoi(page).getByRole("article").evaluateAll((bs) => bs.map((b) => getComputedStyle(b).opacity));
+  expect(poses).toEqual(["1", "1", "1", "1", "1", "1"]);
+});

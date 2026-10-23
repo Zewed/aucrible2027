@@ -168,7 +168,12 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
               );
               const sienne = option.id === reponse.option;
               return (
-                <article key={option.id} className={sienne ? "ropt mine" : "ropt"} aria-labelledby={`o-${option.id}`}>
+                <article
+                  key={option.id}
+                  className={sienne ? "ropt mine" : "ropt"}
+                  style={{ "--i": rang } as React.CSSProperties}
+                  aria-labelledby={`o-${option.id}`}
+                >
                   <header className="ropt-head">
                     <span className="ropt-letter" aria-hidden="true">{lettreOption(rang)}</span>
                     <h3 className="ropt-title" id={`o-${option.id}`}>
@@ -196,7 +201,11 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
               );
             })}
             {inconnus.length > 0 && (
-              <article className="ropt unknown" aria-labelledby="o-inconnue">
+              <article
+                className="ropt unknown"
+                style={{ "--i": question.options.length } as React.CSSProperties}
+                aria-labelledby="o-inconnue"
+              >
                 <header className="ropt-head">
                   <span className="ropt-letter" aria-hidden="true">?</span>
                   <h3 className="ropt-title" id="o-inconnue">Position inconnue</h3>

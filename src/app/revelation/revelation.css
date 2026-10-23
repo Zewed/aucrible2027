@@ -1,4 +1,4 @@
-/* Copie de maquettes/revelation.css, sans le retournement des cartes à l'arrivée (ticket 031). */
+/* Copie de maquettes/revelation.css. */
 
 /* Au crible 2027 — La révélation (chargé après style.css).
    Ce qu'on y voit : ta carte, l'alignement, la part gagnée, la série, puis les cartes
@@ -130,6 +130,11 @@
   box-shadow: 0 6px 0 var(--theme);
   margin-bottom: 6px;
   transform-origin: 50% 0;
+  animation: flip .8s var(--ease-out) calc(.2s + var(--i, 0) * .1s) both;
+}
+@keyframes flip {
+  from { transform: perspective(900px) rotateX(-80deg) translateY(-10px); opacity: 0; }
+  to { transform: none; opacity: 1; }
 }
 .ropt.mine { box-shadow: 0 0 0 3px var(--chalk), 0 9px 0 var(--theme-edge); }
 .ropt-head {
