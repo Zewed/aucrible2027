@@ -4088,3 +4088,39 @@ test.describe("chaque correction dit quelle fiche elle touche", () => {
     await expect(entree.getByRole("heading", { level: 2 }).getByRole("link")).toHaveAttribute("href", "/candidat/attal");
   });
 });
+
+test.describe("chaque correction montre l'avant et l'après", () => {
+  /** L'avant et l'après de la correction du jour donné : leur valeur, leur précision et ce qui est surligné. */
+  async function avantApres(page: Page, jour: string) {
+    await page.context().addCookies([{ name: "aucrible-corrections-de-test", value: "maquette", url: "http://localhost:3127" }]);
+    await page.goto("/journal");
+    const entree = page.locator(".log .entry").filter({ has: page.locator(`time[datetime="${jour}"]`) });
+    await expect(entree.locator(".diff")).toBeVisible();
+    return entree.locator(".diff > div").evaluateAll((cotes) =>
+      cotes.map((c) => ({
+        titre: c.querySelector(".diff-k")!.textContent,
+        valeur: c.querySelector(".val")!.textContent!.replace(/\s+/g, " "),
+        precision: c.querySelector(".srcv")?.textContent?.replace(/\s+/g, " "),
+        surligne: [...c.querySelectorAll("mark")].map((m) => m.textContent!.replace(/\s+/g, " ")),
+      })),
+    );
+  }
+
+  test("la correction de chiffre du 16 oct. 2026 montre 0,4 % avant, 0,3 % après, seuls ces deux nombres surlignés", async ({ page }) => {
+    expect(await avantApres(page, "2026-10-16")).toEqual([
+      { titre: "Avant", valeur: "Déficit du système de retraites en 2030 : 0,4 % du PIB", precision: undefined, surligne: ["0,4 %"] },
+      { titre: "Après", valeur: "Déficit du système de retraites en 2030 : 0,3 % du PIB", precision: undefined, surligne: ["0,3 %"] },
+    ]);
+  });
+
+  test("la correction de position du 22 oct. 2026 (Gabriel Attal) montre l'option et la source avant, puis après", async ({ page }) => {
+    const [avant, apres] = await avantApres(page, "2026-10-22");
+    expect([avant.valeur, avant.precision]).toEqual(["Option B : Garder le barème actuel", "Position déduite · programme 2022 du parti"]);
+    expect([apres.valeur, apres.precision]).toEqual(["Option C : Alléger pour les petits patrimoines", "Position officielle · déclaration du 02/10/2026"]);
+  });
+
+  test("la correction du 20 oct. 2026 (Nathalie Arthaud) montre en « Après » « Position inconnue » et « Exclue du calcul, faute de source »", async ({ page }) => {
+    const [, apres] = await avantApres(page, "2026-10-20");
+    expect(apres).toMatchObject({ titre: "Après", valeur: "Position inconnue", precision: "Exclue du calcul, faute de source" });
+  });
+});

@@ -1,34 +1,48 @@
 # CORRECTIONS DE TEST : lues seulement par le serveur des tests de bout en bout, quand un test choisit « maquette »
 # (cookie aucrible-corrections-de-test). Ce sont les sept corrections de maquettes/journal.html, inventées : aucune
 # n'a eu lieu. Elles sont rangées ici dans le désordre, pour que le tri du journal se voie. Chacune garde le numéro et
-# le titre de la question tels qu'à la correction, ceux de la maquette.
+# le titre de la question tels qu'à la correction, ceux de la maquette. Entre ==…==, ce qui a changé, surligné.
 - date: "2026-10-16"
   type: chiffre
   theme: travail-retraites
   question: { numero: 13, titre: "Faut-il indexer les pensions sur l'inflation ?" }
+  avant: { valeur: "Déficit du système de retraites en 2030 : ==0,4 %== du PIB" }
+  apres: { valeur: "Déficit du système de retraites en 2030 : ==0,3 %== du PIB" }
 - date: "2026-10-22"
   type: position
   theme: economie-impots
   candidat: attal
   question: { numero: 12, titre: "Droits de succession" }
+  avant: { valeur: "Option B : Garder le barème actuel", precision: "Position déduite · programme 2022 du parti" }
+  apres: { valeur: "Option C : ==Alléger pour les petits patrimoines==", precision: "Position officielle · déclaration du 02/10/2026" }
 - date: "2026-10-09"
   type: source
   theme: sante
   question: { numero: 6, titre: "Soins dentaires et optiques : mieux rembourser ?" }
+  avant: { valeur: "Cour des comptes, rapport 2023", precision: "==Lien indisponible==" }
+  apres: { valeur: "Cour des comptes, rapport 2024", precision: "==Lien vérifié le 09/10/2026==" }
 - date: "2026-10-19"
   type: formulation
   theme: ecologie-energie
   question: { numero: 3, titre: "Que faire du parc nucléaire ?" }
+  avant: { valeur: "Option C : ==Arrêter le nucléaire pour tout miser sur== le renouvelable" }
+  apres: { valeur: "Option C : ==Sortir progressivement du nucléaire et développer== le renouvelable" }
 - date: "2026-10-12"
   type: chiffre
   theme: logement
   question: { numero: 8, titre: "Faut-il encadrer les loyers ?" }
+  avant: { valeur: "==2,4 millions== de ménages attendent un logement social" }
+  apres: { valeur: "==2,7 millions== de demandes de logement social en attente" }
 - date: "2026-10-20"
   type: position
   theme: sante
   candidat: arthaud
   question: { numero: 17, titre: "Déserts médicaux : où s'installer ?" }
+  avant: { valeur: "Option B : Aider les installations en zones sous-dotées", precision: "Position déduite · programme 2022 du parti" }
+  apres: { valeur: "==Position inconnue==", precision: "Exclue du calcul, faute de source" }
 - date: "2026-10-17"
   type: formulation
   theme: immigration
   question: { numero: 15, titre: "Combien d'immigration accueillir ?" }
+  avant: { valeur: "Option A : ==Fermer les frontières==" }
+  apres: { valeur: "Option A : ==Limiter fortement les entrées== sur le territoire" }
