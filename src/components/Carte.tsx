@@ -38,24 +38,76 @@ function usePartsGagnees(questions: QuestionDuCalcul[], themes: Theme[]) {
   return themes.map((t) => (parTheme[t.id] ?? 0) >= REPONSES_PAR_PART);
 }
 
-function usePiedDeCarte(questions: QuestionDuCalcul[], themes: Theme[]) {
+function usePiedDeCarte(questions: QuestionDuCalcul[], themes: Theme[], parts = "thèmes") {
   const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
   const jour = useCoteClient(() => aujourdhuiAParis());
   const nombre = Object.keys(reponses).length;
   const parTheme = reponsesParTheme(questions, reponses);
-  const parts = themes.filter((t) => (parTheme[t.id] ?? 0) >= REPONSES_PAR_PART).length;
+  const gagnees = themes.filter((t) => (parTheme[t.id] ?? 0) >= REPONSES_PAR_PART).length;
   const serie = jour ? joursDAffilee(Object.values(reponses), jour) : 0;
   return [
     `${nombre} ${nombre > 1 ? "réponses" : "réponse"}`,
-    `${parts}/${themes.length} thèmes`,
+    `${gagnees}/${themes.length} ${parts}`,
     ...(serie > 0 ? [`${serie} ${serie > 1 ? "jours" : "jour"} d'affilée`] : []),
   ].join(" · ");
 }
 
+/** Le cadenas de la carte verrouillée (maquettes/resultats-vide.html). */
+function Cadenas() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" style={{ fill: "currentColor" }} />
+      <path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round" }} />
+    </svg>
+  );
+}
+
+/** Avant 10 réponses : la carte grisée et cadenassée, sans nom ni pourcentage, et ce qu'il reste à répondre. */
+function CarteVerrouillee({ comptees, pied }: { comptees: number; pied: string }) {
+  const reste = SEUIL_DES_RESULTATS - comptees;
+  return (
+    <section className="sec" aria-labelledby="h-share">
+      <div className="sec-h">
+        <h2 id="h-share">Ta carte</h2>
+        <p>format story</p>
+      </div>
+      <div className="share" style={{ marginTop: 18 }}>
+        <div className="story locked" aria-label="Aperçu verrouillé de la carte à partager">
+          <div className="stripes">
+            {Array.from({ length: 11 }, (_, i) => (
+              <i key={i}></i>
+            ))}
+          </div>
+          <p className="story-k">Au crible 2027 · ma partie</p>
+          <p className="story-lock">
+            <Cadenas />
+          </p>
+          <p className="story-t">Je suis à … % proche de …</p>
+          <p className="story-f">{pied}</p>
+        </div>
+        <div className="actions">
+          <button className="act primary is-off" type="button" disabled aria-describedby="why">
+            <Cadenas />
+            Partager ma carte
+          </button>
+          <p className="act-note why" id="why">
+            <b>Ta carte se débloque à {SEUIL_DES_RESULTATS} réponses.</b> Il t&apos;en reste {reste}.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /** « Ta carte » sur « Mes résultats » : l'aperçu de la carte à partager, et ce qui l'ouvre. */
 export function ApercuDeLaCarte({ questions, candidats, themes }: { questions: QuestionDuCalcul[]; candidats: Candidat[]; themes: Theme[] }) {
+  const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
   const premier = usePremierDuClassement(questions, candidats);
   const pied = usePiedDeCarte(questions, themes);
+  // La carte verrouillée dit « parts », comme resultats-vide.html, là où la carte débloquée dit « thèmes ».
+  const piedVerrouille = usePiedDeCarte(questions, themes, "parts");
+  const comptees = reponsesComptees(questions, reponses);
+  if (comptees < SEUIL_DES_RESULTATS) return <CarteVerrouillee comptees={comptees} pied={piedVerrouille} />;
   if (!premier) return null;
   return (
     <section className="sec" aria-labelledby="h-share">
