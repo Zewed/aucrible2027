@@ -2,9 +2,28 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
 import { PartDuTheme } from "@/components/PuceTheme";
-import { lireCandidats, lireThemes, type Question, type Theme } from "@/lib/contenu";
+import { lireCandidats, lireThemes, type Position, type Question, type Theme } from "@/lib/contenu";
 import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
 import "./candidat.css";
+
+/** Le badge d'une position : dite par le candidat (officielle) ou tirée de son groupe ou de son parti (déduite). */
+function Badge({ statut }: { statut: Position["statut"] }) {
+  return statut === "officielle" ? (
+    <span className="badge badge--off">
+      <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 12.5l4.5 4.5L19 7.5" />
+      </svg>
+      position officielle
+    </span>
+  ) : (
+    <span className="badge badge--ded">
+      <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 9.5c2.7-3 5.3 3 8 0s5.3 3 8 0M4 16c2.7-3 5.3 3 8 0s5.3 3 8 0" />
+      </svg>
+      position déduite
+    </span>
+  );
+}
 
 /** Les positions d'un candidat sur les questions publiées d'un thème, de la plus ancienne à la plus récente. */
 function PositionsDuTheme({ theme, questions, candidatId }: { theme: Theme; questions: Question[]; candidatId: string }) {
@@ -45,6 +64,7 @@ function PositionsDuTheme({ theme, questions, candidatId }: { theme: Theme; ques
                 {option && position && (
                   // La source est du texte, comme la maquette : en faire un lien reste à trancher (SPEC.md dit « lien + date »).
                   <p className="pos-src">
+                    <Badge statut={position.statut} />
                     <span className="src">
                       <span className="sr">Source : </span>
                       {position.source}

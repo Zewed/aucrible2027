@@ -3085,3 +3085,24 @@ test.describe("chaque position affiche sa source datée", () => {
     await expect(q24.locator(".pos-src .src")).toHaveText("Source : Vote du groupe Écologiste et social, 2024");
   });
 });
+
+test.describe("chaque position porte son badge", () => {
+  /** Le badge et la source de la ligne de la question n° numero, sur la fiche de Tondelier. */
+  async function badgeEtSource(page: Page, numero: number) {
+    const positions = page.getByRole("region", { name: "Ses positions" });
+    const ligne = positions.getByRole("listitem").filter({ has: page.locator(".pos-n", { hasText: new RegExp(`^Q${numero}$`) }) });
+    return [(await ligne.locator(".pos-src .badge").innerText()).trim(), (await ligne.locator(".pos-src .src").textContent())!.trim()];
+  }
+
+  test("Q9 (« Déclaration sur France Inter, 12/09/2026 ») porte « position officielle », Q24 (« Vote du groupe Écologiste et social, 2024 ») « position déduite »", async ({ page }) => {
+    await positionsDeTondelier(page);
+    expect(await badgeEtSource(page, 9)).toEqual(["position officielle", "Source : Déclaration sur France Inter, 12/09/2026"]);
+    expect(await badgeEtSource(page, 24)).toEqual(["position déduite", "Source : Vote du groupe Écologiste et social, 2024"]);
+  });
+
+  test("une déclaration datée donne « position officielle » (Q5), le programme 2022 du parti « position déduite » (Q2)", async ({ page }) => {
+    await positionsDeTondelier(page);
+    expect(await badgeEtSource(page, 5)).toEqual(["position officielle", "Source : Déclaration sur BFMTV, 21/09/2026"]);
+    expect(await badgeEtSource(page, 2)).toEqual(["position déduite", "Source : Programme 2022 des Écologistes"]);
+  });
+});
