@@ -1,0 +1,271 @@
+/* Copie de maquettes/rattrapage.css. */
+
+/* Rattraper les questions : complète style.css (même table, mêmes cartes, mêmes dés).
+   Classes ajoutées : .catch (page) · .catch-hero · .todo · .series · .fdet (filtre) · .chip
+   .key (légende des dés) · .qlist > .qitem > a.qr (carte question) · .dice · .pile · .dp (aperçu "à jour") */
+
+.catch { max-width: var(--max); margin: 0 auto; padding: 0 16px 40px; }
+
+/* ---------- le haut : titre, explication, compteur, série ---------- */
+.catch-hero { padding: 8px 0 0; display: grid; gap: 22px; }
+.catch-hero h1 {
+  font: 800 clamp(44px, 12.4vw, 92px)/0.92 var(--display);
+  font-variation-settings: "wdth" 80, "opsz" 96;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.catch-hero h1 span { color: var(--eco); }
+.lead { margin-top: 14px; max-width: 46ch; font: 500 17px/1.45 var(--text); }
+.lead b { font-weight: 700; }
+
+.tiles { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: stretch; }
+.todo {
+  background: var(--chalk); color: var(--ink);
+  border-radius: var(--r);
+  box-shadow: 0 6px 0 var(--pawn-edge);
+  margin-bottom: 6px;
+  padding: 14px 14px 14px;
+  display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; align-items: center;
+}
+.todo-n {
+  font: 800 68px/0.8 var(--display);
+  font-variation-settings: "wdth" 76, "opsz" 96;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.todo-t { font: 800 20px/1.05 var(--display); font-variation-settings: "wdth" 85; letter-spacing: -0.01em; }
+.prog {
+  grid-column: 1 / -1; margin-top: 14px;
+  position: relative; display: block; overflow: hidden;
+  height: 14px; border-radius: 4px;
+  background: repeating-linear-gradient(90deg, var(--slot) 0 calc(100% / 24 - 2px), transparent calc(100% / 24 - 2px) calc(100% / 24));
+}
+.prog i {
+  position: absolute; inset: 0 auto 0 0; width: 58.333%;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 calc(100% / 24 - 2px), transparent calc(100% / 24 - 2px) calc(100% / 24));
+  background-size: calc(100% / .58333) 100%; background-repeat: no-repeat;
+  transform-origin: left;
+  animation: grow .9s var(--ease-out) both;
+}
+.prog-t { grid-column: 1 / -1; margin-top: 8px; font: 600 14px/1.2 var(--text); color: var(--ink-soft); }
+
+.series {
+  background: var(--table-2);
+  border-radius: var(--r);
+  margin-bottom: 6px;
+  padding: 12px 14px;
+  display: grid; justify-items: center; align-content: center; gap: 6px;
+  text-align: center;
+}
+.series svg { width: 44px; height: 44px; }
+.series span { display: grid; gap: 2px; }
+.series b { font: 800 22px/1 var(--display); white-space: nowrap; }
+.series small { font: 600 13px/1.2 var(--text); color: var(--muted); white-space: nowrap; }
+
+/* ---------- filtre par thème (puces, sans script) ---------- */
+.fdet { margin-top: 26px; }
+.fsum {
+  cursor: pointer;
+  display: flex; align-items: center; gap: 10px;
+  min-height: 52px; padding: 8px 14px;
+  background: var(--table-2); border-radius: 12px;
+}
+.fopen:focus-visible + .fsum { outline: 3px solid var(--eco); outline-offset: 3px; }
+.fsum-k { font: 800 13px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); white-space: nowrap; }
+.fsum-v { flex: 1; min-width: 0; font: 700 15px/1.2 var(--text); text-align: right; }
+.cur { display: none; }
+.cur-all { display: inline; }
+.chev { width: 22px; height: 22px; flex: none; transition: transform .25s var(--ease-out); }
+.fopen:checked + .fsum .chev { transform: rotate(180deg); }
+.tchips { display: none; flex-wrap: wrap; gap: 8px; padding-top: 12px; }
+.fopen:checked ~ .tchips { display: flex; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 14px 0 9px;
+  background: var(--table-2); color: var(--chalk);
+  border-radius: 999px;
+  font: 700 14px/1 var(--text);
+  white-space: nowrap; cursor: pointer;
+  transition: background .18s var(--ease-out), transform .18s var(--ease-out);
+}
+.chip:not([class*="theme-"]) { padding-left: 14px; }
+.chip svg { width: 22px; height: 22px; flex: none; }
+.chip:hover { background: var(--table-3); }
+.fr:focus-visible + .chip { outline: 3px solid var(--eco); outline-offset: 3px; }
+.fr:checked + .chip { background: var(--chalk); color: var(--ink); }
+
+/* ---------- groupes et légende des dés ---------- */
+.grp { margin-top: 32px; }
+.fdet + .grp { margin-top: 28px; }
+.grp .sec-h { align-items: center; }
+
+.dice { --die: var(--ink); --pip: var(--chalk); width: 30px; height: 30px; flex: none; display: block; }
+.key { margin-top: 12px; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
+.key-k { font: 700 13.5px/1.2 var(--text); color: var(--muted); white-space: nowrap; }
+.key ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 14px; }
+.key li { display: inline-flex; align-items: center; gap: 7px; font: 600 14px/1 var(--text); white-space: nowrap; }
+.key .dice { --die: var(--chalk); --pip: var(--ink); width: 26px; height: 26px; }
+
+/* ---------- les cartes ---------- */
+.qlist { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 22px; }
+.qitem { animation: deal .6s var(--ease-out) both; animation-delay: calc(var(--i, 0) * 45ms); }
+.qr {
+  display: flex; flex-direction: column; height: 100%;
+  color: var(--ink); text-decoration: none;
+  background: var(--card);
+  border-radius: var(--r); overflow: hidden;
+  box-shadow: 0 6px 0 var(--theme-edge);
+  margin-bottom: 6px;
+  transition: transform .18s var(--ease-out), box-shadow .18s var(--ease-out);
+}
+.qr:hover { transform: translateY(-3px); box-shadow: 0 9px 0 var(--theme-edge); }
+.qr:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--theme-edge); }
+.qr:focus-visible { outline: 3px solid var(--eco); outline-offset: 4px; }
+.qr-top {
+  flex: 1;
+  display: flex; flex-direction: column; gap: 16px;
+  background: var(--theme); color: var(--on-theme);
+  padding: 14px 16px 20px;
+}
+.qr-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.qr-meta .theme-chip { min-width: 0; }
+.qr-no { font: 800 17px/1 var(--display); font-variation-settings: "wdth" 85; white-space: nowrap; }
+.qr-q {
+  font: 800 clamp(26px, 7.2vw, 30px)/1.02 var(--display);
+  font-variation-settings: "wdth" 82, "opsz" 72;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; overflow: hidden;
+}
+.qr-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 12px 14px 12px 14px;
+  min-height: 68px;
+}
+.power { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.power-t { display: grid; gap: 3px; min-width: 0; }
+.power-t b { font: 800 15px/1 var(--display); white-space: nowrap; }
+.power-t small { font: 600 13px/1 var(--text); color: var(--ink-soft); white-space: nowrap; }
+.st {
+  display: inline-flex; align-items: center; gap: 6px; flex: none;
+  font: 800 15px/1 var(--display); white-space: nowrap;
+  padding: 11px 12px 10px 14px; border-radius: 10px;
+}
+.st svg { width: 18px; height: 18px; }
+.st-todo { background: var(--ink); color: var(--chalk); }
+.st-done { padding: 9px 12px 8px 14px; box-shadow: inset 0 0 0 2px var(--table-3); color: var(--chalk); }
+
+/* déjà répondue : la carte s'éteint, sa couleur de thème ne reste qu'en repère */
+.qitem.done .qr { background: var(--table-2); color: var(--muted); box-shadow: 0 6px 0 var(--table-3); }
+.qitem.done .qr:hover { box-shadow: 0 9px 0 var(--table-3); }
+.qitem.done .qr-top { background: var(--table-3); color: var(--muted); }
+.qitem.done .theme-chip { background: var(--table-2); color: var(--muted); }
+.qitem.done .dice { --die: var(--table-3); --pip: var(--muted); }
+.qitem.done .power-t small { color: var(--muted); }
+
+/* la pile des autres cartes déjà répondues : une ligne, pas une carte */
+.pile { animation-name: none; grid-column: 1 / -1; }
+.pile-in {
+  margin: 0;
+  min-height: 64px; padding: 10px 18px;
+  display: flex; align-items: center; justify-content: center; gap: 12px; text-align: center;
+  border: 2px dashed var(--table-3); border-radius: var(--r);
+  color: var(--muted);
+}
+.pile-in b { font: 800 32px/1 var(--display); font-variation-settings: "wdth" 76, "opsz" 96; color: var(--chalk); letter-spacing: -0.03em; }
+.pile-in span { font: 600 15px/1.25 var(--text); }
+
+/* ---------- l'état « à jour » (aperçu) ---------- */
+.dp { margin-top: 44px; }
+.dp-label { font: 600 13.5px/1.2 var(--text); color: var(--muted); }
+.dp-box {
+  margin-top: 10px;
+  display: flex; align-items: center; gap: 18px;
+  background: var(--table-2); border-radius: var(--r);
+  padding: 16px 18px;
+}
+.dp-card {
+  flex: none; width: 56px; height: 76px;
+  display: grid; place-content: center; justify-items: center;
+  background: var(--chalk); color: var(--ink);
+  border-radius: 8px;
+  transform: rotate(-4deg);
+  font: 800 30px/0.9 var(--display); font-variation-settings: "wdth" 80;
+}
+.dp-card small { font: 700 12px/1 var(--text); color: var(--ink-soft); }
+.dp-box h2 { font: 800 26px/1 var(--display); font-variation-settings: "wdth" 85; letter-spacing: -0.02em; }
+.dp-box p { margin-top: 6px; font-size: 15px; line-height: 1.35; color: var(--muted); }
+
+.site-foot a[aria-current] { color: var(--chalk); text-decoration-thickness: 2px; }
+
+/* ---------- grand écran ---------- */
+@media (min-width: 600px) {
+  .qlist { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .catch { padding: 0 32px 56px; }
+  .catch-hero { grid-template-columns: minmax(0, 1fr) 460px; column-gap: 56px; align-items: end; padding-top: 10px; }
+  .lead { font-size: 19px; }
+  .todo { padding: 18px 18px 18px; }
+  .todo-n { font-size: 84px; }
+  .todo-t { font-size: 24px; }
+  .series { padding: 14px 22px; }
+  .series svg { width: 52px; height: 52px; }
+
+  /* sur grand écran les puces sont toujours visibles */
+  .fsum, .fopen { display: none; }
+  .tchips, .fopen:checked ~ .tchips { display: flex; padding-top: 0; }
+  .fdet { margin-top: 32px; }
+
+  .grp .sec-h h2 { font-size: 34px; }
+  .qlist { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+  .qr-top { padding: 16px 18px 22px; }
+  .dp-box { max-width: 560px; }
+}
+
+/* filtre par thème, sans script : la puce cochée masque les autres cartes */
+.catch:has(#f-eco:checked) .qitem:not(.theme-eco) { display: none; }
+.catch:has(#f-eco:checked) .grp:not(:has(.theme-eco)) { display: none; }
+.catch:has(#f-eco:checked) .cur-eco { display: inline; }
+.catch:has(#f-eco:checked) .chip[for=f-eco] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-trav:checked) .qitem:not(.theme-trav) { display: none; }
+.catch:has(#f-trav:checked) .grp:not(:has(.theme-trav)) { display: none; }
+.catch:has(#f-trav:checked) .cur-trav { display: inline; }
+.catch:has(#f-trav:checked) .chip[for=f-trav] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-ecol:checked) .qitem:not(.theme-ecol) { display: none; }
+.catch:has(#f-ecol:checked) .grp:not(:has(.theme-ecol)) { display: none; }
+.catch:has(#f-ecol:checked) .cur-ecol { display: inline; }
+.catch:has(#f-ecol:checked) .chip[for=f-ecol] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-immi:checked) .qitem:not(.theme-immi) { display: none; }
+.catch:has(#f-immi:checked) .grp:not(:has(.theme-immi)) { display: none; }
+.catch:has(#f-immi:checked) .cur-immi { display: inline; }
+.catch:has(#f-immi:checked) .chip[for=f-immi] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-secu:checked) .qitem:not(.theme-secu) { display: none; }
+.catch:has(#f-secu:checked) .grp:not(:has(.theme-secu)) { display: none; }
+.catch:has(#f-secu:checked) .cur-secu { display: inline; }
+.catch:has(#f-secu:checked) .chip[for=f-secu] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-sante:checked) .qitem:not(.theme-sante) { display: none; }
+.catch:has(#f-sante:checked) .grp:not(:has(.theme-sante)) { display: none; }
+.catch:has(#f-sante:checked) .cur-sante { display: inline; }
+.catch:has(#f-sante:checked) .chip[for=f-sante] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-educ:checked) .qitem:not(.theme-educ) { display: none; }
+.catch:has(#f-educ:checked) .grp:not(:has(.theme-educ)) { display: none; }
+.catch:has(#f-educ:checked) .cur-educ { display: inline; }
+.catch:has(#f-educ:checked) .chip[for=f-educ] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-loge:checked) .qitem:not(.theme-loge) { display: none; }
+.catch:has(#f-loge:checked) .grp:not(:has(.theme-loge)) { display: none; }
+.catch:has(#f-loge:checked) .cur-loge { display: inline; }
+.catch:has(#f-loge:checked) .chip[for=f-loge] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-euro:checked) .qitem:not(.theme-euro) { display: none; }
+.catch:has(#f-euro:checked) .grp:not(:has(.theme-euro)) { display: none; }
+.catch:has(#f-euro:checked) .cur-euro { display: inline; }
+.catch:has(#f-euro:checked) .chip[for=f-euro] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-inst:checked) .qitem:not(.theme-inst) { display: none; }
+.catch:has(#f-inst:checked) .grp:not(:has(.theme-inst)) { display: none; }
+.catch:has(#f-inst:checked) .cur-inst { display: inline; }
+.catch:has(#f-inst:checked) .chip[for=f-inst] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-soc:checked) .qitem:not(.theme-soc) { display: none; }
+.catch:has(#f-soc:checked) .grp:not(:has(.theme-soc)) { display: none; }
+.catch:has(#f-soc:checked) .cur-soc { display: inline; }
+.catch:has(#f-soc:checked) .chip[for=f-soc] { background: var(--chalk); color: var(--ink); }
+.catch:has(.fr:not(#f-all):checked) .cur-all { display: none; }
