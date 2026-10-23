@@ -1099,3 +1099,29 @@ test("rien dans l'app ne demande de créer un compte ou de se connecter, ni avan
   await expect(quiDefendQuoi(page)).toBeVisible();
   await verifier();
 });
+
+test.describe("la question du jour change chaque jour", () => {
+  const questionDuJour = async (page: Page, jour: string) => {
+    await page.clock.setFixedTime(new Date(jour));
+    await page.goto("/");
+    const titre = page.getByRole("article").getByRole("heading", { level: 1 });
+    await expect(titre).toBeVisible();
+    return (await titre.innerText()).trim();
+  };
+
+  test("le vendredi 23 octobre, la fiche du 23 (la retraite) ; le samedi 24, une autre question", async ({ page }) => {
+    expect(await questionDuJour(page, "2026-10-23T09:00:00+02:00")).toBe("À quel âge devrait-on pouvoir partir à la retraite ?");
+    const samedi = await questionDuJour(page, "2026-10-24T09:00:00+02:00");
+    expect(samedi).toBe("Faut-il sortir du nucléaire ?");
+    await expect(page.getByText("À quel âge devrait-on pouvoir partir à la retraite ?")).toHaveCount(0);
+  });
+
+  test("le dimanche 25 octobre, encore une nouvelle fiche : une question par jour, 7 jours sur 7", async ({ page }) => {
+    const questions = [];
+    for (const jour of ["2026-10-22T09:00:00+02:00", "2026-10-23T09:00:00+02:00", "2026-10-24T09:00:00+02:00", "2026-10-25T09:00:00+01:00"]) {
+      questions.push(await questionDuJour(page, jour));
+    }
+    expect(questions[3]).toBe("Faut-il réguler l'installation des médecins ?");
+    expect(new Set(questions).size).toBe(4);
+  });
+});
