@@ -10,6 +10,32 @@ import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 /** Ce que la liste montre d'une question publiée : de quoi dessiner sa carte, rien de plus. */
 export type Carte = Pick<Question, "numero" | "date" | "theme" | "question">;
 
+/** La tuile du haut : combien de questions publiées restent à rattraper, et la barre des réponses. */
+export function TuileARattraper({ cartes }: { cartes: Carte[] }) {
+  const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
+  const repondues = cartes.filter((c) => c.numero in reponses).length;
+  const reste = cartes.length - repondues;
+  const sur = `${repondues > 1 ? "répondues" : "répondue"} sur ${cartes.length} ${cartes.length > 1 ? "publiées" : "publiée"}`;
+
+  return (
+    <div className="todo" role="group" aria-label="À rattraper">
+      <b className="todo-n">{reste}</b>{" "}
+      <span className="todo-t">{reste > 1 ? "questions à rattraper" : "question à rattraper"}</span>
+      <span
+        className="prog"
+        role="img"
+        aria-label={`${repondues} ${repondues > 1 ? "questions" : "question"} ${sur}`}
+        style={{ "--publiees": cartes.length, "--repondues": repondues } as React.CSSProperties}
+      >
+        <i></i>
+      </span>
+      <span className="prog-t">
+        {repondues} {sur}
+      </span>
+    </div>
+  );
+}
+
 /**
  * Les cartes du rattrapage, dans l'ordre reçu : celles « À répondre » d'abord, puis celles déjà
  * répondues sur cet appareil, grisées et marquées « Répondu ».
