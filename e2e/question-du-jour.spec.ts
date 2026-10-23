@@ -2844,3 +2844,49 @@ test.describe("« Télécharger l'image » enregistre la carte", () => {
     await context.setOffline(false);
   });
 });
+
+test.describe("avant 10 réponses, la carte reste verrouillée", () => {
+  /** 3 réponses : les n° 1 et 2 en rattrapage, la n° 23 comme question du jour du 22 octobre (1 jour d'affilée). */
+  async function troisReponses(page: Page) {
+    await premieresReponses(page, 2);
+    await page.evaluate(() => {
+      const reponses = JSON.parse(localStorage.getItem("aucrible:reponses")!);
+      reponses[23] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22", duJour: true };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    });
+  }
+  const carte = (page: Page) => page.getByRole("region", { name: "Ta carte" });
+
+  test("avec 3 réponses, la carte est grisée, cadenassée, dit « Je suis à … % proche de … » sans nom ni pourcentage, et son pied dit « 3 réponses · 0/11 parts · 1 jour d'affilée »", async ({ page }) => {
+    await troisReponses(page);
+    await page.goto("/resultats");
+    const apercu = carte(page).getByLabel("Aperçu verrouillé de la carte à partager");
+    await expect(apercu).toBeVisible();
+    await expect(apercu.locator(".story-lock svg")).toBeVisible();
+    await expect(apercu.getByText("Je suis à … % proche de …", { exact: true })).toBeVisible();
+    await expect(apercu.getByText(/\d+\s?%/)).toHaveCount(0);
+    for (const nom of Object.keys(INITIALES)) await expect(apercu.getByText(nom)).toHaveCount(0);
+    await expect(apercu.locator(".story-f")).toHaveText("3 réponses · 0/11 parts · 1 jour d'affilée");
+  });
+
+  test("le bouton « Partager ma carte » est inactif et le texte dit « Ta carte se débloque à 10 réponses. Il t'en reste 7. »", async ({ page }) => {
+    await troisReponses(page);
+    await page.goto("/resultats");
+    await expect(carte(page).getByRole("button", { name: "Partager ma carte" })).toBeDisabled();
+    await expect(carte(page).getByText("Ta carte se débloque à 10 réponses. Il t'en reste 7.")).toBeVisible();
+  });
+
+  test("à la 10e réponse, la carte se débloque et « Partager ma carte » ouvre la page « Ta carte »", async ({ page }) => {
+    await premieresReponses(page, 9);
+    await page.goto("/resultats");
+    await expect(carte(page).getByRole("button", { name: "Partager ma carte" })).toBeDisabled();
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await page.goto("/resultats");
+    await carte(page).getByRole("link", { name: "Partager ma carte" }).click();
+    await expect(page).toHaveURL(/\/carte$/);
+    await expect(page.getByRole("article", { name: /Carte à partager/ }).first()).toBeVisible();
+  });
+});
