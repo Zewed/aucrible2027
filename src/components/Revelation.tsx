@@ -19,6 +19,7 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
   const defenseurs = candidats.filter((c) => question.positions[c.id] === reponse.option);
   const rangChoisi = question.options.findIndex((o) => o.id === reponse.option);
   const choisie = question.options[rangChoisi];
+  const importance = reponse.importance;
 
   return (
     <>
@@ -30,12 +31,25 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
           <h1>La révélation</h1>
         </header>
         {choisie && (
-          <section className="mine-card" aria-label={`Ta réponse : ${lettreOption(rangChoisi)} · ${choisie.libelle}`}>
+          <section
+            className="mine-card"
+            aria-label={`Ta réponse : ${lettreOption(rangChoisi)} · ${choisie.libelle}${importance ? `. Importance ×${importance}` : ""}`}
+          >
             <p className="mine-k" aria-hidden="true">Ta réponse</p>
             <div className="mine-main" aria-hidden="true">
               <span className="mine-letter">{lettreOption(rangChoisi)}</span>
               <span className="mine-title">{choisie.libelle}</span>
             </div>
+            {importance && (
+              <p className="mine-imp" aria-hidden="true">
+                <span className="chips">
+                  {[1, 2, 3].map((n) => (
+                    <i key={n} className={n > importance ? "off" : undefined}></i>
+                  ))}
+                </span>
+                Importance ×{importance}
+              </p>
+            )}
           </section>
         )}
         <section className="align" aria-labelledby="defenseurs">

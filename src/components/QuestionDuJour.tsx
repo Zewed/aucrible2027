@@ -29,7 +29,7 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
   function valider(evenement: React.FormEvent) {
     evenement.preventDefault();
     if (!question || !choix) return;
-    enregistrerReponseEnCours({ numero: question.numero, option: choix });
+    enregistrerReponseEnCours({ numero: question.numero, option: choix, importance: poids });
     router.push("/revelation");
   }
 

@@ -1,5 +1,5 @@
 /** La réponse qui vient d'être validée, le temps d'afficher sa révélation. */
-export type ReponseEnCours = { numero: number; option: string };
+export type ReponseEnCours = { numero: number; option: string; importance: number | null };
 
 /** L'option « Je ne sais pas », que toute fiche propose en plus des siennes. */
 export const JE_NE_SAIS_PAS = "nsp";

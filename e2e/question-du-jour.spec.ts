@@ -658,3 +658,19 @@ test.describe("la révélation rappelle l'option choisie", () => {
     });
   }
 });
+
+test.describe("la révélation rappelle l'importance donnée", () => {
+  for (const [poids, pleines] of [["×1", 1], ["×2", 2], ["×3", 3]] as const) {
+    test(`après validation avec ${poids}, l'encart affiche « Importance ${poids} » avec ${pleines} pastille(s) pleine(s) sur 3`, async ({ page }) => {
+      await page.goto("/");
+      await choisir(page, "62 ans");
+      await peser(page, poids);
+      await page.getByRole("button", { name: "Valider ma réponse" }).click();
+      const encart = page.getByRole("region", { name: `Ta réponse : B · 62 ans. Importance ${poids}` });
+      await expect(encart.getByText(`Importance ${poids}`, { exact: true })).toBeVisible();
+      const pastilles = encart.locator(".chips i");
+      await expect(pastilles).toHaveCount(3);
+      await expect(encart.locator(".chips i.off")).toHaveCount(3 - pleines);
+    });
+  }
+});
