@@ -37,3 +37,15 @@ export async function lireProchaineParution(): Promise<string | null> {
   const jour = aujourdhuiAParis(await maintenant());
   return lireQuestions().find((q) => q.date > jour)?.date ?? null;
 }
+
+/**
+ * Le numéro de la question du jour de demain, ou null si demain n'en a pas (aucune fiche datée de
+ * demain, ou silence électoral) : son numéro seulement, jamais son contenu.
+ */
+export async function lireNumeroDeDemain(): Promise<number | null> {
+  // Le lendemain de la date de Paris, et non dans 24 h : un jour de changement d'heure n'en dure pas 24.
+  const aujourdhui = aujourdhuiAParis(await maintenant());
+  const demain = new Date(Date.parse(`${aujourdhui}T12:00:00Z`) + 86_400_000).toISOString().slice(0, 10);
+  if (silenceEnCours(demain)) return null;
+  return lireQuestions().find((q) => q.date === demain)?.numero ?? null;
+}
