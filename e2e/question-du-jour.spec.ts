@@ -3909,7 +3909,7 @@ test.describe("la page À propos mène aux comptes @aucrible2027", () => {
 test.describe("« Signaler une erreur » ouvre le formulaire depuis la fiche", () => {
   /** La page « Signaler une erreur. » et son introduction sont ouvertes. */
   async function pageDeSignalement(page: Page) {
-    await page.waitForURL(/\/signaler$/);
+    await page.waitForURL(/\/signaler(\?question=\d+)?$/);
     const titre = page.getByRole("heading", { level: 1 }).filter({ visible: true });
     await expect(titre).toHaveText("Signaler une erreur.");
     await expect(
@@ -3931,5 +3931,52 @@ test.describe("« Signaler une erreur » ouvre le formulaire depuis la fiche", (
     await expect(lien).toBeVisible();
     await lien.click();
     await pageDeSignalement(page);
+  });
+});
+
+test.describe("le formulaire sait de quelle fiche il vient", () => {
+  /** Le bloc « Sur quelle fiche ? » du formulaire : thème, question, et mention. */
+  async function surQuelleFiche(page: Page) {
+    await page.waitForURL(/\/signaler\?question=\d+$/);
+    const bloc = page.getByRole("group", { name: "Sur quelle fiche ?" });
+    await expect(bloc).toBeVisible();
+    return {
+      theme: (await bloc.locator(".theme-chip").innerText()).trim(),
+      question: (await bloc.locator(".qref-t").innerText()).replace(/\s+/g, " ").trim(),
+      mention: (await page.locator(".sig-card .f-help").first().innerText()).trim(),
+    };
+  }
+
+  test("depuis la question n° 24, « Sur quelle fiche ? » montre « Travail & retraites », la question n° 24 et « Rempli pour toi. »", async ({ page }) => {
+    await page.goto("/");
+    await page.locator("main footer").getByRole("link", { name: "Signaler une erreur" }).click();
+    expect(await surQuelleFiche(page)).toEqual({
+      theme: "Travail & retraites",
+      question: "Question n° 24 — À quel âge devrait-on pouvoir partir à la retraite ?",
+      mention: "Rempli pour toi.",
+    });
+  });
+
+  test("depuis une autre question ouverte par le rattrapage, le formulaire montre cette question, avec son thème et son numéro", async ({ page }) => {
+    await page.goto("/rattrapage");
+    await page.getByRole("link", { name: /Faut-il encadrer les loyers/ }).click();
+    await page.waitForURL(/\/question\/23$/);
+    await page.locator("main footer").filter({ visible: true }).getByRole("link", { name: "Signaler une erreur" }).click();
+    expect(await surQuelleFiche(page)).toEqual({
+      theme: "Logement",
+      question: "Question n° 23 — Faut-il encadrer les loyers dans les grandes villes ?",
+      mention: "Rempli pour toi.",
+    });
+  });
+
+  test("le lien de la révélation remplit aussi la fiche, et une adresse tapée à la main ne montre pas une question pas encore publiée", async ({ page }) => {
+    await repondre(page, "62 ans");
+    await page.waitForURL(/\/revelation$/);
+    await page.locator("main footer").filter({ visible: true }).getByRole("link", { name: "Signaler une erreur" }).click();
+    expect((await surQuelleFiche(page)).question).toBe("Question n° 24 — À quel âge devrait-on pouvoir partir à la retraite ?");
+    await page.goto("/signaler?question=25");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Signaler une erreur.");
+    await expect(page.getByRole("group", { name: "Sur quelle fiche ?" })).toHaveCount(0);
+    expect(await page.content()).not.toContain("nucléaire");
   });
 });
