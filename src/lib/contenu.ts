@@ -33,11 +33,16 @@ export function lireThemes(): Theme[] {
   return parse(readFileSync(path.join(RACINE, "themes.yaml"), "utf8"));
 }
 
+/** Les fiches de content/questions, plus, pour les tests de bout en bout seulement, celles du dossier de test. */
 export function lireQuestions(): Question[] {
-  const dossier = path.join(RACINE, "questions");
-  return readdirSync(dossier)
-    .filter((fichier) => fichier.endsWith(".yaml"))
-    .map((fichier) => parse(readFileSync(path.join(dossier, fichier), "utf8")) as Question)
+  const dossiers = [path.join(RACINE, "questions")];
+  if (process.env.AUCRIBLE_FICHES_DE_TEST) dossiers.push(path.join(process.cwd(), process.env.AUCRIBLE_FICHES_DE_TEST));
+  return dossiers
+    .flatMap((dossier) =>
+      readdirSync(dossier)
+        .filter((fichier) => fichier.endsWith(".yaml"))
+        .map((fichier) => parse(readFileSync(path.join(dossier, fichier), "utf8")) as Question),
+    )
     .map((q) => ({ ...q, date: String(q.date) }))
     .sort((a, b) => a.date.localeCompare(b.date));
 }

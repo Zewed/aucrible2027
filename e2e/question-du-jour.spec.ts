@@ -1201,26 +1201,29 @@ test.describe("avant la première question, l'accueil dit quand elle arrive", ()
 });
 
 test.describe("quand les questions s'arrêtent, l'accueil le dit", () => {
-  // La dernière fiche de démonstration est datée du dimanche 25 octobre 2026.
-  test("le 26 octobre, sans fiche ce jour-là ni après, l'accueil dit qu'il n'y a plus de nouvelle question", async ({ page }) => {
-    await fixerLeJour(page, "2026-10-26T09:00:00+01:00");
+  // Le second test publie une fiche : le premier ne doit pas tourner en même temps.
+  test.describe.configure({ mode: "serial" });
+
+  // La dernière fiche (de test) est datée du samedi 1er mai 2027.
+  test("le 10 mai 2027, sans fiche ce jour-là ni après, l'accueil dit qu'il n'y a plus de nouvelle question", async ({ page }) => {
+    await fixerLeJour(page, "2027-05-10T09:00:00+02:00");
     await page.goto("/");
     await expect(page.getByRole("heading", { name: /plus de nouvelle question/i })).toBeVisible();
     await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
   });
 
   test("si l'auteur publie ensuite une nouvelle fiche, elle apparaît à l'accueil à sa date, à la place du message", async ({ page }) => {
-    await fixerLeJour(page, "2026-10-27T09:00:00+01:00");
+    await fixerLeJour(page, "2027-05-11T09:00:00+02:00");
     await page.goto("/");
     await expect(page.getByRole("heading", { name: /plus de nouvelle question/i })).toBeVisible();
 
-    // L'auteur publie une fiche datée du 27 octobre, comme il le ferait : un fichier de plus dans content/questions.
+    // L'auteur publie une fiche datée du 11 mai, comme il le ferait : un fichier de plus dans content/questions.
     const fiche = "content/questions/900-fiche-de-test.yaml";
     writeFileSync(
       fiche,
       readFileSync("content/questions/023-loyers.yaml", "utf8")
-        .replace(/^numero: 23$/m, "numero: 27")
-        .replace(/^date: 2026-10-22$/m, "date: 2026-10-27")
+        .replace(/^numero: 23$/m, "numero: 900")
+        .replace(/^date: 2026-10-22$/m, "date: 2027-05-11")
         .replace(/^question: .*$/m, "question: Une fiche publiée après coup ?"),
     );
     try {
@@ -1229,6 +1232,43 @@ test.describe("quand les questions s'arrêtent, l'accueil le dit", () => {
       await expect(page.getByRole("heading", { name: /plus de nouvelle question/i })).toHaveCount(0);
     } finally {
       rmSync(fiche);
+    }
+  });
+});
+
+test.describe("aucune nouvelle question ne paraît pendant le silence électoral", () => {
+  // Fiches de test (e2e/fiches) datées du 14 au 18 avril, du 30 avril et du 1er mai 2027.
+  const fiche = (jour: string) => `Fiche de test du ${jour} ?`;
+
+  /** Ni à l'écran, ni dans le code des pages : la fiche n'apparaît nulle part. */
+  async function nullePart(page: Page, question: string) {
+    for (const adresse of ["/", "/revelation"]) {
+      const html = await (await page.request.get(adresse)).text();
+      expect(html.includes(question), `${adresse} contient « ${question} »`).toBe(false);
+    }
+    await page.goto("/");
+    await expect(page.getByText(question)).toHaveCount(0);
+  }
+
+  test("le jeudi 15 avril, la fiche du 15 ; les vendredi 16 et samedi 17, aucune nouvelle question, et leurs fiches nulle part", async ({ page }) => {
+    await fixerLeJour(page, "2027-04-15T09:00:00+02:00");
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: fiche("jeudi 15 avril") })).toBeVisible();
+
+    for (const jour of ["2027-04-16T09:00:00+02:00", "2027-04-17T09:00:00+02:00"]) {
+      await fixerLeJour(page, jour);
+      await page.goto("/");
+      await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
+      for (const question of [fiche("vendredi 16 avril"), fiche("samedi 17 avril")]) await nullePart(page, question);
+    }
+  });
+
+  test("avant le 2nd tour aussi : le vendredi 30 avril et le samedi 1er mai, aucune nouvelle question", async ({ page }) => {
+    for (const jour of ["2027-04-30T09:00:00+02:00", "2027-05-01T09:00:00+02:00"]) {
+      await fixerLeJour(page, jour);
+      await page.goto("/");
+      await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
+      for (const question of [fiche("vendredi 30 avril"), fiche("samedi 1er mai")]) await nullePart(page, question);
     }
   });
 });

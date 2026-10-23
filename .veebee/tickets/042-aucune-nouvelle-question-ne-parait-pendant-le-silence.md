@@ -5,6 +5,7 @@ milestone: null
 depends_on: ["037"]
 design: maquettes/silence.html
 tracker: null
+status: done
 ---
 
 ## Ce que l'utilisateur fait
