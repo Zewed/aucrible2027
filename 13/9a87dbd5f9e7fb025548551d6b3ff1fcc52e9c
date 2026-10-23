@@ -1,0 +1,34 @@
+src/components/BandeauRetour.tsx
+  s_330ba31127fa8a::t_8920fece4e58a2 4-5,8,15
+src/components/Carte.tsx
+  s_330ba31127fa8a::t_8920fece4e58a2 1-92
+src/app/carte/carte-story.css
+  s_330ba31127fa8a::t_8920fece4e58a2 1-159
+src/app/resultats/page.tsx
+  s_330ba31127fa8a::t_8920fece4e58a2 4,9,14,39
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_2c91a3b372364f 2579-2599
+src/app/carte/page.tsx
+  s_330ba31127fa8a::t_8920fece4e58a2 1-33
+src/lib/publication.ts
+  s_330ba31127fa8a::t_8920fece4e58a2 4,53-61
+  s_330ba31127fa8a::t_ad8905d89b909a 62
+.veebee/tickets/091-les-resultats-montrent-la-carte-je-suis-a-x-proche-de-y.md
+  s_330ba31127fa8a::t_fb44dd590c2bd2 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "139a87dbd5f9e7fb025548551d6b3ff1fcc52e9c",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
