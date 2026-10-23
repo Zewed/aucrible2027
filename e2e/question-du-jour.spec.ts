@@ -2957,3 +2957,17 @@ test.describe("un nom révélé ouvre la fiche du candidat", () => {
     await ouvrirLaFiche(page, quiDefendQuoi(page).locator(".ropt.unknown"), "François Ruffin");
   });
 });
+
+test.describe("un candidat du classement ouvre sa fiche", () => {
+  for (const [rang, nom] of [["1er", "François Ruffin"], ["13e", "Éric Zemmour"]]) {
+    test(`dans « Mes résultats », toucher la ligne « ${nom} » (${rang}) ouvre sa fiche`, async ({ page }) => {
+      await vingtTroisReponses(page);
+      await page.goto("/resultats");
+      const classement = page.getByRole("region", { name: "Ton classement" });
+      await expect(classement.getByRole("listitem")).toHaveCount(13);
+      await classement.getByRole("link", { name: new RegExp(nom) }).click();
+      await expect(page).toHaveURL(/\/candidat\/[a-z-]+$/);
+      await expect(page.getByRole("heading", { level: 1, name: nom }).filter({ visible: true })).toBeVisible();
+    });
+  }
+});

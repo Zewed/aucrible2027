@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Pion } from "@/components/Pion";
 import type { Candidat } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
@@ -80,7 +81,7 @@ export function Classement({ questions, candidats }: { questions: QuestionDuCalc
       <ol className="rank">
         {lignes.map(({ candidat, pourcentage }, rang) => (
           <li key={candidat.id}>
-            <div className="cand">
+            <Link className="cand" href={`/candidat/${candidat.id}`}>
               <span className="cand-n">{rang + 1}</span>
               <Pion candidat={candidat} clair />
               <span className="cand-name one">{candidat.nom}</span>
@@ -99,7 +100,7 @@ export function Classement({ questions, candidats }: { questions: QuestionDuCalc
                   <i style={{ "--p": pourcentage, animationDelay: `${0.15 + rang * 0.05}s` } as React.CSSProperties}></i>
                 </span>
               )}
-            </div>
+            </Link>
           </li>
         ))}
       </ol>
