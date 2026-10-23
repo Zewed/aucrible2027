@@ -29,12 +29,15 @@ options:
     libelle: Limiter les installations là où les médecins sont déjà nombreux
     implique: Dans une zone bien dotée, un nouveau médecin ne s'installe qu'au départ d'un confrère.
     defenseurs: Rééquilibrer l'offre de soins pour que chacun trouve un médecin près de chez lui.
+    critiques: La contrainte risque de détourner les jeunes médecins de l'exercice libéral.
   - id: B
     libelle: Inciter par des aides, sans obligation
     implique: Primes, bourses et aides au cabinet pour attirer les médecins là où ils manquent.
     defenseurs: Attirer sans contraindre, en respectant le choix des médecins.
+    critiques: Des aides existent depuis des années sans avoir comblé les manques.
   - id: C
     libelle: Garder la liberté d'installation
     implique: Chaque médecin continue de choisir où il exerce.
     defenseurs: La liberté d'installation rend le métier attractif ; il faut d'abord former plus de médecins.
+    critiques: Sans règle, les territoires qui manquent de médecins risquent d'attendre encore longtemps.
 positions: {}

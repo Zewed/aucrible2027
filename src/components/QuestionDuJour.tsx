@@ -82,7 +82,7 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
                 checked={choix === option.id}
                 onChange={() => setChoix(option.id)}
                 aria-labelledby={`lettre-${option.id} titre-${option.id}`}
-                aria-describedby={`implique-${option.id} defenseurs-${option.id}`}
+                aria-describedby={`implique-${option.id} defenseurs-${option.id} critiques-${option.id}`}
               />
               <span className="opt-face">
                 <span className="opt-letter" id={`lettre-${option.id}`}>{String.fromCharCode(65 + rang)}</span>
@@ -92,6 +92,10 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
                   <span className="arg" id={`defenseurs-${option.id}`}>
                     <b>Ce qu&apos;en disent ses défenseurs</b>
                     {option.defenseurs}
+                  </span>
+                  <span className="arg" id={`critiques-${option.id}`}>
+                    <b>Ce que lui reprochent ses critiques</b>
+                    {option.critiques}
                   </span>
                 </span>
               </span>
