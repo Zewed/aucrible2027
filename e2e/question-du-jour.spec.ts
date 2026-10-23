@@ -2372,3 +2372,47 @@ test.describe("avant 10 réponses, le plateau dit que la position s'affinera", (
     await expect(plateauDeLaPage(page).locator(".field .pawn")).toHaveCount(0);
   });
 });
+
+test.describe("le camembert affiche 11 parts, une par thème", () => {
+  const THEMES = [
+    "Économie & impôts", "Travail & retraites", "Écologie & énergie", "Immigration", "Sécurité & justice", "Santé",
+    "Éducation & jeunesse", "Logement", "Europe & international", "Institutions & démocratie", "Société",
+  ];
+  /** Les parts du grand camembert, dans l'ordre : l'angle de leur bord de départ et leur couleur. */
+  const partsDuCamembert = (page: Page) =>
+    page.locator(".big-token svg path").evaluateAll((parts) =>
+      parts.map((part) => {
+        const [x, y] = part.getAttribute("d")!.slice(1).split(/[ A]/).map(Number);
+        return { angle: (Math.atan2(y - 100, x - 100) * 180) / Math.PI, couleur: getComputedStyle(part).fill };
+      }),
+    );
+
+  test("sur « Mes résultats », le camembert est découpé en 11 parts égales", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.locator(".big-token svg")).toBeVisible();
+    const parts = await partsDuCamembert(page);
+    expect(parts).toHaveLength(11);
+    for (let i = 0; i < 11; i++) {
+      const pas = (((parts[(i + 1) % 11].angle - parts[i].angle) % 360) + 360) % 360;
+      expect(pas).toBeCloseTo(360 / 11, 1);
+    }
+  });
+
+  test("« Tes 11 thèmes » nomme les 11 thèmes de SPEC.md, et la couleur de chaque thème est celle d'une part du camembert", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const themes = page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem");
+    await expect(themes).toHaveCount(11);
+    const lignes = await themes.evaluateAll((items) =>
+      // La couleur du thème est celle du contour de sa part, pleine ou en pointillés.
+      items.map((item) => ({ nom: item.querySelector(".th-name")!.textContent, couleur: getComputedStyle(item.querySelector("svg path")!).stroke })),
+    );
+    expect(lignes.map((l) => l.nom)).toEqual(THEMES);
+    expect(new Set(lignes.map((l) => l.couleur)).size).toBe(11);
+    // Avec ces réponses, seule la part Logement est gagnée : elle prend la couleur de sa ligne, à sa place.
+    await expect(page.locator(".big-token svg path.on")).toHaveCount(1);
+    const parts = await partsDuCamembert(page);
+    expect(parts[THEMES.indexOf("Logement")].couleur).toBe(lignes[THEMES.indexOf("Logement")].couleur);
+  });
+});

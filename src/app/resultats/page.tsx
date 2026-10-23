@@ -3,7 +3,8 @@ import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { Classement } from "@/components/Classement";
 import { Plateau } from "@/components/Plateau";
-import { lireCandidats } from "@/lib/contenu";
+import { GrandCamembert, TesThemes } from "@/components/Themes";
+import { lireCandidats, lireThemes } from "@/lib/contenu";
 import type { QuestionDuCalcul } from "@/lib/proximite";
 import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
 import "./resultats-vide.css";
@@ -12,9 +13,11 @@ import "./resultats-vide.css";
 async function Resultats() {
   const [jour, questions] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
   const candidats = lireCandidats();
+  const themes = lireThemes();
   // Le navigateur ne reçoit des fiches publiées que ce que le calcul lit.
   const duCalcul: QuestionDuCalcul[] = questions.map((q) => ({
     numero: q.numero,
+    theme: q.theme,
     options: q.options.map((o) => ({ id: o.id, horsEchelle: o.horsEchelle, axes: o.axes })),
     positions: Object.fromEntries(Object.entries(q.positions).map(([id, p]) => [id, { option: p.option }])),
   }));
@@ -32,12 +35,14 @@ async function Resultats() {
                 <b>Ce n&apos;est pas un sondage</b> : seulement tes réponses, gardées sur ton téléphone.
               </p>
             </div>
+            <GrandCamembert questions={duCalcul} themes={themes} />
           </div>
         </section>
         <div className="res-grid">
           <Classement questions={duCalcul} candidats={candidats} />
           <Plateau questions={duCalcul} candidats={candidats} />
         </div>
+        <TesThemes questions={duCalcul} themes={themes} />
         {/* « Signaler une erreur », avant le retour dans la maquette, attend son formulaire. */}
         <footer className="res-foot">
           <span className="tag">Ce n&apos;est pas un sondage</span>

@@ -4,6 +4,7 @@ import { JE_NE_SAIS_PAS, type Reponse } from "@/lib/reponses";
 /** Ce que le calcul lit d'une question publiée : ses options, dans l'ordre, et les positions connues. */
 export type QuestionDuCalcul = {
   numero: number;
+  theme: string;
   options: { id: string; horsEchelle?: boolean; axes?: Axes }[];
   positions: Record<string, { option: string }>;
 };
@@ -27,6 +28,18 @@ export const SEUIL_DES_RESULTATS = 10;
 /** Les réponses qui entrent dans le calcul : « Je ne sais pas » n'y entre pas, en attendant que ce soit tranché. */
 export const reponsesComptees = (questions: QuestionDuCalcul[], reponses: Record<number, Reponse>) =>
   questions.filter((q) => reponses[q.numero] && reponses[q.numero].option !== JE_NE_SAIS_PAS).length;
+
+/** Le nombre de réponses qu'il faut dans un thème pour en gagner la part (SPEC.md : « à partir de 3 réponses dans un thème »). */
+export const REPONSES_PAR_PART = 3;
+
+/** Les réponses comptées de chaque thème (« Je ne sais pas » non compris), par identifiant de thème. */
+export function reponsesParTheme(questions: QuestionDuCalcul[], reponses: Record<number, Reponse>): Record<string, number> {
+  const parTheme: Record<string, number> = {};
+  for (const q of questions) {
+    if (reponses[q.numero] && reponses[q.numero].option !== JE_NE_SAIS_PAS) parTheme[q.theme] = (parTheme[q.theme] ?? 0) + 1;
+  }
+  return parTheme;
+}
 
 /** Un candidat du classement et sa proximité en % ; null tant qu'aucune réponse ne le concerne. */
 export type Proximite = { candidat: Candidat; pourcentage: number | null };
