@@ -613,7 +613,7 @@ const quiDefendQuoi = (page: Page) => page.getByRole("region", { name: "Qui déf
 async function nomsSous(page: Page, option: string) {
   const bloc = quiDefendQuoi(page).getByRole("article", { name: option });
   await expect(bloc).toBeVisible();
-  return (await bloc.getByRole("listitem").allInnerTexts()).map((t) => t.trim()).sort();
+  return (await bloc.getByRole("listitem").locator(".def-name").allInnerTexts()).map((t) => t.trim()).sort();
 }
 
 test("la révélation de la question n° 24 nomme, sous chaque option, les candidats qui la défendent", async ({ page }) => {
@@ -636,7 +636,7 @@ test("quelle que soit la réponse, les cinq blocs s'affichent, annoncent leur no
       const bloc = blocs.nth(rang);
       await expect(bloc).toHaveAccessibleName(new RegExp(`^Option ${lettre} : `));
       await expect(bloc.getByText(compte, { exact: true })).toBeVisible();
-      const noms = await bloc.getByRole("listitem").allInnerTexts();
+      const noms = await bloc.getByRole("listitem").locator(".def-name").allInnerTexts();
       expect(`${noms.length} candidat${noms.length > 1 ? "s" : ""}`).toBe(compte);
       tous.push(...noms);
     }
@@ -672,5 +672,36 @@ test.describe("la révélation rappelle l'importance donnée", () => {
       await expect(pastilles).toHaveCount(3);
       await expect(encart.locator(".chips i.off")).toHaveCount(3 - pleines);
     });
+  }
+});
+
+/** La ligne de source posée sous le nom d'un candidat révélé. */
+const sourceDe = (page: Page, nom: string) =>
+  quiDefendQuoi(page).getByRole("listitem").filter({ has: page.getByText(nom, { exact: true }) }).locator(".def-doc");
+
+test("sur la révélation n° 24, chaque nom est suivi de la source datée de sa position", async ({ page }) => {
+  await repondre(page, "62 ans");
+  const attendues = {
+    "Fabien Roussel": "Interview franceinfo, 21/09/2026",
+    "Nathalie Arthaud": "Programme 2022, p. 6",
+    "Marine Le Pen": "Vote du groupe à l'Assemblée, 2023",
+    "Bruno Retailleau": "Discours de rentrée, 12/09/2026",
+  };
+  for (const [nom, source] of Object.entries(attendues)) {
+    await expect(sourceDe(page, nom)).toHaveText(source);
+    const [n, s] = await Promise.all([quiDefendQuoi(page).getByText(nom, { exact: true }).boundingBox(), sourceDe(page, nom).boundingBox()]);
+    expect(s!.y).toBeGreaterThan(n!.y);
+  }
+});
+
+test("les 11 candidats rangés sous une option ont tous une source, lisible en entier", async ({ page }) => {
+  await repondre(page, "62 ans");
+  const lignes = quiDefendQuoi(page).getByRole("article").getByRole("listitem");
+  await expect(lignes).toHaveCount(11);
+  for (const ligne of await lignes.all()) {
+    const source = ligne.locator(".def-doc");
+    await expect(source).toBeVisible();
+    expect((await source.innerText()).trim().length).toBeGreaterThan(3);
+    expect(await source.evaluate((el) => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
   }
 });

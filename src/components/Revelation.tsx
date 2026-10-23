@@ -16,7 +16,7 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
   const theme = question && themes.find((t) => t.id === question.theme);
   if (!reponse || !question || !theme) return null;
 
-  const defenseurs = candidats.filter((c) => question.positions[c.id] === reponse.option);
+  const defenseurs = candidats.filter((c) => question.positions[c.id]?.option === reponse.option);
   const rangChoisi = question.options.findIndex((o) => o.id === reponse.option);
   const choisie = question.options[rangChoisi];
   const importance = reponse.importance;
@@ -66,7 +66,7 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
           </div>
           <div className="ropts">
             {question.options.map((option, rang) => {
-              const leurs = candidats.filter((c) => question.positions[c.id] === option.id);
+              const leurs = candidats.filter((c) => question.positions[c.id]?.option === option.id);
               const sienne = option.id === reponse.option;
               return (
                 <article key={option.id} className={sienne ? "ropt mine" : "ropt"} aria-labelledby={`o-${option.id}`}>
@@ -85,6 +85,9 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
                     {leurs.map((c) => (
                       <li key={c.id} className="def">
                         <span className="def-name one">{c.nom}</span>
+                        <span className="def-src">
+                          <span className="def-doc one">{question.positions[c.id].source}</span>
+                        </span>
                       </li>
                     ))}
                   </ul>
