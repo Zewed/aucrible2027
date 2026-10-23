@@ -3,7 +3,8 @@
 # (la question et le thème de la n° 9 de maquettes/rattrapage.html).
 # Les positions des candidats sont inventées pour les tests du classement (ticket 063) : elles ne disent rien
 # de ce que pensent ces candidats. Les notes du plateau des options sont inventées pour les tests
-# du plateau (tickets 075 et 078).
+# du plateau (tickets 075 et 078). Les thèmes des fiches de test n° 1 à 22 suivent la répartition des
+# 23 réponses de maquettes/resultats.html (tickets 083 à 085).
 numero: 9
 date: 2026-10-08
 theme: economie-impots

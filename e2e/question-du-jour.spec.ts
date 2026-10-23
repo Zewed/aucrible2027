@@ -2410,10 +2410,11 @@ test.describe("le camembert affiche 11 parts, une par thème", () => {
     );
     expect(lignes.map((l) => l.nom)).toEqual(THEMES);
     expect(new Set(lignes.map((l) => l.couleur)).size).toBe(11);
-    // Avec ces réponses, seule la part Logement est gagnée : elle prend la couleur de sa ligne, à sa place.
-    await expect(page.locator(".big-token svg path.on")).toHaveCount(1);
+    // Avec ces réponses, cinq parts sont gagnées : chacune prend la couleur de sa ligne, à sa place.
+    await expect(page.locator(".big-token svg path.on")).toHaveCount(5);
     const parts = await partsDuCamembert(page);
-    expect(parts[THEMES.indexOf("Logement")].couleur).toBe(lignes[THEMES.indexOf("Logement")].couleur);
+    const gagnees = await page.locator(".big-token svg path").evaluateAll((p) => p.map((part) => part.classList.contains("on")));
+    for (let i = 0; i < 11; i++) if (gagnees[i]) expect(parts[i].couleur).toBe(lignes[i].couleur);
   });
 });
 
@@ -2454,10 +2455,36 @@ test.describe("une part se remplit après 3 réponses dans son thème", () => {
     expect(await ligneDuTheme(page, "Travail & retraites")).toEqual({ allumees: 3, sur: 3, remplie: true });
   });
 
-  test("une 4e réponse dans un thème déjà gagné laisse ses 3 pastilles allumées et sa part remplie", async ({ page }) => {
-    // Quatre questions Logement.
-    await reponsesAuxNumeros(page, [1, 2, 4, 7]);
-    await expect(page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").filter({ hasText: "Logement" }).locator(".pips")).toHaveAttribute("aria-label", "4 réponses");
-    expect(await ligneDuTheme(page, "Logement")).toEqual({ allumees: 3, sur: 3, remplie: true });
+  test("une 4e réponse dans un thème déjà gagné (Économie & impôts en a 4) laisse ses 3 pastilles allumées et sa part remplie", async ({ page }) => {
+    await reponsesAuxNumeros(page, [1, 2, 4, 9]);
+    await expect(page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").filter({ hasText: "Économie & impôts" }).locator(".pips")).toHaveAttribute("aria-label", "4 réponses");
+    expect(await ligneDuTheme(page, "Économie & impôts")).toEqual({ allumees: 3, sur: 3, remplie: true });
+  });
+});
+
+test.describe("le camembert affiche le nombre de parts gagnées", () => {
+  const compteur = (page: Page) => page.locator(".big-token .count");
+
+  test("avec 23 réponses, dont 5 thèmes à 3 réponses ou plus, le camembert affiche « 5/11 parts »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(compteur(page)).toHaveText("5/11parts");
+    await expect(page.getByRole("img", { name: "Camembert : 5 thèmes complétés sur 11" })).toBeVisible();
+  });
+
+  test("après la réponse à la n° 24, qui gagne la part Travail & retraites, il affiche « 6/11 parts »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await page.goto("/resultats");
+    await expect(compteur(page)).toHaveText("6/11parts");
+  });
+
+  test("avec 3 réponses et aucun thème complet, il affiche « 0/11 »", async ({ page }) => {
+    await premieresReponses(page, 3);
+    await page.goto("/resultats");
+    await expect(compteur(page).locator("b")).toHaveText("0/11");
   });
 });
