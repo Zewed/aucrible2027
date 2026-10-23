@@ -1183,19 +1183,19 @@ test.describe("le compte à rebours avant le 1er tour", () => {
 });
 
 test.describe("avant la première question, l'accueil dit quand elle arrive", () => {
-  // La première fiche de démonstration est datée du jeudi 22 octobre 2026.
-  test("le 20 octobre, l'accueil donne la date de la première question et ne montre aucune question", async ({ page }) => {
-    await fixerLeJour(page, "2026-10-20T09:00:00+02:00");
+  // La première fiche (de test) est datée du samedi 17 octobre 2026.
+  test("le 15 octobre, l'accueil donne la date de la première question et ne montre aucune question", async ({ page }) => {
+    await fixerLeJour(page, "2026-10-15T09:00:00+02:00");
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: /première question.*jeudi 22 octobre/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /première question.*samedi 17 octobre/i })).toBeVisible();
     await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
     await expect(page.getByText(/^Question n° /)).toHaveCount(0);
   });
 
   test("le jour de la première fiche, la question apparaît à la place du message", async ({ page }) => {
-    await fixerLeJour(page, "2026-10-22T09:00:00+02:00");
+    await fixerLeJour(page, "2026-10-17T09:00:00+02:00");
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "Faut-il encadrer les loyers dans les grandes villes ?" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Fiche de test du samedi 17 octobre ?" })).toBeVisible();
     await expect(page.getByRole("heading", { name: /première question/i })).toHaveCount(0);
   });
 });
@@ -1361,5 +1361,26 @@ test.describe("répondre à la question du jour ajoute un jour à la série", ()
     await expect(page).toHaveURL(/\/revelation$/);
     await expect(serie(page)).toHaveText("7 jours d'affilée");
     await expect(page.getByRole("region", { name: "Ta série" }).getByText("Série : 7 jours d'affilée")).toBeVisible();
+  });
+});
+
+test.describe("un jour sans réponse remet la série à zéro", () => {
+  const JUSQUAU_22 = ["2026-10-17", "2026-10-18", "2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22"];
+
+  test("avec 6 jours au soir du jeudi 22 octobre, sans réponse le vendredi 23, le samedi 24 l'en-tête n'affiche plus « 6 jours »", async ({ page }) => {
+    for (const jour of JUSQUAU_22) await repondreCeJour(page, jour);
+    await fixerLeJour(page, "2026-10-22T21:00:00+02:00");
+    await page.goto("/revelation");
+    await expect(serie(page)).toHaveText("6 jours d'affilée");
+    await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
+    await page.goto("/");
+    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
+    await expect(page.getByRole("banner").getByText("6 jours d'affilée")).toHaveCount(0);
+  });
+
+  test("répondre alors à la question du samedi 24 donne « 1 jour d'affilée » : la série repart de 1", async ({ page }) => {
+    for (const jour of JUSQUAU_22) await repondreCeJour(page, jour);
+    await repondreCeJour(page, "2026-10-24");
+    await expect(serie(page)).toHaveText("1 jour d'affilée");
   });
 });
