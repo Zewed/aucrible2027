@@ -7,7 +7,7 @@ import { PuceTheme } from "@/components/PuceTheme";
 import type { Question, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
-import { enregistrerReponseEnCours } from "@/lib/reponses";
+import { enregistrerReponseEnCours, JE_NE_SAIS_PAS } from "@/lib/reponses";
 
 export function QuestionDuJour({ questions, themes }: { questions: Question[]; themes: Theme[] }) {
   const router = useRouter();
@@ -103,6 +103,22 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
               <span className="picked">Ta carte</span>
             </label>
           ))}
+          <label className="opt idk">
+            <input
+              type="radio"
+              name="choix"
+              value={JE_NE_SAIS_PAS}
+              checked={choix === JE_NE_SAIS_PAS}
+              onChange={() => setChoix(JE_NE_SAIS_PAS)}
+              aria-labelledby="titre-nsp"
+              aria-describedby="implique-nsp"
+            />
+            <span className="opt-face">
+              <span className="opt-letter" aria-hidden="true">?</span>
+              <span className="opt-title" id="titre-nsp">Je ne sais pas</span>
+              <span className="opt-impl" id="implique-nsp">Tu passes, ta série continue.</span>
+            </span>
+          </label>
         </div>
         <button type="submit" className="go" aria-disabled={!choix}>Valider ma réponse</button>
       </form>

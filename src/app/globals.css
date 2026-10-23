@@ -3,3 +3,6 @@
   --display: var(--police-affiche), system-ui, sans-serif;
   --text: var(--police-texte), system-ui, sans-serif;
 }
+
+/* La maquette ne dessine pas « Je ne sais pas » choisie : sa phrase passe au texte sur le thème pour rester lisible. */
+.idk input:checked + .opt-face .opt-impl { color: var(--on-theme); }
