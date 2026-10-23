@@ -1,0 +1,21 @@
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_21a69c6ffdcdfc 496-517
+.veebee/tickets/015-l-electeur-change-d-option-avant-de-valider.md
+  s_2c9a7110ce04dd::t_d6c5f99d78b175 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7a3fd4a7b5fcd027ff8355b3d8f3c2d73ccbfe70",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
