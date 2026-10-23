@@ -1,0 +1,39 @@
+src/components/Revelation.tsx
+  s_613931134209e1::t_4da8aa7c5290ca 3,19-21
+src/components/QuestionDuJour.tsx
+  s_613931134209e1::t_4da8aa7c5290ca 5,29-32,67
+src/components/NumeroQuestion.tsx
+  s_613931134209e1::t_4da8aa7c5290ca 1-11
+e2e/question-du-jour.spec.ts
+  s_613931134209e1::t_1c342f57d8d37f 128,137,145
+  s_613931134209e1::t_5d913376aec796 108-126,129-136,138-143,146-147
+  s_613931134209e1::t_346a0dc977d13c 127,144
+src/lib/date.ts
+  s_613931134209e1::t_4da8aa7c5290ca 5-14
+.veebee/tickets/004-la-question-affiche-son-numero-et-sa-date.md
+  s_f47e83bd1733a2::t_affda8a6e07c21 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4043aee78fc59e19f2e79ad5a79d5a8c74f1785d",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    },
+    "s_f47e83bd1733a2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dc39a2d9-b7a4-4808-903c-49231de0404e",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
