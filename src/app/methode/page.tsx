@@ -1,7 +1,10 @@
+import Link from "next/link";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { PisteDuPlateau } from "@/components/PisteDuPlateau";
-import { lireAujourdhui } from "@/lib/publication";
+import type { Candidat } from "@/lib/contenu";
+import { melanger } from "@/lib/melange";
+import { lireAujourdhui, lireCandidatsEnLice } from "@/lib/publication";
 import "../regles.css";
 import "./methode.css";
 
@@ -480,12 +483,115 @@ function RegleDesSources() {
   );
 }
 
+/** Les trois critères d'entrée (SPEC.md, « Candidats ») et leur pictogramme. */
+const CRITERES = [
+  {
+    trace: "M6 36a18 18 0 0 1 36 0M14 36a10 10 0 0 1 20 0M22 36a2 2 0 0 1 4 0",
+    texte: (
+      <>
+        Son parti <b>dirige un groupe</b> à l&apos;Assemblée nationale ou au Parlement européen.
+      </>
+    ),
+  },
+  {
+    trace: "M8 40V24M20 40V14M32 40V28M44 40H4",
+    texte: (
+      <>
+        Il ou elle atteint <b>2,0&nbsp;% en moyenne</b> dans les enquêtes d&apos;intentions de vote des 30 derniers jours.
+        <small>Pour chaque enquête, on fait la moyenne des scénarios où le candidat est testé.</small>
+      </>
+    ),
+  },
+  {
+    trace: "M8 38l4-1 22-22a4 4 0 0 0-6-6L6 31zM28 12l6 6M26 40h16",
+    texte: (
+      <>
+        Son parti avait obtenu <b>les 500 parrainages en 2022</b> (le parti lui-même, pas ses scissions).
+      </>
+    ),
+  },
+];
+
+/**
+ * Règle n° 7 : la règle d'entrée, puis la liste des candidats en lice, mélangée par le jour (le même ordre pour
+ * tous dans la journée, sans rapport avec les intentions de vote), et le recalcul du 1er du mois. Les autres jalons
+ * de la frise (liste officielle, retrait, remplacement) arrivent avec les tickets 150 et 151.
+ */
+function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string }) {
+  const nombre = `${candidats.length} candidat${candidats.length > 1 ? "s" : ""}`;
+  return (
+    <article className="rule theme-loge" id="r7" aria-labelledby="r7-t">
+      <header className="rule-head">
+        <span className="rule-n" aria-hidden="true">
+          7
+        </span>
+        <p className="rule-k">Règle n° 7</p>
+        <h2 id="r7-t">Qui est dans le jeu&nbsp;: {nombre}</h2>
+      </header>
+      <div className="rule-body">
+        <div className="rule-txt">
+          <p>
+            <b>La règle d&apos;entrée est la même pour tous.</b> Il suffit de remplir <b>au moins un</b> des trois critères&nbsp;:
+          </p>
+        </div>
+        <ul className="crit">
+          {CRITERES.map(({ trace, texte }) => (
+            <li key={trace}>
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <path d={trace} style={{ fill: "none", stroke: "currentColor", strokeWidth: 3.4, strokeLinecap: "round", strokeLinejoin: "round" }} />
+              </svg>
+              <p>{texte}</p>
+            </li>
+          ))}
+        </ul>
+
+        <div className="demo">
+          {/* La liste du lancement (SPEC.md) ; sa date suivra le recalcul du 1er du mois quand il existera. */}
+          <p className="demo-k">
+            <i></i>La liste au 23/10/2026 · {nombre}
+          </p>
+          <ul className="roster">
+            {melanger(candidats, Number(jour.replaceAll("-", ""))).map((c) => (
+              <li key={c.id}>
+                <Link href={`/candidat/${c.id}`}>
+                  <span className="pawn pawn--paper">{c.initiales}</span>
+                  <span className="who">
+                    <b>{c.nom}</b>
+                    <small>{c.parti}</small>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="demo-cap">
+            Ordre mélangé, sans rapport avec les intentions de vote. Même pion pour tous. <b>Jean Lassalle</b> entrerait
+            automatiquement s&apos;il se déclarait. Les Écologistes décident de la candidature de Marine Tondelier par un vote des
+            adhérents, du 10 au 13 décembre.
+          </p>
+        </div>
+
+        <div className="rule-txt">
+          <p>
+            <b>La liste vit jusqu&apos;au bout de la campagne&nbsp;:</b>
+          </p>
+        </div>
+        <ol className="tl">
+          <li>
+            <span className="when">Le 1er de chaque mois</span>
+            <span className="what">La liste est recalculée avec les trois critères. Un candidat entré reste jusqu&apos;à son retrait.</span>
+          </li>
+        </ol>
+      </div>
+    </article>
+  );
+}
+
 /**
  * La page « Méthode de calcul et sources » (maquettes/methode.html), règle par règle. Le sommaire « Aller à la règle »,
- * la version de la méthode et le pied de page ne sont portés par aucun ticket ; la règle n° 4 n'en a pas non plus ; les règles 7 et 8 viennent ensuite.
+ * la version de la méthode et le pied de page ne sont portés par aucun ticket ; la règle n° 4 n'en a pas non plus ; la règle n° 8 vient ensuite.
  */
 async function Methode() {
-  const jour = await lireAujourdhui();
+  const [jour, candidats] = await Promise.all([lireAujourdhui(), lireCandidatsEnLice()]);
   return (
     <>
       <BandeauRetour jour={jour} />
@@ -522,6 +628,7 @@ async function Methode() {
             <RegleDesInconnues />
             <RegleDuPlateau />
             <RegleDesSources />
+            <RegleDEntree candidats={candidats} jour={jour} />
           </div>
         </div>
       </main>

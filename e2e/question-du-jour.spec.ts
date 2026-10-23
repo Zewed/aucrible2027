@@ -3621,3 +3621,42 @@ test.describe("la page Méthode explique les deux badges", () => {
     await expect(exemples.locator(".s")).toHaveText(["Programme 2027 · Retraites · 12/09/2026", "Vote du groupe à l'AN · réforme des retraites · 03/2023"]);
   });
 });
+
+test.describe("la page Méthode explique la règle d'entrée des candidats", () => {
+  const regle7 = (page: Page) => page.getByRole("article", { name: "Qui est dans le jeu : 13 candidats" });
+
+  test("la règle n° 7 écrit les trois critères, dont un seul suffit", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(regle7(page).getByText("Règle n° 7")).toBeVisible();
+    await expect(regle7(page).getByText("La règle d'entrée est la même pour tous. Il suffit de remplir au moins un des trois critères :")).toBeVisible();
+    await expect(regle7(page).locator(".crit li p")).toHaveText([
+      "Son parti dirige un groupe à l'Assemblée nationale ou au Parlement européen.",
+      "Il ou elle atteint 2,0 % en moyenne dans les enquêtes d'intentions de vote des 30 derniers jours.Pour chaque enquête, on fait la moyenne des scénarios où le candidat est testé.",
+      "Son parti avait obtenu les 500 parrainages en 2022 (le parti lui-même, pas ses scissions).",
+    ]);
+  });
+
+  test("la liste « au 23/10/2026 · 13 candidats » nomme les 13 avec leur parti, dans un ordre mélangé, avec le même pion pour tous", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(regle7(page).getByText("La liste au 23/10/2026 · 13 candidats")).toBeVisible();
+    const liste = regle7(page).locator(".roster li");
+    await expect(liste).toHaveCount(13);
+    const lus = await liste.evaluateAll((lignes) => lignes.map((l) => [l.querySelector("b")!.textContent, l.querySelector("small")!.textContent]));
+    const contenu = (parse(readFileSync("content/candidats.yaml", "utf8")) as { nom: string; parti: string }[]).map((c) => [c.nom, c.parti]);
+    expect([...lus].sort()).toEqual([...contenu].sort());
+    for (const [nom, parti] of [["Fabien Roussel", "PCF"], ["Édouard Philippe", "Horizons"], ["Raphaël Glucksmann", "Place publique / PS"]]) expect(lus).toContainEqual([nom, parti]);
+    // Ni l'ordre du contenu, ni l'ordre alphabétique.
+    expect(lus.map(([nom]) => nom)).not.toEqual(contenu.map(([nom]) => nom));
+    expect(lus.map(([nom]) => nom)).not.toEqual(contenu.map(([nom]) => nom).sort((a, b) => a.localeCompare(b, "fr")));
+    const pions = await liste.locator(".pawn").evaluateAll((p) => p.map((e) => [e.className, getComputedStyle(e).backgroundColor].join(" | ")));
+    expect(new Set(pions).size).toBe(1);
+  });
+
+  test("la page dit que la liste est recalculée le 1er de chaque mois, qu'un candidat entré reste jusqu'à son retrait, et que Jean Lassalle entrerait s'il se déclarait", async ({ page }) => {
+    await page.goto("/methode");
+    const jalon = regle7(page).locator(".tl li").first();
+    await expect(jalon.locator(".when")).toHaveText("Le 1er de chaque mois");
+    await expect(jalon.locator(".what")).toHaveText("La liste est recalculée avec les trois critères. Un candidat entré reste jusqu'à son retrait.");
+    await expect(regle7(page).getByText("Jean Lassalle entrerait automatiquement s'il se déclarait.", { exact: false })).toBeVisible();
+  });
+});
