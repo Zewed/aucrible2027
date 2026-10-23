@@ -1,0 +1,29 @@
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_c339bb4ba8cfe5 604-609,992-1030
+  s_2c9a7110ce04dd::t_bc1bccdddacf17 1031
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_60a58c9d2624bf 4,12,27-28,30-35,40
+src/lib/reponses.ts
+  s_2c9a7110ce04dd::t_60a58c9d2624bf 1-2,12-13,15-17,20-26
+src/components/Revelation.tsx
+  s_2c9a7110ce04dd::t_60a58c9d2624bf 8-9,77,79
+  s_2c9a7110ce04dd::t_9a17a6507ec9e6 78,80
+.veebee/tickets/033-une-question-deja-repondue-rouvre-sur-sa-revelation.md
+  s_2c9a7110ce04dd::t_88489b58919868 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "aab68d144e21be52e026cb2819fe93128d386aea",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
