@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Camembert } from "@/components/Camembert";
 import type { Candidat, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
@@ -26,6 +27,13 @@ function usePremierDuClassement(questions: QuestionDuCalcul[], candidats: Candid
  * Le pied de la carte : « 23 réponses · 5/11 thèmes · 6 jours d'affilée ». Toutes les réponses de
  * l'appareil, les parts gagnées, et la série ; sans série, la ligne s'en passe (à trancher).
  */
+/** Les thèmes dont la part est gagnée, dans l'ordre des thèmes. */
+function usePartsGagnees(questions: QuestionDuCalcul[], themes: Theme[]) {
+  const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
+  const parTheme = reponsesParTheme(questions, reponses);
+  return themes.map((t) => (parTheme[t.id] ?? 0) >= REPONSES_PAR_PART);
+}
+
 function usePiedDeCarte(questions: QuestionDuCalcul[], themes: Theme[]) {
   const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
   const jour = useCoteClient(() => aujourdhuiAParis());
@@ -88,7 +96,9 @@ export function ApercuDeLaCarte({ questions, candidats, themes }: { questions: Q
 export function CarteAvecCandidat({ questions, candidats, themes }: { questions: QuestionDuCalcul[]; candidats: Candidat[]; themes: Theme[] }) {
   const premier = usePremierDuClassement(questions, candidats);
   const pied = usePiedDeCarte(questions, themes);
+  const gagnees = usePartsGagnees(questions, themes);
   if (!premier) return null;
+  const nombre = gagnees.filter(Boolean).length;
   return (
     <div className="sp-cards">
       <div className="sp-slot sp-slot--a">
@@ -107,6 +117,13 @@ export function CarteAvecCandidat({ questions, candidats, themes }: { questions:
             <p className="sc-t">
               Je suis à {premier.pourcentage}&nbsp;% proche de <mark>{premier.candidat.nom}</mark>.
             </p>
+            <div className="sc-token">
+              <Camembert
+                interieur={34}
+                couleurs={themes.map((theme, i) => (gagnees[i] ? couleurDe(theme) : null))}
+                description={`Camembert : ${nombre} ${nombre > 1 ? "thèmes" : "thème"} sur ${themes.length}`}
+              />
+            </div>
             <p className="sc-f">{pied}</p>
           </article>
         </div>
