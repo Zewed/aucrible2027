@@ -1,0 +1,24 @@
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_35b9fc813f8bf7 3109-3140
+  s_330ba31127fa8a::t_63872032c262e4 2
+src/app/candidat/[id]/page.tsx
+  s_330ba31127fa8a::t_5afddfea9b48d1 64
+.veebee/tickets/129-une-question-sans-source-affiche-position-inconnue.md
+  s_330ba31127fa8a::t_ffcde11ee684b4 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ffbd5d78549dd905474a5833c44800047d6fe081",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
