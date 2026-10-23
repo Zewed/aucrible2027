@@ -9,7 +9,16 @@ export type StatutDeCandidature = { etat: string; suite?: string };
  * « retiré », que l'auteur du contenu écrit ; sans accord, la fiche écrit « retiré·e », comme SPEC.md.
  */
 export type Retrait = { date: string; soutien?: string; accord?: "feminin" | "masculin" };
-export type Candidat = { id: string; nom: string; parti: string; initiales: string; statut?: StatutDeCandidature; retrait?: Retrait };
+export type Candidat = {
+  id: string;
+  nom: string;
+  parti: string;
+  initiales: string;
+  statut?: StatutDeCandidature;
+  retrait?: Retrait;
+  /** Le candidat qu'il remplace dans le même parti (SPEC.md, « Remplacement ») : il reprend ses positions. */
+  remplace?: string;
+};
 export type Option = {
   id: string;
   libelle: string;
@@ -47,14 +56,19 @@ const RACINE = path.join(process.cwd(), "content");
 
 /**
  * Les candidats de content/candidats.yaml. Pour les tests de bout en bout seulement, des ajouts de test
- * (e2e/fiches/candidats/<nom>.yaml) les complètent candidat par candidat, par exemple d'un retrait.
+ * (e2e/fiches/candidats/<nom>.yaml) les complètent candidat par candidat, par exemple d'un retrait ; un ajout qui
+ * « remplace » un candidat prend sa place et garde son parti.
  */
 export function lireCandidats(ajoutsDeTest?: string): Candidat[] {
   const candidats: Candidat[] = parse(readFileSync(path.join(RACINE, "candidats.yaml"), "utf8"));
   const test = process.env.AUCRIBLE_FICHES_DE_TEST;
   if (!test || !ajoutsDeTest || !/^[a-z-]+$/.test(ajoutsDeTest)) return candidats;
   const ajouts: Partial<Candidat>[] = parse(readFileSync(path.join(process.cwd(), test, "candidats", `${ajoutsDeTest}.yaml`), "utf8"));
-  return candidats.map((c) => ({ ...c, ...ajouts.find((a) => a.id === c.id) }));
+  return candidats.map((c) => {
+    const remplacant = ajouts.find((a) => a.remplace === c.id);
+    if (remplacant) return { id: c.id, nom: c.nom, parti: c.parti, initiales: c.initiales, ...remplacant };
+    return { ...c, ...ajouts.find((a) => a.id === c.id) };
+  });
 }
 
 export function lireThemes(): Theme[] {
