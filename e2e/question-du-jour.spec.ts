@@ -367,3 +367,43 @@ test("sur aucune fiche, ce qu'en disent les défenseurs ne nomme un candidat ou 
   expect(textes).toHaveLength(5 + 4 + 3);
   for (const texte of textes) expect(nomsOuPartisDans(texte), texte).toEqual([]);
 });
+
+test("chaque option de la question n° 24 dit ce que lui reprochent ses critiques, lisible sans rien choisir", async ({ page }) => {
+  await page.goto("/");
+  const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+  await expect(options).toHaveCount(5);
+  const attendus: Record<number, string> = {
+    0: "Un coût élevé, qui pèserait sur les salaires ou sur les entreprises.",
+    4: "La valeur du point peut baisser : la pension devient moins prévisible.",
+  };
+  for (const [rang, option] of (await options.all()).entries()) {
+    const bloc = option.locator("xpath=..").getByText("Ce que lui reprochent ses critiques", { exact: true }).locator("xpath=..");
+    await expect(bloc).toBeVisible();
+    const critique = (await bloc.innerText()).replace("Ce que lui reprochent ses critiques", "").trim();
+    expect(critique.length).toBeGreaterThan(10);
+    if (attendus[rang]) expect(critique).toBe(attendus[rang]);
+  }
+  await expect(page.getByRole("radio", { checked: true })).toHaveCount(0);
+});
+
+test("sur aucune fiche, ce que reprochent les critiques ne nomme un candidat ou un parti", async ({ page }) => {
+  const textes = await argumentsDesFiches(page, "Ce que lui reprochent ses critiques");
+  expect(textes).toHaveLength(5 + 4 + 3);
+  for (const texte of textes) expect(nomsOuPartisDans(texte), texte).toEqual([]);
+});
+
+test.describe("les arguments des options, sur grand écran", () => {
+  test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
+
+  test("les titres « Ce qu'en disent ses défenseurs » et « Ce que lui reprochent ses critiques » se lisent en entier", async ({ page }) => {
+    await page.goto("/");
+    for (const titre of ["Ce qu'en disent ses défenseurs", "Ce que lui reprochent ses critiques"]) {
+      const titres = page.getByRole("radiogroup", { name: "Les options" }).getByText(titre, { exact: true });
+      await expect(titres).toHaveCount(5);
+      for (const t of await titres.all()) {
+        await expect(t).toBeVisible();
+        expect(await t.evaluate((el) => el.scrollWidth <= el.clientWidth + 1), titre).toBe(true);
+      }
+    }
+  });
+});
