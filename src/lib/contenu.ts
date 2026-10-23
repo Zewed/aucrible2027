@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { parse } from "yaml";
 
-export type Candidat = { id: string; nom: string; parti: string };
+export type Candidat = { id: string; nom: string; parti: string; initiales: string };
 export type Option = { id: string; libelle: string; implique: string; defenseurs: string; critiques: string };
 export type Source = { organisme: string; document?: string; annee: number };
 export type Chiffre = { valeur: string; unite?: string; legende: string; source: Source };

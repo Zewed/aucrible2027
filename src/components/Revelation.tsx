@@ -7,6 +7,15 @@ import { melanger } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
 import { lireReponseEnCours, type ReponseEnCours } from "@/lib/reponses";
 
+/** Le pion d'un candidat : le même pour tous, à ses initiales, jamais à la couleur de son parti. */
+function Pion({ candidat, clair = false }: { candidat: Candidat; clair?: boolean }) {
+  return (
+    <span className={clair ? "pawn pawn--paper" : "pawn"} aria-hidden="true">
+      {candidat.initiales}
+    </span>
+  );
+}
+
 function Badge({ statut }: { statut: Position["statut"] }) {
   return statut === "officielle" ? (
     <span className="badge badge--off">
@@ -111,6 +120,7 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
                   <ul className="defs">
                     {leurs.map((c) => (
                       <li key={c.id} className="def">
+                        <Pion candidat={c} />
                         <span className="def-name one">{c.nom}</span>
                         <span className="def-src">
                           <span className="def-doc one">{question.positions[c.id].source}</span>
@@ -136,6 +146,7 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
                 <ul className="defs">
                   {inconnus.map((c) => (
                     <li key={c.id} className="def">
+                      <Pion candidat={c} clair />
                       <span className="def-name one">{c.nom}</span>
                       <span className="def-src">
                         <span className="def-doc one">Pas de source à ce jour</span>
