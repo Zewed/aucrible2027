@@ -7,5 +7,6 @@
 /* La maquette ne dessine pas « Je ne sais pas » choisie : sa phrase passe au texte sur le thème pour rester lisible. */
 .idk input:checked + .opt-face .opt-impl { color: var(--on-theme); }
 
-/* Le kit fait rouler le dé à chaque chargement ; il ne roulera que quand la série augmente (ticket 051). */
+/* Le kit fait rouler le dé à chaque chargement ; il ne roule que quand la série augmente. */
 .die { animation: none; }
+.die.roule { animation: roll 1.1s var(--ease-out) .2s both; }

@@ -1462,3 +1462,52 @@ test.describe("sans aucune réponse, le dé n'affiche pas de série", () => {
     await expect(uneSerie(page)).toHaveCount(0);
   });
 });
+
+test.describe("le dé roule quand la série augmente", () => {
+  /** Les animations en cours sur le dé de l'en-tête, par nom. */
+  const animationsDuDe = (page: Page) =>
+    page
+      .getByRole("banner")
+      .locator(".die")
+      .evaluate((de) => de.getAnimations().map((animation) => (animation as CSSAnimation).animationName));
+
+  async function validerLaReponseDuJour(page: Page) {
+    await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+  }
+
+  test("en validant la réponse du jour avec « 6 jours d'affilée », le dé de l'en-tête roule à l'arrivée sur la révélation puis affiche « 7 jours d'affilée »", async ({ page }) => {
+    for (const jour of SIX_JOURS) await repondreCeJour(page, jour);
+    await fixerLeJour(page, "2026-10-28T09:00:00+01:00");
+    await page.goto("/");
+    await expect(serie(page)).toHaveText("6 jours d'affilée");
+    expect(await animationsDuDe(page)).toEqual([]);
+    await validerLaReponseDuJour(page);
+    expect(await animationsDuDe(page)).toEqual(["roll"]);
+    await expect(serie(page)).toHaveText("7 jours d'affilée");
+  });
+
+  test("en rouvrant la même révélation plus tard, ou en ouvrant une autre page, le dé ne roule pas", async ({ page }) => {
+    for (const jour of [...SIX_JOURS, "2026-10-28T09:00:00+01:00"]) await repondreCeJour(page, jour);
+    await fixerLeJour(page, "2026-10-28T18:00:00+01:00");
+    await page.goto("/revelation");
+    await expect(serie(page)).toHaveText("7 jours d'affilée");
+    expect(await animationsDuDe(page)).toEqual([]);
+    // L'accueil, qui rouvre la révélation de la question déjà répondue.
+    await page.goto("/");
+    await expect(page).toHaveURL(/\/revelation$/);
+    await expect(serie(page)).toHaveText("7 jours d'affilée");
+    expect(await animationsDuDe(page)).toEqual([]);
+  });
+
+  test("avec « réduire les animations », le dé ne roule pas mais affiche quand même « 7 jours d'affilée »", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    for (const jour of SIX_JOURS) await repondreCeJour(page, jour);
+    await fixerLeJour(page, "2026-10-28T09:00:00+01:00");
+    await page.goto("/");
+    await validerLaReponseDuJour(page);
+    expect(await animationsDuDe(page)).toEqual([]);
+    await expect(serie(page)).toHaveText("7 jours d'affilée");
+  });
+});
