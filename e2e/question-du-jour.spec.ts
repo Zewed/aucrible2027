@@ -4180,3 +4180,42 @@ test.describe("chaque correction dit qui l'a repérée", () => {
     expect((await reponse.text()).includes("marie")).toBe(false);
   });
 });
+
+test.describe("l'électeur filtre le journal par type", () => {
+  const visibles = (page: Page) => page.locator(".log .entry").filter({ visible: true });
+  const filtre = (page: Page, nom: string) => page.getByRole("radiogroup", { name: "Filtrer par type de correction" }).getByRole("radio", { name: new RegExp(`^${nom} \\d+$`) });
+  async function journal(page: Page) {
+    await page.context().addCookies([{ name: "aucrible-corrections-de-test", value: "maquette", url: "http://localhost:3127" }]);
+    await page.goto("/journal");
+    await expect(page.locator(".log .entry")).toHaveCount(7);
+  }
+
+  test("avec les sept corrections de la maquette, « Toutes » est choisi au départ et la liste en montre 7", async ({ page }) => {
+    await journal(page);
+    await expect(filtre(page, "Toutes")).toBeChecked();
+    await expect(visibles(page)).toHaveCount(7);
+  });
+
+  test("« Position de candidat » en laisse 2 (Attal et Arthaud), « Source » une (le 09 oct. 2026), « Toutes » les remet à 7", async ({ page }) => {
+    await journal(page);
+    await page.locator("label", { hasText: /^Position de candidat/ }).click();
+    await expect(visibles(page)).toHaveCount(2);
+    await expect(visibles(page).getByRole("heading", { level: 2 })).toHaveText(["GAGabriel Attal", "NANathalie Arthaud"]);
+    await page.locator("label", { hasText: /^Source/ }).click();
+    await expect(visibles(page)).toHaveCount(1);
+    await expect(visibles(page).locator("time")).toHaveAttribute("datetime", "2026-10-09");
+    await page.locator("label", { hasText: /^Toutes/ }).click();
+    await expect(visibles(page)).toHaveCount(7);
+  });
+
+  test("le nombre écrit à côté de chaque filtre est celui des corrections qu'il affiche", async ({ page }) => {
+    await journal(page);
+    const etiquettes = page.locator(".jfilter > label");
+    await expect(etiquettes).toHaveText(["Toutes 7", "Chiffre 2", "Position de candidat 2", "Formulation 2", "Source 1"]);
+    for (const texte of await etiquettes.allInnerTexts()) {
+      const [, nom, nombre] = texte.replace(/\s+/g, " ").trim().match(/^(.*) (\d+)$/)!;
+      await page.locator(".jfilter > label", { hasText: new RegExp(`^${nom} `) }).click();
+      await expect(visibles(page), nom).toHaveCount(Number(nombre));
+    }
+  });
+});

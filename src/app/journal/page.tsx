@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Suspense } from "react";
+import { Fragment, Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { DeDesRegles, RayuresDesThemes } from "@/components/Regles";
 import { lireThemes, type Candidat, type CoteDeLaCorrection, type Correction } from "@/lib/contenu";
@@ -64,6 +64,14 @@ const ORIGINES: Record<Correction["origine"], string> = {
   controle: "Repéré par le contrôle de neutralité",
 };
 
+/** Les filtres du journal, dans l'ordre de la maquette ; un type sans correction garde son filtre, à 0 (à trancher). */
+const FILTRES: [Correction["type"], string][] = [
+  ["chiffre", "Chiffre"],
+  ["position", "Position de candidat"],
+  ["formulation", "Formulation"],
+  ["source", "Source"],
+];
+
 const TYPES: Record<Correction["type"], string> = { chiffre: "Chiffre", position: "Position", formulation: "Formulation", source: "Source" };
 
 /**
@@ -126,8 +134,8 @@ function Entree({ correction, rang, classe, candidat }: { correction: Correction
 
 /**
  * Le « Journal des corrections » (maquettes/journal.html) : le haut de page, puis les corrections, de la plus récente
- * à la plus ancienne. Le bandeau de chiffres et les liens du bas de page ne sont portés par aucun ticket ; les filtres
- * (177) et le journal vide (178) viennent ensuite.
+ * à la plus ancienne, filtrables par type. Le bandeau de chiffres et les liens du bas de page ne sont portés par aucun
+ * ticket ; le journal vide (178) vient ensuite.
  */
 async function Journal() {
   const [jour, corrections, candidats] = await Promise.all([lireAujourdhui(), lireLesCorrections(), lireLesCandidats()]);
@@ -165,17 +173,32 @@ async function Journal() {
             <h2 id="h-log">Les corrections</h2>
             <p>la plus récente d&apos;abord</p>
           </div>
-          <ol className="log">
-            {corrections.map((correction, i) => (
-              <Entree
-                key={i}
-                rang={i + 1}
-                correction={correction}
-                classe={themes.find((t) => t.id === correction.theme)?.classe}
-                candidat={candidats.find((c) => c.id === correction.candidat)}
-              />
+          {/* Le filtre de la maquette, sans script : le bouton coché masque, par la feuille de style, les autres types. */}
+          <div className="jfilter" role="radiogroup" aria-label="Filtrer par type de correction">
+            <input type="radio" name="type" id="f-all" defaultChecked />
+            <label htmlFor="f-all">
+              Toutes <b>{corrections.length}</b>
+            </label>
+            {FILTRES.map(([type, nom]) => (
+              <Fragment key={type}>
+                <input type="radio" name="type" id={`f-${type}`} />
+                <label htmlFor={`f-${type}`}>
+                  {nom} <b>{corrections.filter((c) => c.type === type).length}</b>
+                </label>
+              </Fragment>
             ))}
-          </ol>
+            <ol className="log">
+              {corrections.map((correction, i) => (
+                <Entree
+                  key={i}
+                  rang={i + 1}
+                  correction={correction}
+                  classe={themes.find((t) => t.id === correction.theme)?.classe}
+                  candidat={candidats.find((c) => c.id === correction.candidat)}
+                />
+              ))}
+            </ol>
+          </div>
         </section>
       </main>
     </>
