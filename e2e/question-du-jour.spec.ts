@@ -4301,3 +4301,40 @@ test.describe("une adresse inconnue affiche « Cette carte n'est pas dans le paq
     ).toBeVisible();
   });
 });
+
+test.describe("l'en-tête reste en haut au défilement", () => {
+  /** L'élément au point donné appartient-il à l'en-tête ? Si oui, rien de ce qui défile n'est passé par-dessus. */
+  const devantAuPoint = (page: Page, x: number, y: number) => page.evaluate(([x, y]) => !!document.elementFromPoint(x, y)?.closest("header.topbar"), [x, y]);
+
+  test("sur la n° 24, défiler jusqu'à « Valider ma réponse » laisse le logo et la série en haut, et le texte passe dessous", async ({ page }) => {
+    await vingtTroisReponsesEtSixJours(page);
+    await page.goto("/");
+    await expect(page.getByRole("banner").getByText("6 jours d'affilée")).toBeVisible();
+    await page.getByRole("button", { name: "Valider ma réponse" }).scrollIntoViewIfNeeded();
+    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(300);
+    const logo = page.getByRole("banner").getByRole("link", { name: "Au crible 2027" });
+    const serie = page.getByRole("banner").getByText("6 jours d'affilée");
+    for (const element of [logo, serie]) {
+      await expect(element).toBeInViewport();
+      const boite = (await element.boundingBox())!;
+      expect(boite.y).toBeLessThan(80);
+      expect(await devantAuPoint(page, boite.x + boite.width / 2, boite.y + boite.height / 2)).toBe(true);
+    }
+    const fond = await page.getByRole("banner").evaluate((e) => getComputedStyle(e).backgroundColor);
+    expect(fond).not.toMatch(/rgba\\(.*,\\s*0(\\.\\d+)?\\)$|transparent/);
+  });
+
+  test("sur À propos, « 5 Suite » descend à la section 5 sans que son titre passe sous l'en-tête, qui reste visible", async ({ page }) => {
+    // Un écran bas : la section 5, la dernière, peut alors monter jusqu'en haut, là où l'en-tête la cacherait.
+    await page.setViewportSize({ width: 390, height: 500 });
+    await page.goto("/a-propos");
+    await page.getByRole("navigation", { name: "Sur cette page" }).getByRole("link", { name: /^5 ?Suite$/ }).click();
+    await page.waitForURL(/#r5$/);
+    const titre = page.getByRole("heading", { level: 2, name: "Aller plus loin, ou nous suivre" });
+    await expect(titre).toBeInViewport();
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+    const [entete, boite] = await Promise.all([page.getByRole("banner").boundingBox(), titre.boundingBox()]);
+    expect(entete!.y).toBe(0);
+    expect(boite!.y).toBeGreaterThanOrEqual(entete!.y + entete!.height);
+  });
+});
