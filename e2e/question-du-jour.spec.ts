@@ -3678,3 +3678,14 @@ test.describe("la page Méthode explique les retraits et remplacements", () => {
     );
   });
 });
+
+test.describe("la page Méthode explique la bascule sur la liste officielle", () => {
+  test("une entrée « Vers le 16 mars 2027 » dit que le Conseil constitutionnel publie la liste officielle, et que la liste de l'app bascule alors sur les candidats officiels", async ({ page }) => {
+    await page.goto("/methode");
+    const frise = page.getByRole("article", { name: "Qui est dans le jeu : 13 candidats" }).locator(".tl li");
+    await expect(frise.locator(".when")).toHaveText(["Le 1er de chaque mois", "Vers le 16 mars 2027", "En cas de retrait", "En cas de remplacement dans le même parti"]);
+    await expect(frise.nth(1).locator(".what")).toHaveText(
+      "Le Conseil constitutionnel publie la liste officielle. La nôtre bascule alors exactement sur les candidats officiels.",
+    );
+  });
+});
