@@ -161,6 +161,7 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
           </div>
         </fieldset>
         <button type="submit" className="go" aria-disabled={!choix}>Valider ma réponse</button>
+        <p className="go-note">Tes réponses restent sur ton téléphone, sans compte.</p>
       </form>
     </main>
     </>
