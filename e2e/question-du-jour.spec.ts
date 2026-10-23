@@ -2633,3 +2633,42 @@ test.describe("la carte affiche réponses, thèmes et série", () => {
     await expect(piedDeLaCarte(page)).toHaveText("24 réponses · 6/11 thèmes · 7 jours d'affilée");
   });
 });
+
+test.describe("la carte affiche le camembert", () => {
+  /** Les parts remplies du camembert de la carte, par thème (dans l'ordre des thèmes). */
+  const partsDeLaCarte = (page: Page) =>
+    page
+      .getByRole("article", { name: /Carte à partager/ })
+      .filter({ visible: true })
+      .locator(".sc-token svg path")
+      .evaluateAll((parts) => parts.map((part) => part.classList.contains("on")));
+  const THEMES = [
+    "Économie & impôts", "Travail & retraites", "Écologie & énergie", "Immigration", "Sécurité & justice", "Santé",
+    "Éducation & jeunesse", "Logement", "Europe & international", "Institutions & démocratie", "Société",
+  ];
+  const remplies = (parts: boolean[]) => THEMES.filter((_, i) => parts[i]);
+
+  test("avec 5 parts gagnées, le camembert de la carte montre les 5 mêmes parts que « Mes résultats »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    await expect(page.getByRole("img", { name: "Camembert : 5 thèmes sur 11" })).toBeVisible();
+    const parts = await partsDeLaCarte(page);
+    expect(parts).toHaveLength(11);
+    expect(remplies(parts)).toEqual(["Économie & impôts", "Écologie & énergie", "Immigration", "Sécurité & justice", "Santé"]);
+    await page.goto("/resultats");
+    await expect(page.locator(".big-token .count b")).toHaveText("5/11");
+    const surLesResultats = await page.locator(".big-token svg path").evaluateAll((p) => p.map((part) => part.classList.contains("on")));
+    expect(surLesResultats).toEqual(parts);
+  });
+
+  test("après la réponse à la n° 24, le camembert de la carte montre 6 parts : Travail & retraites s'est ajoutée", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await page.goto("/carte");
+    await expect(page.getByRole("img", { name: "Camembert : 6 thèmes sur 11" })).toBeVisible();
+    expect(remplies(await partsDeLaCarte(page))).toEqual(["Économie & impôts", "Travail & retraites", "Écologie & énergie", "Immigration", "Sécurité & justice", "Santé"]);
+  });
+});
