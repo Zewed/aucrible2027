@@ -1,0 +1,37 @@
+e2e/question-du-jour.spec.ts
+  s_613931134209e1::t_2fc486e12ac82d 148-162
+content/questions/024-retraite.yaml
+  s_2c9a7110ce04dd::t_45834134e77b29 3-4,9-12
+src/lib/contenu.ts
+  s_2c9a7110ce04dd::t_69d0dd9174dd30 13
+.veebee/tickets/005-la-fiche-affiche-le-contexte-en-trois-phrases.md
+  s_2c9a7110ce04dd::t_df28469757778a 8
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_69d0dd9174dd30 41-50
+content/questions/025-nucleaire.yaml
+  s_2c9a7110ce04dd::t_45834134e77b29 1,7-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e4a4b4c33689860b21c357ad7958a8e46b5305b8",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    },
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
