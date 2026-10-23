@@ -19,7 +19,11 @@ export function Plateau({ questions }: { questions: QuestionDuCalcul[] }) {
         <p>2 axes</p>
       </div>
       <div className="board-wrap">
-        <div className="board" role="img" aria-label="Carte à deux axes, avec ton pion « toi »">
+        <div
+          className="board"
+          role="img"
+          aria-label="Carte à deux axes : plus de redistribution à gauche, plus de marché à droite, progressiste en haut, conservateur en bas, avec ton pion « toi »"
+        >
           <PisteDuPlateau />
           <div className="field">
             <span className="you" style={{ "--x": `${x}%`, "--y": `${y}%` } as React.CSSProperties}>
@@ -27,6 +31,10 @@ export function Plateau({ questions }: { questions: QuestionDuCalcul[] }) {
               <span>TOI</span>
             </span>
           </div>
+          <span className="edge top">↑ progressiste</span>
+          <span className="edge bottom">↓ conservateur</span>
+          <span className="edge left">← plus de redistribution</span>
+          <span className="edge right">plus de marché →</span>
         </div>
       </div>
     </section>
