@@ -39,11 +39,10 @@ function LigneAlignement({
       <ul className={loin ? "who far" : "who"} aria-labelledby={id}>
         {candidats.map((c) => (
           <li key={c.id}>
-            {/* Le nom mènera à la fiche du candidat (ticket 122) : pas encore de lien. */}
-            <a>
+            <Link href={`/candidat/${c.id}`}>
               <Pion candidat={c} clair={loin} />
               {c.nom}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -257,7 +256,9 @@ export function Revelation({
                     {leurs.map((c) => (
                       <li key={c.id} className="def">
                         <Pion candidat={c} />
-                        <span className="def-name one">{c.nom}</span>
+                        <Link className="def-name one" href={`/candidat/${c.id}`}>
+                        {c.nom}
+                      </Link>
                         <span className="def-src">
                           <span className="def-doc one">{question.positions[c.id].source}</span>
                           <Badge statut={question.positions[c.id].statut} />
@@ -287,7 +288,9 @@ export function Revelation({
                   {inconnus.map((c) => (
                     <li key={c.id} className="def">
                       <Pion candidat={c} clair />
-                      <span className="def-name one">{c.nom}</span>
+                      <Link className="def-name one" href={`/candidat/${c.id}`}>
+                        {c.nom}
+                      </Link>
                       <span className="def-src">
                         <span className="def-doc one">Pas de source à ce jour</span>
                         <span className="badge badge--none">position inconnue</span>
