@@ -1,0 +1,29 @@
+src/app/revelation/revelation.css
+  s_2c9a7110ce04dd::t_4ed3b3a849816e 1
+src/components/Revelation.tsx
+  s_2c9a7110ce04dd::t_4ed3b3a849816e 10-18,123,149
+src/lib/contenu.ts
+  s_2c9a7110ce04dd::t_4ed3b3a849816e 5
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_2097439681968e 785-837
+content/candidats.yaml
+  s_2c9a7110ce04dd::t_4ed3b3a849816e 2,6,10,14,18,22,26,30,34,38,42,46,50,54
+.veebee/tickets/026-tous-les-candidats-reveles-ont-le-meme-pion-sans.md
+  s_2c9a7110ce04dd::t_d469cb75c7df54 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "651ec745175520996db94ea4132d35c78be0612d",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
