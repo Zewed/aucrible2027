@@ -132,10 +132,34 @@ function Entree({ correction, rang, classe, candidat }: { correction: Correction
   );
 }
 
+/** Le journal sans aucune correction : il invite à signaler une erreur (maquettes/journal.html, l'état vide). */
+function JournalVide() {
+  return (
+    <div className="empty">
+      <svg viewBox="0 0 120 100" aria-hidden="true">
+        <rect x="22" y="10" width="76" height="84" rx="10" style={{ fill: "#fff" }} />
+        <rect x="22" y="10" width="16" height="84" rx="10" style={{ fill: "var(--ecol)" }} />
+        <rect x="30" y="10" width="8" height="84" style={{ fill: "var(--ecol)" }} />
+        <rect x="50" y="30" width="36" height="7" rx="3" style={{ fill: "var(--slot)" }} />
+        <rect x="50" y="46" width="28" height="7" rx="3" style={{ fill: "var(--slot)" }} />
+        <rect x="50" y="62" width="32" height="7" rx="3" style={{ fill: "var(--slot)" }} />
+      </svg>
+      <h3>Aucune correction pour l&apos;instant.</h3>
+      <p>Tu as repéré une erreur&nbsp;?</p>
+      <Link className="btn-link" href="/signaler">
+        Signale-la{" "}
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
+        </svg>
+      </Link>
+    </div>
+  );
+}
+
 /**
  * Le « Journal des corrections » (maquettes/journal.html) : le haut de page, puis les corrections, de la plus récente
- * à la plus ancienne, filtrables par type. Le bandeau de chiffres et les liens du bas de page ne sont portés par aucun
- * ticket ; le journal vide (178) vient ensuite.
+ * à la plus ancienne, filtrables par type, ou l'invitation à signaler tant qu'il n'y en a aucune. Le bandeau de chiffres
+ * et les liens du bas de page ne sont portés par aucun ticket.
  */
 async function Journal() {
   const [jour, corrections, candidats] = await Promise.all([lireAujourdhui(), lireLesCorrections(), lireLesCandidats()]);
@@ -173,32 +197,39 @@ async function Journal() {
             <h2 id="h-log">Les corrections</h2>
             <p>la plus récente d&apos;abord</p>
           </div>
-          {/* Le filtre de la maquette, sans script : le bouton coché masque, par la feuille de style, les autres types. */}
-          <div className="jfilter" role="radiogroup" aria-label="Filtrer par type de correction">
-            <input type="radio" name="type" id="f-all" defaultChecked />
-            <label htmlFor="f-all">
-              Toutes <b>{corrections.length}</b>
-            </label>
-            {FILTRES.map(([type, nom]) => (
-              <Fragment key={type}>
-                <input type="radio" name="type" id={`f-${type}`} />
-                <label htmlFor={`f-${type}`}>
-                  {nom} <b>{corrections.filter((c) => c.type === type).length}</b>
+          {corrections.length === 0 ? (
+            // Sans correction, ni filtres ni liste : les filtres à zéro n'apprendraient rien (à trancher).
+            <JournalVide />
+          ) : (
+            <>
+              {/* Le filtre de la maquette, sans script : le bouton coché masque, par la feuille de style, les autres types. */}
+              <div className="jfilter" role="radiogroup" aria-label="Filtrer par type de correction">
+                <input type="radio" name="type" id="f-all" defaultChecked />
+                <label htmlFor="f-all">
+                  Toutes <b>{corrections.length}</b>
                 </label>
-              </Fragment>
-            ))}
-            <ol className="log">
-              {corrections.map((correction, i) => (
-                <Entree
-                  key={i}
-                  rang={i + 1}
-                  correction={correction}
-                  classe={themes.find((t) => t.id === correction.theme)?.classe}
-                  candidat={candidats.find((c) => c.id === correction.candidat)}
-                />
-              ))}
-            </ol>
-          </div>
+                {FILTRES.map(([type, nom]) => (
+                  <Fragment key={type}>
+                    <input type="radio" name="type" id={`f-${type}`} />
+                    <label htmlFor={`f-${type}`}>
+                      {nom} <b>{corrections.filter((c) => c.type === type).length}</b>
+                    </label>
+                  </Fragment>
+                ))}
+                <ol className="log">
+                  {corrections.map((correction, i) => (
+                    <Entree
+                      key={i}
+                      rang={i + 1}
+                      correction={correction}
+                      classe={themes.find((t) => t.id === correction.theme)?.classe}
+                      candidat={candidats.find((c) => c.id === correction.candidat)}
+                    />
+                  ))}
+                </ol>
+              </div>
+            </>
+          )}
         </section>
       </main>
     </>
