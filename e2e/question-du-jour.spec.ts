@@ -1718,3 +1718,31 @@ test.describe("l'électeur filtre la liste par thème", () => {
     await expect(page.getByRole("region", { name: "Toutes les questions" }).getByRole("listitem").filter({ visible: true })).toHaveCount(24);
   });
 });
+
+test.describe("tout rattrapé, la liste dit « Tu es à jour ! »", () => {
+  /** Des réponses déjà données sur l'appareil, aux questions de ces numéros. */
+  async function reponsesAux(page: Page, numeros: number[]) {
+    await page.goto("/");
+    await page.evaluate((numeros) => {
+      const reponses: Record<number, object> = {};
+      for (const numero of numeros) reponses[numero] = { option: "A", importance: null, graine: 1, jour: "2026-10-23", duJour: numero === 24 };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    }, numeros);
+  }
+  const toutes = Array.from({ length: 24 }, (_, i) => i + 1);
+
+  test("le 23 octobre, une fois les 24 questions publiées toutes répondues, la page affiche « Tu es à jour ! » et « Reviens demain pour la question n° 25. »", async ({ page }) => {
+    await reponsesAux(page, toutes);
+    await page.goto("/rattrapage");
+    await expect(page.getByRole("heading", { name: "Tu es à jour !" })).toBeVisible();
+    await expect(page.getByText(/^Reviens demain pour la question n°\s25\.$/)).toBeVisible();
+  });
+
+  test("tant qu'au moins une question reste « À répondre », ce bloc n'apparaît pas", async ({ page }) => {
+    await reponsesAux(page, toutes.filter((numero) => numero !== 9));
+    await page.goto("/rattrapage");
+    await expect(page.getByText("À répondre", { exact: true })).toHaveCount(1);
+    await expect(page.getByRole("heading", { name: "Tu es à jour !" })).toHaveCount(0);
+    await expect(page.getByText(/Reviens demain/)).toHaveCount(0);
+  });
+});

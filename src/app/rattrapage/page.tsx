@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Fragment, Suspense } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
-import { ListeDeRattrapage, TuileARattraper } from "@/components/ListeDeRattrapage";
+import { AJour, ListeDeRattrapage, TuileARattraper } from "@/components/ListeDeRattrapage";
 import { PartDuTheme } from "@/components/PuceTheme";
 import { lireThemes, type Theme } from "@/lib/contenu";
-import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
+import { lireAujourdhui, lireNumeroDeDemain, lireQuestionsPubliees } from "@/lib/publication";
 import "./rattrapage.css";
 
 /** Le nom court d'un thème dans les sélecteurs du filtre de la maquette : « eco » pour « theme-eco ». */
@@ -53,7 +53,7 @@ function FiltreParTheme({ themes }: { themes: Theme[] }) {
 
 /** Toutes les questions déjà publiées, une carte chacune qui ouvre sa fiche. */
 async function Rattrapage() {
-  const [jour, questions] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
+  const [jour, questions, numeroDeDemain] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees(), lireNumeroDeDemain()]);
   const themes = lireThemes();
   // Les plus récentes d'abord, en attendant le tri par pouvoir de départage (« À trancher »).
   const cartes = [...questions]
@@ -98,6 +98,8 @@ async function Rattrapage() {
           </div>
           <ListeDeRattrapage cartes={cartes} themes={themes} />
         </section>
+
+        <AJour cartes={cartes} numeroDeDemain={numeroDeDemain} />
       </main>
     </>
   );

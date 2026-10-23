@@ -37,6 +37,33 @@ export function TuileARattraper({ cartes }: { cartes: Carte[] }) {
 }
 
 /**
+ * « Tu es à jour ! », une fois toutes les questions publiées répondues sur l'appareil, avec la question
+ * de demain quand il y en a une.
+ */
+export function AJour({ cartes, numeroDeDemain }: { cartes: Carte[]; numeroDeDemain: number | null }) {
+  const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
+  if (cartes.length === 0 || !cartes.every((c) => c.numero in reponses)) return null;
+
+  // Ce que dit le bloc quand il n'y a pas de question demain (silence, fin des questions) reste à trancher.
+  return (
+    <aside className="dp" aria-labelledby="dp-t">
+      <div className="dp-box">
+        {numeroDeDemain !== null && (
+          <span className="dp-card" aria-hidden="true">
+            <small>n°</small>
+            {numeroDeDemain}
+          </span>
+        )}
+        <div>
+          <h2 id="dp-t">Tu es à jour&nbsp;!</h2>
+          {numeroDeDemain !== null && <p>Reviens demain pour la question n°&nbsp;{numeroDeDemain}.</p>}
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+/**
  * Les cartes du rattrapage, dans l'ordre reçu : celles « À répondre » d'abord, puis celles déjà
  * répondues sur cet appareil, grisées et marquées « Répondu ».
  */
