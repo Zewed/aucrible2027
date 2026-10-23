@@ -1,5 +1,5 @@
 ---
-id: "138"
+id: 138
 title: Un candidat remplacé prend le nom de son remplaçant
 milestone: null
 depends_on: ["121"]

@@ -1,5 +1,5 @@
 ---
-id: "123"
+id: 123
 title: Un candidat du classement ouvre sa fiche
 milestone: null
 depends_on: ["063", "121"]

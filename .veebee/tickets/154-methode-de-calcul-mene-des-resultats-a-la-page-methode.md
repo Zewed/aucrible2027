@@ -1,5 +1,5 @@
 ---
-id: "154"
+id: 154
 title: « Méthode de calcul » mène des résultats à la page Méthode
 milestone: null
 depends_on: ["143", "061"]

@@ -1,5 +1,5 @@
 ---
-id: "212"
+id: 212
 title: La 3e image montre les chiffres sourcés
 milestone: null
 depends_on: ["209"]

@@ -1,5 +1,5 @@
 ---
-id: "060"
+id: 060
 title: Tout rattrapé, la liste dit « Tu es à jour ! »
 milestone: null
 depends_on: ["056"]

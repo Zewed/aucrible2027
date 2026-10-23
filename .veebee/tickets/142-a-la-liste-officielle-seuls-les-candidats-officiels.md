@@ -1,5 +1,5 @@
 ---
-id: "142"
+id: 142
 title: À la liste officielle, seuls les candidats officiels restent
 milestone: null
 depends_on: ["135", "140"]

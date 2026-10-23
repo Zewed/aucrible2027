@@ -1,5 +1,5 @@
 ---
-id: "178"
+id: 178
 title: Sans correction, le journal invite à signaler
 milestone: null
 depends_on: ["172"]

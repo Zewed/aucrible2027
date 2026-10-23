@@ -1,5 +1,5 @@
 ---
-id: "098"
+id: 098
 title: La carte affiche « Et toi ? aucrible2027.fr »
 milestone: null
 depends_on: ["091"]

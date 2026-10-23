@@ -1,5 +1,5 @@
 ---
-id: "118"
+id: 118
 title: Chaque position du candidat porte son badge
 milestone: null
 depends_on: ["117"]

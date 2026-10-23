@@ -1,5 +1,5 @@
 ---
-id: "221"
+id: 221
 title: La vidéo s'ouvre sur la carte question piochée
 milestone: null
 depends_on: ["220"]

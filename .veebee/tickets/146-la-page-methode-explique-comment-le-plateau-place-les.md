@@ -1,5 +1,5 @@
 ---
-id: "146"
+id: 146
 title: La page Méthode explique comment le plateau place les pions
 milestone: null
 depends_on: ["143"]

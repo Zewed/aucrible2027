@@ -1,5 +1,5 @@
 ---
-id: "106"
+id: 106
 title: Le disque central inverse les deux candidats
 milestone: null
 depends_on: ["099"]

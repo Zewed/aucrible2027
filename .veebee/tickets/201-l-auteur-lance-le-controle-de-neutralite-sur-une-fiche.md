@@ -1,5 +1,5 @@
 ---
-id: "201"
+id: 201
 title: L'auteur lance le contrôle de neutralité sur une fiche
 milestone: null
 depends_on: ["195"]

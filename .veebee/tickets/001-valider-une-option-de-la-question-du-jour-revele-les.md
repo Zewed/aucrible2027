@@ -1,5 +1,5 @@
 ---
-id: "001"
+id: 001
 title: Valider une option de la question du jour révèle les candidats qui la défendent
 milestone: null
 depends_on: []

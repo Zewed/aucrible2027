@@ -1,5 +1,5 @@
 ---
-id: "190"
+id: 190
 title: La page introuvable ramène à la question du jour
 milestone: null
 depends_on: ["189"]

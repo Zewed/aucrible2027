@@ -1,5 +1,5 @@
 ---
-id: "026"
+id: 026
 title: Tous les candidats révélés ont le même pion, sans couleur de parti
 milestone: null
 depends_on: ["019"]

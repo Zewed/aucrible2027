@@ -1,5 +1,5 @@
 ---
-id: "161"
+id: 161
 title: Le formulaire sait de quelle fiche il vient
 milestone: null
 depends_on: ["160"]

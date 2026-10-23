@@ -1,5 +1,5 @@
 ---
-id: "019"
+id: 019
 title: La révélation montre les candidats de chaque option
 milestone: null
 depends_on: ["001"]

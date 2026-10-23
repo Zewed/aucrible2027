@@ -1,5 +1,5 @@
 ---
-id: "056"
+id: 056
 title: Une question répondue est marquée « Répondu » et passe en fin de liste
 milestone: null
 depends_on: ["052"]

@@ -1,5 +1,5 @@
 ---
-id: "150"
+id: 150
 title: La page Méthode explique les retraits et remplacements
 milestone: null
 depends_on: ["149"]

@@ -1,5 +1,5 @@
 ---
-id: "195"
+id: 195
 title: Une fiche ajoutée par l'auteur paraît à sa date
 milestone: null
 depends_on: ["037"]

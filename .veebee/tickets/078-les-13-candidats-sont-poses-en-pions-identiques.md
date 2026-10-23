@@ -1,5 +1,5 @@
 ---
-id: "078"
+id: 078
 title: Les 13 candidats sont posés en pions identiques
 milestone: null
 depends_on: ["075"]

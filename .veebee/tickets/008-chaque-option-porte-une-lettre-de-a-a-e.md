@@ -1,5 +1,5 @@
 ---
-id: "008"
+id: 008
 title: Chaque option porte une lettre, de A à E
 milestone: null
 depends_on: ["001"]

@@ -1,5 +1,5 @@
 ---
-id: "066"
+id: 066
 title: L'importance ×2 ou ×3 pèse plus dans le classement
 milestone: null
 depends_on: ["063", "018"]

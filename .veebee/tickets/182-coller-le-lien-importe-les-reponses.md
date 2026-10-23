@@ -1,5 +1,5 @@
 ---
-id: "182"
+id: 182
 title: Coller le lien importe les réponses
 milestone: null
 depends_on: ["180"]

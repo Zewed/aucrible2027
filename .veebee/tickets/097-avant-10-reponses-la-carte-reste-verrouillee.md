@@ -1,5 +1,5 @@
 ---
-id: "097"
+id: 097
 title: Avant 10 réponses, la carte reste verrouillée
 milestone: null
 depends_on: ["091"]

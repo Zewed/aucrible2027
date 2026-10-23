@@ -1,5 +1,5 @@
 ---
-id: "173"
+id: 173
 title: Chaque correction dit quelle fiche elle touche
 milestone: null
 depends_on: ["172"]

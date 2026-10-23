@@ -1,5 +1,5 @@
 ---
-id: "075"
+id: 075
 title: Le plateau place le pion « toi » sur les deux axes
 milestone: null
 depends_on: ["061"]

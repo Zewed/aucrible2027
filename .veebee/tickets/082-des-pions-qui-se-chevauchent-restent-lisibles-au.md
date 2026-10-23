@@ -1,5 +1,5 @@
 ---
-id: "082"
+id: 082
 title: Des pions qui se chevauchent restent lisibles au téléphone
 milestone: null
 depends_on: ["078"]

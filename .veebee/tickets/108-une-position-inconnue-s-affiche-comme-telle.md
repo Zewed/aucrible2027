@@ -1,5 +1,5 @@
 ---
-id: "108"
+id: 108
 title: Une position inconnue s'affiche comme telle
 milestone: null
 depends_on: ["099"]

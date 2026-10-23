@@ -1,5 +1,5 @@
 ---
-id: "176"
+id: 176
 title: Chaque correction dit qui l'a repérée
 milestone: null
 depends_on: ["172"]

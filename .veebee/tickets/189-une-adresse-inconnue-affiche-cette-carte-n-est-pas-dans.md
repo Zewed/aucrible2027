@@ -1,5 +1,5 @@
 ---
-id: "189"
+id: 189
 title: Une adresse inconnue affiche « Cette carte n'est pas dans le paquet »
 milestone: null
 depends_on: ["001"]

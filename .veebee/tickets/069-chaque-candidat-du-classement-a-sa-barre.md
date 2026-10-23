@@ -1,5 +1,5 @@
 ---
-id: "069"
+id: 069
 title: Chaque candidat du classement a sa barre
 milestone: null
 depends_on: ["063"]

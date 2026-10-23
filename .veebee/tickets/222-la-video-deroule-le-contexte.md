@@ -1,5 +1,5 @@
 ---
-id: "222"
+id: 222
 title: La vidéo déroule le contexte
 milestone: null
 depends_on: ["220"]

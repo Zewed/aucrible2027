@@ -1,5 +1,5 @@
 ---
-id: "215"
+id: 215
 title: La dernière image invite à répondre sur l'app
 milestone: null
 depends_on: ["209"]

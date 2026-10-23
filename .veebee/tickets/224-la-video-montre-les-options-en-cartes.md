@@ -1,5 +1,5 @@
 ---
-id: "224"
+id: 224
 title: La vidéo montre les options en cartes
 milestone: null
 depends_on: ["220"]

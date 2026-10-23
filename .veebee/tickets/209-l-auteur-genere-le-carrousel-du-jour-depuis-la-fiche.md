@@ -1,5 +1,5 @@
 ---
-id: "209"
+id: 209
 title: L'auteur génère le carrousel du jour depuis la fiche
 milestone: null
 depends_on: ["195"]

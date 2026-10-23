@@ -1,5 +1,5 @@
 ---
-id: "076"
+id: 076
 title: Sur ordinateur, le plateau se pose à côté du classement
 milestone: null
 depends_on: ["063", "075"]

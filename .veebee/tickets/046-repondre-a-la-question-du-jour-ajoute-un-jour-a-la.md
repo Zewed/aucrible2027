@@ -1,5 +1,5 @@
 ---
-id: "046"
+id: 046
 title: Répondre à la question du jour ajoute un jour à la série
 milestone: null
 depends_on: ["045"]

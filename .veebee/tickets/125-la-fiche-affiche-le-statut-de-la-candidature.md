@@ -1,5 +1,5 @@
 ---
-id: "125"
+id: 125
 title: La fiche affiche le statut de la candidature
 milestone: null
 depends_on: ["121"]

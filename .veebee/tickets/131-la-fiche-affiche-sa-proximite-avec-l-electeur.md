@@ -1,5 +1,5 @@
 ---
-id: "131"
+id: 131
 title: La fiche affiche sa proximité avec l'électeur
 milestone: null
 depends_on: ["121", "063"]

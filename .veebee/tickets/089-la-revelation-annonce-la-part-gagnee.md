@@ -1,5 +1,5 @@
 ---
-id: "089"
+id: 089
 title: La révélation annonce la part gagnée
 milestone: null
 depends_on: ["084", "019"]

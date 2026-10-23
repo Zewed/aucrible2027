@@ -1,5 +1,5 @@
 ---
-id: "043"
+id: 043
 title: Pendant le silence électoral, l'accueil explique pourquoi
 milestone: null
 depends_on: ["042"]

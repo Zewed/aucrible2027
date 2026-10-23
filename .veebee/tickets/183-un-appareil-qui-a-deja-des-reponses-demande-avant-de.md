@@ -1,5 +1,5 @@
 ---
-id: "183"
+id: 183
 title: Un appareil qui a déjà des réponses demande avant de les remplacer
 milestone: null
 depends_on: ["181"]

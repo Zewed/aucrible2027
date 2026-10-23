@@ -1,5 +1,5 @@
 ---
-id: "102"
+id: 102
 title: Les questions où ils sont d'accord sont marquées
 milestone: null
 depends_on: ["099"]

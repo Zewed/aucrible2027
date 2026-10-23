@@ -1,5 +1,5 @@
 ---
-id: "136"
+id: 136
 title: La fiche d'un candidat retiré dit quand et qui il soutient
 milestone: null
 depends_on: ["121"]

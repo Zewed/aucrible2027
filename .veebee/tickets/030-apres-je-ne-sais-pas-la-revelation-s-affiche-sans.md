@@ -1,5 +1,5 @@
 ---
-id: "030"
+id: 030
 title: Après « Je ne sais pas », la révélation s'affiche sans alignement
 milestone: null
 depends_on: ["019", "017"]

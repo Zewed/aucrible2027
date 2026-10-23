@@ -1,5 +1,5 @@
 ---
-id: "200"
+id: 200
 title: Corriger une fiche publiée ajoute une ligne au journal
 milestone: null
 depends_on: ["195", "172"]

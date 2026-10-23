@@ -1,5 +1,5 @@
 ---
-id: "114"
+id: 114
 title: « Moi contre » affiche le % d'accord
 milestone: null
 depends_on: ["113", "063"]

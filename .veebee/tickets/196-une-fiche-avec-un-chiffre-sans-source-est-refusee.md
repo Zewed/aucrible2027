@@ -1,5 +1,5 @@
 ---
-id: "196"
+id: 196
 title: Une fiche avec un chiffre sans source est refusée
 milestone: null
 depends_on: ["195"]

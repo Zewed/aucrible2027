@@ -1,5 +1,5 @@
 ---
-id: "213"
+id: 213
 title: La 4e image montre les options, sans noms
 milestone: null
 depends_on: ["209"]

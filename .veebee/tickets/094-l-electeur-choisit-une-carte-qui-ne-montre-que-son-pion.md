@@ -1,5 +1,5 @@
 ---
-id: "094"
+id: 094
 title: L'électeur choisit une carte qui ne montre que son pion
 milestone: null
 depends_on: ["091", "075"]

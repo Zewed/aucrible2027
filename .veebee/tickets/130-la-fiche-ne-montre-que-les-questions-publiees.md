@@ -1,5 +1,5 @@
 ---
-id: "130"
+id: 130
 title: La fiche ne montre que les questions publiées
 milestone: null
 depends_on: ["126", "038"]

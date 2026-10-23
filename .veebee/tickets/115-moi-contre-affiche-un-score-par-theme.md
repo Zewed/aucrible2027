@@ -1,5 +1,5 @@
 ---
-id: "115"
+id: 115
 title: « Moi contre » affiche un score par thème
 milestone: null
 depends_on: ["114"]

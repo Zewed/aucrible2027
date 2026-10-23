@@ -1,5 +1,5 @@
 ---
-id: "139"
+id: 139
 title: Après un remplacement, les positions héritées passent en « déduite »
 milestone: null
 depends_on: ["138"]

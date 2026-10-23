@@ -1,5 +1,5 @@
 ---
-id: "210"
+id: 210
 title: La 1re image montre la question
 milestone: null
 depends_on: ["209"]

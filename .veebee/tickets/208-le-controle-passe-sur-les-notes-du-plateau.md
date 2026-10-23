@@ -1,5 +1,5 @@
 ---
-id: "208"
+id: 208
 title: Le contrôle passe sur les notes du plateau
 milestone: null
 depends_on: ["201"]

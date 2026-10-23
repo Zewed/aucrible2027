@@ -1,5 +1,5 @@
 ---
-id: "105"
+id: 105
 title: Le même candidat ne peut pas être choisi deux fois
 milestone: null
 depends_on: ["104"]

@@ -1,5 +1,5 @@
 ---
-id: "009"
+id: 009
 title: Chaque option dit ce qu'elle implique
 milestone: null
 depends_on: ["001"]

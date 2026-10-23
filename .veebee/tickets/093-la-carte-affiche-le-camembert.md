@@ -1,5 +1,5 @@
 ---
-id: "093"
+id: 093
 title: La carte affiche le camembert
 milestone: null
 depends_on: ["091", "083"]

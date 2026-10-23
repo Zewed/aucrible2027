@@ -1,5 +1,5 @@
 ---
-id: "020"
+id: 020
 title: La révélation rappelle l'option choisie
 milestone: null
 depends_on: ["019"]

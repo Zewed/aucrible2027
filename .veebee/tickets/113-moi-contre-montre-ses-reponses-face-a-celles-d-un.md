@@ -1,5 +1,5 @@
 ---
-id: "113"
+id: 113
 title: « Moi contre » montre ses réponses face à celles d'un candidat
 milestone: null
 depends_on: ["061"]

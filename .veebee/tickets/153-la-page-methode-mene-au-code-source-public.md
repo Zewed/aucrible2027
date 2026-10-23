@@ -1,5 +1,5 @@
 ---
-id: "153"
+id: 153
 title: La page Méthode mène au code source public
 milestone: null
 depends_on: ["143"]

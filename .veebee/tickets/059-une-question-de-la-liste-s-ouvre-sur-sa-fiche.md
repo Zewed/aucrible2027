@@ -1,5 +1,5 @@
 ---
-id: "059"
+id: 059
 title: Une question de la liste s'ouvre sur sa fiche
 milestone: null
 depends_on: ["052"]

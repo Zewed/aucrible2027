@@ -1,5 +1,5 @@
 ---
-id: "155"
+id: 155
 title: La page À propos dit qui fait l'app
 milestone: null
 depends_on: ["001"]

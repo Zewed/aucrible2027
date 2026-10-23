@@ -1,5 +1,5 @@
 ---
-id: "003"
+id: 003
 title: La carte question prend la couleur de son thème
 milestone: null
 depends_on: ["002"]

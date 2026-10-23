@@ -1,5 +1,5 @@
 ---
-id: "013"
+id: 013
 title: Sur ordinateur, la carte question se pose à côté des cartes réponse
 milestone: null
 depends_on: ["001"]

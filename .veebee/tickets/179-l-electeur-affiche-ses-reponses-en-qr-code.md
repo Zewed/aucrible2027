@@ -1,5 +1,5 @@
 ---
-id: "179"
+id: 179
 title: L'électeur affiche ses réponses en QR code
 milestone: null
 depends_on: ["033"]

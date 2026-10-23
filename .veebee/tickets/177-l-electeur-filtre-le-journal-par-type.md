@@ -1,5 +1,5 @@
 ---
-id: "177"
+id: 177
 title: L'électeur filtre le journal par type
 milestone: null
 depends_on: ["172"]

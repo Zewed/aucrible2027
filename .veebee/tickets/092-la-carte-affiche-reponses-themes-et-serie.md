@@ -1,5 +1,5 @@
 ---
-id: "092"
+id: 092
 title: La carte affiche réponses, thèmes et série
 milestone: null
 depends_on: ["091", "084", "045"]

@@ -1,5 +1,5 @@
 ---
-id: "151"
+id: 151
 title: La page Méthode explique la bascule sur la liste officielle
 milestone: null
 depends_on: ["149"]

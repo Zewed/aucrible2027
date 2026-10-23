@@ -1,5 +1,5 @@
 ---
-id: "023"
+id: 023
 title: Chaque position révélée porte son badge « officielle » ou « déduite »
 milestone: null
 depends_on: ["022"]

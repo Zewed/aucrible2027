@@ -1,5 +1,5 @@
 ---
-id: "073"
+id: 073
 title: Avant 10 réponses, le classement dit combien il en manque
 milestone: null
 depends_on: ["063"]

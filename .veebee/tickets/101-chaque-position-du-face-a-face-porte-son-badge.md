@@ -1,5 +1,5 @@
 ---
-id: "101"
+id: 101
 title: Chaque position du face-à-face porte son badge
 milestone: null
 depends_on: ["100"]

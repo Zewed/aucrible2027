@@ -1,5 +1,5 @@
 ---
-id: "036"
+id: 036
 title: En navigation privée, l'app prévient que rien ne sera gardé
 milestone: null
 depends_on: ["033"]

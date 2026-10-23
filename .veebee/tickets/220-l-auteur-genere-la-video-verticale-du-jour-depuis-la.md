@@ -1,5 +1,5 @@
 ---
-id: "220"
+id: 220
 title: L'auteur génère la vidéo verticale du jour depuis la fiche
 milestone: null
 depends_on: ["195"]

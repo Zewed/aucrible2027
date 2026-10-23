@@ -1,5 +1,5 @@
 ---
-id: "109"
+id: 109
 title: Le face-à-face ne montre que les questions déjà répondues
 milestone: null
 depends_on: ["099", "033"]

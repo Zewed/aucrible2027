@@ -1,5 +1,5 @@
 ---
-id: "071"
+id: 071
 title: Le classement affiche sa fiabilité
 milestone: null
 depends_on: ["063"]

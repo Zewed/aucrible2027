@@ -1,5 +1,5 @@
 ---
-id: "079"
+id: 079
 title: La légende relie chaque pion à son candidat
 milestone: null
 depends_on: ["078"]

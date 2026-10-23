@@ -1,5 +1,5 @@
 ---
-id: "129"
+id: 129
 title: Une question sans source affiche « position inconnue »
 milestone: null
 depends_on: ["126"]

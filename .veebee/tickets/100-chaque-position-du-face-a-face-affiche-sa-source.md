@@ -1,5 +1,5 @@
 ---
-id: "100"
+id: 100
 title: Chaque position du face-à-face affiche sa source
 milestone: null
 depends_on: ["099"]

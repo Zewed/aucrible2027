@@ -1,5 +1,5 @@
 ---
-id: "006"
+id: 006
 title: La fiche affiche les chiffres clés
 milestone: null
 depends_on: ["001"]

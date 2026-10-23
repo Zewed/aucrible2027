@@ -1,5 +1,5 @@
 ---
-id: "214"
+id: 214
 title: La 5e image montre le meilleur argument de chaque côté
 milestone: null
 depends_on: ["209"]

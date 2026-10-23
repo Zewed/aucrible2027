@@ -1,5 +1,5 @@
 ---
-id: "228"
+id: 228
 title: La vidéo a une musique libre de droits
 milestone: null
 depends_on: ["220"]

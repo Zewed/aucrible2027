@@ -1,5 +1,5 @@
 ---
-id: "185"
+id: 185
 title: La page dit que les réponses ne passent par aucun serveur
 milestone: null
 depends_on: ["179"]

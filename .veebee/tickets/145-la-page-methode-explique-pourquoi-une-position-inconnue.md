@@ -1,5 +1,5 @@
 ---
-id: "145"
+id: 145
 title: La page Méthode explique pourquoi une position inconnue ne compte pas
 milestone: null
 depends_on: ["143"]

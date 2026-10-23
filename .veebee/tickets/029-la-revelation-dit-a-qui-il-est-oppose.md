@@ -1,5 +1,5 @@
 ---
-id: "029"
+id: 029
 title: La révélation dit à qui il est opposé
 milestone: null
 depends_on: ["027"]

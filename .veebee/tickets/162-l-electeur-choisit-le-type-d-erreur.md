@@ -1,5 +1,5 @@
 ---
-id: "162"
+id: 162
 title: L'électeur choisit le type d'erreur
 milestone: null
 depends_on: ["160"]

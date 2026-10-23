@@ -1,5 +1,5 @@
 ---
-id: "158"
+id: 158
 title: La page À propos dit ce que fait l'IA
 milestone: null
 depends_on: ["155"]

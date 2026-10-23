@@ -1,5 +1,5 @@
 ---
-id: "184"
+id: 184
 title: Un code illisible est refusé avec un message
 milestone: null
 depends_on: ["181"]

@@ -1,5 +1,5 @@
 ---
-id: "040"
+id: 040
 title: Avant la première question, l'accueil dit quand elle arrive
 milestone: null
 depends_on: ["037"]

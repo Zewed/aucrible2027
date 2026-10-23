@@ -1,5 +1,5 @@
 ---
-id: "095"
+id: 095
 title: « Partager » envoie l'image 9:16 au partage du téléphone
 milestone: null
 depends_on: ["091"]

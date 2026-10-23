@@ -1,5 +1,5 @@
 ---
-id: "144"
+id: 144
 title: La page Méthode explique le poids de l'importance
 milestone: null
 depends_on: ["143"]

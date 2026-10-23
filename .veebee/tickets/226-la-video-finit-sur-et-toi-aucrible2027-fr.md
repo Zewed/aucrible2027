@@ -1,5 +1,5 @@
 ---
-id: "226"
+id: 226
 title: La vidéo finit sur « Et toi ? aucrible2027.fr »
 milestone: null
 depends_on: ["220"]

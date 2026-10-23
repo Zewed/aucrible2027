@@ -1,5 +1,5 @@
 ---
-id: "007"
+id: 007
 title: Chaque chiffre clé affiche sa source datée
 milestone: null
 depends_on: ["006"]

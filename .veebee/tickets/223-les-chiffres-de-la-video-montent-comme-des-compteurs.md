@@ -1,5 +1,5 @@
 ---
-id: "223"
+id: 223
 title: Les chiffres de la vidéo montent comme des compteurs
 milestone: null
 depends_on: ["220"]

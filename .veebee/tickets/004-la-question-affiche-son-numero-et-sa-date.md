@@ -1,5 +1,5 @@
 ---
-id: "004"
+id: 004
 title: La question affiche son numéro et sa date
 milestone: null
 depends_on: ["001"]

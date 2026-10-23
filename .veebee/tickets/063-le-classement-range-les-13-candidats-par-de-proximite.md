@@ -1,5 +1,5 @@
 ---
-id: "063"
+id: 063
 title: Le classement range les 13 candidats par % de proximité
 milestone: null
 depends_on: ["061"]

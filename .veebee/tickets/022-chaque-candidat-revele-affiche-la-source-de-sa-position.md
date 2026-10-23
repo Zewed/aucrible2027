@@ -1,5 +1,5 @@
 ---
-id: "022"
+id: 022
 title: Chaque candidat révélé affiche la source de sa position
 milestone: null
 depends_on: ["019"]

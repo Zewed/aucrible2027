@@ -1,5 +1,5 @@
 ---
-id: "031"
+id: 031
 title: Les cartes se retournent une à une à l'arrivée
 milestone: null
 depends_on: ["019"]

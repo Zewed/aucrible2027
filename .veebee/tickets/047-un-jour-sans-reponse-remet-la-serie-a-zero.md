@@ -1,5 +1,5 @@
 ---
-id: "047"
+id: 047
 title: Un jour sans réponse remet la série à zéro
 milestone: null
 depends_on: ["045"]

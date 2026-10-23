@@ -1,5 +1,5 @@
 ---
-id: "074"
+id: 074
 title: Avant 10 réponses, un bouton mène au rattrapage
 milestone: null
 depends_on: ["073", "052"]

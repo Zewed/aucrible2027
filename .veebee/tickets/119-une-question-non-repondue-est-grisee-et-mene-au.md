@@ -1,5 +1,5 @@
 ---
-id: "119"
+id: 119
 title: Une question non répondue est grisée et mène au rattrapage
 milestone: null
 depends_on: ["113", "052"]

@@ -1,5 +1,5 @@
 ---
-id: "152"
+id: 152
 title: La page Méthode explique pourquoi ce n'est pas un sondage
 milestone: null
 depends_on: ["143"]

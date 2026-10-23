@@ -1,5 +1,5 @@
 ---
-id: "137"
+id: 137
 title: Un candidat retiré n'apparaît plus dans les nouvelles révélations
 milestone: null
 depends_on: ["019"]

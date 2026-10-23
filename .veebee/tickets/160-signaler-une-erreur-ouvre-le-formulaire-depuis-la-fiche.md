@@ -1,5 +1,5 @@
 ---
-id: "160"
+id: 160
 title: « Signaler une erreur » ouvre le formulaire depuis la fiche
 milestone: null
 depends_on: ["001"]

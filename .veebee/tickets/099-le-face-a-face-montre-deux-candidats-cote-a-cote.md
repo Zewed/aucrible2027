@@ -1,5 +1,5 @@
 ---
-id: "099"
+id: 099
 title: Le face-à-face montre deux candidats côte à côte, question par question
 milestone: null
 depends_on: ["061"]

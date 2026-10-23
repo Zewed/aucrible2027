@@ -19,3 +19,6 @@ playwright-report/
 
 # Système
 .DS_Store
+
+# Journal et tableau du pilote automatique (locaux)
+.veebee/autopilot/

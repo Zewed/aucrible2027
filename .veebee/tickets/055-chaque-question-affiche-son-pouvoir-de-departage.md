@@ -1,5 +1,5 @@
 ---
-id: "055"
+id: 055
 title: Chaque question affiche son pouvoir de départage
 milestone: null
 depends_on: ["054"]

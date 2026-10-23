@@ -1,5 +1,5 @@
 ---
-id: "156"
+id: 156
 title: La page À propos dit comment les fiches sont relues
 milestone: null
 depends_on: ["155"]

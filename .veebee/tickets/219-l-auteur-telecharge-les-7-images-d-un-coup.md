@@ -1,5 +1,5 @@
 ---
-id: "219"
+id: 219
 title: L'auteur télécharge les 7 images d'un coup
 milestone: null
 depends_on: ["209", "217"]

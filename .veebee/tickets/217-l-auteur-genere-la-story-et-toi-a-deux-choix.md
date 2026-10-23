@@ -1,5 +1,5 @@
 ---
-id: "217"
+id: 217
 title: L'auteur génère la story « Et toi ? » à deux choix
 milestone: null
 depends_on: ["209"]

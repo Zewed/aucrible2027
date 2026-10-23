@@ -1,5 +1,5 @@
 ---
-id: "080"
+id: 080
 title: Une option sans note sur un axe ne déplace pas le pion
 milestone: null
 depends_on: ["075"]

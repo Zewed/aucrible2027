@@ -1,5 +1,5 @@
 ---
-id: "124"
+id: 124
 title: La fiche affiche le parti du candidat
 milestone: null
 depends_on: ["121"]

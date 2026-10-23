@@ -1,5 +1,5 @@
 ---
-id: "037"
+id: 037
 title: La question du jour change chaque jour
 milestone: null
 depends_on: ["001"]

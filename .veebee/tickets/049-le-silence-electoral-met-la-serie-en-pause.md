@@ -1,5 +1,5 @@
 ---
-id: "049"
+id: 049
 title: Le silence électoral met la série en pause
 milestone: null
 depends_on: ["045", "042"]

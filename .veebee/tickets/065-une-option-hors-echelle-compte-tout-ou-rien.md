@@ -1,5 +1,5 @@
 ---
-id: "065"
+id: 065
 title: Une option hors échelle compte tout ou rien
 milestone: null
 depends_on: ["063"]

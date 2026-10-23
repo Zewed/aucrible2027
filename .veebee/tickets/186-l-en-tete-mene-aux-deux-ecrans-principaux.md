@@ -1,5 +1,5 @@
 ---
-id: "186"
+id: 186
 title: L'en-tête mène aux deux écrans principaux
 milestone: null
 depends_on: ["061"]

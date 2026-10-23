@@ -1,5 +1,5 @@
 ---
-id: "070"
+id: 070
 title: Tous les candidats du classement ont le même pion
 milestone: null
 depends_on: ["063"]

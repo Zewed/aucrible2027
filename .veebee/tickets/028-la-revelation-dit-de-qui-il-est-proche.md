@@ -1,5 +1,5 @@
 ---
-id: "028"
+id: 028
 title: La révélation dit de qui il est proche
 milestone: null
 depends_on: ["027"]

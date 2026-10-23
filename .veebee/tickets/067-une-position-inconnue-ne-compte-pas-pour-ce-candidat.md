@@ -1,5 +1,5 @@
 ---
-id: "067"
+id: 067
 title: Une position inconnue ne compte pas pour ce candidat
 milestone: null
 depends_on: ["063"]

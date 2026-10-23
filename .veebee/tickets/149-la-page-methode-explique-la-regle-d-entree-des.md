@@ -1,5 +1,5 @@
 ---
-id: "149"
+id: 149
 title: La page Méthode explique la règle d'entrée des candidats
 milestone: null
 depends_on: ["143"]

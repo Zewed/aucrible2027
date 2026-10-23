@@ -1,5 +1,5 @@
 ---
-id: "086"
+id: 086
 title: Chaque thème affiche son candidat le plus proche
 milestone: null
 depends_on: ["084", "063"]

@@ -1,5 +1,5 @@
 ---
-id: "064"
+id: 064
 title: Une option voisine sur l'échelle compte en partie
 milestone: null
 depends_on: ["063"]

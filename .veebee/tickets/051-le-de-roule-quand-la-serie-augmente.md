@@ -1,5 +1,5 @@
 ---
-id: "051"
+id: 051
 title: Le dé roule quand la série augmente
 milestone: null
 depends_on: ["046"]

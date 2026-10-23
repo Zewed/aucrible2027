@@ -1,5 +1,5 @@
 ---
-id: "015"
+id: 015
 title: L'électeur change d'option avant de valider
 milestone: null
 depends_on: ["014"]

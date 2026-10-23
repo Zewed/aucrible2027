@@ -1,5 +1,5 @@
 ---
-id: "112"
+id: 112
 title: Un lien partagé ouvre le face-à-face sur deux candidats
 milestone: null
 depends_on: ["099"]

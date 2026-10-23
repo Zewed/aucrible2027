@@ -1,5 +1,5 @@
 ---
-id: "045"
+id: 045
 title: Le dé affiche les jours d'affilée
 milestone: null
 depends_on: ["033", "037"]

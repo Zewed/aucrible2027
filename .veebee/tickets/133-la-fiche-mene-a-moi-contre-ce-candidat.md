@@ -1,5 +1,5 @@
 ---
-id: "133"
+id: 133
 title: La fiche mène à « Moi contre » ce candidat
 milestone: null
 depends_on: ["121", "113"]

@@ -1,5 +1,5 @@
 ---
-id: "218"
+id: 218
 title: L'auteur récupère la légende proposée
 milestone: null
 depends_on: ["209"]

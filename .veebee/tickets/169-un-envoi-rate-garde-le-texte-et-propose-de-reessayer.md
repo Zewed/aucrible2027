@@ -1,5 +1,5 @@
 ---
-id: "169"
+id: 169
 title: Un envoi raté garde le texte et propose de réessayer
 milestone: null
 depends_on: ["163"]

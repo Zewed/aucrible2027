@@ -1,5 +1,5 @@
 ---
-id: "027"
+id: 027
 title: La révélation dit avec qui il est aligné sur ce sujet
 milestone: null
 depends_on: ["019"]

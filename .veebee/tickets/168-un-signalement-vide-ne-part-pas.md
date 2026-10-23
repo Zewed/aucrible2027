@@ -1,5 +1,5 @@
 ---
-id: "168"
+id: 168
 title: Un signalement vide ne part pas
 milestone: null
 depends_on: ["163"]

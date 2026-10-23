@@ -1,5 +1,5 @@
 ---
-id: "197"
+id: 197
 title: Une position de candidat sans source est refusée
 milestone: null
 depends_on: ["195"]

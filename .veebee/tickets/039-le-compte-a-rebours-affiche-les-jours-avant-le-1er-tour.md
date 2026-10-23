@@ -1,5 +1,5 @@
 ---
-id: "039"
+id: 039
 title: Le compte à rebours affiche les jours avant le 1er tour
 milestone: null
 depends_on: ["001"]

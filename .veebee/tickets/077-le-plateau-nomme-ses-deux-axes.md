@@ -1,5 +1,5 @@
 ---
-id: "077"
+id: 077
 title: Le plateau nomme ses deux axes
 milestone: null
 depends_on: ["075"]

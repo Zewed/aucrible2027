@@ -1,5 +1,5 @@
 ---
-id: "174"
+id: 174
 title: Chaque correction montre l'avant et l'après
 milestone: null
 depends_on: ["172"]

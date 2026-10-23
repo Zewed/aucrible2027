@@ -1,5 +1,5 @@
 ---
-id: "048"
+id: 048
 title: « Je ne sais pas » ne casse pas la série
 milestone: null
 depends_on: ["045", "017"]

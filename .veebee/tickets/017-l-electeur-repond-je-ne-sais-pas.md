@@ -1,5 +1,5 @@
 ---
-id: "017"
+id: 017
 title: L'électeur répond « Je ne sais pas »
 milestone: null
 depends_on: ["001"]

@@ -1,5 +1,5 @@
 ---
-id: "188"
+id: 188
 title: Le pied de page mène aux pages secondaires
 milestone: null
 depends_on: ["052", "143", "155", "172", "179"]

@@ -1,5 +1,5 @@
 ---
-id: "032"
+id: 032
 title: La révélation propose des liens « Pour aller plus loin »
 milestone: null
 depends_on: ["019"]

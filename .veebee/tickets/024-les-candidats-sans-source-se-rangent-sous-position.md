@@ -1,5 +1,5 @@
 ---
-id: "024"
+id: 024
 title: Les candidats sans source se rangent sous « Position inconnue »
 milestone: null
 depends_on: ["019"]

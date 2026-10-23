@@ -1,5 +1,5 @@
 ---
-id: "205"
+id: 205
 title: Chaque remarque dit son type
 milestone: null
 depends_on: ["201"]

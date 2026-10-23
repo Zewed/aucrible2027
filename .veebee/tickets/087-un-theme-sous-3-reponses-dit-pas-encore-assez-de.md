@@ -1,5 +1,5 @@
 ---
-id: "087"
+id: 087
 title: Un thème sous 3 réponses dit « pas encore assez de réponses »
 milestone: null
 depends_on: ["086"]

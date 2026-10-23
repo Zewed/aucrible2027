@@ -1,5 +1,5 @@
 ---
-id: "192"
+id: 192
 title: L'auteur voit le nombre de visites par jour
 milestone: null
 depends_on: ["001"]

@@ -1,5 +1,5 @@
 ---
-id: "081"
+id: 081
 title: Avant 10 réponses, le plateau dit que la position s'affinera
 milestone: null
 depends_on: ["075"]

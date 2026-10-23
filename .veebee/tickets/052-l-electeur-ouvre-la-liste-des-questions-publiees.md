@@ -1,5 +1,5 @@
 ---
-id: "052"
+id: 052
 title: L'électeur ouvre la liste des questions publiées
 milestone: null
 depends_on: ["033", "037"]

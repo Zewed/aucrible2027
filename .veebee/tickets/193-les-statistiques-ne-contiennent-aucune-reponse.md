@@ -1,5 +1,5 @@
 ---
-id: "193"
+id: 193
 title: Les statistiques ne contiennent aucune réponse
 milestone: null
 depends_on: ["192"]

@@ -1,5 +1,5 @@
 ---
-id: "202"
+id: 202
 title: Le contrôle rend les remarques d'un regard de droite
 milestone: null
 depends_on: ["201"]

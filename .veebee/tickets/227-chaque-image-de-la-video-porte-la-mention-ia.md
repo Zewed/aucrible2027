@@ -1,5 +1,5 @@
 ---
-id: "227"
+id: 227
 title: Chaque image de la vidéo porte la mention IA
 milestone: null
 depends_on: ["220"]

@@ -1,5 +1,5 @@
 ---
-id: "121"
+id: 121
 title: L'électeur ouvre la fiche d'un candidat
 milestone: null
 depends_on: ["001"]

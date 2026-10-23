@@ -1,5 +1,5 @@
 ---
-id: "143"
+id: 143
 title: La page Méthode explique le score d'une question avec un exemple
 milestone: null
 depends_on: ["063"]

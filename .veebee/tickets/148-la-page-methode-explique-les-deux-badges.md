@@ -1,5 +1,5 @@
 ---
-id: "148"
+id: 148
 title: La page Méthode explique les deux badges
 milestone: null
 depends_on: ["147"]

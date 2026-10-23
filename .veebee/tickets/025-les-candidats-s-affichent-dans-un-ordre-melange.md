@@ -1,5 +1,5 @@
 ---
-id: "025"
+id: 025
 title: Les candidats s'affichent dans un ordre mélangé
 milestone: null
 depends_on: ["019"]

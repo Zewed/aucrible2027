@@ -1,5 +1,5 @@
 ---
-id: "088"
+id: 088
 title: La question du jour annonce la part en jeu
 milestone: null
 depends_on: ["084"]

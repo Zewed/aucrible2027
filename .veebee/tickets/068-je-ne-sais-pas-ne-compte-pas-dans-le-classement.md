@@ -1,5 +1,5 @@
 ---
-id: "068"
+id: 068
 title: « Je ne sais pas » ne compte pas dans le classement
 milestone: null
 depends_on: ["063", "017"]

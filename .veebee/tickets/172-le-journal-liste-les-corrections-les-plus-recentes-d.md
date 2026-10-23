@@ -1,5 +1,5 @@
 ---
-id: "172"
+id: 172
 title: Le journal liste les corrections, les plus récentes d'abord
 milestone: null
 depends_on: ["001"]

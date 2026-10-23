@@ -1,5 +1,5 @@
 ---
-id: "062"
+id: 062
 title: La révélation mène à « Mes résultats »
 milestone: null
 depends_on: ["019", "061"]

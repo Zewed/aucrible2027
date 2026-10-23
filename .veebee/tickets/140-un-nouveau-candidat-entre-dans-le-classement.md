@@ -1,5 +1,5 @@
 ---
-id: "140"
+id: 140
 title: Un nouveau candidat entre dans le classement
 milestone: null
 depends_on: ["063"]

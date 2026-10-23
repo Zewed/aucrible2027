@@ -1,5 +1,5 @@
 ---
-id: "072"
+id: 072
 title: Les résultats affichent « Ce n'est pas un sondage »
 milestone: null
 depends_on: ["061"]

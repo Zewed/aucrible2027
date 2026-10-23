@@ -1,5 +1,5 @@
 ---
-id: "135"
+id: 135
 title: Un candidat retiré sort du classement
 milestone: null
 depends_on: ["063"]

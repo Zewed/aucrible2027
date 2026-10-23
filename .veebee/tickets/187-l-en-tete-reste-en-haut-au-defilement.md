@@ -1,5 +1,5 @@
 ---
-id: "187"
+id: 187
 title: L'en-tête reste en haut au défilement
 milestone: null
 depends_on: ["186"]

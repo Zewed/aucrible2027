@@ -1,5 +1,5 @@
 ---
-id: "085"
+id: 085
 title: Le camembert affiche le nombre de parts gagnées
 milestone: null
 depends_on: ["084"]

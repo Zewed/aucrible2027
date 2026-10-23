@@ -1,5 +1,5 @@
 ---
-id: "206"
+id: 206
 title: L'auteur accepte ou rejette chaque remarque
 milestone: null
 depends_on: ["205"]

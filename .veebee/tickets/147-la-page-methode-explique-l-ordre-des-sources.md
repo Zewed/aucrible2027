@@ -1,5 +1,5 @@
 ---
-id: "147"
+id: 147
 title: La page Méthode explique l'ordre des sources
 milestone: null
 depends_on: ["143"]

@@ -1,5 +1,5 @@
 ---
-id: "021"
+id: 021
 title: La révélation rappelle l'importance donnée
 milestone: null
 depends_on: ["020", "018"]

@@ -1,5 +1,5 @@
 ---
-id: "194"
+id: 194
 title: L'app ne dépose aucun cookie
 milestone: null
 depends_on: ["192"]

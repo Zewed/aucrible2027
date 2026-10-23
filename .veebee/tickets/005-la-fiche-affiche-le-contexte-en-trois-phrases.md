@@ -1,5 +1,5 @@
 ---
-id: "005"
+id: 005
 title: La fiche affiche le contexte en trois phrases
 milestone: null
 depends_on: ["001"]

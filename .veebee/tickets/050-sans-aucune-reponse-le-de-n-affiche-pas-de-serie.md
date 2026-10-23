@@ -1,5 +1,5 @@
 ---
-id: "050"
+id: 050
 title: Sans aucune réponse, le dé n'affiche pas de série
 milestone: null
 depends_on: ["045"]

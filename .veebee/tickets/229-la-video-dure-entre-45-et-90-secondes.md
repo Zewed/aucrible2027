@@ -1,5 +1,5 @@
 ---
-id: "229"
+id: 229
 title: La vidéo dure entre 45 et 90 secondes
 milestone: null
 depends_on: ["220"]

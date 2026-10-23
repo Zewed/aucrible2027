@@ -1,5 +1,5 @@
 ---
-id: "122"
+id: 122
 title: Un nom révélé ouvre la fiche du candidat
 milestone: null
 depends_on: ["019", "121"]

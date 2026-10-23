@@ -1,5 +1,5 @@
 ---
-id: "016"
+id: 016
 title: « Valider ma réponse » reste inactif sans option choisie
 milestone: null
 depends_on: ["001"]

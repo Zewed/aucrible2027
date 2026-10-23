@@ -1,5 +1,5 @@
 ---
-id: "012"
+id: 012
 title: La fiche prévient que les noms s'affichent après la réponse
 milestone: null
 depends_on: ["001"]

@@ -1,5 +1,5 @@
 ---
-id: "120"
+id: 120
 title: « Moi contre » mène au face-à-face
 milestone: null
 depends_on: ["113", "099"]

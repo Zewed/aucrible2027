@@ -1,5 +1,5 @@
 ---
-id: "110"
+id: 110
 title: Une carte retournée compte les questions cachées
 milestone: null
 depends_on: ["109"]

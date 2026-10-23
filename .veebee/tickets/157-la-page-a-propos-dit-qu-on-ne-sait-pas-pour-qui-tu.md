@@ -1,5 +1,5 @@
 ---
-id: "157"
+id: 157
 title: La page À propos dit qu'on ne sait pas pour qui tu votes
 milestone: null
 depends_on: ["155"]

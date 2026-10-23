@@ -1,5 +1,5 @@
 ---
-id: "171"
+id: 171
 title: La fiche candidat propose aussi « Signaler une erreur »
 milestone: null
 depends_on: ["160", "121"]

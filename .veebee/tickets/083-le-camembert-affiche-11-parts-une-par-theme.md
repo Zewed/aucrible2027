@@ -1,5 +1,5 @@
 ---
-id: "083"
+id: 083
 title: Le camembert affiche 11 parts, une par thème
 milestone: null
 depends_on: ["061"]

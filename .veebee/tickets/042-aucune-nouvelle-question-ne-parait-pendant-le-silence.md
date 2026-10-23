@@ -1,5 +1,5 @@
 ---
-id: "042"
+id: 042
 title: Aucune nouvelle question ne paraît pendant le silence électoral
 milestone: null
 depends_on: ["037"]

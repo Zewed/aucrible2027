@@ -1,5 +1,5 @@
 ---
-id: "126"
+id: 126
 title: La fiche range ses positions par thème
 milestone: null
 depends_on: ["121"]

@@ -1,5 +1,5 @@
 ---
-id: "198"
+id: 198
 title: L'auteur voit combien de fiches d'avance il a
 milestone: null
 depends_on: ["195"]

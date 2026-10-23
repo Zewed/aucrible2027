@@ -1,5 +1,5 @@
 ---
-id: "207"
+id: 207
 title: Le contrôle passe sur la liste des sujets
 milestone: null
 depends_on: ["201"]

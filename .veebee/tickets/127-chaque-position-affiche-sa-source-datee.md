@@ -1,5 +1,5 @@
 ---
-id: "127"
+id: 127
 title: Chaque position affiche sa source datée
 milestone: null
 depends_on: ["126"]

@@ -1,5 +1,5 @@
 ---
-id: "034"
+id: 034
 title: L'importance donnée est retrouvée en revenant
 milestone: null
 depends_on: ["033", "018"]

@@ -1,5 +1,5 @@
 ---
-id: "096"
+id: 096
 title: « Télécharger l'image » enregistre la carte
 milestone: null
 depends_on: ["091"]

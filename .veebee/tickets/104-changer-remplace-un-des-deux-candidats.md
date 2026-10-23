@@ -1,5 +1,5 @@
 ---
-id: "104"
+id: 104
 title: « Changer » remplace un des deux candidats
 milestone: null
 depends_on: ["099"]

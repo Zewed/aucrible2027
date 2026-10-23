@@ -1,5 +1,5 @@
 ---
-id: "038"
+id: 038
 title: Une question pas encore publiée reste inaccessible
 milestone: null
 depends_on: ["037"]

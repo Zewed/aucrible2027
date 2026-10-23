@@ -1,5 +1,5 @@
 ---
-id: "018"
+id: 018
 title: L'électeur choisit l'importance du sujet (×1, ×2, ×3)
 milestone: null
 depends_on: ["001"]

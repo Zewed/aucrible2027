@@ -1,5 +1,5 @@
 ---
-id: "180"
+id: 180
 title: L'électeur copie ses réponses en lien
 milestone: null
 depends_on: ["033"]

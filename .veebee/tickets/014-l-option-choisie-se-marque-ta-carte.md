@@ -1,5 +1,5 @@
 ---
-id: "014"
+id: 014
 title: L'option choisie se marque « Ta carte »
 milestone: null
 depends_on: ["001"]
