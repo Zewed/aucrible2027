@@ -2,9 +2,9 @@
 
 import { Camembert } from "@/components/Camembert";
 import { PartDuTheme } from "@/components/PuceTheme";
-import type { Theme } from "@/lib/contenu";
+import type { Candidat, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
-import { REPONSES_PAR_PART, reponsesParTheme, type QuestionDuCalcul } from "@/lib/proximite";
+import { classement, REPONSES_PAR_PART, reponsesParTheme, type QuestionDuCalcul } from "@/lib/proximite";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 
 /** Les réponses comptées de chaque thème, dans l'ordre des thèmes. */
@@ -45,9 +45,19 @@ export function GrandCamembert({ questions, themes }: { questions: QuestionDuCal
   );
 }
 
-/** « Tes 11 thèmes » : chaque thème, à la couleur de sa part, avec une pastille par réponse, gagnée à 3. */
-export function TesThemes({ questions, themes }: { questions: QuestionDuCalcul[]; themes: Theme[] }) {
+/**
+ * « Tes 11 thèmes » : chaque thème, à la couleur de sa part, avec une pastille par réponse. Un thème gagné
+ * (3 réponses) nomme son candidat le plus proche, calculé comme le classement, sur ses seules questions.
+ */
+export function TesThemes({ questions, themes, candidats }: { questions: QuestionDuCalcul[]; themes: Theme[]; candidats: Candidat[] }) {
+  const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
   const nombres = useReponsesDesThemes(questions, themes);
+  const lePlusProche = (theme: Theme) =>
+    classement(
+      questions.filter((q) => q.theme === theme.id),
+      reponses,
+      candidats,
+    ).find((ligne) => ligne.pourcentage !== null)?.candidat;
   return (
     <section className="sec" aria-labelledby="h-game">
       <div className="sec-h">
@@ -57,6 +67,7 @@ export function TesThemes({ questions, themes }: { questions: QuestionDuCalcul[]
       <ul className="themes">
         {themes.map((theme, i) => {
           const gagne = nombres[i] >= REPONSES_PAR_PART;
+          const proche = gagne ? lePlusProche(theme) : undefined;
           return (
             <li key={theme.id} className={`th ${theme.classe}${gagne ? " done" : ""}`}>
               <PartDuTheme vide={!gagne} />
@@ -66,6 +77,11 @@ export function TesThemes({ questions, themes }: { questions: QuestionDuCalcul[]
                   <i key={k} style={k < nombres[i] ? { background: couleurDe(theme) } : undefined}></i>
                 ))}
               </span>
+              {proche && (
+                <span className="th-who one">
+                  le plus proche : <b>{proche.nom}</b>
+                </span>
+              )}
             </li>
           );
         })}

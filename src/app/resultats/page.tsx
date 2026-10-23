@@ -42,7 +42,7 @@ async function Resultats() {
           <Classement questions={duCalcul} candidats={candidats} />
           <Plateau questions={duCalcul} candidats={candidats} />
         </div>
-        <TesThemes questions={duCalcul} themes={themes} />
+        <TesThemes questions={duCalcul} themes={themes} candidats={candidats} />
         {/* « Signaler une erreur », avant le retour dans la maquette, attend son formulaire. */}
         <footer className="res-foot">
           <span className="tag">Ce n&apos;est pas un sondage</span>

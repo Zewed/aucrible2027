@@ -1,7 +1,7 @@
 # FICHE DE TEST : lue seulement par le serveur des tests de bout en bout (AUCRIBLE_FICHES_DE_TEST).
 # Son contenu reprend la fiche de démonstration n° 23 ; seuls le numéro, la date, le thème et la question changent
 # (la question et le thème de la n° 5 de maquettes/rattrapage.html).
-# Les positions des candidats sont inventées pour les tests du classement (ticket 063) : elles ne disent rien
+# Les positions des candidats sont inventées pour les tests du classement (tickets 063 et 086) : elles ne disent rien
 # de ce que pensent ces candidats. Les notes du plateau des options sont inventées pour les tests
 # du plateau (tickets 075 et 078). Les thèmes des fiches de test n° 1 à 22 suivent la répartition des
 # 23 réponses de maquettes/resultats.html (tickets 083 à 085).
@@ -27,13 +27,13 @@ options:
     implique: Un plafond de loyer s'applique partout où le logement est le plus cher.
     defenseurs: Les locataires gardent un logement abordable près de leur travail.
     critiques: Des propriétaires risquent de retirer leur logement de la location.
-    axes: { societe: 0 }
+    axes: { societe: -2 }
   - id: B
     libelle: Seulement là où la ville le demande
     implique: Chaque ville décide d'encadrer ou non ses loyers.
     defenseurs: La ville connaît son marché et choisit l'outil qui lui convient.
     critiques: Les règles changent d'une ville à l'autre et deviennent difficiles à suivre.
-    axes: { societe: 0 }
+    axes: { societe: -2 }
   - id: C
     libelle: Non, laisser les loyers libres
     implique: Le loyer se fixe entre le propriétaire et le locataire.
@@ -42,15 +42,15 @@ options:
     axes: { societe: -2 }
 positions:
   ruffin: { option: A, source: Source de test, statut: officielle }
-  lisnard: { option: B, source: Source de test, statut: officielle }
-  tondelier: { option: C, source: Source de test, statut: officielle }
-  dupont-aignan: { option: C, source: Source de test, statut: officielle }
-  glucksmann: { option: C, source: Source de test, statut: officielle }
-  le-pen: { option: C, source: Source de test, statut: officielle }
-  philippe: { option: C, source: Source de test, statut: officielle }
-  roussel: { option: C, source: Source de test, statut: officielle }
-  melenchon: { option: C, source: Source de test, statut: officielle }
-  retailleau: { option: C, source: Source de test, statut: officielle }
+  lisnard: { option: A, source: Source de test, statut: officielle }
+  tondelier: { option: A, source: Source de test, statut: officielle }
+  dupont-aignan: { option: A, source: Source de test, statut: officielle }
+  glucksmann: { option: A, source: Source de test, statut: officielle }
+  le-pen: { option: A, source: Source de test, statut: officielle }
+  philippe: { option: A, source: Source de test, statut: officielle }
+  roussel: { option: A, source: Source de test, statut: officielle }
+  melenchon: { option: B, source: Source de test, statut: officielle }
+  retailleau: { option: B, source: Source de test, statut: officielle }
   arthaud: { option: C, source: Source de test, statut: officielle }
   attal: { option: C, source: Source de test, statut: officielle }
-  zemmour: { option: C, source: Source de test, statut: officielle }
+  zemmour: { option: A, source: Source de test, statut: officielle }
