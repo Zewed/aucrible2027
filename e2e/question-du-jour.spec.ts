@@ -3006,6 +3006,7 @@ test("la fiche de Marine Tondelier affiche le statut de sa candidature, sous le 
   await page.goto("/candidat/tondelier");
   const statut = page.locator(".id-card .status");
   await expect(statut).toHaveText("Candidature déclarée — vote des adhérents prévu du 10 au 13 décembre 2026");
+  await expect(page.locator(".id-card .party")).toBeVisible();
   const [parti, ligne] = await Promise.all([page.locator(".id-card .party").boundingBox(), statut.boundingBox()]);
   expect(ligne!.y).toBeGreaterThan(parti!.y + parti!.height - 1);
 });
@@ -3726,4 +3727,35 @@ test("sur « Mes résultats », toucher « Méthode de calcul » ouvre la page �
   expect((await titre.innerText()).replace(/\s+/g, " ")).toBe("Méthode de calcul et sources.");
   await expect(page.getByRole("article").first()).toHaveAccessibleName("Chaque question donne un score entre 0 et 100 %");
   await expect(page.getByRole("article").first()).toBeInViewport({ ratio: 0.01 });
+});
+
+test.describe("la page À propos dit qui fait l'app", () => {
+  const qui = (page: Page) => page.getByRole("article", { name: "Qui fait Au crible 2027 ?" });
+
+  test("la page À propos s'ouvre sur « À propos. », puis « Qui fait Au crible 2027 ? » : « Je m'appelle Antoine », un projet fait par une seule personne", async ({ page }) => {
+    await page.goto("/a-propos");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("À propos.");
+    await expect(page.getByRole("article").first()).toHaveAccessibleName("Qui fait Au crible 2027 ?");
+    await expect(qui(page).getByText("Je m'appelle Antoine. Au crible 2027 est un projet perso, fait par une seule personne.")).toBeVisible();
+  });
+
+  test("la section dit « pas de but lucratif » et « pas de pub », et la carte de visite affiche Antoine, « auteur, affiché publiquement » et ses trois sceaux", async ({ page }) => {
+    await page.goto("/a-propos");
+    await expect(qui(page).getByText("Il n'y a pas de but lucratif et pas de pub : le site ne gagne rien, ni avec tes clics, ni avec tes réponses.")).toBeVisible();
+    const carte = qui(page).getByRole("figure", { name: "Carte de visite du projet" });
+    await expect(carte.locator(".sign b")).toHaveText("Antoine");
+    await expect(carte.locator(".sign small")).toHaveText("auteur, affiché publiquement");
+    await expect(carte.locator(".seals li")).toHaveText(["Non lucratif", "Sans pub", "Sans compte"]);
+  });
+
+  test("« Aller à » propose cinq entrées numérotées ; « 1 Qui » amène à la section « Qui fait Au crible 2027 ? »", async ({ page }) => {
+    await page.goto("/a-propos");
+    const allerA = page.getByRole("navigation", { name: "Sur cette page" });
+    await expect(allerA.getByText("Aller à")).toBeVisible();
+    await expect(allerA.getByRole("link")).toHaveText(["1Qui", "2Neutralité", "3Vie privée", "4IA", "5Suite"]);
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await allerA.getByRole("link", { name: /^1 ?Qui$/ }).click();
+    await page.waitForURL(/#r1$/);
+    await expect(qui(page).getByRole("heading", { level: 2 })).toBeInViewport();
+  });
 });
