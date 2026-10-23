@@ -1,7 +1,7 @@
 # DONNÉES DE DÉMONSTRATION : les positions ci-dessous viennent des maquettes et sont
 # inventées. Elles ne sont pas vérifiées et doivent être remplacées par des positions
-# sourcées avant toute mise en ligne. Le contexte, les chiffres clés et le texte des
-# options viennent aussi des maquettes et ne sont pas vérifiés.
+# sourcées avant toute mise en ligne. Le contexte, les chiffres clés, le texte des
+# options et les sources des positions viennent aussi des maquettes et ne sont pas vérifiés.
 numero: 24
 date: 2026-10-23
 theme: travail-retraites
@@ -48,14 +48,14 @@ options:
     defenseurs: Plus de liberté, et les mêmes règles pour tous les métiers.
     critiques: "La valeur du point peut baisser : la pension devient moins prévisible."
 positions:
-  melenchon: A
-  roussel: A
-  arthaud: A
-  le-pen: B
-  tondelier: B
-  glucksmann: B
-  attal: C
-  retailleau: D
-  zemmour: C
-  dupont-aignan: E
-  philippe: E
+  melenchon: { option: A, source: "Programme 2022, p. 12" }
+  roussel: { option: A, source: "Interview franceinfo, 21/09/2026" }
+  arthaud: { option: A, source: "Programme 2022, p. 6" }
+  le-pen: { option: B, source: "Vote du groupe à l'Assemblée, 2023" }
+  tondelier: { option: B, source: "Interview France Inter, 14/09/2026" }
+  glucksmann: { option: B, source: "Vote du groupe à l'Assemblée, 2023" }
+  attal: { option: C, source: "Interview BFMTV, 28/09/2026" }
+  retailleau: { option: D, source: "Discours de rentrée, 12/09/2026" }
+  zemmour: { option: C, source: "Programme 2022, p. 31" }
+  dupont-aignan: { option: E, source: "Interview Sud Radio, 02/10/2026" }
+  philippe: { option: E, source: "Projet de loi retraites, 2020" }

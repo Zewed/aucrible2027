@@ -1,5 +1,6 @@
 # DONNÉES DE DÉMONSTRATION : question, contexte, chiffres et positions inventés pour développer l'app.
-# Rien n'est vérifié : à remplacer par une fiche sourcée avant toute mise en ligne.
+# Les positions n'ont pas de vraie source. Rien n'est vérifié : à remplacer par une
+# fiche sourcée avant toute mise en ligne.
 numero: 25
 date: 2026-10-24
 theme: ecologie-energie
@@ -38,15 +39,15 @@ options:
     defenseurs: Une électricité bas carbone et pilotable pour électrifier les transports et l'industrie.
     critiques: Les chantiers récents ont pris des années de retard et coûté bien plus que prévu.
 positions:
-  arthaud: A
-  tondelier: A
-  melenchon: A
-  ruffin: B
-  glucksmann: B
-  attal: C
-  philippe: D
-  le-pen: D
-  retailleau: D
-  zemmour: D
-  roussel: D
-  dupont-aignan: D
+  arthaud: { option: A, source: "Source de démonstration, à trouver" }
+  tondelier: { option: A, source: "Source de démonstration, à trouver" }
+  melenchon: { option: A, source: "Source de démonstration, à trouver" }
+  ruffin: { option: B, source: "Source de démonstration, à trouver" }
+  glucksmann: { option: B, source: "Source de démonstration, à trouver" }
+  attal: { option: C, source: "Source de démonstration, à trouver" }
+  philippe: { option: D, source: "Source de démonstration, à trouver" }
+  le-pen: { option: D, source: "Source de démonstration, à trouver" }
+  retailleau: { option: D, source: "Source de démonstration, à trouver" }
+  zemmour: { option: D, source: "Source de démonstration, à trouver" }
+  roussel: { option: D, source: "Source de démonstration, à trouver" }
+  dupont-aignan: { option: D, source: "Source de démonstration, à trouver" }
