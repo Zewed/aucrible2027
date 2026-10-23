@@ -2018,3 +2018,45 @@ test.describe("chaque candidat du classement a sa barre", () => {
     for (let i = 1; i < parts.length; i++) expect(parts[i]!).toBeLessThan(parts[i - 1]!);
   });
 });
+
+test.describe("tous les candidats du classement ont le même pion", () => {
+  /** Le pion de chaque ligne du classement : ses initiales, sa forme, sa teinte. */
+  async function pionsDuClassement(page: Page) {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const lignes = page.getByRole("region", { name: "Ton classement" }).getByRole("listitem");
+    await expect(lignes).toHaveCount(13);
+    const pions: Record<string, { initiales: string; forme: string; teinte: string }> = {};
+    for (const ligne of await lignes.all()) {
+      const nom = (await ligne.locator(".cand-name").innerText()).trim();
+      pions[nom] = await ligne.locator(".pawn").evaluate((el) => {
+        const s = getComputedStyle(el);
+        return { initiales: el.textContent!.trim(), forme: `${s.width}×${s.height} ${s.borderRadius}`, teinte: s.backgroundColor };
+      });
+    }
+    return pions;
+  }
+
+  test("les 13 pions ont la même forme, la même taille et la même couleur, celle des pions : aucune couleur de parti", async ({ page }) => {
+    const pions = await pionsDuClassement(page);
+    expect(new Set(Object.values(pions).map((p) => p.forme)).size).toBe(1);
+    const teintes = new Set(Object.values(pions).map((p) => p.teinte));
+    expect(teintes.size).toBe(1);
+    const pion = await page.evaluate(() => {
+      const el = document.createElement("div");
+      el.style.background = "var(--pawn)";
+      document.body.append(el);
+      const c = getComputedStyle(el).backgroundColor;
+      el.remove();
+      return c;
+    });
+    expect([...teintes]).toEqual([pion]);
+  });
+
+  test("les initiales désignent le bon candidat, y compris FRu pour François Ruffin et FRo pour Fabien Roussel", async ({ page }) => {
+    const pions = await pionsDuClassement(page);
+    expect(Object.fromEntries(Object.entries(pions).map(([nom, p]) => [nom, p.initiales]))).toEqual(INITIALES);
+    expect(pions["François Ruffin"].initiales).toBe("FRu");
+    expect(pions["Fabien Roussel"].initiales).toBe("FRo");
+  });
+});
