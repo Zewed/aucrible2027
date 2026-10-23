@@ -1,0 +1,29 @@
+src/lib/contenu.ts
+  s_2c9a7110ce04dd::t_a3c18031193772 11
+content/questions/024-retraite.yaml
+  s_2c9a7110ce04dd::t_a3c18031193772 51-61
+src/components/Revelation.tsx
+  s_2c9a7110ce04dd::t_a3c18031193772 4,9-26,108
+content/questions/025-nucleaire.yaml
+  s_2c9a7110ce04dd::t_a3c18031193772 42-53
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_0543d760ab9d5e 708-735
+.veebee/tickets/023-chaque-position-revelee-porte-son-badge-officielle-ou.md
+  s_2c9a7110ce04dd::t_4dd62822acbf38 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e5c7529c85f4af53b6942cbd6ddb3b2d6166e713",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
