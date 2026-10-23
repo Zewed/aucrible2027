@@ -333,12 +333,20 @@ test("chaque option de la question n° 24 dit, sous son titre et sans la toucher
   await expect(page.getByRole("radio", { checked: true })).toHaveCount(0);
 });
 
-/** Les noms des candidats, leurs noms de famille et leurs partis, lus dans le contenu, plus les sigles courants. */
-const NOMS_ET_PARTIS: string[] = (parse(readFileSync("content/candidats.yaml", "utf8")) as { nom: string; parti: string }[])
-  .flatMap((c) => [c.nom, c.nom.split(" ").slice(1).join(" "), c.parti]);
+/** Les noms des candidats, leurs noms de famille et leurs partis, lus dans le contenu, plus les partis en toutes lettres et les sigles courants. */
+const NOMS_ET_PARTIS: string[] = [
+  ...(parse(readFileSync("content/candidats.yaml", "utf8")) as { nom: string; parti: string }[]).flatMap((c) => [
+    c.nom,
+    c.nom.split(" ").slice(1).join(" "),
+    c.parti,
+  ]),
+  ...["Rassemblement national", "La France insoumise", "Place publique", "Parti socialiste", "Les Républicains", "Parti communiste français", "Debout la France", "Lutte ouvrière"],
+];
 const SIGLES = /\b(RN|LFI|LR|PS|PCF|EELV|LO|NPA|DLF|UDI|MoDem)\b/;
+/** Un nom ou un parti n'est trouvé qu'en mot entier : les sigles du contenu (RN, LR, LO…) ne sont pas des bouts de mots. */
+const enMotEntier = (n: string) => new RegExp(`(?<!\\p{L})${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?!\\p{L})`, "u");
 const nomsOuPartisDans = (texte: string) => [
-  ...NOMS_ET_PARTIS.filter((n) => texte.includes(n)),
+  ...NOMS_ET_PARTIS.filter((n) => enMotEntier(n).test(texte)),
   ...(texte.match(SIGLES) ?? []).slice(0, 1),
 ];
 
@@ -2970,4 +2978,26 @@ test.describe("un candidat du classement ouvre sa fiche", () => {
       await expect(page.getByRole("heading", { level: 1, name: nom }).filter({ visible: true })).toBeVisible();
     });
   }
+});
+
+test.describe("la fiche affiche le parti du candidat", () => {
+  /** Le parti écrit sur la fiche d'un candidat, et sa couleur. */
+  async function parti(page: Page, id: string) {
+    await page.goto(`/candidat/${id}`);
+    const texte = page.locator(".id-card .party");
+    await expect(texte).toBeVisible();
+    return { texte: (await texte.innerText()).trim(), couleur: await texte.evaluate((el) => getComputedStyle(el).color) };
+  }
+
+  test("les fiches de Tondelier, Glucksmann et Retailleau affichent « Les Écologistes », « Place publique / PS » et « LR »", async ({ page }) => {
+    expect((await parti(page, "tondelier")).texte).toBe("Les Écologistes");
+    expect((await parti(page, "glucksmann")).texte).toBe("Place publique / PS");
+    expect((await parti(page, "retailleau")).texte).toBe("LR");
+  });
+
+  test("le parti est écrit en texte, de la même couleur pour tous : jamais celle du parti", async ({ page }) => {
+    const couleurs = [];
+    for (const id of ["tondelier", "glucksmann", "retailleau", "le-pen", "melenchon"]) couleurs.push((await parti(page, id)).couleur);
+    expect(new Set(couleurs).size).toBe(1);
+  });
 });
