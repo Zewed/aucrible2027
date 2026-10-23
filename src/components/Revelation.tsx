@@ -17,7 +17,19 @@ function Pion({ candidat, clair = false }: { candidat: Candidat; clair?: boolean
 }
 
 /** Une ligne de l'alignement : un titre, puis les candidats concernés ; rien quand il n'y en a aucun. */
-function LigneAlignement({ id, titre, candidats, principale = false }: { id: string; titre: string; candidats: Candidat[]; principale?: boolean }) {
+function LigneAlignement({
+  id,
+  titre,
+  candidats,
+  principale = false,
+  loin = false,
+}: {
+  id: string;
+  titre: string;
+  candidats: Candidat[];
+  principale?: boolean;
+  loin?: boolean;
+}) {
   if (candidats.length === 0) return null;
   const Titre = principale ? "h2" : "h3";
   return (
@@ -25,12 +37,12 @@ function LigneAlignement({ id, titre, candidats, principale = false }: { id: str
       <Titre id={id} className={principale ? "align-h" : "align-h align-h--s"}>
         {titre}
       </Titre>
-      <ul className="who" aria-labelledby={id}>
+      <ul className={loin ? "who far" : "who"} aria-labelledby={id}>
         {candidats.map((c) => (
           <li key={c.id}>
             {/* Le nom mènera à la fiche du candidat (ticket 122) : pas encore de lien. */}
             <a>
-              <Pion candidat={c} />
+              <Pion candidat={c} clair={loin} />
               {c.nom}
             </a>
           </li>
@@ -81,6 +93,14 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
     candidats.filter((c) => voisins.includes(rangDe(c))),
     reponse.graine - 2,
   );
+  // Les cartes les plus éloignées de la réponse ; une carte voisine est « proche », jamais « opposée ».
+  const distances = question.options.map((_, r) => Math.abs(r - rangChoisi));
+  const distanceMax = Math.max(...distances);
+  const eloignees = choisie && distanceMax > 1 ? distances.flatMap((d, r) => (d === distanceMax ? [r] : [])) : [];
+  const opposes = melanger(
+    candidats.filter((c) => eloignees.includes(rangDe(c))),
+    reponse.graine - 3,
+  );
   const inconnus = melanger(
     candidats.filter((c) => !question.positions[c.id]),
     reponse.graine + question.options.length,
@@ -121,9 +141,17 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
           <section className="align" aria-label="Alignement sur ce sujet">
             <LigneAlignement id="alignes" titre="Sur ce sujet, tu es aligné·e avec" candidats={alignes} principale />
             <LigneAlignement id="proches" titre="et proche de" candidats={proches} />
+            <LigneAlignement id="opposes" titre="opposé·e à" candidats={opposes} loin />
             <p className="align-note">
               Aligné·e&nbsp;: même carte que toi ({lettreOption(rangChoisi)}). Proche&nbsp;:{" "}
               {voisins.length > 1 ? "cartes voisines" : "carte voisine"} ({voisins.map(lettreOption).join(" et ")}).
+              {eloignees.length > 0 && (
+                <>
+                  {" "}
+                  Opposé·e&nbsp;: {eloignees.length > 1 ? "cartes les plus éloignées" : "carte la plus éloignée"} (
+                  {eloignees.map(lettreOption).join(" et ")}).
+                </>
+              )}
             </p>
           </section>
         )}

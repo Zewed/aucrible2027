@@ -877,3 +877,23 @@ test("après A, la révélation dit « et proche de » Le Pen, Tondelier et Gluc
   expect(await nomsDe(proches(page))).toEqual(["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]);
   await expect(page.getByText("Proche : carte voisine (B).")).toBeVisible();
 });
+
+const opposes = (page: Page) => page.getByRole("list", { name: "opposé·e à" });
+
+test("après E, la révélation dit « opposé·e à » Mélenchon, Roussel et Arthaud (A), avec des pions clairs", async ({ page }) => {
+  await repondre(page, "À la carte, avec un système à points");
+  await expect(page.getByRole("heading", { name: "opposé·e à" })).toBeVisible();
+  expect(await nomsDe(opposes(page))).toEqual(["Fabien Roussel", "Jean-Luc Mélenchon", "Nathalie Arthaud"]);
+  await expect(page.getByText("Opposé·e : carte la plus éloignée (A).")).toBeVisible();
+  const [clair, sombre] = await Promise.all([
+    opposes(page).locator(".pawn").first().evaluate((el) => getComputedStyle(el).backgroundColor),
+    alignes(page).locator(".pawn").first().evaluate((el) => getComputedStyle(el).backgroundColor),
+  ]);
+  expect(clair).not.toBe(sombre);
+});
+
+test("après A, la révélation dit « opposé·e à » Nicolas Dupont-Aignan et Édouard Philippe (E)", async ({ page }) => {
+  await repondre(page, "60 ans");
+  expect(await nomsDe(opposes(page))).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
+  await expect(page.getByText("Opposé·e : carte la plus éloignée (E).")).toBeVisible();
+});
