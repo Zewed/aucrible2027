@@ -2182,3 +2182,49 @@ test.describe("sur ordinateur, le plateau se pose à côté du classement", () =
     });
   });
 });
+
+test.describe("le plateau nomme ses deux axes", () => {
+  /** Les quatre étiquettes du plateau, avec leur boîte à l'écran, et celle du champ. */
+  async function etiquettes(page: Page) {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const plateau = page.getByRole("region", { name: "Ton plateau" });
+    const boite = async (texte: string) => {
+      const etiquette = plateau.getByText(texte);
+      await expect(etiquette).toBeVisible();
+      return (await etiquette.boundingBox())!;
+    };
+    return {
+      champ: (await plateau.locator(".field").boundingBox())!,
+      haut: await boite("↑ progressiste"),
+      bas: await boite("↓ conservateur"),
+      gauche: await boite("← plus de redistribution"),
+      droite: await boite("plus de marché →"),
+    };
+  }
+  const centre = (b: { x: number; y: number; width: number; height: number }) => ({ x: b.x + b.width / 2, y: b.y + b.height / 2 });
+
+  test("« plus de redistribution » à gauche, « plus de marché » à droite, « progressiste » en haut, « conservateur » en bas", async ({ page }) => {
+    const { champ, haut, bas, gauche, droite } = await etiquettes(page);
+    expect(centre(haut).y).toBeLessThan(champ.y + 10);
+    expect(centre(bas).y).toBeGreaterThan(champ.y + champ.height - 10);
+    expect(centre(gauche).x).toBeLessThan(champ.x + 10);
+    expect(centre(droite).x).toBeGreaterThan(champ.x + champ.width - 10);
+  });
+
+  test.describe("sur un téléphone de 375 px", () => {
+    test.use({ viewport: { width: 375, height: 812 } });
+
+    test("les quatre étiquettes restent lisibles et ne se chevauchent pas", async ({ page }) => {
+      const { haut, bas, gauche, droite } = await etiquettes(page);
+      const boites = [haut, bas, gauche, droite];
+      const seChevauchent = (a: (typeof boites)[number], b: (typeof boites)[number]) =>
+        a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+      for (let i = 0; i < boites.length; i++) for (let j = i + 1; j < boites.length; j++) expect(seChevauchent(boites[i], boites[j])).toBe(false);
+      for (const b of boites) {
+        expect(b.x).toBeGreaterThanOrEqual(0);
+        expect(b.x + b.width).toBeLessThanOrEqual(375);
+      }
+    });
+  });
+});
