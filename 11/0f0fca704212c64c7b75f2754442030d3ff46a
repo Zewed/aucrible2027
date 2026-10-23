@@ -1,0 +1,26 @@
+src/components/Revelation.tsx
+  s_2c9a7110ce04dd::t_f05c3a0c359923 171-176,204-208
+src/app/revelation/revelation.css
+  s_2c9a7110ce04dd::t_f05c3a0c359923 1,133-137
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_7bbd8649ee9f59 944-948
+  s_2c9a7110ce04dd::t_c7238da5ae6c27 917-943,949-959
+.veebee/tickets/031-les-cartes-se-retournent-une-a-une-a-l-arrivee.md
+  s_2c9a7110ce04dd::t_0959dda82caa48 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "110f0fca704212c64c7b75f2754442030d3ff46a",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
