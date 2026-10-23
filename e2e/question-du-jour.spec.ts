@@ -160,3 +160,68 @@ test("la fiche n° 24 affiche sous « Le contexte » exactement trois phrases, l
     expect(await phrase.evaluate((el) => el.scrollHeight <= el.clientHeight + 1)).toBe(true);
   }
 });
+
+test("la fiche n° 24 affiche sous « 3 chiffres clés » 1,7, 14 % et 62 ans, chacun avec sa légende", async ({ page }) => {
+  await page.goto("/");
+  const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+  const chiffres = carte.getByRole("region", { name: "3 chiffres clés" }).getByRole("listitem");
+  await expect(chiffres).toHaveCount(3);
+  const attendus = [
+    ["1,7", "cotisant pour 1 retraité"],
+    ["14 %", "du PIB : environ ce que représentent les retraites"],
+    ["62 ans", "et 10 mois : l'âge moyen de départ"],
+  ];
+  for (const [i, [chiffre, legende]] of attendus.entries()) {
+    await expect(chiffres.nth(i).getByText(chiffre, { exact: true })).toBeVisible();
+    await expect(chiffres.nth(i).getByText(legende, { exact: true })).toBeVisible();
+  }
+});
+
+/** Les chiffres clés de la fiche du jour, chacun vérifié visible et entier, sans rien de coupé. */
+async function chiffresEntiers(page: Page, question: string) {
+  const carte = page.getByRole("article", { name: question });
+  const chiffres = carte.getByRole("region", { name: /chiffres clés$/ }).getByRole("listitem");
+  const boiteCarte = (await carte.boundingBox())!;
+  for (const chiffre of await chiffres.all()) {
+    await expect(chiffre).toBeVisible();
+    const boite = (await chiffre.boundingBox())!;
+    expect(boite.x).toBeGreaterThanOrEqual(boiteCarte.x);
+    expect(boite.x + boite.width).toBeLessThanOrEqual(boiteCarte.x + boiteCarte.width);
+    // Coupé : un texte qui déborde de sa boîte en largeur, ou qu'une boîte rogne en hauteur.
+    const coupe = await chiffre.evaluate((el) =>
+      [el, ...el.querySelectorAll("*")].some(
+        (e) =>
+          e.scrollWidth > e.clientWidth + 1 ||
+          (getComputedStyle(e).overflowY !== "visible" && e.scrollHeight > e.clientHeight + 1),
+      ),
+    );
+    expect(coupe).toBe(false);
+  }
+  return chiffres;
+}
+
+test.describe("une fiche affiche autant de chiffres clés qu'elle en a", () => {
+  test("le 24 octobre, la fiche à deux chiffres clés en affiche deux", async ({ page }) => {
+    await page.clock.setFixedTime(new Date("2026-10-24T09:00:00+02:00"));
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: "2 chiffres clés" })).toBeVisible();
+    await expect(await chiffresEntiers(page, "Faut-il sortir du nucléaire ?")).toHaveCount(2);
+  });
+
+  test("le 25 octobre, la fiche à quatre chiffres clés en affiche quatre", async ({ page }) => {
+    await page.clock.setFixedTime(new Date("2026-10-25T09:00:00+01:00"));
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: "4 chiffres clés" })).toBeVisible();
+    await expect(await chiffresEntiers(page, "Faut-il réguler l'installation des médecins ?")).toHaveCount(4);
+  });
+});
+
+test.describe("une fiche affiche autant de chiffres clés qu'elle en a, sur grand écran", () => {
+  test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
+
+  test("la fiche à quatre chiffres clés les affiche tous les quatre, entiers", async ({ page }) => {
+    await page.clock.setFixedTime(new Date("2026-10-25T09:00:00+01:00"));
+    await page.goto("/");
+    await expect(await chiffresEntiers(page, "Faut-il réguler l'installation des médecins ?")).toHaveCount(4);
+  });
+});

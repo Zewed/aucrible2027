@@ -47,6 +47,20 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
                   ))}
                 </div>
               </section>
+              <section aria-labelledby="chiffres">
+                <h2 id="chiffres" className="label" style={{ marginTop: 22 }}><i></i>{question.chiffres.length} chiffres clés</h2>
+                <ul className="figures">
+                  {question.chiffres.map((chiffre) => (
+                    <li key={chiffre.legende} className="fig">
+                      <span className="fig-num">
+                        {chiffre.valeur}
+                        {chiffre.unite && <> <small>{chiffre.unite}</small></>}
+                      </span>
+                      <span className="fig-txt">{chiffre.legende}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             </div>
           </article>
         </div>

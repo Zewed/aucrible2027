@@ -4,6 +4,7 @@ import { parse } from "yaml";
 
 export type Candidat = { id: string; nom: string; parti: string };
 export type Option = { id: string; libelle: string };
+export type Chiffre = { valeur: string; unite?: string; legende: string };
 export type Theme = { id: string; nom: string; classe: string };
 export type Question = {
   numero: number;
@@ -11,6 +12,7 @@ export type Question = {
   theme: string;
   question: string;
   contexte: string[];
+  chiffres: Chiffre[];
   options: Option[];
   positions: Record<string, string>;
 };
