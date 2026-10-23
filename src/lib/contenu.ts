@@ -2,7 +2,9 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { parse } from "yaml";
 
-export type Candidat = { id: string; nom: string; parti: string; initiales: string };
+/** Où en est la candidature : son état (« Candidature déclarée ») et ce qui suit, en une phrase. */
+export type StatutDeCandidature = { etat: string; suite?: string };
+export type Candidat = { id: string; nom: string; parti: string; initiales: string; statut?: StatutDeCandidature };
 export type Option = {
   id: string;
   libelle: string;

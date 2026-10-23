@@ -7,7 +7,7 @@ import "./candidat.css";
 
 /**
  * La fiche d'un candidat : son pion, le même que pour les 12 autres, son nom et son parti, en texte,
- * sans couleur de parti. Le statut et les positions viennent ensuite.
+ * sans couleur de parti, puis le statut de sa candidature quand le contenu le donne. Les positions viennent ensuite.
  */
 async function FicheCandidat({ id }: { id: string }) {
   const candidat = lireCandidats().find((c) => c.id === id);
@@ -34,6 +34,18 @@ async function FicheCandidat({ id }: { id: string }) {
                 </div>
               </div>
               <p className="party">{candidat.parti}</p>
+              {candidat.statut && (
+                <p className="status">
+                  <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="15" rx="3" />
+                    <path d="M3.5 10.5h17M8 3v4M16 3v4" />
+                  </svg>
+                  <span>
+                    <b>{candidat.statut.etat}</b>
+                    {candidat.statut.suite && ` — ${candidat.statut.suite}`}
+                  </span>
+                </p>
+              )}
             </section>
           </aside>
         </div>
