@@ -514,8 +514,8 @@ const CRITERES = [
 
 /**
  * Règle n° 7 : la règle d'entrée, puis la liste des candidats en lice, mélangée par le jour (le même ordre pour
- * tous dans la journée, sans rapport avec les intentions de vote), et la frise : recalcul du 1er du mois, retrait,
- * remplacement. La bascule sur la liste officielle arrive avec le ticket 151.
+ * tous dans la journée, sans rapport avec les intentions de vote), et la frise : recalcul du 1er du mois, liste
+ * officielle, retrait, remplacement.
  */
 function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string }) {
   const nombre = `${candidats.length} candidat${candidats.length > 1 ? "s" : ""}`;
@@ -579,6 +579,12 @@ function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string
           <li>
             <span className="when">Le 1er de chaque mois</span>
             <span className="what">La liste est recalculée avec les trois critères. Un candidat entré reste jusqu&apos;à son retrait.</span>
+          </li>
+          <li>
+            <span className="when">Vers le 16 mars 2027</span>
+            <span className="what">
+              Le Conseil constitutionnel publie la liste officielle. La nôtre bascule alors exactement sur les candidats officiels.
+            </span>
           </li>
           <li>
             <span className="when">En cas de retrait</span>
