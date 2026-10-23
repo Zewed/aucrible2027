@@ -61,6 +61,7 @@ function PositionsDuTheme({ theme, questions, candidatId }: { theme: Theme; ques
                     </>
                   )}
                 </p>
+                {!option && <p className="pos-src">Elle ne compte pas dans ta proximité tant qu&apos;on n&apos;a rien de sûr.</p>}
                 {option && position && (
                   // La source est du texte, comme la maquette : en faire un lien reste à trancher (SPEC.md dit « lien + date »).
                   <p className="pos-src">

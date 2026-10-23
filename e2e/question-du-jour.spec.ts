@@ -1,5 +1,5 @@
 import { readFileSync, rmSync, writeFileSync } from "node:fs";
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
 import { parse } from "yaml";
 
 const CANDIDATS = [
@@ -3104,5 +3104,37 @@ test.describe("chaque position porte son badge", () => {
     await positionsDeTondelier(page);
     expect(await badgeEtSource(page, 5)).toEqual(["position officielle", "Source : Déclaration sur BFMTV, 21/09/2026"]);
     expect(await badgeEtSource(page, 2)).toEqual(["position déduite", "Source : Programme 2022 des Écologistes"]);
+  });
+});
+
+test.describe("une question sans source affiche « position inconnue »", () => {
+  /** La ligne de la question n° numero, sur la fiche de Tondelier déjà ouverte. */
+  const ligneDeLaFiche = (page: Page, numero: number) =>
+    page
+      .getByRole("region", { name: "Ses positions" })
+      .getByRole("listitem")
+      .filter({ has: page.locator(".pos-n", { hasText: new RegExp(`^Q${numero}$`) }) });
+
+  /** La ligne dit « ? », « Position inconnue — pas de source à ce jour » et pourquoi elle ne compte pas, sans badge. */
+  async function attendreUnePositionInconnue(ligne: Locator) {
+    await expect(ligne.locator(".pos-letter")).toHaveText("?");
+    await expect(ligne.locator(".pos-title")).toHaveText("Position inconnue — pas de source à ce jour");
+    await expect(ligne.locator(".pos-src")).toHaveText("Elle ne compte pas dans ta proximité tant qu'on n'a rien de sûr.");
+    await expect(ligne.locator(".badge")).toHaveCount(0);
+  }
+
+  test("sur la fiche de Marine Tondelier, Q17 affiche « ? », « Position inconnue — pas de source à ce jour » et sa note, sans badge", async ({ page }) => {
+    await positionsDeTondelier(page);
+    await attendreUnePositionInconnue(ligneDeLaFiche(page, 17));
+  });
+
+  test("Q22 « Faut-il supprimer Parcoursup ? » s'affiche de la même façon, et les 22 autres questions affichent une option", async ({ page }) => {
+    const positions = await positionsDeTondelier(page);
+    const q22 = positions.getByRole("region", { name: "Éducation & jeunesse" }).getByRole("listitem").filter({ hasText: "Faut-il supprimer Parcoursup ?" });
+    await expect(q22.locator(".pos-n")).toHaveText("Q22");
+    await attendreUnePositionInconnue(q22);
+    const lettres = await positions.locator(".pos-letter").allInnerTexts();
+    expect(lettres).toHaveLength(24);
+    expect(lettres.filter((l) => /^[A-E]$/.test(l.trim()))).toHaveLength(22);
   });
 });
