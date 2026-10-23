@@ -1969,3 +1969,20 @@ test.describe("une position inconnue ne compte pas pour ce candidat", () => {
     expect([x3["François Ruffin"], x3["David Lisnard"]]).toEqual([x1["François Ruffin"], x1["David Lisnard"]]);
   });
 });
+
+test.describe("« Je ne sais pas » ne compte pas dans le classement", () => {
+  test("avec les 23 réponses de la maquette, répondre « Je ne sais pas » à la n° 24 laisse les 13 pourcentages inchangés", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const avant = await pourcentagesDuClassement(page);
+    expect([avant["François Ruffin"], avant["David Lisnard"], avant["Marine Tondelier"]]).toEqual([81, 76, 71]);
+    await page.goto("/");
+    await choisir(page, "Je ne sais pas");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    expect(await pourcentagesDuClassement(page)).toEqual(avant);
+  });
+});
