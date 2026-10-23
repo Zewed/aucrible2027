@@ -1448,8 +1448,8 @@ test.describe("le silence électoral met la série en pause", () => {
 });
 
 test.describe("sans aucune réponse, le dé n'affiche pas de série", () => {
-  /** Ni « 0 jour », ni un nombre de jours d'affilée. */
-  const uneSerie = (page: Page) => page.getByRole("banner").getByText(/\bjours?\b|affilée/);
+  /** Ni « 0 jour », ni un nombre de jours d'affilée (« Question du jour », dans le menu, n'est pas une série). */
+  const uneSerie = (page: Page) => page.getByRole("banner").getByText(/\b\d+ jours?\b|affilée/);
 
   test("sur un appareil neuf, avant la moindre réponse, l'en-tête n'affiche pas de série", async ({ page }) => {
     await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
@@ -4243,4 +4243,43 @@ test.describe("sans correction, le journal invite à signaler", () => {
     await expect(page.locator(".log .entry time")).toHaveAttribute("datetime", "2026-10-09");
     await expect(page.getByText("Aucune correction pour l'instant.")).toHaveCount(0);
   });
+});
+
+test.describe("l'en-tête mène aux deux écrans principaux", () => {
+  const menu = (page: Page) => page.getByRole("banner").getByRole("navigation", { name: "Navigation" });
+
+  test.describe("sur ordinateur", () => {
+    test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
+
+    test("l'en-tête montre « Question du jour » et « Mes résultats », mène à chacun, et met en avant la page où l'on est", async ({ page }) => {
+      await page.goto("/");
+      await expect(menu(page).getByRole("link")).toHaveText(["Question du jour", "Mes résultats"]);
+      await expect(menu(page).getByRole("link", { name: "Question du jour" })).toHaveAttribute("aria-current", "page");
+      await menu(page).getByRole("link", { name: "Mes résultats" }).click();
+      await page.waitForURL(/\/resultats$/);
+      await expect(menu(page).getByRole("link", { name: "Mes résultats" })).toHaveAttribute("aria-current", "page");
+      await expect(menu(page).getByRole("link", { name: "Question du jour" })).not.toHaveAttribute("aria-current");
+      await menu(page).getByRole("link", { name: "Question du jour" }).click();
+      await page.waitForURL(/\/$/);
+      await expect(page.getByText("Question n° 24", { exact: false }).filter({ visible: true }).first()).toBeVisible();
+    });
+  });
+
+  for (const [largeur, appareil] of [
+    [1280, "sur ordinateur"],
+    [390, "au téléphone"],
+  ] as const) {
+    test.describe(appareil, () => {
+      test.use({ viewport: { width: largeur, height: 860 } });
+
+      test(`${appareil}, sur À propos, le Journal et une page introuvable, le logo « Au crible 2027 » ramène à la question du jour`, async ({ page }) => {
+        for (const adresse of ["/a-propos", "/journal", "/une-page-qui-n-existe-pas"]) {
+          await page.goto(adresse);
+          await page.getByRole("banner").getByRole("link", { name: "Au crible 2027" }).click();
+          await page.waitForURL(/\/$/);
+          await expect(page.getByRole("radiogroup", { name: "Les options" }).filter({ visible: true })).toBeVisible();
+        }
+      });
+    });
+  }
 });
