@@ -1,11 +1,12 @@
 # FICHE DE TEST : lue seulement par le serveur des tests de bout en bout (AUCRIBLE_FICHES_DE_TEST).
-# Son contenu reprend la fiche de démonstration n° 23 ; seuls le numéro, la date et la question changent.
+# Son contenu reprend la fiche de démonstration n° 23 ; seuls le numéro, la date, le thème et la question changent
+# (une 3e question Travail & retraites pour le ticket 084).
 # Les positions des candidats sont inventées pour les tests du classement (ticket 063) : elles ne disent rien
 # de ce que pensent ces candidats. Les notes du plateau des options sont inventées pour les tests
 # du plateau (tickets 075 et 078).
 numero: 12
 date: 2026-10-11
-theme: logement
+theme: travail-retraites
 question: Fiche de test du dimanche 11 octobre ?
 contexte:
   - Dans plusieurs grandes villes, un loyer de référence fixe le plafond qu'un propriétaire ne peut pas dépasser.

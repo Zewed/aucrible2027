@@ -2416,3 +2416,48 @@ test.describe("le camembert affiche 11 parts, une par thème", () => {
     expect(parts[THEMES.indexOf("Logement")].couleur).toBe(lignes[THEMES.indexOf("Logement")].couleur);
   });
 });
+
+test.describe("une part se remplit après 3 réponses dans son thème", () => {
+  /** La ligne d'un thème dans « Tes 11 thèmes » : ses pastilles allumées, et si sa part est remplie. */
+  async function ligneDuTheme(page: Page, nom: string) {
+    const ligne = page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").filter({ hasText: nom });
+    const pastilles = await ligne.locator(".pips i").evaluateAll((pips) => pips.map((pip) => (pip as HTMLElement).style.background !== ""));
+    const index = await page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").evaluateAll((items, nom) => items.findIndex((i) => i.textContent!.includes(nom)), nom);
+    const remplie = await page.locator(".big-token svg path").nth(index).evaluate((part) => part.classList.contains("on"));
+    return { allumees: pastilles.filter(Boolean).length, sur: pastilles.length, remplie };
+  }
+  async function reponsesAuxNumeros(page: Page, numeros: number[]) {
+    await page.goto("/");
+    await page.evaluate((numeros) => {
+      const reponses: Record<number, object> = {};
+      for (const numero of numeros) reponses[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22", duJour: false };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    }, numeros);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem")).toHaveCount(11);
+  }
+
+  test("avec 2 réponses en Travail & retraites, la ligne montre 2 pastilles allumées sur 3 et la part Travail & retraites est vide", async ({ page }) => {
+    await reponsesAuxNumeros(page, [5, 12]);
+    await expect(page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").filter({ hasText: "Travail & retraites" }).locator(".pips")).toHaveAttribute("aria-label", "2 réponses");
+    expect(await ligneDuTheme(page, "Travail & retraites")).toEqual({ allumees: 2, sur: 3, remplie: false });
+  });
+
+  test("après la réponse à la n° 24, la 3e du thème, les 3 pastilles sont allumées et la part Travail & retraites est remplie", async ({ page }) => {
+    await reponsesAuxNumeros(page, [5, 12]);
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").filter({ hasText: "Travail & retraites" }).locator(".pips")).toHaveAttribute("aria-label", "3 réponses");
+    expect(await ligneDuTheme(page, "Travail & retraites")).toEqual({ allumees: 3, sur: 3, remplie: true });
+  });
+
+  test("une 4e réponse dans un thème déjà gagné laisse ses 3 pastilles allumées et sa part remplie", async ({ page }) => {
+    // Quatre questions Logement.
+    await reponsesAuxNumeros(page, [1, 2, 4, 7]);
+    await expect(page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").filter({ hasText: "Logement" }).locator(".pips")).toHaveAttribute("aria-label", "4 réponses");
+    expect(await ligneDuTheme(page, "Logement")).toEqual({ allumees: 3, sur: 3, remplie: true });
+  });
+});
