@@ -2934,3 +2934,26 @@ test.describe("l'électeur ouvre la fiche d'un candidat", () => {
     for (const pion of [melenchon, lePen]) expect({ forme: pion.forme, teinte: pion.teinte }).toEqual({ forme: tondelier.forme, teinte: tondelier.teinte });
   });
 });
+
+test.describe("un nom révélé ouvre la fiche du candidat", () => {
+  async function ouvrirLaFiche(page: Page, zone: import("@playwright/test").Locator, nom: string) {
+    await zone.getByRole("link", { name: nom }).first().click();
+    await expect(page).toHaveURL(/\/candidat\/[a-z-]+$/);
+    await expect(page.getByRole("heading", { level: 1, name: nom }).filter({ visible: true })).toBeVisible();
+  }
+
+  test("sur la révélation de la n° 24, toucher « Marine Tondelier » sous son option ouvre sa fiche", async ({ page }) => {
+    await repondre(page, "À la carte, avec un système à points");
+    await ouvrirLaFiche(page, quiDefendQuoi(page), "Marine Tondelier");
+  });
+
+  test("toucher un nom de « Sur ce sujet, tu es aligné·e avec » (Édouard Philippe) ouvre sa fiche", async ({ page }) => {
+    await repondre(page, "À la carte, avec un système à points");
+    await ouvrirLaFiche(page, alignes(page), "Édouard Philippe");
+  });
+
+  test("toucher un nom rangé sous « Position inconnue » (François Ruffin) ouvre aussi sa fiche", async ({ page }) => {
+    await repondre(page, "À la carte, avec un système à points");
+    await ouvrirLaFiche(page, quiDefendQuoi(page).locator(".ropt.unknown"), "François Ruffin");
+  });
+});
