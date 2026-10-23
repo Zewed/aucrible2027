@@ -16,6 +16,30 @@ function Pion({ candidat, clair = false }: { candidat: Candidat; clair?: boolean
   );
 }
 
+/** Une ligne de l'alignement : un titre, puis les candidats concernés ; rien quand il n'y en a aucun. */
+function LigneAlignement({ id, titre, candidats, principale = false }: { id: string; titre: string; candidats: Candidat[]; principale?: boolean }) {
+  if (candidats.length === 0) return null;
+  const Titre = principale ? "h2" : "h3";
+  return (
+    <div className="align-row">
+      <Titre id={id} className={principale ? "align-h" : "align-h align-h--s"}>
+        {titre}
+      </Titre>
+      <ul className="who" aria-labelledby={id}>
+        {candidats.map((c) => (
+          <li key={c.id}>
+            {/* Le nom mènera à la fiche du candidat (ticket 122) : pas encore de lien. */}
+            <a>
+              <Pion candidat={c} />
+              {c.nom}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function Badge({ statut }: { statut: Position["statut"] }) {
   return statut === "officielle" ? (
     <span className="badge badge--off">
@@ -50,6 +74,12 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
   const alignes = melanger(
     candidats.filter((c) => question.positions[c.id]?.option === reponse.option),
     reponse.graine - 1,
+  );
+  const voisins = choisie ? [rangChoisi - 1, rangChoisi + 1].filter((r) => r >= 0 && r < question.options.length) : [];
+  const rangDe = (c: Candidat) => question.options.findIndex((o) => o.id === question.positions[c.id]?.option);
+  const proches = melanger(
+    candidats.filter((c) => voisins.includes(rangDe(c))),
+    reponse.graine - 2,
   );
   const inconnus = melanger(
     candidats.filter((c) => !question.positions[c.id]),
@@ -89,23 +119,12 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
         )}
         {choisie && (
           <section className="align" aria-label="Alignement sur ce sujet">
-            {alignes.length > 0 && (
-              <div className="align-row">
-                <h2 id="alignes" className="align-h">Sur ce sujet, tu es aligné·e avec</h2>
-                <ul className="who" aria-labelledby="alignes">
-                  {alignes.map((c) => (
-                    <li key={c.id}>
-                      {/* Le nom mènera à la fiche du candidat (ticket 122) : pas encore de lien. */}
-                      <a>
-                        <Pion candidat={c} />
-                        {c.nom}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            <p className="align-note">Aligné·e&nbsp;: même carte que toi ({lettreOption(rangChoisi)}).</p>
+            <LigneAlignement id="alignes" titre="Sur ce sujet, tu es aligné·e avec" candidats={alignes} principale />
+            <LigneAlignement id="proches" titre="et proche de" candidats={proches} />
+            <p className="align-note">
+              Aligné·e&nbsp;: même carte que toi ({lettreOption(rangChoisi)}). Proche&nbsp;:{" "}
+              {voisins.length > 1 ? "cartes voisines" : "carte voisine"} ({voisins.map(lettreOption).join(" et ")}).
+            </p>
           </section>
         )}
         <section className="rev-list" aria-labelledby="qui-defend-quoi">
