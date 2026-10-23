@@ -218,8 +218,10 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
         <button type="submit" className="go" aria-disabled={!choix}>Valider ma réponse</button>
         <p className="go-note">Tes réponses restent sur ton téléphone, sans compte.</p>
       </form>
-      {/* « Signaler une erreur », à gauche dans la maquette, attend son formulaire. */}
       <footer className="foot">
+        <Link className="small" href="/signaler">
+          Signaler une erreur
+        </Link>
         <Link className="btn-link" href="/resultats" style={{ marginLeft: "auto" }}>
           Mes résultats{" "}
           <svg viewBox="0 0 24 24" aria-hidden="true">

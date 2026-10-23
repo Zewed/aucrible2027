@@ -352,6 +352,12 @@ export function Revelation({
             </ul>
           </section>
         )}
+        {/* « Que veut dire « position déduite » ? », l'autre lien de la maquette, n'est porté par aucun ticket. */}
+        <footer className="res-foot">
+          <nav>
+            <Link href="/signaler">Signaler une erreur</Link>
+          </nav>
+        </footer>
       </main>
     </>
   );
