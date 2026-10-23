@@ -4,12 +4,14 @@ import { Pion } from "@/components/Pion";
 import type { Candidat } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
 import { classement, type QuestionDuCalcul } from "@/lib/proximite";
-import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
+import { abonnerAuxReponses, JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
 
 /** « Ton classement » : les candidats, du plus proche au plus éloigné des réponses de l'appareil. */
 export function Classement({ questions, candidats }: { questions: QuestionDuCalcul[]; candidats: Candidat[] }) {
   const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
   const lignes = classement(questions, reponses, candidats);
+  // Les réponses qui entrent dans le calcul : « Je ne sais pas » n'y entre pas.
+  const comptees = questions.filter((q) => reponses[q.numero] && reponses[q.numero].option !== JE_NE_SAIS_PAS).length;
   // Ce que montre la page sans aucune réponse comptée reste à trancher : pour l'instant, rien.
   if (lignes.every((ligne) => ligne.pourcentage === null)) return null;
 
@@ -40,6 +42,11 @@ export function Classement({ questions, candidats }: { questions: QuestionDuCalc
           </li>
         ))}
       </ol>
+      <p className="rank-note">
+        {comptees > 1
+          ? `Calculé sur tes ${comptees} réponses, pondérées par l'importance que tu leur donnes.`
+          : "Calculé sur ta réponse, pondérée par l'importance que tu lui donnes."}
+      </p>
     </section>
   );
 }
