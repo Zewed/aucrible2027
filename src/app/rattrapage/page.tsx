@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
-import { ListeDeRattrapage } from "@/components/ListeDeRattrapage";
+import { ListeDeRattrapage, TuileARattraper } from "@/components/ListeDeRattrapage";
 import { lireThemes } from "@/lib/contenu";
 import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
 import "./rattrapage.css";
@@ -35,6 +35,9 @@ async function Rattrapage() {
             <h1 id="titre">
               Rattraper les questions<span>.</span>
             </h1>
+          </div>
+          <div className="tiles">
+            <TuileARattraper cartes={cartes} />
           </div>
         </section>
 

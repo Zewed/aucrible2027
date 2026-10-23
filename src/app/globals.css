@@ -10,3 +10,14 @@
 /* Le kit fait rouler le dé à chaque chargement ; il ne roule que quand la série augmente. */
 .die { animation: none; }
 .die.roule { animation: roll 1.1s var(--ease-out) .2s both; }
+
+/* La barre du rattrapage : un cran par question publiée (--publiees), remplie jusqu'à --repondues.
+   La maquette les fige à 24 et 14 ; « .todo » l'emporte sur sa feuille, chargée après celle-ci. */
+.todo .prog {
+  background: repeating-linear-gradient(90deg, var(--slot) 0 calc(100% / var(--publiees) - 2px), transparent calc(100% / var(--publiees) - 2px) calc(100% / var(--publiees)));
+}
+.todo .prog i {
+  width: calc(100% * var(--repondues) / var(--publiees));
+  background: repeating-linear-gradient(90deg, var(--ink) 0 calc(100% / var(--publiees) - 2px), transparent calc(100% / var(--publiees) - 2px) calc(100% / var(--publiees)));
+  background-size: calc(100% * var(--publiees) / var(--repondues)) 100%;
+}

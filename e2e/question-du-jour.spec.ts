@@ -1641,3 +1641,41 @@ test.describe("une question répondue est marquée « Répondu » et passe en fi
     expect(liste.slice(0, -1).every((c) => c.mention === "À répondre")).toBe(true);
   });
 });
+
+test.describe("la liste affiche le nombre de questions à rattraper", () => {
+  const tuile = (page: Page) => page.getByRole("group", { name: "À rattraper" });
+  /** La part remplie de la barre de progression, de 0 à 1 (sa largeur posée, hors animation de croissance). */
+  const remplissage = (page: Page) =>
+    tuile(page)
+      .getByRole("img")
+      .evaluate((barre) => barre.querySelector("i")!.offsetWidth / (barre as HTMLElement).offsetWidth);
+
+  /** 14 réponses déjà données sur l'appareil, aux questions n° 1 à 14 (en rattrapage). */
+  async function quatorzeReponses(page: Page) {
+    await page.goto("/");
+    await page.evaluate(() => {
+      const reponses: Record<number, object> = {};
+      for (let numero = 1; numero <= 14; numero++) reponses[numero] = { option: "A", importance: null, graine: 1, jour: "2026-10-22", duJour: false };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    });
+  }
+
+  test("avec 24 questions publiées dont 14 répondues, la tuile affiche « 10 questions à rattraper » et « 14 répondues sur 24 publiées »", async ({ page }) => {
+    await quatorzeReponses(page);
+    await page.goto("/rattrapage");
+    await expect(tuile(page)).toContainText("10 questions à rattraper");
+    await expect(tuile(page)).toContainText("14 répondues sur 24 publiées");
+    await expect(tuile(page).getByRole("img", { name: "14 questions répondues sur 24 publiées" })).toBeVisible();
+    expect(await remplissage(page)).toBeCloseTo(14 / 24, 2);
+  });
+
+  test("après avoir répondu à la question n° 24, la tuile affiche « 9 questions à rattraper » et « 15 répondues sur 24 publiées », et la barre avance d'un cran", async ({ page }) => {
+    await quatorzeReponses(page);
+    await repondreCeJour(page, "2026-10-23");
+    await page.goto("/rattrapage");
+    await expect(tuile(page)).toContainText("9 questions à rattraper");
+    await expect(tuile(page)).toContainText("15 répondues sur 24 publiées");
+    await expect(tuile(page).getByRole("img", { name: "15 questions répondues sur 24 publiées" })).toBeVisible();
+    expect(await remplissage(page)).toBeCloseTo(15 / 24, 2);
+  });
+});
