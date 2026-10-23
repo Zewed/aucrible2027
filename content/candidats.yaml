@@ -1,0 +1,40 @@
+# Les candidats retenus au lancement (règle d'entrée : SPEC.md, « Candidats »).
+- id: le-pen
+  nom: Marine Le Pen
+  parti: Rassemblement national
+- id: melenchon
+  nom: Jean-Luc Mélenchon
+  parti: La France insoumise
+- id: philippe
+  nom: Édouard Philippe
+  parti: Horizons
+- id: glucksmann
+  nom: Raphaël Glucksmann
+  parti: Place publique
+- id: retailleau
+  nom: Bruno Retailleau
+  parti: Les Républicains
+- id: lisnard
+  nom: David Lisnard
+  parti: Nouvelle Énergie
+- id: attal
+  nom: Gabriel Attal
+  parti: Renaissance
+- id: zemmour
+  nom: Éric Zemmour
+  parti: Reconquête
+- id: tondelier
+  nom: Marine Tondelier
+  parti: Les Écologistes
+- id: roussel
+  nom: Fabien Roussel
+  parti: Parti communiste français
+- id: dupont-aignan
+  nom: Nicolas Dupont-Aignan
+  parti: Debout la France
+- id: ruffin
+  nom: François Ruffin
+  parti: Debout !
+- id: arthaud
+  nom: Nathalie Arthaud
+  parti: Lutte ouvrière
