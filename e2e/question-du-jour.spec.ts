@@ -3905,3 +3905,31 @@ test.describe("la page À propos mène aux comptes @aucrible2027", () => {
     }
   });
 });
+
+test.describe("« Signaler une erreur » ouvre le formulaire depuis la fiche", () => {
+  /** La page « Signaler une erreur. » et son introduction sont ouvertes. */
+  async function pageDeSignalement(page: Page) {
+    await page.waitForURL(/\/signaler$/);
+    const titre = page.getByRole("heading", { level: 1 }).filter({ visible: true });
+    await expect(titre).toHaveText("Signaler une erreur.");
+    await expect(
+      page.getByText("Un chiffre faux, une position mal attribuée, une phrase qui penche ? Dis-le-nous : on vérifie et on corrige.").filter({ visible: true }),
+    ).toBeVisible();
+  }
+
+  test("sur la question n° 24, « Signaler une erreur » en bas de la fiche ouvre la page « Signaler une erreur. » avec son introduction", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByText("Question n° 24", { exact: false }).filter({ visible: true }).first()).toBeVisible();
+    await page.locator("main footer").getByRole("link", { name: "Signaler une erreur" }).click();
+    await pageDeSignalement(page);
+  });
+
+  test("après une réponse validée, la révélation propose encore « Signaler une erreur », qui ouvre la même page", async ({ page }) => {
+    await repondre(page, "62 ans");
+    await page.waitForURL(/\/revelation$/);
+    const lien = page.locator("main footer").filter({ visible: true }).getByRole("link", { name: "Signaler une erreur" });
+    await expect(lien).toBeVisible();
+    await lien.click();
+    await pageDeSignalement(page);
+  });
+});
