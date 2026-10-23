@@ -2082,3 +2082,47 @@ test.describe("les résultats affichent « Ce n'est pas un sondage »", () => {
     await expect(page).toHaveURL(/\/$/);
   });
 });
+
+/** Des réponses A aux questions n° 1 à `combien`, déjà données sur l'appareil (×1). */
+async function premieresReponses(page: Page, combien: number) {
+  await page.goto("/");
+  await page.evaluate((combien) => {
+    const reponses: Record<number, object> = {};
+    for (let numero = 1; numero <= combien; numero++) reponses[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22", duJour: false };
+    localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+  }, combien);
+}
+
+test.describe("avant 10 réponses, le classement dit combien il en manque", () => {
+  const classementDeLaPage = (page: Page) => page.getByRole("region", { name: "Ton classement" });
+
+  test("avec 3 réponses, « Ton classement » affiche « Encore 7 réponses pour voir ton classement » et « 3/10 réponses »", async ({ page }) => {
+    await premieresReponses(page, 3);
+    await page.goto("/resultats");
+    await expect(classementDeLaPage(page).getByRole("heading", { name: "Encore 7 réponses pour voir ton classement" })).toBeVisible();
+    await expect(classementDeLaPage(page).getByText("3/10", { exact: true })).toBeVisible();
+    await expect(classementDeLaPage(page).getByRole("img", { name: "3 réponses sur 10" })).toBeVisible();
+  });
+
+  test("avec 3 réponses, aucun nom de candidat ni aucun pourcentage réel : seulement l'aperçu estompé « Il ressemblera à ça »", async ({ page }) => {
+    await premieresReponses(page, 3);
+    await page.goto("/resultats");
+    await expect(classementDeLaPage(page).getByText("Il ressemblera à ça")).toBeVisible();
+    for (const nom of Object.keys(INITIALES)) await expect(page.getByText(nom)).toHaveCount(0);
+    await expect(classementDeLaPage(page).getByText(/\d+\s?%/)).toHaveCount(0);
+  });
+
+  test("à la 10e réponse, le message disparaît et le classement des 13 candidats prend sa place", async ({ page }) => {
+    await premieresReponses(page, 9);
+    await page.goto("/resultats");
+    await expect(classementDeLaPage(page).getByRole("heading", { name: "Encore 1 réponse pour voir ton classement" })).toBeVisible();
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await page.goto("/resultats");
+    await expect(classementDeLaPage(page).getByRole("listitem")).toHaveCount(13);
+    await expect(page.getByText(/pour voir ton classement/)).toHaveCount(0);
+    await expect(page.getByText("Il ressemblera à ça")).toHaveCount(0);
+  });
+});

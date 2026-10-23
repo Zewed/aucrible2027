@@ -5,6 +5,7 @@ import { Classement } from "@/components/Classement";
 import { lireCandidats } from "@/lib/contenu";
 import type { QuestionDuCalcul } from "@/lib/proximite";
 import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
+import "./resultats-vide.css";
 
 /** « Mes résultats » : le titre, puis le classement calculé sur l'appareil à partir de ses réponses. */
 async function Resultats() {
