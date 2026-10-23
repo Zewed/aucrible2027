@@ -5,7 +5,8 @@ import type { Candidat, Position, Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
 import { melanger } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
-import { lireReponseEnCours, type ReponseEnCours } from "@/lib/reponses";
+import { aujourdhuiAParis } from "@/lib/date";
+import { lesReponses, lireReponses } from "@/lib/reponses";
 
 /** Le pion d'un candidat : le même pour tous, à ses initiales, jamais à la couleur de son parti. */
 function Pion({ candidat, clair = false }: { candidat: Candidat; clair?: boolean }) {
@@ -73,10 +74,10 @@ function Badge({ statut }: { statut: Position["statut"] }) {
 const nombreDeCandidats = (n: number) => `${n} candidat${n > 1 ? "s" : ""}`;
 
 export function Revelation({ questions, candidats, themes }: { questions: Question[]; candidats: Candidat[]; themes: Theme[] }) {
-  const brut = useCoteClient(lireReponseEnCours);
-  const reponse = brut ? (JSON.parse(brut) as ReponseEnCours) : null;
-
-  const question = reponse && questions.find((q) => q.numero === reponse.numero);
+  const jour = useCoteClient(() => aujourdhuiAParis());
+  const reponses = lesReponses(useCoteClient(lireReponses));
+  const question = questions.find((q) => q.date === jour);
+  const reponse = question && reponses[question.numero];
   const theme = question && themes.find((t) => t.id === question.theme);
   if (!reponse || !question || !theme) return null;
 

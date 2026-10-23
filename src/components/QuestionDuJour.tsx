@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
 import type { Question, Theme } from "@/lib/contenu";
@@ -9,7 +9,7 @@ import { lettreOption } from "@/lib/lettres";
 import { tirerGraine } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
-import { enregistrerReponseEnCours, JE_NE_SAIS_PAS } from "@/lib/reponses";
+import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
 
 const IMPORTANCES = [
   { poids: 1, libelle: "Un peu" },
@@ -24,13 +24,20 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
   const jour = useCoteClient(() => aujourdhuiAParis());
   const question = questions.find((q) => q.date === jour) ?? null;
   const theme = question && themes.find((t) => t.id === question.theme);
+  const reponses = lesReponses(useCoteClient(lireReponses));
+  const dejaRepondue = question !== null && question.numero in reponses;
 
-  if (!question || !theme) return null;
+  // Une question déjà répondue sur cet appareil rouvre sur sa révélation.
+  useEffect(() => {
+    if (dejaRepondue) router.replace("/revelation");
+  }, [dejaRepondue, router]);
+
+  if (!question || !theme || dejaRepondue) return null;
 
   function valider(evenement: React.FormEvent) {
     evenement.preventDefault();
     if (!question || !choix) return;
-    enregistrerReponseEnCours({ numero: question.numero, option: choix, importance: poids, graine: tirerGraine() });
+    enregistrerReponse(question.numero, { option: choix, importance: poids, graine: tirerGraine() });
     router.push("/revelation");
   }
 
