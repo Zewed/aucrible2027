@@ -42,7 +42,7 @@ test("valider « À la carte, avec un système à points » révèle Nicolas Dup
   await page.getByRole("button", { name: "Valider ma réponse" }).click();
 
   await expect(page).toHaveURL(/\/revelation$/);
-  const defenseurs = page.getByRole("list", { name: "Ils défendent ton option" });
+  const defenseurs = page.getByRole("list", { name: "Sur ce sujet, tu es aligné·e avec" });
   await expect(defenseurs.getByRole("listitem")).toHaveCount(2);
   await expect(defenseurs.getByText("Nicolas Dupont-Aignan")).toBeVisible();
   await expect(defenseurs.getByText("Édouard Philippe")).toBeVisible();
@@ -53,7 +53,7 @@ test("valider « 62 ans » révèle Marine Le Pen, Marine Tondelier et Raphaël 
   await choisir(page, "62 ans");
   await page.getByRole("button", { name: "Valider ma réponse" }).click();
 
-  const defenseurs = page.getByRole("list", { name: "Ils défendent ton option" });
+  const defenseurs = page.getByRole("list", { name: "Sur ce sujet, tu es aligné·e avec" });
   await expect(defenseurs.getByRole("listitem")).toHaveCount(3);
   for (const nom of ["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]) {
     await expect(defenseurs.getByText(nom)).toBeVisible();
@@ -515,7 +515,7 @@ test("après A puis B et validation, la révélation nomme les défenseurs de B,
   await choisir(page, "62 ans");
   await page.getByRole("button", { name: "Valider ma réponse" }).click();
   await expect(page).toHaveURL(/\/revelation$/);
-  const defenseurs = page.getByRole("list", { name: "Ils défendent ton option" });
+  const defenseurs = page.getByRole("list", { name: "Sur ce sujet, tu es aligné·e avec" });
   for (const nom of ["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]) await expect(defenseurs.getByText(nom)).toBeVisible();
   for (const nom of ["Jean-Luc Mélenchon", "Fabien Roussel", "Nathalie Arthaud"]) await expect(defenseurs.getByText(nom)).toHaveCount(0);
 });
@@ -834,4 +834,31 @@ test("les initiales distinguent les candidats qui se ressemblent : FRo pour Fabi
   expect(pions["Fabien Roussel"].initiales).toBe("FRo");
   expect(pions["François Ruffin"].initiales).toBe("FRu");
   expect(new Set(Object.values(pions).map((p) => p.initiales)).size).toBe(13);
+});
+
+const alignes = (page: Page) => page.getByRole("list", { name: "Sur ce sujet, tu es aligné·e avec" });
+const nomsDe = async (liste: import("@playwright/test").Locator) =>
+  (await liste.getByRole("listitem").allInnerTexts()).map((t) => t.replace(/^\S+\s+/, "").trim()).sort();
+
+test("après E, la révélation dit « Sur ce sujet, tu es aligné·e avec » Nicolas Dupont-Aignan et Édouard Philippe", async ({ page }) => {
+  await repondre(page, "À la carte, avec un système à points");
+  await expect(page.getByRole("heading", { name: "Sur ce sujet, tu es aligné·e avec" })).toBeVisible();
+  expect(await nomsDe(alignes(page))).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
+});
+
+test("après B, aligné·e avec Le Pen, Tondelier et Glucksmann ; Ruffin et Lisnard n'y figurent jamais", async ({ page }) => {
+  await repondre(page, "62 ans");
+  expect(await nomsDe(alignes(page))).toEqual(["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]);
+  for (const libelle of ["60 ans", "62 ans", "64 ans", "65 ans ou plus", "À la carte, avec un système à points"]) {
+    await repondre(page, libelle);
+    await expect(alignes(page).getByRole("listitem").first()).toBeVisible();
+    for (const nom of ["François Ruffin", "David Lisnard"]) await expect(alignes(page).getByText(nom)).toHaveCount(0);
+  }
+});
+
+test("sous les listes, la note définit « Aligné·e : même carte que toi », avec la lettre de la réponse", async ({ page }) => {
+  await repondre(page, "À la carte, avec un système à points");
+  await expect(page.getByText("Aligné·e : même carte que toi (E).")).toBeVisible();
+  await repondre(page, "62 ans");
+  await expect(page.getByText("Aligné·e : même carte que toi (B).")).toBeVisible();
 });
