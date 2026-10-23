@@ -1838,3 +1838,36 @@ test.describe("le classement range les 13 candidats par % de proximité", () => 
     );
   });
 });
+
+test.describe("la révélation mène à « Mes résultats »", () => {
+  const pourcentageDe = async (page: Page, nom: string) =>
+    Number((await lignesDuClassement(page)).find(([, n]) => n === nom)![2]!.replace(/\D/g, ""));
+
+  async function repondreEALaQuestionDuJour(page: Page) {
+    await page.goto("/");
+    await choisir(page, "À la carte, avec un système à points");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+  }
+
+  test("sur la révélation de la question n° 24, la phrase sous le bouton dit « Ton classement est recalculé avec cette 24e réponse. » et « Voir mes résultats » ouvre « Mes résultats »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await repondreEALaQuestionDuJour(page);
+    await expect(page.getByText("Ton classement est recalculé avec cette 24e réponse.").filter({ visible: true })).toBeVisible();
+    await page.getByRole("link", { name: "Voir mes résultats" }).filter({ visible: true }).click();
+    await expect(page).toHaveURL(/\/resultats$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." }).filter({ visible: true })).toBeVisible();
+  });
+
+  test("sur « Mes résultats », le classement tient compte de cette réponse : Nicolas Dupont-Aignan, qui défend l'option E choisie, dépasse les 66 % qu'il avait avant", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    expect(await pourcentageDe(page, "Nicolas Dupont-Aignan")).toBe(66);
+    await repondreEALaQuestionDuJour(page);
+    await page.getByRole("link", { name: "Voir mes résultats" }).filter({ visible: true }).click();
+    await expect(page).toHaveURL(/\/resultats$/);
+    await expect(page.getByRole("region", { name: "Ton classement" }).filter({ visible: true }).getByRole("listitem")).toHaveCount(13);
+    expect(await pourcentageDe(page, "Nicolas Dupont-Aignan")).toBeGreaterThan(66);
+  });
+});
