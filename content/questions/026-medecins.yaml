@@ -1,0 +1,30 @@
+# DONNÉES DE DÉMONSTRATION : question, contexte et chiffres inventés pour développer l'app.
+# Aucune position de candidat n'est renseignée. Rien n'est vérifié : à remplacer par une
+# fiche sourcée avant toute mise en ligne.
+numero: 26
+date: 2026-10-25
+theme: sante
+question: Faut-il réguler l'installation des médecins ?
+contexte:
+  - Aujourd'hui, un médecin libéral peut s'installer où il le souhaite.
+  - Dans certains territoires, il faut attendre plusieurs mois pour un rendez-vous, et des patients n'ont plus de médecin traitant.
+  - L'idée d'encadrer les installations revient régulièrement au Parlement depuis des années.
+chiffres:
+  - valeur: "6"
+    unite: millions
+    legende: de patients sans médecin traitant
+  - valeur: 87 %
+    legende: du territoire classé en zone où l'accès aux médecins est difficile
+  - valeur: "85"
+    legende: généralistes pour 100 000 habitants
+  - valeur: "10"
+    unite: ans
+    legende: d'études pour devenir médecin généraliste
+options:
+  - id: A
+    libelle: Limiter les installations là où les médecins sont déjà nombreux
+  - id: B
+    libelle: Inciter par des aides, sans obligation
+  - id: C
+    libelle: Garder la liberté d'installation
+positions: {}

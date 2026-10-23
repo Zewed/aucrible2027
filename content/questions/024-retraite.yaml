@@ -1,7 +1,7 @@
 # DONNÉES DE DÉMONSTRATION : les positions ci-dessous viennent des maquettes et sont
 # inventées. Elles ne sont pas vérifiées et doivent être remplacées par des positions
-# sourcées avant toute mise en ligne. Le contexte vient aussi des maquettes et n'est
-# pas vérifié.
+# sourcées avant toute mise en ligne. Le contexte et les chiffres clés viennent aussi
+# des maquettes et ne sont pas vérifiés.
 numero: 24
 date: 2026-10-23
 theme: travail-retraites
@@ -10,6 +10,14 @@ contexte:
   - La réforme de 2023 a commencé à repousser l'âge légal de 62 à 64 ans, puis sa hausse a été suspendue fin 2025.
   - "Notre système fonctionne par répartition : les cotisations de ceux qui travaillent paient les pensions d'aujourd'hui."
   - Comme on vit plus longtemps, il y a de moins en moins d'actifs pour chaque retraité.
+chiffres:
+  - valeur: "1,7"
+    legende: cotisant pour 1 retraité
+  - valeur: 14 %
+    legende: "du PIB : environ ce que représentent les retraites"
+  - valeur: "62"
+    unite: ans
+    legende: "et 10 mois : l'âge moyen de départ"
 options:
   - id: A
     libelle: 60 ans
