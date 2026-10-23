@@ -3562,3 +3562,35 @@ test.describe("la page Méthode explique comment le plateau place les pions", ()
     await expect(regle5(page).getByRole("img", { name: "Carte à deux axes : un pion TOI, légèrement côté redistribution et progressiste" })).toBeVisible();
   });
 });
+
+test.describe("la page Méthode explique l'ordre des sources", () => {
+  const regle6 = (page: Page) => page.getByRole("article", { name: "Chaque position a une source, classée par priorité" });
+
+  test("la règle n° 6 liste, dans l'ordre, le programme 2027, une déclaration datée de moins de 12 mois, les votes du groupe, le programme 2022 du parti", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(regle6(page).getByText("Règle n° 6")).toBeVisible();
+    const crans = regle6(page).locator(".ladder li");
+    await expect(crans.locator(".t b")).toHaveText([
+      "Le programme officiel 2027",
+      "Une déclaration publique du candidat",
+      "Les votes de son groupe",
+      "Le programme 2022 de son parti",
+      "Aucune source",
+    ]);
+    await expect(crans.locator(".n")).toHaveText(["1", "2", "3", "4", "?"]);
+    await expect(crans.nth(1).locator("small")).toHaveText("Datée, de moins de 12 mois.");
+    await expect(crans.nth(2).locator("small")).toHaveText("À l'Assemblée nationale ou au Parlement européen.");
+  });
+
+  test("un cinquième cran, « Aucune source », renvoie à la position « inconnue », sautée (règle 3)", async ({ page }) => {
+    await page.goto("/methode");
+    const dernier = regle6(page).locator(".ladder li").nth(4);
+    await expect(dernier).toHaveClass("none");
+    await expect(dernier.locator("small")).toHaveText("Position « inconnue », sautée (règle 3).");
+  });
+
+  test("la règle écrit « On ne devine jamais » et « on ne sollicite pas les équipes de campagne »", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(regle6(page).getByText("On ne devine jamais et on ne sollicite pas les équipes de campagne : seules les sources publiques comptent.")).toBeVisible();
+  });
+});

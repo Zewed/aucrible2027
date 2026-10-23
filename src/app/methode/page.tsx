@@ -402,9 +402,66 @@ function RegleDuPlateau() {
   );
 }
 
+/** Les crans des sources, du plus sûr au moins sûr (SPEC.md, « Sources des positions des candidats »). */
+const SOURCES = [
+  { titre: "Le programme officiel 2027", precision: "Publié par le candidat ou son équipe." },
+  { titre: "Une déclaration publique du candidat", precision: "Datée, de moins de 12 mois." },
+  { titre: "Les votes de son groupe", precision: "À l'Assemblée nationale ou au Parlement européen." },
+  { titre: "Le programme 2022 de son parti", precision: "Quand rien de plus récent n'existe." },
+];
+
+/**
+ * Règle n° 6 : la première source disponible fait la position. Les badges des crans, « Deux badges, deux niveaux
+ * de certitude » et les exemples de lignes de source arrivent avec le ticket 148.
+ */
+function RegleDesSources() {
+  return (
+    <article className="rule theme-sante" id="r6" aria-labelledby="r6-t">
+      <header className="rule-head">
+        <span className="rule-n" aria-hidden="true">
+          6
+        </span>
+        <p className="rule-k">Règle n° 6</p>
+        <h2 id="r6-t">Chaque position a une source, classée par priorité</h2>
+      </header>
+      <div className="rule-body">
+        <div className="rule-txt">
+          <p>
+            Pour coder la position d&apos;un candidat, on prend la <b>première source disponible</b> dans cet ordre&nbsp;:
+          </p>
+        </div>
+        <ol className="ladder">
+          {SOURCES.map(({ titre, precision }, rang) => (
+            <li key={titre}>
+              <span className="n">{rang + 1}</span>
+              <span className="t">
+                <b>{titre}</b>
+                <small>{precision}</small>
+              </span>
+            </li>
+          ))}
+          <li className="none">
+            <span className="n">?</span>
+            <span className="t">
+              <b>Aucune source</b>
+              <small>Position «&nbsp;inconnue&nbsp;», sautée (règle 3).</small>
+            </span>
+          </li>
+        </ol>
+        <div className="rule-txt">
+          <p>
+            <b>On ne devine jamais</b> et <b>on ne sollicite pas les équipes de campagne</b>&nbsp;: seules les sources publiques
+            comptent.
+          </p>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 /**
  * La page « Méthode de calcul et sources » (maquettes/methode.html), règle par règle. Le sommaire « Aller à la règle »,
- * la version de la méthode et le pied de page ne sont portés par aucun ticket ; la règle n° 4 n'en a pas non plus ; les règles 6 à 8 viennent ensuite.
+ * la version de la méthode et le pied de page ne sont portés par aucun ticket ; la règle n° 4 n'en a pas non plus ; les règles 7 et 8 viennent ensuite.
  */
 async function Methode() {
   const jour = await lireAujourdhui();
@@ -443,6 +500,7 @@ async function Methode() {
             <RegleDeLImportance />
             <RegleDesInconnues />
             <RegleDuPlateau />
+            <RegleDesSources />
           </div>
         </div>
       </main>
