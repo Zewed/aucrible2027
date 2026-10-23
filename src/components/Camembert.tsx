@@ -17,6 +17,7 @@ export function Camembert({
   interieur = 22,
   grand = false,
   enJeu,
+  nouvelle,
   description,
 }: {
   couleurs?: (string | null)[];
@@ -24,6 +25,8 @@ export function Camembert({
   grand?: boolean;
   /** La part en jeu, rayée à la couleur de son thème (`couleur`), comme sur maquettes/index.html. */
   enJeu?: { part: number; couleur: string };
+  /** La part qui vient d'être gagnée : elle se pose d'un clic (maquettes/revelation.html). */
+  nouvelle?: number;
   description?: string;
 }) {
   const rayures = `rayures-${useId()}`;
@@ -31,7 +34,7 @@ export function Camembert({
   return (
     <svg
       viewBox="0 0 200 200"
-      className={grand ? "token-pop" : undefined}
+      className={grand || nouvelle !== undefined ? "token-pop" : undefined}
       role={description ? "img" : undefined}
       aria-label={description}
       aria-hidden={description ? undefined : true}
@@ -55,6 +58,7 @@ export function Camembert({
             <path key={`${i}-en-jeu`} className="wedge next" d={d} style={{ fill: `url(#${rayures})` }} />,
           ];
         if (!couleur) return <path key={i} d={d} style={{ fill: "var(--slot)" }} />;
+        if (nouvelle === i) return <path key={i} className="wedge fresh" d={d} style={{ fill: couleur }} />;
         const delai = grand ? `${(0.25 + 0.09 * gagnees++).toFixed(2)}s` : undefined;
         return <path key={i} className="wedge on" d={d} style={{ fill: couleur, animationDelay: delai }} />;
       })}

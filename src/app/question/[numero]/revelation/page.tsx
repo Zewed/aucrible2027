@@ -7,9 +7,10 @@ import "@/app/revelation/revelation.css";
 
 /** La révélation d'une question déjà publiée, répondue depuis le rattrapage. */
 async function RevelationPubliee({ numero }: { numero: string }) {
-  const question = (await lireQuestionsPubliees()).find((q) => String(q.numero) === numero);
+  const questions = await lireQuestionsPubliees();
+  const question = questions.find((q) => String(q.numero) === numero);
   if (!question) notFound();
-  return <Revelation questions={[question]} candidats={lireCandidats()} themes={lireThemes()} numero={question.numero} />;
+  return <Revelation questions={questions} candidats={lireCandidats()} themes={lireThemes()} numero={question.numero} />;
 }
 
 export default function PageRevelationPubliee({ params }: PageProps<"/question/[numero]/revelation">) {

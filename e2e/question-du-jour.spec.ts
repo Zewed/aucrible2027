@@ -2563,3 +2563,16 @@ test.describe("la question du jour annonce la part en jeu", () => {
     await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." }).filter({ visible: true })).toBeVisible();
   });
 });
+
+test.describe("la révélation annonce la part gagnée", () => {
+  test("avec 2 réponses en Travail & retraites, valider la n° 24 affiche « +1 réponse en Travail & retraites : 3/3, la part est gagnée ! » et « Ton camembert passe à 6 parts sur 11. »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    const bloc = page.getByRole("region", { name: "Ton camembert" }).filter({ visible: true });
+    await expect(bloc.getByText("+1 réponse en Travail & retraites : 3/3, la part est gagnée !")).toBeVisible();
+    await expect(bloc.getByText("Ton camembert passe à 6 parts sur 11.")).toBeVisible();
+  });
+});
