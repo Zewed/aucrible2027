@@ -3868,3 +3868,40 @@ test.describe("la page À propos dit ce que fait l'IA", () => {
     await expect(ia(page).locator(".ai-tag")).toHaveText("Animation générée avec IA, contenu vérifié par un humain");
   });
 });
+
+test.describe("la page À propos mène aux comptes @aucrible2027", () => {
+  const comptes = (page: Page) =>
+    page.getByRole("article", { name: "Aller plus loin, ou nous suivre" }).getByRole("figure", { name: "Les comptes @aucrible2027" });
+  const PROFILS = [
+    ["Instagram", "https://www.instagram.com/aucrible2027"],
+    ["TikTok", "https://www.tiktok.com/@aucrible2027"],
+    ["YouTube", "https://www.youtube.com/@aucrible2027"],
+    ["Facebook", "https://www.facebook.com/aucrible2027"],
+  ];
+
+  test("l'encadré montre « @aucrible2027 » et quatre liens, Instagram, TikTok, YouTube, Facebook, chacun marqué « @aucrible2027 »", async ({ page }) => {
+    await page.goto("/a-propos");
+    await expect(page.getByRole("article").nth(4)).toHaveAccessibleName("Aller plus loin, ou nous suivre");
+    await expect(comptes(page).getByText("Le même compte partout : @aucrible2027")).toBeVisible();
+    const liens = comptes(page).getByRole("link");
+    await expect(liens).toHaveText(PROFILS.map(([plateforme]) => `${plateforme} @aucrible2027`));
+    await expect(liens.locator("span")).toHaveText(Array(4).fill("@aucrible2027"));
+  });
+
+  test("chaque lien ouvre le profil @aucrible2027 de sa plateforme dans un nouvel onglet, et l'onglet d'Au crible 2027 reste ouvert", async ({ page, context }) => {
+    // Les plateformes ne sont pas appelées pour de vrai : leurs pages sont remplacées par une page vide.
+    for (const hote of ["instagram.com", "tiktok.com", "youtube.com", "facebook.com"])
+      await context.route(`https://www.${hote}/**`, (route) => route.fulfill({ contentType: "text/html", body: "<title>profil</title>" }));
+    await page.goto("/a-propos");
+    for (const [plateforme, adresse] of PROFILS) {
+      const lien = comptes(page).getByRole("link", { name: new RegExp(`^${plateforme} `) });
+      await expect(lien).toHaveAttribute("href", adresse);
+      await expect(lien).toHaveAttribute("target", "_blank");
+      const [onglet] = await Promise.all([context.waitForEvent("page"), lien.click()]);
+      await onglet.waitForLoadState();
+      expect(onglet.url()).toBe(adresse);
+      await onglet.close();
+      expect(page.url()).toMatch(/\/a-propos$/);
+    }
+  });
+});
