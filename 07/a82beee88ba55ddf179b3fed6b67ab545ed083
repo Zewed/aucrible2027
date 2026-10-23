@@ -1,0 +1,26 @@
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_279cb3cc59a8f2 2249-2250
+  s_330ba31127fa8a::t_a93460798d1e18 1635,2081
+  s_330ba31127fa8a::t_77e7859f0592a5 2354-2374
+src/components/Plateau.tsx
+  s_330ba31127fa8a::t_09f2eff461176b 25-26
+  s_330ba31127fa8a::t_fa31a0eac182e4 29,35-39,46-48,52,63,66-71
+.veebee/tickets/081-avant-10-reponses-le-plateau-dit-que-la-position-s.md
+  s_330ba31127fa8a::t_7f2371f484e116 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "07a82beee88ba55ddf179b3fed6b67ab545ed083",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
