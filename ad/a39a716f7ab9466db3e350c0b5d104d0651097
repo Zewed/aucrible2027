@@ -1,0 +1,23 @@
+src/components/QuestionDuJour.tsx
+  s_613931134209e1::t_0eda4b13681bff 28
+e2e/question-du-jour.spec.ts
+  s_613931134209e1::t_bde25446d002d7 75-107
+.veebee/tickets/003-la-carte-question-prend-la-couleur-de-son-theme.md
+  s_613931134209e1::t_d8e26cceb3417e 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ada39a716f7ab9466db3e350c0b5d104d0651097",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
