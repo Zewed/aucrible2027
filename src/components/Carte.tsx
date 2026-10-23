@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { Camembert } from "@/components/Camembert";
 import { PisteDuPlateau } from "@/components/PisteDuPlateau";
 import type { Candidat, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
+import { dessinerLaCarte, enregistrer, lirePolices } from "@/lib/image-de-carte";
 import { classement, REPONSES_PAR_PART, reponsesComptees, reponsesParTheme, SEUIL_DES_RESULTATS, type QuestionDuCalcul } from "@/lib/proximite";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 import { placeDeLElecteur, surLeChamp } from "@/lib/plateau";
@@ -113,7 +115,32 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
   const premier = usePremierDuClassement(questions, candidats);
   const pied = usePiedDeCarte(questions, themes);
   const gagnees = usePartsGagnees(questions, themes);
+  const carteDuCandidat = useRef<HTMLElement>(null);
+  const carteDuPion = useRef<HTMLElement>(null);
+  const choix = useRef<HTMLFormElement>(null);
+  // Les deux images sont dessinées d'avance, à l'arrivée : toucher « Partager » ouvre alors le partage
+  // sans attendre, ce que certains téléphones exigent.
+  const images = useRef<Partial<Record<"candidat" | "pion", Promise<File>>>>({});
+  const affichee = premier ? `${premier.candidat.id}-${premier.pourcentage}-${pied}` : null;
+  useEffect(() => {
+    if (!affichee || !carteDuCandidat.current || !carteDuPion.current) return;
+    const [candidat, pion] = [carteDuCandidat.current, carteDuPion.current];
+    const polices = lirePolices(candidat);
+    images.current = {
+      candidat: polices.then((p) => dessinerLaCarte(candidat, p, "au-crible-2027-ma-carte.png")),
+      pion: polices.then((p) => dessinerLaCarte(pion, p, "au-crible-2027-mon-pion.png")),
+    };
+  }, [affichee]);
   if (!premier) return null;
+
+  async function partager() {
+    const version = choix.current ? new FormData(choix.current).get("montre") : null;
+    const fichier = await images.current[version === "pion" ? "pion" : "candidat"];
+    if (!fichier) return;
+    // Sans partage du système (sur un ordinateur, souvent), l'image est enregistrée : à confirmer.
+    if (navigator.canShare?.({ files: [fichier] })) await navigator.share({ files: [fichier] }).catch(() => {});
+    else enregistrer(fichier);
+  }
   const nombre = gagnees.filter(Boolean).length;
   const camembert = themes.map((theme, i) => (gagnees[i] ? couleurDe(theme) : null));
   const { x, y } = surLeChamp(placeDeLElecteur(questions, reponses));
@@ -137,7 +164,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
             </span>
           </p>
           <div className="sc-deck sc-deck--a">
-            <article className="sc sc--a" aria-label={`Carte à partager : ${premier.pourcentage} % proche de ${premier.candidat.nom}`}>
+            <article ref={carteDuCandidat} className="sc sc--a" aria-label={`Carte à partager : ${premier.pourcentage} % proche de ${premier.candidat.nom}`}>
               {frise}
               <p className="sc-k">Au crible 2027 · ma partie</p>
               <p className="sc-big">
@@ -163,7 +190,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
             </span>
           </p>
           <div className="sc-deck sc-deck--b">
-            <article className="sc sc--b" aria-label="Carte à partager : mon pion sur le plateau, sans nom de candidat">
+            <article ref={carteDuPion} className="sc sc--b" aria-label="Carte à partager : mon pion sur le plateau, sans nom de candidat">
               {frise}
               <p className="sc-k">Au crible 2027 · ma partie</p>
               <h2 className="sc-h">Mon pion sur le plateau</h2>
@@ -186,8 +213,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
           </div>
         </div>
       </div>
-      {/* « Partager » et « Télécharger l'image », sous le choix dans la maquette, viennent ensuite. */}
-      <form className="sp-controls" onSubmit={(evenement) => evenement.preventDefault()}>
+      <form ref={choix} className="sp-controls" onSubmit={(evenement) => evenement.preventDefault()}>
         <fieldset className="sp-choice theme-eco">
           <legend>Ce que ma carte montre</legend>
           <div className="opts">
@@ -217,6 +243,19 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
             </label>
           </div>
         </fieldset>
+        {/* « Télécharger l'image », à côté dans la maquette, vient ensuite. */}
+        <div className="actions sp-actions">
+          <button className="act primary" type="button" onClick={partager}>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 15V4M7 9l5-5 5 5M5 14v5h14v-5"
+                style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }}
+              />
+            </svg>
+            Partager
+          </button>
+        </div>
+        <p className="act-note">L&apos;image est dessinée sur ton téléphone : rien n&apos;est envoyé.</p>
       </form>
     </>
   );

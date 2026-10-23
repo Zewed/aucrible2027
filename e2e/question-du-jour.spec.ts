@@ -2723,3 +2723,77 @@ test.describe("l'électeur choisit une carte qui ne montre que son pion", () => 
     await expect(candidat.getByText("François Ruffin")).toBeVisible();
   });
 });
+
+/**
+ * Un partage du téléphone de test : il garde, pour chaque partage, le type et la taille de l'image jointe,
+ * et la couleur d'un point de son fond, en bas au milieu.
+ */
+async function partageDeTest(page: Page) {
+  await page.addInitScript(() => {
+    const partages: object[] = [];
+    Object.assign(window, { partages });
+    Object.defineProperty(navigator, "canShare", { configurable: true, value: (donnees?: ShareData) => Boolean(donnees?.files?.length) });
+    Object.defineProperty(navigator, "share", {
+      configurable: true,
+      value: async (donnees: ShareData) => {
+        const fichier = donnees.files![0];
+        const image = await createImageBitmap(fichier);
+        const toile = new OffscreenCanvas(image.width, image.height);
+        const contexte = toile.getContext("2d")!;
+        contexte.drawImage(image, 0, 0);
+        const [r, g, b] = contexte.getImageData(Math.round(image.width / 2), Math.round(image.height * 0.985), 1, 1).data;
+        partages.push({ type: fichier.type, largeur: image.width, hauteur: image.height, fond: [r, g, b] });
+      },
+    });
+  });
+}
+const partagesFaits = (page: Page) => page.evaluate(() => (window as unknown as { partages: { type: string; largeur: number; hauteur: number; fond: number[] }[] }).partages);
+/** La couleur d'un jeton du kit, en [r, g, b]. */
+const couleurDuJeton = (page: Page, jeton: string) =>
+  page.evaluate((jeton) => {
+    const el = document.createElement("div");
+    el.style.background = `var(${jeton})`;
+    document.body.append(el);
+    const [r, g, b] = getComputedStyle(el).backgroundColor.match(/\d+/g)!.map(Number);
+    el.remove();
+    return [r, g, b];
+  }, jeton);
+const proche = (a: number[], b: number[]) => a.every((v, i) => Math.abs(v - b[i]) <= 12);
+
+test.describe("« Partager » envoie l'image 9:16 au partage du téléphone", () => {
+  test("toucher « Partager » ouvre le partage du téléphone avec l'image de la carte choisie, au format 9:16", async ({ page }) => {
+    await partageDeTest(page);
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    await expect(page.getByText("L'image est dessinée sur ton téléphone : rien n'est envoyé.")).toBeVisible();
+    await page.getByRole("button", { name: "Partager", exact: true }).click();
+    await expect.poll(async () => (await partagesFaits(page)).length).toBe(1);
+    const [partage] = await partagesFaits(page);
+    expect(partage.type).toBe("image/png");
+    expect(partage.largeur * 16).toBe(partage.hauteur * 9);
+    expect(proche(partage.fond, await couleurDuJeton(page, "--eco"))).toBe(true);
+  });
+
+  test("en mode avion, « Partager » ouvre quand même le partage avec l'image : elle est dessinée sur le téléphone", async ({ page, context }) => {
+    await partageDeTest(page);
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    await expect(page.getByRole("article", { name: /Carte à partager : 81/ })).toBeVisible();
+    await context.setOffline(true);
+    await page.getByRole("button", { name: "Partager", exact: true }).click();
+    await expect.poll(async () => (await partagesFaits(page)).length).toBe(1);
+    expect((await partagesFaits(page))[0].type).toBe("image/png");
+    await context.setOffline(false);
+  });
+
+  test("l'image jointe est celle de la version choisie : avec « Seulement mon pion », c'est la carte du pion, sans nom", async ({ page }) => {
+    await partageDeTest(page);
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    await page.getByRole("group", { name: "Ce que ma carte montre" }).getByText("Seulement mon pion", { exact: true }).click();
+    await page.getByRole("button", { name: "Partager", exact: true }).click();
+    await expect.poll(async () => (await partagesFaits(page)).length).toBe(1);
+    const [partage] = await partagesFaits(page);
+    expect(proche(partage.fond, await couleurDuJeton(page, "--immi"))).toBe(true);
+  });
+});
