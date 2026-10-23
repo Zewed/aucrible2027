@@ -1,0 +1,33 @@
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_2ba00d1caaaadb 248-253,256-258
+  s_2c9a7110ce04dd::t_df2c62fb5ea7a5 246-247,254-255,259-262
+  s_2c9a7110ce04dd::t_0b69f324a99d97 228-245
+content/questions/025-nucleaire.yaml
+  s_2c9a7110ce04dd::t_100009a5804499 14,18
+content/questions/026-medecins.yaml
+  s_2c9a7110ce04dd::t_100009a5804499 16,19,22,26
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_100009a5804499 60-62
+content/questions/024-retraite.yaml
+  s_2c9a7110ce04dd::t_100009a5804499 16,19,23
+src/lib/contenu.ts
+  s_2c9a7110ce04dd::t_100009a5804499 7-8
+.veebee/tickets/007-chaque-chiffre-cle-affiche-sa-source-datee.md
+  s_2c9a7110ce04dd::t_fc752020a5f7bb 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "38f122c361a8d34b3748bdcf67b87a88a7fdabe7",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
