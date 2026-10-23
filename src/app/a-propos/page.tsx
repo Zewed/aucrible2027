@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { DeDesRegles, RayuresDesThemes } from "@/components/Regles";
@@ -115,8 +116,84 @@ function QuiFaitLApp() {
 }
 
 /**
- * La page « À propos » (maquettes/a-propos.html), section par section. Les sections 2 à 5 viennent avec les
- * tickets 156 à 159 ; la phrase « Tout ce qui suit est vérifiable… » et ses liens ne sont portés par aucun ticket.
+ * « À savoir n° 2 » : la neutralité se vérifie, et la page dit sans détour qu'il n'y a pas de relecture extérieure
+ * (SPEC.md : « Ne jamais prétendre à une relecture externe »). « journal des corrections » deviendra un lien avec
+ * le journal (ticket 172).
+ */
+function CommentCEstRelu() {
+  return (
+    <article className="rule theme-loge" id="r2" aria-labelledby="r2-t">
+      <header className="rule-head">
+        <span className="rule-n" aria-hidden="true">
+          2
+        </span>
+        <p className="rule-k">À savoir n° 2</p>
+        <h2 id="r2-t">Neutre&nbsp;? Voilà ce qu&apos;on fait vraiment</h2>
+      </header>
+      <div className="rule-body split">
+        <div className="rule-txt">
+          <blockquote className="quote">« J&apos;ai mes opinions comme tout le monde, c&apos;est justement pour ça que tout est sourcé. »</blockquote>
+          <p>
+            Je ne te demande pas de me croire. Je te demande de vérifier&nbsp;: chaque position de candidat a sa source, la{" "}
+            <Link href="/methode">méthode de calcul</Link> est publique, l&apos;ordre des candidats est aléatoire, et chaque option est
+            présentée avec l&apos;argument que ses propres défenseurs signeraient.
+          </p>
+          <p className="honest">
+            <b>Ce que je ne prétends pas&nbsp;:</b> il n&apos;y a ni comité ni relecteur extérieur. Aujourd&apos;hui, c&apos;est relu
+            par l&apos;auteur, contrôlé par une IA, et toute erreur signalée est corrigée publiquement. Si ça change, ce sera écrit ici.
+          </p>
+        </div>
+        <figure className="demo" aria-label="Le contrôle avant publication, en quatre temps">
+          <figcaption className="demo-k">
+            <i></i>Avant chaque publication
+          </figcaption>
+          <ol className="flow">
+            <li>
+              <span className="n">1</span>
+              <span className="t">
+                <b>Un premier jet</b>
+                <small>L&apos;IA rédige à partir de sources officielles.</small>
+              </span>
+            </li>
+            <li>
+              <span className="n">2</span>
+              <span className="t">
+                <b>Relu par l&apos;auteur</b>
+                <small>Je vérifie chaque chiffre et chaque position de candidat.</small>
+              </span>
+            </li>
+            <li>
+              <span className="n">3</span>
+              <span className="t">
+                <b>Contrôle de neutralité par IA</b>
+                <small>
+                  Trois points de vue relisent&nbsp;: formulations orientées, arguments manquants, chiffres sans source, options
+                  caricaturées. Je tranche sur chaque remarque.
+                </small>
+                <ul className="pov" aria-label="Les trois points de vue">
+                  <li>Droite</li>
+                  <li>Centre</li>
+                  <li>Gauche</li>
+                </ul>
+              </span>
+            </li>
+            <li>
+              <span className="n">4</span>
+              <span className="t">
+                <b>Après publication</b>
+                <small>Toute erreur signalée est corrigée publiquement, dans le journal des corrections.</small>
+              </span>
+            </li>
+          </ol>
+        </figure>
+      </div>
+    </article>
+  );
+}
+
+/**
+ * La page « À propos » (maquettes/a-propos.html), section par section. Les sections 3 à 5 viennent avec les
+ * tickets 157 à 159 ; la phrase « Tout ce qui suit est vérifiable… » et ses liens ne sont portés par aucun ticket.
  */
 async function APropos() {
   const jour = await lireAujourdhui();
@@ -158,6 +235,7 @@ async function APropos() {
           </nav>
           <div className="rules">
             <QuiFaitLApp />
+            <CommentCEstRelu />
           </div>
         </div>
       </main>

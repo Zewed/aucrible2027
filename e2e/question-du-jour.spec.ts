@@ -3759,3 +3759,44 @@ test.describe("la page À propos dit qui fait l'app", () => {
     await expect(qui(page).getByRole("heading", { level: 2 })).toBeInViewport();
   });
 });
+
+test.describe("la page À propos dit comment les fiches sont relues", () => {
+  const neutre = (page: Page) => page.getByRole("article", { name: "Neutre ? Voilà ce qu'on fait vraiment" });
+
+  test("le schéma « Avant chaque publication » montre quatre temps dans l'ordre, avec les trois points de vue du contrôle de neutralité", async ({ page }) => {
+    await page.goto("/a-propos");
+    await expect(page.getByRole("article").nth(1)).toHaveAccessibleName("Neutre ? Voilà ce qu'on fait vraiment");
+    const schema = neutre(page).getByRole("figure", { name: "Le contrôle avant publication, en quatre temps" });
+    await expect(schema.getByText("Avant chaque publication")).toBeVisible();
+    const temps = schema.locator(".flow > li");
+    await expect(temps.locator(".t > b")).toHaveText(["Un premier jet", "Relu par l'auteur", "Contrôle de neutralité par IA", "Après publication"]);
+    await expect(temps.locator(".t > small")).toHaveText([
+      "L'IA rédige à partir de sources officielles.",
+      "Je vérifie chaque chiffre et chaque position de candidat.",
+      "Trois points de vue relisent : formulations orientées, arguments manquants, chiffres sans source, options caricaturées. Je tranche sur chaque remarque.",
+      "Toute erreur signalée est corrigée publiquement, dans le journal des corrections.",
+    ]);
+    await expect(schema.getByRole("list", { name: "Les trois points de vue" }).getByRole("listitem")).toHaveText(["Droite", "Centre", "Gauche"]);
+  });
+
+  test("« Ce que je ne prétends pas » dit qu'il n'y a ni comité ni relecteur extérieur, et aucune phrase de la page n'annonce de relecture externe", async ({ page }) => {
+    await page.goto("/a-propos");
+    await expect(
+      neutre(page).getByText(
+        "Ce que je ne prétends pas : il n'y a ni comité ni relecteur extérieur. Aujourd'hui, c'est relu par l'auteur, contrôlé par une IA, et toute erreur signalée est corrigée publiquement. Si ça change, ce sera écrit ici.",
+      ),
+    ).toBeVisible();
+    const texte = (await page.locator("main").innerText()).replace(/\s+/g, " ");
+    expect(texte.match(/extérieur|externe|indépendant|comité/gi)).toEqual(["comité", "extérieur"]);
+  });
+
+  test("le texte énumère ce qui se vérifie : les sources, la méthode publique, l'ordre aléatoire, le meilleur argument de chaque option", async ({ page }) => {
+    await page.goto("/a-propos");
+    await expect(
+      neutre(page).getByText(
+        "Je ne te demande pas de me croire. Je te demande de vérifier : chaque position de candidat a sa source, la méthode de calcul est publique, l'ordre des candidats est aléatoire, et chaque option est présentée avec l'argument que ses propres défenseurs signeraient.",
+      ),
+    ).toBeVisible();
+    await expect(neutre(page).getByRole("link", { name: "méthode de calcul" })).toHaveAttribute("href", "/methode");
+  });
+});
