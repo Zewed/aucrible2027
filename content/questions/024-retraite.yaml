@@ -1,0 +1,29 @@
+# DONNÉES DE DÉMONSTRATION : les positions ci-dessous viennent des maquettes et sont
+# inventées. Elles ne sont pas vérifiées et doivent être remplacées par des positions
+# sourcées avant toute mise en ligne.
+numero: 24
+date: 2026-10-23
+question: À quel âge devrait-on pouvoir partir à la retraite ?
+options:
+  - id: A
+    libelle: 60 ans
+  - id: B
+    libelle: 62 ans
+  - id: C
+    libelle: 64 ans
+  - id: D
+    libelle: 65 ans ou plus
+  - id: E
+    libelle: À la carte, avec un système à points
+positions:
+  melenchon: A
+  roussel: A
+  arthaud: A
+  le-pen: B
+  tondelier: B
+  glucksmann: B
+  attal: C
+  retailleau: D
+  zemmour: D
+  dupont-aignan: E
+  philippe: E
