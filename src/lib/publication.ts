@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { connection } from "next/server";
-import { lireQuestions, type Question } from "@/lib/contenu";
+import { lireCandidats, lireQuestions, type Candidat, type Question } from "@/lib/contenu";
 import type { QuestionDuCalcul } from "@/lib/proximite";
 import { aujourdhuiAParis } from "@/lib/date";
 import { silenceEnCours } from "@/lib/silence";
@@ -25,6 +25,21 @@ const JEU_DE_TEST = "aucrible-jeu-de-test";
 async function lesFiches(): Promise<Question[]> {
   const jeu = process.env.AUCRIBLE_FICHES_DE_TEST ? (await cookies()).get(JEU_DE_TEST)?.value : undefined;
   return lireQuestions(jeu);
+}
+
+/** Le cookie par lequel, en test seulement, un test ajoute aux candidats (e2e/fiches/candidats/<nom>.yaml). */
+const CANDIDATS_DE_TEST = "aucrible-candidats-de-test";
+
+/** Tous les candidats, retirés compris : en production, toujours ceux du contenu. */
+export async function lireLesCandidats(): Promise<Candidat[]> {
+  const ajouts = process.env.AUCRIBLE_FICHES_DE_TEST ? (await cookies()).get(CANDIDATS_DE_TEST)?.value : undefined;
+  return lireCandidats(ajouts);
+}
+
+/** Les candidats encore en lice aujourd'hui : un candidat retiré sort du classement le jour de son retrait. */
+export async function lireCandidatsEnLice(): Promise<Candidat[]> {
+  const [candidats, jour] = await Promise.all([lireLesCandidats(), maintenant().then(aujourdhuiAParis)]);
+  return candidats.filter((c) => !c.retrait || c.retrait.date > jour);
 }
 
 /** Le jour de la requête, à Paris (AAAA-MM-JJ). */

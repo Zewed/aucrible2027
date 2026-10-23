@@ -4,7 +4,9 @@ import { parse } from "yaml";
 
 /** Où en est la candidature : son état (« Candidature déclarée ») et ce qui suit, en une phrase. */
 export type StatutDeCandidature = { etat: string; suite?: string };
-export type Candidat = { id: string; nom: string; parti: string; initiales: string; statut?: StatutDeCandidature };
+/** Le retrait d'un candidat : son jour (AAAA-MM-JJ) et le candidat qu'il soutient. */
+export type Retrait = { date: string; soutien: string };
+export type Candidat = { id: string; nom: string; parti: string; initiales: string; statut?: StatutDeCandidature; retrait?: Retrait };
 export type Option = {
   id: string;
   libelle: string;
@@ -40,8 +42,16 @@ export type Question = {
 
 const RACINE = path.join(process.cwd(), "content");
 
-export function lireCandidats(): Candidat[] {
-  return parse(readFileSync(path.join(RACINE, "candidats.yaml"), "utf8"));
+/**
+ * Les candidats de content/candidats.yaml. Pour les tests de bout en bout seulement, des ajouts de test
+ * (e2e/fiches/candidats/<nom>.yaml) les complètent candidat par candidat, par exemple d'un retrait.
+ */
+export function lireCandidats(ajoutsDeTest?: string): Candidat[] {
+  const candidats: Candidat[] = parse(readFileSync(path.join(RACINE, "candidats.yaml"), "utf8"));
+  const test = process.env.AUCRIBLE_FICHES_DE_TEST;
+  if (!test || !ajoutsDeTest || !/^[a-z-]+$/.test(ajoutsDeTest)) return candidats;
+  const ajouts: Partial<Candidat>[] = parse(readFileSync(path.join(process.cwd(), test, "candidats", `${ajoutsDeTest}.yaml`), "utf8"));
+  return candidats.map((c) => ({ ...c, ...ajouts.find((a) => a.id === c.id) }));
 }
 
 export function lireThemes(): Theme[] {

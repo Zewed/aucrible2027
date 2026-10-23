@@ -1,0 +1,5 @@
+# AJOUTS DE TEST : lus seulement par le serveur des tests de bout en bout, quand un test choisit « retrait »
+# (cookie aucrible-candidats-de-test). Ils complètent content/candidats.yaml, candidat par candidat.
+# Le retrait de Marine Tondelier est celui de maquettes/candidat.html, inventé : il ne dit rien de sa candidature réelle.
+- id: tondelier
+  retrait: { date: "2026-12-14", soutien: glucksmann }
