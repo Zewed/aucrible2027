@@ -1,14 +1,16 @@
 "use client";
 
 import { Camembert } from "@/components/Camembert";
+import { Pion } from "@/components/Pion";
 import { PisteDuPlateau } from "@/components/PisteDuPlateau";
 import { useCoteClient } from "@/lib/cote-client";
-import { placeDeLElecteur, surLeChamp } from "@/lib/plateau";
+import type { Candidat } from "@/lib/contenu";
+import { placeDeLElecteur, placeDuCandidat, surLeChamp } from "@/lib/plateau";
 import type { QuestionDuCalcul } from "@/lib/proximite";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 
-/** « Ton plateau » : la carte à deux axes, et le pion « TOI » à la place que donnent tes réponses. */
-export function Plateau({ questions }: { questions: QuestionDuCalcul[] }) {
+/** « Ton plateau » : la carte à deux axes, les pions des candidats, et le pion « TOI » à la place que donnent tes réponses. */
+export function Plateau({ questions, candidats }: { questions: QuestionDuCalcul[]; candidats: Candidat[] }) {
   const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
   const { x, y } = surLeChamp(placeDeLElecteur(questions, reponses));
 
@@ -16,16 +18,19 @@ export function Plateau({ questions }: { questions: QuestionDuCalcul[] }) {
     <section className="sec" aria-labelledby="h-board">
       <div className="sec-h">
         <h2 id="h-board">Ton plateau</h2>
-        <p>2 axes</p>
+        <p>2 axes, {candidats.length + 1} pions</p>
       </div>
       <div className="board-wrap">
         <div
           className="board"
           role="img"
-          aria-label="Carte à deux axes : plus de redistribution à gauche, plus de marché à droite, progressiste en haut, conservateur en bas, avec ton pion « toi »"
+          aria-label="Carte à deux axes : plus de redistribution à gauche, plus de marché à droite, progressiste en haut, conservateur en bas, avec les pions des candidats et ton pion « toi »"
         >
           <PisteDuPlateau />
           <div className="field">
+            {candidats.map((candidat) => (
+              <Pion key={candidat.id} candidat={candidat} place={surLeChamp(placeDuCandidat(questions, candidat.id))} />
+            ))}
             <span className="you" style={{ "--x": `${x}%`, "--y": `${y}%` } as React.CSSProperties}>
               <Camembert />
               <span>TOI</span>

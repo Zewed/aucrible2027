@@ -11,6 +11,7 @@ import "./resultats-vide.css";
 /** « Mes résultats » : le titre, puis le classement calculé sur l'appareil à partir de ses réponses. */
 async function Resultats() {
   const [jour, questions] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
+  const candidats = lireCandidats();
   // Le navigateur ne reçoit des fiches publiées que ce que le calcul lit.
   const duCalcul: QuestionDuCalcul[] = questions.map((q) => ({
     numero: q.numero,
@@ -34,8 +35,8 @@ async function Resultats() {
           </div>
         </section>
         <div className="res-grid">
-          <Classement questions={duCalcul} candidats={lireCandidats()} />
-          <Plateau questions={duCalcul} />
+          <Classement questions={duCalcul} candidats={candidats} />
+          <Plateau questions={duCalcul} candidats={candidats} />
         </div>
         {/* « Signaler une erreur », avant le retour dans la maquette, attend son formulaire. */}
         <footer className="res-foot">
