@@ -9,6 +9,18 @@ const CANDIDATS = [
   "Nathalie Arthaud",
 ];
 
+/** Le cookie par lequel, en test seulement, le serveur apprend le jour simulé. */
+const HORLOGE_DE_TEST = "aucrible-horloge-de-test";
+
+/**
+ * Fixer le jour pour le navigateur et pour le serveur, qui ne publie que les fiches datées
+ * d'aujourd'hui ou avant.
+ */
+async function fixerLeJour(page: Page, jour: string) {
+  await page.clock.setFixedTime(new Date(jour));
+  await page.context().addCookies([{ name: HORLOGE_DE_TEST, value: new Date(jour).toISOString(), url: "http://localhost:3127" }]);
+}
+
 /** Les options de la fiche, de A à la dernière, sans la carte « Je ne sais pas ». */
 const optionsDeLaFiche = (page: Page) =>
   page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio", { name: /^[A-E] / });
@@ -20,7 +32,7 @@ async function choisir(page: Page, libelle: string) {
 }
 
 test.beforeEach(async ({ page }) => {
-  await page.clock.setFixedTime(new Date("2026-10-23T09:00:00+02:00"));
+  await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
 });
 
 test("le 23 octobre 2026, l'accueil affiche la question du jour, ses cinq options et aucun nom de candidat", async ({ page }) => {
@@ -72,7 +84,7 @@ test("la carte de la question n° 24 affiche la puce « Travail & retraites » a
 });
 
 test("une question d'un autre thème affiche son propre thème dans la puce", async ({ page }) => {
-  await page.clock.setFixedTime(new Date("2026-10-24T09:00:00+02:00"));
+  await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
   await page.goto("/");
   const carte = page.getByRole("article", { name: "Faut-il sortir du nucléaire ?" });
   await expect(carte.getByText("Écologie & énergie", { exact: true })).toBeVisible();
@@ -92,7 +104,7 @@ test("la question n° 24 (Travail & retraites) s'affiche en orange", async ({ pa
 });
 
 test("une question d'Écologie & énergie s'affiche en vert, et les 11 thèmes ont 11 couleurs", async ({ page }) => {
-  await page.clock.setFixedTime(new Date("2026-10-24T09:00:00+02:00"));
+  await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
   await page.goto("/");
   const carte = page.getByRole("article", { name: "Faut-il sortir du nucléaire ?" });
   expect(await fond(carte.locator(".qcard-top"))).toBe(VERT);
@@ -121,7 +133,7 @@ test.describe("numéro et date de la question", () => {
   });
 
   test("le samedi 24 octobre 2026, la nouvelle question affiche « Question n° 25 »", async ({ page }) => {
-    await page.clock.setFixedTime(new Date("2026-10-24T09:00:00+02:00"));
+    await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
     await page.goto("/");
     await expect(page.getByText(/^Question n° 25/)).toBeVisible();
   });
@@ -208,14 +220,14 @@ async function chiffresEntiers(page: Page, question: string) {
 
 test.describe("une fiche affiche autant de chiffres clés qu'elle en a", () => {
   test("le 24 octobre, la fiche à deux chiffres clés en affiche deux", async ({ page }) => {
-    await page.clock.setFixedTime(new Date("2026-10-24T09:00:00+02:00"));
+    await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
     await page.goto("/");
     await expect(page.getByRole("heading", { name: "2 chiffres clés" })).toBeVisible();
     await expect(await chiffresEntiers(page, "Faut-il sortir du nucléaire ?")).toHaveCount(2);
   });
 
   test("le 25 octobre, la fiche à quatre chiffres clés en affiche quatre", async ({ page }) => {
-    await page.clock.setFixedTime(new Date("2026-10-25T09:00:00+01:00"));
+    await fixerLeJour(page, "2026-10-25T09:00:00+01:00");
     await page.goto("/");
     await expect(page.getByRole("heading", { name: "4 chiffres clés" })).toBeVisible();
     await expect(await chiffresEntiers(page, "Faut-il réguler l'installation des médecins ?")).toHaveCount(4);
@@ -226,7 +238,7 @@ test.describe("une fiche affiche autant de chiffres clés qu'elle en a, sur gran
   test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
 
   test("la fiche à quatre chiffres clés les affiche tous les quatre, entiers", async ({ page }) => {
-    await page.clock.setFixedTime(new Date("2026-10-25T09:00:00+01:00"));
+    await fixerLeJour(page, "2026-10-25T09:00:00+01:00");
     await page.goto("/");
     await expect(await chiffresEntiers(page, "Faut-il réguler l'installation des médecins ?")).toHaveCount(4);
   });
@@ -257,7 +269,7 @@ test("sur aucune fiche un chiffre clé n'apparaît sans son organisme ni son ann
     ["2026-10-25T09:00:00+01:00", "Faut-il réguler l'installation des médecins ?"],
   ];
   for (const [jour, question] of fiches) {
-    await page.clock.setFixedTime(new Date(jour));
+    await fixerLeJour(page, jour);
     await page.goto("/");
     await expect(page.getByRole("heading", { name: question })).toBeVisible();
     // Entiers : une source rognée par les points de suspension perdrait son année.
@@ -289,12 +301,12 @@ test("les cinq cartes réponse de la question n° 24 portent, dans l'ordre, les 
 });
 
 test("une fiche à trois options affiche A, B, C seulement ; une fiche à quatre, A à D", async ({ page }) => {
-  await page.clock.setFixedTime(new Date("2026-10-25T09:00:00+01:00"));
+  await fixerLeJour(page, "2026-10-25T09:00:00+01:00");
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "Faut-il réguler l'installation des médecins ?" })).toBeVisible();
   expect(await lettresDesOptions(page)).toEqual(["A", "B", "C"]);
 
-  await page.clock.setFixedTime(new Date("2026-10-24T09:00:00+02:00"));
+  await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "Faut-il sortir du nucléaire ?" })).toBeVisible();
   expect(await lettresDesOptions(page)).toEqual(["A", "B", "C", "D"]);
@@ -353,7 +365,7 @@ test("chaque option de la question n° 24 dit ce qu'en disent ses défenseurs, l
 async function argumentsDesFiches(page: Page, titre: string) {
   const textes: string[] = [];
   for (const jour of ["2026-10-23T09:00:00+02:00", "2026-10-24T09:00:00+02:00", "2026-10-25T09:00:00+01:00"]) {
-    await page.clock.setFixedTime(new Date(jour));
+    await fixerLeJour(page, jour);
     await page.goto("/");
     const options = optionsDeLaFiche(page);
     await expect(options.first()).toBeAttached();
@@ -611,6 +623,7 @@ async function repondre(page: Page, libelle: string) {
   await choisir(page, libelle);
   await page.getByRole("button", { name: "Valider ma réponse" }).click();
   await expect(page).toHaveURL(/\/revelation$/);
+  await expect(quiDefendQuoi(page)).toBeVisible();
 }
 
 const quiDefendQuoi = (page: Page) => page.getByRole("region", { name: "Qui défend quoi" });
@@ -778,7 +791,7 @@ test("d'un appareil à l'autre, l'ordre des défenseurs de A change, sans suivre
   for (let appareil = 0; appareil < 16; appareil++) {
     const contexte = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
     const page = await contexte.newPage();
-    await page.clock.setFixedTime(new Date("2026-10-23T09:00:00+02:00"));
+    await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
     await repondre(page, "62 ans");
     const bloc = quiDefendQuoi(page).getByRole("article", { name: "Option A : 60 ans" });
     await expect(bloc.getByRole("listitem")).toHaveCount(3);
@@ -996,7 +1009,7 @@ test.describe("une question déjà répondue rouvre sur sa révélation", () => 
     const contexte = page.context();
     await page.close();
     const rouverte = await contexte.newPage();
-    await rouverte.clock.setFixedTime(new Date("2026-10-23T18:00:00+02:00"));
+    await fixerLeJour(rouverte, "2026-10-23T18:00:00+02:00");
     await rouverte.goto("/");
     return rouverte;
   }
@@ -1021,7 +1034,7 @@ test.describe("une question déjà répondue rouvre sur sa révélation", () => 
     await repondre(page, "À la carte, avec un système à points");
     const autreTelephone = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
     const autre = await autreTelephone.newPage();
-    await autre.clock.setFixedTime(new Date("2026-10-23T18:00:00+02:00"));
+    await fixerLeJour(autre, "2026-10-23T18:00:00+02:00");
     await autre.goto("/");
     await expect(autre.getByRole("heading", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
     await expect(autre.getByRole("radio", { checked: true })).toHaveCount(0);
@@ -1033,7 +1046,7 @@ test.describe("une question déjà répondue rouvre sur sa révélation", () => 
 test.describe("l'importance donnée est retrouvée en revenant", () => {
   /** Répondre sur cet appareil, sans effacer les réponses déjà données. */
   async function repondreLe(page: Page, jour: string, libelle: string, poids: "×1" | "×2" | "×3") {
-    await page.clock.setFixedTime(new Date(jour));
+    await fixerLeJour(page, jour);
     await page.goto("/");
     await choisir(page, libelle);
     await peser(page, poids);
@@ -1046,7 +1059,7 @@ test.describe("l'importance donnée est retrouvée en revenant", () => {
     const contexte = page.context();
     await page.close();
     const rouverte = await contexte.newPage();
-    await rouverte.clock.setFixedTime(new Date(jour));
+    await fixerLeJour(rouverte, jour);
     await rouverte.goto("/");
     await expect(rouverte).toHaveURL(/\/revelation$/);
     return rouverte;
@@ -1102,7 +1115,7 @@ test("rien dans l'app ne demande de créer un compte ou de se connecter, ni avan
 
 test.describe("la question du jour change chaque jour", () => {
   const questionDuJour = async (page: Page, jour: string) => {
-    await page.clock.setFixedTime(new Date(jour));
+    await fixerLeJour(page, jour);
     await page.goto("/");
     const titre = page.getByRole("article").getByRole("heading", { level: 1 });
     await expect(titre).toBeVisible();
@@ -1123,5 +1136,28 @@ test.describe("la question du jour change chaque jour", () => {
     }
     expect(questions[3]).toBe("Faut-il réguler l'installation des médecins ?");
     expect(new Set(questions).size).toBe(4);
+  });
+});
+
+test.describe("une question pas encore publiée reste inaccessible", () => {
+  const FICHE_DU_24 = ["Faut-il sortir du nucléaire", "vient du nucléaire", "réacteurs"];
+
+  test("le 23 octobre, aucune page ne montre la fiche du 24, ni à l'écran ni dans le code de la page", async ({ page }) => {
+    for (const adresse of ["/", "/revelation"]) {
+      const html = await (await page.request.get(adresse)).text();
+      for (const morceau of FICHE_DU_24) expect(html.includes(morceau), `${adresse} contient « ${morceau} »`).toBe(false);
+    }
+    await repondre(page, "62 ans");
+    for (const morceau of [...FICHE_DU_24, "Écologie & énergie"]) await expect(page.getByText(morceau)).toHaveCount(0);
+  });
+
+  test("le 23, taper une adresse à la main ne montre pas la fiche du 24 ; le 24, elle est la question du jour", async ({ page }) => {
+    for (const adresse of ["/revelation", "/question/25", "/questions/25", "/?question=25", "/?date=2026-10-24"]) {
+      await page.goto(adresse);
+      await expect(page.getByText("Faut-il sortir du nucléaire")).toHaveCount(0);
+    }
+    await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: "Faut-il sortir du nucléaire ?" })).toBeVisible();
   });
 });
