@@ -6,8 +6,8 @@ import { lireAujourdhui } from "@/lib/publication";
 import "./candidat.css";
 
 /**
- * La fiche d'un candidat : son pion, le même que pour les 12 autres, et son nom. Le parti, le statut et
- * les positions viennent ensuite.
+ * La fiche d'un candidat : son pion, le même que pour les 12 autres, son nom et son parti, en texte,
+ * sans couleur de parti. Le statut et les positions viennent ensuite.
  */
 async function FicheCandidat({ id }: { id: string }) {
   const candidat = lireCandidats().find((c) => c.id === id);
@@ -33,6 +33,7 @@ async function FicheCandidat({ id }: { id: string }) {
                   <h1 id="nom">{candidat.nom}</h1>
                 </div>
               </div>
+              <p className="party">{candidat.parti}</p>
             </section>
           </aside>
         </div>
