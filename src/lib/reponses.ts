@@ -1,5 +1,11 @@
 /** La réponse qui vient d'être validée, le temps d'afficher sa révélation. */
-export type ReponseEnCours = { numero: number; option: string; importance: number | null };
+export type ReponseEnCours = {
+  numero: number;
+  option: string;
+  importance: number | null;
+  /** Fixe l'ordre mélangé des candidats sur la révélation de cette réponse. */
+  graine: number;
+};
 
 /** L'option « Je ne sais pas », que toute fiche propose en plus des siennes. */
 export const JE_NE_SAIS_PAS = "nsp";

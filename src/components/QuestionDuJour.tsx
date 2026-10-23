@@ -6,6 +6,7 @@ import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
 import type { Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
+import { tirerGraine } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
 import { enregistrerReponseEnCours, JE_NE_SAIS_PAS } from "@/lib/reponses";
@@ -29,7 +30,7 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
   function valider(evenement: React.FormEvent) {
     evenement.preventDefault();
     if (!question || !choix) return;
-    enregistrerReponseEnCours({ numero: question.numero, option: choix, importance: poids });
+    enregistrerReponseEnCours({ numero: question.numero, option: choix, importance: poids, graine: tirerGraine() });
     router.push("/revelation");
   }
 

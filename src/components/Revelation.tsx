@@ -3,6 +3,7 @@
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import type { Candidat, Position, Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
+import { melanger } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
 import { lireReponseEnCours, type ReponseEnCours } from "@/lib/reponses";
 
@@ -38,7 +39,10 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
   const rangChoisi = question.options.findIndex((o) => o.id === reponse.option);
   const choisie = question.options[rangChoisi];
   const importance = reponse.importance;
-  const inconnus = candidats.filter((c) => !question.positions[c.id]);
+  const inconnus = melanger(
+    candidats.filter((c) => !question.positions[c.id]),
+    reponse.graine + question.options.length,
+  );
 
   return (
     <>
@@ -82,10 +86,14 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
         <section className="rev-list" aria-labelledby="qui-defend-quoi">
           <div className="sec-h">
             <h2 id="qui-defend-quoi">Qui défend quoi</h2>
+            <p>ordre mélangé</p>
           </div>
           <div className="ropts">
             {question.options.map((option, rang) => {
-              const leurs = candidats.filter((c) => question.positions[c.id]?.option === option.id);
+              const leurs = melanger(
+                candidats.filter((c) => question.positions[c.id]?.option === option.id),
+                reponse.graine + rang,
+              );
               const sienne = option.id === reponse.option;
               return (
                 <article key={option.id} className={sienne ? "ropt mine" : "ropt"} aria-labelledby={`o-${option.id}`}>
