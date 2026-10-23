@@ -407,3 +407,18 @@ test.describe("les arguments des options, sur grand écran", () => {
     }
   });
 });
+
+test("sous « Choisis ta carte », la fiche prévient que les noms s'affichent après la réponse, avant et après le choix", async ({ page }) => {
+  await page.goto("/");
+  const titre = page.getByRole("heading", { name: "Choisis ta carte" });
+  const avis = page.getByText("Les noms des candidats s'affichent après ta réponse.", { exact: true });
+  const options = page.getByRole("radiogroup", { name: "Les options" });
+  await expect(avis).toBeVisible();
+  const [boiteTitre, boiteAvis, boiteOptions] = await Promise.all([titre.boundingBox(), avis.boundingBox(), options.boundingBox()]);
+  expect(boiteAvis!.y).toBeGreaterThan(boiteTitre!.y);
+  expect(boiteAvis!.y).toBeLessThan(boiteOptions!.y);
+
+  await choisir(page, "64 ans");
+  await expect(avis).toBeVisible();
+  await expect(page).toHaveURL(/\/$/);
+});
