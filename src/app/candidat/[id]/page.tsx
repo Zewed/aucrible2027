@@ -237,6 +237,16 @@ async function FicheCandidat({ id }: { id: string }) {
                 ))}
               </div>
             </section>
+            {/* Ce que le formulaire remplit quand il vient d'une fiche candidat reste à trancher : il s'ouvre sans fiche. */}
+            <div className="report">
+              <p>Une erreur, un chiffre ou une source à revoir ?</p>
+              <Link href="/signaler">
+                Signaler une erreur sur cette fiche{" "}
+                <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h13M13 6l6 6-6 6" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </main>
