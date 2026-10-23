@@ -100,7 +100,7 @@ export function QuestionDuJour({
   function valider(evenement: React.FormEvent) {
     evenement.preventDefault();
     if (!question || !choix) return;
-    enregistrerReponse(question.numero, { option: choix, importance: poids, graine: tirerGraine() });
+    enregistrerReponse(question.numero, { option: choix, importance: poids, graine: tirerGraine(), jour: question.date, duJour: true });
     router.push("/revelation");
   }
 

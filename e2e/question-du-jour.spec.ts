@@ -1293,3 +1293,40 @@ test.describe("pendant le silence électoral, l'accueil explique pourquoi", () =
     await expect(page.getByText(/La loi interdit toute nouvelle publication la veille et le jour du vote\./)).toBeVisible();
   });
 });
+
+test.describe("le dé affiche les jours d'affilée", () => {
+  // Fiches du 22 au 28 octobre 2026 : celles de démonstration, puis celles de test (e2e/fiches).
+  const JOURS = ["2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27"];
+
+  /** Répondre à la question du jour, ce jour-là, sans effacer les réponses déjà données. */
+  async function repondreCeJour(page: Page, jour: string) {
+    await fixerLeJour(page, `${jour}T09:00:00+02:00`);
+    await page.goto("/");
+    await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+  }
+
+  const serie = (page: Page) => page.getByRole("banner").getByText(/^\d+ jours? d'affilée$/);
+
+  test("après six jours de suite, l'en-tête de l'accueil du septième jour, avant de répondre, affiche « 6 jours d'affilée »", async ({ page }) => {
+    for (const jour of JOURS) await repondreCeJour(page, jour);
+    await fixerLeJour(page, "2026-10-28T09:00:00+01:00");
+    await page.goto("/");
+    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
+    await expect(serie(page)).toHaveText("6 jours d'affilée");
+  });
+
+  test("le dé et ce nombre sont aussi dans l'en-tête de la fiche et de la révélation", async ({ page }) => {
+    for (const jour of JOURS) await repondreCeJour(page, jour);
+    await fixerLeJour(page, "2026-10-28T09:00:00+01:00");
+    await page.goto("/");
+    await expect(page.getByRole("banner").locator(".die")).toBeVisible();
+    await expect(serie(page)).toBeVisible();
+    await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await expect(page.getByRole("banner").locator(".die")).toBeVisible();
+    await expect(serie(page)).toBeVisible();
+  });
+});
