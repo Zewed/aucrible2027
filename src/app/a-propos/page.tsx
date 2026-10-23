@@ -334,9 +334,72 @@ function LIA() {
   );
 }
 
+/** Les comptes @aucrible2027 (SPEC.md, en-tête), à réserver par l'auteur avant la mise en ligne. */
+const COMPTES = [
+  { plateforme: "Instagram", adresse: "https://www.instagram.com/aucrible2027" },
+  { plateforme: "TikTok", adresse: "https://www.tiktok.com/@aucrible2027" },
+  { plateforme: "YouTube", adresse: "https://www.youtube.com/@aucrible2027" },
+  { plateforme: "Facebook", adresse: "https://www.facebook.com/aucrible2027" },
+];
+
 /**
- * La page « À propos » (maquettes/a-propos.html), section par section. La section 5 vient avec le
- * ticket 159 ; la phrase « Tout ce qui suit est vérifiable… » et ses liens ne sont portés par aucun ticket.
+ * « À savoir n° 5 » : aller plus loin, ou suivre les comptes. Des trois liens « Aller plus loin » de la maquette,
+ * seul celui de la méthode a sa page ; le journal (172) et le signalement (160) viendront ensuite.
+ */
+function AllerPlusLoin() {
+  return (
+    <article className="rule theme-soc" id="r5" aria-labelledby="r5-t">
+      <header className="rule-head">
+        <span className="rule-n" aria-hidden="true">
+          5
+        </span>
+        <p className="rule-k">À savoir n° 5</p>
+        <h2 id="r5-t">Aller plus loin, ou nous suivre</h2>
+      </header>
+      <div className="rule-body split">
+        <div className="rule-txt">
+          <ul className="go-links">
+            <li>
+              <Link href="/methode">
+                <span>
+                  <b>Méthode de calcul et sources</b>
+                  <small>La formule, les notes, les 13 candidats.</small>
+                </span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M5 12h13M13 6l6 6-6 6"
+                    style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }}
+                  />
+                </svg>
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <figure className="demo" aria-label="Les comptes @aucrible2027">
+          <figcaption className="demo-k">
+            <i></i>Chaque jour, une question
+          </figcaption>
+          <p className="demo-cap" style={{ margin: "0 0 6px" }}>
+            Le même compte partout&nbsp;: <b>@aucrible2027</b>
+          </p>
+          <ul className="socials">
+            {COMPTES.map(({ plateforme, adresse }) => (
+              <li key={plateforme}>
+                <a href={adresse} target="_blank" rel="noopener">
+                  {plateforme} <span>@aucrible2027</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </figure>
+      </div>
+    </article>
+  );
+}
+
+/**
+ * La page « À propos » (maquettes/a-propos.html), ses cinq sections. La phrase « Tout ce qui suit est
+ * vérifiable… » et ses liens ne sont portés par aucun ticket.
  */
 async function APropos() {
   const jour = await lireAujourdhui();
@@ -381,6 +444,7 @@ async function APropos() {
             <CommentCEstRelu />
             <OnNeSaitPas />
             <LIA />
+            <AllerPlusLoin />
           </div>
         </div>
       </main>
