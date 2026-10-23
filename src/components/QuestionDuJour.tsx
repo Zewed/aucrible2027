@@ -72,5 +72,7 @@ export function QuestionDuJour({
   }
   if (!question || !theme) return bandeau;
 
-  return <Fiche question={question} theme={theme} revelation="/revelation" />;
+  // Seule la question du jour annonce la part en jeu ; une fiche de rattrapage, c'est à trancher.
+  const enJeu = { questions: questions.map(({ numero, theme }) => ({ numero, theme })), themes };
+  return <Fiche question={question} theme={theme} revelation="/revelation" enJeu={enJeu} />;
 }

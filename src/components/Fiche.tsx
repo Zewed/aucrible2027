@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Camembert } from "@/components/Camembert";
 import { CompteARebours } from "@/components/CompteARebours";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
@@ -11,7 +12,8 @@ import { lettreOption } from "@/lib/lettres";
 import { tirerGraine } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
-import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
+import { REPONSES_PAR_PART, reponsesParTheme } from "@/lib/proximite";
+import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses, type Reponse } from "@/lib/reponses";
 
 const IMPORTANCES = [
   { poids: 1, libelle: "Un peu" },
@@ -29,16 +31,57 @@ export function Bandeau({ jour, question }: { jour: string; question: Question |
   );
 }
 
+/** La couleur d'un thème, celle de sa part : `--trav` pour « theme-trav ». */
+const couleurDe = (theme: Theme) => `var(--${theme.classe.replace("theme-", "")})`;
+
+/** Ce que la fiche du jour lit pour annoncer la part en jeu : le thème des questions publiées, et les thèmes. */
+export type PartEnJeu = { questions: Pick<Question, "numero" | "theme">[]; themes: Theme[] };
+
+/**
+ * « En jeu aujourd'hui » : quand répondre à cette question gagne la part de son thème (2 réponses sur 3),
+ * le bloc l'annonce et mène à « Mes résultats ». Ce qu'il dit dans les autres cas reste à trancher.
+ */
+function EnJeu({ question, theme, enJeu, reponses }: { question: Question; theme: Theme; enJeu: PartEnJeu; reponses: Record<number, Reponse> }) {
+  const parTheme = reponsesParTheme(enJeu.questions, reponses);
+  const dansLeTheme = parTheme[theme.id] ?? 0;
+  if (dansLeTheme !== REPONSES_PAR_PART - 1) return null;
+  const gagnes = enJeu.themes.filter((t) => (parTheme[t.id] ?? 0) >= REPONSES_PAR_PART);
+  const part = enJeu.themes.findIndex((t) => t.id === question.theme);
+  return (
+    <Link className="stake" href="/resultats">
+      <Camembert
+        couleurs={enJeu.themes.map((t) => (gagnes.includes(t) ? couleurDe(t) : null))}
+        enJeu={{ part, couleur: couleurDe(theme) }}
+        description={`${gagnes.length} parts sur ${enJeu.themes.length}, la part ${theme.nom} est en jeu`}
+      />
+      <span>
+        <span className="stake-k">En jeu aujourd&apos;hui</span>
+        <span className="stake-t" style={{ display: "block" }}>
+          La part {theme.nom}
+        </span>
+        <span className="stake-s" style={{ display: "block" }}>
+          Tu as {dansLeTheme} réponses sur {REPONSES_PAR_PART} dans ce thème. Réponds et ton camembert passe à{" "}
+          <u>
+            {gagnes.length + 1} parts sur {enJeu.themes.length}
+          </u>
+          .
+        </span>
+      </span>
+    </Link>
+  );
+}
+
 /**
  * Une fiche à répondre : la carte question, ses options et l'importance. Valider enregistre la réponse
  * et mène à `revelation` ; une fiche déjà répondue sur cet appareil y rouvre directement.
  */
-export function Fiche({ question, theme, revelation }: { question: Question; theme: Theme; revelation: string }) {
+export function Fiche({ question, theme, revelation, enJeu }: { question: Question; theme: Theme; revelation: string; enJeu?: PartEnJeu }) {
   const router = useRouter();
   const [choix, setChoix] = useState<string | null>(null);
   const [poids, setPoids] = useState<number | null>(null);
   const jour = useCoteClient(() => aujourdhuiAParis());
-  const dejaRepondue = question.numero in lesReponses(useCoteClient(lireReponses));
+  const reponses = lesReponses(useCoteClient(lireReponses));
+  const dejaRepondue = question.numero in reponses;
 
   useEffect(() => {
     if (dejaRepondue) router.replace(revelation);
@@ -94,6 +137,7 @@ export function Fiche({ question, theme, revelation }: { question: Question; the
             </div>
           </article>
         </div>
+        {enJeu && <EnJeu question={question} theme={theme} enJeu={enJeu} reponses={reponses} />}
       </div>
       <form className="answer" onSubmit={valider}>
         <div className="answer-head">
