@@ -515,3 +515,26 @@ test("après A puis B et validation, la révélation nomme les défenseurs de B,
   for (const nom of ["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]) await expect(defenseurs.getByText(nom)).toBeVisible();
   for (const nom of ["Jean-Luc Mélenchon", "Fabien Roussel", "Nathalie Arthaud"]) await expect(defenseurs.getByText(nom)).toHaveCount(0);
 });
+
+const reponsesEnregistrees = (page: Page) =>
+  page.evaluate(() => [...Object.keys(sessionStorage), ...Object.keys(localStorage)].filter((cle) => cle.startsWith("aucrible")));
+
+test("sans rien choisir, « Valider ma réponse » est inactif : le toucher n'ouvre pas la révélation et n'enregistre rien", async ({ page }) => {
+  await page.goto("/");
+  const valider = page.getByRole("button", { name: "Valider ma réponse" });
+  await expect(valider).toBeVisible();
+  await expect(valider).toBeDisabled();
+  await valider.click({ force: true });
+  await page.waitForTimeout(500);
+  await expect(page).toHaveURL(/\/$/);
+  expect(await reponsesEnregistrees(page)).toEqual([]);
+});
+
+test("dès qu'une option est choisie, « Valider ma réponse » ouvre la révélation", async ({ page }) => {
+  await page.goto("/");
+  const valider = page.getByRole("button", { name: "Valider ma réponse" });
+  await choisir(page, "65 ans ou plus");
+  await expect(valider).toBeEnabled();
+  await valider.click();
+  await expect(page).toHaveURL(/\/revelation$/);
+});
