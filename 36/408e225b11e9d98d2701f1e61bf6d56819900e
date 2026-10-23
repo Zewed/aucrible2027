@@ -1,0 +1,30 @@
+src/components/Revelation.tsx
+  s_2c9a7110ce04dd::t_249f0206f129d6 3,114
+src/components/CompteARebours.tsx
+  s_2c9a7110ce04dd::t_249f0206f129d6 1-16
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_249f0206f129d6 5,36-44,55
+src/lib/date.ts
+  s_2c9a7110ce04dd::t_249f0206f129d6 15-19
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_2739cf0d6842b1 1164-1165,1167-1169,1171-1183
+  s_2c9a7110ce04dd::t_0ee31a508ed5d6 1166,1170
+.veebee/tickets/039-le-compte-a-rebours-affiche-les-jours-avant-le-1er-tour.md
+  s_2c9a7110ce04dd::t_362bc3728f955b 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "36408e225b11e9d98d2701f1e61bf6d56819900e",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
