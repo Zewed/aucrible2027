@@ -219,7 +219,7 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
         <p className="go-note">Tes réponses restent sur ton téléphone, sans compte.</p>
       </form>
       <footer className="foot">
-        <Link className="small" href="/signaler">
+        <Link className="small" href={`/signaler?question=${question.numero}`}>
           Signaler une erreur
         </Link>
         <Link className="btn-link" href="/resultats" style={{ marginLeft: "auto" }}>
