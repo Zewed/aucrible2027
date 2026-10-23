@@ -1,0 +1,27 @@
+src/app/journal/page.tsx
+  s_330ba31127fa8a::t_acf8c1082f46d7 135-158,161-162,200-209,211-232
+src/app/globals.css
+  s_330ba31127fa8a::t_de12329bffaed0 31-33
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_28ffa96904a6cf 4222-4246
+e2e/fiches/corrections/une.yaml
+  s_330ba31127fa8a::t_03158a051b6f4a 1-11
+.veebee/tickets/178-sans-correction-le-journal-invite-a-signaler.md
+  s_330ba31127fa8a::t_2718c827262df6 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c2f2724bc0bb103757994ec91a45866a0bc0c148",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
