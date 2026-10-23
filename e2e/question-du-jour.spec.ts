@@ -2672,3 +2672,54 @@ test.describe("la carte affiche le camembert", () => {
     expect(remplies(await partsDeLaCarte(page))).toEqual(["Économie & impôts", "Travail & retraites", "Écologie & énergie", "Immigration", "Sécurité & justice", "Santé"]);
   });
 });
+
+test.describe("l'électeur choisit une carte qui ne montre que son pion", () => {
+  const versions = (page: Page) => ({
+    candidat: page.locator(".sp-slot").filter({ hasText: "Version 1 · avec mon candidat" }),
+    pion: page.locator(".sp-slot").filter({ hasText: "Version 2 · seulement mon pion" }),
+  });
+  const choisirLaCarte = (page: Page, libelle: string) =>
+    page.getByRole("group", { name: "Ce que ma carte montre" }).getByText(libelle, { exact: true }).click();
+
+  test("au départ, la version « avec mon candidat » est « Choisie » ; avec « Seulement mon pion », c'est la version « Mon pion sur le plateau »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    const { candidat, pion } = versions(page);
+    await expect(candidat.getByText("Choisie", { exact: true })).toBeVisible();
+    await expect(pion.getByText("Choisie", { exact: true })).toBeHidden();
+    await choisirLaCarte(page, "Seulement mon pion");
+    await expect(pion.getByText("Choisie", { exact: true })).toBeVisible();
+    await expect(candidat.getByText("Choisie", { exact: true })).toBeHidden();
+  });
+
+  test("la carte « Mon pion sur le plateau » montre le pion « TOI » près du centre, côté redistribution et progressiste, sans nom, pourcentage ni pion de candidat", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    const carte = page.getByRole("article", { name: "Carte à partager : mon pion sur le plateau, sans nom de candidat" });
+    await expect(carte.getByRole("heading", { name: "Mon pion sur le plateau" })).toBeVisible();
+    await expect(carte.locator(".field .pawn")).toHaveCount(0);
+    for (const nom of Object.keys(INITIALES)) await expect(carte.getByText(nom)).toHaveCount(0);
+    await expect(carte.getByText(/%/)).toHaveCount(0);
+    const { x, y } = await carte.locator(".field .you").evaluate((toi: HTMLElement) => {
+      const champ = toi.offsetParent as HTMLElement;
+      const style = getComputedStyle(toi);
+      return { x: parseFloat(style.left) / champ.clientWidth, y: parseFloat(style.top) / champ.clientHeight };
+    });
+    expect(x).toBeGreaterThan(0.35);
+    expect(x).toBeLessThan(0.5);
+    expect(y).toBeGreaterThan(0.35);
+    expect(y).toBeLessThan(0.5);
+  });
+
+  test("en revenant sur « Mon candidat le plus proche », la version avec « 81 % » et « François Ruffin » redevient la choisie", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    await choisirLaCarte(page, "Seulement mon pion");
+    await choisirLaCarte(page, "Mon candidat le plus proche");
+    const { candidat, pion } = versions(page);
+    await expect(candidat.getByText("Choisie", { exact: true })).toBeVisible();
+    await expect(pion.getByText("Choisie", { exact: true })).toBeHidden();
+    await expect(candidat.getByText(/^81\s%$/)).toBeVisible();
+    await expect(candidat.getByText("François Ruffin")).toBeVisible();
+  });
+});
