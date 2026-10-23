@@ -1,0 +1,27 @@
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_d66638267d7158 1184-1201
+src/lib/publication.ts
+  s_2c9a7110ce04dd::t_1a2a0415c161d8 24-29
+src/app/page.tsx
+  s_2c9a7110ce04dd::t_1a2a0415c161d8 4,7-13
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_1a2a0415c161d8 12,21-46,69-77
+.veebee/tickets/040-avant-la-premiere-question-l-accueil-dit-quand-elle.md
+  s_2c9a7110ce04dd::t_dec74767e702d6 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "72f071dadb7f4244cb8e48cffef38eb23d558f71",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
