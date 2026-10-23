@@ -5,6 +5,7 @@ milestone: null
 depends_on: ["052"]
 design: maquettes/rattrapage.html
 tracker: null
+status: done
 ---
 
 ## Ce que l'utilisateur fait

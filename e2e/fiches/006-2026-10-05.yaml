@@ -1,9 +1,10 @@
 # FICHE DE TEST : lue seulement par le serveur des tests de bout en bout (AUCRIBLE_FICHES_DE_TEST).
-# Son contenu reprend la fiche de démonstration n° 23 ; seuls le numéro, la date et la question changent.
+# Son contenu reprend la fiche de démonstration n° 23 ; seuls le numéro, la date, le thème et la question changent
+# (la question et le thème de la n° 6 de maquettes/rattrapage.html).
 numero: 6
 date: 2026-10-05
-theme: logement
-question: Fiche de test du lundi 5 octobre ?
+theme: immigration
+question: Faut-il fixer chaque année des quotas d'immigration ?
 contexte:
   - Dans plusieurs grandes villes, un loyer de référence fixe le plafond qu'un propriétaire ne peut pas dépasser.
   - Ce dispositif est une expérimentation, et les villes choisissent de l'appliquer ou non.
