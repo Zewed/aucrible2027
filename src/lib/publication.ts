@@ -21,10 +21,14 @@ async function maintenant(): Promise<Date> {
 /** Le cookie par lequel, en test seulement, un test choisit son jeu de fiches (e2e/fiches/<jeu>). */
 const JEU_DE_TEST = "aucrible-jeu-de-test";
 
+/** Le cookie par lequel, en test seulement, un test ajoute des positions aux fiches (e2e/fiches/surcharges/<nom>). */
+const SURCHARGES_DE_TEST = "aucrible-surcharges-de-test";
+
 /** Les fiches, parues ou non, du jeu de la requête : en production, toujours celles du contenu. */
 async function lesFiches(): Promise<Question[]> {
-  const jeu = process.env.AUCRIBLE_FICHES_DE_TEST ? (await cookies()).get(JEU_DE_TEST)?.value : undefined;
-  return lireQuestions(jeu);
+  if (!process.env.AUCRIBLE_FICHES_DE_TEST) return lireQuestions();
+  const biscuits = await cookies();
+  return lireQuestions(biscuits.get(JEU_DE_TEST)?.value, biscuits.get(SURCHARGES_DE_TEST)?.value);
 }
 
 /** Le cookie par lequel, en test seulement, un test ajoute aux candidats (e2e/fiches/candidats/<nom>.yaml). */
@@ -58,11 +62,14 @@ export async function lireQuestionsPubliees(): Promise<Question[]> {
   return fiches.filter((q) => q.date <= jour && !(silence && q.date >= silence.debut)).map((q) => avecLesPositionsHeritees(q, candidats));
 }
 
-/** Un remplaçant reprend, question par question, la position du candidat qu'il remplace, tant qu'il n'en a pas à lui. */
+/**
+ * Un remplaçant reprend, question par question, la position du candidat qu'il remplace, tant qu'il n'en a pas à lui :
+ * avec sa source d'origine, mais en « déduite », puisqu'elle n'est pas la sienne (SPEC.md, « Remplacement »).
+ */
 function avecLesPositionsHeritees(question: Question, candidats: Candidat[]): Question {
   const heritiers = candidats.filter((c) => c.remplace && !question.positions[c.id] && question.positions[c.remplace]);
   if (heritiers.length === 0) return question;
-  const heritees = Object.fromEntries(heritiers.map((c) => [c.id, question.positions[c.remplace!]]));
+  const heritees = Object.fromEntries(heritiers.map((c) => [c.id, { ...question.positions[c.remplace!], statut: "deduite" as const }]));
   return { ...question, positions: { ...question.positions, ...heritees } };
 }
 

@@ -3426,3 +3426,50 @@ test.describe("un candidat remplacé prend le nom de son remplaçant", () => {
     expect(apres).toEqual(avant.map(([rang, nom, pourcentage]) => [rang, nom === "Marine Le Pen" ? "Jordan Bardella" : nom, pourcentage]));
   });
 });
+
+test.describe("après un remplacement, les positions héritées passent en « déduite »", () => {
+  /** Pour chaque position connue de la fiche, son numéro, son option, son badge et sa source. */
+  async function positionsDeLaFiche(page: Page, id: string) {
+    await page.goto(`/candidat/${id}`);
+    const positions = page.getByRole("region", { name: "Ses positions" });
+    await expect(positions).toBeVisible();
+    return positions.locator(".pos:not(.pos--unk)").evaluateAll((lignes) =>
+      lignes.map((l) => ({
+        numero: l.querySelector(".pos-n")!.textContent,
+        option: l.querySelector(".pos-letter")!.textContent,
+        badge: l.querySelector(".badge")!.textContent!.trim(),
+        source: l.querySelector(".src")!.textContent,
+      })),
+    );
+  }
+
+  /** Le remplacement de test (Bardella pour Le Pen), et en plus, si demandé, la déclaration de test de Bardella sur la n° 9. */
+  async function remplacement(page: Page, declaration = false) {
+    const cookies = [{ name: "aucrible-candidats-de-test", value: "remplacement", url: "http://localhost:3127" }];
+    if (declaration) cookies.push({ name: "aucrible-surcharges-de-test", value: "declaration-bardella", url: "http://localhost:3127" });
+    await page.context().addCookies(cookies);
+  }
+
+  test("juste après le remplacement, chaque position connue de Bardella porte « position déduite », aucune « position officielle », chacune avec sa source d'origine", async ({ page }) => {
+    const deLePen = await positionsDeLaFiche(page, "le-pen");
+    expect(deLePen.some((p) => p.badge === "position officielle")).toBe(true);
+    await remplacement(page);
+    const deBardella = await positionsDeLaFiche(page, "bardella");
+    expect(deBardella).toEqual(deLePen.map((p) => ({ ...p, badge: "position déduite" })));
+  });
+
+  test("une déclaration datée de Bardella ajoutée sur une question fait passer cette seule position en « position officielle », avec la déclaration pour source", async ({ page }) => {
+    await remplacement(page);
+    const avant = await positionsDeLaFiche(page, "bardella");
+    await remplacement(page, true);
+    const apres = await positionsDeLaFiche(page, "bardella");
+    expect(apres.find((p) => p.numero === "Q9")).toEqual({
+      numero: "Q9",
+      option: "B",
+      badge: "position officielle",
+      source: "Source : Déclaration sur France 2, 05/01/2027",
+    });
+    expect(apres.filter((p) => p.numero !== "Q9")).toEqual(avant.filter((p) => p.numero !== "Q9"));
+    expect(apres.filter((p) => p.numero !== "Q9").every((p) => p.badge === "position déduite")).toBe(true);
+  });
+});

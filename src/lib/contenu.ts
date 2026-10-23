@@ -87,20 +87,30 @@ function lireFiche(chemin: string): Question[] {
 
 /**
  * Les fiches de content/questions, plus, pour les tests de bout en bout seulement, celles du dossier de test.
- * Un test peut aussi choisir un jeu de fiches à lui (un sous-dossier du dossier de test), qui remplace tout le reste.
+ * Un test peut aussi choisir un jeu de fiches à lui (un sous-dossier du dossier de test), qui remplace tout le reste,
+ * et des surcharges (e2e/fiches/surcharges/<nom>/), des fiches partielles dont les positions s'ajoutent à celles de
+ * la fiche du même numéro.
  */
-export function lireQuestions(jeuDeTest?: string): Question[] {
+export function lireQuestions(jeuDeTest?: string, surchargesDeTest?: string): Question[] {
   const test = process.env.AUCRIBLE_FICHES_DE_TEST;
-  const dossiers =
-    test && jeuDeTest && /^[a-z-]+$/.test(jeuDeTest)
-      ? [path.join(process.cwd(), test, jeuDeTest)]
-      : [path.join(RACINE, "questions"), ...(test ? [path.join(process.cwd(), test)] : [])];
+  const valide = (nom?: string): nom is string => !!test && !!nom && /^[a-z-]+$/.test(nom);
+  const dossiers = valide(jeuDeTest)
+    ? [path.join(process.cwd(), test!, jeuDeTest)]
+    : [path.join(RACINE, "questions"), ...(test ? [path.join(process.cwd(), test)] : [])];
+  const surcharges = valide(surchargesDeTest) ? lireDossier(path.join(process.cwd(), test!, "surcharges", surchargesDeTest)) : [];
   return dossiers
-    .flatMap((dossier) =>
-      readdirSync(dossier)
-        .filter((fichier) => fichier.endsWith(".yaml"))
-        .flatMap((fichier) => lireFiche(path.join(dossier, fichier))),
-    )
+    .flatMap(lireDossier)
+    .map((q) => {
+      const surcharge = surcharges.find((s) => s.numero === q.numero);
+      return surcharge ? { ...q, positions: { ...q.positions, ...surcharge.positions } } : q;
+    })
     .map((q) => ({ ...q, date: String(q.date) }))
     .sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/** Les fiches d'un dossier. */
+function lireDossier(dossier: string): Question[] {
+  return readdirSync(dossier)
+    .filter((fichier) => fichier.endsWith(".yaml"))
+    .flatMap((fichier) => lireFiche(path.join(dossier, fichier)));
 }
