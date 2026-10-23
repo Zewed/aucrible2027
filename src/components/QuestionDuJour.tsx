@@ -5,6 +5,7 @@ import { useState } from "react";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
 import type { Question, Theme } from "@/lib/contenu";
+import { lettreOption } from "@/lib/lettres";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
 import { enregistrerReponseEnCours, JE_NE_SAIS_PAS } from "@/lib/reponses";
@@ -93,7 +94,7 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
                 aria-describedby={`implique-${option.id} defenseurs-${option.id} critiques-${option.id}`}
               />
               <span className="opt-face">
-                <span className="opt-letter" id={`lettre-${option.id}`}>{String.fromCharCode(65 + rang)}</span>
+                <span className="opt-letter" id={`lettre-${option.id}`}>{lettreOption(rang)}</span>
                 <span className="opt-title" id={`titre-${option.id}`}>{option.libelle}</span>
                 <span className="opt-impl" id={`implique-${option.id}`}>{option.implique}</span>
                 <span className="opt-args">

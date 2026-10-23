@@ -1,10 +1,7 @@
 import { Revelation } from "@/components/Revelation";
-import { lireCandidats, lireQuestions } from "@/lib/contenu";
+import { lireCandidats, lireQuestions, lireThemes } from "@/lib/contenu";
+import "./revelation.css";
 
 export default function PageRevelation() {
-  return (
-    <main>
-      <Revelation questions={lireQuestions()} candidats={lireCandidats()} />
-    </main>
-  );
+  return <Revelation questions={lireQuestions()} candidats={lireCandidats()} themes={lireThemes()} />;
 }
