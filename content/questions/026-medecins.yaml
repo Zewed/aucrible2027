@@ -13,13 +13,17 @@ chiffres:
   - valeur: "6"
     unite: millions
     legende: de patients sans médecin traitant
+    source: { organisme: Assurance maladie, annee: 2024 }
   - valeur: 87 %
     legende: du territoire classé en zone où l'accès aux médecins est difficile
+    source: { organisme: DREES, annee: 2023 }
   - valeur: "85"
     legende: généralistes pour 100 000 habitants
+    source: { organisme: DREES, annee: 2025 }
   - valeur: "10"
     unite: ans
     legende: d'études pour devenir médecin généraliste
+    source: { organisme: Ministère de la Santé, annee: 2023 }
 options:
   - id: A
     libelle: Limiter les installations là où les médecins sont déjà nombreux
