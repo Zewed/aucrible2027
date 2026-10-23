@@ -2890,3 +2890,21 @@ test.describe("avant 10 réponses, la carte reste verrouillée", () => {
     await expect(page.getByRole("article", { name: /Carte à partager/ }).first()).toBeVisible();
   });
 });
+
+test.describe("la carte affiche « Et toi ? aucrible2027.fr »", () => {
+  test("en bas de la carte « avec mon candidat », on lit « Et toi ? » et « aucrible2027.fr »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    const bas = page.getByRole("article", { name: /Carte à partager : 81/ }).locator(".sc-ask");
+    await expect(bas.getByText("Et toi ?", { exact: true })).toBeVisible();
+    await expect(bas.getByText("aucrible2027.fr", { exact: true })).toBeVisible();
+  });
+
+  test("en bas de la carte « seulement mon pion », on lit « Et toi, tu te places où ? » et la même adresse", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    const bas = page.getByRole("article", { name: "Carte à partager : mon pion sur le plateau, sans nom de candidat" }).locator(".sc-ask");
+    await expect(bas.getByText("Et toi, tu te places où ?", { exact: true })).toBeVisible();
+    await expect(bas.getByText("aucrible2027.fr", { exact: true })).toBeVisible();
+  });
+});

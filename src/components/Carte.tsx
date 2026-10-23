@@ -83,6 +83,9 @@ function CarteVerrouillee({ comptees, pied }: { comptees: number; pied: string }
             <Cadenas />
           </p>
           <p className="story-t">Je suis à … % proche de …</p>
+          <div className="story-q">
+            <b>Et toi&nbsp;?</b>
+          </div>
           <p className="story-f">{pied}</p>
         </div>
         <div className="actions">
@@ -106,6 +109,7 @@ export function ApercuDeLaCarte({ questions, candidats, themes }: { questions: Q
   const pied = usePiedDeCarte(questions, themes);
   // La carte verrouillée dit « parts », comme resultats-vide.html, là où la carte débloquée dit « thèmes ».
   const piedVerrouille = usePiedDeCarte(questions, themes, "parts");
+  const gagnees = usePartsGagnees(questions, themes);
   const comptees = reponsesComptees(questions, reponses);
   if (comptees < SEUIL_DES_RESULTATS) return <CarteVerrouillee comptees={comptees} pied={piedVerrouille} />;
   if (!premier) return null;
@@ -130,6 +134,10 @@ export function ApercuDeLaCarte({ questions, candidats, themes }: { questions: Q
           <p className="story-t">
             Je suis à {premier.pourcentage}&nbsp;% proche de {premier.candidat.nom}.
           </p>
+          <div className="story-q">
+            <b>Et toi&nbsp;?</b>
+            <Camembert couleurs={themes.map((theme, i) => (gagnees[i] ? couleurDe(theme) : null))} />
+          </div>
           <p className="story-f">{pied}</p>
         </div>
         <div className="actions">
@@ -240,6 +248,10 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
                 <Camembert interieur={34} couleurs={camembert} description={`Camembert : ${nombre} ${nombre > 1 ? "thèmes" : "thème"} sur ${themes.length}`} />
               </div>
               <p className="sc-f">{pied}</p>
+              <p className="sc-ask">
+                <b>Et toi&nbsp;?</b>
+                <span className="sc-url">aucrible2027.fr</span>
+              </p>
             </article>
           </div>
         </div>
@@ -271,6 +283,10 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
                   <span className="edge right">plus de marché →</span>
                 </div>
               </div>
+              <p className="sc-ask sc-ask--col">
+                <b>Et toi, tu te places où&nbsp;?</b>
+                <span className="sc-url">aucrible2027.fr</span>
+              </p>
             </article>
           </div>
         </div>
