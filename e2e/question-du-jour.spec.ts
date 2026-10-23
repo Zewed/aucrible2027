@@ -1764,3 +1764,77 @@ test.describe("l'électeur ouvre « Mes résultats »", () => {
     await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toBeVisible();
   });
 });
+
+/**
+ * 23 réponses déjà données sur l'appareil : A aux questions n° 1 à 23, d'importance ×3 (n° 1 à 8),
+ * ×2 (n° 9 à 14) puis ×1. Les fiches de test n° 1 à 22 placent les candidats pour donner le classement
+ * de maquettes/resultats.html ; la n° 23 n'a aucune position.
+ */
+async function vingtTroisReponses(page: Page) {
+  await page.goto("/");
+  await page.evaluate(() => {
+    const reponses: Record<number, object> = {};
+    for (let numero = 1; numero <= 23; numero++) {
+      const importance = numero <= 8 ? 3 : numero <= 14 ? 2 : 1;
+      reponses[numero] = { option: "A", importance, graine: 1, jour: "2026-10-22", duJour: false };
+    }
+    localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+  });
+}
+
+/** Les lignes de « Ton classement », dans l'ordre : rang, nom, pourcentage. */
+const lignesDuClassement = (page: Page) =>
+  page
+    .getByRole("region", { name: "Ton classement" })
+    .getByRole("listitem")
+    .evaluateAll((lignes) =>
+      lignes.map((ligne) => [".cand-n", ".cand-name", ".cand-pc"].map((classe) => ligne.querySelector(classe)?.textContent)),
+    );
+
+test.describe("le classement range les 13 candidats par % de proximité", () => {
+  test("avec 23 réponses, « Ton classement » montre 13 lignes numérotées de 1 à 13, de 81 % pour François Ruffin à 22 % pour Éric Zemmour", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByText("proximité, en %")).toBeVisible();
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    expect(await lignesDuClassement(page)).toEqual([
+      ["1", "François Ruffin", "81 %"],
+      ["2", "David Lisnard", "76 %"],
+      ["3", "Marine Tondelier", "71 %"],
+      ["4", "Nicolas Dupont-Aignan", "66 %"],
+      ["5", "Raphaël Glucksmann", "62 %"],
+      ["6", "Marine Le Pen", "58 %"],
+      ["7", "Édouard Philippe", "54 %"],
+      ["8", "Fabien Roussel", "49 %"],
+      ["9", "Jean-Luc Mélenchon", "45 %"],
+      ["10", "Bruno Retailleau", "39 %"],
+      ["11", "Nathalie Arthaud", "33 %"],
+      ["12", "Gabriel Attal", "28 %"],
+      ["13", "Éric Zemmour", "22 %"],
+    ]);
+  });
+
+  test("les 13 candidats du lancement y figurent tous, une seule fois chacun", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const noms = (await lignesDuClassement(page)).map(([, nom]) => nom);
+    expect([...noms].sort((a, b) => a!.localeCompare(b!, "fr"))).toEqual(
+      [
+        "Marine Le Pen",
+        "Jean-Luc Mélenchon",
+        "Édouard Philippe",
+        "Raphaël Glucksmann",
+        "Bruno Retailleau",
+        "David Lisnard",
+        "Gabriel Attal",
+        "Éric Zemmour",
+        "Marine Tondelier",
+        "Fabien Roussel",
+        "Nicolas Dupont-Aignan",
+        "François Ruffin",
+        "Nathalie Arthaud",
+      ].sort((a, b) => a.localeCompare(b, "fr")),
+    );
+  });
+});

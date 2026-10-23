@@ -1,5 +1,7 @@
 # FICHE DE TEST : lue seulement par le serveur des tests de bout en bout (AUCRIBLE_FICHES_DE_TEST).
 # Son contenu reprend la fiche de démonstration n° 23 ; seuls le numéro, la date et la question changent.
+# Les positions des candidats sont inventées pour les tests du classement (ticket 063) : elles ne disent rien
+# de ce que pensent ces candidats.
 numero: 11
 date: 2026-10-10
 theme: logement
@@ -32,4 +34,17 @@ options:
     implique: Le loyer se fixe entre le propriétaire et le locataire.
     defenseurs: Des loyers libres encouragent à construire et à mettre des logements en location.
     critiques: Dans les villes les plus chères, les loyers peuvent continuer de grimper.
-positions: {}
+positions:
+  ruffin: { option: A, source: Source de test, statut: officielle }
+  lisnard: { option: A, source: Source de test, statut: officielle }
+  tondelier: { option: A, source: Source de test, statut: officielle }
+  dupont-aignan: { option: A, source: Source de test, statut: officielle }
+  glucksmann: { option: A, source: Source de test, statut: officielle }
+  le-pen: { option: A, source: Source de test, statut: officielle }
+  philippe: { option: A, source: Source de test, statut: officielle }
+  roussel: { option: A, source: Source de test, statut: officielle }
+  melenchon: { option: A, source: Source de test, statut: officielle }
+  retailleau: { option: A, source: Source de test, statut: officielle }
+  arthaud: { option: C, source: Source de test, statut: officielle }
+  attal: { option: C, source: Source de test, statut: officielle }
+  zemmour: { option: C, source: Source de test, statut: officielle }
