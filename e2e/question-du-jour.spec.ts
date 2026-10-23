@@ -3717,3 +3717,13 @@ test.describe("la page Méthode explique pourquoi ce n'est pas un sondage", () =
     ).toBeVisible();
   });
 });
+
+test("sur « Mes résultats », toucher « Méthode de calcul » ouvre la page « Méthode de calcul et sources », sur son titre et sa première règle", async ({ page }) => {
+  await page.goto("/resultats");
+  await page.getByRole("contentinfo").getByRole("link", { name: "Méthode de calcul" }).click();
+  await page.waitForURL(/\/methode$/);
+  const titre = page.getByRole("heading", { level: 1 }).filter({ visible: true });
+  expect((await titre.innerText()).replace(/\s+/g, " ")).toBe("Méthode de calcul et sources.");
+  await expect(page.getByRole("article").first()).toHaveAccessibleName("Chaque question donne un score entre 0 et 100 %");
+  await expect(page.getByRole("article").first()).toBeInViewport({ ratio: 0.01 });
+});
