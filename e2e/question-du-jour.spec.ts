@@ -1871,3 +1871,38 @@ test.describe("la révélation mène à « Mes résultats »", () => {
     expect(await pourcentageDe(page, "Nicolas Dupont-Aignan")).toBeGreaterThan(66);
   });
 });
+
+/** Le % d'un candidat pour un électeur qui a les 23 réponses de `vingtTroisReponses`, plus cette option à la n° 24. */
+async function pourcentageAvecLa24(page: Page, option: string, nom: string, importance: number | null = null) {
+  await vingtTroisReponses(page);
+  await page.evaluate(
+    ([option, importance]) => {
+      const reponses = JSON.parse(localStorage.getItem("aucrible:reponses")!);
+      reponses[24] = { option, importance, graine: 1, jour: "2026-10-23", duJour: true };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    },
+    [option, importance] as const,
+  );
+  await page.goto("/resultats");
+  await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+  return Number((await lignesDuClassement(page)).find(([, n]) => n === nom)![2]!.replace(/\D/g, ""));
+}
+
+test.describe("une option voisine sur l'échelle compte en partie", () => {
+  // La n° 24 compte ×3 : sur 23 autres réponses, un cran d'écart à ×1 bougerait le % de moins d'un point.
+  test("à la n° 24, le % de Gabriel Attal (position C, 64 ans) est le plus haut avec C, plus bas avec B (62 ans), encore plus bas avec A (60 ans)", async ({ page }) => {
+    const [avecC, avecB, avecA] = [
+      await pourcentageAvecLa24(page, "C", "Gabriel Attal", 3),
+      await pourcentageAvecLa24(page, "B", "Gabriel Attal", 3),
+      await pourcentageAvecLa24(page, "A", "Gabriel Attal", 3),
+    ];
+    expect(avecC).toBeGreaterThan(avecB);
+    expect(avecB).toBeGreaterThan(avecA);
+  });
+
+  test("avec D (65 ans ou plus), C, B puis A, le % de Bruno Retailleau (position D) baisse à chaque cran d'écart", async ({ page }) => {
+    const pourcentages = [];
+    for (const option of ["D", "C", "B", "A"]) pourcentages.push(await pourcentageAvecLa24(page, option, "Bruno Retailleau", 3));
+    for (let i = 1; i < pourcentages.length; i++) expect(pourcentages[i]).toBeLessThan(pourcentages[i - 1]);
+  });
+});
