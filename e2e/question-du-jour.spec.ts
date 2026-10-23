@@ -3399,7 +3399,7 @@ test.describe("un candidat remplacé prend le nom de son remplaçant", () => {
     await expect(page.locator(".id-card .pawn")).toHaveText("JB");
     // La page part en flux avant de savoir que la fiche n'existe pas : le statut reste 200, la page dit « 404 ».
     await page.goto("/candidat/le-pen");
-    await expect(page.getByText("This page could not be found.")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Cette carte n'est pas dans le paquet." })).toBeVisible();
     await expect(page.locator(".id-card")).toHaveCount(0);
     await expect(page.getByText("Marine Le Pen")).toHaveCount(0);
   });
@@ -4282,4 +4282,22 @@ test.describe("l'en-tête mène aux deux écrans principaux", () => {
       });
     });
   }
+});
+
+test.describe("une adresse inconnue affiche « Cette carte n'est pas dans le paquet »", () => {
+  test("une adresse qui n'existe pas affiche le titre, l'étiquette « Carte introuvable » et « Erreur 404 » dans le bandeau", async ({ page }) => {
+    await page.goto("/zzz");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Cette carte n'est pas dans le paquet.");
+    await expect(page.locator(".qcard .theme-chip")).toHaveText("Carte introuvable");
+    await expect(page.locator(".strip .qnum")).toHaveText("Erreur 404");
+    await expect(page.getByRole("img", { name: "Erreur 404" })).toBeVisible();
+  });
+
+  test("sous « Que s'est-il passé ? », la page dit que l'adresse n'existe pas ou que la page a changé de place", async ({ page }) => {
+    await page.goto("/zzz");
+    await expect(page.getByRole("heading", { level: 2, name: "Que s'est-il passé ?" })).toBeVisible();
+    await expect(
+      page.getByText("L'adresse que tu as ouverte n'existe pas, ou la page a changé de place. Le reste du paquet, lui, est au complet."),
+    ).toBeVisible();
+  });
 });
