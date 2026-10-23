@@ -1,0 +1,35 @@
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_567333dfdbf82c 8
+  s_2c9a7110ce04dd::t_8102fa56ca453a 97
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_a99c85441cc070 601-645
+src/lib/lettres.ts
+  s_2c9a7110ce04dd::t_567333dfdbf82c 1-2
+src/app/revelation/page.tsx
+  s_2c9a7110ce04dd::t_8102fa56ca453a 2-3,6
+src/app/revelation/revelation.css
+  s_2c9a7110ce04dd::t_9077be6c5ca547 1-280
+content/questions/024-retraite.yaml
+  s_2c9a7110ce04dd::t_8102fa56ca453a 59
+src/components/Revelation.tsx
+  s_2c9a7110ce04dd::t_567333dfdbf82c 4-5
+  s_2c9a7110ce04dd::t_8102fa56ca453a 9-11,16-17,22,26-70
+.veebee/tickets/019-la-revelation-montre-les-candidats-de-chaque-option.md
+  s_2c9a7110ce04dd::t_7fea66676d3f33 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5194170b685cdd79df77d877f8e75e06d0015113",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
