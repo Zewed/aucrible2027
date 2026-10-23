@@ -44,10 +44,13 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
   const theme = question && themes.find((t) => t.id === question.theme);
   if (!reponse || !question || !theme) return null;
 
-  const defenseurs = candidats.filter((c) => question.positions[c.id]?.option === reponse.option);
   const rangChoisi = question.options.findIndex((o) => o.id === reponse.option);
   const choisie = question.options[rangChoisi];
   const importance = reponse.importance;
+  const alignes = melanger(
+    candidats.filter((c) => question.positions[c.id]?.option === reponse.option),
+    reponse.graine - 1,
+  );
   const inconnus = melanger(
     candidats.filter((c) => !question.positions[c.id]),
     reponse.graine + question.options.length,
@@ -84,14 +87,27 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
             )}
           </section>
         )}
-        <section className="align" aria-labelledby="defenseurs">
-          <h2 id="defenseurs" className="align-h">Ils défendent ton option</h2>
-          <ul className="who" aria-labelledby="defenseurs">
-            {defenseurs.map((c) => (
-              <li key={c.id}>{c.nom}</li>
-            ))}
-          </ul>
-        </section>
+        {choisie && (
+          <section className="align" aria-label="Alignement sur ce sujet">
+            {alignes.length > 0 && (
+              <div className="align-row">
+                <h2 id="alignes" className="align-h">Sur ce sujet, tu es aligné·e avec</h2>
+                <ul className="who" aria-labelledby="alignes">
+                  {alignes.map((c) => (
+                    <li key={c.id}>
+                      {/* Le nom mènera à la fiche du candidat (ticket 122) : pas encore de lien. */}
+                      <a>
+                        <Pion candidat={c} />
+                        {c.nom}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <p className="align-note">Aligné·e&nbsp;: même carte que toi ({lettreOption(rangChoisi)}).</p>
+          </section>
+        )}
         <section className="rev-list" aria-labelledby="qui-defend-quoi">
           <div className="sec-h">
             <h2 id="qui-defend-quoi">Qui défend quoi</h2>
