@@ -1,0 +1,7 @@
+# SURCHARGE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit
+# « declaration-bardella » (cookie aucrible-surcharges-de-test). Ses positions s'ajoutent à celles de la fiche n° 9.
+# La déclaration de Jordan Bardella est inventée pour le test du remplacement (ticket 139) : elle ne dit rien de ses
+# positions réelles.
+numero: 9
+positions:
+  bardella: { option: B, source: "Déclaration sur France 2, 05/01/2027", statut: officielle }
