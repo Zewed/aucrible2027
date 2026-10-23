@@ -225,3 +225,38 @@ test.describe("une fiche affiche autant de chiffres clés qu'elle en a, sur gran
     await expect(await chiffresEntiers(page, "Faut-il réguler l'installation des médecins ?")).toHaveCount(4);
   });
 });
+
+test("sur la fiche n° 24, chaque chiffre clé est suivi de sa source datée", async ({ page }) => {
+  await page.goto("/");
+  const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+  const chiffres = carte.getByRole("region", { name: "3 chiffres clés" }).getByRole("listitem");
+  const attendus = [
+    ["1,7", "Source : COR, rapport 2025"],
+    ["14 %", "Source : COR, 2025"],
+    ["62 ans", "Source : DREES, 2025"],
+  ];
+  for (const [i, [chiffre, source]] of attendus.entries()) {
+    const nombre = chiffres.nth(i).getByText(chiffre, { exact: true });
+    const ligne = chiffres.nth(i).getByText(source, { exact: true });
+    await expect(ligne).toBeVisible();
+    const [haut, bas] = await Promise.all([nombre.boundingBox(), ligne.boundingBox()]);
+    expect(bas!.y).toBeGreaterThan(haut!.y);
+  }
+});
+
+test("sur aucune fiche un chiffre clé n'apparaît sans son organisme ni son année", async ({ page }) => {
+  const fiches = [
+    ["2026-10-23T09:00:00+02:00", "À quel âge devrait-on pouvoir partir à la retraite ?"],
+    ["2026-10-24T09:00:00+02:00", "Faut-il sortir du nucléaire ?"],
+    ["2026-10-25T09:00:00+01:00", "Faut-il réguler l'installation des médecins ?"],
+  ];
+  for (const [jour, question] of fiches) {
+    await page.clock.setFixedTime(new Date(jour));
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: question })).toBeVisible();
+    // Entiers : une source rognée par les points de suspension perdrait son année.
+    for (const chiffre of await (await chiffresEntiers(page, question)).all()) {
+      await expect(chiffre.getByText(/^Source : \S.*, (.+ )?(19|20)\d{2}$/)).toBeVisible();
+    }
+  }
+});

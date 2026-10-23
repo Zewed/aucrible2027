@@ -13,11 +13,14 @@ contexte:
 chiffres:
   - valeur: "1,7"
     legende: cotisant pour 1 retraité
+    source: { organisme: COR, document: rapport, annee: 2025 }
   - valeur: 14 %
     legende: "du PIB : environ ce que représentent les retraites"
+    source: { organisme: COR, annee: 2025 }
   - valeur: "62"
     unite: ans
     legende: "et 10 mois : l'âge moyen de départ"
+    source: { organisme: DREES, annee: 2025 }
 options:
   - id: A
     libelle: 60 ans

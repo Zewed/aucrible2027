@@ -57,6 +57,9 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
                         {chiffre.unite && <> <small>{chiffre.unite}</small></>}
                       </span>
                       <span className="fig-txt">{chiffre.legende}</span>
+                      <span className="fig-src">
+                        Source : <b>{chiffre.source.organisme}, {chiffre.source.document && `${chiffre.source.document} `}{chiffre.source.annee}</b>
+                      </span>
                     </li>
                   ))}
                 </ul>

@@ -11,9 +11,11 @@ contexte:
 chiffres:
   - valeur: 65 %
     legende: de l'électricité produite en France vient du nucléaire
+    source: { organisme: RTE, document: bilan électrique, annee: 2024 }
   - valeur: "57"
     unite: réacteurs
     legende: en service dans le pays
+    source: { organisme: EDF, annee: 2025 }
 options:
   - id: A
     libelle: Oui, d'ici 2045
