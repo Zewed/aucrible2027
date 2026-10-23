@@ -1943,3 +1943,29 @@ test.describe("l'importance ×2 ou ×3 pèse plus dans le classement", () => {
     await expect(page.getByRole("region", { name: "Ton classement" }).getByText("Calculé sur tes 23 réponses, pondérées par l'importance que tu leur donnes.")).toBeVisible();
   });
 });
+
+/** Les pourcentages de « Ton classement », par nom, tels que la page les affiche. */
+const pourcentagesDuClassement = async (page: Page) =>
+  Object.fromEntries((await lignesDuClassement(page)).map(([, nom, pc]) => [nom, Number(pc!.replace(/\D/g, ""))]));
+
+test.describe("une position inconnue ne compte pas pour ce candidat", () => {
+  test("répondre E à la n° 24 laisse François Ruffin à 81 % et David Lisnard à 76 % (positions inconnues), alors que Nicolas Dupont-Aignan et Jean-Luc Mélenchon changent", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const avant = await pourcentagesDuClassement(page);
+    await pourcentageAvecLa24(page, "E", "François Ruffin", 1);
+    const apres = await pourcentagesDuClassement(page);
+    expect([apres["François Ruffin"], apres["David Lisnard"]]).toEqual([81, 76]);
+    expect(apres["Nicolas Dupont-Aignan"]).not.toBe(avant["Nicolas Dupont-Aignan"]);
+    expect(apres["Jean-Luc Mélenchon"]).not.toBe(avant["Jean-Luc Mélenchon"]);
+  });
+
+  test("avec l'importance ×3 plutôt que ×1 à la n° 24, François Ruffin et David Lisnard gardent les mêmes pourcentages", async ({ page }) => {
+    await pourcentageAvecLa24(page, "E", "François Ruffin", 1);
+    const x1 = await pourcentagesDuClassement(page);
+    await pourcentageAvecLa24(page, "E", "François Ruffin", 3);
+    const x3 = await pourcentagesDuClassement(page);
+    expect([x3["François Ruffin"], x3["David Lisnard"]]).toEqual([x1["François Ruffin"], x1["David Lisnard"]]);
+  });
+});
