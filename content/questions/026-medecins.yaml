@@ -27,8 +27,11 @@ chiffres:
 options:
   - id: A
     libelle: Limiter les installations là où les médecins sont déjà nombreux
+    implique: Dans une zone bien dotée, un nouveau médecin ne s'installe qu'au départ d'un confrère.
   - id: B
     libelle: Inciter par des aides, sans obligation
+    implique: Primes, bourses et aides au cabinet pour attirer les médecins là où ils manquent.
   - id: C
     libelle: Garder la liberté d'installation
+    implique: Chaque médecin continue de choisir où il exerce.
 positions: {}

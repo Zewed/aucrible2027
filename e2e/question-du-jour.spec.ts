@@ -293,3 +293,24 @@ test("une fiche à trois options affiche A, B, C seulement ; une fiche à quatre
   await expect(page.getByRole("heading", { name: "Faut-il sortir du nucléaire ?" })).toBeVisible();
   expect(await lettresDesOptions(page)).toEqual(["A", "B", "C", "D"]);
 });
+
+test("chaque option de la question n° 24 dit, sous son titre et sans la toucher, ce qu'elle implique", async ({ page }) => {
+  await page.goto("/");
+  const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+  await expect(options).toHaveCount(5);
+  const attendues: Record<number, string> = {
+    0: "Retour à l'âge légal d'avant 2010, financé par de nouvelles cotisations.",
+    4: "Chacun part quand il veut ; la pension dépend des points acquis.",
+  };
+  for (const [rang, option] of (await options.all()).entries()) {
+    const carte = option.locator("xpath=..");
+    const titre = carte.locator(".opt-title");
+    const implication = carte.locator(".opt-impl");
+    await expect(implication).toBeVisible();
+    await expect(implication).not.toBeEmpty();
+    if (attendues[rang]) await expect(implication).toHaveText(attendues[rang]);
+    const [haut, bas] = await Promise.all([titre.boundingBox(), implication.boundingBox()]);
+    expect(bas!.y).toBeGreaterThan(haut!.y);
+  }
+  await expect(page.getByRole("radio", { checked: true })).toHaveCount(0);
+});
