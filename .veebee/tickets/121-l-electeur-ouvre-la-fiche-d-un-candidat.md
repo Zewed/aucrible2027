@@ -5,6 +5,7 @@ milestone: null
 depends_on: ["001"]
 design: maquettes/candidat.html
 tracker: null
+status: done
 ---
 
 ## Ce que l'utilisateur fait

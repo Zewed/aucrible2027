@@ -1,0 +1,235 @@
+/* Copie de maquettes/candidat.css. */
+
+/* Fiche candidat — chargé après style.css.
+   Règle d'or : le candidat est traité comme les 12 autres (même pion, aucune couleur de parti).
+   Les couleurs ici sont celles des thèmes (par section) et du jeu, jamais celles d'un candidat. */
+
+.ic path, .ic rect, .ic circle {
+  fill: none; stroke: currentColor;
+  stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+}
+.fiche { max-width: var(--max); margin: 0 auto; padding: 4px 16px 40px; }
+.fiche-grid { display: grid; gap: 26px; }
+
+/* ---------- l'identité ---------- */
+.id-card {
+  background: var(--table-2);
+  border-radius: var(--r);
+  padding: 18px 16px 16px;
+}
+.id-top { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center; }
+.pawn--big { --size: 78px; font-size: 27px; box-shadow: 0 5px 0 var(--pawn-edge); margin-bottom: 5px; }
+.kicker {
+  font: 800 12px/1 var(--display);
+  text-transform: uppercase; letter-spacing: .08em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.id-card h1 {
+  margin-top: 8px;
+  font: 800 clamp(36px, 10.4vw, 56px)/0.94 var(--display);
+  font-variation-settings: "wdth" 80, "opsz" 96;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.party {
+  display: inline-flex; align-items: center;
+  margin-top: 16px;
+  background: var(--table-3); color: var(--chalk);
+  font: 700 14px/1 var(--text);
+  padding: 8px 13px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.status {
+  margin-top: 14px;
+  display: grid; grid-template-columns: 22px minmax(0, 1fr); column-gap: 10px; align-items: start;
+  background: var(--table);
+  border-radius: 12px;
+  padding: 12px 12px 12px 12px;
+  font-size: 14.5px; line-height: 1.4;
+}
+.status svg { width: 22px; height: 22px; margin-top: 1px; color: var(--chalk); }
+.status b { color: var(--chalk); font-weight: 700; }
+
+/* ---------- ta proximité ---------- */
+.prox {
+  margin-top: 16px;
+  background: var(--chalk); color: var(--ink);
+  border-radius: var(--r);
+  padding: 14px 16px 14px;
+  box-shadow: 0 6px 0 var(--pawn-edge);
+  margin-bottom: 6px;
+}
+.prox-line { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.prox-k { font: 800 20px/1 var(--display); font-variation-settings: "wdth" 88; white-space: nowrap; }
+.prox-v {
+  font: 800 60px/0.9 var(--display);
+  font-variation-settings: "wdth" 78, "opsz" 96;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.prox-v small { font-size: 34px; letter-spacing: 0; }
+.prox-bar { display: block; margin-top: 10px; height: 12px; border-radius: 4px; background: var(--slot); overflow: hidden; }
+.prox-bar i {
+  display: block; height: 100%;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 calc(5% - 2px), transparent calc(5% - 2px) 5%);
+  background-size: calc(100% * 100 / var(--p)) 100%;
+  width: calc(var(--p) * 1%);
+  transform-origin: left;
+  animation: grow .9s var(--ease-out) both;
+}
+.prox-note { margin-top: 10px; font-size: 13.5px; line-height: 1.4; color: var(--ink-soft); }
+
+.side-actions { margin-top: 18px; max-width: none; }
+.side-actions .act { font-size: 19px; padding: 0 12px; }
+
+/* ---------- ses positions ---------- */
+.pos-sum { margin-top: 8px; font-size: 14px; line-height: 1.45; color: var(--muted); }
+.pos-sum b { color: var(--chalk); font-weight: 700; }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 28px; padding: 0 10px 0 7px;
+  border: 2px solid transparent; border-radius: 999px;
+  font: 700 13px/1 var(--text);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.badge svg { width: 16px; height: 16px; flex: none; }
+.badge--off { background: var(--ink); color: var(--chalk); }
+.badge--ded { background: var(--card); color: var(--ink); border: 2px dashed var(--ink-soft); }
+.badge--unk { background: var(--slot); color: var(--ink); border: 2px dotted var(--pawn-edge); }
+.badge .q { font: 800 14px/1 var(--display); width: 16px; text-align: center; }
+
+.leg {
+  margin-top: 16px;
+  background: var(--card); color: var(--ink);
+  border-radius: var(--r);
+  padding: 14px 16px 6px;
+}
+.leg h3 { font: 800 18px/1.1 var(--display); font-variation-settings: "wdth" 88; }
+.leg ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 12px; }
+.leg li { display: grid; gap: 6px; justify-items: start; font-size: 14px; line-height: 1.4; }
+.leg-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; margin-top: 4px;
+  font: 800 15px/1.2 var(--display); font-variation-settings: "wdth" 90;
+  color: var(--ink); text-underline-offset: 3px;
+}
+.leg-link svg { width: 18px; height: 18px; flex: none; }
+.leg-link:focus-visible, .report a:focus-visible, .gone a:focus-visible { outline: 3px solid var(--eco); outline-offset: 3px; border-radius: 4px; }
+.leg-link:focus-visible { outline-color: var(--ink); }
+
+.pos-theme { margin-top: 30px; }
+.themes-pos { margin-top: 4px; }
+.pos-h { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; column-gap: 12px; align-items: center; }
+.pos-h svg { width: 34px; height: 34px; }
+.pos-h h3 {
+  font: 800 22px/1.1 var(--display);
+  font-variation-settings: "wdth" 85;
+  letter-spacing: -0.015em;
+}
+.pos-h .pips i { background: var(--theme); }
+.pos-h .pips i.gap { background: transparent; box-shadow: inset 0 0 0 2px var(--theme); }
+.pos-list { list-style: none; margin: 14px 0 0; padding: 0 0 5px; display: grid; gap: 14px; }
+
+.pos {
+  background: var(--card); color: var(--ink);
+  border-radius: 12px;
+  box-shadow: 0 5px 0 var(--theme);
+  padding: 13px 14px 14px;
+  display: grid; gap: 10px;
+}
+.pos-q { font-size: 14px; line-height: 1.4; color: var(--ink-soft); }
+.pos-n {
+  display: inline-block;
+  background: var(--theme-tint); color: var(--ink);
+  font: 800 12px/1 var(--display); letter-spacing: .04em;
+  padding: 4px 6px 3px; border-radius: 6px;
+  margin-right: 8px;
+  vertical-align: 1px;
+}
+.pos-r { display: grid; gap: 10px; min-width: 0; }
+.pos-a { display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: 10px; align-items: center; }
+.pos-letter {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--theme); color: var(--on-theme);
+  display: grid; place-items: center;
+  font: 800 18px/1 var(--display);
+}
+.pos-title {
+  font: 800 20px/1.1 var(--display);
+  font-variation-settings: "wdth" 85;
+  letter-spacing: -0.015em;
+}
+.pos-src { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.src { font: 600 13.5px/1.3 var(--text); color: var(--ink-soft); min-width: 0; }
+
+/* une position inconnue : la case reste vide, bordure en pointillés */
+.pos--unk {
+  background: transparent; color: var(--chalk);
+  border: 2px dashed var(--table-3);
+  box-shadow: none;
+  padding: 11px 12px 12px;
+}
+.pos--unk .pos-q { color: var(--muted); }
+.pos--unk .pos-n { background: var(--table-3); color: var(--chalk); }
+.pos--unk .pos-letter { background: var(--table-3); color: var(--chalk); }
+.pos--unk .pos-title { font-size: 18px; line-height: 1.2; }
+.pos--unk .pos-src { font-size: 13.5px; line-height: 1.4; color: var(--muted); display: block; }
+
+/* ---------- l'aperçu « si le candidat se retire » ---------- */
+.preview {
+  margin-top: 38px;
+  border: 2px dashed var(--table-3);
+  border-radius: var(--r);
+  padding: 14px;
+}
+.preview-k { font: 700 14px/1.2 var(--text); color: var(--muted); white-space: nowrap; }
+.gone {
+  margin-top: 12px;
+  background: var(--table-2);
+  border-radius: 12px;
+  padding: 14px;
+  display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 14px; row-gap: 6px; align-items: center;
+}
+.gone .pawn { --size: 44px; font-size: 14px; background: transparent; color: var(--chalk); box-shadow: none; border: 2px dashed var(--pawn-edge); }
+.gone p { font: 600 16px/1.4 var(--text); }
+.gone a { text-underline-offset: 3px; font-weight: 700; }
+.gone .gone-note { grid-column: 2; font-size: 13.5px; font-weight: 400; color: var(--muted); line-height: 1.4; }
+
+/* ---------- signaler ---------- */
+.report {
+  margin-top: 36px; padding-top: 14px;
+  border-top: 2px dashed var(--table-3);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 18px;
+}
+.report p { font-size: 14px; color: var(--muted); padding: 10px 0 0; }
+.report a {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px;
+  font: 700 16px/1.2 var(--text); color: var(--chalk);
+  text-underline-offset: 3px; white-space: nowrap;
+}
+.report a svg { width: 20px; height: 20px; flex: none; }
+
+@media (min-width: 900px) {
+  .fiche { padding: 6px 32px 56px; }
+  .fiche-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 44px; align-items: start; }
+  .fiche-side { position: sticky; top: calc(var(--header-h) + 16px); }
+  .id-card { padding: 22px 22px 20px; }
+  .pawn--big { --size: 92px; font-size: 32px; }
+  .id-card h1 { font-size: 54px; }
+  .prox { padding: 16px 20px 16px; }
+  .prox-v { font-size: 72px; }
+  .prox-v small { font-size: 40px; }
+  .leg { padding: 16px 20px 8px; }
+  .leg li { grid-template-columns: 190px minmax(0, 1fr); align-items: center; gap: 14px; justify-items: start; }
+  .pos-h h3 { font-size: 26px; }
+  .pos { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: 24px; align-items: start; padding: 15px 18px 15px; }
+  .pos--unk { padding: 13px 16px 13px; }
+  .pos-q { padding-top: 2px; }
+  .preview { padding: 16px 18px; }
+}
