@@ -38,6 +38,16 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
               <PuceTheme theme={theme} />
               <h1 id="q">{question.question}</h1>
             </div>
+            <div className="qcard-body">
+              <section aria-labelledby="contexte">
+                <h2 id="contexte" className="label"><i></i>Le contexte</h2>
+                <div className="context">
+                  {question.contexte.map((phrase) => (
+                    <p key={phrase}>{phrase}</p>
+                  ))}
+                </div>
+              </section>
+            </div>
           </article>
         </div>
       </div>

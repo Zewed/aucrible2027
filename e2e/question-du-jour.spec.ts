@@ -145,3 +145,18 @@ test.describe("numéro et date de la question, sur grand écran", () => {
     await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24 · 23 octobre", { useInnerText: true });
   });
 });
+
+test("la fiche n° 24 affiche sous « Le contexte » exactement trois phrases, lisibles en entier", async ({ page }) => {
+  await page.goto("/");
+  const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+  const contexte = carte.getByRole("region", { name: "Le contexte" });
+  const phrases = contexte.getByRole("paragraph");
+  await expect(phrases).toHaveCount(3);
+  await expect(phrases.first()).toHaveText(
+    "La réforme de 2023 a commencé à repousser l'âge légal de 62 à 64 ans, puis sa hausse a été suspendue fin 2025.",
+  );
+  for (const phrase of await phrases.all()) {
+    await expect(phrase).toBeVisible();
+    expect(await phrase.evaluate((el) => el.scrollHeight <= el.clientHeight + 1)).toBe(true);
+  }
+});
