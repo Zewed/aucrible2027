@@ -39,15 +39,15 @@ options:
     defenseurs: Une électricité bas carbone et pilotable pour électrifier les transports et l'industrie.
     critiques: Les chantiers récents ont pris des années de retard et coûté bien plus que prévu.
 positions:
-  arthaud: { option: A, source: "Source de démonstration, à trouver" }
-  tondelier: { option: A, source: "Source de démonstration, à trouver" }
-  melenchon: { option: A, source: "Source de démonstration, à trouver" }
-  ruffin: { option: B, source: "Source de démonstration, à trouver" }
-  glucksmann: { option: B, source: "Source de démonstration, à trouver" }
-  attal: { option: C, source: "Source de démonstration, à trouver" }
-  philippe: { option: D, source: "Source de démonstration, à trouver" }
-  le-pen: { option: D, source: "Source de démonstration, à trouver" }
-  retailleau: { option: D, source: "Source de démonstration, à trouver" }
-  zemmour: { option: D, source: "Source de démonstration, à trouver" }
-  roussel: { option: D, source: "Source de démonstration, à trouver" }
-  dupont-aignan: { option: D, source: "Source de démonstration, à trouver" }
+  arthaud: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
+  tondelier: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
+  melenchon: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
+  ruffin: { option: B, source: "Source de démonstration, à trouver", statut: deduite }
+  glucksmann: { option: B, source: "Source de démonstration, à trouver", statut: deduite }
+  attal: { option: C, source: "Source de démonstration, à trouver", statut: deduite }
+  philippe: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
+  le-pen: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
+  retailleau: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
+  zemmour: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
+  roussel: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
+  dupont-aignan: { option: D, source: "Source de démonstration, à trouver", statut: deduite }

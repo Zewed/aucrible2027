@@ -8,7 +8,7 @@ export type Source = { organisme: string; document?: string; annee: number };
 export type Chiffre = { valeur: string; unite?: string; legende: string; source: Source };
 export type Theme = { id: string; nom: string; classe: string };
 /** Ce qu'un candidat défend sur une fiche, et d'où on le sait. */
-export type Position = { option: string; source: string };
+export type Position = { option: string; source: string; statut: "officielle" | "deduite" };
 export type Question = {
   numero: number;
   date: string;

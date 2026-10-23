@@ -48,14 +48,14 @@ options:
     defenseurs: Plus de liberté, et les mêmes règles pour tous les métiers.
     critiques: "La valeur du point peut baisser : la pension devient moins prévisible."
 positions:
-  melenchon: { option: A, source: "Programme 2022, p. 12" }
-  roussel: { option: A, source: "Interview franceinfo, 21/09/2026" }
-  arthaud: { option: A, source: "Programme 2022, p. 6" }
-  le-pen: { option: B, source: "Vote du groupe à l'Assemblée, 2023" }
-  tondelier: { option: B, source: "Interview France Inter, 14/09/2026" }
-  glucksmann: { option: B, source: "Vote du groupe à l'Assemblée, 2023" }
-  attal: { option: C, source: "Interview BFMTV, 28/09/2026" }
-  retailleau: { option: D, source: "Discours de rentrée, 12/09/2026" }
-  zemmour: { option: C, source: "Programme 2022, p. 31" }
-  dupont-aignan: { option: E, source: "Interview Sud Radio, 02/10/2026" }
-  philippe: { option: E, source: "Projet de loi retraites, 2020" }
+  melenchon: { option: A, source: "Programme 2022, p. 12", statut: deduite }
+  roussel: { option: A, source: "Interview franceinfo, 21/09/2026", statut: officielle }
+  arthaud: { option: A, source: "Programme 2022, p. 6", statut: deduite }
+  le-pen: { option: B, source: "Vote du groupe à l'Assemblée, 2023", statut: deduite }
+  tondelier: { option: B, source: "Interview France Inter, 14/09/2026", statut: officielle }
+  glucksmann: { option: B, source: "Vote du groupe à l'Assemblée, 2023", statut: deduite }
+  attal: { option: C, source: "Interview BFMTV, 28/09/2026", statut: officielle }
+  retailleau: { option: D, source: "Discours de rentrée, 12/09/2026", statut: officielle }
+  zemmour: { option: C, source: "Programme 2022, p. 31", statut: deduite }
+  dupont-aignan: { option: E, source: "Interview Sud Radio, 02/10/2026", statut: officielle }
+  philippe: { option: E, source: "Projet de loi retraites, 2020", statut: deduite }
