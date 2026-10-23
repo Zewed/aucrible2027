@@ -269,9 +269,74 @@ function OnNeSaitPas() {
   );
 }
 
+/** Qui fait quoi entre l'IA et l'auteur (SPEC.md, « Production du contenu »). */
+const QUI_FAIT_QUOI = [
+  {
+    qui: "L'IA prépare",
+    quoi: ["un premier jet, à partir de sources officielles", "le contrôle de neutralité, avec trois points de vue", "l'animation des vidéos"],
+  },
+  {
+    qui: "Un humain décide",
+    quoi: ["vérifier chaque chiffre", "vérifier chaque position de candidat", "trancher sur chaque remarque du contrôle"],
+  },
+];
+
+/** « À savoir n° 4 » : ce que fait l'IA, ce qu'un humain vérifie, et les lignes rouges (SPEC.md, « Réseaux sociaux »). */
+function LIA() {
+  return (
+    <article className="rule theme-educ" id="r4" aria-labelledby="r4-t">
+      <header className="rule-head">
+        <span className="rule-n" aria-hidden="true">
+          4
+        </span>
+        <p className="rule-k">À savoir n° 4</p>
+        <h2 id="r4-t">L&apos;IA&nbsp;: ce qu&apos;elle fait, ce qu&apos;un humain vérifie</h2>
+      </header>
+      <div className="rule-body split">
+        <div className="rule-txt">
+          <p>
+            <b>Oui, j&apos;utilise l&apos;IA, et je préfère le dire.</b> Elle m&apos;aide à écrire un premier jet et à relire. Elle ne
+            décide de rien&nbsp;: <b>un humain vérifie chaque chiffre</b> avant publication.
+          </p>
+          <p>
+            Les vidéos du jour sont animées avec l&apos;aide de l&apos;IA&nbsp;: texte animé, compteurs, graphiques, sans voix. Les
+            chiffres affichés viennent de la fiche vérifiée, jamais d&apos;une IA.
+          </p>
+          <p>
+            <b>Deux lignes rouges&nbsp;:</b> jamais de visage ni de voix de personnes réelles générés par IA.
+          </p>
+          <p className="ai-tag">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3l2.2 6.3L21 12l-6.8 2.7L12 21l-2.2-6.3L3 12l6.8-2.7z" style={{ fill: "currentColor" }} />
+            </svg>
+            Animation générée avec IA, contenu vérifié par un humain
+          </p>
+        </div>
+        <figure className="demo" aria-label="Qui fait quoi entre l'IA et l'auteur">
+          <figcaption className="demo-k">
+            <i></i>Qui fait quoi
+          </figcaption>
+          <div className="who2">
+            {QUI_FAIT_QUOI.map(({ qui, quoi }) => (
+              <div key={qui}>
+                <h3>{qui}</h3>
+                <ul>
+                  {quoi.map((q) => (
+                    <li key={q}>{q}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </figure>
+      </div>
+    </article>
+  );
+}
+
 /**
- * La page « À propos » (maquettes/a-propos.html), section par section. Les sections 4 et 5 viennent avec les
- * tickets 158 et 159 ; la phrase « Tout ce qui suit est vérifiable… » et ses liens ne sont portés par aucun ticket.
+ * La page « À propos » (maquettes/a-propos.html), section par section. La section 5 vient avec le
+ * ticket 159 ; la phrase « Tout ce qui suit est vérifiable… » et ses liens ne sont portés par aucun ticket.
  */
 async function APropos() {
   const jour = await lireAujourdhui();
@@ -315,6 +380,7 @@ async function APropos() {
             <QuiFaitLApp />
             <CommentCEstRelu />
             <OnNeSaitPas />
+            <LIA />
           </div>
         </div>
       </main>

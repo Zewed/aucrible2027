@@ -3831,3 +3831,40 @@ test.describe("la page À propos dit qu'on ne sait pas pour qui tu votes", () =>
     await expect(schema.locator(".node")).toHaveText(["Ton téléphonetes réponses restent ici", "Un serveurn'en reçoit aucune"]);
   });
 });
+
+test.describe("la page À propos dit ce que fait l'IA", () => {
+  const ia = (page: Page) => page.getByRole("article", { name: "L'IA : ce qu'elle fait, ce qu'un humain vérifie" });
+
+  test("la section dit que l'IA aide au premier jet et à relire, qu'elle « ne décide de rien » et qu'un humain vérifie chaque chiffre", async ({ page }) => {
+    await page.goto("/a-propos");
+    await expect(page.getByRole("article").nth(3)).toHaveAccessibleName("L'IA : ce qu'elle fait, ce qu'un humain vérifie");
+    await expect(
+      ia(page).getByText(
+        "Oui, j'utilise l'IA, et je préfère le dire. Elle m'aide à écrire un premier jet et à relire. Elle ne décide de rien : un humain vérifie chaque chiffre avant publication.",
+      ),
+    ).toBeVisible();
+  });
+
+  test("les deux colonnes : « L'IA prépare » et « Un humain décide », avec leurs trois lignes", async ({ page }) => {
+    await page.goto("/a-propos");
+    const colonnes = ia(page).getByRole("figure", { name: "Qui fait quoi entre l'IA et l'auteur" }).locator(".who2 > div");
+    await expect(colonnes.getByRole("heading", { level: 3 })).toHaveText(["L'IA prépare", "Un humain décide"]);
+    await expect(colonnes.nth(0).getByRole("listitem")).toHaveText([
+      "un premier jet, à partir de sources officielles",
+      "le contrôle de neutralité, avec trois points de vue",
+      "l'animation des vidéos",
+    ]);
+    await expect(colonnes.nth(1).getByRole("listitem")).toHaveText([
+      "vérifier chaque chiffre",
+      "vérifier chaque position de candidat",
+      "trancher sur chaque remarque du contrôle",
+    ]);
+  });
+
+  test("la section annonce les lignes rouges et affiche « Animation générée avec IA, contenu vérifié par un humain »", async ({ page }) => {
+    await page.goto("/a-propos");
+    await expect(ia(page).getByText("Deux lignes rouges : jamais de visage ni de voix de personnes réelles générés par IA.")).toBeVisible();
+    await expect(ia(page).getByText("Les chiffres affichés viennent de la fiche vérifiée, jamais d'une IA.", { exact: false })).toBeVisible();
+    await expect(ia(page).locator(".ai-tag")).toHaveText("Animation générée avec IA, contenu vérifié par un humain");
+  });
+});
