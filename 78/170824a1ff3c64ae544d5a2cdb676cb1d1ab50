@@ -1,0 +1,23 @@
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_af99aa5da45fcc 611-612,634,701,725,738-758
+src/components/Revelation.tsx
+  s_2c9a7110ce04dd::t_c0ebfdefbc2648 41,117-140
+.veebee/tickets/024-les-candidats-sans-source-se-rangent-sous-position.md
+  s_2c9a7110ce04dd::t_33642e7a6f9174 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "78170824a1ff3c64ae544d5a2cdb676cb1d1ab50",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
