@@ -186,9 +186,67 @@ function RegleDuScore() {
   );
 }
 
+const POIDS = [
+  { poids: 1, nom: "Un peu" },
+  { poids: 2, nom: "Beaucoup" },
+  { poids: 3, nom: "Essentiel" },
+];
+
+/** Règle n° 2 : l'importance multiplie le score de la question, dans les points gagnés comme dans le maximum. */
+function RegleDeLImportance() {
+  return (
+    <article className="rule theme-eco" id="r2" aria-labelledby="r2-t">
+      <header className="rule-head">
+        <span className="rule-n" aria-hidden="true">
+          2
+        </span>
+        <p className="rule-k">Règle n° 2</p>
+        <h2 id="r2-t">Tu choisis ce qui compte&nbsp;: ×1, ×2 ou ×3</h2>
+      </header>
+      <div className="rule-body split">
+        <div className="rule-txt">
+          <p>
+            À chaque réponse, tu dis si le sujet compte <b>un peu (×1), beaucoup (×2) ou est essentiel (×3)</b>.
+          </p>
+          <p>
+            Le score de la question est multiplié par ce poids. Un sujet ×3 pèse trois fois plus qu&apos;un sujet ×1, dans les points
+            gagnés comme dans le maximum possible.
+          </p>
+          <p className="small">Le poids, c&apos;est ton choix à toi. Il ne dépend jamais du candidat.</p>
+        </div>
+        <figure className="demo" aria-label="Les trois poids et un exemple">
+          <figcaption className="demo-k">
+            <i></i>Le poids de la question
+          </figcaption>
+          <div className="imp-row">
+            {POIDS.map(({ poids, nom }) => (
+              <div key={poids} className={poids === 3 ? "imp-face on" : "imp-face"}>
+                <span className="chips">
+                  {Array.from({ length: poids }, (_, i) => (
+                    <i key={i}></i>
+                  ))}
+                </span>
+                <b>×{poids}</b>
+                <span>{nom}</span>
+                <small>
+                  {poids} {poids > 1 ? "points" : "point"} max
+                </small>
+              </div>
+            ))}
+          </div>
+          <p className="eq">
+            67&nbsp;% × 3 = <mark>2 points sur 3</mark>
+          </p>
+          <p className="demo-cap">Même exemple que la règle 1, avec un sujet jugé essentiel.</p>
+        </figure>
+      </div>
+    </article>
+  );
+}
+
 /**
  * La page « Méthode de calcul et sources » (maquettes/methode.html), règle par règle. Le sommaire « Aller à la règle »,
- * la version de la méthode et le pied de page ne sont portés par aucun ticket ; les règles 2 à 8 viennent ensuite.
+ * la version de la méthode et le pied de page ne sont portés par aucun ticket ; les règles 3 à 8 viennent ensuite.
  */
 async function Methode() {
   const jour = await lireAujourdhui();
@@ -224,6 +282,7 @@ async function Methode() {
         <div className="leaf-grid">
           <div className="rules">
             <RegleDuScore />
+            <RegleDeLImportance />
           </div>
         </div>
       </main>

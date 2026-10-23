@@ -3473,3 +3473,30 @@ test.describe("après un remplacement, les positions héritées passent en « d�
     expect(apres.filter((p) => p.numero !== "Q9").every((p) => p.badge === "position déduite")).toBe(true);
   });
 });
+
+test.describe("la page Méthode explique le poids de l'importance", () => {
+  const regle2 = (page: Page) => page.getByRole("article", { name: "Tu choisis ce qui compte : ×1, ×2 ou ×3" });
+
+  test("la règle n° 2 affiche les trois poids : ×1 « Un peu » (1 point max), ×2 « Beaucoup » (2 points max), ×3 « Essentiel » (3 points max)", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(page.getByRole("article").nth(1)).toHaveAccessibleName("Tu choisis ce qui compte : ×1, ×2 ou ×3");
+    await expect(regle2(page).getByText("Règle n° 2")).toBeVisible();
+    const poids = regle2(page).getByRole("figure", { name: "Les trois poids et un exemple" }).locator(".imp-face");
+    await expect(poids.locator("b")).toHaveText(["×1", "×2", "×3"]);
+    await expect(poids.locator("b + span")).toHaveText(["Un peu", "Beaucoup", "Essentiel"]);
+    await expect(poids.locator("small")).toHaveText(["1 point max", "2 points max", "3 points max"]);
+  });
+
+  test("l'exemple « 67 % × 3 = 2 points sur 3 » reprend celui de la règle n° 1, avec un sujet jugé essentiel", async ({ page }) => {
+    await page.goto("/methode");
+    const exemple = regle2(page).getByRole("figure", { name: "Les trois poids et un exemple" });
+    await expect(exemple.locator(".eq")).toHaveText("67 % × 3 = 2 points sur 3");
+    await expect(exemple.getByText("Même exemple que la règle 1, avec un sujet jugé essentiel.")).toBeVisible();
+    await expect(exemple.locator(".imp-face.on b")).toHaveText("×3");
+  });
+
+  test("la règle dit que le poids est le choix de l'électeur et qu'il ne dépend jamais du candidat", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(regle2(page).getByText("Le poids, c'est ton choix à toi. Il ne dépend jamais du candidat.")).toBeVisible();
+  });
+});
