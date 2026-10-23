@@ -608,6 +608,8 @@ async function repondre(page: Page, libelle: string) {
 }
 
 const quiDefendQuoi = (page: Page) => page.getByRole("region", { name: "Qui défend quoi" });
+/** Les blocs des options A à E, sans celui des positions inconnues. */
+const blocsDOption = (page: Page) => quiDefendQuoi(page).getByRole("article", { name: /^Option / });
 
 /** Les noms posés sous un bloc d'option de la révélation, triés (l'ordre affiché est l'affaire du ticket 025). */
 async function nomsSous(page: Page, option: string) {
@@ -629,7 +631,7 @@ test("quelle que soit la réponse, les cinq blocs s'affichent, annoncent leur no
   const attendus = { A: "3 candidats", B: "3 candidats", C: "2 candidats", D: "1 candidat", E: "2 candidats" };
   for (const reponse of ["60 ans", "À la carte, avec un système à points", "Je ne sais pas"]) {
     await repondre(page, reponse);
-    const blocs = quiDefendQuoi(page).getByRole("article");
+    const blocs = blocsDOption(page);
     await expect(blocs).toHaveCount(5);
     const tous: string[] = [];
     for (const [rang, [lettre, compte]] of Object.entries(attendus).entries()) {
@@ -696,7 +698,7 @@ test("sur la révélation n° 24, chaque nom est suivi de la source datée de sa
 
 test("les 11 candidats rangés sous une option ont tous une source, lisible en entier", async ({ page }) => {
   await repondre(page, "62 ans");
-  const lignes = quiDefendQuoi(page).getByRole("article").getByRole("listitem");
+  const lignes = blocsDOption(page).getByRole("listitem");
   await expect(lignes).toHaveCount(11);
   for (const ligne of await lignes.all()) {
     const source = ligne.locator(".def-doc");
@@ -720,7 +722,7 @@ test("sur la révélation n° 24, Roussel porte « position officielle », Artha
 
 test("les 11 candidats sourcés portent l'un ou l'autre badge, jamais les deux : 5 officielles, 6 déduites", async ({ page }) => {
   await repondre(page, "62 ans");
-  const lignes = quiDefendQuoi(page).getByRole("article").getByRole("listitem");
+  const lignes = blocsDOption(page).getByRole("listitem");
   await expect(lignes).toHaveCount(11);
   let officielles = 0;
   let deduites = 0;
@@ -732,4 +734,25 @@ test("les 11 candidats sourcés portent l'un ou l'autre badge, jamais les deux :
     deduites += d;
   }
   expect({ officielles, deduites }).toEqual({ officielles: 5, deduites: 6 });
+});
+
+test("sur la révélation n° 24, Ruffin et Lisnard sont rangés sous « Position inconnue », sans source, avec leur badge", async ({ page }) => {
+  await repondre(page, "62 ans");
+  const bloc = quiDefendQuoi(page).getByRole("article", { name: "Position inconnue" });
+  await expect(bloc.getByText("2 candidats · exclus du calcul sur ce sujet", { exact: true })).toBeVisible();
+  expect(await nomsSous(page, "Position inconnue")).toEqual(["David Lisnard", "François Ruffin"]);
+  for (const ligne of await bloc.getByRole("listitem").all()) {
+    await expect(ligne.getByText("Pas de source à ce jour", { exact: true })).toBeVisible();
+    await expect(ligne.getByText("position inconnue", { exact: true })).toBeVisible();
+  }
+});
+
+test("les candidats sans source n'apparaissent sous aucune option : 11 sous les options, 2 inconnus, 13 en tout", async ({ page }) => {
+  await repondre(page, "62 ans");
+  const sousOptions = await blocsDOption(page).getByRole("listitem").locator(".def-name").allInnerTexts();
+  const inconnus = await nomsSous(page, "Position inconnue");
+  expect(sousOptions).toHaveLength(11);
+  expect(inconnus).toHaveLength(2);
+  expect(new Set([...sousOptions, ...inconnus]).size).toBe(13);
+  for (const nom of inconnus) expect(sousOptions).not.toContain(nom);
 });

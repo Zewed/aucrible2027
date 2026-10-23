@@ -38,6 +38,7 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
   const rangChoisi = question.options.findIndex((o) => o.id === reponse.option);
   const choisie = question.options[rangChoisi];
   const importance = reponse.importance;
+  const inconnus = candidats.filter((c) => !question.positions[c.id]);
 
   return (
     <>
@@ -113,6 +114,30 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
                 </article>
               );
             })}
+            {inconnus.length > 0 && (
+              <article className="ropt unknown" aria-labelledby="o-inconnue">
+                <header className="ropt-head">
+                  <span className="ropt-letter" aria-hidden="true">?</span>
+                  <h3 className="ropt-title" id="o-inconnue">Position inconnue</h3>
+                  <p className="ropt-meta">
+                    <span>
+                      {nombreDeCandidats(inconnus.length)} · {inconnus.length > 1 ? "exclus" : "exclu"} du calcul sur ce sujet
+                    </span>
+                  </p>
+                </header>
+                <ul className="defs">
+                  {inconnus.map((c) => (
+                    <li key={c.id} className="def">
+                      <span className="def-name one">{c.nom}</span>
+                      <span className="def-src">
+                        <span className="def-doc one">Pas de source à ce jour</span>
+                        <span className="badge badge--none">position inconnue</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            )}
           </div>
         </section>
       </main>
