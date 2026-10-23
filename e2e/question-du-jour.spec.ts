@@ -3232,3 +3232,50 @@ test.describe("la fiche explique les deux badges", () => {
     expect(sousLaListe!.y).toBeGreaterThanOrEqual(liste!.y + liste!.height - 1);
   });
 });
+
+test.describe("la page Méthode explique le score d'une question avec un exemple", () => {
+  const regle1 = (page: Page) => page.getByRole("article", { name: "Chaque question donne un score entre 0 et 100 %" });
+
+  test("la page « Méthode de calcul et sources » s'ouvre sur sa première règle, qui écrit la formule « score = 1 − écart ÷ écart maximum »", async ({ page }) => {
+    await page.goto("/methode");
+    // Le titre passe à la ligne avant « et sources » (un <br>, comme la maquette).
+    expect((await page.getByRole("heading", { level: 1 }).innerText()).replace(/\s+/g, " ")).toBe("Méthode de calcul et sources.");
+    await expect(page.getByText("Tout est publié, rien n'est caché.")).toBeVisible();
+    await expect(page.getByRole("article").first()).toHaveAccessibleName("Chaque question donne un score entre 0 et 100 %");
+    await expect(regle1(page).getByText("Règle n° 1")).toBeVisible();
+    await expect(regle1(page).getByText("score = 1 − écart ÷ écart maximum", { exact: true })).toBeVisible();
+  });
+
+  test("l'exemple de la question n° 24 place TOI sur 62 ans et un candidat sur 64 ans (écart 1, écart maximum 3) et conclut « 1 − 1/3 ≈ 67 % »", async ({ page }) => {
+    await page.goto("/methode");
+    const exemple = regle1(page).getByRole("figure", { name: "Exemple de score sur la question de la retraite" });
+    await expect(exemple.getByText("Exemple · question n° 24")).toBeVisible();
+    /** La case d'âge sous laquelle se tient le pion. */
+    const caseSousLePion = (pion: string) =>
+      exemple.locator(".scale").evaluate((echelle, pion) => {
+        const marque = [...echelle.querySelectorAll(".mk")].find((m) => m.textContent === pion)!.getBoundingClientRect();
+        const milieu = marque.left + marque.width / 2;
+        const tuile = [...echelle.querySelectorAll(".tile")].find((t) => {
+          const r = t.getBoundingClientRect();
+          return r.left <= milieu && milieu <= r.right;
+        });
+        return tuile?.querySelector("b")?.textContent;
+      }, pion);
+    expect(await caseSousLePion("TOI")).toBe("62");
+    expect(await caseSousLePion("C")).toBe("64");
+    await expect(exemple.locator(".key li")).toHaveText(["TOITa carte : 62 ans", "CCelle d'un candidat : 64 ans"]);
+    await expect(exemple.locator(".brk em")).toHaveText(["écart : 1", "écart maximum : 3"]);
+    const egalite = exemple.locator(".eq");
+    await expect(egalite).toHaveAccessibleName("1 moins 1 sur 3, soit environ 67 pour cent");
+    await expect(egalite.locator(".frac b")).toHaveText(["1", "3"]);
+    await expect(egalite.locator("mark")).toHaveText("67 %");
+  });
+
+  test("pour les options sans ordre, la page montre « A = A », « Même carte : 1 (100 %) », et « A ≠ C », « Cartes différentes : 0 »", async ({ page }) => {
+    await page.goto("/methode");
+    const paires = regle1(page).getByRole("figure", { name: "Exemple de score pour des options non ordonnées" }).getByRole("listitem");
+    await expect(paires).toHaveText(["A=AMême carte : 1 (100 %)", "A≠CCartes différentes : 0"]);
+    await expect(paires.nth(0).getByLabel("égale")).toBeVisible();
+    await expect(paires.nth(1).getByLabel("différente de")).toBeVisible();
+  });
+});

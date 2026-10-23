@@ -24,3 +24,7 @@
 
 /* Le filtre du rattrapage : la maquette laisse « Tous les thèmes » affiché à côté du thème choisi. */
 .catch:has(.fr:checked:not(#f-all)) .cur-all { display: none; }
+
+/* Méthode : sans le sommaire « Aller à la règle » (aucun ticket ne le porte), les règles gardent leur colonne,
+   celle de maquettes/methode.html, au lieu de se serrer dans celle du sommaire. */
+.leaf-grid > .rules { grid-column: 2; }
