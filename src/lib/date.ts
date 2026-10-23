@@ -12,3 +12,8 @@ export function dateLisible(date: string, avecJour: boolean): string {
     month: "long",
   }).format(new Date(`${date}T12:00:00Z`));
 }
+
+/** Le nombre de jours qui séparent deux dates AAAA-MM-JJ. */
+export function joursEntre(de: string, a: string): number {
+  return Math.round((Date.parse(`${a}T12:00:00Z`) - Date.parse(`${de}T12:00:00Z`)) / 86_400_000);
+}

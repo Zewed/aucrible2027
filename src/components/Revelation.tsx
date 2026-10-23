@@ -1,5 +1,6 @@
 "use client";
 
+import { CompteARebours } from "@/components/CompteARebours";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import type { Candidat, Position, Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
@@ -110,6 +111,7 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
   return (
     <>
       <div className="strip">
+        {jour && <CompteARebours jour={jour} />}
         <NumeroQuestion numero={question.numero} date={question.date} avecJour={false} />
       </div>
       <main className={`res rev ${theme.classe}`}>

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { CompteARebours } from "@/components/CompteARebours";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
 import type { Question, Theme } from "@/lib/contenu";
@@ -32,7 +33,15 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
     if (dejaRepondue) router.replace("/revelation");
   }, [dejaRepondue, router]);
 
-  if (!question || !theme || dejaRepondue) return null;
+  if (!jour || dejaRepondue) return null;
+
+  const bandeau = (
+    <div className="strip">
+      <CompteARebours jour={jour} />
+      {question && <NumeroQuestion numero={question.numero} date={question.date} avecJour />}
+    </div>
+  );
+  if (!question || !theme) return bandeau;
 
   function valider(evenement: React.FormEvent) {
     evenement.preventDefault();
@@ -43,9 +52,7 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
 
   return (
     <>
-    <div className="strip">
-      <NumeroQuestion numero={question.numero} date={question.date} avecJour />
-    </div>
+    {bandeau}
     <main className={`today ${theme.classe}`}>
       <div className="left">
         <div className="deck">
