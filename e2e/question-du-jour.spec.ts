@@ -3012,10 +3012,11 @@ test("la fiche de Marine Tondelier affiche le statut de sa candidature, sous le 
 
 /**
  * La fiche de Marine Tondelier sur le jeu de fiches de test « candidat » (les 24 questions de maquettes/candidat.html),
- * pour un électeur qui a répondu aux 24 questions publiées. Renvoie la section « Ses positions ».
+ * pour un électeur qui a répondu aux 24 questions publiées le 23 octobre, ouverte ce jour-là ou le jour donné.
+ * Renvoie la section « Ses positions ».
  */
-async function positionsDeTondelier(page: Page) {
-  await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
+async function positionsDeTondelier(page: Page, jour = "2026-10-23T09:00:00+02:00") {
+  await fixerLeJour(page, jour);
   await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "candidat", url: "http://localhost:3127" }]);
   await page.goto("/candidat/tondelier");
   await page.evaluate(() => {
@@ -3136,5 +3137,38 @@ test.describe("une question sans source affiche « position inconnue »", () => 
     const lettres = await positions.locator(".pos-letter").allInnerTexts();
     expect(lettres).toHaveLength(24);
     expect(lettres.filter((l) => /^[A-E]$/.test(l.trim()))).toHaveLength(22);
+  });
+});
+
+test.describe("la fiche ne montre que les questions publiées", () => {
+  test("la fiche de Marine Tondelier annonce « 24 questions publiées » et en liste 24, de Q1 à Q24", async ({ page }) => {
+    const positions = await positionsDeTondelier(page);
+    await expect(positions.locator(".sec-h p")).toHaveText("24 questions publiées");
+    const numeros = (await positions.locator(".pos-n").allInnerTexts()).map((n) => Number(n.replace("Q", "")));
+    expect([...numeros].sort((a, b) => a - b)).toEqual(Array.from({ length: 24 }, (_, i) => i + 1));
+  });
+
+  test("chaque bloc de thème dit combien de questions publiées il contient", async ({ page }) => {
+    const positions = await positionsDeTondelier(page);
+    await expect(positions.getByRole("region", { name: "Économie & impôts" }).getByRole("img")).toHaveAccessibleName("3 questions publiées, 1 sans position connue");
+    await expect(positions.getByRole("region", { name: "Travail & retraites" }).getByRole("img")).toHaveAccessibleName("3 questions publiées");
+    await expect(positions.getByRole("region", { name: "Société" }).getByRole("img")).toHaveAccessibleName("1 question publiée");
+  });
+
+  test("une question programmée pour demain n'apparaît pas aujourd'hui, ni son numéro ni son thème ; elle apparaît demain, sous son thème", async ({ page }) => {
+    let positions = await positionsDeTondelier(page);
+    await expect(positions.getByText("Q25")).toHaveCount(0);
+    await expect(positions.getByText("Question de test programmée pour le 24 octobre ?")).toHaveCount(0);
+    let societe = positions.getByRole("region", { name: "Société" });
+    await expect(societe.locator(".pos-n")).toHaveText(["Q3"]);
+    await expect(societe.getByRole("img")).toHaveAccessibleName("1 question publiée");
+    expect(await page.content()).not.toContain("Question de test programmée");
+
+    positions = await positionsDeTondelier(page, "2026-10-24T09:00:00+02:00");
+    await expect(positions.locator(".sec-h p")).toHaveText("25 questions publiées");
+    societe = positions.getByRole("region", { name: "Société" });
+    await expect(societe.locator(".pos-n")).toHaveText(["Q3", "Q25"]);
+    await expect(societe.getByRole("listitem").filter({ hasText: "Q25" }).locator(".pos-q")).toHaveText("Q25Question de test programmée pour le 24 octobre ?");
+    await expect(societe.getByRole("img")).toHaveAccessibleName("2 questions publiées");
   });
 });

@@ -1,0 +1,28 @@
+# FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « candidat »
+# (cookie aucrible-jeu-de-test). Cette fiche n'est pas dans maquettes/candidat.html : programmée pour le lendemain
+# des tests, elle vérifie qu'une question pas encore publiée n'apparaît pas sur la fiche d'un candidat (ticket 130).
+# La position de Marine Tondelier et sa source sont inventées : elles ne disent rien de ses positions réelles.
+numero: 25
+date: 2026-10-24
+theme: societe
+question: "Question de test programmée pour le 24 octobre ?"
+contexte: []
+chiffres: []
+options:
+  - id: A
+    libelle: "Option de test A"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+  - id: B
+    libelle: "Option de test B"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+  - id: C
+    libelle: "Option de test C"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+positions:
+  tondelier: { option: B, source: "Source de test", statut: deduite }

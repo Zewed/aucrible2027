@@ -27,6 +27,9 @@ function Badge({ statut }: { statut: Position["statut"] }) {
 
 /** Les positions d'un candidat sur les questions publiées d'un thème, de la plus ancienne à la plus récente. */
 function PositionsDuTheme({ theme, questions, candidatId }: { theme: Theme; questions: Question[]; candidatId: string }) {
+  const connue = (q: Question) => q.options.some((o) => o.id === q.positions[candidatId]?.option);
+  const inconnues = questions.filter((q) => !connue(q)).length;
+  const compte = `${questions.length} ${questions.length > 1 ? "questions publiées" : "question publiée"}`;
   return (
     <section className={`pos-theme ${theme.classe}`} aria-labelledby={`t-${theme.id}`}>
       <header className="pos-h">
@@ -34,6 +37,12 @@ function PositionsDuTheme({ theme, questions, candidatId }: { theme: Theme; ques
         <h3 id={`t-${theme.id}`} className="one">
           {theme.nom}
         </h3>
+        {/* Une pastille par question publiée du thème, creuse quand la position est inconnue. */}
+        <span className="pips" role="img" aria-label={inconnues ? `${compte}, ${inconnues} sans position connue` : compte}>
+          {questions.map((q) => (
+            <i key={q.numero} className={connue(q) ? "" : "gap"} />
+          ))}
+        </span>
       </header>
       <ul className="pos-list">
         {questions.map((question) => {
