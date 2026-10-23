@@ -2597,3 +2597,39 @@ test.describe("les résultats montrent la carte « Je suis à X % proche de Y »
     await expect(carte.getByText(/^Je suis à 81\s%\sproche de François Ruffin\.$/)).toBeVisible();
   });
 });
+
+/**
+ * Les 23 réponses de `vingtTroisReponses`, mais les n° 18 à 23 données chacune le jour de leur parution
+ * (du 17 au 22 octobre), comme questions du jour : 6 jours d'affilée au 23 octobre.
+ */
+async function vingtTroisReponsesEtSixJours(page: Page) {
+  await vingtTroisReponses(page);
+  await page.evaluate(() => {
+    const reponses = JSON.parse(localStorage.getItem("aucrible:reponses")!);
+    for (let numero = 18; numero <= 23; numero++) {
+      const jour = new Date(Date.UTC(2026, 9, numero - 1, 12)).toISOString().slice(0, 10);
+      reponses[numero] = { ...reponses[numero], jour, duJour: true };
+    }
+    localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+  });
+}
+
+test.describe("la carte affiche réponses, thèmes et série", () => {
+  const piedDeLaCarte = (page: Page) => page.getByRole("article", { name: /Carte à partager/ }).filter({ visible: true }).locator(".sc-f");
+
+  test("avec 23 réponses, 5 parts gagnées et 6 jours de série, la carte affiche « 23 réponses · 5/11 thèmes · 6 jours d'affilée »", async ({ page }) => {
+    await vingtTroisReponsesEtSixJours(page);
+    await page.goto("/carte");
+    await expect(piedDeLaCarte(page)).toHaveText("23 réponses · 5/11 thèmes · 6 jours d'affilée");
+  });
+
+  test("après la réponse à la n° 24, la carte affiche « 24 réponses · 6/11 thèmes · 7 jours d'affilée »", async ({ page }) => {
+    await vingtTroisReponsesEtSixJours(page);
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await page.goto("/carte");
+    await expect(piedDeLaCarte(page)).toHaveText("24 réponses · 6/11 thèmes · 7 jours d'affilée");
+  });
+});

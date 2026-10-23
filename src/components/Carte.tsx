@@ -3,8 +3,10 @@
 import Link from "next/link";
 import type { Candidat, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
-import { classement, reponsesComptees, SEUIL_DES_RESULTATS, type QuestionDuCalcul } from "@/lib/proximite";
+import { aujourdhuiAParis } from "@/lib/date";
+import { classement, REPONSES_PAR_PART, reponsesComptees, reponsesParTheme, SEUIL_DES_RESULTATS, type QuestionDuCalcul } from "@/lib/proximite";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
+import { joursDAffilee } from "@/lib/serie";
 
 /** La couleur d'un thème : `--eco` pour « theme-eco ». */
 const couleurDe = (theme: Theme) => `var(--${theme.classe.replace("theme-", "")})`;
@@ -20,9 +22,28 @@ function usePremierDuClassement(questions: QuestionDuCalcul[], candidats: Candid
   return premier?.pourcentage === null ? null : premier;
 }
 
+/**
+ * Le pied de la carte : « 23 réponses · 5/11 thèmes · 6 jours d'affilée ». Toutes les réponses de
+ * l'appareil, les parts gagnées, et la série ; sans série, la ligne s'en passe (à trancher).
+ */
+function usePiedDeCarte(questions: QuestionDuCalcul[], themes: Theme[]) {
+  const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
+  const jour = useCoteClient(() => aujourdhuiAParis());
+  const nombre = Object.keys(reponses).length;
+  const parTheme = reponsesParTheme(questions, reponses);
+  const parts = themes.filter((t) => (parTheme[t.id] ?? 0) >= REPONSES_PAR_PART).length;
+  const serie = jour ? joursDAffilee(Object.values(reponses), jour) : 0;
+  return [
+    `${nombre} ${nombre > 1 ? "réponses" : "réponse"}`,
+    `${parts}/${themes.length} thèmes`,
+    ...(serie > 0 ? [`${serie} ${serie > 1 ? "jours" : "jour"} d'affilée`] : []),
+  ].join(" · ");
+}
+
 /** « Ta carte » sur « Mes résultats » : l'aperçu de la carte à partager, et ce qui l'ouvre. */
 export function ApercuDeLaCarte({ questions, candidats, themes }: { questions: QuestionDuCalcul[]; candidats: Candidat[]; themes: Theme[] }) {
   const premier = usePremierDuClassement(questions, candidats);
+  const pied = usePiedDeCarte(questions, themes);
   if (!premier) return null;
   return (
     <section className="sec" aria-labelledby="h-share">
@@ -45,6 +66,7 @@ export function ApercuDeLaCarte({ questions, candidats, themes }: { questions: Q
           <p className="story-t">
             Je suis à {premier.pourcentage}&nbsp;% proche de {premier.candidat.nom}.
           </p>
+          <p className="story-f">{pied}</p>
         </div>
         <div className="actions">
           <Link className="act primary" href="/carte">
@@ -65,6 +87,7 @@ export function ApercuDeLaCarte({ questions, candidats, themes }: { questions: Q
 /** La carte à partager, version « avec mon candidat », sur la page « Ta carte ». */
 export function CarteAvecCandidat({ questions, candidats, themes }: { questions: QuestionDuCalcul[]; candidats: Candidat[]; themes: Theme[] }) {
   const premier = usePremierDuClassement(questions, candidats);
+  const pied = usePiedDeCarte(questions, themes);
   if (!premier) return null;
   return (
     <div className="sp-cards">
@@ -84,6 +107,7 @@ export function CarteAvecCandidat({ questions, candidats, themes }: { questions:
             <p className="sc-t">
               Je suis à {premier.pourcentage}&nbsp;% proche de <mark>{premier.candidat.nom}</mark>.
             </p>
+            <p className="sc-f">{pied}</p>
           </article>
         </div>
       </div>
