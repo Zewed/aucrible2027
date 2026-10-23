@@ -514,8 +514,8 @@ const CRITERES = [
 
 /**
  * Règle n° 7 : la règle d'entrée, puis la liste des candidats en lice, mélangée par le jour (le même ordre pour
- * tous dans la journée, sans rapport avec les intentions de vote), et le recalcul du 1er du mois. Les autres jalons
- * de la frise (liste officielle, retrait, remplacement) arrivent avec les tickets 150 et 151.
+ * tous dans la journée, sans rapport avec les intentions de vote), et la frise : recalcul du 1er du mois, retrait,
+ * remplacement. La bascule sur la liste officielle arrive avec le ticket 151.
  */
 function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string }) {
   const nombre = `${candidats.length} candidat${candidats.length > 1 ? "s" : ""}`;
@@ -579,6 +579,19 @@ function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string
           <li>
             <span className="when">Le 1er de chaque mois</span>
             <span className="what">La liste est recalculée avec les trois critères. Un candidat entré reste jusqu&apos;à son retrait.</span>
+          </li>
+          <li>
+            <span className="when">En cas de retrait</span>
+            <span className="what">
+              Le candidat sort du classement, avec la mention «&nbsp;X s&apos;est retiré·e le JJ/MM et soutient Y&nbsp;».
+            </span>
+          </li>
+          <li>
+            <span className="when">En cas de remplacement dans le même parti</span>
+            <span className="what">
+              La fiche est renommée. Les positions du parti restent «&nbsp;déduites&nbsp;», puis sont recodées au fil des déclarations
+              du nouveau candidat.
+            </span>
           </li>
         </ol>
       </div>
