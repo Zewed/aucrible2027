@@ -4002,3 +4002,23 @@ test.describe("l'électeur choisit le type d'erreur", () => {
     expect(await types(page).evaluateAll((r) => r.filter((e) => (e as HTMLInputElement).checked).length)).toBe(1);
   });
 });
+
+test.describe("la fiche candidat propose aussi « Signaler une erreur »", () => {
+  const lienDeLaFiche = (page: Page) =>
+    page.locator(".report").filter({ hasText: "Une erreur, un chiffre ou une source à revoir ?" }).getByRole("link", { name: "Signaler une erreur sur cette fiche" });
+
+  test("sur la fiche de Marine Tondelier, sous « Une erreur, un chiffre ou une source à revoir ? », le lien « Signaler une erreur sur cette fiche » est là", async ({ page }) => {
+    await page.goto("/candidat/tondelier");
+    await expect(page.locator(".report p")).toHaveText("Une erreur, un chiffre ou une source à revoir ?");
+    await expect(lienDeLaFiche(page)).toBeVisible();
+    const [question, lien] = await Promise.all([page.locator(".report p").boundingBox(), lienDeLaFiche(page).boundingBox()]);
+    expect(lien!.y).toBeGreaterThanOrEqual(question!.y + question!.height - 1);
+  });
+
+  test("le même lien est sur la fiche de Nathalie Arthaud, et il ouvre la page « Signaler une erreur. »", async ({ page }) => {
+    await page.goto("/candidat/arthaud");
+    await lienDeLaFiche(page).click();
+    await page.waitForURL(/\/signaler$/);
+    await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toHaveText("Signaler une erreur.");
+  });
+});
