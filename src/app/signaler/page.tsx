@@ -24,10 +24,40 @@ function SurQuelleFiche({ question, theme }: { question: Question; theme: Theme 
   );
 }
 
+/** Les types d'erreur du formulaire, « Un chiffre » choisi au départ (maquettes/signaler.html). */
+const TYPES = [
+  { valeur: "chiffre", nom: "Un chiffre" },
+  { valeur: "position", nom: "La position d'un candidat" },
+  { valeur: "formulation", nom: "Une formulation qui penche" },
+  { valeur: "autre", nom: "Autre" },
+];
+
+/** « C'est quel genre d'erreur ? » : un seul type à la fois, des boutons radio en pastilles, sans script. */
+function TypeDErreur() {
+  return (
+    <fieldset className="f-block f-set">
+      <legend className="f-label">C&apos;est quel genre d&apos;erreur ?</legend>
+      <div className="chips-row">
+        {TYPES.map(({ valeur, nom }, i) => (
+          <label key={valeur} className="chip">
+            <input type="radio" name="type" value={valeur} defaultChecked={i === 0} />
+            <span>
+              <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12.5l4.5 4.5L19 7.5" />
+              </svg>
+              {nom}
+            </span>
+          </label>
+        ))}
+      </div>
+    </fieldset>
+  );
+}
+
 /**
  * « Signaler une erreur » (maquettes/signaler.html) : le titre, l'introduction, puis le formulaire, rempli de la
  * fiche d'où vient l'électeur (`?question=N`, une question déjà publiée). Sans fiche connue, « Sur quelle fiche ? »
- * n'apparaît pas : ce cas reste à trancher. Le reste du formulaire et l'envoi viennent avec les tickets 162 à 170.
+ * n'apparaît pas : ce cas reste à trancher. Le reste du formulaire et l'envoi viennent avec les tickets 163 à 170.
  */
 async function Signaler({ numero }: { numero?: string }) {
   const [jour, publiees] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
@@ -49,6 +79,7 @@ async function Signaler({ numero }: { numero?: string }) {
         {question && theme && (
           <form className="sig-card">
             <SurQuelleFiche question={question} theme={theme} />
+            <TypeDErreur />
           </form>
         )}
       </main>

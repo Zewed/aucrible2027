@@ -3980,3 +3980,25 @@ test.describe("le formulaire sait de quelle fiche il vient", () => {
     expect(await page.content()).not.toContain("nucléaire");
   });
 });
+
+test.describe("l'électeur choisit le type d'erreur", () => {
+  const types = (page: Page) => page.getByRole("group", { name: "C'est quel genre d'erreur ?" }).getByRole("radio");
+
+  test("à l'ouverture, les quatre types sont là, et « Un chiffre » est déjà choisi", async ({ page }) => {
+    await page.goto("/signaler?question=24");
+    await expect(types(page)).toHaveCount(4);
+    for (const [nom, choisi] of [["Un chiffre", true], ["La position d'un candidat", false], ["Une formulation qui penche", false], ["Autre", false]] as const)
+      await expect(page.getByRole("radio", { name: nom })).toBeChecked({ checked: choisi });
+  });
+
+  test("un seul type à la fois : « La position d'un candidat » décoche « Un chiffre », puis « Autre » décoche « La position d'un candidat »", async ({ page }) => {
+    await page.goto("/signaler?question=24");
+    await page.getByText("La position d'un candidat", { exact: true }).click();
+    await expect(page.getByRole("radio", { name: "La position d'un candidat" })).toBeChecked();
+    await expect(page.getByRole("radio", { name: "Un chiffre" })).not.toBeChecked();
+    await page.getByText("Autre", { exact: true }).click();
+    await expect(page.getByRole("radio", { name: "Autre" })).toBeChecked();
+    await expect(page.getByRole("radio", { name: "La position d'un candidat" })).not.toBeChecked();
+    expect(await types(page).evaluateAll((r) => r.filter((e) => (e as HTMLInputElement).checked).length)).toBe(1);
+  });
+});

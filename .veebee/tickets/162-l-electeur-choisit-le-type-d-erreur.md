@@ -5,6 +5,7 @@ milestone: null
 depends_on: ["160"]
 design: maquettes/signaler.html
 tracker: null
+status: done
 ---
 
 ## Ce que l'utilisateur fait
