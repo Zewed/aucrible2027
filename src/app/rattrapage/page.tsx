@@ -7,7 +7,7 @@ import { dateLisible } from "@/lib/date";
 import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
 import "./rattrapage.css";
 
-/** Toutes les questions déjà publiées, une carte chacune, les plus récentes d'abord. */
+/** Toutes les questions déjà publiées, une carte chacune qui ouvre sa fiche, les plus récentes d'abord. */
 async function Rattrapage() {
   const [jour, questions] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
   const themes = lireThemes();
@@ -49,7 +49,7 @@ async function Rattrapage() {
               const theme = themes.find((t) => t.id === question.theme);
               return (
                 <li key={question.numero} className={`qitem ${theme?.classe ?? ""}`} style={{ "--i": i } as React.CSSProperties}>
-                  <div className="qr">
+                  <Link className="qr" href={`/question/${question.numero}`}>
                     <div className="qr-top">
                       <div className="qr-meta">
                         {theme && <PuceTheme theme={theme} />}
@@ -64,7 +64,7 @@ async function Rattrapage() {
                         </span>
                       </span>
                     </div>
-                  </div>
+                  </Link>
                 </li>
               );
             })}

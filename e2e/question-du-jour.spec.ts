@@ -1542,3 +1542,32 @@ test.describe("l'électeur ouvre la liste des questions publiées", () => {
     await expect(page.getByText("Faut-il sortir du nucléaire ?")).toHaveCount(0);
   });
 });
+
+test.describe("une question de la liste s'ouvre sur sa fiche", () => {
+  // Sur ordinateur, le bandeau donne la date de la fiche à côté de son numéro.
+  test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
+
+  async function ouvrirDepuisLaListe(page: Page, question: string) {
+    await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
+    await page.goto("/rattrapage");
+    await page
+      .getByRole("region", { name: "Toutes les questions" })
+      .getByRole("listitem")
+      .filter({ has: page.getByRole("heading", { name: question, exact: true }) })
+      .click();
+    await expect(page.getByRole("heading", { level: 1, name: question })).toBeVisible();
+    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
+  }
+
+  test("toucher la carte n° 9 « Faut-il rétablir l'ISF ? » ouvre la fiche de la question n° 9, datée du 8 octobre, et non celle de la question du jour n° 24", async ({ page }) => {
+    await ouvrirDepuisLaListe(page, "Faut-il rétablir l'ISF ?");
+    await expect(page.getByText(/^Question n° 9/).filter({ visible: true })).toHaveText("Question n° 9 · jeudi 8 octobre", { useInnerText: true });
+    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveCount(0);
+    await expect(page.getByRole("heading", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" }).filter({ visible: true })).toHaveCount(0);
+  });
+
+  test("toucher la carte n° 6 « Faut-il fixer chaque année des quotas d'immigration ? » ouvre la fiche de la question n° 6, datée du 5 octobre", async ({ page }) => {
+    await ouvrirDepuisLaListe(page, "Faut-il fixer chaque année des quotas d'immigration ?");
+    await expect(page.getByText(/^Question n° 6/).filter({ visible: true })).toHaveText("Question n° 6 · lundi 5 octobre", { useInnerText: true });
+  });
+});

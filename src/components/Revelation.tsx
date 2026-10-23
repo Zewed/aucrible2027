@@ -76,10 +76,21 @@ function Badge({ statut }: { statut: Position["statut"] }) {
 
 const nombreDeCandidats = (n: number) => `${n} candidat${n > 1 ? "s" : ""}`;
 
-export function Revelation({ questions, candidats, themes }: { questions: Question[]; candidats: Candidat[]; themes: Theme[] }) {
+/** La révélation de la question `numero`, ou, sans numéro, celle de la question du jour. */
+export function Revelation({
+  questions,
+  candidats,
+  themes,
+  numero,
+}: {
+  questions: Question[];
+  candidats: Candidat[];
+  themes: Theme[];
+  numero?: number;
+}) {
   const jour = useCoteClient(() => aujourdhuiAParis());
   const reponses = lesReponses(useCoteClient(lireReponses));
-  const question = questions.find((q) => q.date === jour);
+  const question = questions.find((q) => (numero === undefined ? q.date === jour : q.numero === numero));
   const reponse = question && reponses[question.numero];
   const theme = question && themes.find((t) => t.id === question.theme);
   if (!reponse || !question || !theme) return null;
