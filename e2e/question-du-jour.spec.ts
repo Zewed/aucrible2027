@@ -9,6 +9,10 @@ const CANDIDATS = [
   "Nathalie Arthaud",
 ];
 
+/** Les options de la fiche, de A à la dernière, sans la carte « Je ne sais pas ». */
+const optionsDeLaFiche = (page: Page) =>
+  page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio", { name: /^[A-E] / });
+
 /** Choisir une option comme le fait l'électeur : en touchant sa carte. */
 async function choisir(page: Page, libelle: string) {
   await page.getByRole("radiogroup", { name: "Les options" }).getByText(libelle, { exact: true }).click();
@@ -265,7 +269,7 @@ test("sur aucune fiche un chiffre clé n'apparaît sans son organisme ni son ann
 
 /** Les lettres des cartes réponse, dans l'ordre où l'électeur les voit. */
 async function lettresDesOptions(page: Page) {
-  const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+  const options = optionsDeLaFiche(page);
   await expect(options.first()).toBeAttached();
   const lettres = [];
   for (const option of await options.all()) {
@@ -279,7 +283,7 @@ async function lettresDesOptions(page: Page) {
 test("les cinq cartes réponse de la question n° 24 portent, dans l'ordre, les lettres A à E", async ({ page }) => {
   await page.goto("/");
   expect(await lettresDesOptions(page)).toEqual(["A", "B", "C", "D", "E"]);
-  const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+  const options = optionsDeLaFiche(page);
   await expect(options.nth(0)).toHaveAccessibleName("A 60 ans");
   await expect(options.nth(4)).toHaveAccessibleName("E À la carte, avec un système à points");
 });
@@ -298,7 +302,7 @@ test("une fiche à trois options affiche A, B, C seulement ; une fiche à quatre
 
 test("chaque option de la question n° 24 dit, sous son titre et sans la toucher, ce qu'elle implique", async ({ page }) => {
   await page.goto("/");
-  const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+  const options = optionsDeLaFiche(page);
   await expect(options).toHaveCount(5);
   const attendues: Record<number, string> = {
     0: "Retour à l'âge légal d'avant 2010, financé par de nouvelles cotisations.",
@@ -328,7 +332,7 @@ const nomsOuPartisDans = (texte: string) => [
 
 test("chaque option de la question n° 24 dit ce qu'en disent ses défenseurs, lisible sans rien choisir, sans nom ni parti", async ({ page }) => {
   await page.goto("/");
-  const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+  const options = optionsDeLaFiche(page);
   await expect(options).toHaveCount(5);
   const attendus: Record<number, string> = {
     0: "Deux ans de retraite en bonne santé en plus, d'abord pour ceux qui ont commencé tôt.",
@@ -351,7 +355,7 @@ async function argumentsDesFiches(page: Page, titre: string) {
   for (const jour of ["2026-10-23T09:00:00+02:00", "2026-10-24T09:00:00+02:00", "2026-10-25T09:00:00+01:00"]) {
     await page.clock.setFixedTime(new Date(jour));
     await page.goto("/");
-    const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+    const options = optionsDeLaFiche(page);
     await expect(options.first()).toBeAttached();
     for (const option of await options.all()) {
       const bloc = option.locator("xpath=..").getByText(titre, { exact: true }).locator("xpath=..");
@@ -370,7 +374,7 @@ test("sur aucune fiche, ce qu'en disent les défenseurs ne nomme un candidat ou 
 
 test("chaque option de la question n° 24 dit ce que lui reprochent ses critiques, lisible sans rien choisir", async ({ page }) => {
   await page.goto("/");
-  const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+  const options = optionsDeLaFiche(page);
   await expect(options).toHaveCount(5);
   const attendus: Record<number, string> = {
     0: "Un coût élevé, qui pèserait sur les salaires ou sur les entreprises.",
@@ -537,4 +541,22 @@ test("dès qu'une option est choisie, « Valider ma réponse » ouvre la révél
   await expect(valider).toBeEnabled();
   await valider.click();
   await expect(page).toHaveURL(/\/revelation$/);
+});
+
+test("choisir « Je ne sais pas » puis valider enregistre la réponse et ouvre la révélation de la question n° 24", async ({ page }) => {
+  await page.goto("/");
+  await choisir(page, "Je ne sais pas");
+  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await expect(page).toHaveURL(/\/revelation$/);
+  await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toBeVisible();
+  expect(await reponsesEnregistrees(page)).not.toEqual([]);
+});
+
+test("choisir « Je ne sais pas » après « 64 ans » décoche « 64 ans » : une seule carte est choisie", async ({ page }) => {
+  await page.goto("/");
+  await choisir(page, "64 ans");
+  await choisir(page, "Je ne sais pas");
+  await expect(page.getByRole("radio", { name: "64 ans" })).not.toBeChecked();
+  await expect(page.getByRole("radio", { checked: true })).toHaveCount(1);
+  await expect(page.getByText("Ta carte", { exact: true }).filter({ visible: true })).toHaveCount(0);
 });
