@@ -8,6 +8,7 @@
   question: { numero: 13, titre: "Faut-il indexer les pensions sur l'inflation ?" }
   avant: { valeur: "Déficit du système de retraites en 2030 : ==0,4 %== du PIB" }
   apres: { valeur: "Déficit du système de retraites en 2030 : ==0,3 %== du PIB" }
+  pourquoi: "Chiffre mis à jour : rapport du COR 2025"
 - date: "2026-10-22"
   type: position
   theme: economie-impots
@@ -15,24 +16,28 @@
   question: { numero: 12, titre: "Droits de succession" }
   avant: { valeur: "Option B : Garder le barème actuel", precision: "Position déduite · programme 2022 du parti" }
   apres: { valeur: "Option C : ==Alléger pour les petits patrimoines==", precision: "Position officielle · déclaration du 02/10/2026" }
+  pourquoi: "Position recodée : déclaration du candidat du 02/10/2026"
 - date: "2026-10-09"
   type: source
   theme: sante
   question: { numero: 6, titre: "Soins dentaires et optiques : mieux rembourser ?" }
   avant: { valeur: "Cour des comptes, rapport 2023", precision: "==Lien indisponible==" }
   apres: { valeur: "Cour des comptes, rapport 2024", precision: "==Lien vérifié le 09/10/2026==" }
+  pourquoi: "Lien de source rompu : remplacé par la version en ligne"
 - date: "2026-10-19"
   type: formulation
   theme: ecologie-energie
   question: { numero: 3, titre: "Que faire du parc nucléaire ?" }
   avant: { valeur: "Option C : ==Arrêter le nucléaire pour tout miser sur== le renouvelable" }
   apres: { valeur: "Option C : ==Sortir progressivement du nucléaire et développer== le renouvelable" }
+  pourquoi: "Formulation jugée orientée, reformulée"
 - date: "2026-10-12"
   type: chiffre
   theme: logement
   question: { numero: 8, titre: "Faut-il encadrer les loyers ?" }
   avant: { valeur: "==2,4 millions== de ménages attendent un logement social" }
   apres: { valeur: "==2,7 millions== de demandes de logement social en attente" }
+  pourquoi: "Chiffre corrigé : erreur de recopie, source relue"
 - date: "2026-10-20"
   type: position
   theme: sante
@@ -40,9 +45,11 @@
   question: { numero: 17, titre: "Déserts médicaux : où s'installer ?" }
   avant: { valeur: "Option B : Aider les installations en zones sous-dotées", precision: "Position déduite · programme 2022 du parti" }
   apres: { valeur: "==Position inconnue==", precision: "Exclue du calcul, faute de source" }
+  pourquoi: "Position retirée : la source citée ne traite pas ce sujet"
 - date: "2026-10-17"
   type: formulation
   theme: immigration
   question: { numero: 15, titre: "Combien d'immigration accueillir ?" }
   avant: { valeur: "Option A : ==Fermer les frontières==" }
   apres: { valeur: "Option A : ==Limiter fortement les entrées== sur le territoire" }
+  pourquoi: "Formulation jugée orientée, reformulée"
