@@ -2908,3 +2908,29 @@ test.describe("la carte affiche « Et toi ? aucrible2027.fr »", () => {
     await expect(bas.getByText("aucrible2027.fr", { exact: true })).toBeVisible();
   });
 });
+
+test.describe("l'électeur ouvre la fiche d'un candidat", () => {
+  /** Le pion en tête de la fiche d'un candidat : initiales, forme, teinte. */
+  async function pionDeLaFiche(page: Page, id: string) {
+    await page.goto(`/candidat/${id}`);
+    return page.locator(".id-card .pawn").evaluate((pion) => {
+      const s = getComputedStyle(pion);
+      return { initiales: pion.textContent!.trim(), forme: `${s.width}×${s.height} ${s.borderRadius}`, teinte: s.backgroundColor };
+    });
+  }
+
+  test("la fiche de Marine Tondelier affiche « Fiche candidat », son nom en titre et son pion « MT »", async ({ page }) => {
+    await page.goto("/candidat/tondelier");
+    await expect(page.getByText("Fiche candidat", { exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: "Marine Tondelier" })).toBeVisible();
+    expect((await pionDeLaFiche(page, "tondelier")).initiales).toBe("MT");
+  });
+
+  test("les fiches de Mélenchon (JLM) et de Le Pen (MLP) ont le même pion que celle de Tondelier : seules les initiales changent", async ({ page }) => {
+    const tondelier = await pionDeLaFiche(page, "tondelier");
+    const melenchon = await pionDeLaFiche(page, "melenchon");
+    const lePen = await pionDeLaFiche(page, "le-pen");
+    expect([melenchon.initiales, lePen.initiales]).toEqual(["JLM", "MLP"]);
+    for (const pion of [melenchon, lePen]) expect({ forme: pion.forme, teinte: pion.teinte }).toEqual({ forme: tondelier.forme, teinte: tondelier.teinte });
+  });
+});
