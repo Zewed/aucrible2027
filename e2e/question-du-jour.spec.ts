@@ -782,3 +782,56 @@ test("d'un appareil à l'autre, l'ordre des défenseurs de A change, sans suivre
   // Six ordres possibles : au moins trois différents, donc au moins un qui n'est ni alphabétique ni celui des partis.
   expect(ordres.size).toBeGreaterThanOrEqual(3);
 });
+
+const INITIALES = {
+  "Fabien Roussel": "FRo", "Nathalie Arthaud": "NA", "Jean-Luc Mélenchon": "JLM", "Marine Le Pen": "MLP",
+  "Marine Tondelier": "MT", "Raphaël Glucksmann": "RG", "Éric Zemmour": "ÉZ", "Gabriel Attal": "GA",
+  "Bruno Retailleau": "BR", "Nicolas Dupont-Aignan": "NDA", "Édouard Philippe": "ÉP", "François Ruffin": "FRu",
+  "David Lisnard": "DL",
+};
+
+/** Le pion de chaque candidat révélé : ses initiales, sa forme, sa teinte. */
+async function pionsDeLaRevelation(page: Page) {
+  const pions: Record<string, { initiales: string; forme: string; teinte: string }> = {};
+  for (const ligne of await quiDefendQuoi(page).getByRole("listitem").all()) {
+    const nom = (await ligne.locator(".def-name").innerText()).trim();
+    const pion = ligne.locator(".pawn");
+    await expect(pion).toBeVisible();
+    pions[nom] = await pion.evaluate((el) => {
+      const s = getComputedStyle(el);
+      return { initiales: el.textContent!.trim(), forme: `${s.width}×${s.height} ${s.borderRadius}`, teinte: s.backgroundColor };
+    });
+  }
+  return pions;
+}
+
+test("sur la révélation n° 24, les 13 candidats ont le même pion à leurs initiales, sans couleur de parti", async ({ page }) => {
+  await repondre(page, "62 ans");
+  const pions = await pionsDeLaRevelation(page);
+  expect(Object.fromEntries(Object.entries(pions).map(([nom, p]) => [nom, p.initiales]))).toEqual(INITIALES);
+  expect(new Set(Object.values(pions).map((p) => p.forme)).size).toBe(1);
+  // Une seule teinte sous les options, une seule (la variante claire) sous « Position inconnue » : jamais une teinte par candidat.
+  const sousOptions = new Set(Object.entries(pions).filter(([nom]) => !["François Ruffin", "David Lisnard"].includes(nom)).map(([, p]) => p.teinte));
+  const inconnus = new Set([pions["François Ruffin"].teinte, pions["David Lisnard"].teinte]);
+  expect(sousOptions.size).toBe(1);
+  expect(inconnus.size).toBe(1);
+  const neutres = await page.evaluate(() =>
+    ["--ink", "--pawn"].map((jeton) => {
+      const el = document.createElement("div");
+      el.style.background = `var(${jeton})`;
+      document.body.append(el);
+      const c = getComputedStyle(el).backgroundColor;
+      el.remove();
+      return c;
+    }),
+  );
+  expect(neutres).toEqual([...sousOptions, ...inconnus]);
+});
+
+test("les initiales distinguent les candidats qui se ressemblent : FRo pour Fabien Roussel, FRu pour François Ruffin", async ({ page }) => {
+  await repondre(page, "62 ans");
+  const pions = await pionsDeLaRevelation(page);
+  expect(pions["Fabien Roussel"].initiales).toBe("FRo");
+  expect(pions["François Ruffin"].initiales).toBe("FRu");
+  expect(new Set(Object.values(pions).map((p) => p.initiales)).size).toBe(13);
+});

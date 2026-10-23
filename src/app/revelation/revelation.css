@@ -1,5 +1,4 @@
-/* Copie de maquettes/revelation.css, sans le retournement des cartes à l'arrivée (ticket 031),
-   avec ses écarts temporaires à la maquette rangés tout en bas. */
+/* Copie de maquettes/revelation.css, sans le retournement des cartes à l'arrivée (ticket 031). */
 
 /* Au crible 2027 — La révélation (chargé après style.css).
    Ce qu'on y voit : ta carte, l'alignement, la part gagnée, la série, puis les cartes
@@ -274,7 +273,3 @@ a.go { text-decoration: none; }
   .def .pawn { --size: 44px; font-size: 13px; }
   .who .pawn { --size: 32px; }
 }
-
-/* ---------- écarts temporaires à la maquette ---------- */
-/* En attendant les pions (026) : le nom reste dans la colonne qui suit celle du pion. */
-.def-name { grid-column: 2; }

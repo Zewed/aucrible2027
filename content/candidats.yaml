@@ -1,40 +1,54 @@
 # Les candidats retenus au lancement (règle d'entrée : SPEC.md, « Candidats »).
+# Les initiales marquent leur pion, le même pour tous : elles distinguent ceux qui se ressemblent (FRo, FRu).
 - id: le-pen
   nom: Marine Le Pen
   parti: Rassemblement national
+  initiales: MLP
 - id: melenchon
   nom: Jean-Luc Mélenchon
   parti: La France insoumise
+  initiales: JLM
 - id: philippe
   nom: Édouard Philippe
   parti: Horizons
+  initiales: ÉP
 - id: glucksmann
   nom: Raphaël Glucksmann
   parti: Place publique
+  initiales: RG
 - id: retailleau
   nom: Bruno Retailleau
   parti: Les Républicains
+  initiales: BR
 - id: lisnard
   nom: David Lisnard
   parti: Nouvelle Énergie
+  initiales: DL
 - id: attal
   nom: Gabriel Attal
   parti: Renaissance
+  initiales: GA
 - id: zemmour
   nom: Éric Zemmour
   parti: Reconquête
+  initiales: ÉZ
 - id: tondelier
   nom: Marine Tondelier
   parti: Les Écologistes
+  initiales: MT
 - id: roussel
   nom: Fabien Roussel
   parti: Parti communiste français
+  initiales: FRo
 - id: dupont-aignan
   nom: Nicolas Dupont-Aignan
   parti: Debout la France
+  initiales: NDA
 - id: ruffin
   nom: François Ruffin
   parti: Debout !
+  initiales: FRu
 - id: arthaud
   nom: Nathalie Arthaud
   parti: Lutte ouvrière
+  initiales: NA
