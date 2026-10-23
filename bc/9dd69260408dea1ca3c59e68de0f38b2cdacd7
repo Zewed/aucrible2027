@@ -1,0 +1,28 @@
+src/components/Fiche.tsx
+  s_330ba31127fa8a::t_c5094792627639 222
+src/components/Revelation.tsx
+  s_330ba31127fa8a::t_c5094792627639 358
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_790ecb1d5e1c6f 3912
+  s_330ba31127fa8a::t_3929bfa9337a7c 3936-3982
+src/app/signaler/page.tsx
+  s_330ba31127fa8a::t_c5094792627639 3-5,8-26,28-30,32-35,39,49-53,59,62-64
+.veebee/tickets/161-le-formulaire-sait-de-quelle-fiche-il-vient.md
+  s_330ba31127fa8a::t_3116847de241c4 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bc9dd69260408dea1ca3c59e68de0f38b2cdacd7",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
