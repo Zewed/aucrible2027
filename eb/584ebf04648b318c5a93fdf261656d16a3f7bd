@@ -1,0 +1,39 @@
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_cd528dc2b72d6a 103
+src/app/layout.tsx
+  s_2c9a7110ce04dd::t_cd528dc2b72d6a 3,18-21
+src/lib/serie.ts
+  s_2c9a7110ce04dd::t_cd528dc2b72d6a 1-18
+src/app/globals.css
+  s_2c9a7110ce04dd::t_cd528dc2b72d6a 9-11
+e2e/fiches/029-2026-10-28.yaml
+  s_2c9a7110ce04dd::t_0e14ade238f1af 1-35
+e2e/fiches/027-2026-10-26.yaml
+  s_2c9a7110ce04dd::t_0e14ade238f1af 1-35
+src/components/EnTete.tsx
+  s_2c9a7110ce04dd::t_cd528dc2b72d6a 1-41
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_0e14ade238f1af 1296-1332
+src/lib/reponses.ts
+  s_2c9a7110ce04dd::t_cd528dc2b72d6a 7-10
+e2e/fiches/028-2026-10-27.yaml
+  s_2c9a7110ce04dd::t_0e14ade238f1af 1-35
+.veebee/tickets/045-le-de-affiche-les-jours-d-affilee.md
+  s_2c9a7110ce04dd::t_5810c527b19186 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "eb584ebf04648b318c5a93fdf261656d16a3f7bd",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
