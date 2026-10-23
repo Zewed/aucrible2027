@@ -54,7 +54,16 @@ export async function lireAujourdhui(): Promise<string> {
 export async function lireQuestionsPubliees(): Promise<Question[]> {
   const jour = aujourdhuiAParis(await maintenant());
   const silence = silenceEnCours(jour);
-  return (await lesFiches()).filter((q) => q.date <= jour && !(silence && q.date >= silence.debut));
+  const [fiches, candidats] = await Promise.all([lesFiches(), lireLesCandidats()]);
+  return fiches.filter((q) => q.date <= jour && !(silence && q.date >= silence.debut)).map((q) => avecLesPositionsHeritees(q, candidats));
+}
+
+/** Un remplaçant reprend, question par question, la position du candidat qu'il remplace, tant qu'il n'en a pas à lui. */
+function avecLesPositionsHeritees(question: Question, candidats: Candidat[]): Question {
+  const heritiers = candidats.filter((c) => c.remplace && !question.positions[c.id] && question.positions[c.remplace]);
+  if (heritiers.length === 0) return question;
+  const heritees = Object.fromEntries(heritiers.map((c) => [c.id, question.positions[c.remplace!]]));
+  return { ...question, positions: { ...question.positions, ...heritees } };
 }
 
 /** La date de la prochaine fiche à paraître, ou null s'il n'y en a aucune : sa date seulement, jamais son contenu. */

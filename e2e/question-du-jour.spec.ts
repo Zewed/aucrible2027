@@ -3383,3 +3383,46 @@ test.describe("un candidat retiré n'apparaît plus dans les nouvelles révélat
     expect(Number(nombres[1]) + Number(nombres[2])).toBe(12);
   });
 });
+
+test.describe("un candidat remplacé prend le nom de son remplaçant", () => {
+  /** Le remplacement de test : Jordan Bardella à la place de Marine Le Pen. */
+  async function remplacement(page: Page, actif = true) {
+    if (actif) await page.context().addCookies([{ name: "aucrible-candidats-de-test", value: "remplacement", url: "http://localhost:3127" }]);
+    else await page.context().clearCookies({ name: "aucrible-candidats-de-test" });
+  }
+
+  test("quand Bardella remplace Le Pen, la fiche « Marine Le Pen » est renommée à son nom, et il n'existe plus de fiche à l'ancien nom", async ({ page }) => {
+    await remplacement(page);
+    await page.goto("/candidat/bardella");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Jordan Bardella");
+    await expect(page.locator(".id-card .pawn")).toHaveText("JB");
+    // La page part en flux avant de savoir que la fiche n'existe pas : le statut reste 200, la page dit « 404 ».
+    await page.goto("/candidat/le-pen");
+    await expect(page.getByText("This page could not be found.")).toBeVisible();
+    await expect(page.locator(".id-card")).toHaveCount(0);
+    await expect(page.getByText("Marine Le Pen")).toHaveCount(0);
+  });
+
+  test("le parti affiché sur la fiche reste « RN », et aucune mention de retrait n'y apparaît", async ({ page }) => {
+    await remplacement(page);
+    await page.goto("/candidat/bardella");
+    await expect(page.locator(".id-card .party")).toHaveText("RN");
+    await expect(page.getByRole("region", { name: "Ses positions" })).toBeVisible();
+    await expect(page.locator(".gone")).toHaveCount(0);
+    await expect(page.getByText(/s'est retiré/)).toHaveCount(0);
+  });
+
+  test("« Mes résultats » classe toujours 13 candidats, avec Bardella à la place de Marine Le Pen", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await remplacement(page, false);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const avant = await lignesDuClassement(page);
+    await remplacement(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const apres = await lignesDuClassement(page);
+    expect(apres.map(([, nom]) => nom)).not.toContain("Marine Le Pen");
+    expect(apres).toEqual(avant.map(([rang, nom, pourcentage]) => [rang, nom === "Marine Le Pen" ? "Jordan Bardella" : nom, pourcentage]));
+  });
+});

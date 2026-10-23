@@ -1,0 +1,8 @@
+# AJOUTS DE TEST : lus seulement par le serveur des tests de bout en bout, quand un test choisit « remplacement »
+# (cookie aucrible-candidats-de-test). Une entrée qui « remplace » un candidat prend sa place dans content/candidats.yaml.
+# Ce remplacement est l'exemple de SPEC.md (« Bardella pour Le Pen »), inventé pour ce test : il ne dit rien des
+# candidatures réelles.
+- remplace: le-pen
+  id: bardella
+  nom: Jordan Bardella
+  initiales: JB
