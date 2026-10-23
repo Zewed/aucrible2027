@@ -3689,3 +3689,31 @@ test.describe("la page Méthode explique la bascule sur la liste officielle", ()
     );
   });
 });
+
+test.describe("la page Méthode explique pourquoi ce n'est pas un sondage", () => {
+  const regle8 = (page: Page) => page.getByRole("article", { name: "Ce que ce jeu n'est pas, et comment le vérifier" });
+
+  test("la règle n° 8 affiche le tampon « Ce n'est pas un sondage. »", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(regle8(page).getByText("Règle n° 8")).toBeVisible();
+    await expect(regle8(page).locator(".stamp")).toHaveText("Ce n'est pas un sondage.");
+  });
+
+  test("elle dit que les utilisateurs ne sont pas représentatifs, qu'on ne collecte pas les réponses, et qu'aucune statistique sur eux n'est calculée ni publiée", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(
+      regle8(page).getByText(
+        "Les utilisateurs ne sont pas représentatifs, et on ne collecte pas tes réponses. Aucune statistique sur les utilisateurs n'est calculée ni publiée.",
+      ),
+    ).toBeVisible();
+  });
+
+  test("elle dit que le pourcentage n'est pas une prévision de vote, seulement la rencontre des réponses et des positions, sur les questions répondues", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(
+      regle8(page).getByText(
+        "Ton pourcentage n'est pas une prévision de vote. Il dit seulement à quel point tes réponses rejoignent ce que défend chaque candidat, sur les questions auxquelles tu as répondu.",
+      ),
+    ).toBeVisible();
+  });
+});

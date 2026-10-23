@@ -606,8 +606,41 @@ function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string
 }
 
 /**
+ * Règle n° 8 : ce que le jeu n'est pas. Sa seconde colonne, « Tu peux tout vérifier » et le bouton vers le code,
+ * attend l'adresse publique du dépôt (ticket 153) : d'ici là, la règle tient sur une colonne.
+ */
+function RegleDesLimites() {
+  return (
+    <article className="rule theme-inst" id="r8" aria-labelledby="r8-t">
+      <header className="rule-head">
+        <span className="rule-n" aria-hidden="true">
+          8
+        </span>
+        <p className="rule-k">Règle n° 8</p>
+        <h2 id="r8-t">Ce que ce jeu n&apos;est pas, et comment le vérifier</h2>
+      </header>
+      <div className="rule-body">
+        <div className="rule-txt">
+          <p className="stamp">
+            <span>Ce n&apos;est pas un sondage.</span>
+          </p>
+          <p>
+            <b>Les utilisateurs ne sont pas représentatifs, et on ne collecte pas tes réponses.</b> Aucune statistique sur les
+            utilisateurs n&apos;est calculée ni publiée.
+          </p>
+          <p>
+            Ton pourcentage n&apos;est pas une prévision de vote. Il dit seulement à quel point tes réponses rejoignent ce que défend
+            chaque candidat, <b>sur les questions auxquelles tu as répondu</b>.
+          </p>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+/**
  * La page « Méthode de calcul et sources » (maquettes/methode.html), règle par règle. Le sommaire « Aller à la règle »,
- * la version de la méthode et le pied de page ne sont portés par aucun ticket ; la règle n° 4 n'en a pas non plus ; la règle n° 8 vient ensuite.
+ * la version de la méthode et le pied de page ne sont portés par aucun ticket ; la règle n° 4 n'en a pas non plus.
  */
 async function Methode() {
   const [jour, candidats] = await Promise.all([lireAujourdhui(), lireCandidatsEnLice()]);
@@ -648,6 +681,7 @@ async function Methode() {
             <RegleDuPlateau />
             <RegleDesSources />
             <RegleDEntree candidats={candidats} jour={jour} />
+            <RegleDesLimites />
           </div>
         </div>
       </main>
