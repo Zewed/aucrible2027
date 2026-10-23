@@ -105,3 +105,43 @@ test("une question d'Écologie & énergie s'affiche en vert, et les 11 thèmes o
   );
   expect(new Set(couleurs).size).toBe(11);
 });
+
+test.describe("numéro et date de la question", () => {
+  test("sur téléphone, le bandeau affiche seulement « Question n° 24 »", async ({ page }) => {
+    await page.goto("/");
+    const numero = page.getByText(/^Question n° 24/);
+    await expect(numero).toBeVisible();
+    await expect(numero).toHaveText("Question n° 24", { useInnerText: true });
+  });
+
+  test("le samedi 24 octobre 2026, la nouvelle question affiche « Question n° 25 »", async ({ page }) => {
+    await page.clock.setFixedTime(new Date("2026-10-24T09:00:00+02:00"));
+    await page.goto("/");
+    await expect(page.getByText(/^Question n° 25/)).toBeVisible();
+  });
+
+  test("après validation, la révélation garde « Question n° 24 »", async ({ page }) => {
+    await page.goto("/");
+    await choisir(page, "62 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24", { useInnerText: true });
+  });
+});
+
+test.describe("numéro et date de la question, sur grand écran", () => {
+  test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
+
+  test("le vendredi 23 octobre 2026, le bandeau affiche « Question n° 24 · vendredi 23 octobre »", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24 · vendredi 23 octobre", { useInnerText: true });
+  });
+
+  test("la révélation affiche « Question n° 24 · 23 octobre »", async ({ page }) => {
+    await page.goto("/");
+    await choisir(page, "62 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24 · 23 octobre", { useInnerText: true });
+  });
+});

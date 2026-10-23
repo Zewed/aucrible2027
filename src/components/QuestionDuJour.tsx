@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
 import type { Question, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
@@ -25,6 +26,10 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
   }
 
   return (
+    <>
+    <div className="strip">
+      <NumeroQuestion numero={question.numero} date={question.date} avecJour />
+    </div>
     <main className={`today ${theme.classe}`}>
       <div className="left">
         <div className="deck">
@@ -59,5 +64,6 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
         <button type="submit" className="go">Valider ma réponse</button>
       </form>
     </main>
+    </>
   );
 }
