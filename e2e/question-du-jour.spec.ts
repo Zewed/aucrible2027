@@ -1402,3 +1402,39 @@ test.describe("« Je ne sais pas » ne casse pas la série", () => {
     expect(jours).toBeGreaterThanOrEqual(6);
   });
 });
+
+test.describe("le silence électoral met la série en pause", () => {
+  /**
+   * 37 jours d'affilée, du mardi 9 mars au mercredi 14 avril 2027, posés directement sur l'appareil :
+   * il n'y a pas de fiche de test pour chacun de ces jours.
+   */
+  async function trenteSeptJoursJusquau14Avril(page: Page) {
+    await page.goto("/");
+    await page.evaluate(() => {
+      const reponses: Record<number, object> = {};
+      for (let i = 0; i < 37; i++) {
+        const jour = new Date(Date.UTC(2027, 2, 9 + i, 12)).toISOString().slice(0, 10);
+        reponses[900 + i] = { option: "A", importance: null, graine: 1, jour, duJour: true };
+      }
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    });
+  }
+
+  test("avec 38 jours au jeudi 15 avril 2027, le samedi 17 l'en-tête affiche toujours « 38 jours d'affilée » et l'accueil dit que la série est en pause", async ({ page }) => {
+    await trenteSeptJoursJusquau14Avril(page);
+    await repondreCeJour(page, "2027-04-15");
+    await expect(serie(page)).toHaveText("38 jours d'affilée");
+    await fixerLeJour(page, "2027-04-17T09:00:00+02:00");
+    await page.goto("/");
+    await expect(page.getByRole("heading", { level: 1, name: "Silence électoral." })).toBeVisible();
+    await expect(serie(page)).toHaveText("38 jours d'affilée");
+    await expect(page.getByText("Ta série de 38 jours est en pause, elle n'est pas perdue.", { exact: true })).toBeVisible();
+  });
+
+  test("à la première question publiée après le silence, le lundi 19 avril, répondre fait passer la série à « 39 jours d'affilée »", async ({ page }) => {
+    await trenteSeptJoursJusquau14Avril(page);
+    await repondreCeJour(page, "2027-04-15");
+    await repondreCeJour(page, "2027-04-19");
+    await expect(serie(page)).toHaveText("39 jours d'affilée");
+  });
+});
