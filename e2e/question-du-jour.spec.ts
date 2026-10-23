@@ -2542,3 +2542,24 @@ test.describe("un thème sous 3 réponses dit « pas encore assez de réponses �
     expect((await sousLesThemes(page))["Travail & retraites"]).toMatch(/^le plus proche : \S/);
   });
 });
+
+test.describe("la question du jour annonce la part en jeu", () => {
+  const enJeu = (page: Page) => page.getByRole("link", { name: /En jeu aujourd'hui/ });
+
+  test("sur la fiche n° 24, avec 2 réponses en Travail & retraites et 5 parts gagnées, le bloc annonce la part en jeu et les 6 parts sur 11", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/");
+    await expect(enJeu(page)).toBeVisible();
+    await expect(enJeu(page).getByText("En jeu aujourd'hui", { exact: true })).toBeVisible();
+    await expect(enJeu(page).getByText("La part Travail & retraites", { exact: true })).toBeVisible();
+    await expect(enJeu(page).getByText("Tu as 2 réponses sur 3 dans ce thème. Réponds et ton camembert passe à 6 parts sur 11.")).toBeVisible();
+  });
+
+  test("toucher ce bloc ouvre « Mes résultats »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/");
+    await enJeu(page).click();
+    await expect(page).toHaveURL(/\/resultats$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." }).filter({ visible: true })).toBeVisible();
+  });
+});

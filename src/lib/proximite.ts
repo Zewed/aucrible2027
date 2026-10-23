@@ -33,7 +33,7 @@ export const reponsesComptees = (questions: QuestionDuCalcul[], reponses: Record
 export const REPONSES_PAR_PART = 3;
 
 /** Les réponses comptées de chaque thème (« Je ne sais pas » non compris), par identifiant de thème. */
-export function reponsesParTheme(questions: QuestionDuCalcul[], reponses: Record<number, Reponse>): Record<string, number> {
+export function reponsesParTheme(questions: Pick<QuestionDuCalcul, "numero" | "theme">[], reponses: Record<number, Reponse>): Record<string, number> {
   const parTheme: Record<string, number> = {};
   for (const q of questions) {
     if (reponses[q.numero] && reponses[q.numero].option !== JE_NE_SAIS_PAS) parTheme[q.theme] = (parTheme[q.theme] ?? 0) + 1;
