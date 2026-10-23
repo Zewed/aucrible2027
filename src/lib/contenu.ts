@@ -86,6 +86,8 @@ export type Correction = {
   apres: CoteDeLaCorrection;
   /** Pourquoi la correction a été faite, en une phrase. */
   pourquoi: string;
+  /** Qui l'a repérée : un signalement d'utilisateur, ou le contrôle de neutralité. Jamais rien de la personne. */
+  origine: "utilisateur" | "controle";
 };
 export type CoteDeLaCorrection = { valeur: string; precision?: string };
 

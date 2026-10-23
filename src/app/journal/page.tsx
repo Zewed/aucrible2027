@@ -59,11 +59,16 @@ function Cote({ titre, cote, classe }: { titre: string; cote: CoteDeLaCorrection
   );
 }
 
+const ORIGINES: Record<Correction["origine"], string> = {
+  utilisateur: "Signalé par un utilisateur",
+  controle: "Repéré par le contrôle de neutralité",
+};
+
 const TYPES: Record<Correction["type"], string> = { chiffre: "Chiffre", position: "Position", formulation: "Formulation", source: "Source" };
 
 /**
  * Une correction du journal : sa date en gros, son type et la fiche touchée (une question, ou la fiche d'un candidat
- * sur une question), puis l'avant et l'après, et pourquoi. L'origine : ticket 176.
+ * sur une question), puis l'avant et l'après, pourquoi, et qui l'a repérée.
  */
 function Entree({ correction, rang, classe, candidat }: { correction: Correction; rang: number; classe?: string; candidat?: Candidat }) {
   const [annee, mois, jour] = correction.date.split("-");
@@ -108,6 +113,10 @@ function Entree({ correction, rang, classe, candidat }: { correction: Correction
           <div>
             <dt>Pourquoi</dt>
             <dd>{insecables(correction.pourquoi)}</dd>
+          </div>
+          <div>
+            <dt>Origine</dt>
+            <dd>{ORIGINES[correction.origine]}</dd>
           </div>
         </dl>
       </article>

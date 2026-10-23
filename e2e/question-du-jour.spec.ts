@@ -4151,3 +4151,32 @@ test.describe("chaque correction dit sa raison", () => {
     expect(parJour["2026-10-09"]).toBe("Lien de source rompu : remplacé par la version en ligne");
   });
 });
+
+test.describe("chaque correction dit qui l'a repérée", () => {
+  /** L'« Origine » de la correction du jour donné. */
+  async function origine(page: Page, jour: string) {
+    const ligne = page
+      .locator(".log .entry")
+      .filter({ has: page.locator(`time[datetime="${jour}"]`) })
+      .locator(".why > div")
+      .filter({ has: page.locator("dt", { hasText: "Origine" }) });
+    return (await ligne.locator("dd").innerText()).trim();
+  }
+
+  test("le 22 oct. 2026 : « Signalé par un utilisateur » ; le 20 oct. 2026 : « Repéré par le contrôle de neutralité »", async ({ page }) => {
+    await page.context().addCookies([{ name: "aucrible-corrections-de-test", value: "maquette", url: "http://localhost:3127" }]);
+    await page.goto("/journal");
+    expect(await origine(page, "2026-10-22")).toBe("Signalé par un utilisateur");
+    expect(await origine(page, "2026-10-20")).toBe("Repéré par le contrôle de neutralité");
+  });
+
+  test("une correction née d'un signalement laissé avec l'e-mail marie@exemple.fr dit seulement « Signalé par un utilisateur », sans rien de la personne", async ({ page }) => {
+    await page.context().addCookies([{ name: "aucrible-corrections-de-test", value: "maquette", url: "http://localhost:3127" }]);
+    await page.goto("/journal");
+    expect(await origine(page, "2026-10-22")).toBe("Signalé par un utilisateur");
+    const html = await page.content();
+    for (const morceau of ["marie", "exemple.fr", "@exemple"]) expect(html.includes(morceau), morceau).toBe(false);
+    const reponse = await page.request.get("/journal");
+    expect((await reponse.text()).includes("marie")).toBe(false);
+  });
+});
