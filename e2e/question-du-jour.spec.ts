@@ -1384,3 +1384,21 @@ test.describe("un jour sans réponse remet la série à zéro", () => {
     await expect(serie(page)).toHaveText("1 jour d'affilée");
   });
 });
+
+test.describe("« Je ne sais pas » ne casse pas la série", () => {
+  test("avec 6 jours, répondre « Je ne sais pas » laisse au moins 6 jours d'affilée", async ({ page }) => {
+    for (const jour of SIX_JOURS) await repondreCeJour(page, jour);
+    await repondreCeJour(page, "2026-10-28T09:00:00+01:00", "Je ne sais pas");
+    const jours = Number((await serie(page).innerText()).match(/^\d+/)![0]);
+    expect(jours).toBeGreaterThanOrEqual(6);
+  });
+
+  test("le lendemain, répondre à la question suivante prolonge la série au lieu de la relancer à 1", async ({ page }) => {
+    for (const jour of ["2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26"]) await repondreCeJour(page, jour);
+    await repondreCeJour(page, "2026-10-27", "Je ne sais pas");
+    await repondreCeJour(page, "2026-10-28T09:00:00+01:00");
+    const jours = Number((await serie(page).innerText()).match(/^\d+/)![0]);
+    expect(jours).toBeGreaterThan(1);
+    expect(jours).toBeGreaterThanOrEqual(6);
+  });
+});
