@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { DeDesRegles, RayuresDesThemes } from "@/components/Regles";
-import { lireThemes, type Correction } from "@/lib/contenu";
-import { lireAujourdhui, lireLesCorrections } from "@/lib/publication";
+import { lireThemes, type Candidat, type Correction } from "@/lib/contenu";
+import { lireAujourdhui, lireLesCandidats, lireLesCorrections } from "@/lib/publication";
 import "../regles.css";
 import "./journal.css";
 
@@ -31,13 +32,18 @@ function Illustration() {
   );
 }
 
-/** Une correction du journal : sa date en gros. La fiche, l'avant et l'après, la raison et l'origine : tickets 173 à 176. */
-function Entree({ correction, classe }: { correction: Correction; classe?: string }) {
+const TYPES: Record<Correction["type"], string> = { chiffre: "Chiffre", position: "Position", formulation: "Formulation", source: "Source" };
+
+/**
+ * Une correction du journal : sa date en gros, son type et la fiche touchée (une question, ou la fiche d'un candidat
+ * sur une question). L'avant et l'après, la raison et l'origine : tickets 174 à 176.
+ */
+function Entree({ correction, rang, classe, candidat }: { correction: Correction; rang: number; classe?: string; candidat?: Candidat }) {
   const [annee, mois, jour] = correction.date.split("-");
-  const date = `${jour} ${MOIS[Number(mois) - 1]} ${annee}`;
+  const { numero, titre } = correction.question;
   return (
     <li className={classe ? `entry ${classe}` : "entry"} data-type={correction.type}>
-      <article aria-label={`Correction du ${date}`}>
+      <article aria-labelledby={`e${rang}`}>
         <header className="entry-top">
           <time className="date" dateTime={correction.date}>
             <b>{jour}</b>
@@ -45,6 +51,27 @@ function Entree({ correction, classe }: { correction: Correction; classe?: strin
               {MOIS[Number(mois) - 1]} {annee}
             </span>
           </time>
+          <div className="where">
+            <p className="entry-k">
+              <span className="type">{TYPES[correction.type]}</span>
+              {candidat ? "Fiche candidat" : `Question n°\u00a0${numero}`}
+            </p>
+            <h2 id={`e${rang}`} className="entry-h">
+              {candidat ? (
+                <Link href={`/candidat/${candidat.id}`}>
+                  <span className="pawn pawn--paper">{candidat.initiales}</span>
+                  <span>{candidat.nom}</span>
+                </Link>
+              ) : (
+                titre
+              )}
+            </h2>
+            {candidat && (
+              <p className="entry-sub">
+                Question n°&nbsp;{numero} · {titre}
+              </p>
+            )}
+          </div>
         </header>
       </article>
     </li>
@@ -57,7 +84,7 @@ function Entree({ correction, classe }: { correction: Correction; classe?: strin
  * (177) et le journal vide (178) viennent ensuite.
  */
 async function Journal() {
-  const [jour, corrections] = await Promise.all([lireAujourdhui(), lireLesCorrections()]);
+  const [jour, corrections, candidats] = await Promise.all([lireAujourdhui(), lireLesCorrections(), lireLesCandidats()]);
   const themes = lireThemes();
   return (
     <>
@@ -94,7 +121,13 @@ async function Journal() {
           </div>
           <ol className="log">
             {corrections.map((correction, i) => (
-              <Entree key={i} correction={correction} classe={themes.find((t) => t.id === correction.theme)?.classe} />
+              <Entree
+                key={i}
+                rang={i + 1}
+                correction={correction}
+                classe={themes.find((t) => t.id === correction.theme)?.classe}
+                candidat={candidats.find((c) => c.id === correction.candidat)}
+              />
             ))}
           </ol>
         </section>

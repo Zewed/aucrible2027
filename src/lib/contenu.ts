@@ -71,8 +71,17 @@ export function lireCandidats(ajoutsDeTest?: string): Candidat[] {
   });
 }
 
-/** Une correction publiée dans le journal : son jour (AAAA-MM-JJ), son type, et le thème de la fiche corrigée. */
-export type Correction = { date: string; type: "chiffre" | "position" | "formulation" | "source"; theme: string };
+/**
+ * Une correction publiée dans le journal : son jour (AAAA-MM-JJ), son type, le thème de la fiche corrigée, la question
+ * telle qu'à la correction (numéro et titre), et le candidat quand c'est sa fiche qui est corrigée.
+ */
+export type Correction = {
+  date: string;
+  type: "chiffre" | "position" | "formulation" | "source";
+  theme: string;
+  question: { numero: number; titre: string };
+  candidat?: string;
+};
 
 /**
  * Les corrections de content/corrections.yaml. Pour les tests de bout en bout seulement, un jeu de corrections de test

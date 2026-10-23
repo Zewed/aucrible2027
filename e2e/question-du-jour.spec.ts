@@ -4061,3 +4061,30 @@ test.describe("le journal liste les corrections, les plus récentes d'abord", ()
     await expect(page.getByText("Les signalements arrivent dans une boîte privée, seule la correction est publique. Réponse sous 72 h.")).toBeVisible();
   });
 });
+
+test.describe("chaque correction dit quelle fiche elle touche", () => {
+  /** La correction du jour donné, dans le journal aux corrections de test. */
+  async function correctionDu(page: Page, jour: string) {
+    await page.context().addCookies([{ name: "aucrible-corrections-de-test", value: "maquette", url: "http://localhost:3127" }]);
+    await page.goto("/journal");
+    const entree = page.locator(".log .entry").filter({ has: page.locator(`time[datetime="${jour}"]`) });
+    await expect(entree).toHaveCount(1);
+    return entree;
+  }
+
+  test("la correction du 19 oct. 2026 affiche « Formulation », « Question n° 3 » et « Que faire du parc nucléaire ? »", async ({ page }) => {
+    const entree = await correctionDu(page, "2026-10-19");
+    await expect(entree.locator(".entry-k .type")).toHaveText("Formulation");
+    await expect(entree.locator(".entry-k")).toHaveText("FormulationQuestion n° 3");
+    await expect(entree.getByRole("heading", { level: 2 })).toHaveText("Que faire du parc nucléaire ?");
+    await expect(entree.getByRole("article")).toHaveAccessibleName("Que faire du parc nucléaire ?");
+  });
+
+  test("la correction du 22 oct. 2026 affiche « Position », « Fiche candidat », « Gabriel Attal » et « Question n° 12 · Droits de succession »", async ({ page }) => {
+    const entree = await correctionDu(page, "2026-10-22");
+    await expect(entree.locator(".entry-k")).toHaveText("PositionFiche candidat");
+    await expect(entree.getByRole("heading", { level: 2 })).toHaveText("GAGabriel Attal");
+    await expect(entree.locator(".entry-sub")).toHaveText("Question n° 12 · Droits de succession");
+    await expect(entree.getByRole("heading", { level: 2 }).getByRole("link")).toHaveAttribute("href", "/candidat/attal");
+  });
+});
