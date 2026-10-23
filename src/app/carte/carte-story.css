@@ -1,0 +1,159 @@
+/* Copie de maquettes/carte-story.css. */
+
+/* Au crible 2027 — carte de résultat partageable, format story 9:16.
+   Chargé après style.css : jetons de style.css uniquement.
+   Les cartes sont dessinées à 360 × 640 px ; toutes leurs mesures passent par --u (1 u = 1 px à 360 px de large),
+   pour que la carte garde ses proportions même sur un écran plus étroit.
+   Classes : .sp (page) · .sp-cards > .sp-slot (.sp-cap) > .sc-deck > .sc.sc--a | .sc--b
+   · .sc-tiles .sc-k .sc-big .sc-t .sc-token .sc-f .sc-ask .sc-url .sc-h .sc-board · .sp-controls */
+
+.ic { fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.sp { max-width: 1240px; margin: 0 auto; padding: 0 15px 40px; }
+
+.sp-hero { padding-top: 8px; }
+.sp-hero h1 {
+  font: 800 clamp(54px, 18vw, 104px)/0.92 var(--display);
+  font-variation-settings: "wdth" 80, "opsz" 96;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+.sp-hero h1 i { color: var(--eco); font-style: normal; }
+.sp-lead { margin-top: 12px; max-width: 46ch; font-size: 16px; line-height: 1.5; color: var(--muted); }
+
+/* ---------- les deux cartes ---------- */
+.sp-cards { margin-top: 30px; display: grid; gap: 46px; justify-items: center; }
+.sp-slot { width: min(360px, 100%); min-width: 0; }
+.sp-cap {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  margin-bottom: 26px; min-height: 30px;
+  font: 800 13px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--muted);
+  white-space: nowrap;
+}
+.sp-cap span:first-child { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.sp-on {
+  display: none; align-items: center; gap: 6px; flex: none;
+  background: var(--chalk); color: var(--ink);
+  border-radius: 999px; padding: 7px 11px 6px 8px;
+}
+.sp-on svg { width: 14px; height: 14px; stroke-width: 3.4; }
+
+.sc-deck { position: relative; container-type: inline-size; width: 100%; }
+.sc-deck::before, .sc-deck::after {
+  content: ""; position: absolute; inset: 0; border-radius: 20px;
+  opacity: 0; transition: opacity .4s var(--ease-out);
+}
+.sc-deck--a::before { background: var(--ecol); transform: rotate(1.8deg) translate(3px, -5px); }
+.sc-deck--a::after { background: var(--soc); transform: rotate(-1deg) translate(-2px, -3px); }
+.sc-deck--b::before { background: var(--educ); transform: rotate(-1.8deg) translate(-3px, -5px); }
+.sc-deck--b::after { background: var(--eco); transform: rotate(1deg) translate(2px, -3px); }
+
+/* le choix en cours : la carte choisie garde son éventail et son badge */
+.sp:has(#v-cand:checked) .sc-deck--a::before, .sp:has(#v-cand:checked) .sc-deck--a::after,
+.sp:has(#v-pion:checked) .sc-deck--b::before, .sp:has(#v-pion:checked) .sc-deck--b::after { opacity: 1; }
+.sp:has(#v-cand:checked) .sp-slot--a .sp-on, .sp:has(#v-pion:checked) .sp-slot--b .sp-on { display: inline-flex; }
+
+/* ---------- la carte : exactement 9:16 ---------- */
+.sc {
+  --u: calc(100cqw / 360);
+  position: relative; z-index: 1;
+  width: 100%; aspect-ratio: 9 / 16;
+  border-radius: calc(var(--u) * 20);
+  overflow: hidden;
+  padding: calc(var(--u) * 26) calc(var(--u) * 24) calc(var(--u) * 50);
+  display: flex; flex-direction: column;
+  color: var(--ink);
+}
+.sc--a { background: var(--eco); }
+.sc--b { background: var(--immi); }
+
+.sc-tiles {
+  flex: none; display: flex; gap: calc(var(--u) * 3);
+  height: calc(var(--u) * 16); padding: calc(var(--u) * 3);
+  background: #fff; border-radius: calc(var(--u) * 6);
+}
+.sc-tiles i { flex: 1; border-radius: calc(var(--u) * 2); display: block; }
+.sc-k {
+  margin-top: calc(var(--u) * 18);
+  font: 800 max(12px, calc(var(--u) * 14))/1 var(--display);
+  text-transform: uppercase; letter-spacing: .08em; white-space: nowrap;
+}
+
+/* variante 1 : le pourcentage */
+.sc-big {
+  margin-top: calc(var(--u) * 8);
+  font: 800 calc(var(--u) * 196)/0.8 var(--display);
+  font-variation-settings: "wdth" 75, "opsz" 96;
+  letter-spacing: -0.04em; white-space: nowrap;
+}
+.sc-big small { font-size: 50%; letter-spacing: -0.02em; }
+.sc-t {
+  margin-top: calc(var(--u) * 14);
+  font: 800 calc(var(--u) * 34)/1.06 var(--display);
+  font-variation-settings: "wdth" 85;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.sc-t mark {
+  background: var(--ink); color: var(--eco);
+  padding: 0 calc(var(--u) * 7); border-radius: calc(var(--u) * 7);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.sc-token { margin: auto; width: calc(var(--u) * 124); flex: none; }
+.sc-token svg { display: block; width: 100%; height: auto; filter: drop-shadow(0 calc(var(--u) * 5) 0 rgba(29, 24, 56, .28)); }
+.sc-f {
+  text-align: center; white-space: nowrap;
+  font: 700 max(12px, calc(var(--u) * 13))/1.2 var(--text);
+  letter-spacing: -0.01em;
+}
+.sc-ask { margin-top: calc(var(--u) * 16); display: flex; align-items: center; justify-content: space-between; gap: calc(var(--u) * 8); }
+.sc-ask b {
+  font: 800 calc(var(--u) * 46)/1 var(--display); font-variation-settings: "wdth" 85;
+  letter-spacing: -0.02em; white-space: nowrap;
+}
+.sc-url {
+  background: var(--ink); color: var(--chalk);
+  font: 800 max(12px, calc(var(--u) * 16))/1 var(--display);
+  padding: calc(var(--u) * 11) calc(var(--u) * 14) calc(var(--u) * 10);
+  border-radius: 999px; white-space: nowrap;
+}
+
+/* variante 2 : le pion sur le plateau */
+.sc-h {
+  margin-top: calc(var(--u) * 12);
+  font: 800 calc(var(--u) * 52)/0.94 var(--display);
+  font-variation-settings: "wdth" 80, "opsz" 96;
+  letter-spacing: -0.03em; text-wrap: balance;
+}
+.sc-board { margin: auto; width: calc(var(--u) * 286); flex: none; }
+.sc--b .board { max-width: none; border-radius: calc(var(--u) * 16); box-shadow: 0 calc(var(--u) * 8) 0 var(--ink); }
+.sc--b .you { animation: none; width: calc(var(--u) * 56); height: calc(var(--u) * 56); margin: calc(var(--u) * -28) 0 0 calc(var(--u) * -28); }
+.sc--b .you span { font-size: max(12px, calc(var(--u) * 12)); top: calc(var(--u) * -21); }
+.sc--b .edge { font-size: max(12px, calc(var(--u) * 12)); }
+.sc-ask--col { margin-top: 0; display: grid; justify-items: start; gap: calc(var(--u) * 10); }
+.sc-ask--col b { font-size: calc(var(--u) * 27); }
+
+/* ---------- ce que la carte montre + actions ---------- */
+.sp-controls { margin: 54px auto 0; max-width: 560px; display: grid; gap: 0; }
+.sp-choice { border: 0; margin: 0; padding: 0; min-width: 0; }
+.sp-choice legend { font: 800 24px/1.1 var(--display); font-variation-settings: "wdth" 88; padding: 0; }
+.sp-choice .opts { margin-top: 16px; }
+.sp-choice .opt-title { font-size: 21px; }
+.sp-choice .opt-letter svg { width: 26px; height: 26px; stroke-width: 2.2; }
+.sp-choice .opt-letter { font-size: 24px; }
+.sp-actions { margin-top: 30px; max-width: none; }
+.sp-actions .act { border: 0; cursor: pointer; width: 100%; padding: 0 18px; }
+.sp-actions .act:focus-visible { outline: 3px solid var(--eco); outline-offset: 3px; }
+.sp-actions + .act-note { margin-top: 4px; }
+.sp .res-foot { max-width: 560px; margin-inline: auto; }
+
+@media (min-width: 900px) {
+  .sp { padding: 0 32px 56px; }
+  .sp-lead { font-size: 18px; }
+  .sp-cards { grid-template-columns: repeat(2, 360px); justify-content: center; column-gap: 88px; align-items: start; margin-top: 40px; }
+  .sp-controls { max-width: 808px; margin-top: 64px; }
+  .sp-choice .opts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sp-choice .opt-title { font-size: 21px; }
+  .sp-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sp .res-foot { max-width: 808px; }
+}

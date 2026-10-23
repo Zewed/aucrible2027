@@ -2576,3 +2576,24 @@ test.describe("la révélation annonce la part gagnée", () => {
     await expect(bloc.getByText("Ton camembert passe à 6 parts sur 11.")).toBeVisible();
   });
 });
+
+test.describe("les résultats montrent la carte « Je suis à X % proche de Y »", () => {
+  test("avec 23 réponses, la section « Ta carte » dit « Je suis à 81 % proche de François Ruffin. », le premier du classement", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const carte = page.getByRole("region", { name: "Ta carte" });
+    await expect(carte.getByText(/^Je suis à 81\s%\sproche de François Ruffin\.$/)).toBeVisible();
+    expect((await lignesDuClassement(page))[0]).toEqual(["1", "François Ruffin", "81 %"]);
+  });
+
+  test("toucher « Partager ma carte » ouvre la page « Ta carte », où « 81 % » et la phrase sont affichés en grand", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await page.getByRole("link", { name: "Partager ma carte" }).click();
+    await expect(page).toHaveURL(/\/carte$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Ta carte." }).filter({ visible: true })).toBeVisible();
+    const carte = page.getByRole("article", { name: /Carte à partager/ }).filter({ visible: true });
+    await expect(carte.getByText(/^81\s%$/)).toBeVisible();
+    await expect(carte.getByText(/^Je suis à 81\s%\sproche de François Ruffin\.$/)).toBeVisible();
+  });
+});
