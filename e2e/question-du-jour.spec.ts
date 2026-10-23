@@ -598,3 +598,48 @@ test("changer d'importance ne change pas l'option choisie : « Ta carte » reste
   await expect(carteReponse(page, "64 ans").getByText("Ta carte", { exact: true })).toBeVisible();
   await expect(page.getByText("Ta carte", { exact: true }).filter({ visible: true })).toHaveCount(1);
 });
+
+/** Répondre à la question du jour et arriver sur sa révélation. */
+async function repondre(page: Page, libelle: string) {
+  await page.goto("/");
+  await choisir(page, libelle);
+  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await expect(page).toHaveURL(/\/revelation$/);
+}
+
+const quiDefendQuoi = (page: Page) => page.getByRole("region", { name: "Qui défend quoi" });
+
+/** Les noms posés sous un bloc d'option de la révélation, triés (l'ordre affiché est l'affaire du ticket 025). */
+async function nomsSous(page: Page, option: string) {
+  const bloc = quiDefendQuoi(page).getByRole("article", { name: option });
+  await expect(bloc).toBeVisible();
+  return (await bloc.getByRole("listitem").allInnerTexts()).map((t) => t.trim()).sort();
+}
+
+test("la révélation de la question n° 24 nomme, sous chaque option, les candidats qui la défendent", async ({ page }) => {
+  await repondre(page, "62 ans");
+  expect(await nomsSous(page, "Option A : 60 ans")).toEqual(["Fabien Roussel", "Jean-Luc Mélenchon", "Nathalie Arthaud"]);
+  expect(await nomsSous(page, "Option B : 62 ans")).toEqual(["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]);
+  expect(await nomsSous(page, "Option C : 64 ans")).toEqual(["Gabriel Attal", "Éric Zemmour"]);
+  expect(await nomsSous(page, "Option D : 65 ans ou plus")).toEqual(["Bruno Retailleau"]);
+  expect(await nomsSous(page, "Option E : À la carte, avec un système à points")).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
+});
+
+test("quelle que soit la réponse, les cinq blocs s'affichent, annoncent leur nombre de candidats, et nul n'apparaît deux fois", async ({ page }) => {
+  const attendus = { A: "3 candidats", B: "3 candidats", C: "2 candidats", D: "1 candidat", E: "2 candidats" };
+  for (const reponse of ["60 ans", "À la carte, avec un système à points", "Je ne sais pas"]) {
+    await repondre(page, reponse);
+    const blocs = quiDefendQuoi(page).getByRole("article");
+    await expect(blocs).toHaveCount(5);
+    const tous: string[] = [];
+    for (const [rang, [lettre, compte]] of Object.entries(attendus).entries()) {
+      const bloc = blocs.nth(rang);
+      await expect(bloc).toHaveAccessibleName(new RegExp(`^Option ${lettre} : `));
+      await expect(bloc.getByText(compte, { exact: true })).toBeVisible();
+      const noms = await bloc.getByRole("listitem").allInnerTexts();
+      expect(`${noms.length} candidat${noms.length > 1 ? "s" : ""}`).toBe(compte);
+      tous.push(...noms);
+    }
+    expect(new Set(tous).size).toBe(tous.length);
+  }
+});
