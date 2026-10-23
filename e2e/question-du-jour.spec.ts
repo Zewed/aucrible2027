@@ -1161,3 +1161,23 @@ test.describe("une question pas encore publiée reste inaccessible", () => {
     await expect(page.getByRole("heading", { name: "Faut-il sortir du nucléaire ?" })).toBeVisible();
   });
 });
+
+test.describe("le compte à rebours avant le 1er tour", () => {
+  const compteARebours = (page: Page) => page.getByText(/^J-\d+ avant le 1er tour$/).filter({ visible: true });
+
+  test("le 23 octobre 2026, le bandeau affiche « J-177 avant le 1er tour » ; le 24, « J-176 »", async ({ page }) => {
+    await page.goto("/");
+    await expect(compteARebours(page)).toHaveText("J-177 avant le 1er tour");
+    const [rebours, numero] = await Promise.all([compteARebours(page).boundingBox(), page.getByText(/^Question n° 24/).boundingBox()]);
+    expect(rebours!.x).toBeLessThan(numero!.x);
+    await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
+    await page.goto("/");
+    await expect(compteARebours(page)).toHaveText("J-176 avant le 1er tour");
+  });
+
+  test("le décompte vise le dimanche 18 avril 2027 : le samedi 17 avril, il affiche « J-1 »", async ({ page }) => {
+    await fixerLeJour(page, "2027-04-17T09:00:00+02:00");
+    await page.goto("/");
+    await expect(compteARebours(page)).toHaveText("J-1 avant le 1er tour");
+  });
+});
