@@ -75,6 +75,15 @@ export function QuestionDuJour({
       </>
     );
   }
+  if (!question && !prochaineParution) {
+    // Texte provisoire : le message exact, et ce que l'accueil propose à la place, restent à trancher (ticket 041).
+    return (
+      <>
+        {bandeau}
+        <Annonce message="Il n'y a plus de nouvelle question." />
+      </>
+    );
+  }
   if (!question || !theme) return bandeau;
 
   function valider(evenement: React.FormEvent) {

@@ -22,3 +22,6 @@ playwright-report/
 
 # Journal et tableau du pilote automatique (locaux)
 .veebee/autopilot/
+
+# Fiches que les tests de bout en bout publient le temps d'un test
+content/questions/*-de-test.yaml
