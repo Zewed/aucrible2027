@@ -260,3 +260,36 @@ test("sur aucune fiche un chiffre clé n'apparaît sans son organisme ni son ann
     }
   }
 });
+
+/** Les lettres des cartes réponse, dans l'ordre où l'électeur les voit. */
+async function lettresDesOptions(page: Page) {
+  const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+  await expect(options.first()).toBeAttached();
+  const lettres = [];
+  for (const option of await options.all()) {
+    const lettre = option.locator("xpath=..").locator(".opt-letter");
+    await expect(lettre).toBeVisible();
+    lettres.push(await lettre.innerText());
+  }
+  return lettres;
+}
+
+test("les cinq cartes réponse de la question n° 24 portent, dans l'ordre, les lettres A à E", async ({ page }) => {
+  await page.goto("/");
+  expect(await lettresDesOptions(page)).toEqual(["A", "B", "C", "D", "E"]);
+  const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+  await expect(options.nth(0)).toHaveAccessibleName("A 60 ans");
+  await expect(options.nth(4)).toHaveAccessibleName("E À la carte, avec un système à points");
+});
+
+test("une fiche à trois options affiche A, B, C seulement ; une fiche à quatre, A à D", async ({ page }) => {
+  await page.clock.setFixedTime(new Date("2026-10-25T09:00:00+01:00"));
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: "Faut-il réguler l'installation des médecins ?" })).toBeVisible();
+  expect(await lettresDesOptions(page)).toEqual(["A", "B", "C"]);
+
+  await page.clock.setFixedTime(new Date("2026-10-24T09:00:00+02:00"));
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: "Faut-il sortir du nucléaire ?" })).toBeVisible();
+  expect(await lettresDesOptions(page)).toEqual(["A", "B", "C", "D"]);
+});
