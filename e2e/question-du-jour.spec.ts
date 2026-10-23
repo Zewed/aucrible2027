@@ -1922,3 +1922,24 @@ test.describe("une option hors échelle compte tout ou rien", () => {
     expect(avecE).toBe(avecA);
   });
 });
+
+test.describe("l'importance ×2 ou ×3 pèse plus dans le classement", () => {
+  test("avec E à la n° 24 en ×3 plutôt qu'en ×1, Nicolas Dupont-Aignan (position E) monte et Jean-Luc Mélenchon (position A) descend", async ({ page }) => {
+    const [dupontAignanX1, melenchonX1] = [
+      await pourcentageAvecLa24(page, "E", "Nicolas Dupont-Aignan", 1),
+      Number((await lignesDuClassement(page)).find(([, n]) => n === "Jean-Luc Mélenchon")![2]!.replace(/\D/g, "")),
+    ];
+    const [dupontAignanX3, melenchonX3] = [
+      await pourcentageAvecLa24(page, "E", "Nicolas Dupont-Aignan", 3),
+      Number((await lignesDuClassement(page)).find(([, n]) => n === "Jean-Luc Mélenchon")![2]!.replace(/\D/g, "")),
+    ];
+    expect(dupontAignanX3).toBeGreaterThan(dupontAignanX1);
+    expect(melenchonX3).toBeLessThan(melenchonX1);
+  });
+
+  test("sous le classement, la note dit que les réponses sont « pondérées par l'importance que tu leur donnes »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByText("Calculé sur tes 23 réponses, pondérées par l'importance que tu leur donnes.")).toBeVisible();
+  });
+});
