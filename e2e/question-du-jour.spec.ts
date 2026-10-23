@@ -493,3 +493,25 @@ test("avec « réduire les animations », la carte choisie est marquée aussitô
   expect(etat).toEqual({ animations: 0, fond: ORANGE, etiquette: "1" });
   await expect(choisie.getByText("Ta carte", { exact: true })).toBeVisible();
 });
+
+test("choisir A puis B, sans valider, fait passer « Ta carte » de A à B", async ({ page }) => {
+  await page.goto("/");
+  await choisir(page, "60 ans");
+  await expect(carteReponse(page, "60 ans").getByText("Ta carte", { exact: true })).toBeVisible();
+  await choisir(page, "62 ans");
+  await expect(carteReponse(page, "62 ans").getByText("Ta carte", { exact: true })).toBeVisible();
+  await expect(carteReponse(page, "60 ans").getByText("Ta carte", { exact: true })).toBeHidden();
+  await expect(page.getByText("Ta carte", { exact: true }).filter({ visible: true })).toHaveCount(1);
+  await expect(page.getByRole("radio", { checked: true })).toHaveCount(1);
+});
+
+test("après A puis B et validation, la révélation nomme les défenseurs de B, pas ceux de A", async ({ page }) => {
+  await page.goto("/");
+  await choisir(page, "60 ans");
+  await choisir(page, "62 ans");
+  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await expect(page).toHaveURL(/\/revelation$/);
+  const defenseurs = page.getByRole("list", { name: "Ils défendent ton option" });
+  for (const nom of ["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]) await expect(defenseurs.getByText(nom)).toBeVisible();
+  for (const nom of ["Jean-Luc Mélenchon", "Fabien Roussel", "Nathalie Arthaud"]) await expect(defenseurs.getByText(nom)).toHaveCount(0);
+});
