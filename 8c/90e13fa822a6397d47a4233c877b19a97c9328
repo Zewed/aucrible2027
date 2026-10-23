@@ -1,0 +1,24 @@
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_ed01c0aaf254de 865-879
+src/components/Revelation.tsx
+  s_2c9a7110ce04dd::t_e616ee4bbb67a2 19-42,78-83,122-124,127
+  s_2c9a7110ce04dd::t_521a3133d72c1b 125-126
+.veebee/tickets/028-la-revelation-dit-de-qui-il-est-proche.md
+  s_2c9a7110ce04dd::t_1c9473e412fed5 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8c90e13fa822a6397d47a4233c877b19a97c9328",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
