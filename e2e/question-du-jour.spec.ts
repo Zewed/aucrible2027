@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, rmSync, writeFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 import { parse } from "yaml";
 
@@ -1197,5 +1197,38 @@ test.describe("avant la première question, l'accueil dit quand elle arrive", ()
     await page.goto("/");
     await expect(page.getByRole("heading", { name: "Faut-il encadrer les loyers dans les grandes villes ?" })).toBeVisible();
     await expect(page.getByRole("heading", { name: /première question/i })).toHaveCount(0);
+  });
+});
+
+test.describe("quand les questions s'arrêtent, l'accueil le dit", () => {
+  // La dernière fiche de démonstration est datée du dimanche 25 octobre 2026.
+  test("le 26 octobre, sans fiche ce jour-là ni après, l'accueil dit qu'il n'y a plus de nouvelle question", async ({ page }) => {
+    await fixerLeJour(page, "2026-10-26T09:00:00+01:00");
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: /plus de nouvelle question/i })).toBeVisible();
+    await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
+  });
+
+  test("si l'auteur publie ensuite une nouvelle fiche, elle apparaît à l'accueil à sa date, à la place du message", async ({ page }) => {
+    await fixerLeJour(page, "2026-10-27T09:00:00+01:00");
+    await page.goto("/");
+    await expect(page.getByRole("heading", { name: /plus de nouvelle question/i })).toBeVisible();
+
+    // L'auteur publie une fiche datée du 27 octobre, comme il le ferait : un fichier de plus dans content/questions.
+    const fiche = "content/questions/900-fiche-de-test.yaml";
+    writeFileSync(
+      fiche,
+      readFileSync("content/questions/023-loyers.yaml", "utf8")
+        .replace(/^numero: 23$/m, "numero: 27")
+        .replace(/^date: 2026-10-22$/m, "date: 2026-10-27")
+        .replace(/^question: .*$/m, "question: Une fiche publiée après coup ?"),
+    );
+    try {
+      await page.goto("/");
+      await expect(page.getByRole("heading", { name: "Une fiche publiée après coup ?" })).toBeVisible();
+      await expect(page.getByRole("heading", { name: /plus de nouvelle question/i })).toHaveCount(0);
+    } finally {
+      rmSync(fiche);
+    }
   });
 });
