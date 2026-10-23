@@ -1,0 +1,23 @@
+src/app/a-propos/page.tsx
+  s_330ba31127fa8a::t_c159604c2a16af 1,119-196,238
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_4aca0e224c4e4f 3762-3802
+.veebee/tickets/156-la-page-a-propos-dit-comment-les-fiches-sont-relues.md
+  s_330ba31127fa8a::t_3d4dbb6c658662 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cc8b4064c150436f46618401f01d7467d6f7327c",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
