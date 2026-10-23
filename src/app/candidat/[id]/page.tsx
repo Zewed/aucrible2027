@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
+import { ProximiteDuCandidat } from "@/components/ProximiteDuCandidat";
 import { PartDuTheme } from "@/components/PuceTheme";
 import { lireCandidats, lireThemes, type Position, type Question, type Theme } from "@/lib/contenu";
-import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
+import { lireAujourdhui, lireQuestionsDuCalcul, lireQuestionsPubliees } from "@/lib/publication";
 import "./candidat.css";
 
 /** Le badge d'une position : dite par le candidat (officielle) ou tirée de son groupe ou de son parti (déduite). */
@@ -97,9 +98,10 @@ function PositionsDuTheme({ theme, questions, candidatId }: { theme: Theme; ques
  * à toutes) : les cacher avant la réponse, comme le face-à-face, reste à trancher.
  */
 async function FicheCandidat({ id }: { id: string }) {
-  const candidat = lireCandidats().find((c) => c.id === id);
+  const candidats = lireCandidats();
+  const candidat = candidats.find((c) => c.id === id);
   if (!candidat) notFound();
-  const [jour, publiees] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
+  const [jour, publiees, duCalcul] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees(), lireQuestionsDuCalcul()]);
   const questions = [...publiees].sort((a, b) => a.numero - b.numero);
   // Un thème sans question publiée n'a pas de bloc : la maquette n'en dessine pas.
   const themes = lireThemes().filter((t) => questions.some((q) => q.theme === t.id));
@@ -137,6 +139,7 @@ async function FicheCandidat({ id }: { id: string }) {
                 </p>
               )}
             </section>
+            <ProximiteDuCandidat questions={duCalcul} candidats={candidats} candidatId={candidat.id} />
           </aside>
           <div className="fiche-main">
             <section aria-labelledby="h-pos">

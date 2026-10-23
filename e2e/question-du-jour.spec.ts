@@ -3172,3 +3172,36 @@ test.describe("la fiche ne montre que les questions publiées", () => {
     await expect(societe.getByRole("img")).toHaveAccessibleName("2 questions publiées");
   });
 });
+
+test.describe("la fiche affiche sa proximité avec l'électeur", () => {
+  /** « Ta proximité : N % » et la note qui la suit, sur la fiche du candidat. */
+  async function proximiteSurLaFiche(page: Page, id: string) {
+    await page.goto(`/candidat/${id}`);
+    const encart = page.getByRole("region", { name: "Ta proximité" });
+    await expect(encart.locator(".prox-note")).toBeVisible();
+    return [(await encart.locator(".prox-line").textContent())!.trim(), (await encart.locator(".prox-note").textContent())!.trim()];
+  }
+
+  test("pour l'électeur de la maquette (23 réponses), la fiche de Marine Tondelier affiche « Ta proximité : 71 % » et « 3e sur 13, d'après tes 23 réponses »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    const [ligne, note] = await proximiteSurLaFiche(page, "tondelier");
+    expect(ligne).toBe("Ta proximité : 71 %");
+    expect(note).toBe("3e sur 13, d'après tes 23 réponses. Les positions inconnues ne comptent pas.");
+    await expect(page.locator(".prox-bar i")).toHaveAttribute("style", /--p: ?71/);
+  });
+
+  test("ce pourcentage et ce rang sont ceux de « Mes résultats » ; sur la fiche de François Ruffin, 81 % et « 1er sur 13 »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const lignes = await lignesDuClassement(page);
+    for (const [id, nom] of [["tondelier", "Marine Tondelier"], ["ruffin", "François Ruffin"]]) {
+      const [rang, , pourcentage] = lignes.find(([, n]) => n === nom)!;
+      const [ligne, note] = await proximiteSurLaFiche(page, id);
+      expect(ligne).toBe(`Ta proximité : ${pourcentage}`);
+      expect(note).toMatch(new RegExp(`^${rang}(er|e) sur 13, d'après tes 23 réponses\\.`));
+    }
+    const [ligne, note] = await proximiteSurLaFiche(page, "ruffin");
+    expect([ligne, note.split(",")[0]]).toEqual(["Ta proximité : 81 %", "1er sur 13"]);
+  });
+});
