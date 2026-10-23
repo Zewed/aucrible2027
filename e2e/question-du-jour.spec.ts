@@ -3279,3 +3279,33 @@ test.describe("la page Méthode explique le score d'une question avec un exemple
     await expect(paires.nth(1).getByLabel("différente de")).toBeVisible();
   });
 });
+
+test.describe("un candidat retiré sort du classement", () => {
+  /** Marine Tondelier retirée le 14/12/2026 (ajout de test « retrait »), « Mes résultats » ouverts le lendemain. */
+  async function classementApresLeRetrait(page: Page, retrait: boolean) {
+    await fixerLeJour(page, "2026-12-15T09:00:00+01:00");
+    if (retrait) await page.context().addCookies([{ name: "aucrible-candidats-de-test", value: "retrait", url: "http://localhost:3127" }]);
+    else await page.context().clearCookies({ name: "aucrible-candidats-de-test" });
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(retrait ? 12 : 13);
+    return lignesDuClassement(page);
+  }
+
+  test("une fois Marine Tondelier retirée (14/12/2026), « Mes résultats » classe 12 candidats, sans elle ni pourcentage pour elle", async ({ page }) => {
+    await vingtTroisReponses(page);
+    const lignes = await classementApresLeRetrait(page, true);
+    expect(lignes.map(([rang]) => rang)).toEqual(Array.from({ length: 12 }, (_, i) => String(i + 1)));
+    expect(lignes.map(([, nom]) => nom)).not.toContain("Marine Tondelier");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByText("Marine Tondelier")).toHaveCount(0);
+  });
+
+  test("les pourcentages des 12 autres candidats ne changent pas", async ({ page }) => {
+    await vingtTroisReponses(page);
+    const avant = await classementApresLeRetrait(page, false);
+    expect(avant.find(([, nom]) => nom === "Marine Tondelier")).toEqual(["3", "Marine Tondelier", "71 %"]);
+    const apres = await classementApresLeRetrait(page, true);
+    expect(apres.map(([, nom, pourcentage]) => [nom, pourcentage])).toEqual(
+      avant.filter(([, nom]) => nom !== "Marine Tondelier").map(([, nom, pourcentage]) => [nom, pourcentage]),
+    );
+  });
+});

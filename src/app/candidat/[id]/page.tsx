@@ -4,8 +4,8 @@ import { Suspense } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
 import { ProximiteDuCandidat } from "@/components/ProximiteDuCandidat";
 import { PartDuTheme } from "@/components/PuceTheme";
-import { lireCandidats, lireThemes, type Position, type Question, type Theme } from "@/lib/contenu";
-import { lireAujourdhui, lireQuestionsDuCalcul, lireQuestionsPubliees } from "@/lib/publication";
+import { lireThemes, type Position, type Question, type Theme } from "@/lib/contenu";
+import { lireAujourdhui, lireCandidatsEnLice, lireLesCandidats, lireQuestionsDuCalcul, lireQuestionsPubliees } from "@/lib/publication";
 import "./candidat.css";
 
 /** Le badge d'une position : dite par le candidat (officielle) ou tirée de son groupe ou de son parti (déduite). */
@@ -137,7 +137,7 @@ function PositionsDuTheme({ theme, questions, candidatId }: { theme: Theme; ques
  * à toutes) : les cacher avant la réponse, comme le face-à-face, reste à trancher.
  */
 async function FicheCandidat({ id }: { id: string }) {
-  const candidats = lireCandidats();
+  const [candidats, enLice] = await Promise.all([lireLesCandidats(), lireCandidatsEnLice()]);
   const candidat = candidats.find((c) => c.id === id);
   if (!candidat) notFound();
   const [jour, publiees, duCalcul] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees(), lireQuestionsDuCalcul()]);
@@ -178,7 +178,7 @@ async function FicheCandidat({ id }: { id: string }) {
                 </p>
               )}
             </section>
-            <ProximiteDuCandidat questions={duCalcul} candidats={candidats} candidatId={candidat.id} />
+            <ProximiteDuCandidat questions={duCalcul} candidats={enLice} candidatId={candidat.id} />
           </aside>
           <div className="fiche-main">
             <section aria-labelledby="h-pos">
