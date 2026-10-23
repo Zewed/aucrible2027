@@ -1,10 +1,10 @@
-import type { Candidat } from "@/lib/contenu";
+import type { Axes, Candidat } from "@/lib/contenu";
 import { JE_NE_SAIS_PAS, type Reponse } from "@/lib/reponses";
 
 /** Ce que le calcul lit d'une question publiée : ses options, dans l'ordre, et les positions connues. */
 export type QuestionDuCalcul = {
   numero: number;
-  options: { id: string; horsEchelle?: boolean }[];
+  options: { id: string; horsEchelle?: boolean; axes?: Axes }[];
   positions: Record<string, { option: string }>;
 };
 
