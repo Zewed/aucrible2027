@@ -4124,3 +4124,30 @@ test.describe("chaque correction montre l'avant et l'après", () => {
     expect(apres).toMatchObject({ titre: "Après", valeur: "Position inconnue", precision: "Exclue du calcul, faute de source" });
   });
 });
+
+test.describe("chaque correction dit sa raison", () => {
+  /** Le « Pourquoi » de chaque correction du journal, par jour. */
+  async function raisons(page: Page) {
+    await page.context().addCookies([{ name: "aucrible-corrections-de-test", value: "maquette", url: "http://localhost:3127" }]);
+    await page.goto("/journal");
+    await expect(page.locator(".log .entry")).toHaveCount(7);
+    const lignes: [string, string | undefined][] = await page.locator(".log .entry").evaluateAll((entrees) =>
+      entrees.map((e) => {
+        const ligne = [...e.querySelectorAll(".why > div")].find((d) => d.querySelector("dt")?.textContent === "Pourquoi");
+        return [e.querySelector("time")!.getAttribute("datetime")!, ligne?.querySelector("dd")?.textContent?.replace(/\s+/g, " ")];
+      }),
+    );
+    return Object.fromEntries(lignes);
+  }
+
+  test("la correction du 12 oct. 2026 a pour « Pourquoi » « Chiffre corrigé : erreur de recopie, source relue »", async ({ page }) => {
+    expect((await raisons(page))["2026-10-12"]).toBe("Chiffre corrigé : erreur de recopie, source relue");
+  });
+
+  test("chacune des sept corrections a un « Pourquoi » qui n'est pas vide", async ({ page }) => {
+    const parJour = await raisons(page);
+    expect(Object.keys(parJour)).toHaveLength(7);
+    for (const [jour, raison] of Object.entries(parJour)) expect(raison?.trim(), jour).toBeTruthy();
+    expect(parJour["2026-10-09"]).toBe("Lien de source rompu : remplacé par la version en ligne");
+  });
+});

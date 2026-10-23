@@ -63,7 +63,7 @@ const TYPES: Record<Correction["type"], string> = { chiffre: "Chiffre", position
 
 /**
  * Une correction du journal : sa date en gros, son type et la fiche touchée (une question, ou la fiche d'un candidat
- * sur une question), puis l'avant et l'après. La raison et l'origine : tickets 175 et 176.
+ * sur une question), puis l'avant et l'après, et pourquoi. L'origine : ticket 176.
  */
 function Entree({ correction, rang, classe, candidat }: { correction: Correction; rang: number; classe?: string; candidat?: Candidat }) {
   const [annee, mois, jour] = correction.date.split("-");
@@ -104,6 +104,12 @@ function Entree({ correction, rang, classe, candidat }: { correction: Correction
           <Cote titre="Avant" cote={correction.avant} classe="was theme-sante" />
           <Cote titre="Après" cote={correction.apres} classe="now theme-ecol" />
         </div>
+        <dl className="why">
+          <div>
+            <dt>Pourquoi</dt>
+            <dd>{insecables(correction.pourquoi)}</dd>
+          </div>
+        </dl>
       </article>
     </li>
   );

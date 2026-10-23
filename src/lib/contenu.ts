@@ -84,6 +84,8 @@ export type Correction = {
   /** Ce qui a changé : une valeur et une précision facultative ; entre ==…==, la partie surlignée. */
   avant: CoteDeLaCorrection;
   apres: CoteDeLaCorrection;
+  /** Pourquoi la correction a été faite, en une phrase. */
+  pourquoi: string;
 };
 export type CoteDeLaCorrection = { valeur: string; precision?: string };
 
