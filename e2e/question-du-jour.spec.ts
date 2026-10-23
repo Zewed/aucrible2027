@@ -2127,14 +2127,18 @@ test.describe("avant 10 réponses, le classement dit combien il en manque", () =
   });
 });
 
-/** La place du centre du pion « TOI » sur le champ du plateau, de 0 à 1 sur chaque axe (hors animation). */
+/**
+ * La place du centre du pion « TOI » sur le champ du plateau, de 0 à 1 sur chaque axe : sa position
+ * calculée, au pixel près sans arrondi, hors animation (le pion est centré sur `left` et `top`).
+ */
 const placeDuToi = (page: Page) =>
   page
     .getByRole("region", { name: "Ton plateau" })
-    .locator(".you")
+    .locator(".field .you")
     .evaluate((toi: HTMLElement) => {
       const champ = toi.offsetParent as HTMLElement;
-      return { x: (toi.offsetLeft + toi.offsetWidth / 2) / champ.offsetWidth, y: (toi.offsetTop + toi.offsetHeight / 2) / champ.offsetHeight };
+      const style = getComputedStyle(toi);
+      return { x: parseFloat(style.left) / champ.clientWidth, y: parseFloat(style.top) / champ.clientHeight };
     });
 
 test.describe("le plateau place le pion « toi » sur les deux axes", () => {
@@ -2143,6 +2147,8 @@ test.describe("le plateau place le pion « toi » sur les deux axes", () => {
     await page.goto("/resultats");
     const plateau = page.getByRole("region", { name: "Ton plateau" });
     await expect(plateau.locator(".field .you").getByText("TOI", { exact: true })).toBeVisible();
+    // Le rendu serveur, sans les réponses de l'appareil, pose le pion au centre : attendre qu'elles soient lues.
+    await expect(plateau.locator(".field .pawn")).toHaveCount(13);
     const { x, y } = await placeDuToi(page);
     expect(x).toBeGreaterThan(0.35);
     expect(x).toBeLessThan(0.5);
@@ -2295,5 +2301,49 @@ test.describe("la légende relie chaque pion à son candidat", () => {
     const classement = (await lignesDuClassement(page)).map(([, nom]) => nom);
     expect(noms).not.toEqual(classement);
     expect(noms).not.toEqual([...noms].sort((a, b) => a.localeCompare(b, "fr")));
+  });
+});
+
+test.describe("une option sans note sur un axe ne déplace pas le pion", () => {
+  /**
+   * La place du pion « TOI » pour un électeur qui a répondu A, avec les importances de `vingtTroisReponses`,
+   * aux questions de ces numéros, plus B à la n° 24 si `avecLa24` (une option sans aucune note).
+   */
+  async function placeAvec(page: Page, numeros: number[], avecLa24 = false) {
+    await page.goto("/");
+    await page.evaluate(
+      ([numeros, avecLa24]) => {
+        const reponses: Record<number, object> = {};
+        for (const numero of numeros as number[]) {
+          const importance = numero <= 8 ? 3 : numero <= 14 ? 2 : 1;
+          reponses[numero] = { option: "A", importance, graine: 1, jour: "2026-10-22", duJour: false };
+        }
+        if (avecLa24) reponses[24] = { option: "B", importance: 2, graine: 1, jour: "2026-10-23", duJour: true };
+        localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+      },
+      [numeros, avecLa24] as const,
+    );
+    await page.goto("/resultats");
+    // Le rendu serveur, sans les réponses de l'appareil, pose le pion au centre : attendre qu'elles soient lues.
+    await expect(page.getByRole("region", { name: "Ton plateau" }).locator(".field .pawn")).toHaveCount(13);
+    return placeDuToi(page);
+  }
+  const vingtTrois = Array.from({ length: 23 }, (_, i) => i + 1);
+
+  test("répondre en plus à une question dont l'option n'a aucune note économique laisse le pion « TOI » à la même place de gauche à droite", async ({ page }) => {
+    const sans = await placeAvec(page, vingtTrois);
+    const avec = await placeAvec(page, vingtTrois, true);
+    expect(avec.x).toBe(sans.x);
+  });
+
+  test("une option notée seulement sur l'axe économique déplace le pion de gauche à droite sans changer sa hauteur ; une option sans aucune note ne le déplace pas", async ({ page }) => {
+    // La n° 1 n'est notée que sur l'axe économique (A : −2).
+    const sansLa1 = await placeAvec(page, vingtTrois.slice(1));
+    const avecLa1 = await placeAvec(page, vingtTrois);
+    expect(avecLa1.x).toBeLessThan(sansLa1.x);
+    expect(avecLa1.y).toBe(sansLa1.y);
+    // La n° 24 n'a aucune note.
+    const avecLa24 = await placeAvec(page, vingtTrois, true);
+    expect(avecLa24).toEqual(avecLa1);
   });
 });
