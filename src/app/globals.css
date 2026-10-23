@@ -21,3 +21,6 @@
   background: repeating-linear-gradient(90deg, var(--ink) 0 calc(100% / var(--publiees) - 2px), transparent calc(100% / var(--publiees) - 2px) calc(100% / var(--publiees)));
   background-size: calc(100% * var(--publiees) / var(--repondues)) 100%;
 }
+
+/* Le filtre du rattrapage : la maquette laisse « Tous les thèmes » affiché à côté du thème choisi. */
+.catch:has(.fr:checked:not(#f-all)) .cur-all { display: none; }
