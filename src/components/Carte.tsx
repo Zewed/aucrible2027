@@ -133,13 +133,23 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
   }, [affichee]);
   if (!premier) return null;
 
-  async function partager() {
+  /** L'image de la version choisie, dessinée d'avance. */
+  function imageChoisie() {
     const version = choix.current ? new FormData(choix.current).get("montre") : null;
-    const fichier = await images.current[version === "pion" ? "pion" : "candidat"];
+    return images.current[version === "pion" ? "pion" : "candidat"];
+  }
+
+  async function partager() {
+    const fichier = await imageChoisie();
     if (!fichier) return;
     // Sans partage du système (sur un ordinateur, souvent), l'image est enregistrée : à confirmer.
     if (navigator.canShare?.({ files: [fichier] })) await navigator.share({ files: [fichier] }).catch(() => {});
     else enregistrer(fichier);
+  }
+
+  async function telecharger() {
+    const fichier = await imageChoisie();
+    if (fichier) enregistrer(fichier);
   }
   const nombre = gagnees.filter(Boolean).length;
   const camembert = themes.map((theme, i) => (gagnees[i] ? couleurDe(theme) : null));
@@ -243,7 +253,6 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
             </label>
           </div>
         </fieldset>
-        {/* « Télécharger l'image », à côté dans la maquette, vient ensuite. */}
         <div className="actions sp-actions">
           <button className="act primary" type="button" onClick={partager}>
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -253,6 +262,15 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
               />
             </svg>
             Partager
+          </button>
+          <button className="act second" type="button" onClick={telecharger}>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 4v11M7 10l5 5 5-5M5 19h14"
+                style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }}
+              />
+            </svg>
+            Télécharger l&apos;image
           </button>
         </div>
         <p className="act-note">L&apos;image est dessinée sur ton téléphone : rien n&apos;est envoyé.</p>
