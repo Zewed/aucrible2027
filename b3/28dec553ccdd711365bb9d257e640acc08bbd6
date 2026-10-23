@@ -1,0 +1,23 @@
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_a398361a64290b 164
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_44a255f3e0f405 1076-1101
+.veebee/tickets/035-la-fiche-rappelle-que-les-reponses-restent-sur-le.md
+  s_2c9a7110ce04dd::t_4321ff2a516bb2 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b328dec553ccdd711365bb9d257e640acc08bbd6",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
