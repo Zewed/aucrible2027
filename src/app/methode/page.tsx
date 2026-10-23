@@ -404,16 +404,13 @@ function RegleDuPlateau() {
 
 /** Les crans des sources, du plus sûr au moins sûr (SPEC.md, « Sources des positions des candidats »). */
 const SOURCES = [
-  { titre: "Le programme officiel 2027", precision: "Publié par le candidat ou son équipe." },
-  { titre: "Une déclaration publique du candidat", precision: "Datée, de moins de 12 mois." },
-  { titre: "Les votes de son groupe", precision: "À l'Assemblée nationale ou au Parlement européen." },
-  { titre: "Le programme 2022 de son parti", precision: "Quand rien de plus récent n'existe." },
+  { titre: "Le programme officiel 2027", precision: "Publié par le candidat ou son équipe.", officielle: true },
+  { titre: "Une déclaration publique du candidat", precision: "Datée, de moins de 12 mois.", officielle: true },
+  { titre: "Les votes de son groupe", precision: "À l'Assemblée nationale ou au Parlement européen.", officielle: false },
+  { titre: "Le programme 2022 de son parti", precision: "Quand rien de plus récent n'existe.", officielle: false },
 ];
 
-/**
- * Règle n° 6 : la première source disponible fait la position. Les badges des crans, « Deux badges, deux niveaux
- * de certitude » et les exemples de lignes de source arrivent avec le ticket 148.
- */
+/** Règle n° 6 : la première source disponible fait la position, et son cran donne le badge. */
 function RegleDesSources() {
   return (
     <article className="rule theme-sante" id="r6" aria-labelledby="r6-t">
@@ -431,13 +428,14 @@ function RegleDesSources() {
           </p>
         </div>
         <ol className="ladder">
-          {SOURCES.map(({ titre, precision }, rang) => (
+          {SOURCES.map(({ titre, precision, officielle }, rang) => (
             <li key={titre}>
               <span className="n">{rang + 1}</span>
               <span className="t">
                 <b>{titre}</b>
                 <small>{precision}</small>
               </span>
+              <span className={officielle ? "src-badge off" : "src-badge ded"}>{officielle ? "position officielle" : "position déduite"}</span>
             </li>
           ))}
           <li className="none">
@@ -446,14 +444,37 @@ function RegleDesSources() {
               <b>Aucune source</b>
               <small>Position «&nbsp;inconnue&nbsp;», sautée (règle 3).</small>
             </span>
+            <span className="src-badge nil">pas de position</span>
           </li>
         </ol>
         <div className="rule-txt">
+          <p>
+            <b>Deux badges, deux niveaux de certitude.</b> Une position <b>officielle</b> a été écrite ou dite par le candidat pour
+            2027. Une position <b>déduite</b> n&apos;a pas été dite telle quelle&nbsp;: on la déduit des votes de son groupe ou du
+            programme 2022, et on la recode dès qu&apos;une déclaration arrive.
+          </p>
           <p>
             <b>On ne devine jamais</b> et <b>on ne sollicite pas les équipes de campagne</b>&nbsp;: seules les sources publiques
             comptent.
           </p>
         </div>
+        <figure className="demo" aria-label="Deux exemples de lignes de source">
+          <figcaption className="demo-k">
+            <i></i>Ce que tu vois sur chaque position
+          </figcaption>
+          <ul className="srclines">
+            <li>
+              <span className="src-badge off">position officielle</span>
+              <span className="s">Programme 2027 · Retraites · 12/09/2026</span>
+            </li>
+            <li>
+              <span className="src-badge ded">position déduite</span>
+              <span className="s">Vote du groupe à l&apos;AN · réforme des retraites · 03/2023</span>
+            </li>
+          </ul>
+          {/* La maquette ajoute « et mène à la source » : les sources ne sont pas encore des liens (à trancher, 007). */}
+          <p className="demo-cap">Exemples. Chaque ligne a un titre court et une date.</p>
+        </figure>
       </div>
     </article>
   );

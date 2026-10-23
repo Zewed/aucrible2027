@@ -3594,3 +3594,30 @@ test.describe("la page Méthode explique l'ordre des sources", () => {
     await expect(regle6(page).getByText("On ne devine jamais et on ne sollicite pas les équipes de campagne : seules les sources publiques comptent.")).toBeVisible();
   });
 });
+
+test.describe("la page Méthode explique les deux badges", () => {
+  const regle6 = (page: Page) => page.getByRole("article", { name: "Chaque position a une source, classée par priorité" });
+
+  test("dans l'échelle des sources, le programme 2027 et la déclaration portent « position officielle », les votes du groupe et le programme 2022 « position déduite »", async ({ page }) => {
+    await page.goto("/methode");
+    const crans = regle6(page).locator(".ladder li");
+    await expect(crans.locator(".src-badge")).toHaveText(["position officielle", "position officielle", "position déduite", "position déduite", "pas de position"]);
+    await expect(crans.locator(".src-badge")).toHaveClass(["src-badge off", "src-badge off", "src-badge ded", "src-badge ded", "src-badge nil"]);
+  });
+
+  test("le paragraphe dit ce qu'est une position officielle, une position déduite, et qu'on la recode dès qu'une déclaration arrive", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(
+      regle6(page).getByText(
+        "Deux badges, deux niveaux de certitude. Une position officielle a été écrite ou dite par le candidat pour 2027. Une position déduite n'a pas été dite telle quelle : on la déduit des votes de son groupe ou du programme 2022, et on la recode dès qu'une déclaration arrive.",
+      ),
+    ).toBeVisible();
+  });
+
+  test("deux exemples : « position officielle » avec « Programme 2027 · Retraites · 12/09/2026 », « position déduite » avec « Vote du groupe à l'AN · réforme des retraites · 03/2023 »", async ({ page }) => {
+    await page.goto("/methode");
+    const exemples = regle6(page).getByRole("figure", { name: "Deux exemples de lignes de source" }).getByRole("listitem");
+    await expect(exemples.locator(".src-badge")).toHaveText(["position officielle", "position déduite"]);
+    await expect(exemples.locator(".s")).toHaveText(["Programme 2027 · Retraites · 12/09/2026", "Vote du groupe à l'AN · réforme des retraites · 03/2023"]);
+  });
+});
