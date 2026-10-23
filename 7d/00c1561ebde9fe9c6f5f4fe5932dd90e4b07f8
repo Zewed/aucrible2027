@@ -1,0 +1,21 @@
+.veebee/tickets/068-je-ne-sais-pas-ne-compte-pas-dans-le-classement.md
+  s_330ba31127fa8a::t_f7989fcdb3ba80 8
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_f7989fcdb3ba80 1972-1988
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7d00c1561ebde9fe9c6f5f4fe5932dd90e4b07f8",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
