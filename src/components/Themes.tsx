@@ -77,10 +77,14 @@ export function TesThemes({ questions, themes, candidats }: { questions: Questio
                   <i key={k} style={k < nombres[i] ? { background: couleurDe(theme) } : undefined}></i>
                 ))}
               </span>
-              {proche && (
-                <span className="th-who one">
-                  le plus proche : <b>{proche.nom}</b>
-                </span>
+              {gagne ? (
+                proche && (
+                  <span className="th-who one">
+                    le plus proche : <b>{proche.nom}</b>
+                  </span>
+                )
+              ) : (
+                <span className="th-who one">pas encore assez de réponses</span>
               )}
             </li>
           );
