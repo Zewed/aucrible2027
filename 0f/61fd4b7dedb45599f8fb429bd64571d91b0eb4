@@ -1,0 +1,26 @@
+.gitignore
+  s_2c9a7110ce04dd::t_407b8e16265c95 25-27
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_407b8e16265c95 1,1202-1233
+  s_2c9a7110ce04dd::t_1798d96dce0f8c 1234
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_c674e3e1fd380b 78-86
+.veebee/tickets/041-quand-les-questions-s-arretent-l-accueil-le-dit.md
+  s_2c9a7110ce04dd::t_66a87f897f606b 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0f61fd4b7dedb45599f8fb429bd64571d91b0eb4",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
