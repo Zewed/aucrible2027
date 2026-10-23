@@ -1,0 +1,24 @@
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_786d1282474e25 3503-3532
+src/app/methode/page.tsx
+  s_330ba31127fa8a::t_d0501b892de008 269
+  s_330ba31127fa8a::t_14e8934595f50a 247-268,270-299,302,339
+.veebee/tickets/145-la-page-methode-explique-pourquoi-une-position-inconnue.md
+  s_330ba31127fa8a::t_bd60bc9aa31dc5 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "91b945c4b60112a9a856eddc750d6cd36924f48d",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
