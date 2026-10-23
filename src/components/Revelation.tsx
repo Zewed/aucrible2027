@@ -17,6 +17,8 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
   if (!reponse || !question || !theme) return null;
 
   const defenseurs = candidats.filter((c) => question.positions[c.id] === reponse.option);
+  const rangChoisi = question.options.findIndex((o) => o.id === reponse.option);
+  const choisie = question.options[rangChoisi];
 
   return (
     <>
@@ -27,6 +29,15 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
         <header className="rev-hero">
           <h1>La révélation</h1>
         </header>
+        {choisie && (
+          <section className="mine-card" aria-label={`Ta réponse : ${lettreOption(rangChoisi)} · ${choisie.libelle}`}>
+            <p className="mine-k" aria-hidden="true">Ta réponse</p>
+            <div className="mine-main" aria-hidden="true">
+              <span className="mine-letter">{lettreOption(rangChoisi)}</span>
+              <span className="mine-title">{choisie.libelle}</span>
+            </div>
+          </section>
+        )}
         <section className="align" aria-labelledby="defenseurs">
           <h2 id="defenseurs" className="align-h">Ils défendent ton option</h2>
           <ul className="who" aria-labelledby="defenseurs">
@@ -42,8 +53,9 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
           <div className="ropts">
             {question.options.map((option, rang) => {
               const leurs = candidats.filter((c) => question.positions[c.id] === option.id);
+              const sienne = option.id === reponse.option;
               return (
-                <article key={option.id} className="ropt" aria-labelledby={`o-${option.id}`}>
+                <article key={option.id} className={sienne ? "ropt mine" : "ropt"} aria-labelledby={`o-${option.id}`}>
                   <header className="ropt-head">
                     <span className="ropt-letter" aria-hidden="true">{lettreOption(rang)}</span>
                     <h3 className="ropt-title" id={`o-${option.id}`}>
@@ -52,6 +64,7 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
                     </h3>
                     <p className="ropt-meta">
                       <span>{nombreDeCandidats(leurs.length)}</span>
+                      {sienne && <span className="ropt-tag">Ta carte</span>}
                     </p>
                   </header>
                   <ul className="defs">
