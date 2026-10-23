@@ -1595,3 +1595,49 @@ test.describe("la révélation mène au rattrapage", () => {
     await expect(page.getByRole("heading", { level: 1, name: "Rattraper les questions." }).filter({ visible: true })).toBeVisible();
   });
 });
+
+test.describe("une question répondue est marquée « Répondu » et passe en fin de liste", () => {
+  /** Les cartes de la liste, dans l'ordre de la page : leur question et leur mention. */
+  const cartes = (page: Page) =>
+    page
+      .getByRole("region", { name: "Toutes les questions" })
+      .getByRole("listitem")
+      .evaluateAll((items) =>
+        items.map((item) => ({
+          question: item.querySelector("h3")?.textContent,
+          mention: item.querySelector(".st")?.textContent?.trim(),
+        })),
+      );
+
+  async function repondreDepuisLaListe(page: Page, numero: number) {
+    await page.goto(`/question/${numero}`);
+    await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(new RegExp(`/question/${numero}/revelation$`));
+  }
+
+  test("les questions n° 5 et n° 8, déjà répondues, sont marquées « Répondu » et placées après toutes les cartes « À répondre »", async ({ page }) => {
+    await repondreDepuisLaListe(page, 5);
+    await repondreDepuisLaListe(page, 8);
+    await page.goto("/rattrapage");
+    await expect(page.getByText("Répondu", { exact: true })).toHaveCount(2);
+    const liste = await cartes(page);
+    expect(liste).toHaveLength(24);
+    expect(liste.slice(0, 22).every((c) => c.mention === "À répondre")).toBe(true);
+    expect(liste.slice(22)).toEqual([
+      { question: "Fiche de test du mercredi 7 octobre ?", mention: "Répondu" },
+      { question: "Fiche de test du dimanche 4 octobre ?", mention: "Répondu" },
+    ]);
+  });
+
+  test("après avoir validé une réponse à la question n° 24, la liste la montre « Répondu », après les cartes « À répondre » qui restent", async ({ page }) => {
+    await page.goto("/rattrapage");
+    expect((await cartes(page))[0]).toEqual({ question: "À quel âge devrait-on pouvoir partir à la retraite ?", mention: "À répondre" });
+    await repondre(page, "64 ans");
+    await page.goto("/rattrapage");
+    await expect(page.getByText("Répondu", { exact: true })).toHaveCount(1);
+    const liste = await cartes(page);
+    expect(liste.at(-1)).toEqual({ question: "À quel âge devrait-on pouvoir partir à la retraite ?", mention: "Répondu" });
+    expect(liste.slice(0, -1).every((c) => c.mention === "À répondre")).toBe(true);
+  });
+});

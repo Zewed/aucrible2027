@@ -1,17 +1,18 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
-import { PuceTheme } from "@/components/PuceTheme";
+import { ListeDeRattrapage } from "@/components/ListeDeRattrapage";
 import { lireThemes } from "@/lib/contenu";
-import { dateLisible } from "@/lib/date";
 import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
 import "./rattrapage.css";
 
-/** Toutes les questions déjà publiées, une carte chacune qui ouvre sa fiche, les plus récentes d'abord. */
+/** Toutes les questions déjà publiées, une carte chacune qui ouvre sa fiche. */
 async function Rattrapage() {
   const [jour, questions] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
-  const themes = lireThemes();
-  const publiees = [...questions].sort((a, b) => b.numero - a.numero);
+  // Les plus récentes d'abord, en attendant le tri par pouvoir de départage (« À trancher »).
+  const cartes = [...questions]
+    .sort((a, b) => b.numero - a.numero)
+    .map(({ numero, date, theme, question }) => ({ numero, date, theme, question }));
 
   return (
     <>
@@ -41,34 +42,10 @@ async function Rattrapage() {
           <div className="sec-h">
             <h2 id="g-all">Toutes les questions</h2>
             <p>
-              {publiees.length} {publiees.length > 1 ? "publiées" : "publiée"}
+              {cartes.length} {cartes.length > 1 ? "publiées" : "publiée"}
             </p>
           </div>
-          <ul className="qlist">
-            {publiees.map((question, i) => {
-              const theme = themes.find((t) => t.id === question.theme);
-              return (
-                <li key={question.numero} className={`qitem ${theme?.classe ?? ""}`} style={{ "--i": i } as React.CSSProperties}>
-                  <Link className="qr" href={`/question/${question.numero}`}>
-                    <div className="qr-top">
-                      <div className="qr-meta">
-                        {theme && <PuceTheme theme={theme} />}
-                        <span className="qr-no">n°&nbsp;{question.numero}</span>
-                      </div>
-                      <h3 className="qr-q">{question.question}</h3>
-                    </div>
-                    <div className="qr-foot">
-                      <span className="power">
-                        <span className="power-t">
-                          <small>{dateLisible(question.date, false)}</small>
-                        </span>
-                      </span>
-                    </div>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+          <ListeDeRattrapage cartes={cartes} themes={lireThemes()} />
         </section>
       </main>
     </>
