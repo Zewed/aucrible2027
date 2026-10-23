@@ -72,3 +72,36 @@ test("une question d'un autre thème affiche son propre thème dans la puce", as
   await expect(carte.getByText("Écologie & énergie", { exact: true })).toBeVisible();
   await expect(carte.getByText("Travail & retraites", { exact: true })).toHaveCount(0);
 });
+
+const ORANGE = "rgb(255, 122, 26)";
+const VERT = "rgb(34, 184, 90)";
+const fond = (locator: import("@playwright/test").Locator) =>
+  locator.evaluate((el) => getComputedStyle(el).backgroundColor);
+
+test("la question n° 24 (Travail & retraites) s'affiche en orange", async ({ page }) => {
+  await page.goto("/");
+  const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+  expect(await fond(carte.locator(".qcard-top"))).toBe(ORANGE);
+  expect(await fond(page.getByRole("button", { name: "Valider ma réponse" }))).toBe(ORANGE);
+});
+
+test("une question d'Écologie & énergie s'affiche en vert, et les 11 thèmes ont 11 couleurs", async ({ page }) => {
+  await page.clock.setFixedTime(new Date("2026-10-24T09:00:00+02:00"));
+  await page.goto("/");
+  const carte = page.getByRole("article", { name: "Faut-il sortir du nucléaire ?" });
+  expect(await fond(carte.locator(".qcard-top"))).toBe(VERT);
+  expect(await fond(page.getByRole("button", { name: "Valider ma réponse" }))).toBe(VERT);
+
+  const couleurs = await page.evaluate(() =>
+    ["eco", "trav", "ecol", "immi", "secu", "sante", "educ", "loge", "euro", "inst", "soc"].map((t) => {
+      const el = document.createElement("div");
+      el.className = `theme-${t}`;
+      el.style.background = "var(--theme)";
+      document.body.append(el);
+      const c = getComputedStyle(el).backgroundColor;
+      el.remove();
+      return c;
+    }),
+  );
+  expect(new Set(couleurs).size).toBe(11);
+});
