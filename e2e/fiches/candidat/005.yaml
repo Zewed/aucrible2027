@@ -1,0 +1,28 @@
+# FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « candidat »
+# (cookie aucrible-jeu-de-test). Le jeu reprend les 24 questions de maquettes/candidat.html, qui ne sont pas
+# numérotées comme celles des autres maquettes. La position de Marine Tondelier et sa source sont celles de la
+# maquette, inventées : elles ne disent rien de ses positions réelles. Les autres options sont des libellés de test.
+numero: 5
+date: 2026-10-04
+theme: travail-retraites
+question: "Faut-il augmenter le Smic par la loi ?"
+contexte: []
+chiffres: []
+options:
+  - id: A
+    libelle: "Option de test A"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+  - id: B
+    libelle: "Oui, par un coup de pouce"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+  - id: C
+    libelle: "Option de test C"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+positions:
+  tondelier: { option: B, source: "Déclaration sur BFMTV, 21/09/2026", statut: officielle }

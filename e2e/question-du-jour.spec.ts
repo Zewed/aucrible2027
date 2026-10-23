@@ -3009,3 +3009,59 @@ test("la fiche de Marine Tondelier affiche le statut de sa candidature, sous le 
   const [parti, ligne] = await Promise.all([page.locator(".id-card .party").boundingBox(), statut.boundingBox()]);
   expect(ligne!.y).toBeGreaterThan(parti!.y + parti!.height - 1);
 });
+
+test.describe("la fiche range ses positions par thème", () => {
+  /**
+   * La fiche de Marine Tondelier sur le jeu de fiches de test « candidat » (les 24 questions de maquettes/candidat.html),
+   * pour un électeur qui a répondu aux 24 questions publiées. Renvoie la section « Ses positions ».
+   */
+  async function positionsDeTondelier(page: Page) {
+    await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
+    await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "candidat", url: "http://localhost:3127" }]);
+    await page.goto("/candidat/tondelier");
+    await page.evaluate(() => {
+      const reponses: Record<number, object> = {};
+      for (let n = 1; n <= 24; n++) reponses[n] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22", duJour: false };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    });
+    await page.reload();
+    const positions = page.getByRole("region", { name: "Ses positions" });
+    await expect(positions).toBeVisible();
+    return positions;
+  }
+
+  test("la fiche de Marine Tondelier affiche 11 blocs, un par thème, de « Économie & impôts » à « Société »", async ({ page }) => {
+    const positions = await positionsDeTondelier(page);
+    await expect(positions.getByRole("heading", { level: 3 })).toHaveText([
+      "Économie & impôts",
+      "Travail & retraites",
+      "Écologie & énergie",
+      "Immigration",
+      "Sécurité & justice",
+      "Santé",
+      "Éducation & jeunesse",
+      "Logement",
+      "Europe & international",
+      "Institutions & démocratie",
+      "Société",
+    ]);
+    await expect(positions.getByRole("region")).toHaveCount(11);
+  });
+
+  test("sous « Travail & retraites », Q5, Q13 et Q24 « À quel âge devrait-on pouvoir partir à la retraite ? », avec l'option A « 60 ans »", async ({ page }) => {
+    const travail = (await positionsDeTondelier(page)).getByRole("region", { name: "Travail & retraites" });
+    await expect(travail.locator(".pos-n")).toHaveText(["Q5", "Q13", "Q24"]);
+    const q24 = travail.getByRole("listitem").filter({ hasText: "Q24" });
+    await expect(q24.locator(".pos-q")).toHaveText("Q24À quel âge devrait-on pouvoir partir à la retraite ?");
+    await expect(q24.locator(".pos-letter")).toHaveText("A");
+    await expect(q24.locator(".pos-title")).toHaveText("60 ans");
+  });
+
+  test("sous « Écologie & énergie », Q4 « Faut-il construire de nouveaux réacteurs nucléaires ? » donne l'option A « Non, miser sur le renouvelable »", async ({ page }) => {
+    const ecologie = (await positionsDeTondelier(page)).getByRole("region", { name: "Écologie & énergie" });
+    const q4 = ecologie.getByRole("listitem").filter({ hasText: "Q4" });
+    await expect(q4.locator(".pos-q")).toHaveText("Q4Faut-il construire de nouveaux réacteurs nucléaires ?");
+    await expect(q4.locator(".pos-letter")).toHaveText("A");
+    await expect(q4.locator(".pos-title")).toHaveText("Non, miser sur le renouvelable");
+  });
+});

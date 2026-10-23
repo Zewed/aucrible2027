@@ -58,10 +58,16 @@ function lireFiche(chemin: string): Question[] {
   }
 }
 
-/** Les fiches de content/questions, plus, pour les tests de bout en bout seulement, celles du dossier de test. */
-export function lireQuestions(): Question[] {
-  const dossiers = [path.join(RACINE, "questions")];
-  if (process.env.AUCRIBLE_FICHES_DE_TEST) dossiers.push(path.join(process.cwd(), process.env.AUCRIBLE_FICHES_DE_TEST));
+/**
+ * Les fiches de content/questions, plus, pour les tests de bout en bout seulement, celles du dossier de test.
+ * Un test peut aussi choisir un jeu de fiches à lui (un sous-dossier du dossier de test), qui remplace tout le reste.
+ */
+export function lireQuestions(jeuDeTest?: string): Question[] {
+  const test = process.env.AUCRIBLE_FICHES_DE_TEST;
+  const dossiers =
+    test && jeuDeTest && /^[a-z-]+$/.test(jeuDeTest)
+      ? [path.join(process.cwd(), test, jeuDeTest)]
+      : [path.join(RACINE, "questions"), ...(test ? [path.join(process.cwd(), test)] : [])];
   return dossiers
     .flatMap((dossier) =>
       readdirSync(dossier)

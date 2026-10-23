@@ -18,6 +18,15 @@ async function maintenant(): Promise<Date> {
   return new Date();
 }
 
+/** Le cookie par lequel, en test seulement, un test choisit son jeu de fiches (e2e/fiches/<jeu>). */
+const JEU_DE_TEST = "aucrible-jeu-de-test";
+
+/** Les fiches, parues ou non, du jeu de la requête : en production, toujours celles du contenu. */
+async function lesFiches(): Promise<Question[]> {
+  const jeu = process.env.AUCRIBLE_FICHES_DE_TEST ? (await cookies()).get(JEU_DE_TEST)?.value : undefined;
+  return lireQuestions(jeu);
+}
+
 /** Le jour de la requête, à Paris (AAAA-MM-JJ). */
 export async function lireAujourdhui(): Promise<string> {
   return aujourdhuiAParis(await maintenant());
@@ -30,13 +39,13 @@ export async function lireAujourdhui(): Promise<string> {
 export async function lireQuestionsPubliees(): Promise<Question[]> {
   const jour = aujourdhuiAParis(await maintenant());
   const silence = silenceEnCours(jour);
-  return lireQuestions().filter((q) => q.date <= jour && !(silence && q.date >= silence.debut));
+  return (await lesFiches()).filter((q) => q.date <= jour && !(silence && q.date >= silence.debut));
 }
 
 /** La date de la prochaine fiche à paraître, ou null s'il n'y en a aucune : sa date seulement, jamais son contenu. */
 export async function lireProchaineParution(): Promise<string | null> {
   const jour = aujourdhuiAParis(await maintenant());
-  return lireQuestions().find((q) => q.date > jour)?.date ?? null;
+  return (await lesFiches()).find((q) => q.date > jour)?.date ?? null;
 }
 
 /**
@@ -48,7 +57,7 @@ export async function lireNumeroDeDemain(): Promise<number | null> {
   const aujourdhui = aujourdhuiAParis(await maintenant());
   const demain = new Date(Date.parse(`${aujourdhui}T12:00:00Z`) + 86_400_000).toISOString().slice(0, 10);
   if (silenceEnCours(demain)) return null;
-  return lireQuestions().find((q) => q.date === demain)?.numero ?? null;
+  return (await lesFiches()).find((q) => q.date === demain)?.numero ?? null;
 }
 
 /** Les fiches déjà parues, réduites à ce que le calcul lit : c'est tout ce que le navigateur en reçoit. */

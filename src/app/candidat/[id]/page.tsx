@@ -1,18 +1,69 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
-import { lireCandidats } from "@/lib/contenu";
-import { lireAujourdhui } from "@/lib/publication";
+import { PartDuTheme } from "@/components/PuceTheme";
+import { lireCandidats, lireThemes, type Question, type Theme } from "@/lib/contenu";
+import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
 import "./candidat.css";
+
+/** Les positions d'un candidat sur les questions publiées d'un thème, de la plus ancienne à la plus récente. */
+function PositionsDuTheme({ theme, questions, candidatId }: { theme: Theme; questions: Question[]; candidatId: string }) {
+  return (
+    <section className={`pos-theme ${theme.classe}`} aria-labelledby={`t-${theme.id}`}>
+      <header className="pos-h">
+        <PartDuTheme />
+        <h3 id={`t-${theme.id}`} className="one">
+          {theme.nom}
+        </h3>
+      </header>
+      <ul className="pos-list">
+        {questions.map((question) => {
+          const position = question.positions[candidatId];
+          const option = question.options.find((o) => o.id === position?.option);
+          return (
+            <li key={question.numero} className={option ? "pos" : "pos pos--unk"}>
+              <p className="pos-q">
+                <span className="pos-n">Q{question.numero}</span>
+                {question.question}
+              </p>
+              <div className="pos-r">
+                <p className="pos-a">
+                  {option ? (
+                    <>
+                      <span className="pos-letter">{option.id}</span>
+                      <span className="pos-title">{option.libelle}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="pos-letter" aria-hidden="true">
+                        ?
+                      </span>
+                      <span className="pos-title">Position inconnue — pas de source à ce jour</span>
+                    </>
+                  )}
+                </p>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
 
 /**
  * La fiche d'un candidat : son pion, le même que pour les 12 autres, son nom et son parti, en texte,
- * sans couleur de parti, puis le statut de sa candidature quand le contenu le donne. Les positions viennent ensuite.
+ * sans couleur de parti, puis le statut de sa candidature quand le contenu le donne ; à côté, ses positions sur
+ * les questions publiées, rangées par thème. Toutes sont montrées, comme la maquette (où l'électeur n'a pas répondu
+ * à toutes) : les cacher avant la réponse, comme le face-à-face, reste à trancher.
  */
 async function FicheCandidat({ id }: { id: string }) {
   const candidat = lireCandidats().find((c) => c.id === id);
   if (!candidat) notFound();
-  const jour = await lireAujourdhui();
+  const [jour, publiees] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
+  const questions = [...publiees].sort((a, b) => a.numero - b.numero);
+  // Un thème sans question publiée n'a pas de bloc : la maquette n'en dessine pas.
+  const themes = lireThemes().filter((t) => questions.some((q) => q.theme === t.id));
   return (
     <>
       {/* Le retour « Mes résultats » de la maquette n'est porté par aucun ticket. */}
@@ -48,6 +99,29 @@ async function FicheCandidat({ id }: { id: string }) {
               )}
             </section>
           </aside>
+          <div className="fiche-main">
+            <section aria-labelledby="h-pos">
+              <div className="sec-h">
+                <h2 id="h-pos">Ses positions</h2>
+                <p>
+                  {questions.length} {questions.length > 1 ? "questions publiées" : "question publiée"}
+                </p>
+              </div>
+              <p className="pos-sum">
+                Pour chaque question : son option, d&apos;où ça vient, et si c&apos;est dit par {candidat.nom} ou déduit.
+              </p>
+              <div className="themes-pos">
+                {themes.map((theme) => (
+                  <PositionsDuTheme
+                    key={theme.id}
+                    theme={theme}
+                    questions={questions.filter((q) => q.theme === theme.id)}
+                    candidatId={candidat.id}
+                  />
+                ))}
+              </div>
+            </section>
+          </div>
         </div>
       </main>
     </>

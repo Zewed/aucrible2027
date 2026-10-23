@@ -1,0 +1,27 @@
+# FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « candidat »
+# (cookie aucrible-jeu-de-test). Le jeu reprend les 24 questions de maquettes/candidat.html, qui ne sont pas
+# numérotées comme celles des autres maquettes. La position de Marine Tondelier et sa source sont celles de la
+# maquette, inventées : elles ne disent rien de ses positions réelles. Les autres options sont des libellés de test.
+numero: 22
+date: 2026-10-21
+theme: education-jeunesse
+question: "Faut-il supprimer Parcoursup ?"
+contexte: []
+chiffres: []
+options:
+  - id: A
+    libelle: "Option de test A"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+  - id: B
+    libelle: "Option de test B"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+  - id: C
+    libelle: "Option de test C"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+positions: {}
