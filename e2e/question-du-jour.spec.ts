@@ -3033,7 +3033,7 @@ async function positionsDeTondelier(page: Page, jour = "2026-10-23T09:00:00+02:0
 test.describe("la fiche range ses positions par thème", () => {
   test("la fiche de Marine Tondelier affiche 11 blocs, un par thème, de « Économie & impôts » à « Société »", async ({ page }) => {
     const positions = await positionsDeTondelier(page);
-    await expect(positions.getByRole("heading", { level: 3 })).toHaveText([
+    await expect(positions.locator(".pos-theme").getByRole("heading", { level: 3 })).toHaveText([
       "Économie & impôts",
       "Travail & retraites",
       "Écologie & énergie",
@@ -3203,5 +3203,32 @@ test.describe("la fiche affiche sa proximité avec l'électeur", () => {
     }
     const [ligne, note] = await proximiteSurLaFiche(page, "ruffin");
     expect([ligne, note.split(",")[0]]).toEqual(["Ta proximité : 81 %", "1er sur 13"]);
+  });
+});
+
+test.describe("la fiche explique les deux badges", () => {
+  test("la fiche contient « Comment lire une position » avec ses trois lignes (officielle, déduite, inconnue) et leurs phrases d'explication", async ({ page }) => {
+    await positionsDeTondelier(page);
+    const legende = page.getByRole("group", { name: "Comment lire une position" });
+    const lignes = legende.getByRole("listitem");
+    await expect(lignes).toHaveCount(3);
+    // Le « ? » du badge inconnu est décoratif (caché aux lecteurs d'écran), mais il fait partie du texte.
+    await expect(lignes.locator(".badge")).toHaveText(["position officielle", "position déduite", "?position inconnue"]);
+    await expect(lignes.locator(".badge--unk [aria-hidden=true]")).toHaveText("?");
+    await expect(lignes.locator(".badge + span")).toHaveText([
+      "Marine Tondelier l'a dit ou écrit en personne : programme 2027, déclaration datée.",
+      "Tirée d'un vote de son groupe ou du programme de son parti.",
+      "Pas de source : on ne devine jamais.",
+    ]);
+  });
+
+  test("le lien « Voir la méthode et les sources » est affiché sous ces trois lignes", async ({ page }) => {
+    await positionsDeTondelier(page);
+    const legende = page.getByRole("group", { name: "Comment lire une position" });
+    const lien = legende.getByRole("link", { name: "Voir la méthode et les sources" });
+    await expect(lien).toBeVisible();
+    await expect(lien).toHaveAttribute("href", "/methode");
+    const [liste, sousLaListe] = await Promise.all([legende.getByRole("list").boundingBox(), lien.boundingBox()]);
+    expect(sousLaListe!.y).toBeGreaterThanOrEqual(liste!.y + liste!.height - 1);
   });
 });
