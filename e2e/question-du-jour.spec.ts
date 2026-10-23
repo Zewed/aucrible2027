@@ -2519,3 +2519,26 @@ test.describe("chaque thème affiche son candidat le plus proche", () => {
     expect((await sousLesThemes(page))["Santé"]).toBe("le plus proche : Fabien Roussel");
   });
 });
+
+test.describe("un thème sous 3 réponses dit « pas encore assez de réponses »", () => {
+  const SOUS_TROIS = ["Travail & retraites", "Éducation & jeunesse", "Logement", "Europe & international", "Institutions & démocratie", "Société"];
+
+  test("avec 23 réponses, les 6 thèmes sous 3 réponses disent « pas encore assez de réponses » et ne nomment aucun candidat", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.locator(".big-token .count b")).toHaveText("5/11");
+    const textes = await sousLesThemes(page);
+    for (const theme of SOUS_TROIS) expect(textes[theme], theme).toBe("pas encore assez de réponses");
+  });
+
+  test("après la réponse à la n° 24, la ligne Travail & retraites, qui a alors 3 réponses, nomme un candidat à la place du message", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await page.goto("/resultats");
+    await expect(page.locator(".big-token .count b")).toHaveText("6/11");
+    expect((await sousLesThemes(page))["Travail & retraites"]).toMatch(/^le plus proche : \S/);
+  });
+});
