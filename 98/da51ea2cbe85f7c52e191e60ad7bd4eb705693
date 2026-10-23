@@ -1,0 +1,32 @@
+content/questions/026-medecins.yaml
+  s_2c9a7110ce04dd::t_33eff6639b736d 32,37,42
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_33eff6639b736d 85,96-98
+  s_2c9a7110ce04dd::t_ffb2ba107f0116 99
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_dac31ac8c11ca6 370-409
+content/questions/024-retraite.yaml
+  s_2c9a7110ce04dd::t_33eff6639b736d 29,34,39,44,49
+content/questions/025-nucleaire.yaml
+  s_2c9a7110ce04dd::t_33eff6639b736d 24,29,34,39
+src/lib/contenu.ts
+  s_2c9a7110ce04dd::t_33eff6639b736d 6
+.veebee/tickets/011-chaque-option-dit-ce-que-lui-reprochent-ses-critiques.md
+  s_2c9a7110ce04dd::t_8ebee1928d00ff 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "98da51ea2cbe85f7c52e191e60ad7bd4eb705693",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
