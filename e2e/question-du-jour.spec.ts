@@ -2150,3 +2150,35 @@ test.describe("le plateau place le pion « toi » sur les deux axes", () => {
     expect(y).toBeLessThan(0.5);
   });
 });
+
+test.describe("sur ordinateur, le plateau se pose à côté du classement", () => {
+  const boites = async (page: Page) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    return {
+      classement: (await page.getByRole("region", { name: "Ton classement" }).boundingBox())!,
+      plateau: (await page.getByRole("region", { name: "Ton plateau" }).boundingBox())!,
+    };
+  };
+
+  test.describe("sur un écran d'ordinateur", () => {
+    test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
+
+    test("« Ton classement » est à gauche et « Ton plateau » à droite, côte à côte", async ({ page }) => {
+      const { classement, plateau } = await boites(page);
+      expect(classement.x + classement.width).toBeLessThanOrEqual(plateau.x);
+      expect(Math.abs(classement.y - plateau.y)).toBeLessThan(10);
+    });
+  });
+
+  test.describe("sur un téléphone de 375 px", () => {
+    test.use({ viewport: { width: 375, height: 812 } });
+
+    test("le plateau est sous le classement, sans défilement horizontal de la page", async ({ page }) => {
+      const { classement, plateau } = await boites(page);
+      expect(plateau.y).toBeGreaterThanOrEqual(classement.y + classement.height);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
+    });
+  });
+});
