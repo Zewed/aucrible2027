@@ -3530,3 +3530,35 @@ test.describe("la page Méthode explique pourquoi une position inconnue ne compt
     await expect(regle3(page).getByText("On ne devine jamais. Une case vide vaut mieux qu'une case inventée.")).toBeVisible();
   });
 });
+
+test.describe("la page Méthode explique comment le plateau place les pions", () => {
+  const regle5 = (page: Page) => page.getByRole("article", { name: "Le plateau : deux axes, des notes de −2 à +2" });
+
+  test("la règle n° 5 dit que chaque option a une note de −2 à +2 sur l'un des deux axes, ou aucune, et nomme les axes Économie et Société", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(regle5(page).getByText("Règle n° 5")).toBeVisible();
+    await expect(regle5(page).getByText("Chaque option reçoit une note de −2 à +2 sur l'un des deux axes, ou aucune note si elle n'a pas de rapport avec l'axe.")).toBeVisible();
+    await expect(regle5(page).locator(".axes li")).toHaveText(["Économieplus de redistribution ↔ plus de marché", "Sociétéprogressiste ↔ conservateur"]);
+  });
+
+  test("l'exemple montre Retraite : 62 ans (−1, ×3), Droits de succession (+2, ×1), Fin de vie (aucune, ×2), et conclut « −0,25 » : la question sans note est ignorée", async ({ page }) => {
+    await page.goto("/methode");
+    const lignes = regle5(page).locator(".nrows li");
+    await expect(lignes.locator(".nm")).toHaveText(["Retraite : 62 ans", "Droits de succession", "Fin de vie"]);
+    await expect(lignes.locator("b")).toHaveText(["−1", "+2", "aucune"]);
+    await expect(lignes.locator(".w")).toHaveText(["×3", "×1", "×2"]);
+    await expect(lignes.nth(2)).toHaveClass("void");
+    const egalite = regle5(page).locator(".eq");
+    await expect(egalite).toHaveAccessibleName("moins 1 fois 3 plus 2 fois 1, divisé par 3 plus 1, égale moins 0,25");
+    await expect(egalite.locator(".frac b")).toHaveText(["−1×3 + 2×1", "3 + 1"]);
+    await expect(egalite.locator("mark")).toHaveText("−0,25");
+    await expect(regle5(page).getByText("La question sans note est ignorée sur cet axe. Résultat : un peu côté redistribution.")).toBeVisible();
+  });
+
+  test("la règle dit que les candidats sont placés par la même formule, à partir de leurs positions sourcées, et que les notes passent le même contrôle de neutralité", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(regle5(page).getByText("Les candidats sont placés par la même formule, à partir de leurs positions sourcées.")).toBeVisible();
+    await expect(regle5(page).getByText("Les notes sont relues par le même contrôle de neutralité que les questions.")).toBeVisible();
+    await expect(regle5(page).getByRole("img", { name: "Carte à deux axes : un pion TOI, légèrement côté redistribution et progressiste" })).toBeVisible();
+  });
+});

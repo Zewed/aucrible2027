@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
+import { PisteDuPlateau } from "@/components/PisteDuPlateau";
 import { lireAujourdhui } from "@/lib/publication";
 import "../regles.css";
 import "./methode.css";
@@ -297,9 +298,113 @@ function RegleDesInconnues() {
   );
 }
 
+/** L'exemple de la règle n° 5 : trois réponses et leur note sur l'axe économique, avec leur importance. */
+const TROIS_NOTES = [
+  { sujet: "Retraite\u00a0: 62 ans", note: "−1", poids: 3 },
+  { sujet: "Droits de succession", note: "+2", poids: 1 },
+  { sujet: "Fin de vie", note: null, poids: 2 },
+];
+
+/** Règle n° 5 : le plateau, la moyenne des notes pondérée par l'importance, comme `placeDeLElecteur`. */
+function RegleDuPlateau() {
+  return (
+    <article className="rule theme-educ" id="r5" aria-labelledby="r5-t">
+      <header className="rule-head">
+        <span className="rule-n" aria-hidden="true">
+          5
+        </span>
+        <p className="rule-k">Règle n° 5</p>
+        <h2 id="r5-t">Le plateau&nbsp;: deux axes, des notes de −2 à +2</h2>
+      </header>
+      <div className="rule-body split">
+        <div className="rule-txt">
+          <p>
+            Chaque option reçoit une note de <b>−2 à +2</b> sur l&apos;un des deux axes, ou <b>aucune note</b> si elle n&apos;a pas
+            de rapport avec l&apos;axe.
+          </p>
+          <ul className="axes">
+            <li>
+              <b>Économie</b>
+              <span>
+                plus de redistribution <em>↔</em> plus de marché
+              </span>
+            </li>
+            <li>
+              <b>Société</b>
+              <span>
+                progressiste <em>↔</em> conservateur
+              </span>
+            </li>
+          </ul>
+          <p>
+            Ta position sur un axe est la <b>moyenne de tes notes, pondérée par l&apos;importance</b> que tu as donnée. Les candidats
+            sont placés par la même formule, à partir de leurs positions sourcées.
+          </p>
+          <p className="small">Les notes sont relues par le même contrôle de neutralité que les questions.</p>
+
+          <div className="demo" style={{ marginTop: 16 }}>
+            <p className="demo-k">
+              <i></i>Exemple sur l&apos;axe économique
+            </p>
+            <div className="nscale" aria-hidden="true">
+              <span className="nmark" style={{ left: "45%" }}>
+                <span className="pawn pawn--you">TOI</span>
+              </span>
+              <ol>
+                {["−2", "−1", "0", "+1", "+2"].map((n) => (
+                  <li key={n}>{n}</li>
+                ))}
+              </ol>
+              <p>
+                <span>redistribution</span>
+                <span>marché</span>
+              </p>
+            </div>
+            <ul className="nrows">
+              {TROIS_NOTES.map(({ sujet, note, poids }) => (
+                <li key={sujet} className={note ? undefined : "void"}>
+                  <span className="nm one">{sujet}</span>
+                  <b>{note ?? "aucune"}</b>
+                  <span className="w">×{poids}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="eq" role="img" aria-label="moins 1 fois 3 plus 2 fois 1, divisé par 3 plus 1, égale moins 0,25">
+              <span className="frac">
+                <b>−1×3 + 2×1</b>
+                <b>3 + 1</b>
+              </span>{" "}
+              = <mark>−0,25</mark>
+            </p>
+            <p className="demo-cap">La question sans note est ignorée sur cet axe. Résultat&nbsp;: un peu côté redistribution.</p>
+          </div>
+        </div>
+        <figure className="demo" aria-label="Le plateau avec ton pion">
+          <figcaption className="demo-k">
+            <i></i>Le plateau
+          </figcaption>
+          <div className="board" role="img" aria-label="Carte à deux axes : un pion TOI, légèrement côté redistribution et progressiste">
+            <PisteDuPlateau />
+            <div className="field">
+              <span className="pawn pawn--you" style={{ "--x": "44%", "--y": "38%" } as React.CSSProperties}>
+                TOI
+              </span>
+            </div>
+            <span className="edge top">↑ progressiste</span>
+            <span className="edge bottom">↓ conservateur</span>
+            <span className="edge left">← plus de redistribution</span>
+            <span className="edge right">plus de marché →</span>
+          </div>
+          <p className="demo-cap">Horizontalement, l&apos;économie. Verticalement, la société, notée de la même façon.</p>
+        </figure>
+      </div>
+    </article>
+  );
+}
+
 /**
  * La page « Méthode de calcul et sources » (maquettes/methode.html), règle par règle. Le sommaire « Aller à la règle »,
- * la version de la méthode et le pied de page ne sont portés par aucun ticket ; la règle n° 4 n'en a pas non plus ; les règles 5 à 8 viennent ensuite.
+ * la version de la méthode et le pied de page ne sont portés par aucun ticket ; la règle n° 4 n'en a pas non plus ; les règles 6 à 8 viennent ensuite.
  */
 async function Methode() {
   const jour = await lireAujourdhui();
@@ -337,6 +442,7 @@ async function Methode() {
             <RegleDuScore />
             <RegleDeLImportance />
             <RegleDesInconnues />
+            <RegleDuPlateau />
           </div>
         </div>
       </main>
