@@ -560,3 +560,41 @@ test("choisir « Je ne sais pas » après « 64 ans » décoche « 64 ans » : u
   await expect(page.getByRole("radio", { checked: true })).toHaveCount(1);
   await expect(page.getByText("Ta carte", { exact: true }).filter({ visible: true })).toHaveCount(0);
 });
+
+const importance = (page: Page) => page.getByRole("group", { name: "Ce sujet compte pour toi ?" });
+
+/** Choisir une importance comme le fait l'électeur : en touchant sa carte. */
+async function peser(page: Page, poids: "×1" | "×2" | "×3") {
+  await importance(page).getByText(poids, { exact: true }).click();
+  await expect(importance(page).getByRole("radio", { name: new RegExp(`^${poids} `) })).toBeChecked();
+}
+
+test("sous « Ce sujet compte pour toi ? », la fiche n° 24 propose ×1 « Un peu », ×2 « Beaucoup », ×3 « Essentiel »", async ({ page }) => {
+  await page.goto("/");
+  const choix = importance(page).getByRole("radio");
+  await expect(choix).toHaveCount(3);
+  for (const [rang, nom] of ["×1 Un peu", "×2 Beaucoup", "×3 Essentiel"].entries()) {
+    await expect(choix.nth(rang)).toHaveAccessibleName(nom);
+    await expect(importance(page).getByText(nom.split(" ")[0], { exact: true })).toBeVisible();
+  }
+  const [options, groupe] = await Promise.all([page.getByRole("radiogroup", { name: "Les options" }).boundingBox(), importance(page).boundingBox()]);
+  expect(groupe!.y).toBeGreaterThan(options!.y + options!.height - 1);
+});
+
+test("toucher ×3 marque ×3 et décoche le choix précédent ; un seul est marqué à la fois", async ({ page }) => {
+  await page.goto("/");
+  await peser(page, "×1");
+  await peser(page, "×3");
+  await expect(importance(page).getByRole("radio", { name: /^×1 / })).not.toBeChecked();
+  await expect(importance(page).getByRole("radio", { checked: true })).toHaveCount(1);
+});
+
+test("changer d'importance ne change pas l'option choisie : « Ta carte » reste sur la même carte", async ({ page }) => {
+  await page.goto("/");
+  await choisir(page, "64 ans");
+  await peser(page, "×2");
+  await peser(page, "×3");
+  await expect(page.getByRole("radio", { name: "64 ans" })).toBeChecked();
+  await expect(carteReponse(page, "64 ans").getByText("Ta carte", { exact: true })).toBeVisible();
+  await expect(page.getByText("Ta carte", { exact: true }).filter({ visible: true })).toHaveCount(1);
+});

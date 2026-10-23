@@ -9,9 +9,16 @@ import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
 import { enregistrerReponseEnCours, JE_NE_SAIS_PAS } from "@/lib/reponses";
 
+const IMPORTANCES = [
+  { poids: 1, libelle: "Un peu" },
+  { poids: 2, libelle: "Beaucoup" },
+  { poids: 3, libelle: "Essentiel" },
+];
+
 export function QuestionDuJour({ questions, themes }: { questions: Question[]; themes: Theme[] }) {
   const router = useRouter();
   const [choix, setChoix] = useState<string | null>(null);
+  const [poids, setPoids] = useState<number | null>(null);
   const jour = useCoteClient(() => aujourdhuiAParis());
   const question = questions.find((q) => q.date === jour) ?? null;
   const theme = question && themes.find((t) => t.id === question.theme);
@@ -120,6 +127,30 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
             </span>
           </label>
         </div>
+        <fieldset className="imp">
+          <legend>Ce sujet compte pour toi&nbsp;?</legend>
+          <div className="imp-row">
+            {IMPORTANCES.map((importance) => (
+              <label key={importance.poids}>
+                <input
+                  type="radio"
+                  name="poids"
+                  value={importance.poids}
+                  checked={poids === importance.poids}
+                  onChange={() => setPoids(importance.poids)}
+                />
+                <span className="imp-face">
+                  <span className="chips">
+                    {Array.from({ length: importance.poids }, (_, i) => (
+                      <i key={i}></i>
+                    ))}
+                  </span>
+                  <b>×{importance.poids}</b> <span>{importance.libelle}</span>
+                </span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
         <button type="submit" className="go" aria-disabled={!choix}>Valider ma réponse</button>
       </form>
     </main>
