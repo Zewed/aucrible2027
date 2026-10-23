@@ -1,10 +1,15 @@
 # DONNÉES DE DÉMONSTRATION : les positions ci-dessous viennent des maquettes et sont
 # inventées. Elles ne sont pas vérifiées et doivent être remplacées par des positions
-# sourcées avant toute mise en ligne.
+# sourcées avant toute mise en ligne. Le contexte vient aussi des maquettes et n'est
+# pas vérifié.
 numero: 24
 date: 2026-10-23
 theme: travail-retraites
 question: À quel âge devrait-on pouvoir partir à la retraite ?
+contexte:
+  - La réforme de 2023 a commencé à repousser l'âge légal de 62 à 64 ans, puis sa hausse a été suspendue fin 2025.
+  - "Notre système fonctionne par répartition : les cotisations de ceux qui travaillent paient les pensions d'aujourd'hui."
+  - Comme on vit plus longtemps, il y a de moins en moins d'actifs pour chaque retraité.
 options:
   - id: A
     libelle: 60 ans

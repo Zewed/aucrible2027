@@ -10,6 +10,7 @@ export type Question = {
   date: string;
   theme: string;
   question: string;
+  contexte: string[];
   options: Option[];
   positions: Record<string, string>;
 };
