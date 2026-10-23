@@ -100,6 +100,7 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
                   </span>
                 </span>
               </span>
+              <span className="picked">Ta carte</span>
             </label>
           ))}
         </div>
