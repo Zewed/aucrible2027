@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
-import { CarteAvecCandidat } from "@/components/Carte";
+import { CartesAPartager } from "@/components/Carte";
 import { lireCandidats, lireThemes } from "@/lib/contenu";
 import { lireAujourdhui, lireQuestionsDuCalcul } from "@/lib/publication";
 import "./carte-story.css";
@@ -18,7 +18,7 @@ async function Carte() {
           </h1>
           <p className="sp-lead">Une image au format story (9:16), prête pour Instagram ou TikTok. Tu choisis ce qu&apos;elle montre.</p>
         </section>
-        <CarteAvecCandidat questions={questions} candidats={lireCandidats()} themes={lireThemes()} />
+        <CartesAPartager questions={questions} candidats={lireCandidats()} themes={lireThemes()} />
       </main>
     </>
   );
