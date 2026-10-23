@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
@@ -23,6 +24,44 @@ function Badge({ statut }: { statut: Position["statut"] }) {
       </svg>
       position déduite
     </span>
+  );
+}
+
+/**
+ * « Comment lire une position » : les trois badges et ce qu'ils veulent dire. La maquette écrit « Elle l'a dit ou écrit
+ * elle-même » pour Marine Tondelier : la phrase dit le nom du candidat, pour ne genrer personne.
+ */
+function Legende({ nom }: { nom: string }) {
+  return (
+    <div className="leg" role="group" aria-labelledby="h-leg">
+      <h3 id="h-leg">Comment lire une position</h3>
+      <ul>
+        <li>
+          <Badge statut="officielle" />
+          <span>{nom} l&apos;a dit ou écrit en personne : programme 2027, déclaration datée.</span>
+        </li>
+        <li>
+          <Badge statut="deduite" />
+          <span>Tirée d&apos;un vote de son groupe ou du programme de son parti.</span>
+        </li>
+        <li>
+          <span className="badge badge--unk">
+            <span className="q" aria-hidden="true">
+              ?
+            </span>
+            position inconnue
+          </span>
+          <span>Pas de source : on ne devine jamais.</span>
+        </li>
+      </ul>
+      {/* La page Méthode arrive avec le ticket 143. */}
+      <Link className="leg-link" href="/methode">
+        Voir la méthode et les sources
+        <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12h13M13 6l6 6-6 6" />
+        </svg>
+      </Link>
+    </div>
   );
 }
 
@@ -152,6 +191,7 @@ async function FicheCandidat({ id }: { id: string }) {
               <p className="pos-sum">
                 Pour chaque question : son option, d&apos;où ça vient, et si c&apos;est dit par {candidat.nom} ou déduit.
               </p>
+              <Legende nom={candidat.nom} />
               <div className="themes-pos">
                 {themes.map((theme) => (
                   <PositionsDuTheme
