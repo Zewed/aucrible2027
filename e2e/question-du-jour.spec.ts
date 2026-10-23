@@ -422,3 +422,40 @@ test("sous « Choisis ta carte », la fiche prévient que les noms s'affichent a
   await expect(avis).toBeVisible();
   await expect(page).toHaveURL(/\/$/);
 });
+
+test.describe("sur ordinateur, la carte question se pose à côté des cartes réponse", () => {
+  test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
+
+  test("à 1280 px, la carte question est à gauche et les cartes réponse à droite, côte à côte", async ({ page }) => {
+    await page.goto("/");
+    const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+    const options = page.getByRole("radiogroup", { name: "Les options" });
+    const [c, o] = await Promise.all([carte.boundingBox(), options.boundingBox()]);
+    expect(c!.x + c!.width).toBeLessThanOrEqual(o!.x);
+    expect(c!.y).toBeLessThan(o!.y + o!.height);
+    expect(o!.y).toBeLessThan(c!.y + c!.height);
+  });
+
+  test("en défilant les cinq options, la carte question reste visible à gauche", async ({ page }) => {
+    await page.goto("/");
+    const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+    for (const libelle of ["60 ans", "62 ans", "64 ans", "65 ans ou plus", "À la carte, avec un système à points"]) {
+      await page.getByRole("radiogroup", { name: "Les options" }).getByText(libelle, { exact: true }).scrollIntoViewIfNeeded();
+      await expect(carte).toBeInViewport({ ratio: 0.9 });
+    }
+    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(200);
+  });
+});
+
+test.describe("sur un petit téléphone", () => {
+  test.use({ viewport: { width: 375, height: 812 } });
+
+  test("à 375 px, la carte question vient d'abord, puis les cartes réponse en dessous", async ({ page }) => {
+    await page.goto("/");
+    const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+    const options = page.getByRole("radiogroup", { name: "Les options" });
+    const [c, o] = await Promise.all([carte.boundingBox(), options.boundingBox()]);
+    expect(c!.y + c!.height).toBeLessThanOrEqual(o!.y);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
+  });
+});
