@@ -1,0 +1,593 @@
+.aeom/direction/direction.json
+  s_613931134209e1::t_89c7b60c106d7f 1-7
+.aeom/direction/index.html
+  s_613931134209e1::t_c3b506845ac3fe 1-173
+.aeom/direction/report.txt
+  s_613931134209e1::t_d52e2eeed93983 1
+.aeom/direction/resultats.html
+  s_613931134209e1::t_4c9f3065155561 1-154
+.aeom/direction/style.css
+  s_613931134209e1::t_49791014011203 1-695
+.gitignore
+  s_613931134209e1::t_e2db527c39fa35 1-21
+.veebee/canvas.html
+  s_613931134209e1::t_0241dd2fccfb98 1-3215
+.veebee/cut.json
+  s_613931134209e1::t_3944c80b3cdcc6 1-2601
+.veebee/tickets/001-valider-une-option-de-la-question-du-jour-revele-les.md
+  s_613931134209e1::t_2ae776838d16a4 1-34
+.veebee/tickets/002-la-carte-question-affiche-son-theme.md
+  s_613931134209e1::t_37d8a53c424ba1 1-26
+.veebee/tickets/003-la-carte-question-prend-la-couleur-de-son-theme.md
+  s_613931134209e1::t_ac5ee27272e987 1-27
+.veebee/tickets/004-la-question-affiche-son-numero-et-sa-date.md
+  s_613931134209e1::t_35ead4509e0576 1-27
+.veebee/tickets/005-la-fiche-affiche-le-contexte-en-trois-phrases.md
+  s_613931134209e1::t_7a56fac737592c 1-25
+.veebee/tickets/006-la-fiche-affiche-les-chiffres-cles.md
+  s_613931134209e1::t_1fa35b0369f70d 1-26
+.veebee/tickets/007-chaque-chiffre-cle-affiche-sa-source-datee.md
+  s_613931134209e1::t_0046ba272ca87f 1-27
+.veebee/tickets/008-chaque-option-porte-une-lettre-de-a-a-e.md
+  s_613931134209e1::t_a6addedfd249f3 1-26
+.veebee/tickets/009-chaque-option-dit-ce-qu-elle-implique.md
+  s_613931134209e1::t_49f34833c5f618 1-26
+.veebee/tickets/010-chaque-option-dit-ce-qu-en-pensent-ses-defenseurs.md
+  s_613931134209e1::t_9db084423b0c1f 1-27
+.veebee/tickets/011-chaque-option-dit-ce-que-lui-reprochent-ses-critiques.md
+  s_613931134209e1::t_2d025571865c6b 1-27
+.veebee/tickets/012-la-fiche-previent-que-les-noms-s-affichent-apres-la.md
+  s_613931134209e1::t_159b4c53ce66b0 1-27
+.veebee/tickets/013-sur-ordinateur-la-carte-question-se-pose-a-cote-des.md
+  s_613931134209e1::t_5c6a578a15fba2 1-27
+.veebee/tickets/014-l-option-choisie-se-marque-ta-carte.md
+  s_613931134209e1::t_e9cfad4f6eb83d 1-26
+.veebee/tickets/015-l-electeur-change-d-option-avant-de-valider.md
+  s_613931134209e1::t_7818805683204f 1-26
+.veebee/tickets/016-valider-ma-reponse-reste-inactif-sans-option-choisie.md
+  s_613931134209e1::t_a6245d07657d34 1-26
+.veebee/tickets/017-l-electeur-repond-je-ne-sais-pas.md
+  s_613931134209e1::t_319084a9c75c6f 1-26
+.veebee/tickets/018-l-electeur-choisit-l-importance-du-sujet-1-2-3.md
+  s_613931134209e1::t_cabd0eab01d74d 1-26
+.veebee/tickets/019-la-revelation-montre-les-candidats-de-chaque-option.md
+  s_613931134209e1::t_2d46035caf7e39 1-27
+.veebee/tickets/020-la-revelation-rappelle-l-option-choisie.md
+  s_613931134209e1::t_626e2fc7ceb0a5 1-26
+.veebee/tickets/021-la-revelation-rappelle-l-importance-donnee.md
+  s_613931134209e1::t_c3609747f4b508 1-25
+.veebee/tickets/022-chaque-candidat-revele-affiche-la-source-de-sa-position.md
+  s_613931134209e1::t_0757373b1bfc98 1-27
+.veebee/tickets/023-chaque-position-revelee-porte-son-badge-officielle-ou.md
+  s_613931134209e1::t_599e21f5496cd7 1-27
+.veebee/tickets/024-les-candidats-sans-source-se-rangent-sous-position.md
+  s_613931134209e1::t_c90e3e0b424d27 1-27
+.veebee/tickets/025-les-candidats-s-affichent-dans-un-ordre-melange.md
+  s_613931134209e1::t_a3e01338b14f23 1-26
+.veebee/tickets/026-tous-les-candidats-reveles-ont-le-meme-pion-sans.md
+  s_613931134209e1::t_67f8b9008782f4 1-26
+.veebee/tickets/027-la-revelation-dit-avec-qui-il-est-aligne-sur-ce-sujet.md
+  s_613931134209e1::t_6a620e1d151d62 1-27
+.veebee/tickets/028-la-revelation-dit-de-qui-il-est-proche.md
+  s_613931134209e1::t_c093bc1cbc5f83 1-28
+.veebee/tickets/029-la-revelation-dit-a-qui-il-est-oppose.md
+  s_613931134209e1::t_d214f8a22e993b 1-27
+.veebee/tickets/030-apres-je-ne-sais-pas-la-revelation-s-affiche-sans.md
+  s_613931134209e1::t_82d8ea21e7bffe 1-26
+.veebee/tickets/031-les-cartes-se-retournent-une-a-une-a-l-arrivee.md
+  s_613931134209e1::t_d558cc3c9c77f6 1-26
+.veebee/tickets/032-la-revelation-propose-des-liens-pour-aller-plus-loin.md
+  s_613931134209e1::t_d62ba8ccca2100 1-26
+.veebee/tickets/033-une-question-deja-repondue-rouvre-sur-sa-revelation.md
+  s_613931134209e1::t_647fc8241c68ea 1-28
+.veebee/tickets/034-l-importance-donnee-est-retrouvee-en-revenant.md
+  s_613931134209e1::t_bd03dd4df34842 1-26
+.veebee/tickets/035-la-fiche-rappelle-que-les-reponses-restent-sur-le.md
+  s_613931134209e1::t_31b50f4ebc90c1 1-26
+.veebee/tickets/036-en-navigation-privee-l-app-previent-que-rien-ne-sera.md
+  s_613931134209e1::t_c17ada1c19b3b1 1-27
+.veebee/tickets/037-la-question-du-jour-change-chaque-jour.md
+  s_613931134209e1::t_3b9e6bb542b347 1-27
+.veebee/tickets/038-une-question-pas-encore-publiee-reste-inaccessible.md
+  s_613931134209e1::t_6cf2a67f189789 1-28
+.veebee/tickets/039-le-compte-a-rebours-affiche-les-jours-avant-le-1er-tour.md
+  s_613931134209e1::t_1553efef8e1e00 1-27
+.veebee/tickets/040-avant-la-premiere-question-l-accueil-dit-quand-elle.md
+  s_613931134209e1::t_20a939a98d630c 1-27
+.veebee/tickets/041-quand-les-questions-s-arretent-l-accueil-le-dit.md
+  s_613931134209e1::t_fc41e556066873 1-26
+.veebee/tickets/042-aucune-nouvelle-question-ne-parait-pendant-le-silence.md
+  s_613931134209e1::t_3559ccdea6450e 1-27
+.veebee/tickets/043-pendant-le-silence-electoral-l-accueil-explique.md
+  s_613931134209e1::t_a81ea31210c9e0 1-26
+.veebee/tickets/044-pendant-le-silence-electoral-resultats-face-a-face-et.md
+  s_613931134209e1::t_a2b17873b9e4d3 1-28
+.veebee/tickets/045-le-de-affiche-les-jours-d-affilee.md
+  s_613931134209e1::t_9f54c0a37984df 1-27
+.veebee/tickets/046-repondre-a-la-question-du-jour-ajoute-un-jour-a-la.md
+  s_613931134209e1::t_8d9ec78fb5fcbe 1-26
+.veebee/tickets/047-un-jour-sans-reponse-remet-la-serie-a-zero.md
+  s_613931134209e1::t_bd5a422896cd77 1-27
+.veebee/tickets/048-je-ne-sais-pas-ne-casse-pas-la-serie.md
+  s_613931134209e1::t_5b72e35d299839 1-26
+.veebee/tickets/049-le-silence-electoral-met-la-serie-en-pause.md
+  s_613931134209e1::t_08e76742ae5218 1-27
+.veebee/tickets/050-sans-aucune-reponse-le-de-n-affiche-pas-de-serie.md
+  s_613931134209e1::t_518832f2c48b6e 1-27
+.veebee/tickets/051-le-de-roule-quand-la-serie-augmente.md
+  s_613931134209e1::t_e9fcd7bcab95af 1-26
+.veebee/tickets/052-l-electeur-ouvre-la-liste-des-questions-publiees.md
+  s_613931134209e1::t_f69bd40a89671e 1-29
+.veebee/tickets/053-la-revelation-mene-au-rattrapage.md
+  s_85f9c9f2ebe0e3::t_248dd8bc1229ba 1-26
+.veebee/tickets/054-les-questions-qui-departagent-le-plus-viennent-en.md
+  s_613931134209e1::t_f33df28e990782 1-27
+.veebee/tickets/055-chaque-question-affiche-son-pouvoir-de-departage.md
+  s_613931134209e1::t_fa073290c2272e 1-27
+.veebee/tickets/056-une-question-repondue-est-marquee-repondu-et-passe-en.md
+  s_613931134209e1::t_6cae06bbb0a6bd 1-29
+.veebee/tickets/057-la-liste-affiche-le-nombre-de-questions-a-rattraper.md
+  s_613931134209e1::t_59ad97d4de7ffe 1-26
+.veebee/tickets/058-l-electeur-filtre-la-liste-par-theme.md
+  s_613931134209e1::t_672d5d1686a925 1-25
+.veebee/tickets/059-une-question-de-la-liste-s-ouvre-sur-sa-fiche.md
+  s_613931134209e1::t_e00ebfd40c2939 1-28
+.veebee/tickets/060-tout-rattrape-la-liste-dit-tu-es-a-jour.md
+  s_613931134209e1::t_127fcd58ea6f25 1-26
+.veebee/tickets/061-l-electeur-ouvre-mes-resultats.md
+  s_613931134209e1::t_6a03362db06d15 1-28
+.veebee/tickets/062-la-revelation-mene-a-mes-resultats.md
+  s_85f9c9f2ebe0e3::t_8e6589858b8b1e 1-27
+.veebee/tickets/063-le-classement-range-les-13-candidats-par-de-proximite.md
+  s_613931134209e1::t_7925cd9fac7049 1-32
+.veebee/tickets/064-une-option-voisine-sur-l-echelle-compte-en-partie.md
+  s_613931134209e1::t_ce55fd876dfe7b 1-28
+.veebee/tickets/065-une-option-hors-echelle-compte-tout-ou-rien.md
+  s_613931134209e1::t_6ed1b40d6c01f9 1-27
+.veebee/tickets/066-l-importance-2-ou-3-pese-plus-dans-le-classement.md
+  s_613931134209e1::t_5ad8f44a168231 1-27
+.veebee/tickets/067-une-position-inconnue-ne-compte-pas-pour-ce-candidat.md
+  s_613931134209e1::t_f2391e13319fba 1-27
+.veebee/tickets/068-je-ne-sais-pas-ne-compte-pas-dans-le-classement.md
+  s_613931134209e1::t_822c8b474b1684 1-24
+.veebee/tickets/069-chaque-candidat-du-classement-a-sa-barre.md
+  s_613931134209e1::t_2c4cdb58fa2c2c 1-25
+.veebee/tickets/070-tous-les-candidats-du-classement-ont-le-meme-pion.md
+  s_613931134209e1::t_ced4b68300dde5 1-25
+.veebee/tickets/071-le-classement-affiche-sa-fiabilite.md
+  s_613931134209e1::t_d055981710e8e6 1-26
+.veebee/tickets/072-les-resultats-affichent-ce-n-est-pas-un-sondage.md
+  s_613931134209e1::t_3506940791f59c 1-27
+.veebee/tickets/073-avant-10-reponses-le-classement-dit-combien-il-en.md
+  s_613931134209e1::t_bb9d5e6d70a67b 1-29
+.veebee/tickets/074-avant-10-reponses-un-bouton-mene-au-rattrapage.md
+  s_613931134209e1::t_f09aab19dd6a51 1-27
+.veebee/tickets/075-le-plateau-place-le-pion-toi-sur-les-deux-axes.md
+  s_613931134209e1::t_c0857808aa8467 1-30
+.veebee/tickets/076-sur-ordinateur-le-plateau-se-pose-a-cote-du-classement.md
+  s_613931134209e1::t_8a7f7ffac866cf 1-27
+.veebee/tickets/077-le-plateau-nomme-ses-deux-axes.md
+  s_613931134209e1::t_8d5e2ca02fa266 1-28
+.veebee/tickets/078-les-13-candidats-sont-poses-en-pions-identiques.md
+  s_613931134209e1::t_4da40bb808ec75 1-28
+.veebee/tickets/079-la-legende-relie-chaque-pion-a-son-candidat.md
+  s_613931134209e1::t_f1de8c8193af85 1-26
+.veebee/tickets/080-une-option-sans-note-sur-un-axe-ne-deplace-pas-le-pion.md
+  s_613931134209e1::t_18a01ebf527ded 1-28
+.veebee/tickets/081-avant-10-reponses-le-plateau-dit-que-la-position-s.md
+  s_85f9c9f2ebe0e3::t_8ec2bc05808f32 1-26
+.veebee/tickets/082-des-pions-qui-se-chevauchent-restent-lisibles-au.md
+  s_613931134209e1::t_8082aa49b06dcc 1-25
+.veebee/tickets/083-le-camembert-affiche-11-parts-une-par-theme.md
+  s_613931134209e1::t_63fe13613c0c6d 1-27
+.veebee/tickets/084-une-part-se-remplit-apres-3-reponses-dans-son-theme.md
+  s_613931134209e1::t_c734563fb07a9f 1-29
+.veebee/tickets/085-le-camembert-affiche-le-nombre-de-parts-gagnees.md
+  s_613931134209e1::t_64fee3ca6da1d4 1-27
+.veebee/tickets/086-chaque-theme-affiche-son-candidat-le-plus-proche.md
+  s_613931134209e1::t_0d5025443e51cc 1-26
+.veebee/tickets/087-un-theme-sous-3-reponses-dit-pas-encore-assez-de.md
+  s_613931134209e1::t_6ae61ea971328b 1-25
+.veebee/tickets/088-la-question-du-jour-annonce-la-part-en-jeu.md
+  s_85f9c9f2ebe0e3::t_c2cc8dba26980d 1-26
+.veebee/tickets/089-la-revelation-annonce-la-part-gagnee.md
+  s_85f9c9f2ebe0e3::t_b53d5ba57bf1ce 1-26
+.veebee/tickets/090-les-11-parts-remplies-font-du-camembert-un-trophee.md
+  s_613931134209e1::t_05d09cd40127a0 1-27
+.veebee/tickets/091-les-resultats-montrent-la-carte-je-suis-a-x-proche-de-y.md
+  s_613931134209e1::t_fee6160a6a00da 1-30
+.veebee/tickets/092-la-carte-affiche-reponses-themes-et-serie.md
+  s_613931134209e1::t_1a77ae9a8e1a92 1-29
+.veebee/tickets/093-la-carte-affiche-le-camembert.md
+  s_613931134209e1::t_7a76fc7db06d1b 1-26
+.veebee/tickets/094-l-electeur-choisit-une-carte-qui-ne-montre-que-son-pion.md
+  s_613931134209e1::t_9e8489415bf281 1-29
+.veebee/tickets/095-partager-envoie-l-image-9-16-au-partage-du-telephone.md
+  s_613931134209e1::t_6a44a4f6cfd038 1-28
+.veebee/tickets/096-telecharger-l-image-enregistre-la-carte.md
+  s_613931134209e1::t_b7217a1ca807b7 1-26
+.veebee/tickets/097-avant-10-reponses-la-carte-reste-verrouillee.md
+  s_85f9c9f2ebe0e3::t_5f831caa30410b 1-28
+.veebee/tickets/098-la-carte-affiche-et-toi-aucrible2027-fr.md
+  s_613931134209e1::t_065ceec793cbdb 1-27
+.veebee/tickets/099-le-face-a-face-montre-deux-candidats-cote-a-cote.md
+  s_613931134209e1::t_b22ce1b2c0553b 1-31
+.veebee/tickets/100-chaque-position-du-face-a-face-affiche-sa-source.md
+  s_613931134209e1::t_28eaadb0bb3028 1-27
+.veebee/tickets/101-chaque-position-du-face-a-face-porte-son-badge.md
+  s_613931134209e1::t_0160587f44bcc0 1-26
+.veebee/tickets/102-les-questions-ou-ils-sont-d-accord-sont-marquees.md
+  s_613931134209e1::t_dbcc0413be1d1f 1-26
+.veebee/tickets/103-le-face-a-face-compte-leurs-accords.md
+  s_613931134209e1::t_26bb61cec04d93 1-27
+.veebee/tickets/104-changer-remplace-un-des-deux-candidats.md
+  s_613931134209e1::t_a43c770c3fff22 1-27
+.veebee/tickets/105-le-meme-candidat-ne-peut-pas-etre-choisi-deux-fois.md
+  s_613931134209e1::t_e94e8c22964285 1-25
+.veebee/tickets/106-le-disque-central-inverse-les-deux-candidats.md
+  s_613931134209e1::t_fb9e1083372fda 1-25
+.veebee/tickets/107-l-electeur-filtre-le-face-a-face-par-theme.md
+  s_613931134209e1::t_37793480240c2d 1-25
+.veebee/tickets/108-une-position-inconnue-s-affiche-comme-telle.md
+  s_613931134209e1::t_81bd214f4e08c8 1-27
+.veebee/tickets/109-le-face-a-face-ne-montre-que-les-questions-deja.md
+  s_613931134209e1::t_a89323607e0500 1-26
+.veebee/tickets/110-une-carte-retournee-compte-les-questions-cachees.md
+  s_613931134209e1::t_e6fd0db87d1871 1-26
+.veebee/tickets/111-sans-reponse-le-face-a-face-invite-a-repondre-d-abord.md
+  s_613931134209e1::t_7a27f45b0fd49e 1-26
+.veebee/tickets/112-un-lien-partage-ouvre-le-face-a-face-sur-deux-candidats.md
+  s_613931134209e1::t_9e4d2ccbd3692e 1-26
+.veebee/tickets/113-moi-contre-montre-ses-reponses-face-a-celles-d-un.md
+  s_613931134209e1::t_fcf1350cc44919 1-29
+.veebee/tickets/114-moi-contre-affiche-le-d-accord.md
+  s_613931134209e1::t_0acb689085275c 1-28
+.veebee/tickets/115-moi-contre-affiche-un-score-par-theme.md
+  s_613931134209e1::t_8d6f44f2a9e860 1-27
+.veebee/tickets/116-l-electeur-change-de-candidat.md
+  s_613931134209e1::t_382f3644dea6e2 1-26
+.veebee/tickets/117-chaque-position-du-candidat-affiche-sa-source.md
+  s_613931134209e1::t_1d8e5396e4a74f 1-27
+.veebee/tickets/118-chaque-position-du-candidat-porte-son-badge.md
+  s_613931134209e1::t_59910b82953058 1-26
+.veebee/tickets/119-une-question-non-repondue-est-grisee-et-mene-au.md
+  s_613931134209e1::t_f06da0dc50bd3b 1-28
+.veebee/tickets/120-moi-contre-mene-au-face-a-face.md
+  s_613931134209e1::t_546bbbe21c9b51 1-26
+.veebee/tickets/121-l-electeur-ouvre-la-fiche-d-un-candidat.md
+  s_613931134209e1::t_43059423c94953 1-29
+.veebee/tickets/122-un-nom-revele-ouvre-la-fiche-du-candidat.md
+  s_613931134209e1::t_bc71a1dabef5aa 1-26
+.veebee/tickets/123-un-candidat-du-classement-ouvre-sa-fiche.md
+  s_613931134209e1::t_f801448ec2eff4 1-25
+.veebee/tickets/124-la-fiche-affiche-le-parti-du-candidat.md
+  s_613931134209e1::t_aae504ca3d329a 1-29
+.veebee/tickets/125-la-fiche-affiche-le-statut-de-la-candidature.md
+  s_613931134209e1::t_ccf7fd631b9945 1-24
+.veebee/tickets/126-la-fiche-range-ses-positions-par-theme.md
+  s_613931134209e1::t_23cafb03a8db1a 1-28
+.veebee/tickets/127-chaque-position-affiche-sa-source-datee.md
+  s_613931134209e1::t_28a1dbd7664bf9 1-31
+.veebee/tickets/128-chaque-position-porte-son-badge.md
+  s_613931134209e1::t_6e4cc82dc54f45 1-26
+.veebee/tickets/129-une-question-sans-source-affiche-position-inconnue.md
+  s_613931134209e1::t_afb74ee2e7cb00 1-26
+.veebee/tickets/130-la-fiche-ne-montre-que-les-questions-publiees.md
+  s_613931134209e1::t_3bb8db517fc2a8 1-27
+.veebee/tickets/131-la-fiche-affiche-sa-proximite-avec-l-electeur.md
+  s_613931134209e1::t_4bfe655bba5cbe 1-27
+.veebee/tickets/132-la-fiche-explique-les-deux-badges.md
+  s_613931134209e1::t_c4a3aed1c38949 1-26
+.veebee/tickets/133-la-fiche-mene-a-moi-contre-ce-candidat.md
+  s_613931134209e1::t_7feb0705c4e395 1-25
+.veebee/tickets/134-la-fiche-mene-au-face-a-face.md
+  s_613931134209e1::t_182c3fce0a8dab 1-24
+.veebee/tickets/135-un-candidat-retire-sort-du-classement.md
+  s_613931134209e1::t_350fffd19d0af9 1-27
+.veebee/tickets/136-la-fiche-d-un-candidat-retire-dit-quand-et-qui-il.md
+  s_613931134209e1::t_dc00f473625406 1-25
+.veebee/tickets/137-un-candidat-retire-n-apparait-plus-dans-les-nouvelles.md
+  s_613931134209e1::t_f45859b3bd9f85 1-25
+.veebee/tickets/138-un-candidat-remplace-prend-le-nom-de-son-remplacant.md
+  s_613931134209e1::t_eb132eb453f98c 1-27
+.veebee/tickets/139-apres-un-remplacement-les-positions-heritees-passent-en.md
+  s_613931134209e1::t_d76d4076bffea0 1-26
+.veebee/tickets/140-un-nouveau-candidat-entre-dans-le-classement.md
+  s_613931134209e1::t_079da96095629a 1-32
+.veebee/tickets/141-un-nouveau-candidat-sans-source-est-position-inconnue.md
+  s_613931134209e1::t_9b6785fbf72738 1-28
+.veebee/tickets/142-a-la-liste-officielle-seuls-les-candidats-officiels.md
+  s_613931134209e1::t_c2450c1c9166da 1-25
+.veebee/tickets/143-la-page-methode-explique-le-score-d-une-question-avec.md
+  s_613931134209e1::t_00767d10f6e308 1-28
+.veebee/tickets/144-la-page-methode-explique-le-poids-de-l-importance.md
+  s_613931134209e1::t_707f7932776e00 1-27
+.veebee/tickets/145-la-page-methode-explique-pourquoi-une-position-inconnue.md
+  s_613931134209e1::t_28ad1b1eee9117 1-27
+.veebee/tickets/146-la-page-methode-explique-comment-le-plateau-place-les.md
+  s_613931134209e1::t_bc2565e12118c8 1-29
+.veebee/tickets/147-la-page-methode-explique-l-ordre-des-sources.md
+  s_613931134209e1::t_766b7d988f15e6 1-30
+.veebee/tickets/148-la-page-methode-explique-les-deux-badges.md
+  s_613931134209e1::t_d0de20e744f266 1-26
+.veebee/tickets/149-la-page-methode-explique-la-regle-d-entree-des.md
+  s_613931134209e1::t_af568763351225 1-46
+.veebee/tickets/150-la-page-methode-explique-les-retraits-et-remplacements.md
+  s_613931134209e1::t_363af6a17200a4 1-26
+.veebee/tickets/151-la-page-methode-explique-la-bascule-sur-la-liste.md
+  s_613931134209e1::t_21ea8316b443b6 1-24
+.veebee/tickets/152-la-page-methode-explique-pourquoi-ce-n-est-pas-un.md
+  s_613931134209e1::t_aa099570a1646a 1-30
+.veebee/tickets/153-la-page-methode-mene-au-code-source-public.md
+  s_613931134209e1::t_6929baf9d2271c 1-28
+.veebee/tickets/154-methode-de-calcul-mene-des-resultats-a-la-page-methode.md
+  s_613931134209e1::t_48c76d6661e903 1-25
+.veebee/tickets/155-la-page-a-propos-dit-qui-fait-l-app.md
+  s_613931134209e1::t_1610994560cda4 1-28
+.veebee/tickets/156-la-page-a-propos-dit-comment-les-fiches-sont-relues.md
+  s_613931134209e1::t_3d51f8faea83fd 1-33
+.veebee/tickets/157-la-page-a-propos-dit-qu-on-ne-sait-pas-pour-qui-tu.md
+  s_613931134209e1::t_533edd3f4211ef 1-30
+.veebee/tickets/158-la-page-a-propos-dit-ce-que-fait-l-ia.md
+  s_613931134209e1::t_d7a7f03fe1e723 1-31
+.veebee/tickets/159-la-page-a-propos-mene-aux-comptes-aucrible2027.md
+  s_613931134209e1::t_bd3003806c1fb7 1-27
+.veebee/tickets/160-signaler-une-erreur-ouvre-le-formulaire-depuis-la-fiche.md
+  s_613931134209e1::t_d5c6ad72c1b232 1-26
+.veebee/tickets/161-le-formulaire-sait-de-quelle-fiche-il-vient.md
+  s_613931134209e1::t_3f3bf89364561a 1-26
+.veebee/tickets/162-l-electeur-choisit-le-type-d-erreur.md
+  s_613931134209e1::t_ff1a95dc6c5e61 1-25
+.veebee/tickets/163-l-electeur-envoie-un-signalement.md
+  s_613931134209e1::t_1981b8497b3f9d 1-25
+.veebee/tickets/164-le-signalement-arrive-dans-une-boite-privee.md
+  s_613931134209e1::t_e15006b432844a 1-26
+.veebee/tickets/165-l-electeur-joint-une-source-a-son-signalement.md
+  s_613931134209e1::t_c163ed48212ced 1-25
+.veebee/tickets/166-l-electeur-laisse-un-email-pour-avoir-une-reponse.md
+  s_613931134209e1::t_e1150df38e8a98 1-27
+.veebee/tickets/167-apres-l-envoi-le-formulaire-remercie.md
+  s_613931134209e1::t_c3f5e323ac492b 1-25
+.veebee/tickets/168-un-signalement-vide-ne-part-pas.md
+  s_613931134209e1::t_d5887d8e0e6332 1-25
+.veebee/tickets/169-un-envoi-rate-garde-le-texte-et-propose-de-reessayer.md
+  s_613931134209e1::t_ac6e2d493b20bd 1-25
+.veebee/tickets/170-le-formulaire-promet-une-reponse-sous-72-h.md
+  s_613931134209e1::t_0e7fa17489e516 1-25
+.veebee/tickets/171-la-fiche-candidat-propose-aussi-signaler-une-erreur.md
+  s_613931134209e1::t_39f6402bab5e71 1-25
+.veebee/tickets/172-le-journal-liste-les-corrections-les-plus-recentes-d.md
+  s_613931134209e1::t_e38eb8e00e4e26 1-28
+.veebee/tickets/173-chaque-correction-dit-quelle-fiche-elle-touche.md
+  s_613931134209e1::t_9af9b011723560 1-25
+.veebee/tickets/174-chaque-correction-montre-l-avant-et-l-apres.md
+  s_613931134209e1::t_b070c01e1090d4 1-26
+.veebee/tickets/175-chaque-correction-dit-sa-raison.md
+  s_613931134209e1::t_b889b58a36de17 1-24
+.veebee/tickets/176-chaque-correction-dit-qui-l-a-reperee.md
+  s_613931134209e1::t_4fb2ea78ab255b 1-26
+.veebee/tickets/177-l-electeur-filtre-le-journal-par-type.md
+  s_613931134209e1::t_8826285d45b149 1-27
+.veebee/tickets/178-sans-correction-le-journal-invite-a-signaler.md
+  s_613931134209e1::t_7817be63db23dd 1-27
+.veebee/tickets/179-l-electeur-affiche-ses-reponses-en-qr-code.md
+  s_613931134209e1::t_273428f70ec9b7 1-28
+.veebee/tickets/180-l-electeur-copie-ses-reponses-en-lien.md
+  s_613931134209e1::t_7631b5a7cd1fd7 1-27
+.veebee/tickets/181-scanner-le-qr-code-importe-les-reponses.md
+  s_613931134209e1::t_519d3573bcd11e 1-28
+.veebee/tickets/182-coller-le-lien-importe-les-reponses.md
+  s_613931134209e1::t_e1d16dfc55976b 1-27
+.veebee/tickets/183-un-appareil-qui-a-deja-des-reponses-demande-avant-de.md
+  s_613931134209e1::t_2d36eae9a74a91 1-26
+.veebee/tickets/184-un-code-illisible-est-refuse-avec-un-message.md
+  s_613931134209e1::t_c5145c432c318c 1-26
+.veebee/tickets/185-la-page-dit-que-les-reponses-ne-passent-par-aucun.md
+  s_613931134209e1::t_b72b66d3990140 1-26
+.veebee/tickets/186-l-en-tete-mene-aux-deux-ecrans-principaux.md
+  s_613931134209e1::t_2c770fd324f9b6 1-28
+.veebee/tickets/187-l-en-tete-reste-en-haut-au-defilement.md
+  s_613931134209e1::t_d5299e38f9464c 1-25
+.veebee/tickets/188-le-pied-de-page-mene-aux-pages-secondaires.md
+  s_613931134209e1::t_a7df0a0bb41fee 1-27
+.veebee/tickets/189-une-adresse-inconnue-affiche-cette-carte-n-est-pas-dans.md
+  s_613931134209e1::t_afdaefd6932ad7 1-27
+.veebee/tickets/190-la-page-introuvable-ramene-a-la-question-du-jour.md
+  s_613931134209e1::t_da8462507c1c03 1-25
+.veebee/tickets/191-sans-reseau-l-app-dit-qu-il-faut-une-connexion.md
+  s_613931134209e1::t_14459b6ed88b07 1-26
+.veebee/tickets/192-l-auteur-voit-le-nombre-de-visites-par-jour.md
+  s_613931134209e1::t_bd36100c18bd77 1-27
+.veebee/tickets/193-les-statistiques-ne-contiennent-aucune-reponse.md
+  s_613931134209e1::t_cf4283cf235336 1-27
+.veebee/tickets/194-l-app-ne-depose-aucun-cookie.md
+  s_613931134209e1::t_6613b5813b4706 1-27
+.veebee/tickets/195-une-fiche-ajoutee-par-l-auteur-parait-a-sa-date.md
+  s_613931134209e1::t_037d47202673d5 1-30
+.veebee/tickets/196-une-fiche-avec-un-chiffre-sans-source-est-refusee.md
+  s_613931134209e1::t_ce17bdf5eb2876 1-29
+.veebee/tickets/197-une-position-de-candidat-sans-source-est-refusee.md
+  s_613931134209e1::t_fa0c09a97ba01c 1-29
+.veebee/tickets/198-l-auteur-voit-combien-de-fiches-d-avance-il-a.md
+  s_613931134209e1::t_3aa3f853102408 1-29
+.veebee/tickets/199-l-auteur-est-prevenu-sous-14-fiches-d-avance.md
+  s_613931134209e1::t_688edf27c93648 1-28
+.veebee/tickets/200-corriger-une-fiche-publiee-ajoute-une-ligne-au-journal.md
+  s_613931134209e1::t_8561a522462ecd 1-29
+.veebee/tickets/201-l-auteur-lance-le-controle-de-neutralite-sur-une-fiche.md
+  s_613931134209e1::t_17fb959ab36c8b 1-28
+.veebee/tickets/202-le-controle-rend-les-remarques-d-un-regard-de-droite.md
+  s_613931134209e1::t_2e20703508e470 1-28
+.veebee/tickets/203-le-controle-rend-les-remarques-d-un-regard-du-centre.md
+  s_613931134209e1::t_664f5763f7f669 1-28
+.veebee/tickets/204-le-controle-rend-les-remarques-d-un-regard-de-gauche.md
+  s_613931134209e1::t_f7caa49d16a8ef 1-28
+.veebee/tickets/205-chaque-remarque-dit-son-type.md
+  s_613931134209e1::t_44699c821e9ff9 1-26
+.veebee/tickets/206-l-auteur-accepte-ou-rejette-chaque-remarque.md
+  s_613931134209e1::t_22ffd64c4ab7c0 1-26
+.veebee/tickets/207-le-controle-passe-sur-la-liste-des-sujets.md
+  s_613931134209e1::t_c381368df43832 1-28
+.veebee/tickets/208-le-controle-passe-sur-les-notes-du-plateau.md
+  s_613931134209e1::t_474b2fbe9399c9 1-29
+.veebee/tickets/209-l-auteur-genere-le-carrousel-du-jour-depuis-la-fiche.md
+  s_613931134209e1::t_aade88a677ad19 1-29
+.veebee/tickets/210-la-1re-image-montre-la-question.md
+  s_613931134209e1::t_301fc4ee992263 1-28
+.veebee/tickets/211-la-2e-image-montre-le-contexte.md
+  s_613931134209e1::t_dbbcda0c1973d0 1-26
+.veebee/tickets/212-la-3e-image-montre-les-chiffres-sources.md
+  s_613931134209e1::t_5521364dc9b31b 1-28
+.veebee/tickets/213-la-4e-image-montre-les-options-sans-noms.md
+  s_613931134209e1::t_9f5f2b4f4d3c53 1-27
+.veebee/tickets/214-la-5e-image-montre-le-meilleur-argument-de-chaque-cote.md
+  s_613931134209e1::t_bd1cca67de7c72 1-29
+.veebee/tickets/215-la-derniere-image-invite-a-repondre-sur-l-app.md
+  s_613931134209e1::t_3d9639a1c98130 1-28
+.veebee/tickets/216-chaque-image-porte-la-signature-aucrible2027.md
+  s_613931134209e1::t_907229cb5910ab 1-27
+.veebee/tickets/217-l-auteur-genere-la-story-et-toi-a-deux-choix.md
+  s_613931134209e1::t_4acd61e0971c74 1-30
+.veebee/tickets/218-l-auteur-recupere-la-legende-proposee.md
+  s_613931134209e1::t_9ac09e928a9d45 1-30
+.veebee/tickets/219-l-auteur-telecharge-les-7-images-d-un-coup.md
+  s_613931134209e1::t_d36ce0b35f5d9d 1-29
+.veebee/tickets/220-l-auteur-genere-la-video-verticale-du-jour-depuis-la.md
+  s_613931134209e1::t_6484189cada034 1-30
+.veebee/tickets/221-la-video-s-ouvre-sur-la-carte-question-piochee.md
+  s_613931134209e1::t_f0b7b06aa60bef 1-27
+.veebee/tickets/222-la-video-deroule-le-contexte.md
+  s_613931134209e1::t_efeb37e742c4d8 1-26
+.veebee/tickets/223-les-chiffres-de-la-video-montent-comme-des-compteurs.md
+  s_613931134209e1::t_60ac3db9e813ff 1-28
+.veebee/tickets/224-la-video-montre-les-options-en-cartes.md
+  s_613931134209e1::t_1eb58d0f572b39 1-27
+.veebee/tickets/225-la-video-montre-le-meilleur-argument-de-chaque-cote.md
+  s_613931134209e1::t_d2ed70ab5dc6de 1-27
+.veebee/tickets/226-la-video-finit-sur-et-toi-aucrible2027-fr.md
+  s_613931134209e1::t_942f0e98b607a6 1-29
+.veebee/tickets/227-chaque-image-de-la-video-porte-la-mention-ia.md
+  s_613931134209e1::t_0d57cabaadc208 1-28
+.veebee/tickets/228-la-video-a-une-musique-libre-de-droits.md
+  s_613931134209e1::t_5852cb7b101c31 1-27
+.veebee/tickets/229-la-video-dure-entre-45-et-90-secondes.md
+  s_613931134209e1::t_06230c3be541eb 1-27
+maquettes/a-propos.css
+  s_7a7046527454e0::t_b730691cfc3b5c 1-102
+maquettes/a-propos.html
+  s_613931134209e1::t_e9f4eb9b0feae2 1-219
+maquettes/appareil.css
+  s_613931134209e1::t_93d85eeefae16d 1-182
+maquettes/appareil.html
+  s_613931134209e1::t_64f38e81b3aa9e 1-125
+maquettes/candidat.css
+  s_613931134209e1::t_33862a29bb50af 1-233
+maquettes/candidat.html
+  s_613931134209e1::t_35f87beebb646b 1-324
+maquettes/carrousel.css
+  s_613931134209e1::t_b22e1995dd96c8 1-178
+maquettes/carrousel.html
+  s_613931134209e1::t_edfdaf18607252 1-192
+maquettes/carte-story.css
+  s_613931134209e1::t_8a751460b2710a 1-157
+maquettes/carte-story.html
+  s_613931134209e1::t_a6e8211f380752 1-116
+maquettes/face-a-face.css
+  s_613931134209e1::t_60894be80deac8 1-334
+maquettes/face-a-face.html
+  s_613931134209e1::t_5f3aedd1bdce2f 1-334
+maquettes/index.html
+  s_613931134209e1::t_939bb4776f9b6a 1-183
+maquettes/introuvable.css
+  s_613931134209e1::t_2d9be45a1e77e9 1-38
+maquettes/introuvable.html
+  s_613931134209e1::t_4a3a6d35af36d2 1-60
+maquettes/journal.css
+  s_c8af29a5af6da7::t_0ac66a0673bf49 1-132
+maquettes/journal.html
+  s_613931134209e1::t_d590d24b90a273 1-236
+maquettes/methode.css
+  s_613931134209e1::t_64cfc2e08fcb1f 1-261
+maquettes/methode.html
+  s_613931134209e1::t_6098cb0f76b616 1-376
+maquettes/moi-vs.css
+  s_613931134209e1::t_be6ae0b2933bdf 1-86
+maquettes/moi-vs.html
+  s_613931134209e1::t_d65fa864a81c2e 1-300
+maquettes/rattrapage.css
+  s_613931134209e1::t_498ce3a66653dd 1-269
+maquettes/rattrapage.html
+  s_613931134209e1::t_10a0ecc7a3afe7 1-296
+maquettes/regles.css
+  s_613931134209e1::t_0bb4635dc36692 1-181
+maquettes/resultats-vide.css
+  s_613931134209e1::t_a57ff2dd52f1d8 1-121
+maquettes/resultats-vide.html
+  s_613931134209e1::t_ec89f60e49d274 1-145
+maquettes/resultats.html
+  s_613931134209e1::t_0ac0bd31ceaf0b 1-163
+maquettes/revelation.css
+  s_613931134209e1::t_4cf01dcbcb11d3 1-278
+maquettes/revelation.html
+  s_613931134209e1::t_712a8f290d9502 1-208
+maquettes/signaler.css
+  s_613931134209e1::t_f1e2329d61be9f 1-151
+maquettes/signaler.html
+  s_613931134209e1::t_4aa9508711a468 1-109
+maquettes/silence.css
+  s_613931134209e1::t_f1b05dee2c7587 1-78
+maquettes/silence.html
+  s_613931134209e1::t_09acd6366f6ba4 1-69
+maquettes/style.css
+  s_613931134209e1::t_380a8fe42e0457 1-752
+maquettes/video.css
+  s_613931134209e1::t_4aefc166e45811 1-121
+maquettes/video.html
+  s_613931134209e1::t_f364b2fcf16e9e 1-179
+maquettes/visuels.css
+  s_613931134209e1::t_9a09d74f38c075 1-76
+.veebee/ticket-brief.md
+  s_613931134209e1::t_9457d5b3f775ec 1-63
+SPEC.md
+  s_613931134209e1::t_c2a0d880d78163 1-188
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "70caf957ce1c5b09d15aa7f26bfd85fde5792f8a",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    },
+    "s_7a7046527454e0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "75284566-044b-4ade-8aad-6d1323258705",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    },
+    "s_85f9c9f2ebe0e3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d9d64357-0b34-47c8-868a-d8f32969536f",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    },
+    "s_c8af29a5af6da7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b81b232c-25c9-4494-8e89-f80c50a7c0c1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
