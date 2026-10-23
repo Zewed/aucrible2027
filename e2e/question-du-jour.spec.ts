@@ -4022,3 +4022,42 @@ test.describe("la fiche candidat propose aussi « Signaler une erreur »", () =>
     await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toHaveText("Signaler une erreur.");
   });
 });
+
+test.describe("le journal liste les corrections, les plus récentes d'abord", () => {
+  /** Le journal, avec les sept corrections (inventées) de maquettes/journal.html. */
+  async function journalDeLaMaquette(page: Page) {
+    await page.context().addCookies([{ name: "aucrible-corrections-de-test", value: "maquette", url: "http://localhost:3127" }]);
+    await page.goto("/journal");
+    return page.getByRole("region", { name: "Les corrections" });
+  }
+
+  test("avec les sept corrections de la maquette, le journal les liste de la plus récente à la plus ancienne", async ({ page }) => {
+    const corrections = await journalDeLaMaquette(page);
+    // Le titre passe à la ligne avant « corrections » (un <br>, comme la maquette).
+    expect((await page.getByRole("heading", { level: 1 }).innerText()).replace(/\s+/g, " ")).toBe("Journal des corrections.");
+    await expect(corrections.getByText("la plus récente d'abord")).toBeVisible();
+    const dates = corrections.locator(".log .entry time.date");
+    await expect(dates).toHaveCount(7);
+    await expect(dates.locator("b")).toHaveText(["22", "20", "19", "17", "16", "12", "09"]);
+    await expect(dates.locator("span")).toHaveText(Array(7).fill("oct. 2026"));
+    expect(await dates.evaluateAll((d) => d.map((t) => t.getAttribute("datetime")))).toEqual([
+      "2026-10-22",
+      "2026-10-20",
+      "2026-10-19",
+      "2026-10-17",
+      "2026-10-16",
+      "2026-10-12",
+      "2026-10-09",
+    ]);
+  });
+
+  test("l'introduction dit que les signalements arrivent dans une boîte privée, que seule la correction est publique, et la réponse sous 72 h", async ({ page }) => {
+    await journalDeLaMaquette(page);
+    await expect(
+      page.getByText(
+        "Quand une erreur est repérée, elle est corrigée en public : la date, la fiche concernée, ce qui a changé, pourquoi, et qui l'a repérée. Rien n'est modifié en douce.",
+      ),
+    ).toBeVisible();
+    await expect(page.getByText("Les signalements arrivent dans une boîte privée, seule la correction est publique. Réponse sous 72 h.")).toBeVisible();
+  });
+});

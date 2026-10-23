@@ -71,6 +71,22 @@ export function lireCandidats(ajoutsDeTest?: string): Candidat[] {
   });
 }
 
+/** Une correction publiée dans le journal : son jour (AAAA-MM-JJ), son type, et le thème de la fiche corrigée. */
+export type Correction = { date: string; type: "chiffre" | "position" | "formulation" | "source"; theme: string };
+
+/**
+ * Les corrections de content/corrections.yaml. Pour les tests de bout en bout seulement, un jeu de corrections de test
+ * (e2e/fiches/corrections/<nom>.yaml) les remplace.
+ */
+export function lireCorrections(jeuDeTest?: string): Correction[] {
+  const test = process.env.AUCRIBLE_FICHES_DE_TEST;
+  const fichier =
+    test && jeuDeTest && /^[a-z-]+$/.test(jeuDeTest)
+      ? path.join(process.cwd(), test, "corrections", `${jeuDeTest}.yaml`)
+      : path.join(RACINE, "corrections.yaml");
+  return (parse(readFileSync(fichier, "utf8")) as Correction[]).map((c) => ({ ...c, date: String(c.date) }));
+}
+
 export function lireThemes(): Theme[] {
   return parse(readFileSync(path.join(RACINE, "themes.yaml"), "utf8"));
 }

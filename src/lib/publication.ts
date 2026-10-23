@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { connection } from "next/server";
-import { lireCandidats, lireQuestions, type Candidat, type Question } from "@/lib/contenu";
+import { lireCandidats, lireCorrections, lireQuestions, type Candidat, type Correction, type Question } from "@/lib/contenu";
 import type { QuestionDuCalcul } from "@/lib/proximite";
 import { aujourdhuiAParis } from "@/lib/date";
 import { silenceEnCours } from "@/lib/silence";
@@ -44,6 +44,15 @@ export async function lireLesCandidats(): Promise<Candidat[]> {
 export async function lireCandidatsEnLice(): Promise<Candidat[]> {
   const [candidats, jour] = await Promise.all([lireLesCandidats(), maintenant().then(aujourdhuiAParis)]);
   return candidats.filter((c) => !c.retrait || c.retrait.date > jour);
+}
+
+/** Le cookie par lequel, en test seulement, un test choisit ses corrections (e2e/fiches/corrections/<nom>.yaml). */
+const CORRECTIONS_DE_TEST = "aucrible-corrections-de-test";
+
+/** Les corrections du journal, de la plus récente à la plus ancienne : en production, toujours celles du contenu. */
+export async function lireLesCorrections(): Promise<Correction[]> {
+  const jeu = process.env.AUCRIBLE_FICHES_DE_TEST ? (await cookies()).get(CORRECTIONS_DE_TEST)?.value : undefined;
+  return lireCorrections(jeu).sort((a, b) => b.date.localeCompare(a.date));
 }
 
 /** Le jour de la requête, à Paris (AAAA-MM-JJ). */
