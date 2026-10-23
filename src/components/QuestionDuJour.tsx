@@ -82,10 +82,12 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
                 checked={choix === option.id}
                 onChange={() => setChoix(option.id)}
                 aria-labelledby={`lettre-${option.id} titre-${option.id}`}
+                aria-describedby={`implique-${option.id}`}
               />
               <span className="opt-face">
                 <span className="opt-letter" id={`lettre-${option.id}`}>{String.fromCharCode(65 + rang)}</span>
                 <span className="opt-title" id={`titre-${option.id}`}>{option.libelle}</span>
+                <span className="opt-impl" id={`implique-${option.id}`}>{option.implique}</span>
               </span>
             </label>
           ))}

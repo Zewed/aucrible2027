@@ -19,12 +19,16 @@ chiffres:
 options:
   - id: A
     libelle: Oui, d'ici 2045
+    implique: Les réacteurs ferment peu à peu, remplacés par les renouvelables et les économies d'énergie.
   - id: B
     libelle: Réduire sa part, sans en sortir
+    implique: Le parc diminue, et les renouvelables prennent une plus grande part de la production.
   - id: C
     libelle: Garder le parc actuel
+    implique: On prolonge les réacteurs existants, sans en construire de nouveaux.
   - id: D
     libelle: Construire de nouveaux réacteurs
+    implique: De nouveaux réacteurs remplacent les plus anciens ou s'ajoutent au parc.
 positions:
   arthaud: A
   tondelier: A
