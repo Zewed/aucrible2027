@@ -73,7 +73,7 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
           <h2>Choisis ta carte</h2>
         </div>
         <div className="opts" role="radiogroup" aria-label="Les options">
-          {question.options.map((option) => (
+          {question.options.map((option, rang) => (
             <label key={option.id} className="opt">
               <input
                 type="radio"
@@ -81,9 +81,11 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
                 value={option.id}
                 checked={choix === option.id}
                 onChange={() => setChoix(option.id)}
+                aria-labelledby={`lettre-${option.id} titre-${option.id}`}
               />
               <span className="opt-face">
-                <span className="opt-title">{option.libelle}</span>
+                <span className="opt-letter" id={`lettre-${option.id}`}>{String.fromCharCode(65 + rang)}</span>
+                <span className="opt-title" id={`titre-${option.id}`}>{option.libelle}</span>
               </span>
             </label>
           ))}
