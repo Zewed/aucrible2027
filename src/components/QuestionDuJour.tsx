@@ -71,6 +71,7 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
       <form className="answer" onSubmit={valider}>
         <div className="answer-head">
           <h2>Choisis ta carte</h2>
+          <p>Les noms des candidats s&apos;affichent après ta réponse.</p>
         </div>
         <div className="opts" role="radiogroup" aria-label="Les options">
           {question.options.map((option, rang) => (
