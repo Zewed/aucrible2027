@@ -1,0 +1,35 @@
+src/lib/reponses.ts
+  s_2c9a7110ce04dd::t_caf0ae6d39c0e2 4-6
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_bcc57007539ed8 12-15,272,286,305,335,358,377,545-562
+src/app/globals.css
+  s_2c9a7110ce04dd::t_ee075fdd5896e8 6-8
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_caf0ae6d39c0e2 10,106-121
+.veebee/tickets/017-l-electeur-repond-je-ne-sais-pas.md
+  s_2766a9d9e05cd9::t_33247f5bc9d26d 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0cc10cf360215f3e27f44507e350856ae2fa57ee",
+  "prompts": {},
+  "sessions": {
+    "s_2766a9d9e05cd9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "293b6549-7734-4e92-8545-c5410d9f1315",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    },
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
