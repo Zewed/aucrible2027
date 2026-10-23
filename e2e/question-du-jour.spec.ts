@@ -3660,3 +3660,21 @@ test.describe("la page Méthode explique la règle d'entrée des candidats", () 
     await expect(regle7(page).getByText("Jean Lassalle entrerait automatiquement s'il se déclarait.", { exact: false })).toBeVisible();
   });
 });
+
+test.describe("la page Méthode explique les retraits et remplacements", () => {
+  /** Le jalon de la frise de la règle n° 7 qui commence par `quand`. */
+  const jalon = (page: Page, quand: string) =>
+    page.getByRole("article", { name: "Qui est dans le jeu : 13 candidats" }).locator(".tl li").filter({ has: page.locator(".when", { hasText: quand }) });
+
+  test("une entrée « En cas de retrait » dit que le candidat sort du classement avec la mention « X s'est retiré·e le JJ/MM et soutient Y »", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(jalon(page, "En cas de retrait").locator(".what")).toHaveText("Le candidat sort du classement, avec la mention « X s'est retiré·e le JJ/MM et soutient Y ».");
+  });
+
+  test("une entrée « En cas de remplacement dans le même parti » dit que la fiche est renommée et que les positions restent « déduites », puis sont recodées", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(jalon(page, "En cas de remplacement dans le même parti").locator(".what")).toHaveText(
+      "La fiche est renommée. Les positions du parti restent « déduites », puis sont recodées au fil des déclarations du nouveau candidat.",
+    );
+  });
+});
