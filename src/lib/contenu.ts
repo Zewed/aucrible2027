@@ -81,7 +81,11 @@ export type Correction = {
   theme: string;
   question: { numero: number; titre: string };
   candidat?: string;
+  /** Ce qui a changé : une valeur et une précision facultative ; entre ==…==, la partie surlignée. */
+  avant: CoteDeLaCorrection;
+  apres: CoteDeLaCorrection;
 };
+export type CoteDeLaCorrection = { valeur: string; precision?: string };
 
 /**
  * Les corrections de content/corrections.yaml. Pour les tests de bout en bout seulement, un jeu de corrections de test

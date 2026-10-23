@@ -1,4 +1,5 @@
 # Le journal des corrections (SPEC.md, « Corrections ») : une ligne par correction publiée, avec sa date, son type et
-# le thème de la fiche corrigée, la question (numéro et titre à la correction) et, pour une fiche candidat, le candidat.
+# le thème de la fiche corrigée, la question (numéro et titre à la correction), pour une fiche candidat le candidat,
+# puis l'avant et l'après (une valeur et une précision facultative ; entre ==…==, ce qui a changé, surligné).
 # Vide au lancement : aucune correction n'a encore eu lieu.
 []

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { DeDesRegles, RayuresDesThemes } from "@/components/Regles";
-import { lireThemes, type Candidat, type Correction } from "@/lib/contenu";
+import { lireThemes, type Candidat, type CoteDeLaCorrection, type Correction } from "@/lib/contenu";
 import { lireAujourdhui, lireLesCandidats, lireLesCorrections } from "@/lib/publication";
 import "../regles.css";
 import "./journal.css";
@@ -32,11 +32,38 @@ function Illustration() {
   );
 }
 
+/** Les espaces insécables du français, avant « : », « ? », « % ». */
+const insecables = (texte: string) => texte.replace(/ ([:?%])/g, "\u00a0$1");
+
+/** Un texte de correction, sa partie entre ==…== surlignée. */
+function Surligne({ texte }: { texte: string }) {
+  return insecables(texte)
+    .split("==")
+    .map((morceau, i) => (i % 2 === 1 ? <mark key={i}>{morceau}</mark> : morceau));
+}
+
+/** L'avant ou l'après d'une correction : rouge pour l'avant, vert pour l'après, comme la maquette (jamais une couleur de parti). */
+function Cote({ titre, cote, classe }: { titre: string; cote: CoteDeLaCorrection; classe: string }) {
+  return (
+    <div className={classe}>
+      <p className="diff-k">{titre}</p>
+      <p className="val">
+        <Surligne texte={cote.valeur} />
+      </p>
+      {cote.precision && (
+        <p className="srcv">
+          <Surligne texte={cote.precision} />
+        </p>
+      )}
+    </div>
+  );
+}
+
 const TYPES: Record<Correction["type"], string> = { chiffre: "Chiffre", position: "Position", formulation: "Formulation", source: "Source" };
 
 /**
  * Une correction du journal : sa date en gros, son type et la fiche touchée (une question, ou la fiche d'un candidat
- * sur une question). L'avant et l'après, la raison et l'origine : tickets 174 à 176.
+ * sur une question), puis l'avant et l'après. La raison et l'origine : tickets 175 et 176.
  */
 function Entree({ correction, rang, classe, candidat }: { correction: Correction; rang: number; classe?: string; candidat?: Candidat }) {
   const [annee, mois, jour] = correction.date.split("-");
@@ -73,6 +100,10 @@ function Entree({ correction, rang, classe, candidat }: { correction: Correction
             )}
           </div>
         </header>
+        <div className="diff">
+          <Cote titre="Avant" cote={correction.avant} classe="was theme-sante" />
+          <Cote titre="Après" cote={correction.apres} classe="now theme-ecol" />
+        </div>
       </article>
     </li>
   );
