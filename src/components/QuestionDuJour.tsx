@@ -13,6 +13,7 @@ import { silenceEnCours } from "@/lib/silence";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis, dateLisible } from "@/lib/date";
 import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
+import { joursDAffilee } from "@/lib/serie";
 
 const IMPORTANCES = [
   { poids: 1, libelle: "Un peu" },
@@ -73,7 +74,7 @@ export function QuestionDuJour({
     return (
       <>
         {bandeau}
-        <Silence jour={jour} silence={silence} />
+        <Silence jour={jour} silence={silence} serie={joursDAffilee(Object.values(reponses), jour)} />
       </>
     );
   }
