@@ -1,0 +1,33 @@
+content/questions/024-retraite.yaml
+  s_2c9a7110ce04dd::t_44c61cfd312888 3-4,13-20
+content/questions/025-nucleaire.yaml
+  s_2c9a7110ce04dd::t_5ae96d4f914864 1,11-16
+content/questions/026-medecins.yaml
+  s_2c9a7110ce04dd::t_24d3c8951f1f6e 1-30
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_1d04bb29c6f70a 163-178
+  s_2c9a7110ce04dd::t_c6191eb3a980bf 179-189,191,197-227
+  s_2c9a7110ce04dd::t_4379724f2e1567 190,192-196
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_44c61cfd312888 50-63
+src/lib/contenu.ts
+  s_2c9a7110ce04dd::t_44c61cfd312888 7,15
+.veebee/tickets/006-la-fiche-affiche-les-chiffres-cles.md
+  s_2c9a7110ce04dd::t_ddd1d8394c10da 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b85b8088d0d1639a6b214d579ca6a5d87f40ae8b",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
