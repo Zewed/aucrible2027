@@ -1,0 +1,44 @@
+e2e/fiches/231-2027-05-01.yaml
+  s_2c9a7110ce04dd::t_f522dd7918b9a6 1-35
+playwright.config.ts
+  s_2c9a7110ce04dd::t_e009de1d8e7b23 21-23
+src/lib/publication.ts
+  s_2c9a7110ce04dd::t_179b48fc1f5a33 5,20-23,26-27
+src/lib/silence.ts
+  s_2c9a7110ce04dd::t_179b48fc1f5a33 1-13
+e2e/fiches/217-2027-04-17.yaml
+  s_2c9a7110ce04dd::t_f522dd7918b9a6 1-35
+e2e/fiches/214-2027-04-14.yaml
+  s_2c9a7110ce04dd::t_f522dd7918b9a6 1-35
+e2e/fiches/218-2027-04-18.yaml
+  s_2c9a7110ce04dd::t_f522dd7918b9a6 1-35
+src/lib/contenu.ts
+  s_2c9a7110ce04dd::t_e009de1d8e7b23 36,38-45
+e2e/fiches/216-2027-04-16.yaml
+  s_2c9a7110ce04dd::t_f522dd7918b9a6 1-35
+e2e/fiches/215-2027-04-15.yaml
+  s_2c9a7110ce04dd::t_f522dd7918b9a6 1-35
+e2e/fiches/230-2027-04-30.yaml
+  s_2c9a7110ce04dd::t_f522dd7918b9a6 1-35
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_e009de1d8e7b23 1204-1209,1216,1220,1225-1226,1238-1273
+  s_2c9a7110ce04dd::t_34a130ad7c4d9e 1274
+.veebee/tickets/042-aucune-nouvelle-question-ne-parait-pendant-le-silence.md
+  s_2c9a7110ce04dd::t_ab3b9b30624aab 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9f241bfb9027baef2f137f20a2bcd3d520a07705",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
