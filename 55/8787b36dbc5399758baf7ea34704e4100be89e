@@ -1,0 +1,33 @@
+src/lib/contenu.ts
+  s_2c9a7110ce04dd::t_2732d6f8cbf855 36-45,54
+src/components/Silence.tsx
+  s_2c9a7110ce04dd::t_5e7097deae890d 1-57
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_272436c17ab48a 1275-1295
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_5e7097deae890d 8,12,71-79
+src/app/page.tsx
+  s_2c9a7110ce04dd::t_5e7097deae890d 5
+src/app/silence.css
+  s_2c9a7110ce04dd::t_5e7097deae890d 1-80
+src/lib/silence.ts
+  s_2c9a7110ce04dd::t_5e7097deae890d 5-10,14
+.veebee/tickets/043-pendant-le-silence-electoral-l-accueil-explique.md
+  s_2c9a7110ce04dd::t_5b124908155382 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "558787b36dbc5399758baf7ea34704e4100be89e",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
