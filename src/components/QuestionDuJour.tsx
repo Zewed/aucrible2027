@@ -25,7 +25,7 @@ export function QuestionDuJour({ questions, themes }: { questions: Question[]; t
   }
 
   return (
-    <main className="today">
+    <main className={`today ${theme.classe}`}>
       <div className="left">
         <div className="deck">
           <article className="qcard" aria-labelledby="q">
