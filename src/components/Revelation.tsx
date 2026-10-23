@@ -1,5 +1,6 @@
 "use client";
 
+import { NumeroQuestion } from "@/components/NumeroQuestion";
 import type { Candidat, Question } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
 import { lireReponseEnCours, type ReponseEnCours } from "@/lib/reponses";
@@ -15,6 +16,9 @@ export function Revelation({ questions, candidats }: { questions: Question[]; ca
 
   return (
     <section>
+      <div className="strip">
+        <NumeroQuestion numero={question.numero} date={question.date} avecJour={false} />
+      </div>
       <h1>La révélation</h1>
       <h2 id="defenseurs">Ils défendent ton option</h2>
       <ul aria-labelledby="defenseurs">
