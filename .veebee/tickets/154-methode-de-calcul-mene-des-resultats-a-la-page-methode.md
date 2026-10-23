@@ -5,6 +5,7 @@ milestone: null
 depends_on: ["143", "061"]
 design: maquettes/methode.html
 tracker: null
+status: done
 ---
 
 ## Ce que l'utilisateur fait
