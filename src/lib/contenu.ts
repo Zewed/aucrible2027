@@ -3,7 +3,7 @@ import path from "node:path";
 import { parse } from "yaml";
 
 export type Candidat = { id: string; nom: string; parti: string };
-export type Option = { id: string; libelle: string; implique: string };
+export type Option = { id: string; libelle: string; implique: string; defenseurs: string };
 export type Source = { organisme: string; document?: string; annee: number };
 export type Chiffre = { valeur: string; unite?: string; legende: string; source: Source };
 export type Theme = { id: string; nom: string; classe: string };
