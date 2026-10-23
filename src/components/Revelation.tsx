@@ -89,6 +89,9 @@ export function Revelation({
   const theme = question && themes.find((t) => t.id === question.theme);
   if (!reponse || !question || !theme) return null;
 
+  // Un candidat retiré au jour de la réponse ou avant n'est plus révélé. Rouvrir une révélation répondue avant
+  // son retrait le montre encore : ce cas reste à trancher.
+  const enLice = candidats.filter((c) => !c.retrait || c.retrait.date > reponse.jour);
   const rangChoisi = question.options.findIndex((o) => o.id === reponse.option);
   const choisie = question.options[rangChoisi];
   const importance = reponse.importance;
@@ -100,13 +103,13 @@ export function Revelation({
   const gagnes = themes.filter((t) => (parTheme[t.id] ?? 0) >= REPONSES_PAR_PART);
   const couleurDe = (t: Theme) => `var(--${t.classe.replace("theme-", "")})`;
   const alignes = melanger(
-    candidats.filter((c) => question.positions[c.id]?.option === reponse.option),
+    enLice.filter((c) => question.positions[c.id]?.option === reponse.option),
     reponse.graine - 1,
   );
   const voisins = choisie ? [rangChoisi - 1, rangChoisi + 1].filter((r) => r >= 0 && r < question.options.length) : [];
   const rangDe = (c: Candidat) => question.options.findIndex((o) => o.id === question.positions[c.id]?.option);
   const proches = melanger(
-    candidats.filter((c) => voisins.includes(rangDe(c))),
+    enLice.filter((c) => voisins.includes(rangDe(c))),
     reponse.graine - 2,
   );
   // Les cartes les plus éloignées de la réponse ; une carte voisine est « proche », jamais « opposée ».
@@ -114,11 +117,11 @@ export function Revelation({
   const distanceMax = Math.max(...distances);
   const eloignees = choisie && distanceMax > 1 ? distances.flatMap((d, r) => (d === distanceMax ? [r] : [])) : [];
   const opposes = melanger(
-    candidats.filter((c) => eloignees.includes(rangDe(c))),
+    enLice.filter((c) => eloignees.includes(rangDe(c))),
     reponse.graine - 3,
   );
   const inconnus = melanger(
-    candidats.filter((c) => !question.positions[c.id]),
+    enLice.filter((c) => !question.positions[c.id]),
     reponse.graine + question.options.length,
   );
 
@@ -227,10 +230,15 @@ export function Revelation({
             <h2 id="qui-defend-quoi">Qui défend quoi</h2>
             <p>ordre mélangé</p>
           </div>
+          <p className="rev-note">
+            {nombreDeCandidats(enLice.length)} : {enLice.length - inconnus.length}{" "}
+            {enLice.length - inconnus.length > 1 ? "positions sourcées" : "position sourcée"}, {inconnus.length} sans source à ce
+            jour. Touche un nom pour sa fiche.
+          </p>
           <div className="ropts">
             {question.options.map((option, rang) => {
               const leurs = melanger(
-                candidats.filter((c) => question.positions[c.id]?.option === option.id),
+                enLice.filter((c) => question.positions[c.id]?.option === option.id),
                 reponse.graine + rang,
               );
               const sienne = option.id === reponse.option;

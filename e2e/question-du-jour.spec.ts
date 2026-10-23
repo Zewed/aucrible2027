@@ -3340,3 +3340,46 @@ test.describe("la fiche d'un candidat retiré dit quand et qui il soutient", () 
     await expect(page.locator(".gone")).toHaveCount(0);
   });
 });
+
+test.describe("un candidat retiré n'apparaît plus dans les nouvelles révélations", () => {
+  /**
+   * La révélation de la n° 24, répondue C le 15/12/2026, le lendemain du retrait de test de Marine Tondelier
+   * (ou sans ce retrait). Renvoie, pour chaque bloc de « Qui défend quoi », son titre et ses candidats, triés.
+   */
+  async function revelationApresLeRetrait(page: Page, retrait: boolean) {
+    await fixerLeJour(page, "2026-12-15T09:00:00+01:00");
+    if (retrait) await page.context().addCookies([{ name: "aucrible-candidats-de-test", value: "retrait", url: "http://localhost:3127" }]);
+    else await page.context().clearCookies({ name: "aucrible-candidats-de-test" });
+    await page.goto("/rattrapage");
+    await page.evaluate(() =>
+      localStorage.setItem("aucrible:reponses", JSON.stringify({ 24: { option: "C", importance: 2, graine: 1, jour: "2026-12-15", duJour: false } })),
+    );
+    await page.goto("/question/24/revelation");
+    const qui = page.getByRole("region", { name: "Qui défend quoi" });
+    await expect(qui.getByRole("article").first()).toBeVisible();
+    const blocs = await qui.getByRole("article").evaluateAll((articles) =>
+      articles.map((a) => [a.querySelector("h3")!.textContent, [...a.querySelectorAll(".def-name")].map((n) => n.textContent).sort()]),
+    );
+    return { qui, blocs };
+  }
+
+  test("la révélation d'une question répondue après le retrait ne range Marine Tondelier sous aucune option, ni sous « Position inconnue »", async ({ page }) => {
+    const { qui, blocs } = await revelationApresLeRetrait(page, true);
+    expect(blocs.flatMap(([, noms]) => noms)).not.toContain("Marine Tondelier");
+    await expect(qui.getByText("Marine Tondelier")).toHaveCount(0);
+  });
+
+  test("cette révélation range les 12 autres candidats comme avant et annonce 12 candidats au lieu de 13", async ({ page }) => {
+    const avant = await revelationApresLeRetrait(page, false);
+    expect(avant.blocs.flatMap(([, noms]) => noms)).toContain("Marine Tondelier");
+    await expect(avant.qui.locator(".rev-note")).toHaveText(/^13 candidats : \d+ positions? sourcées?, \d+ sans source à ce jour\. Touche un nom pour sa fiche\.$/);
+    const apres = await revelationApresLeRetrait(page, true);
+    const sansElle = avant.blocs
+      .map(([titre, noms]) => [titre, (noms as string[]).filter((n) => n !== "Marine Tondelier")])
+      .filter(([titre, noms]) => noms.length > 0 || !String(titre).includes("Position inconnue"));
+    expect(apres.blocs).toEqual(sansElle);
+    await expect(apres.qui.locator(".rev-note")).toHaveText(/^12 candidats : /);
+    const nombres = (await apres.qui.locator(".rev-note").textContent())!.match(/(\d+) positions? sourcées?, (\d+) sans source/)!;
+    expect(Number(nombres[1]) + Number(nombres[2])).toBe(12);
+  });
+});
