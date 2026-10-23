@@ -28,3 +28,6 @@
 /* Méthode : sans le sommaire « Aller à la règle » (aucun ticket ne le porte), les règles gardent leur colonne,
    celle de maquettes/methode.html, au lieu de se serrer dans celle du sommaire. */
 .leaf-grid > .rules { grid-column: 2; }
+
+/* Journal vide : dans la page, son titre est un h3, sous « Les corrections » ; la maquette le montre à part, en h2. */
+.log-sec .empty h3 { font: 800 clamp(24px, 6.6vw, 32px)/1.05 var(--display); font-variation-settings: "wdth" 85; letter-spacing: -0.02em; text-wrap: balance; }

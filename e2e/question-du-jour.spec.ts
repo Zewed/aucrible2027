@@ -4219,3 +4219,28 @@ test.describe("l'électeur filtre le journal par type", () => {
     }
   });
 });
+
+test.describe("sans correction, le journal invite à signaler", () => {
+  test("tant qu'aucune correction n'est publiée, le journal affiche « Aucune correction pour l'instant. » et « Tu as repéré une erreur ? » à la place de la liste", async ({ page }) => {
+    await page.goto("/journal");
+    const corrections = page.getByRole("region", { name: "Les corrections" });
+    await expect(corrections.getByRole("heading", { name: "Aucune correction pour l'instant." })).toBeVisible();
+    await expect(corrections.getByText("Tu as repéré une erreur ?")).toBeVisible();
+    await expect(corrections.locator(".log")).toHaveCount(0);
+  });
+
+  test("le lien « Signale-la » ouvre la page « Signaler une erreur. »", async ({ page }) => {
+    await page.goto("/journal");
+    await page.getByRole("link", { name: "Signale-la" }).click();
+    await page.waitForURL(/\/signaler$/);
+    await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toHaveText("Signaler une erreur.");
+  });
+
+  test("dès qu'une première correction est publiée, le message disparaît et la correction s'affiche", async ({ page }) => {
+    await page.context().addCookies([{ name: "aucrible-corrections-de-test", value: "une", url: "http://localhost:3127" }]);
+    await page.goto("/journal");
+    await expect(page.locator(".log .entry")).toHaveCount(1);
+    await expect(page.locator(".log .entry time")).toHaveAttribute("datetime", "2026-10-09");
+    await expect(page.getByText("Aucune correction pour l'instant.")).toHaveCount(0);
+  });
+});
