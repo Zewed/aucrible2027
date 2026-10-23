@@ -1438,3 +1438,27 @@ test.describe("le silence électoral met la série en pause", () => {
     await expect(serie(page)).toHaveText("39 jours d'affilée");
   });
 });
+
+test.describe("sans aucune réponse, le dé n'affiche pas de série", () => {
+  /** Ni « 0 jour », ni un nombre de jours d'affilée. */
+  const uneSerie = (page: Page) => page.getByRole("banner").getByText(/\bjours?\b|affilée/);
+
+  test("sur un appareil neuf, avant la moindre réponse, l'en-tête n'affiche pas de série", async ({ page }) => {
+    await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
+    await page.goto("/");
+    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
+    await expect(page.getByRole("banner")).toBeAttached();
+    await expect(uneSerie(page)).toHaveCount(0);
+  });
+
+  test("le lendemain, toujours sans aucune réponse, l'en-tête n'affiche toujours pas de série", async ({ page }) => {
+    await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
+    await page.goto("/");
+    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
+    await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
+    await page.goto("/");
+    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
+    await expect(page.getByRole("banner")).toBeAttached();
+    await expect(uneSerie(page)).toHaveCount(0);
+  });
+});
