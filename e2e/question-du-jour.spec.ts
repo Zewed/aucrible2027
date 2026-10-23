@@ -1294,20 +1294,24 @@ test.describe("pendant le silence électoral, l'accueil explique pourquoi", () =
   });
 });
 
+// Fiches du 22 au 28 octobre 2026 : celles de démonstration, puis celles de test (e2e/fiches).
+const SIX_JOURS = ["2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27"];
+
+/** Répondre à la question du jour, ce jour-là, sans effacer les réponses déjà données. */
+async function repondreCeJour(page: Page, jour: string, libelle?: string) {
+  await fixerLeJour(page, jour.length > 10 ? jour : `${jour}T09:00:00+02:00`);
+  await page.goto("/");
+  const options = page.getByRole("radiogroup", { name: "Les options" });
+  await (libelle ? options.getByText(libelle, { exact: true }) : options.locator("label").first()).click();
+  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await expect(page).toHaveURL(/\/revelation$/);
+}
+
+/** La série affichée dans l'en-tête. */
+const serie = (page: Page) => page.getByRole("banner").getByText(/^\d+ jours? d'affilée$/);
+
 test.describe("le dé affiche les jours d'affilée", () => {
-  // Fiches du 22 au 28 octobre 2026 : celles de démonstration, puis celles de test (e2e/fiches).
-  const JOURS = ["2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27"];
-
-  /** Répondre à la question du jour, ce jour-là, sans effacer les réponses déjà données. */
-  async function repondreCeJour(page: Page, jour: string) {
-    await fixerLeJour(page, `${jour}T09:00:00+02:00`);
-    await page.goto("/");
-    await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
-    await expect(page).toHaveURL(/\/revelation$/);
-  }
-
-  const serie = (page: Page) => page.getByRole("banner").getByText(/^\d+ jours? d'affilée$/);
+  const JOURS = SIX_JOURS;
 
   test("après six jours de suite, l'en-tête de l'accueil du septième jour, avant de répondre, affiche « 6 jours d'affilée »", async ({ page }) => {
     for (const jour of JOURS) await repondreCeJour(page, jour);
@@ -1328,5 +1332,34 @@ test.describe("le dé affiche les jours d'affilée", () => {
     await expect(page).toHaveURL(/\/revelation$/);
     await expect(page.getByRole("banner").locator(".die")).toBeVisible();
     await expect(serie(page)).toBeVisible();
+  });
+});
+
+test.describe("répondre à la question du jour ajoute un jour à la série", () => {
+  test("avec 6 jours, valider la réponse du jour passe l'en-tête à 7 et la révélation dit « Ta série continue »", async ({ page }) => {
+    for (const jour of SIX_JOURS) await repondreCeJour(page, jour);
+    await fixerLeJour(page, "2026-10-28T09:00:00+01:00");
+    await page.goto("/");
+    await expect(serie(page)).toHaveText("6 jours d'affilée");
+    await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await expect(serie(page)).toHaveText("7 jours d'affilée");
+    const carte = page.getByRole("region", { name: "Ta série" });
+    await expect(carte.getByText("Ta série continue", { exact: true })).toBeVisible();
+    await expect(carte.getByText("Série : 7 jours d'affilée")).toBeVisible();
+    await expect(carte.getByText("Reviens demain pour la garder.", { exact: true })).toBeVisible();
+    await expect(carte.getByRole("img", { name: "7 jours sur 7" })).toBeVisible();
+  });
+
+  test("rouvrir la révélation le même jour, ou changer de page et revenir, laisse 7 jours : un jour de plus par jour", async ({ page }) => {
+    for (const jour of [...SIX_JOURS, "2026-10-28T09:00:00+01:00"]) await repondreCeJour(page, jour);
+    await expect(serie(page)).toHaveText("7 jours d'affilée");
+    await page.reload();
+    await expect(serie(page)).toHaveText("7 jours d'affilée");
+    await page.goto("/");
+    await expect(page).toHaveURL(/\/revelation$/);
+    await expect(serie(page)).toHaveText("7 jours d'affilée");
+    await expect(page.getByRole("region", { name: "Ta série" }).getByText("Série : 7 jours d'affilée")).toBeVisible();
   });
 });

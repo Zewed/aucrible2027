@@ -1,10 +1,12 @@
 "use client";
 
 import { CompteARebours } from "@/components/CompteARebours";
+import { De } from "@/components/De";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import type { Candidat, Position, Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
 import { melanger } from "@/lib/melange";
+import { joursDAffilee } from "@/lib/serie";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
 import { lesReponses, lireReponses } from "@/lib/reponses";
@@ -85,6 +87,7 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
   const rangChoisi = question.options.findIndex((o) => o.id === reponse.option);
   const choisie = question.options[rangChoisi];
   const importance = reponse.importance;
+  const serie = reponse.duJour ? joursDAffilee(Object.values(reponses), reponse.jour) : 0;
   const alignes = melanger(
     candidats.filter((c) => question.positions[c.id]?.option === reponse.option),
     reponse.graine - 1,
@@ -156,6 +159,27 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
                 </>
               )}
             </p>
+          </section>
+        )}
+        {serie > 0 && (
+          <section className="reward" aria-label="Ta récompense du jour">
+            <div className="stake streak-card" role="region" aria-label="Ta série">
+              <De />
+              <span>
+                <span className="stake-k">Ta série continue</span>
+                <span className="stake-t" style={{ display: "block" }}>
+                  Série&nbsp;: {serie} {serie > 1 ? "jours" : "jour"} d&apos;affilée
+                </span>
+                <span className="days" role="img" aria-label={`${Math.min(serie, 7)} jours sur 7`}>
+                  {Array.from({ length: Math.min(serie, 7) }, (_, i) => (
+                    <i key={i} className={i === Math.min(serie, 7) - 1 ? "now" : undefined}></i>
+                  ))}
+                </span>
+                <span className="stake-s" style={{ display: "block" }}>
+                  Reviens demain pour la garder.
+                </span>
+              </span>
+            </div>
           </section>
         )}
         <section className="rev-list" aria-labelledby="qui-defend-quoi">

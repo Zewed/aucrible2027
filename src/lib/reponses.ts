@@ -16,9 +16,23 @@ export const JE_NE_SAIS_PAS = "nsp";
 /** Les réponses de l'appareil, par numéro de question, dans le stockage local du navigateur. */
 const CLE = "aucrible:reponses";
 
+/** Prévient la page qu'une réponse vient d'être enregistrée. */
+const NOUVELLE_REPONSE = "aucrible:nouvelle-reponse";
+
 export function enregistrerReponse(numero: number, reponse: Reponse) {
   const toutes = lesReponses(lireReponses());
   localStorage.setItem(CLE, JSON.stringify({ ...toutes, [numero]: reponse }));
+  window.dispatchEvent(new Event(NOUVELLE_REPONSE));
+}
+
+/** Pour `useCoteClient` : relire les réponses quand l'une est enregistrée, ici ou dans un autre onglet. */
+export function abonnerAuxReponses(relire: () => void) {
+  window.addEventListener(NOUVELLE_REPONSE, relire);
+  window.addEventListener("storage", relire);
+  return () => {
+    window.removeEventListener(NOUVELLE_REPONSE, relire);
+    window.removeEventListener("storage", relire);
+  };
 }
 
 /** Les réponses, brutes (une chaîne stable entre deux lectures). */
