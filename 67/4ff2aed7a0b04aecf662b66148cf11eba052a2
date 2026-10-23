@@ -1,0 +1,23 @@
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_ae8791ee5fd34c 2847-2892
+src/components/Carte.tsx
+  s_330ba31127fa8a::t_1788ebc81959df 41,46,50,55-101,104,107-110
+.veebee/tickets/097-avant-10-reponses-la-carte-reste-verrouillee.md
+  s_330ba31127fa8a::t_813dae58aaf9dd 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "674ff2aed7a0b04aecf662b66148cf11eba052a2",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
