@@ -2228,3 +2228,41 @@ test.describe("le plateau nomme ses deux axes", () => {
     });
   });
 });
+
+test.describe("les 13 candidats sont posés en pions identiques", () => {
+  /** Les pions des candidats sur le plateau : initiales, forme, teinte. */
+  async function pionsDuPlateau(page: Page) {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const plateau = page.getByRole("region", { name: "Ton plateau" });
+    await expect(plateau.getByText("TOI", { exact: true })).toBeVisible();
+    return plateau.locator(".field .pawn").evaluateAll((pions) =>
+      pions.map((pion) => {
+        const s = getComputedStyle(pion);
+        return { initiales: pion.textContent!.trim(), forme: `${s.width}×${s.height} ${s.borderRadius}`, teinte: s.backgroundColor };
+      }),
+    );
+  }
+
+  test("avec 23 réponses, le plateau montre 13 pions de candidats, un par candidat du lancement, en plus du pion « TOI »", async ({ page }) => {
+    const pions = await pionsDuPlateau(page);
+    expect(pions.map((p) => p.initiales).sort()).toEqual(Object.values(INITIALES).sort());
+    await expect(page.getByRole("region", { name: "Ton plateau" }).getByText("2 axes, 14 pions")).toBeVisible();
+  });
+
+  test("les 13 pions sont identiques, sans couleur de parti, et ne se distinguent que par leurs initiales", async ({ page }) => {
+    const pions = await pionsDuPlateau(page);
+    expect(pions).toHaveLength(13);
+    expect(new Set(pions.map((p) => p.forme)).size).toBe(1);
+    expect(new Set(pions.map((p) => p.initiales)).size).toBe(13);
+    const encre = await page.evaluate(() => {
+      const el = document.createElement("div");
+      el.style.background = "var(--ink)";
+      document.body.append(el);
+      const c = getComputedStyle(el).backgroundColor;
+      el.remove();
+      return c;
+    });
+    expect([...new Set(pions.map((p) => p.teinte))]).toEqual([encre]);
+  });
+});

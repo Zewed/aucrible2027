@@ -1,8 +1,8 @@
 # FICHE DE TEST : lue seulement par le serveur des tests de bout en bout (AUCRIBLE_FICHES_DE_TEST).
 # Son contenu reprend la fiche de démonstration n° 23 ; seuls le numéro, la date et la question changent.
 # Les positions des candidats sont inventées pour les tests du classement (ticket 063) : elles ne disent rien
-# de ce que pensent ces candidats. La note du plateau de l'option A est inventée pour le test du
-# plateau (ticket 075).
+# de ce que pensent ces candidats. Les notes du plateau des options sont inventées pour les tests
+# du plateau (tickets 075 et 078).
 numero: 10
 date: 2026-10-09
 theme: logement
@@ -25,17 +25,19 @@ options:
     implique: Un plafond de loyer s'applique partout où le logement est le plus cher.
     defenseurs: Les locataires gardent un logement abordable près de leur travail.
     critiques: Des propriétaires risquent de retirer leur logement de la location.
-    axes: { societe: 0 }
+    axes: { economie: -1 }
   - id: B
     libelle: Seulement là où la ville le demande
     implique: Chaque ville décide d'encadrer ou non ses loyers.
     defenseurs: La ville connaît son marché et choisit l'outil qui lui convient.
     critiques: Les règles changent d'une ville à l'autre et deviennent difficiles à suivre.
+    axes: { economie: -1 }
   - id: C
     libelle: Non, laisser les loyers libres
     implique: Le loyer se fixe entre le propriétaire et le locataire.
     defenseurs: Des loyers libres encouragent à construire et à mettre des logements en location.
     critiques: Dans les villes les plus chères, les loyers peuvent continuer de grimper.
+    axes: { economie: 2 }
 positions:
   ruffin: { option: A, source: Source de test, statut: officielle }
   lisnard: { option: A, source: Source de test, statut: officielle }

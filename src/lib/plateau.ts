@@ -27,5 +27,26 @@ export function placeDeLElecteur(questions: QuestionDuCalcul[], reponses: Record
   return { economie: moyenne(sommes.economie), societe: moyenne(sommes.societe) };
 }
 
+/**
+ * La place d'un candidat, par la même formule : sur chaque axe, la moyenne de la note de ses options sur
+ * toutes les questions publiées où sa position est connue, chacune ×1 (un candidat ne donne pas
+ * d'importance). Sans aucune note, il reste au centre de cet axe.
+ */
+export function placeDuCandidat(questions: QuestionDuCalcul[], candidat: string): Place {
+  const sommes = { economie: { notes: 0, nombre: 0 }, societe: { notes: 0, nombre: 0 } };
+  for (const question of questions) {
+    const option = question.positions[candidat]?.option;
+    const axes = option ? question.options.find((o) => o.id === option)?.axes : undefined;
+    for (const axe of ["economie", "societe"] as const) {
+      const note = axes?.[axe];
+      if (note === undefined) continue;
+      sommes[axe].notes += note;
+      sommes[axe].nombre += 1;
+    }
+  }
+  const moyenne = ({ notes, nombre }: { notes: number; nombre: number }) => (nombre > 0 ? notes / nombre : 0);
+  return { economie: moyenne(sommes.economie), societe: moyenne(sommes.societe) };
+}
+
 /** Où poser une place sur le champ du plateau, en % : redistribution à gauche, progressiste en haut. */
 export const surLeChamp = (place: Place) => ({ x: ((place.economie + 2) / 4) * 100, y: ((place.societe + 2) / 4) * 100 });
