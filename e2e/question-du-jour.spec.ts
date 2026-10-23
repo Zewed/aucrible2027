@@ -1029,3 +1029,47 @@ test.describe("une question déjà répondue rouvre sur sa révélation", () => 
     await autreTelephone.close();
   });
 });
+
+test.describe("l'importance donnée est retrouvée en revenant", () => {
+  /** Répondre sur cet appareil, sans effacer les réponses déjà données. */
+  async function repondreLe(page: Page, jour: string, libelle: string, poids: "×1" | "×2" | "×3") {
+    await page.clock.setFixedTime(new Date(jour));
+    await page.goto("/");
+    await choisir(page, libelle);
+    await peser(page, poids);
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+  }
+
+  /** Fermer l'app, puis la rouvrir tel jour sur le même appareil. */
+  async function rouvrirLe(page: Page, jour: string) {
+    const contexte = page.context();
+    await page.close();
+    const rouverte = await contexte.newPage();
+    await rouverte.clock.setFixedTime(new Date(jour));
+    await rouverte.goto("/");
+    await expect(rouverte).toHaveURL(/\/revelation$/);
+    return rouverte;
+  }
+
+  const pleines = (page: Page) => page.getByRole("region", { name: /^Ta réponse/ }).locator(".chips i:not(.off)");
+
+  test("après E en ×3, fermer puis rouvrir l'app : la révélation n° 24 affiche « Importance ×3 », trois pastilles pleines", async ({ page }) => {
+    await repondreLe(page, "2026-10-23T09:00:00+02:00", "À la carte, avec un système à points", "×3");
+    const rouverte = await rouvrirLe(page, "2026-10-23T18:00:00+02:00");
+    await expect(rouverte.getByText("Importance ×3", { exact: true })).toBeVisible();
+    await expect(pleines(rouverte)).toHaveCount(3);
+  });
+
+  test("la n° 23 en ×1 et la n° 24 en ×3 gardent chacune leur importance", async ({ page }) => {
+    await repondreLe(page, "2026-10-22T09:00:00+02:00", "Seulement là où la ville le demande", "×1");
+    await repondreLe(page, "2026-10-23T09:00:00+02:00", "64 ans", "×3");
+    let rouverte = await rouvrirLe(page, "2026-10-23T18:00:00+02:00");
+    await expect(rouverte.getByText(/^Question n° 24/).filter({ visible: true })).toBeVisible();
+    await expect(rouverte.getByText("Importance ×3", { exact: true })).toBeVisible();
+    rouverte = await rouvrirLe(rouverte, "2026-10-22T18:00:00+02:00");
+    await expect(rouverte.getByText(/^Question n° 23/).filter({ visible: true })).toBeVisible();
+    await expect(rouverte.getByText("Importance ×1", { exact: true })).toBeVisible();
+    await expect(pleines(rouverte)).toHaveCount(1);
+  });
+});
