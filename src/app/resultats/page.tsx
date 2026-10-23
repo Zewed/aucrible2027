@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { Classement } from "@/components/Classement";
+import { Plateau } from "@/components/Plateau";
 import { lireCandidats } from "@/lib/contenu";
 import type { QuestionDuCalcul } from "@/lib/proximite";
 import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
@@ -13,7 +14,7 @@ async function Resultats() {
   // Le navigateur ne reçoit des fiches publiées que ce que le calcul lit.
   const duCalcul: QuestionDuCalcul[] = questions.map((q) => ({
     numero: q.numero,
-    options: q.options.map((o) => ({ id: o.id, horsEchelle: o.horsEchelle })),
+    options: q.options.map((o) => ({ id: o.id, horsEchelle: o.horsEchelle, axes: o.axes })),
     positions: Object.fromEntries(Object.entries(q.positions).map(([id, p]) => [id, { option: p.option }])),
   }));
   return (
@@ -34,6 +35,7 @@ async function Resultats() {
         </section>
         <div className="res-grid">
           <Classement questions={duCalcul} candidats={lireCandidats()} />
+          <Plateau questions={duCalcul} />
         </div>
         {/* « Signaler une erreur », avant le retour dans la maquette, attend son formulaire. */}
         <footer className="res-foot">

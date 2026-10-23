@@ -11,7 +11,12 @@ export type Option = {
   critiques: string;
   /** L'option ne se range pas sur l'échelle des autres : elle compte tout ou rien dans le classement. */
   horsEchelle?: boolean;
+  /** Ses notes sur le plateau, de −2 à +2, sur l'un des axes, les deux ou aucun. */
+  axes?: Axes;
 };
+
+/** Les deux axes du plateau (SPEC.md, « Résultats ») : −2 pour plus de redistribution, ou progressiste ; +2 pour plus de marché, ou conservateur. */
+export type Axes = { economie?: number; societe?: number };
 export type Source = { organisme: string; document?: string; annee: number };
 export type Chiffre = { valeur: string; unite?: string; legende: string; source: Source };
 export type Theme = { id: string; nom: string; classe: string };

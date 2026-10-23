@@ -2126,3 +2126,27 @@ test.describe("avant 10 réponses, le classement dit combien il en manque", () =
     await expect(page.getByText("Il ressemblera à ça")).toHaveCount(0);
   });
 });
+
+/** La place du centre du pion « TOI » sur le champ du plateau, de 0 à 1 sur chaque axe (hors animation). */
+const placeDuToi = (page: Page) =>
+  page
+    .getByRole("region", { name: "Ton plateau" })
+    .locator(".you")
+    .evaluate((toi: HTMLElement) => {
+      const champ = toi.offsetParent as HTMLElement;
+      return { x: (toi.offsetLeft + toi.offsetWidth / 2) / champ.offsetWidth, y: (toi.offsetTop + toi.offsetHeight / 2) / champ.offsetHeight };
+    });
+
+test.describe("le plateau place le pion « toi » sur les deux axes", () => {
+  test("avec 23 réponses, « Ton plateau » montre un pion « TOI » près du centre, légèrement côté redistribution (à gauche) et progressiste (en haut)", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const plateau = page.getByRole("region", { name: "Ton plateau" });
+    await expect(plateau.getByText("TOI", { exact: true })).toBeVisible();
+    const { x, y } = await placeDuToi(page);
+    expect(x).toBeGreaterThan(0.35);
+    expect(x).toBeLessThan(0.5);
+    expect(y).toBeGreaterThan(0.35);
+    expect(y).toBeLessThan(0.5);
+  });
+});
