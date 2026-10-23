@@ -2797,3 +2797,50 @@ test.describe("« Partager » envoie l'image 9:16 au partage du téléphone", ()
     expect(proche(partage.fond, await couleurDuJeton(page, "--immi"))).toBe(true);
   });
 });
+
+test.describe("« Télécharger l'image » enregistre la carte", () => {
+  /** Touche « Télécharger l'image » et lit l'image enregistrée : type, taille, et couleur du fond en bas au milieu. */
+  async function telecharger(page: Page) {
+    const [telechargement] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "Télécharger l'image" }).click()]);
+    const chemin = await telechargement.path();
+    const octets = (await import("node:fs")).readFileSync(chemin);
+    const image = await page.evaluate(async (base64) => {
+      const bitmap = await createImageBitmap(await (await fetch(`data:image/png;base64,${base64}`)).blob());
+      const toile = new OffscreenCanvas(bitmap.width, bitmap.height);
+      const contexte = toile.getContext("2d")!;
+      contexte.drawImage(bitmap, 0, 0);
+      const [r, g, b] = contexte.getImageData(Math.round(bitmap.width / 2), Math.round(bitmap.height * 0.985), 1, 1).data;
+      return { largeur: bitmap.width, hauteur: bitmap.height, fond: [r, g, b] };
+    }, octets.toString("base64"));
+    return { png: octets.subarray(1, 4).toString() === "PNG", nom: telechargement.suggestedFilename(), ...image };
+  }
+
+  test("toucher « Télécharger l'image » enregistre une image de la carte au format story 9:16", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    await expect(page.getByRole("article", { name: /Carte à partager : 81/ })).toBeVisible();
+    const image = await telecharger(page);
+    expect(image.png).toBe(true);
+    expect(image.nom).toMatch(/\.png$/);
+    expect(image.largeur * 16).toBe(image.hauteur * 9);
+    expect(proche(image.fond, await couleurDuJeton(page, "--eco"))).toBe(true);
+  });
+
+  test("l'image enregistrée est celle de la version choisie : avec « Seulement mon pion », la carte du pion", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    await page.getByRole("group", { name: "Ce que ma carte montre" }).getByText("Seulement mon pion", { exact: true }).click();
+    const image = await telecharger(page);
+    expect(proche(image.fond, await couleurDuJeton(page, "--immi"))).toBe(true);
+  });
+
+  test("en mode avion, le téléchargement fonctionne aussi", async ({ page, context }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/carte");
+    await expect(page.getByRole("article", { name: /Carte à partager : 81/ })).toBeVisible();
+    await context.setOffline(true);
+    const image = await telecharger(page);
+    expect(image.png).toBe(true);
+    await context.setOffline(false);
+  });
+});

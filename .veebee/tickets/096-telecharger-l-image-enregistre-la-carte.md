@@ -5,6 +5,7 @@ milestone: null
 depends_on: ["091"]
 design: maquettes/carte-story.html
 tracker: null
+status: done
 ---
 
 ## Ce que l'utilisateur fait
