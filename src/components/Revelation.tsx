@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CompteARebours } from "@/components/CompteARebours";
 import { De } from "@/components/De";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
+import { Pion } from "@/components/Pion";
 import type { Candidat, Position, Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
 import { melanger } from "@/lib/melange";
@@ -11,15 +12,6 @@ import { joursDAffilee } from "@/lib/serie";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
 import { lesReponses, lireReponses } from "@/lib/reponses";
-
-/** Le pion d'un candidat : le même pour tous, à ses initiales, jamais à la couleur de son parti. */
-function Pion({ candidat, clair = false }: { candidat: Candidat; clair?: boolean }) {
-  return (
-    <span className={clair ? "pawn pawn--paper" : "pawn"} aria-hidden="true">
-      {candidat.initiales}
-    </span>
-  );
-}
 
 /** Une ligne de l'alignement : un titre, puis les candidats concernés ; rien quand il n'y en a aucun. */
 function LigneAlignement({

@@ -1,10 +1,19 @@
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
-import { lireAujourdhui } from "@/lib/publication";
+import { Classement } from "@/components/Classement";
+import { lireCandidats } from "@/lib/contenu";
+import type { QuestionDuCalcul } from "@/lib/proximite";
+import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
 
-/** « Mes résultats » : pour l'instant son titre ; le classement et ce qui le compose viennent ensuite. */
+/** « Mes résultats » : le titre, puis le classement calculé sur l'appareil à partir de ses réponses. */
 async function Resultats() {
-  const jour = await lireAujourdhui();
+  const [jour, questions] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
+  // Le navigateur ne reçoit des fiches publiées que ce que le calcul lit.
+  const duCalcul: QuestionDuCalcul[] = questions.map((q) => ({
+    numero: q.numero,
+    options: q.options.map((o) => ({ id: o.id })),
+    positions: Object.fromEntries(Object.entries(q.positions).map(([id, p]) => [id, { option: p.option }])),
+  }));
   return (
     <>
       <BandeauRetour jour={jour} />
@@ -18,6 +27,9 @@ async function Resultats() {
             </div>
           </div>
         </section>
+        <div className="res-grid">
+          <Classement questions={duCalcul} candidats={lireCandidats()} />
+        </div>
       </main>
     </>
   );
