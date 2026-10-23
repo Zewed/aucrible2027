@@ -3500,3 +3500,33 @@ test.describe("la page Méthode explique le poids de l'importance", () => {
     await expect(regle2(page).getByText("Le poids, c'est ton choix à toi. Il ne dépend jamais du candidat.")).toBeVisible();
   });
 });
+
+test.describe("la page Méthode explique pourquoi une position inconnue ne compte pas", () => {
+  const regle3 = (page: Page) => page.getByRole("article", { name: "Position inconnue : la question est sautée" });
+
+  test("la règle n° 3 dit qu'une position sans source est « inconnue », exclue du calcul : aucun point gagné ni retiré, hors du maximum possible", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(page.getByRole("article").nth(2)).toHaveAccessibleName("Position inconnue : la question est sautée");
+    await expect(regle3(page).getByText("Règle n° 3")).toBeVisible();
+    await expect(regle3(page).locator(".rule-txt p")).toHaveText([
+      "Si on ne trouve aucune source pour la position d'un candidat sur une question, elle est notée « inconnue ».",
+      "Pour ce candidat, la question est exclue du calcul : elle ne lui donne aucun point et ne lui en retire aucun. Elle ne compte pas non plus dans le maximum possible.",
+      "On ne devine jamais. Une case vide vaut mieux qu'une case inventée.",
+    ]);
+  });
+
+  test("l'exemple montre quatre cartes (Q. 21 80 %, Q. 22 55 %, Q. 23 inconnue en pointillés, Q. 24 67 %) et « Comptées : 3 questions sur 4 »", async ({ page }) => {
+    await page.goto("/methode");
+    const exemple = regle3(page).getByRole("figure", { name: "Quatre questions, dont une inconnue" });
+    const cartes = exemple.getByRole("listitem");
+    await expect(cartes).toHaveText(["Q. 2180 %", "Q. 2255 %", "Q. 23inconnue", "Q. 2467 %"]);
+    await expect(cartes.nth(2)).toHaveClass("void");
+    expect(await cartes.nth(2).evaluate((c) => getComputedStyle(c).borderStyle)).toBe("dashed");
+    await expect(exemple.locator(".demo-cap b")).toHaveText("Comptées : 3 questions sur 4.");
+  });
+
+  test("la règle écrit « On ne devine jamais. Une case vide vaut mieux qu'une case inventée. »", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(regle3(page).getByText("On ne devine jamais. Une case vide vaut mieux qu'une case inventée.")).toBeVisible();
+  });
+});
