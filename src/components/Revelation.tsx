@@ -231,6 +231,29 @@ export function Revelation({ questions, candidats, themes }: { questions: Questi
             )}
           </div>
         </section>
+        {question.pourAllerPlusLoin && question.pourAllerPlusLoin.length > 0 && (
+          <section className="more" aria-labelledby="pour-aller-plus-loin">
+            <h2 className="label" id="pour-aller-plus-loin">
+              <i></i>Pour aller plus loin
+            </h2>
+            <ul>
+              {question.pourAllerPlusLoin.map((lien) => (
+                <li key={lien.url}>
+                  <a href={lien.url} rel="noopener" target="_blank">
+                    <span className="one">{lien.titre}</span>
+                    <span className="sr"> (nouvel onglet)</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M8 16L17 7M9 7h8v8"
+                        style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }}
+                      />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </main>
     </>
   );

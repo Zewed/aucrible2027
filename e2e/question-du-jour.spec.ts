@@ -957,3 +957,29 @@ test("avec « réduire les animations », les blocs sont posés d'emblée, sans 
   const poses = await quiDefendQuoi(page).getByRole("article").evaluateAll((bs) => bs.map((b) => getComputedStyle(b).opacity));
   expect(poses).toEqual(["1", "1", "1", "1", "1", "1"]);
 });
+
+const pourAllerPlusLoin = (page: Page) => page.getByRole("region", { name: "Pour aller plus loin" });
+
+test("la révélation n° 24 propose sous « Pour aller plus loin » trois liens vers le COR, la DREES et la Cour des comptes", async ({ page }) => {
+  await repondre(page, "62 ans");
+  const liens = pourAllerPlusLoin(page).getByRole("link");
+  await expect(liens).toHaveCount(3);
+  for (const [rang, nom] of ["COR, rapport annuel 2025", "DREES, Les retraités et les retraites, 2025", "Cour des comptes, retraites, 2025"].entries()) {
+    await expect(liens.nth(rang)).toHaveAccessibleName(new RegExp(`^${nom}`));
+    await expect(liens.nth(rang)).toBeVisible();
+  }
+});
+
+test("toucher un lien « Pour aller plus loin » ouvre le site de l'organisme dans un nouvel onglet ; la révélation reste ouverte", async ({ page, context }) => {
+  // Pas de vrai réseau : le site de l'organisme est simulé.
+  await context.route("https://www.cor-retraites.fr/**", (route) => route.fulfill({ contentType: "text/html", body: "<title>COR</title>" }));
+  await repondre(page, "62 ans");
+  const [onglet] = await Promise.all([
+    page.waitForEvent("popup"),
+    pourAllerPlusLoin(page).getByRole("link", { name: /^COR, rapport annuel 2025/ }).click(),
+  ]);
+  await onglet.waitForLoadState();
+  expect(onglet.url()).toMatch(/^https:\/\/www\.cor-retraites\.fr\//);
+  await expect(page).toHaveURL(/\/revelation$/);
+  await expect(quiDefendQuoi(page)).toBeVisible();
+});

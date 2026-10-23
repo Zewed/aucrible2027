@@ -9,6 +9,7 @@ export type Chiffre = { valeur: string; unite?: string; legende: string; source:
 export type Theme = { id: string; nom: string; classe: string };
 /** Ce qu'un candidat défend sur une fiche, et d'où on le sait. */
 export type Position = { option: string; source: string; statut: "officielle" | "deduite" };
+export type Lien = { titre: string; url: string };
 export type Question = {
   numero: number;
   date: string;
@@ -18,6 +19,8 @@ export type Question = {
   chiffres: Chiffre[];
   options: Option[];
   positions: Record<string, Position>;
+  /** 2 à 3 liens vers les organismes qui documentent le sujet. */
+  pourAllerPlusLoin?: Lien[];
 };
 
 const RACINE = path.join(process.cwd(), "content");

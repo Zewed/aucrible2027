@@ -47,6 +47,13 @@ options:
     implique: Chacun part quand il veut ; la pension dépend des points acquis.
     defenseurs: Plus de liberté, et les mêmes règles pour tous les métiers.
     critiques: "La valeur du point peut baisser : la pension devient moins prévisible."
+pourAllerPlusLoin:
+  - titre: COR, rapport annuel 2025
+    url: https://www.cor-retraites.fr/
+  - titre: DREES, Les retraités et les retraites, 2025
+    url: https://drees.solidarites-sante.gouv.fr/
+  - titre: Cour des comptes, retraites, 2025
+    url: https://www.ccomptes.fr/
 positions:
   melenchon: { option: A, source: "Programme 2022, p. 12", statut: deduite }
   roussel: { option: A, source: "Interview franceinfo, 21/09/2026", statut: officielle }
