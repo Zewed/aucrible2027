@@ -1632,6 +1632,7 @@ test.describe("une question répondue est marquée « Répondu » et passe en fi
 
   test("après avoir validé une réponse à la question n° 24, la liste la montre « Répondu », après les cartes « À répondre » qui restent", async ({ page }) => {
     await page.goto("/rattrapage");
+    await expect(page.getByRole("region", { name: "Toutes les questions" }).getByRole("listitem")).toHaveCount(24);
     expect((await cartes(page))[0]).toEqual({ question: "À quel âge devrait-on pouvoir partir à la retraite ?", mention: "À répondre" });
     await repondre(page, "64 ans");
     await page.goto("/rattrapage");
@@ -2077,6 +2078,7 @@ test.describe("les résultats affichent « Ce n'est pas un sondage »", () => {
     const pied = page.locator("main footer").filter({ hasText: "Ce n'est pas un sondage" });
     await expect(pied.getByText("Ce n'est pas un sondage", { exact: true })).toBeVisible();
     const classement = page.getByRole("region", { name: "Ton classement" });
+    await expect(classement.getByRole("listitem")).toHaveCount(13);
     expect((await pied.boundingBox())!.y).toBeGreaterThan((await classement.boundingBox())!.y);
     await pied.getByRole("link", { name: "Retour à la question du jour" }).click();
     await expect(page).toHaveURL(/\/$/);
@@ -2244,6 +2246,8 @@ test.describe("les 13 candidats sont posés en pions identiques", () => {
     await page.goto("/resultats");
     const plateau = page.getByRole("region", { name: "Ton plateau" });
     await expect(plateau.locator(".field .you").getByText("TOI", { exact: true })).toBeVisible();
+    // Les candidats n'arrivent qu'une fois les réponses de l'appareil lues.
+    await expect(plateau.locator(".field .pawn")).toHaveCount(13);
     return plateau.locator(".field .pawn").evaluateAll((pions) =>
       pions.map((pion) => {
         const s = getComputedStyle(pion);
@@ -2345,5 +2349,26 @@ test.describe("une option sans note sur un axe ne déplace pas le pion", () => {
     // La n° 24 n'a aucune note.
     const avecLa24 = await placeAvec(page, vingtTrois, true);
     expect(avecLa24).toEqual(avecLa1);
+  });
+});
+
+test.describe("avant 10 réponses, le plateau dit que la position s'affinera", () => {
+  const plateauDeLaPage = (page: Page) => page.getByRole("region", { name: "Ton plateau" });
+
+  test("avec 3 réponses, le plateau montre un pion « TOI » estompé et le texte « Ta position s'affinera avec tes réponses »", async ({ page }) => {
+    await premieresReponses(page, 3);
+    await page.goto("/resultats");
+    await expect(plateauDeLaPage(page).getByText("Ta position s'affinera avec tes réponses")).toBeVisible();
+    const opacite = await plateauDeLaPage(page).locator(".field .you svg").evaluate((svg) => Number(getComputedStyle(svg).opacity));
+    expect(opacite).toBeLessThan(1);
+  });
+
+  test("avec 3 réponses, aucun pion de candidat sur le plateau, et la légende dit « Les pions des candidats arrivent à 10 réponses »", async ({ page }) => {
+    await premieresReponses(page, 3);
+    await page.goto("/resultats");
+    const legende = plateauDeLaPage(page).getByRole("list", { name: "Légende du plateau" });
+    await expect(legende.getByText("Les pions des candidats arrivent à 10 réponses")).toBeVisible();
+    await expect(legende.getByText("Toi, ta position encore floue")).toBeVisible();
+    await expect(plateauDeLaPage(page).locator(".field .pawn")).toHaveCount(0);
   });
 });

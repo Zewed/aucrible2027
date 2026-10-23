@@ -22,26 +22,34 @@ export function Plateau({ questions, candidats }: { questions: QuestionDuCalcul[
   const enLegende = avecCandidats ? melanger(candidats, graine) : [];
 
   return (
-    <section className="sec" aria-labelledby="h-board">
+    // « vide » : la légende de resultats-vide.html, sur une colonne, avant 10 réponses.
+    <section className={avecCandidats ? "sec" : "sec vide"} aria-labelledby="h-board">
       <div className="sec-h">
         <h2 id="h-board">Ton plateau</h2>
-        <p>2 axes, {enLegende.length + 1 > 1 ? `${enLegende.length + 1} pions` : "1 pion"}</p>
+        <p>{avecCandidats ? `2 axes, ${enLegende.length + 1} pions` : "2 axes"}</p>
       </div>
       <div className="board-wrap">
         <div
           className="board"
           role="img"
-          aria-label="Carte à deux axes : plus de redistribution à gauche, plus de marché à droite, progressiste en haut, conservateur en bas, avec les pions des candidats et ton pion « toi »"
+          aria-label={
+            avecCandidats
+              ? "Carte à deux axes : plus de redistribution à gauche, plus de marché à droite, progressiste en haut, conservateur en bas, avec les pions des candidats et ton pion « toi »"
+              : "Carte à deux axes : ta position est encore floue, elle s'affinera avec tes réponses"
+          }
         >
           <PisteDuPlateau />
           <div className="field">
             {enLegende.map((candidat) => (
               <Pion key={candidat.id} candidat={candidat} place={surLeChamp(placeDuCandidat(questions, candidat.id))} />
             ))}
-            <span className="you" style={{ "--x": `${x}%`, "--y": `${y}%` } as React.CSSProperties}>
+            {/* Avant 10 réponses, la place se lit sur les premières réponses, mais floue : un halo, un pion estompé. */}
+            {!avecCandidats && <span className="halo" aria-hidden="true" style={{ "--x": `${x}%`, "--y": `${y}%` } as React.CSSProperties}></span>}
+            <span className={avecCandidats ? "you" : "you faint"} style={{ "--x": `${x}%`, "--y": `${y}%` } as React.CSSProperties}>
               <Camembert />
               <span>TOI</span>
             </span>
+            {!avecCandidats && <p className="board-note">Ta position s&apos;affinera avec tes réponses</p>}
           </div>
           <span className="edge top">↑ progressiste</span>
           <span className="edge bottom">↓ conservateur</span>
@@ -52,9 +60,15 @@ export function Plateau({ questions, candidats }: { questions: QuestionDuCalcul[
           <li className="me">
             <span className="pawn pawn--you">TOI</span>
             <span>
-              <b>Toi</b>, ton camembert
+              <b>Toi</b>, {avecCandidats ? "ton camembert" : "ta position encore floue"}
             </span>
           </li>
+          {!avecCandidats && (
+            <li>
+              <span className="pawn pawn--ghost">?</span>
+              <span>Les pions des candidats arrivent à {SEUIL_DES_RESULTATS} réponses</span>
+            </li>
+          )}
           {enLegende.map((candidat) => (
             <li key={candidat.id}>
               <Pion candidat={candidat} />
