@@ -34,6 +34,12 @@ export function GrandCamembert({ questions, themes }: { questions: QuestionDuCal
           couleurs={themes.map((theme, i) => (gagnes[i] ? couleurDe(theme) : null))}
           description={`Camembert : ${nombre} ${nombre > 1 ? "thèmes complétés" : "thème complété"} sur ${themes.length}`}
         />
+        <span className="count" aria-hidden="true">
+          <b>
+            {nombre}/{themes.length}
+          </b>
+          <span>parts</span>
+        </span>
       </div>
     </div>
   );
