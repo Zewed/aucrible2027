@@ -192,8 +192,86 @@ function CommentCEstRelu() {
 }
 
 /**
- * La page « À propos » (maquettes/a-propos.html), section par section. Les sections 3 à 5 viennent avec les
- * tickets 157 à 159 ; la phrase « Tout ce qui suit est vérifiable… » et ses liens ne sont portés par aucun ticket.
+ * « À savoir n° 3 » : aucun compte, les réponses ne quittent pas le téléphone. Le bouton « Changer d'appareil » de
+ * la maquette n'est porté par aucun ticket (sa page d'arrivée est le 179).
+ */
+function OnNeSaitPas() {
+  return (
+    <article className="rule theme-secu" id="r3" aria-labelledby="r3-t">
+      <header className="rule-head">
+        <span className="rule-n" aria-hidden="true">
+          3
+        </span>
+        <p className="rule-k">À savoir n° 3</p>
+        <h2 id="r3-t">On ne sait pas pour qui tu votes</h2>
+      </header>
+      <div className="rule-body split">
+        <div className="rule-txt">
+          <p>
+            <b>Il n&apos;y a pas de compte</b>&nbsp;: ni e-mail, ni mot de passe, ni pseudo. Tes réponses restent <b>sur ton téléphone</b>
+            , dans ton navigateur. Elles ne sont envoyées nulle part, donc personne ne peut les lire, moi non plus.
+          </p>
+          <p>
+            Une opinion politique est une donnée sensible (RGPD, article 9)&nbsp;: le plus sûr est de ne pas la collecter. Ce n&apos;est
+            pas un sondage&nbsp;: voir la <Link href="/methode#r8">règle 8 de la méthode</Link>.
+          </p>
+          <p className="small">
+            Sans compte, c&apos;est toi qui emportes ta partie. Si tu vides les données de ton navigateur, elle disparaît.
+          </p>
+        </div>
+        <figure className="demo" aria-label="Tes réponses restent sur ton téléphone et ne vont pas vers un serveur">
+          <figcaption className="demo-k">
+            <i></i>Où vont tes réponses
+          </figcaption>
+          <div className="route">
+            <div className="node">
+              <svg viewBox="0 0 80 110" aria-hidden="true">
+                <rect x="8" y="4" width="64" height="102" rx="12" style={{ fill: "var(--ink)" }} />
+                <rect x="14" y="14" width="52" height="80" rx="5" style={{ fill: "#fff" }} />
+                <circle cx="40" cy="44" r="15" style={{ fill: "var(--secu)" }} />
+                <path d="M40 44L40 29A15 15 0 0 1 53 36.5Z" style={{ fill: "var(--eco)" }} />
+                <path d="M40 44L53 36.5A15 15 0 0 1 53 51.5Z" style={{ fill: "var(--ecol)" }} />
+                <circle cx="40" cy="44" r="5" style={{ fill: "#fff" }} />
+                <rect x="29" y="71" width="22" height="16" rx="3" style={{ fill: "var(--ink)" }} />
+                <path d="M33 71v-5a7 7 0 0 1 14 0v5" style={{ fill: "none", stroke: "var(--ink)", strokeWidth: 3.4 }} />
+              </svg>
+              <b>Ton téléphone</b>
+              <small>tes réponses restent ici</small>
+            </div>
+            <div className="cut" aria-hidden="true">
+              <svg viewBox="0 0 70 40">
+                <path d="M2 20h66" style={{ fill: "none", stroke: "var(--ink)", strokeWidth: 3, strokeDasharray: "3 7", strokeLinecap: "round" }} />
+                <circle cx="35" cy="20" r="14" style={{ fill: "var(--ink)" }} />
+                <path d="M29 14l12 12M41 14L29 26" style={{ fill: "none", stroke: "var(--chalk)", strokeWidth: 3.4, strokeLinecap: "round" }} />
+              </svg>
+            </div>
+            <div className="node dim">
+              <svg viewBox="0 0 80 110" aria-hidden="true">
+                {[12, 44, 76].map((y) => (
+                  <rect
+                    key={y}
+                    x="10"
+                    y={y}
+                    width="60"
+                    height="26"
+                    rx="6"
+                    style={{ fill: "none", stroke: "var(--ink-soft)", strokeWidth: 3.4, strokeDasharray: "6 5" }}
+                  />
+                ))}
+              </svg>
+              <b>Un serveur</b>
+              <small>n&apos;en reçoit aucune</small>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </article>
+  );
+}
+
+/**
+ * La page « À propos » (maquettes/a-propos.html), section par section. Les sections 4 et 5 viennent avec les
+ * tickets 158 et 159 ; la phrase « Tout ce qui suit est vérifiable… » et ses liens ne sont portés par aucun ticket.
  */
 async function APropos() {
   const jour = await lireAujourdhui();
@@ -236,6 +314,7 @@ async function APropos() {
           <div className="rules">
             <QuiFaitLApp />
             <CommentCEstRelu />
+            <OnNeSaitPas />
           </div>
         </div>
       </main>

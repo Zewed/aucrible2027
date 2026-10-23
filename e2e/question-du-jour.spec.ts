@@ -3800,3 +3800,34 @@ test.describe("la page À propos dit comment les fiches sont relues", () => {
     await expect(neutre(page).getByRole("link", { name: "méthode de calcul" })).toHaveAttribute("href", "/methode");
   });
 });
+
+test.describe("la page À propos dit qu'on ne sait pas pour qui tu votes", () => {
+  const vote = (page: Page) => page.getByRole("article", { name: "On ne sait pas pour qui tu votes" });
+
+  test("la section dit : ni e-mail, ni mot de passe, ni pseudo ; les réponses restent sur le téléphone et ne sont envoyées nulle part, « moi non plus »", async ({ page }) => {
+    await page.goto("/a-propos");
+    await expect(page.getByRole("article").nth(2)).toHaveAccessibleName("On ne sait pas pour qui tu votes");
+    await expect(
+      vote(page).getByText(
+        "Il n'y a pas de compte : ni e-mail, ni mot de passe, ni pseudo. Tes réponses restent sur ton téléphone, dans ton navigateur. Elles ne sont envoyées nulle part, donc personne ne peut les lire, moi non plus.",
+      ),
+    ).toBeVisible();
+  });
+
+  test("elle cite le RGPD, article 9, et dit « Ce n'est pas un sondage »", async ({ page }) => {
+    await page.goto("/a-propos");
+    await expect(
+      vote(page).getByText(
+        "Une opinion politique est une donnée sensible (RGPD, article 9) : le plus sûr est de ne pas la collecter. Ce n'est pas un sondage : voir la règle 8 de la méthode.",
+      ),
+    ).toBeVisible();
+    await expect(vote(page).getByRole("link", { name: "règle 8 de la méthode" })).toHaveAttribute("href", "/methode#r8");
+  });
+
+  test("elle prévient que vider les données du navigateur fait disparaître la partie ; le schéma : le téléphone garde les réponses, un serveur n'en reçoit aucune", async ({ page }) => {
+    await page.goto("/a-propos");
+    await expect(vote(page).getByText("Sans compte, c'est toi qui emportes ta partie. Si tu vides les données de ton navigateur, elle disparaît.")).toBeVisible();
+    const schema = vote(page).getByRole("figure", { name: "Tes réponses restent sur ton téléphone et ne vont pas vers un serveur" });
+    await expect(schema.locator(".node")).toHaveText(["Ton téléphonetes réponses restent ici", "Un serveurn'en reçoit aucune"]);
+  });
+});
