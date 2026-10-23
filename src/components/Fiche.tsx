@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
@@ -173,6 +174,15 @@ export function Fiche({ question, theme, revelation }: { question: Question; the
         <button type="submit" className="go" aria-disabled={!choix}>Valider ma réponse</button>
         <p className="go-note">Tes réponses restent sur ton téléphone, sans compte.</p>
       </form>
+      {/* « Signaler une erreur », à gauche dans la maquette, attend son formulaire. */}
+      <footer className="foot">
+        <Link className="btn-link" href="/resultats" style={{ marginLeft: "auto" }}>
+          Mes résultats{" "}
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
+          </svg>
+        </Link>
+      </footer>
     </main>
     </>
   );
