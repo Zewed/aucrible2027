@@ -1,0 +1,23 @@
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_1fcc32c610ee48 74
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_d132a39d7128f2 410-424
+.veebee/tickets/012-la-fiche-previent-que-les-noms-s-affichent-apres-la.md
+  s_2c9a7110ce04dd::t_148c04ab2a5dc6 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1d1f14981038d4b8ffca7930fb9a0044ff0807f5",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
