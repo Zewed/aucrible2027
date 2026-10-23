@@ -1986,3 +1986,35 @@ test.describe("« Je ne sais pas » ne compte pas dans le classement", () => {
     expect(await pourcentagesDuClassement(page)).toEqual(avant);
   });
 });
+
+test.describe("chaque candidat du classement a sa barre", () => {
+  /** La part remplie de la barre de chaque ligne, dans l'ordre (largeur posée, hors animation). */
+  const remplissages = (page: Page) =>
+    page
+      .getByRole("region", { name: "Ton classement" })
+      .getByRole("listitem")
+      .evaluateAll((lignes) =>
+        lignes.map((ligne) => {
+          const barre = ligne.querySelector<HTMLElement>(".bar");
+          return barre ? barre.querySelector<HTMLElement>("i")!.offsetWidth / barre.offsetWidth : null;
+        }),
+      );
+
+  test("la barre sous « François Ruffin 81 % » est remplie aux 81 % de sa longueur, celle sous « Éric Zemmour 22 % » aux 22 %", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const parts = await remplissages(page);
+    expect(parts[0]).toBeCloseTo(0.81, 2);
+    expect(parts[12]).toBeCloseTo(0.22, 2);
+  });
+
+  test("les 13 barres vont de la plus remplie à la moins remplie, dans l'ordre du classement", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const parts = await remplissages(page);
+    expect(parts.every((part) => part !== null)).toBe(true);
+    for (let i = 1; i < parts.length; i++) expect(parts[i]!).toBeLessThan(parts[i - 1]!);
+  });
+});

@@ -38,6 +38,11 @@ export function Classement({ questions, candidats }: { questions: QuestionDuCalc
                   </>
                 )}
               </span>
+              {pourcentage !== null && (
+                <span className="bar">
+                  <i style={{ "--p": pourcentage, animationDelay: `${0.15 + rang * 0.05}s` } as React.CSSProperties}></i>
+                </span>
+              )}
             </div>
           </li>
         ))}
