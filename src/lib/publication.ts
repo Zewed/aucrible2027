@@ -17,6 +17,11 @@ async function maintenant(): Promise<Date> {
   return new Date();
 }
 
+/** Le jour de la requête, à Paris (AAAA-MM-JJ). */
+export async function lireAujourdhui(): Promise<string> {
+  return aujourdhuiAParis(await maintenant());
+}
+
 /**
  * Les fiches déjà parues : datées d'aujourd'hui (à Paris) ou avant, sauf, pendant un silence électoral,
  * celles datées depuis son début. Les autres ne quittent pas le serveur.

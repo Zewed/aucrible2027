@@ -1183,19 +1183,19 @@ test.describe("le compte à rebours avant le 1er tour", () => {
 });
 
 test.describe("avant la première question, l'accueil dit quand elle arrive", () => {
-  // La première fiche (de test) est datée du samedi 17 octobre 2026.
-  test("le 15 octobre, l'accueil donne la date de la première question et ne montre aucune question", async ({ page }) => {
-    await fixerLeJour(page, "2026-10-15T09:00:00+02:00");
+  // La première fiche (de test) est datée du mercredi 30 septembre 2026.
+  test("le 28 septembre, l'accueil donne la date de la première question et ne montre aucune question", async ({ page }) => {
+    await fixerLeJour(page, "2026-09-28T09:00:00+02:00");
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: /première question.*samedi 17 octobre/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /première question.*mercredi 30 septembre/i })).toBeVisible();
     await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
     await expect(page.getByText(/^Question n° /)).toHaveCount(0);
   });
 
   test("le jour de la première fiche, la question apparaît à la place du message", async ({ page }) => {
-    await fixerLeJour(page, "2026-10-17T09:00:00+02:00");
+    await fixerLeJour(page, "2026-09-30T09:00:00+02:00");
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "Fiche de test du samedi 17 octobre ?" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Fiche de test du mercredi 30 septembre ?" })).toBeVisible();
     await expect(page.getByRole("heading", { name: /première question/i })).toHaveCount(0);
   });
 });
@@ -1509,5 +1509,36 @@ test.describe("le dé roule quand la série augmente", () => {
     await validerLaReponseDuJour(page);
     expect(await animationsDuDe(page)).toEqual([]);
     await expect(serie(page)).toHaveText("7 jours d'affilée");
+  });
+});
+
+test.describe("l'électeur ouvre la liste des questions publiées", () => {
+  const toutesLesQuestions = (page: Page) => page.getByRole("region", { name: "Toutes les questions" });
+  /** La carte de la liste qui porte cette question. */
+  const carteDeLaListe = (page: Page, question: string) =>
+    toutesLesQuestions(page).getByRole("listitem").filter({ has: page.getByRole("heading", { name: question, exact: true }) });
+
+  test.beforeEach(async ({ page }) => {
+    await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
+    await page.goto("/rattrapage");
+    await expect(page.getByRole("heading", { level: 1, name: "Rattraper les questions." })).toBeVisible();
+  });
+
+  test("le 23 octobre, la page annonce « 24 publiées » et contient la carte n° 24 « À quel âge devrait-on pouvoir partir à la retraite ? » (Travail & retraites, 23 octobre)", async ({ page }) => {
+    await expect(toutesLesQuestions(page).getByText("24 publiées", { exact: true })).toBeVisible();
+    await expect(toutesLesQuestions(page).getByRole("listitem")).toHaveCount(24);
+    const carte = carteDeLaListe(page, "À quel âge devrait-on pouvoir partir à la retraite ?");
+    await expect(carte.getByText(/^n°\s24$/)).toBeVisible();
+    await expect(carte.getByText("Travail & retraites", { exact: true })).toBeVisible();
+    await expect(carte.getByText("23 octobre", { exact: true })).toBeVisible();
+  });
+
+  test("la carte n° 9 « Faut-il rétablir l'ISF ? » (Économie & impôts, 8 octobre) y figure aussi, et la question n° 25, pas encore publiée, n'y est pas", async ({ page }) => {
+    const carte = carteDeLaListe(page, "Faut-il rétablir l'ISF ?");
+    await expect(carte.getByText(/^n°\s9$/)).toBeVisible();
+    await expect(carte.getByText("Économie & impôts", { exact: true })).toBeVisible();
+    await expect(carte.getByText("8 octobre", { exact: true })).toBeVisible();
+    await expect(toutesLesQuestions(page).getByText(/^n°\s25$/)).toHaveCount(0);
+    await expect(page.getByText("Faut-il sortir du nucléaire ?")).toHaveCount(0);
   });
 });
