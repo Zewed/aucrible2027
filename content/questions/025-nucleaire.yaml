@@ -20,15 +20,19 @@ options:
   - id: A
     libelle: Oui, d'ici 2045
     implique: Les réacteurs ferment peu à peu, remplacés par les renouvelables et les économies d'énergie.
+    defenseurs: On écarte le risque d'accident et la question des déchets, avec des renouvelables de moins en moins chères.
   - id: B
     libelle: Réduire sa part, sans en sortir
     implique: Le parc diminue, et les renouvelables prennent une plus grande part de la production.
+    defenseurs: Ne pas dépendre d'une seule technologie, tout en gardant une base de production stable.
   - id: C
     libelle: Garder le parc actuel
     implique: On prolonge les réacteurs existants, sans en construire de nouveaux.
+    defenseurs: Les réacteurs existants produisent une électricité bas carbone déjà payée.
   - id: D
     libelle: Construire de nouveaux réacteurs
     implique: De nouveaux réacteurs remplacent les plus anciens ou s'ajoutent au parc.
+    defenseurs: Une électricité bas carbone et pilotable pour électrifier les transports et l'industrie.
 positions:
   arthaud: A
   tondelier: A

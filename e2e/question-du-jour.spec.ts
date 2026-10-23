@@ -1,4 +1,6 @@
+import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
+import { parse } from "yaml";
 
 const CANDIDATS = [
   "Marine Le Pen", "Jean-Luc Mélenchon", "Édouard Philippe", "Raphaël Glucksmann",
@@ -313,4 +315,55 @@ test("chaque option de la question n° 24 dit, sous son titre et sans la toucher
     expect(bas!.y).toBeGreaterThan(haut!.y);
   }
   await expect(page.getByRole("radio", { checked: true })).toHaveCount(0);
+});
+
+/** Les noms des candidats, leurs noms de famille et leurs partis, lus dans le contenu, plus les sigles courants. */
+const NOMS_ET_PARTIS: string[] = (parse(readFileSync("content/candidats.yaml", "utf8")) as { nom: string; parti: string }[])
+  .flatMap((c) => [c.nom, c.nom.split(" ").slice(1).join(" "), c.parti]);
+const SIGLES = /\b(RN|LFI|LR|PS|PCF|EELV|LO|NPA|DLF|UDI|MoDem)\b/;
+const nomsOuPartisDans = (texte: string) => [
+  ...NOMS_ET_PARTIS.filter((n) => texte.includes(n)),
+  ...(texte.match(SIGLES) ?? []).slice(0, 1),
+];
+
+test("chaque option de la question n° 24 dit ce qu'en disent ses défenseurs, lisible sans rien choisir, sans nom ni parti", async ({ page }) => {
+  await page.goto("/");
+  const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+  await expect(options).toHaveCount(5);
+  const attendus: Record<number, string> = {
+    0: "Deux ans de retraite en bonne santé en plus, d'abord pour ceux qui ont commencé tôt.",
+    3: "On vit plus longtemps : travailler un peu plus protège le niveau des pensions.",
+  };
+  for (const [rang, option] of (await options.all()).entries()) {
+    const bloc = option.locator("xpath=..").getByText("Ce qu'en disent ses défenseurs", { exact: true }).locator("xpath=..");
+    await expect(bloc).toBeVisible();
+    const argument = (await bloc.innerText()).replace("Ce qu'en disent ses défenseurs", "").trim();
+    expect(argument.length).toBeGreaterThan(10);
+    if (attendus[rang]) expect(argument).toBe(attendus[rang]);
+    expect(nomsOuPartisDans(argument)).toEqual([]);
+  }
+  await expect(page.getByRole("radio", { checked: true })).toHaveCount(0);
+});
+
+/** Le texte de chaque bloc d'arguments portant ce titre, sur la fiche de chaque jour de démonstration. */
+async function argumentsDesFiches(page: Page, titre: string) {
+  const textes: string[] = [];
+  for (const jour of ["2026-10-23T09:00:00+02:00", "2026-10-24T09:00:00+02:00", "2026-10-25T09:00:00+01:00"]) {
+    await page.clock.setFixedTime(new Date(jour));
+    await page.goto("/");
+    const options = page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio");
+    await expect(options.first()).toBeAttached();
+    for (const option of await options.all()) {
+      const bloc = option.locator("xpath=..").getByText(titre, { exact: true }).locator("xpath=..");
+      await expect(bloc).toBeVisible();
+      textes.push((await bloc.innerText()).replace(titre, "").trim());
+    }
+  }
+  return textes;
+}
+
+test("sur aucune fiche, ce qu'en disent les défenseurs ne nomme un candidat ou un parti", async ({ page }) => {
+  const textes = await argumentsDesFiches(page, "Ce qu'en disent ses défenseurs");
+  expect(textes).toHaveLength(5 + 4 + 3);
+  for (const texte of textes) expect(nomsOuPartisDans(texte), texte).toEqual([]);
 });
