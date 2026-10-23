@@ -601,6 +601,12 @@ test("changer d'importance ne change pas l'option choisie : « Ta carte » reste
 
 /** Répondre à la question du jour et arriver sur sa révélation. */
 async function repondre(page: Page, libelle: string) {
+  // Repartir d'un appareil sans réponse : une question déjà répondue rouvre sur sa révélation.
+  await page.goto("/");
+  await page.evaluate(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+  });
   await page.goto("/");
   await choisir(page, libelle);
   await page.getByRole("button", { name: "Valider ma réponse" }).click();
@@ -982,4 +988,44 @@ test("toucher un lien « Pour aller plus loin » ouvre le site de l'organisme da
   expect(onglet.url()).toMatch(/^https:\/\/www\.cor-retraites\.fr\//);
   await expect(page).toHaveURL(/\/revelation$/);
   await expect(quiDefendQuoi(page)).toBeVisible();
+});
+
+test.describe("une question déjà répondue rouvre sur sa révélation", () => {
+  /** Fermer l'app, puis la rouvrir le même jour sur le même appareil. */
+  async function rouvrir(page: Page) {
+    const contexte = page.context();
+    await page.close();
+    const rouverte = await contexte.newPage();
+    await rouverte.clock.setFixedTime(new Date("2026-10-23T18:00:00+02:00"));
+    await rouverte.goto("/");
+    return rouverte;
+  }
+
+  test("après E, fermer puis rouvrir l'app le même jour ouvre la révélation, Dupont-Aignan et Philippe sous E", async ({ page }) => {
+    await repondre(page, "À la carte, avec un système à points");
+    const rouverte = await rouvrir(page);
+    await expect(rouverte).toHaveURL(/\/revelation$/);
+    expect(await nomsSous(rouverte, "Option E : À la carte, avec un système à points")).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
+    await expect(rouverte.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
+  });
+
+  test("une réponse « Je ne sais pas » est gardée de la même façon", async ({ page }) => {
+    await repondre(page, "Je ne sais pas");
+    const rouverte = await rouvrir(page);
+    await expect(rouverte).toHaveURL(/\/revelation$/);
+    await expect(blocsDOption(rouverte)).toHaveCount(5);
+    await expect(rouverte.getByRole("region", { name: "Alignement sur ce sujet" })).toHaveCount(0);
+  });
+
+  test("sur un autre téléphone, la même question s'ouvre sur une fiche vierge", async ({ page, browser }) => {
+    await repondre(page, "À la carte, avec un système à points");
+    const autreTelephone = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    const autre = await autreTelephone.newPage();
+    await autre.clock.setFixedTime(new Date("2026-10-23T18:00:00+02:00"));
+    await autre.goto("/");
+    await expect(autre.getByRole("heading", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
+    await expect(autre.getByRole("radio", { checked: true })).toHaveCount(0);
+    await expect(autre).toHaveURL(/\/$/);
+    await autreTelephone.close();
+  });
 });
