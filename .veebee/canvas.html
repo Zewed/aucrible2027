@@ -1,0 +1,3215 @@
+<!-- Ticketise canvas: the cut, then the tickets. Works two ways with the same file: published with
+     an Artifact tool, or opened from disk in a browser, where it reloads itself. -->
+<meta charset="utf-8">
+<title>Ticketise</title>
+<style>
+  :root {
+    --bg: #efece5; --paper: #fffdf9; --ink: #1c1a16; --muted: #8a8479; --faint: #c9c3b6;
+    --line: #e8e3d9; --accent: #f27313; --accent-soft: #fff1e6;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121110; --paper: #1c1a17; --ink: #f1ede4; --muted: #8f887b; --faint: #4a4438;
+      --line: #2b2823; --accent: #f27313; --accent-soft: #2e1d10;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121110; --paper: #1c1a17; --ink: #f1ede4; --muted: #8f887b; --faint: #4a4438;
+    --line: #2b2823; --accent: #f27313; --accent-soft: #2e1d10;
+  }
+  body { background: var(--bg); color: var(--ink); font-family: var(--serif); }
+  main { max-width: 760px; margin: 0 auto; padding: 44px 24px 80px; }
+  .pill { display: inline-block; font-family: var(--sans); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .pill.empty { background: transparent; color: var(--faint); border: 1px dashed var(--faint); }
+  h1 { font-weight: 500; font-size: 38px; line-height: 1.1; margin: 10px 0 4px; letter-spacing: -.01em; }
+  h1.untitled { color: var(--muted); font-style: italic; font-weight: 400; }
+  .sub { font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin: 0 0 32px; }
+
+  .ticket { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; margin: 0 0 14px; overflow: hidden; }
+  .ticket > .head { display: flex; gap: 14px; align-items: baseline; padding: 14px 20px; }
+  .ticket .num { font-family: var(--mono); font-size: 13px; color: var(--accent); font-weight: 700; min-width: 22px; }
+  .ticket .title { font-size: 18px; line-height: 1.35; flex: 1; }
+  .ticket .dep { font-family: var(--mono); font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+  .ticket > .body { padding: 0 20px 16px 56px; }
+  .ticket .does { font-size: 15.5px; line-height: 1.5; color: var(--muted); margin: 0 0 8px; }
+  .ticket ul { margin: 0; padding: 0; list-style: none; }
+  .ticket li { font-size: 15px; line-height: 1.5; margin: 3px 0; padding-left: 22px; position: relative; }
+  .ticket li::before { content: "☐"; position: absolute; left: 0; color: var(--faint); }
+  .ticket .foot { font-family: var(--sans); font-size: 12px; padding: 8px 20px 8px 56px; border-top: 1px solid var(--line); background: var(--bg); color: var(--muted); }
+  .ticket .foot a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+  .box { background: var(--paper); border: 1px dashed var(--faint); border-radius: 10px; padding: 16px 20px; margin: 22px 0 14px; }
+  .box .label { font-family: var(--sans); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .box li { font-size: 15px; line-height: 1.5; margin: 3px 0; }
+  .box ul { margin: 0; padding-left: 20px; }
+  .tree { font-family: var(--mono); font-size: 13px; line-height: 1.7; white-space: pre; overflow-x: auto; margin: 0; }
+  .placeholder { height: 1em; border-bottom: 1px dashed var(--faint); width: 55%; margin: 18px 0; }
+  @media (max-width: 700px) { main { padding: 28px 16px 60px; } h1 { font-size: 30px; } .ticket > .body, .ticket .foot { padding-left: 20px; } }
+</style>
+
+<main>
+  <div class="pill" id="pill"></div>
+  <h1 id="title"></h1>
+  <p class="sub" id="sub"></p>
+  <div id="tickets"></div>
+  <div id="holes"></div>
+  <div id="tree"></div>
+</main>
+
+<script>
+// Edit only this object. Build it in full and replace the whole declaration with json.dumps.
+const TICKETS = {
+  "lang": "fr",
+  "title": "Au crible 2027",
+  "piece": "",
+  "source": "design",
+  "stage": "written",
+  "tickets": [
+    {
+      "id": "001",
+      "title": "Valider une option de la question du jour révèle les candidats qui la défendent",
+      "depends_on": [],
+      "does": "Je réponds à la question du jour et je vois quels candidats défendent l'option que j'ai choisie.",
+      "criteria": [
+        "Le 23 octobre 2026, l'accueil affiche la question « À quel âge devrait-on pouvoir partir à la retraite ? », ses cinq options (60 ans, 62 ans, 64 ans, 65 ans ou plus, À la carte avec un système à points) et le bouton « Valider ma réponse », et aucun nom de candidat n'est visible.",
+        "Après avoir choisi « À la carte, avec un système à points » puis « Valider ma réponse », une page de révélation s'ouvre et nomme Nicolas Dupont-Aignan et Édouard Philippe comme défenseurs de cette option.",
+        "Avec « 62 ans » à la place, la révélation nomme Marine Le Pen, Marine Tondelier et Raphaël Glucksmann : les noms dépendent de l'option choisie."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "002",
+      "title": "La carte question affiche son thème",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je vois de quel thème est la question du jour.",
+      "criteria": [
+        "Le 23 octobre 2026, la carte de la question n° 24 affiche la puce « Travail & retraites » au-dessus de « À quel âge devrait-on pouvoir partir à la retraite ? ».",
+        "Une question d'un autre thème (par exemple Écologie & énergie) affiche son propre thème dans la puce, et non « Travail & retraites »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "003",
+      "title": "La carte question prend la couleur de son thème",
+      "depends_on": [
+        "002"
+      ],
+      "does": "Je reconnais le thème de la question à sa couleur.",
+      "criteria": [
+        "La question n° 24 (Travail & retraites) s'affiche en orange : en-tête de la carte, barres des chiffres clés, carte réponse choisie, bouton « Valider ma réponse ».",
+        "Une question d'Écologie & énergie s'affiche en vert avec les mêmes éléments, et les 11 thèmes ont 11 couleurs différentes."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "004",
+      "title": "La question affiche son numéro et sa date",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je sais quelle est la question du jour et à quelle date elle est parue.",
+      "criteria": [
+        "Le vendredi 23 octobre 2026, sur grand écran, le bandeau affiche « Question n° 24 · vendredi 23 octobre » ; sur téléphone, seulement « Question n° 24 ».",
+        "Le samedi 24 octobre 2026, la nouvelle question affiche « Question n° 25 ».",
+        "Après validation, la révélation garde le numéro : « Question n° 24 » (« · 23 octobre » sur grand écran)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "005",
+      "title": "La fiche affiche le contexte en trois phrases",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je lis le contexte de la question en trois phrases.",
+      "criteria": [
+        "La fiche n° 24 affiche sous « Le contexte » exactement trois phrases, dont la première est « La réforme de 2023 a commencé à repousser l'âge légal de 62 à 64 ans, puis sa hausse a été suspendue fin 2025. »",
+        "Les trois phrases se lisent en entier sur la carte, sans rien déplier ni ouvrir."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "006",
+      "title": "La fiche affiche les chiffres clés",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je lis les chiffres clés de la question.",
+      "criteria": [
+        "La fiche n° 24 affiche, sous « 3 chiffres clés », 1,7 (cotisant pour 1 retraité), 14 % (du PIB : environ ce que représentent les retraites) et 62 ans (et 10 mois : l'âge moyen de départ).",
+        "Une fiche qui a deux chiffres clés en affiche deux, une fiche qui en a quatre en affiche quatre ; aucun n'est coupé."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "007",
+      "title": "Chaque chiffre clé affiche sa source datée",
+      "depends_on": [
+        "006"
+      ],
+      "does": "Je vois d'où vient chaque chiffre clé et de quelle année il date.",
+      "criteria": [
+        "Sur la fiche n° 24, 1,7 est suivi de « Source : COR, rapport 2025 », 14 % de « Source : COR, 2025 » et 62 ans de « Source : DREES, 2025 ».",
+        "Sur aucune fiche un chiffre clé n'apparaît sans son organisme ni son année."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "008",
+      "title": "Chaque option porte une lettre, de A à E",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je distingue les options par leur lettre, de A à E.",
+      "criteria": [
+        "Les cinq cartes réponse de la question n° 24 portent, dans l'ordre, les lettres A, B, C, D, E.",
+        "Une fiche qui a trois options affiche A, B, C seulement ; une fiche à quatre options affiche A à D."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "009",
+      "title": "Chaque option dit ce qu'elle implique",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je lis ce que chaque option implique concrètement.",
+      "criteria": [
+        "Chacune des cinq options de la question n° 24 affiche, sous son titre, sa phrase d'implication : A « Retour à l'âge légal d'avant 2010, financé par de nouvelles cotisations. », E « Chacun part quand il veut ; la pension dépend des points acquis. »",
+        "Ces phrases sont visibles dès l'ouverture, sans toucher la carte."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "010",
+      "title": "Chaque option dit ce qu'en pensent ses défenseurs",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je lis l'argument que les défenseurs de chaque option signeraient.",
+      "criteria": [
+        "Chacune des cinq options de la question n° 24 affiche un bloc « Ce qu'en disent ses défenseurs » : A « Deux ans de retraite en bonne santé en plus, d'abord pour ceux qui ont commencé tôt. », D « On vit plus longtemps : travailler un peu plus protège le niveau des pensions. »",
+        "Ces blocs se lisent sans rien choisir, et aucun ne contient le nom d'un candidat ni d'un parti."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "011",
+      "title": "Chaque option dit ce que lui reprochent ses critiques",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je lis ce que les critiques reprochent à chaque option.",
+      "criteria": [
+        "Chacune des cinq options de la question n° 24 affiche un bloc « Ce que lui reprochent ses critiques » : A « Un coût élevé, qui pèserait sur les salaires ou sur les entreprises. », E « La valeur du point peut baisser : la pension devient moins prévisible. »",
+        "Ces blocs se lisent sans rien choisir, et aucun ne contient le nom d'un candidat ni d'un parti."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "012",
+      "title": "La fiche prévient que les noms s'affichent après la réponse",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je sais, avant de répondre, que les candidats ne sont nommés qu'après ma réponse.",
+      "criteria": [
+        "Sous « Choisis ta carte », la fiche n° 24 affiche « Les noms des candidats s'affichent après ta réponse. » avant toute réponse.",
+        "La phrase reste visible quand une option est choisie mais pas encore validée."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "013",
+      "title": "Sur ordinateur, la carte question se pose à côté des cartes réponse",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Sur ordinateur, je vois la question à côté des cartes réponse.",
+      "criteria": [
+        "Sur un écran de 1280 px de large, la carte question est à gauche et les cartes réponse à droite, côte à côte.",
+        "En défilant les cinq options, la carte question reste visible à gauche.",
+        "Sur un écran de 375 px de large, la carte question vient d'abord, puis les cartes réponse en dessous."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "014",
+      "title": "L'option choisie se marque « Ta carte »",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je vois quelle option j'ai choisie : elle se marque « Ta carte ».",
+      "criteria": [
+        "Toucher « 64 ans » colore la carte C, la soulève et fait apparaître l'étiquette « Ta carte » dessus ; les quatre autres cartes restent blanches et sans étiquette.",
+        "Avec « réduire les animations » activé sur l'appareil, la carte est marquée aussitôt, sans mouvement."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "015",
+      "title": "L'électeur change d'option avant de valider",
+      "depends_on": [
+        "014"
+      ],
+      "does": "Je change d'option avant de valider.",
+      "criteria": [
+        "Choisir A puis B (sans valider) fait passer « Ta carte » de A à B ; une seule carte est marquée à la fois.",
+        "Après avoir choisi A puis B et validé, la révélation nomme Marine Le Pen, Marine Tondelier et Raphaël Glucksmann comme défenseurs de la réponse (B), pas Jean-Luc Mélenchon, Fabien Roussel ni Nathalie Arthaud."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "016",
+      "title": "« Valider ma réponse » reste inactif sans option choisie",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je ne peux pas valider tant que je n'ai pas choisi une option.",
+      "criteria": [
+        "À l'ouverture de la question n° 24, sans rien choisir, toucher « Valider ma réponse » n'ouvre pas la révélation et n'enregistre rien.",
+        "Dès qu'une option est choisie, toucher « Valider ma réponse » ouvre la révélation."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "017",
+      "title": "L'électeur répond « Je ne sais pas »",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je réponds « Je ne sais pas » quand je n'ai pas d'avis.",
+      "criteria": [
+        "Choisir « Je ne sais pas » puis « Valider ma réponse » enregistre la réponse et ouvre la révélation de la question n° 24.",
+        "Choisir « Je ne sais pas » après avoir choisi « 64 ans » décoche « 64 ans » : une seule carte est choisie à la fois."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "018",
+      "title": "L'électeur choisit l'importance du sujet (×1, ×2, ×3)",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je dis si le sujet compte peu, beaucoup ou essentiellement pour moi.",
+      "criteria": [
+        "Sous « Ce sujet compte pour toi ? », la fiche n° 24 propose trois choix : ×1 « Un peu », ×2 « Beaucoup », ×3 « Essentiel ».",
+        "Toucher ×3 marque ×3 et décoche le choix précédent ; un seul est marqué à la fois.",
+        "Changer d'importance ne change pas l'option choisie plus haut : « Ta carte » reste sur la même carte."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "019",
+      "title": "La révélation montre les candidats de chaque option",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Après ma réponse, je vois quels candidats défendent chaque option.",
+      "criteria": [
+        "Sur la révélation de la question n° 24, A (60 ans) nomme Fabien Roussel, Nathalie Arthaud et Jean-Luc Mélenchon ; B (62 ans) Marine Le Pen, Marine Tondelier et Raphaël Glucksmann ; C (64 ans) Éric Zemmour et Gabriel Attal ; D (65 ans ou plus) Bruno Retailleau ; E Nicolas Dupont-Aignan et Édouard Philippe.",
+        "Les cinq blocs s'affichent quelle que soit l'option choisie, chacun annonce son nombre de candidats (« 3 candidats », « 1 candidat »…) et chaque candidat n'apparaît que sous une seule option."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "020",
+      "title": "La révélation rappelle l'option choisie",
+      "depends_on": [
+        "019"
+      ],
+      "does": "Sur la révélation, je retrouve l'option que j'ai choisie.",
+      "criteria": [
+        "Après avoir choisi E et validé, l'encart « Ta réponse » affiche E et « À la carte, avec un système à points », et le bloc E de « Qui défend quoi » porte l'étiquette « Ta carte ».",
+        "Après avoir choisi B (62 ans), l'encart affiche B et « 62 ans », et « Ta carte » est sur le bloc B, nulle part ailleurs."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "021",
+      "title": "La révélation rappelle l'importance donnée",
+      "depends_on": [
+        "020",
+        "018"
+      ],
+      "does": "Sur la révélation, je retrouve l'importance que j'ai donnée au sujet.",
+      "criteria": [
+        "Après avoir validé avec ×2, l'encart « Ta réponse » affiche « Importance ×2 » avec deux pastilles pleines et une grise.",
+        "Avec ×3, les trois pastilles sont pleines ; avec ×1, une est pleine et deux sont grises."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "022",
+      "title": "Chaque candidat révélé affiche la source de sa position",
+      "depends_on": [
+        "019"
+      ],
+      "does": "Je vois la source de la position de chaque candidat.",
+      "criteria": [
+        "Sur la révélation de la question n° 24, Fabien Roussel est suivi de « Interview franceinfo, 21/09/2026 », Nathalie Arthaud de « Programme 2022, p. 6 », Marine Le Pen de « Vote du groupe à l'Assemblée, 2023 » et Bruno Retailleau de « Discours de rentrée, 12/09/2026 ».",
+        "Les 11 candidats rangés sous une option ont tous une source ; aucun n'en est dépourvu."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "023",
+      "title": "Chaque position révélée porte son badge « officielle » ou « déduite »",
+      "depends_on": [
+        "022"
+      ],
+      "does": "Je vois si la position d'un candidat est officielle ou déduite.",
+      "criteria": [
+        "Sur la révélation de la question n° 24, Fabien Roussel (interview du 21/09/2026) porte « position officielle » ; Nathalie Arthaud (Programme 2022) et Marine Le Pen (vote du groupe à l'Assemblée, 2023) portent « position déduite ».",
+        "Les 11 candidats sourcés portent l'un ou l'autre badge, jamais les deux (5 officielles, 6 déduites)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "024",
+      "title": "Les candidats sans source se rangent sous « Position inconnue »",
+      "depends_on": [
+        "019"
+      ],
+      "does": "Je vois quels candidats n'ont pas de position sourcée sur ce sujet.",
+      "criteria": [
+        "Sur la révélation de la question n° 24, François Ruffin et David Lisnard sont rangés sous « Position inconnue » (« 2 candidats · exclus du calcul sur ce sujet »), avec « Pas de source à ce jour » et un badge « position inconnue ».",
+        "Ils n'apparaissent sous aucune des options A à E : 11 candidats sous les options, 2 sous « Position inconnue », soit 13 au total."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "025",
+      "title": "Les candidats s'affichent dans un ordre mélangé",
+      "depends_on": [
+        "019"
+      ],
+      "does": "Je vois les candidats dans un ordre mélangé, pas dans un ordre qui favorise l'un d'eux.",
+      "criteria": [
+        "La mention « ordre mélangé » est lisible à côté de « Qui défend quoi » sur la révélation de la question n° 24.",
+        "En comparant la révélation sur plusieurs appareils, l'ordre de Fabien Roussel, Nathalie Arthaud et Jean-Luc Mélenchon sous l'option A n'est pas toujours le même, et ne suit ni l'ordre alphabétique ni celui des partis."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "026",
+      "title": "Tous les candidats révélés ont le même pion, sans couleur de parti",
+      "depends_on": [
+        "019"
+      ],
+      "does": "Je vois tous les candidats représentés par le même pion, sans couleur de parti.",
+      "criteria": [
+        "Sur la révélation de la question n° 24, les 13 candidats ont un pion de même forme et de même teinte, avec leurs initiales ; aucun pion ne reprend la couleur d'un parti.",
+        "Les initiales distinguent les candidats qui se ressemblent (FRo pour Fabien Roussel, FRu pour François Ruffin)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "027",
+      "title": "La révélation dit avec qui il est aligné sur ce sujet",
+      "depends_on": [
+        "019"
+      ],
+      "does": "Après ma réponse, je vois avec qui je suis aligné·e sur ce sujet.",
+      "criteria": [
+        "Après avoir choisi E, la révélation dit « Sur ce sujet, tu es aligné·e avec » Nicolas Dupont-Aignan et Édouard Philippe.",
+        "Après avoir choisi B (62 ans), elle dit aligné·e avec Marine Le Pen, Marine Tondelier et Raphaël Glucksmann ; François Ruffin et David Lisnard (position inconnue) n'y figurent jamais.",
+        "Sous les listes, la note donne la définition : « Aligné·e : même carte que toi (E). » (avec la lettre de la réponse)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "028",
+      "title": "La révélation dit de qui il est proche",
+      "depends_on": [
+        "027"
+      ],
+      "does": "Après ma réponse, je vois de qui je suis proche sur ce sujet.",
+      "criteria": [
+        "Après avoir choisi E, la révélation dit « et proche de » Bruno Retailleau (option D, voisine de E).",
+        "Après avoir choisi A, elle dit « et proche de » Marine Le Pen, Marine Tondelier et Raphaël Glucksmann (option B, voisine de A).",
+        "La note sous les listes donne la définition : « Proche : carte voisine (D). » (avec la lettre de la carte voisine)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "029",
+      "title": "La révélation dit à qui il est opposé",
+      "depends_on": [
+        "027"
+      ],
+      "does": "Après ma réponse, je vois à qui je suis opposé·e sur ce sujet.",
+      "criteria": [
+        "Après avoir choisi E, la révélation dit « opposé·e à » Jean-Luc Mélenchon, Fabien Roussel et Nathalie Arthaud (option A).",
+        "Après avoir choisi A, elle dit « opposé·e à » Nicolas Dupont-Aignan et Édouard Philippe (option E).",
+        "La note sous les listes donne la définition : « Opposé·e : carte la plus éloignée (A). » (avec la lettre de la carte la plus éloignée)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "030",
+      "title": "Après « Je ne sais pas », la révélation s'affiche sans alignement",
+      "depends_on": [
+        "019",
+        "017"
+      ],
+      "does": "Quand je réponds « Je ne sais pas », je vois quand même qui défend quoi, mais sans alignement.",
+      "criteria": [
+        "Après « Je ne sais pas » à la question n° 24, la révélation s'ouvre avec les cinq options et leurs candidats (Roussel, Arthaud et Mélenchon sous A…) et le bloc « Position inconnue ».",
+        "Elle n'affiche ni « Sur ce sujet, tu es aligné·e avec », ni « et proche de », ni « opposé·e à »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "031",
+      "title": "Les cartes se retournent une à une à l'arrivée",
+      "depends_on": [
+        "019"
+      ],
+      "does": "Quand la révélation s'ouvre, je vois les cartes se retourner une à une.",
+      "criteria": [
+        "En arrivant sur la révélation, les blocs A, B, C, D, E puis « Position inconnue » se retournent l'un après l'autre dans cet ordre et sont tous posés en moins de deux secondes.",
+        "Avec « réduire les animations » activé sur l'appareil, les blocs sont posés d'emblée, sans retournement."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "032",
+      "title": "La révélation propose des liens « Pour aller plus loin »",
+      "depends_on": [
+        "019"
+      ],
+      "does": "Je trouve des liens pour aller plus loin sur le sujet.",
+      "criteria": [
+        "La révélation de la question n° 24 affiche sous « Pour aller plus loin » trois liens : « COR, rapport annuel 2025 », « DREES, Les retraités et les retraites, 2025 » et « Cour des comptes, retraites, 2025 ».",
+        "Toucher un lien ouvre le site de l'organisme dans un nouvel onglet ; la révélation reste ouverte."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "033",
+      "title": "Une question déjà répondue rouvre sur sa révélation",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je reviens sur une question déjà répondue et je retrouve ma révélation.",
+      "criteria": [
+        "Après avoir validé E à la question n° 24, fermer l'app puis la rouvrir le même jour ouvre la question du jour sur sa révélation, avec Nicolas Dupont-Aignan et Édouard Philippe sous E, et non sur la fiche vierge.",
+        "Une réponse « Je ne sais pas » est gardée de la même façon.",
+        "Sur un autre téléphone, la même question s'ouvre sur une fiche vierge : la réponse n'est gardée que sur l'appareil où elle a été donnée."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "034",
+      "title": "L'importance donnée est retrouvée en revenant",
+      "depends_on": [
+        "033",
+        "018"
+      ],
+      "does": "En revenant, je retrouve l'importance que j'avais donnée.",
+      "criteria": [
+        "Après avoir validé E avec l'importance ×3, fermer puis rouvrir l'app : la révélation de la question n° 24 affiche « Importance ×3 » avec trois pastilles pleines.",
+        "Deux questions répondues avec des importances différentes (la n° 23 en ×1, la n° 24 en ×3) gardent chacune la leur."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "035",
+      "title": "La fiche rappelle que les réponses restent sur le téléphone",
+      "depends_on": [
+        "033"
+      ],
+      "does": "Je lis, au moment de répondre, que mes réponses restent sur mon téléphone.",
+      "criteria": [
+        "Sous « Valider ma réponse », la fiche n° 24 affiche « Tes réponses restent sur ton téléphone, sans compte. »",
+        "Rien dans l'app ne demande de créer un compte ou de se connecter, ni avant ni après avoir validé la réponse."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "036",
+      "title": "En navigation privée, l'app prévient que rien ne sera gardé",
+      "depends_on": [
+        "033"
+      ],
+      "does": "En navigation privée, je suis prévenu que mes réponses ne seront pas gardées.",
+      "criteria": [
+        "En ouvrant l'app dans une fenêtre de navigation privée, un message dit que les réponses ne seront pas gardées à la fermeture de la fenêtre.",
+        "Dans une fenêtre de navigation normale, ce message n'apparaît pas."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "037",
+      "title": "La question du jour change chaque jour",
+      "depends_on": [
+        "001"
+      ],
+      "does": "J'ouvre l'app un autre jour et la question du jour a changé.",
+      "criteria": [
+        "Le vendredi 23 octobre 2026, l'accueil montre la fiche datée du 23 octobre (la retraite) ; le samedi 24, il montre la fiche datée du 24 octobre, une autre question, et plus celle de la retraite.",
+        "Le dimanche 25 octobre 2026, l'accueil montre encore une nouvelle fiche : une question par jour, 7 jours sur 7."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "038",
+      "title": "Une question pas encore publiée reste inaccessible",
+      "depends_on": [
+        "037"
+      ],
+      "does": "Je ne peux pas ouvrir une question avant sa date de parution.",
+      "criteria": [
+        "Le 23 octobre 2026, avec une fiche déjà écrite et datée du 24 octobre, ni l'accueil ni aucune autre page de l'app ne montrent sa question, son thème ou ses chiffres.",
+        "Taper à la main l'adresse de cette fiche le 23 octobre ne l'affiche pas ; le 24 octobre, elle s'affiche comme question du jour."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "039",
+      "title": "Le compte à rebours affiche les jours avant le 1er tour",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je vois combien de jours il reste avant le 1er tour.",
+      "criteria": [
+        "Le 23 octobre 2026, le bandeau affiche « J-177 avant le 1er tour » ; le 24 octobre, il affiche « J-176 ».",
+        "Le décompte vise le dimanche 18 avril 2027 : le samedi 17 avril 2027, il affiche « J-1 »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "040",
+      "title": "Avant la première question, l'accueil dit quand elle arrive",
+      "depends_on": [
+        "037"
+      ],
+      "does": "Avant la première question, je vois quand elle arrive.",
+      "criteria": [
+        "Quand la première fiche est datée d'un jour à venir (par exemple le 2 novembre 2026), ouvrir l'app avant cette date affiche à l'accueil un message qui donne la date de la première question et ne montre aucune question.",
+        "Le jour de la première fiche, la question apparaît à l'accueil à la place du message."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "041",
+      "title": "Quand les questions s'arrêtent, l'accueil le dit",
+      "depends_on": [
+        "037"
+      ],
+      "does": "Quand les questions s'arrêtent, l'accueil me le dit.",
+      "criteria": [
+        "Quand aucune fiche n'est datée d'aujourd'hui ni d'un jour à venir, l'accueil ne présente plus de question du jour et dit qu'il n'y a plus de nouvelle question.",
+        "Si l'auteur publie ensuite une nouvelle fiche, elle apparaît à l'accueil à sa date, à la place du message."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "042",
+      "title": "Aucune nouvelle question ne paraît pendant le silence électoral",
+      "depends_on": [
+        "037"
+      ],
+      "does": "Pendant le silence électoral, aucune nouvelle question ne paraît.",
+      "criteria": [
+        "Avec des fiches datées du jeudi 15 au dimanche 18 avril 2027, l'accueil du jeudi 15 montre la fiche du 15 ; le vendredi 16 et le samedi 17 avril, il ne montre aucune nouvelle question, et les fiches du 16 et du 17 n'apparaissent nulle part dans l'app.",
+        "La même règle joue avant le 2nd tour : le vendredi 30 avril et le samedi 1er mai 2027, aucune nouvelle question ne paraît."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "043",
+      "title": "Pendant le silence électoral, l'accueil explique pourquoi",
+      "depends_on": [
+        "042"
+      ],
+      "does": "Pendant le silence électoral, je comprends pourquoi il n'y a pas de question.",
+      "criteria": [
+        "Le samedi 17 avril 2027, l'accueil montre la carte face cachée « J-1 avant le 1er tour » avec la date « dimanche 18 avril 2027 », à la place d'une question.",
+        "Il affiche le titre « Silence électoral. » et explique que la loi interdit toute nouvelle publication la veille et le jour du vote."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "044",
+      "title": "Pendant le silence électoral, résultats, face-à-face et rattrapage restent ouverts",
+      "depends_on": [
+        "043"
+      ],
+      "does": "Pendant le silence électoral, je peux encore voir mes résultats, comparer deux candidats ou rattraper une question.",
+      "criteria": [
+        "Le samedi 17 avril 2027, l'accueil propose les trois boutons « Mes résultats », « Face-à-face » et « Rattraper les questions ».",
+        "Chaque bouton ouvre son écran normalement : le classement, un face-à-face, la liste des questions publiées.",
+        "Depuis « Rattraper les questions », répondre à une question publiée le 14 avril fonctionne : sa révélation s'ouvre."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "045",
+      "title": "Le dé affiche les jours d'affilée",
+      "depends_on": [
+        "033",
+        "037"
+      ],
+      "does": "Je vois combien de jours d'affilée j'ai répondu.",
+      "criteria": [
+        "Après avoir répondu à la question du jour six jours de suite, l'en-tête de l'accueil du septième jour, avant d'avoir répondu, affiche « 6 jours d'affilée ».",
+        "Le dé et ce nombre sont aussi dans l'en-tête de la fiche et de la révélation."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "046",
+      "title": "Répondre à la question du jour ajoute un jour à la série",
+      "depends_on": [
+        "045"
+      ],
+      "does": "En répondant à la question du jour, ma série gagne un jour.",
+      "criteria": [
+        "Avec « 6 jours d'affilée », valider la réponse du jour fait passer l'en-tête à « 7 jours d'affilée », et la révélation affiche la carte « Ta série continue — Série : 7 jours d'affilée » avec « Reviens demain pour la garder. »",
+        "Rouvrir cette révélation le même jour, ou changer de page et revenir, laisse « 7 jours » : un seul jour est ajouté par jour."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "047",
+      "title": "Un jour sans réponse remet la série à zéro",
+      "depends_on": [
+        "045"
+      ],
+      "does": "Si je laisse passer un jour sans répondre, ma série repart de zéro.",
+      "criteria": [
+        "Avec « 6 jours d'affilée » au soir du jeudi 22 octobre 2026, ne pas répondre le vendredi 23 : le samedi 24, l'en-tête n'affiche plus « 6 jours ».",
+        "Répondre alors à la question du samedi 24 donne « 1 jour d'affilée » : la série repart de 1 au lieu de reprendre à 7."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "048",
+      "title": "« Je ne sais pas » ne casse pas la série",
+      "depends_on": [
+        "045",
+        "017"
+      ],
+      "does": "Si je réponds « Je ne sais pas », ma série n'est pas cassée.",
+      "criteria": [
+        "Avec « 6 jours d'affilée », répondre « Je ne sais pas » à la question du jour ne remet pas la série à zéro : l'en-tête affiche toujours au moins 6 jours après la validation.",
+        "Le lendemain, répondre à la question suivante prolonge la série au lieu de la relancer à 1 jour."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "049",
+      "title": "Le silence électoral met la série en pause",
+      "depends_on": [
+        "045",
+        "042"
+      ],
+      "does": "Pendant le silence électoral, ma série est mise en pause, pas perdue.",
+      "criteria": [
+        "Avec 38 jours d'affilée au jeudi 15 avril 2027 (question du jour répondue), l'en-tête du samedi 17 avril affiche toujours « 38 jours d'affilée » et l'accueil dit « Ta série de 38 jours est en pause, elle n'est pas perdue. »",
+        "À la première question publiée après le silence, répondre fait passer la série à « 39 jours d'affilée », sans retour à 1."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "050",
+      "title": "Sans aucune réponse, le dé n'affiche pas de série",
+      "depends_on": [
+        "045"
+      ],
+      "does": "Quand je n'ai encore répondu à rien, le dé ne m'affiche pas de série.",
+      "criteria": [
+        "Sur un appareil neuf, avant la moindre réponse, l'en-tête n'affiche pas de série : ni « 0 jour » ni un nombre de jours d'affilée.",
+        "Le lendemain, toujours sans aucune réponse, l'en-tête n'affiche toujours pas de série."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "051",
+      "title": "Le dé roule quand la série augmente",
+      "depends_on": [
+        "046"
+      ],
+      "does": "Quand ma série augmente, je vois le dé rouler.",
+      "criteria": [
+        "En validant la réponse du jour avec « 6 jours d'affilée », le dé de l'en-tête roule à l'arrivée sur la révélation puis affiche « 7 jours d'affilée ».",
+        "En rouvrant la même révélation plus tard, ou en ouvrant une autre page, le dé ne roule pas.",
+        "Avec « réduire les animations » activé sur l'appareil, le dé ne roule pas mais affiche quand même « 7 jours d'affilée »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "052",
+      "title": "L'électeur ouvre la liste des questions publiées",
+      "depends_on": [
+        "033",
+        "037"
+      ],
+      "does": "L'électeur ouvre la page « Rattraper les questions » et y voit toutes les questions déjà publiées.",
+      "criteria": [
+        "Le 23 octobre, la page annonce « 24 publiées » et contient la carte n° 24 « À quel âge devrait-on pouvoir partir à la retraite ? » avec la pastille « Travail & retraites » et la date « 23 octobre ».",
+        "La carte n° 9 « Faut-il rétablir l'ISF ? » (pastille « Économie & impôts », 8 octobre) y figure aussi, et la question n° 25, pas encore publiée, n'y est pas."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "053",
+      "title": "La révélation mène au rattrapage",
+      "depends_on": [
+        "019",
+        "052"
+      ],
+      "does": "Après avoir répondu, l'électeur touche « Rattraper d'autres questions » sur la révélation pour passer à la liste des questions à rattraper.",
+      "criteria": [
+        "Sur la révélation de la question n° 24 (réponse E validée), toucher « Rattraper d'autres questions » ouvre la page « Rattraper les questions ».",
+        "Le même bouton est sur la révélation d'une question répondue depuis la liste (par exemple la n° 9 « Faut-il rétablir l'ISF ? ») et ramène à la liste."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "054",
+      "title": "Les questions qui départagent le plus viennent en premier",
+      "depends_on": [
+        "052"
+      ],
+      "does": "L'électeur parcourt la liste et trouve en premier les questions qui départagent le plus les candidats.",
+      "criteria": [
+        "Avec 24 questions publiées dont 14 répondues, les quatre cartes « Départage fort » (n° 9, 17, 24 et 6) sont avant les quatre « Départage moyen » (n° 13, 20, 11 et 3), elles-mêmes avant les deux « Départage faible » (n° 15 et 22).",
+        "Une question « faible » encore à répondre n'est jamais placée avant une question « fort » ou « moyen » encore à répondre."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "055",
+      "title": "Chaque question affiche son pouvoir de départage",
+      "depends_on": [
+        "054"
+      ],
+      "does": "L'électeur lit, sur chaque carte, à quel point la question départage les candidats.",
+      "criteria": [
+        "La carte n° 24 (retraite) montre un dé à 3 points et « Départage fort », la n° 13 (loyers) un dé à 2 points et « Départage moyen », la n° 15 (uniforme) un dé à 1 point et « Départage faible ».",
+        "Au-dessus de la liste, la légende « Pouvoir de départage » associe 1 point à « faible », 2 points à « moyen » et 3 points à « fort »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "056",
+      "title": "Une question répondue est marquée « Répondu » et passe en fin de liste",
+      "depends_on": [
+        "052"
+      ],
+      "does": "L'électeur repère d'un coup d'œil les questions déjà répondues, rangées à la fin de la liste.",
+      "criteria": [
+        "Les questions n° 5 et n° 8, déjà répondues, sont grisées, marquées « Répondu » et placées après les dix cartes « À répondre ».",
+        "Après avoir validé une réponse à la question n° 24, la liste la montre « Répondu » et la place après les cartes « À répondre » qui restent."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "057",
+      "title": "La liste affiche le nombre de questions à rattraper",
+      "depends_on": [
+        "056"
+      ],
+      "does": "L'électeur voit combien de questions il lui reste à rattraper.",
+      "criteria": [
+        "Avec 24 questions publiées dont 14 répondues, la tuile affiche « 10 questions à rattraper » et « 14 répondues sur 24 publiées ».",
+        "Après avoir répondu à la question n° 24, la tuile affiche « 9 questions à rattraper » et « 15 répondues sur 24 publiées », et la barre avance d'un cran."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "058",
+      "title": "L'électeur filtre la liste par thème",
+      "depends_on": [
+        "052"
+      ],
+      "does": "L'électeur filtre la liste des questions sur un seul thème.",
+      "criteria": [
+        "En choisissant « Travail & retraites », les questions n° 24 (« À répondre ») et n° 5 (« Répondu ») restent, et la n° 9 « Faut-il rétablir l'ISF ? » disparaît de la liste.",
+        "En choisissant « Santé », la n° 3 « Faut-il réguler l'installation des médecins ? » reste, et les n° 9 (ISF) et n° 24 (retraite) disparaissent ; en choisissant « Tous les thèmes », la liste complète revient."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "059",
+      "title": "Une question de la liste s'ouvre sur sa fiche",
+      "depends_on": [
+        "052"
+      ],
+      "does": "L'électeur touche une question de la liste et arrive sur sa fiche pour y répondre.",
+      "criteria": [
+        "Toucher la carte n° 9 « Faut-il rétablir l'ISF ? » ouvre la fiche de la question n° 9, avec son numéro et la date du 8 octobre, et non celle de la question du jour n° 24.",
+        "Toucher la carte n° 6 « Faut-il fixer chaque année des quotas d'immigration ? » ouvre la fiche de la question n° 6, datée du 5 octobre."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "060",
+      "title": "Tout rattrapé, la liste dit « Tu es à jour ! »",
+      "depends_on": [
+        "056"
+      ],
+      "does": "L'électeur qui a répondu à toutes les questions publiées lit qu'il est à jour.",
+      "criteria": [
+        "Le 23 octobre, une fois les 24 questions publiées toutes répondues, la page affiche « Tu es à jour ! » et « Reviens demain pour la question n° 25. »",
+        "Tant qu'au moins une question reste « À répondre », ce bloc n'apparaît pas."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "061",
+      "title": "L'électeur ouvre « Mes résultats »",
+      "depends_on": [
+        "033"
+      ],
+      "does": "L'électeur ouvre « Mes résultats » depuis la question du jour.",
+      "criteria": [
+        "Depuis la fiche de la question n° 24, toucher « Mes résultats » ouvre la page « Mes résultats ».",
+        "Sur cette page, le lien « Question du jour » en haut ramène à la fiche de la question n° 24."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "062",
+      "title": "La révélation mène à « Mes résultats »",
+      "depends_on": [
+        "019",
+        "061"
+      ],
+      "does": "Après avoir validé sa réponse, l'électeur touche « Voir mes résultats » sur la révélation pour voir son classement recalculé.",
+      "criteria": [
+        "Sur la révélation de la question n° 24, la phrase sous le bouton dit « Ton classement est recalculé avec cette 24e réponse. » et « Voir mes résultats » ouvre « Mes résultats ».",
+        "Sur « Mes résultats », le classement tient compte de cette réponse : Nicolas Dupont-Aignan, qui défend l'option E choisie, dépasse les 66 % qu'il avait avant."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "063",
+      "title": "Le classement range les 13 candidats par % de proximité",
+      "depends_on": [
+        "061"
+      ],
+      "does": "L'électeur lit le classement des 13 candidats, du plus proche au plus éloigné de ses réponses.",
+      "criteria": [
+        "Avec 23 réponses, « Ton classement » montre 13 lignes numérotées de 1 à 13, du plus haut pourcentage au plus bas : 1 François Ruffin 81 %, 2 David Lisnard 76 %, 3 Marine Tondelier 71 %, et ainsi de suite jusqu'à 13 Éric Zemmour 22 %.",
+        "Les 13 candidats du lancement y figurent tous, une seule fois chacun : Le Pen, Mélenchon, Philippe, Glucksmann, Retailleau, Lisnard, Attal, Zemmour, Tondelier, Roussel, Dupont-Aignan, Ruffin, Arthaud."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "064",
+      "title": "Une option voisine sur l'échelle compte en partie",
+      "depends_on": [
+        "063"
+      ],
+      "does": "L'électeur dont la réponse est voisine de celle d'un candidat, sur une question à échelle, se rapproche de lui en partie.",
+      "criteria": [
+        "Trois électeurs qui ont donné les mêmes réponses partout, sauf à la question n° 24 où ils répondent C (64 ans), puis B (62 ans), puis A (60 ans) : le % de Gabriel Attal, dont la position est C, est le plus haut avec C, plus bas avec B, et encore plus bas avec A.",
+        "Dans les mêmes conditions, avec des réponses D (65 ans ou plus), C, B puis A : le % de Bruno Retailleau, dont la position est D, baisse à chaque cran d'écart."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "065",
+      "title": "Une option hors échelle compte tout ou rien",
+      "depends_on": [
+        "063"
+      ],
+      "does": "L'électeur voit qu'une option qui ne se range pas sur l'échelle ne le rapproche d'un candidat que si ce dernier a choisi exactement la même.",
+      "criteria": [
+        "Trois électeurs qui ont donné les mêmes réponses partout, sauf à la question n° 24 où ils répondent E, puis D, puis A : le % de Nicolas Dupont-Aignan, dont la position est E, est le plus haut avec E, et le même avec D et avec A.",
+        "Dans les mêmes conditions, le % de Bruno Retailleau, dont la position est D, est le même que l'électeur réponde E ou A."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "066",
+      "title": "L'importance ×2 ou ×3 pèse plus dans le classement",
+      "depends_on": [
+        "063",
+        "018"
+      ],
+      "does": "L'électeur donne plus de poids à un sujet (×2 ou ×3) et le voit peser plus lourd dans son classement.",
+      "criteria": [
+        "Deux électeurs qui ont donné les mêmes réponses partout, y compris E à la question n° 24, mais avec l'importance ×1 pour l'un et ×3 pour l'autre : le % de Nicolas Dupont-Aignan (position E) est plus haut chez celui qui a mis ×3, et celui de Jean-Luc Mélenchon (position A) est plus bas.",
+        "Sous le classement, la note dit que les réponses sont « pondérées par l'importance que tu leur donnes »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "067",
+      "title": "Une position inconnue ne compte pas pour ce candidat",
+      "depends_on": [
+        "063"
+      ],
+      "does": "L'électeur voit que le classement ignore, pour un candidat, les questions où sa position est inconnue.",
+      "criteria": [
+        "Avec les 23 réponses de la maquette (François Ruffin 81 %, David Lisnard 76 %), répondre E à la question n° 24 laisse ces deux pourcentages à 81 % et 76 %, alors que ceux de Nicolas Dupont-Aignan (position E) et de Jean-Luc Mélenchon (position A) changent.",
+        "Avec l'importance ×3 plutôt que ×1 à la question n° 24, le % de François Ruffin et celui de David Lisnard restent les mêmes."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "068",
+      "title": "« Je ne sais pas » ne compte pas dans le classement",
+      "depends_on": [
+        "063",
+        "017"
+      ],
+      "does": "L'électeur répond « Je ne sais pas » et voit que son classement ne change pas.",
+      "criteria": [
+        "Avec les 23 réponses de la maquette, répondre « Je ne sais pas » à la question n° 24 laisse les 13 pourcentages du classement inchangés (François Ruffin 81 %, David Lisnard 76 %, Marine Tondelier 71 %, et les dix autres)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "069",
+      "title": "Chaque candidat du classement a sa barre",
+      "depends_on": [
+        "063"
+      ],
+      "does": "L'électeur lit la proximité de chaque candidat sur une barre placée sous son nom.",
+      "criteria": [
+        "La barre sous « François Ruffin 81 % » est remplie aux 81 % de sa longueur et celle sous « Éric Zemmour 22 % » aux 22 %.",
+        "Les 13 barres vont de la plus remplie à la moins remplie dans l'ordre du classement."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "070",
+      "title": "Tous les candidats du classement ont le même pion",
+      "depends_on": [
+        "063"
+      ],
+      "does": "L'électeur voit les 13 candidats du classement représentés par un pion identique, sans couleur de parti.",
+      "criteria": [
+        "Les 13 pions du classement ont la même forme, la même taille et la même couleur ; seules les initiales changent, et aucune couleur de parti n'apparaît.",
+        "Les initiales désignent le bon candidat, y compris quand elles se ressemblent : « FRu » pour François Ruffin, « FRo » pour Fabien Roussel."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "071",
+      "title": "Le classement affiche sa fiabilité",
+      "depends_on": [
+        "063"
+      ],
+      "does": "L'électeur lit à quel point son classement est fiable.",
+      "criteria": [
+        "Avec 23 réponses, la page affiche « Fiabilité : moyenne (23 réponses) » avec deux crans allumés sur trois.",
+        "Le nombre entre parenthèses suit le nombre de réponses données : après la réponse à la question n° 24, il indique 24 réponses."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "072",
+      "title": "Les résultats affichent « Ce n'est pas un sondage »",
+      "depends_on": [
+        "061"
+      ],
+      "does": "L'électeur lit que ses résultats ne sont pas un sondage.",
+      "criteria": [
+        "Dès l'ouverture de « Mes résultats », la phrase « Ce n'est pas un sondage : seulement tes réponses, gardées sur ton téléphone. » est visible sous le titre.",
+        "En bas de la page, l'étiquette « Ce n'est pas un sondage » figure aussi, avant « Signaler une erreur »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "073",
+      "title": "Avant 10 réponses, le classement dit combien il en manque",
+      "depends_on": [
+        "063"
+      ],
+      "does": "L'électeur qui a moins de 10 réponses lit combien il lui en manque pour voir son classement.",
+      "criteria": [
+        "Avec 3 réponses, « Ton classement » affiche « Encore 7 réponses pour voir ton classement » et « 3/10 réponses ».",
+        "Avec 3 réponses, aucun nom de candidat ni aucun pourcentage réel n'apparaît : seulement l'aperçu estompé « Il ressemblera à ça ».",
+        "À la 10e réponse, le message disparaît et le classement des 13 candidats prend sa place."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "074",
+      "title": "Avant 10 réponses, un bouton mène au rattrapage",
+      "depends_on": [
+        "073",
+        "052"
+      ],
+      "does": "L'électeur qui a moins de 10 réponses touche « Rattraper les questions » pour aller répondre à d'autres questions.",
+      "criteria": [
+        "Avec 3 réponses, toucher « Rattraper les questions » dans « Ton classement » ouvre la page « Rattraper les questions ».",
+        "Le bouton affiche 10 cases dont 3 allumées ; après une 4e réponse, 4 sont allumées."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "075",
+      "title": "Le plateau place le pion « toi » sur les deux axes",
+      "depends_on": [
+        "061"
+      ],
+      "does": "L'électeur voit son pion « toi » posé sur un plateau à deux axes.",
+      "criteria": [
+        "Avec 23 réponses, « Ton plateau » montre un pion « TOI » placé près du centre, légèrement côté redistribution (à gauche) et côté progressiste (en haut)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "076",
+      "title": "Sur ordinateur, le plateau se pose à côté du classement",
+      "depends_on": [
+        "063",
+        "075"
+      ],
+      "does": "Sur ordinateur, l'électeur voit son classement et son plateau côte à côte.",
+      "criteria": [
+        "Sur un écran d'ordinateur, « Ton classement » est à gauche et « Ton plateau » à droite, côte à côte.",
+        "Sur un téléphone de 375 px de large, le plateau est sous le classement, sans défilement horizontal de la page."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "077",
+      "title": "Le plateau nomme ses deux axes",
+      "depends_on": [
+        "075"
+      ],
+      "does": "L'électeur lit les deux axes du plateau et ce que veut dire chaque bord.",
+      "criteria": [
+        "Les quatre étiquettes sont lisibles aux quatre bords : « plus de redistribution » à gauche et « plus de marché » à droite pour l'économie, « progressiste » en haut et « conservateur » en bas pour la société.",
+        "Sur un téléphone de 375 px de large, les quatre étiquettes restent lisibles et ne se chevauchent pas."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "078",
+      "title": "Les 13 candidats sont posés en pions identiques",
+      "depends_on": [
+        "075"
+      ],
+      "does": "L'électeur voit les 13 candidats posés sur le plateau, chacun par un pion.",
+      "criteria": [
+        "Avec 23 réponses, le plateau montre 13 pions de candidats, un par candidat du lancement, en plus du pion « TOI ».",
+        "Les 13 pions sont identiques (même forme, même taille, même couleur, aucune couleur de parti) et ne se distinguent que par leurs initiales."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "079",
+      "title": "La légende relie chaque pion à son candidat",
+      "depends_on": [
+        "078"
+      ],
+      "does": "L'électeur retrouve le nom de chaque pion dans la légende sous le plateau.",
+      "criteria": [
+        "Pour chacun des 13 pions du plateau, la légende contient une ligne avec les mêmes initiales et le nom complet : « FRu » pour François Ruffin, « FRo » pour Fabien Roussel.",
+        "La légende range les candidats dans un ordre qui n'est ni celui du classement ni l'ordre alphabétique."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "080",
+      "title": "Une option sans note sur un axe ne déplace pas le pion",
+      "depends_on": [
+        "075"
+      ],
+      "does": "L'électeur voit qu'une réponse sans note sur un axe ne déplace pas son pion sur cet axe.",
+      "criteria": [
+        "Deux électeurs qui ont donné les mêmes réponses, sauf que l'un a aussi répondu à une question dont l'option choisie n'a aucune note sur l'axe économique (comme « Fin de vie » dans l'exemple de la page Méthode) : leur pion « TOI » est à la même place de gauche à droite.",
+        "Une option notée seulement sur l'axe économique déplace le pion de gauche à droite sans changer sa hauteur ; une option sans aucune note ne le déplace pas du tout."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "081",
+      "title": "Avant 10 réponses, le plateau dit que la position s'affinera",
+      "depends_on": [
+        "075"
+      ],
+      "does": "L'électeur qui a moins de 10 réponses lit que la position de son pion s'affinera avec ses réponses.",
+      "criteria": [
+        "Avec 3 réponses, le plateau montre un pion « TOI » estompé et le texte « Ta position s'affinera avec tes réponses ».",
+        "Avec 3 réponses, aucun pion de candidat n'est posé sur le plateau, et la légende dit « Les pions des candidats arrivent à 10 réponses »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "082",
+      "title": "Des pions qui se chevauchent restent lisibles au téléphone",
+      "depends_on": [
+        "078"
+      ],
+      "does": "L'électeur qui regarde le plateau sur son téléphone distingue encore deux pions très proches.",
+      "criteria": [
+        "Sur un téléphone de 375 px de large, quand deux candidats sont presque au même endroit du plateau, on voit qu'il y a deux pions et on peut lire les initiales de chacun, ou les identifier d'un geste.",
+        "Quand le pion « TOI » tombe sur un pion de candidat, on repère encore les deux."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "083",
+      "title": "Le camembert affiche 11 parts, une par thème",
+      "depends_on": [
+        "061"
+      ],
+      "does": "L'électeur voit son camembert : un disque de 11 parts, une par thème.",
+      "criteria": [
+        "Sur « Mes résultats », le camembert est découpé en 11 parts égales.",
+        "La section « Tes 11 thèmes » nomme les 11 thèmes de SPEC.md, de « Économie & impôts » à « Société », et la couleur de chaque thème est celle d'une part du camembert."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "084",
+      "title": "Une part se remplit après 3 réponses dans son thème",
+      "depends_on": [
+        "083"
+      ],
+      "does": "L'électeur voit une part de son camembert se remplir quand il a répondu à 3 questions d'un même thème.",
+      "criteria": [
+        "Avec 2 réponses en Travail & retraites, la ligne montre 2 pastilles allumées sur 3 et la part Travail & retraites du camembert est vide.",
+        "Après la réponse à la question n° 24 (la 3e du thème), les 3 pastilles sont allumées et la part Travail & retraites est remplie.",
+        "Une 4e réponse dans un thème déjà gagné (Économie & impôts en a 4) laisse ses 3 pastilles allumées et sa part remplie."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "085",
+      "title": "Le camembert affiche le nombre de parts gagnées",
+      "depends_on": [
+        "084"
+      ],
+      "does": "L'électeur lit combien de parts de son camembert sont gagnées.",
+      "criteria": [
+        "Avec 23 réponses, dont 5 thèmes à 3 réponses ou plus, le camembert affiche « 5/11 parts ».",
+        "Après la réponse à la question n° 24, qui gagne la part Travail & retraites, il affiche « 6/11 parts ».",
+        "Avec 3 réponses et aucun thème complet, il affiche « 0/11 »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "086",
+      "title": "Chaque thème affiche son candidat le plus proche",
+      "depends_on": [
+        "084",
+        "063"
+      ],
+      "does": "L'électeur lit, pour chaque thème gagné, de quel candidat il est le plus proche.",
+      "criteria": [
+        "Avec 23 réponses, les 5 thèmes à 3 réponses ou plus nomment : François Ruffin (Économie & impôts), Marine Tondelier (Écologie & énergie), Nicolas Dupont-Aignan (Immigration), David Lisnard (Sécurité & justice) et Fabien Roussel (Santé).",
+        "Le candidat d'un thème peut différer du premier du classement général : en Santé, c'est Fabien Roussel alors que François Ruffin est premier du classement."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "087",
+      "title": "Un thème sous 3 réponses dit « pas encore assez de réponses »",
+      "depends_on": [
+        "086"
+      ],
+      "does": "L'électeur voit qu'un thème où il a moins de 3 réponses n'a pas encore de candidat le plus proche.",
+      "criteria": [
+        "Avec 23 réponses, les 6 thèmes sous 3 réponses (Travail & retraites 2, Éducation & jeunesse 1, Logement 2, Europe & international 1, Institutions & démocratie 0, Société 1) disent « pas encore assez de réponses » et ne nomment aucun candidat.",
+        "Après la réponse à la question n° 24, la ligne Travail & retraites, qui a alors 3 réponses, nomme un candidat à la place de ce message."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "088",
+      "title": "La question du jour annonce la part en jeu",
+      "depends_on": [
+        "084"
+      ],
+      "does": "L'électeur voit, sur la question du jour, la part de camembert qu'il peut gagner en y répondant.",
+      "criteria": [
+        "Sur la fiche de la question n° 24 (Travail & retraites), avec 2 réponses dans ce thème et 5 parts gagnées, le bloc dit « En jeu aujourd'hui », « La part Travail & retraites » et « Tu as 2 réponses sur 3 dans ce thème. Réponds et ton camembert passe à 6 parts sur 11. »",
+        "Toucher ce bloc ouvre « Mes résultats »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "089",
+      "title": "La révélation annonce la part gagnée",
+      "depends_on": [
+        "084",
+        "019"
+      ],
+      "does": "Après avoir validé sa réponse, l'électeur lit qu'il vient de gagner la part de son thème.",
+      "criteria": [
+        "Avec 2 réponses en Travail & retraites, valider la réponse à la question n° 24 fait afficher sur la révélation « +1 réponse en Travail & retraites : 3/3, la part est gagnée ! » et « Ton camembert passe à 6 parts sur 11. »"
+      ],
+      "tracker": null
+    },
+    {
+      "id": "090",
+      "title": "Les 11 parts remplies font du camembert un trophée",
+      "depends_on": [
+        "084"
+      ],
+      "does": "L'électeur qui a gagné les 11 parts voit son camembert complet traité comme un trophée.",
+      "criteria": [
+        "Avec au moins 3 réponses dans chacun des 11 thèmes, le camembert de « Mes résultats » affiche « 11/11 » et ses 11 parts sont toutes remplies.",
+        "Le passage de 10/11 à 11/11 se voit : la page marque la réussite d'une façon que le camembert à 10/11 n'a pas."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "091",
+      "title": "Les résultats montrent la carte « Je suis à X % proche de Y »",
+      "depends_on": [
+        "063"
+      ],
+      "does": "L'électeur voit sur « Mes résultats » la carte « Je suis à X % proche de Y » et touche « Partager ma carte » pour l'ouvrir.",
+      "criteria": [
+        "Avec 23 réponses, la section « Ta carte » de « Mes résultats » dit « Je suis à 81 % proche de François Ruffin. », soit le premier du classement et son pourcentage.",
+        "Toucher « Partager ma carte » ouvre la page « Ta carte », où « 81 % » et « Je suis à 81 % proche de François Ruffin. » sont affichés en grand."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "092",
+      "title": "La carte affiche réponses, thèmes et série",
+      "depends_on": [
+        "091",
+        "084",
+        "045"
+      ],
+      "does": "L'électeur voit sur sa carte combien de réponses, de thèmes et de jours d'affilée il totalise.",
+      "criteria": [
+        "Avec 23 réponses, 5 parts gagnées et 6 jours de série, la carte affiche « 23 réponses · 5/11 thèmes · 6 jours d'affilée ».",
+        "Après la réponse à la question n° 24, la carte affiche « 24 réponses · 6/11 thèmes · 7 jours d'affilée »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "093",
+      "title": "La carte affiche le camembert",
+      "depends_on": [
+        "091",
+        "083"
+      ],
+      "does": "L'électeur voit son camembert sur la carte qu'il partage.",
+      "criteria": [
+        "Avec 5 parts gagnées, le camembert de la carte montre 5 parts remplies sur 11, les mêmes que celles de « Mes résultats » (Économie & impôts, Écologie & énergie, Immigration, Sécurité & justice, Santé).",
+        "Après la réponse à la question n° 24, le camembert de la carte montre 6 parts remplies : la part Travail & retraites s'est ajoutée."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "094",
+      "title": "L'électeur choisit une carte qui ne montre que son pion",
+      "depends_on": [
+        "091",
+        "075"
+      ],
+      "does": "L'électeur choisit une carte qui ne montre que son pion, sans nom de candidat.",
+      "criteria": [
+        "Au départ, la version « avec mon candidat » est marquée « Choisie ». En choisissant « Seulement mon pion », la version « Mon pion sur le plateau » est marquée « Choisie ».",
+        "La carte « Mon pion sur le plateau » montre le plateau avec le pion « TOI » près du centre, côté redistribution et progressiste, et ni nom de candidat, ni pourcentage, ni pion de candidat.",
+        "En revenant sur « Mon candidat le plus proche », la version avec « 81 % » et « François Ruffin » redevient la choisie."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "095",
+      "title": "« Partager » envoie l'image 9:16 au partage du téléphone",
+      "depends_on": [
+        "091"
+      ],
+      "does": "L'électeur touche « Partager » et envoie l'image de sa carte au partage de son téléphone.",
+      "criteria": [
+        "Sur un téléphone, toucher « Partager » ouvre le partage du téléphone avec l'image de la carte choisie, au format story 9:16.",
+        "En mode avion, « Partager » ouvre quand même le partage avec l'image : elle est dessinée sur le téléphone, rien n'est envoyé à l'app.",
+        "L'image jointe est celle de la version choisie : avec « Seulement mon pion », elle ne contient aucun nom de candidat."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "096",
+      "title": "« Télécharger l'image » enregistre la carte",
+      "depends_on": [
+        "091"
+      ],
+      "does": "L'électeur touche « Télécharger l'image » pour garder sa carte sur son appareil.",
+      "criteria": [
+        "Toucher « Télécharger l'image » enregistre sur l'appareil une image de la carte au format story 9:16.",
+        "L'image enregistrée est celle de la version choisie : avec « Seulement mon pion », c'est « Mon pion sur le plateau », sans nom de candidat.",
+        "En mode avion, le téléchargement fonctionne aussi : rien n'est envoyé à l'app."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "097",
+      "title": "Avant 10 réponses, la carte reste verrouillée",
+      "depends_on": [
+        "091"
+      ],
+      "does": "L'électeur qui a moins de 10 réponses voit sa carte verrouillée et ce qu'il lui reste à répondre.",
+      "criteria": [
+        "Avec 3 réponses, la carte de « Mes résultats » est grisée, cadenassée, et dit « Je suis à … % proche de … » sans nom de candidat ni pourcentage ; son pied dit « 3 réponses · 0/11 parts · 1 jour d'affilée ».",
+        "Le bouton « Partager ma carte » est inactif et le texte dit « Ta carte se débloque à 10 réponses. Il t'en reste 7. »",
+        "À la 10e réponse, la carte se débloque et « Partager ma carte » ouvre la page « Ta carte »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "098",
+      "title": "La carte affiche « Et toi ? aucrible2027.fr »",
+      "depends_on": [
+        "091"
+      ],
+      "does": "L'électeur voit sur sa carte l'invitation « Et toi ? » et l'adresse aucrible2027.fr, pour que ceux qui la reçoivent sachent où répondre.",
+      "criteria": [
+        "En bas de la carte « avec mon candidat », on lit « Et toi ? » et « aucrible2027.fr ».",
+        "En bas de la carte « seulement mon pion », on lit « Et toi, tu te places où ? » et la même adresse « aucrible2027.fr »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "099",
+      "title": "Le face-à-face montre deux candidats côte à côte, question par question",
+      "depends_on": [
+        "061"
+      ],
+      "does": "J'ouvre le face-à-face et je vois deux candidats comparés côte à côte, question par question.",
+      "criteria": [
+        "Pour un électeur qui a répondu à la question n° 24, le face-à-face Glucksmann / Retailleau montre sous « À quel âge devrait-on pouvoir partir à la retraite ? » l'option B « 62 ans » de Raphaël Glucksmann à gauche et l'option D « 65 ans ou plus » de Bruno Retailleau à droite.",
+        "Sous « Faut-il construire de nouveaux réacteurs nucléaires ? », Glucksmann a l'option C « Construire les 6 EPR2 prévus » et Retailleau l'option D « Construire davantage », chacun avec son pion (RG, BR) et la même présentation."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "100",
+      "title": "Chaque position du face-à-face affiche sa source",
+      "depends_on": [
+        "099"
+      ],
+      "does": "Je lis, sous chaque position, d'où elle vient.",
+      "criteria": [
+        "Sur la question de la retraite, la position « 62 ans » de Glucksmann affiche « Entretien Libération · 9 sept. 2026 » et celle de Retailleau, « 65 ans ou plus », affiche « Programme LR 2022 · janv. 2022 ».",
+        "Sur chaque question dont les deux candidats ont une position, les deux positions affichent une source avec une date."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "101",
+      "title": "Chaque position du face-à-face porte son badge",
+      "depends_on": [
+        "100"
+      ],
+      "does": "Je vois si chaque position a été dite par le candidat ou déduite.",
+      "criteria": [
+        "Sur la retraite, Raphaël Glucksmann (« Entretien Libération · 9 sept. 2026 ») porte « Position officielle » et Bruno Retailleau (« Programme LR 2022 · janv. 2022 ») porte « Position déduite ».",
+        "Sur le nucléaire, c'est l'inverse : Glucksmann (« Vote de son groupe · 11 juin 2025 ») porte « Position déduite » et Retailleau (« Entretien JDD · 28 sept. 2026 ») porte « Position officielle ». Le badge suit la source, pas le candidat."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "102",
+      "title": "Les questions où ils sont d'accord sont marquées",
+      "depends_on": [
+        "099"
+      ],
+      "does": "Je repère d'un coup d'œil les questions où les deux candidats choisissent la même option.",
+      "criteria": [
+        "Sur « Faut-il mutualiser la défense à l'échelle européenne ? », Glucksmann et Retailleau ont tous deux l'option B « Mutualiser achats et industries » et la carte porte « Même option ».",
+        "Sur « À quel âge devrait-on pouvoir partir à la retraite ? » (B contre D), la carte porte « Options différentes »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "103",
+      "title": "Le face-à-face compte leurs accords",
+      "depends_on": [
+        "102"
+      ],
+      "does": "Je lis en un chiffre sur combien de questions les deux candidats sont d'accord.",
+      "criteria": [
+        "Pour Glucksmann et Retailleau, le résumé affiche « D'accord sur 4 questions sur 24 », « 17 fois, ils ne choisissent pas la même option » et « 3 questions restent sans comparaison ».",
+        "La rangée de 24 pastilles compte 4 pastilles « même option », 17 « options différentes » et 3 « position inconnue », et ces nombres sont ceux des cartes « Même option », « Options différentes » et « Non comparée » de la liste."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "104",
+      "title": "« Changer » remplace un des deux candidats",
+      "depends_on": [
+        "099"
+      ],
+      "does": "Je remplace l'un des deux candidats par un autre.",
+      "criteria": [
+        "Sous Bruno Retailleau, « changer » ouvre « Choisir un autre candidat » avec 11 candidats, soit les 13 moins Glucksmann et Retailleau, dans un ordre mélangé (ni alphabétique, ni celui du classement).",
+        "Après avoir choisi Marine Tondelier, elle remplace Retailleau à droite, Glucksmann reste à gauche, et chaque question montre à droite la position de Tondelier.",
+        "Le même geste sous Glucksmann le remplace à gauche sans toucher au candidat de droite."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "105",
+      "title": "Le même candidat ne peut pas être choisi deux fois",
+      "depends_on": [
+        "104"
+      ],
+      "does": "Je ne peux pas mettre un candidat face à lui-même.",
+      "criteria": [
+        "Dans le panneau « Choisir un autre candidat » ouvert sous Glucksmann, Bruno Retailleau n'est pas proposé ; dans celui ouvert sous Retailleau, Raphaël Glucksmann n'est pas proposé.",
+        "Après avoir choisi Marine Tondelier à droite, le panneau de gauche ne propose plus Tondelier mais propose de nouveau Bruno Retailleau."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "106",
+      "title": "Le disque central inverse les deux candidats",
+      "depends_on": [
+        "099"
+      ],
+      "does": "J'inverse les deux candidats d'un geste.",
+      "criteria": [
+        "Toucher le disque central met Bruno Retailleau à gauche et Raphaël Glucksmann à droite, avec leurs pions et leurs noms.",
+        "Après l'inversion, sur la retraite, « 65 ans ou plus » (Retailleau) est à gauche et « 62 ans » (Glucksmann) à droite, chacun gardant sa source et son badge ; toucher à nouveau le disque remet l'ordre de départ."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "107",
+      "title": "L'électeur filtre le face-à-face par thème",
+      "depends_on": [
+        "099"
+      ],
+      "does": "Je ne garde que les questions d'un thème.",
+      "criteria": [
+        "Choisir « Travail & retraites » ne laisse que les questions de ce thème (dont la retraite) : les questions des autres thèmes disparaissent de la liste.",
+        "Choisir ensuite « Écologie & énergie » remplace le premier choix (un seul thème à la fois) ; choisir « Toutes » ramène toutes les questions."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "108",
+      "title": "Une position inconnue s'affiche comme telle",
+      "depends_on": [
+        "099"
+      ],
+      "does": "Je vois clairement quand l'un des deux candidats n'a pas de position connue.",
+      "criteria": [
+        "Sur « Faut-il encadrer les loyers ? », la position de Bruno Retailleau s'affiche « Position inconnue », avec « Exclue du calcul » et « Aucune source », et un « ? » à la place de la lettre d'option.",
+        "Au centre de cette même question, le verdict est « Non comparée » (ni « Même option », ni « Options différentes »), alors que Glucksmann garde sa position A « Encadrement obligatoire en zone tendue »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "109",
+      "title": "Le face-à-face ne montre que les questions déjà répondues",
+      "depends_on": [
+        "099",
+        "033"
+      ],
+      "does": "Je ne vois, dans le face-à-face, que les questions auxquelles j'ai déjà répondu.",
+      "criteria": [
+        "Un électeur qui n'a pas répondu à « Faut-il autoriser une aide active à mourir ? » ne voit aucune position de Glucksmann ni de Retailleau sur ce sujet dans le face-à-face.",
+        "Après avoir répondu à cette question, elle apparaît dans le face-à-face avec les deux positions."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "110",
+      "title": "Une carte retournée compte les questions cachées",
+      "depends_on": [
+        "109"
+      ],
+      "does": "Je sais combien de questions me sont encore cachées et comment aller y répondre.",
+      "criteria": [
+        "Un électeur à qui il reste 3 questions sans réponse voit, après la dernière carte, « 3 questions attendent encore ta réponse » et « Leurs positions s'affichent après ta réponse, pour ne pas t'influencer ».",
+        "Après avoir répondu à l'une d'elles, la carte annonce « 2 questions attendent encore ta réponse ».",
+        "Un électeur qui a répondu à toutes les questions publiées ne voit pas cette carte."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "111",
+      "title": "Sans réponse, le face-à-face invite à répondre d'abord",
+      "depends_on": [
+        "109"
+      ],
+      "does": "Je n'ai encore rien répondu et le face-à-face m'invite à répondre d'abord.",
+      "criteria": [
+        "Un électeur qui n'a répondu à aucune question ouvre le face-à-face : aucune position de candidat, aucune option et aucune source ne sont affichées.",
+        "À la place, une invitation à répondre d'abord est affichée, avec un bouton « Rattraper les questions »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "112",
+      "title": "Un lien partagé ouvre le face-à-face sur deux candidats",
+      "depends_on": [
+        "099"
+      ],
+      "does": "Je partage un face-à-face par lien, et il s'ouvre tout prêt sur les deux mêmes candidats.",
+      "criteria": [
+        "Après avoir choisi Glucksmann et Tondelier, copier l'adresse du face-à-face et l'ouvrir dans un nouvel onglet affiche Raphaël Glucksmann à gauche et Marine Tondelier à droite.",
+        "L'adresse ne nomme que les deux candidats : ouverte sur un autre appareil, elle n'affiche aucune réponse de l'électeur qui l'a partagée."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "113",
+      "title": "« Moi contre » montre ses réponses face à celles d'un candidat",
+      "depends_on": [
+        "061"
+      ],
+      "does": "J'ouvre « Moi contre » et je vois mes réponses face à celles d'un candidat.",
+      "criteria": [
+        "Face à Édouard Philippe, « À quel âge devrait-on pouvoir partir à la retraite ? » montre à gauche « Ta réponse » (C « 64 ans » pour un électeur qui a choisi C) et à droite l'option C « 64 ans » de Philippe, avec « Même option ».",
+        "Sur « Faut-il rétablir l'impôt sur la fortune ? », l'électeur qui a choisi B « Un impôt plancher sur les très hauts patrimoines » voit en face C « Garder l'impôt sur la fortune immobilière » et « Options différentes ».",
+        "Chaque réponse de l'électeur rappelle sa date et son importance, par exemple « 19 oct. 2026 · importance ×2 »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "114",
+      "title": "« Moi contre » affiche le % d'accord",
+      "depends_on": [
+        "113",
+        "063"
+      ],
+      "does": "Je vois mon pourcentage d'accord avec ce candidat.",
+      "criteria": [
+        "Avec les réponses de la maquette (23 réponses, dont 11 identiques à celles de Philippe), la page affiche « 54 % » et « Tu es d'accord avec Édouard Philippe sur 11 questions sur 23 (54 %) ».",
+        "Ce pourcentage est celui de la ligne Édouard Philippe dans « Mes résultats » (7e, 54 %).",
+        "La rangée de 23 pastilles compte 11 pastilles « même option » et 12 « autre option »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "115",
+      "title": "« Moi contre » affiche un score par thème",
+      "depends_on": [
+        "114"
+      ],
+      "does": "Je vois mon accord avec ce candidat thème par thème.",
+      "criteria": [
+        "Dans « Économie & impôts » (4 réponses), la ligne affiche « 55 % » et « d'accord sur 2 questions sur 4 ».",
+        "« Travail & retraites » (2 réponses) affiche 2 pastilles remplies sur 3 et « pas encore assez de réponses », sans pourcentage.",
+        "Après une 3e réponse dans « Travail & retraites », la ligne affiche un pourcentage à la place de « pas encore assez de réponses »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "116",
+      "title": "L'électeur change de candidat",
+      "depends_on": [
+        "113"
+      ],
+      "does": "Je choisis un autre candidat pour me comparer.",
+      "criteria": [
+        "« changer » sous Édouard Philippe liste 12 candidats (les 13 moins Philippe), dans un ordre mélangé.",
+        "Après avoir choisi Marine Le Pen, le bloc « Ta proximité avec Marine Le Pen » remplace celui de Philippe et les positions de droite sont les siennes ; les réponses de l'électeur, à gauche, ne changent pas."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "117",
+      "title": "Chaque position du candidat affiche sa source",
+      "depends_on": [
+        "113"
+      ],
+      "does": "Je vois d'où vient la position du candidat.",
+      "criteria": [
+        "Pour un électeur qui a répondu aux deux questions, la position de Philippe sur la retraite (« 64 ans ») affiche « Entretien Le Figaro · 5 sept. 2026 » et sa position sur le nucléaire (« Construire les 6 EPR2 prévus ») affiche « Vote du groupe Horizons · 11 juin 2025 ».",
+        "Toute position de Philippe visible a une source datée : aucune position n'est affichée sans source."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "118",
+      "title": "Chaque position du candidat porte son badge",
+      "depends_on": [
+        "117"
+      ],
+      "does": "Je vois si la position du candidat a été dite par lui ou déduite.",
+      "criteria": [
+        "Sur la retraite, Édouard Philippe (« Entretien Le Figaro · 5 sept. 2026 ») porte « Position officielle ».",
+        "Sur le nucléaire, Édouard Philippe (« Vote du groupe Horizons · 11 juin 2025 ») porte « Position déduite ».",
+        "Du côté de l'électeur, le badge est « Ta réponse », jamais « Position officielle » ni « Position déduite »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "119",
+      "title": "Une question non répondue est grisée et mène au rattrapage",
+      "depends_on": [
+        "113",
+        "052"
+      ],
+      "does": "Je vois quelles questions je n'ai pas encore répondues et je peux aller y répondre.",
+      "criteria": [
+        "Pour « Faut-il rétablir un service national obligatoire ? », sans réponse, la carte est grisée, dit « Tu n'as pas encore répondu » et ne montre aucune position d'Édouard Philippe.",
+        "Le bouton « Répondre » de cette carte ouvre la liste de rattrapage.",
+        "L'en-tête « Question par question » affiche « 23 réponses · 4 sans réponse » pour un électeur qui a répondu à 23 questions et en a 4 sans réponse."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "120",
+      "title": "« Moi contre » mène au face-à-face",
+      "depends_on": [
+        "113",
+        "099"
+      ],
+      "does": "Depuis « Moi contre », je passe au face-à-face entre deux candidats.",
+      "criteria": [
+        "Depuis « Moi contre Édouard Philippe », toucher « Face-à-face entre deux candidats » ouvre le face-à-face."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "121",
+      "title": "L'électeur ouvre la fiche d'un candidat",
+      "depends_on": [
+        "001"
+      ],
+      "does": "J'ouvre la fiche d'un candidat.",
+      "criteria": [
+        "Ouvrir la fiche de Marine Tondelier affiche le sur-titre « Fiche candidat », son nom en titre et son pion « MT ».",
+        "Les fiches de Jean-Luc Mélenchon (pion JLM) et de Marine Le Pen (pion MLP) ont le même pion que celle de Tondelier, de même forme et de même couleur : seules les initiales changent, aucun pion n'est coloré par son parti."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "122",
+      "title": "Un nom révélé ouvre la fiche du candidat",
+      "depends_on": [
+        "019",
+        "121"
+      ],
+      "does": "Je touche le nom d'un candidat dans la révélation pour ouvrir sa fiche.",
+      "criteria": [
+        "Sur la révélation de la question n° 24, toucher « Marine Tondelier » sous son option ouvre la fiche de Marine Tondelier.",
+        "Toucher un nom du bloc « Sur ce sujet, tu es aligné·e avec » (par exemple Édouard Philippe) ouvre la fiche de ce candidat.",
+        "Toucher un nom rangé sous « Position inconnue » (François Ruffin) ouvre aussi sa fiche."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "123",
+      "title": "Un candidat du classement ouvre sa fiche",
+      "depends_on": [
+        "063",
+        "121"
+      ],
+      "does": "Je touche un candidat de mon classement pour ouvrir sa fiche.",
+      "criteria": [
+        "Dans « Mes résultats », toucher la ligne « François Ruffin » (1er, 81 %) ouvre la fiche de François Ruffin.",
+        "Toucher la dernière ligne, « Éric Zemmour » (13e, 22 %), ouvre la fiche d'Éric Zemmour."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "124",
+      "title": "La fiche affiche le parti du candidat",
+      "depends_on": [
+        "121"
+      ],
+      "does": "Je vois de quel parti est le candidat.",
+      "criteria": [
+        "La fiche de Marine Tondelier affiche « Les Écologistes », celle de Raphaël Glucksmann « Place publique / PS » et celle de Bruno Retailleau « LR ».",
+        "Le parti est écrit en texte, sans la couleur du parti."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "125",
+      "title": "La fiche affiche le statut de la candidature",
+      "depends_on": [
+        "121"
+      ],
+      "does": "Je vois où en est la candidature.",
+      "criteria": [
+        "La fiche de Marine Tondelier affiche « Candidature déclarée — vote des adhérents prévu du 10 au 13 décembre 2026 »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "126",
+      "title": "La fiche range ses positions par thème",
+      "depends_on": [
+        "121"
+      ],
+      "does": "Je lis les positions d'un candidat, rangées par thème.",
+      "criteria": [
+        "La fiche de Marine Tondelier affiche 11 blocs, un par thème, de « Économie & impôts » à « Société ».",
+        "Sous « Travail & retraites », la fiche liste Q5, Q13 et Q24, « À quel âge devrait-on pouvoir partir à la retraite ? », avec l'option A « 60 ans ».",
+        "Sous « Écologie & énergie », Q4 « Faut-il construire de nouveaux réacteurs nucléaires ? » donne l'option A « Non, miser sur le renouvelable »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "127",
+      "title": "Chaque position affiche sa source datée",
+      "depends_on": [
+        "126"
+      ],
+      "does": "Je vois, pour chaque position, d'où elle vient et à quelle date.",
+      "criteria": [
+        "Sur Q9 « Faut-il rétablir l'impôt sur la fortune ? », la position de Marine Tondelier (C « Oui, sur tout le patrimoine ») affiche « Source : Déclaration sur France Inter, 12/09/2026 ».",
+        "Sur Q24 (retraite), sa position A « 60 ans » affiche « Source : Vote du groupe Écologiste et social, 2024 »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "128",
+      "title": "Chaque position porte son badge",
+      "depends_on": [
+        "127"
+      ],
+      "does": "Je vois si la position a été dite par le candidat ou déduite.",
+      "criteria": [
+        "Sur la fiche de Marine Tondelier, Q9 (« Déclaration sur France Inter, 12/09/2026 ») porte « position officielle » et Q24 (« Vote du groupe Écologiste et social, 2024 ») porte « position déduite ».",
+        "Une déclaration datée du candidat donne « position officielle » (Q5, « Déclaration sur BFMTV, 21/09/2026 ») ; le programme 2022 de son parti donne « position déduite » (Q2, « Programme 2022 des Écologistes »)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "129",
+      "title": "Une question sans source affiche « position inconnue »",
+      "depends_on": [
+        "126"
+      ],
+      "does": "Je vois clairement qu'on ne connaît pas la position du candidat sur une question.",
+      "criteria": [
+        "Sur la fiche de Marine Tondelier, Q17 affiche un « ? » à la place de la lettre, « Position inconnue — pas de source à ce jour » et « Elle ne compte pas dans ta proximité tant qu'on n'a rien de sûr. », sans badge officielle ni déduite.",
+        "Q22 « Faut-il supprimer Parcoursup ? » (Éducation & jeunesse) s'affiche de la même façon, et les 22 autres questions affichent une option."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "130",
+      "title": "La fiche ne montre que les questions publiées",
+      "depends_on": [
+        "126",
+        "038"
+      ],
+      "does": "Je ne vois sur la fiche que les questions déjà publiées.",
+      "criteria": [
+        "La fiche de Marine Tondelier annonce « 24 questions publiées » et en liste 24, de Q1 à Q24.",
+        "Une question programmée pour demain n'apparaît pas sur la fiche aujourd'hui, ni son numéro ni son thème ; elle y apparaît demain, sous son thème."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "131",
+      "title": "La fiche affiche sa proximité avec l'électeur",
+      "depends_on": [
+        "121",
+        "063"
+      ],
+      "does": "Je vois ma proximité avec ce candidat.",
+      "criteria": [
+        "Pour l'électeur de la maquette (23 réponses), la fiche de Marine Tondelier affiche « Ta proximité : 71 % » et « 3e sur 13, d'après tes 23 réponses ».",
+        "Ce pourcentage et ce rang sont ceux de la ligne Marine Tondelier dans « Mes résultats » (3e, 71 %) ; sur la fiche de François Ruffin, ils sont de 81 % et « 1er sur 13 »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "132",
+      "title": "La fiche explique les deux badges",
+      "depends_on": [
+        "128"
+      ],
+      "does": "Je comprends la différence entre une position officielle et une position déduite.",
+      "criteria": [
+        "La fiche contient « Comment lire une position » avec ses trois lignes (officielle, déduite, inconnue) et leurs phrases d'explication.",
+        "Le lien « Voir la méthode et les sources » est affiché sous ces trois lignes."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "133",
+      "title": "La fiche mène à « Moi contre » ce candidat",
+      "depends_on": [
+        "121",
+        "113"
+      ],
+      "does": "Depuis la fiche, je compare mes réponses à ce candidat.",
+      "criteria": [
+        "Sur la fiche de Marine Tondelier, toucher « Moi contre Marine Tondelier » ouvre « Moi contre un candidat » avec Marine Tondelier déjà choisie."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "134",
+      "title": "La fiche mène au face-à-face",
+      "depends_on": [
+        "121",
+        "099"
+      ],
+      "does": "Depuis la fiche, j'ouvre le face-à-face.",
+      "criteria": [
+        "Sur la fiche de Marine Tondelier, toucher « Face-à-face » ouvre le face-à-face."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "135",
+      "title": "Un candidat retiré sort du classement",
+      "depends_on": [
+        "063"
+      ],
+      "does": "Je constate qu'un candidat retiré n'est plus dans mon classement.",
+      "criteria": [
+        "Une fois Marine Tondelier retirée (14/12/2026), « Mes résultats » classe 12 candidats : elle n'y figure plus et aucun pourcentage ne lui est attribué.",
+        "Les pourcentages des 12 autres candidats ne changent pas."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "136",
+      "title": "La fiche d'un candidat retiré dit quand et qui il soutient",
+      "depends_on": [
+        "121"
+      ],
+      "does": "J'ouvre la fiche d'un candidat retiré et je vois quand il s'est retiré et qui il soutient.",
+      "criteria": [
+        "La fiche d'une candidate retirée affiche « Marine Tondelier s'est retirée le 14/12/2026 et soutient Raphaël Glucksmann. » et « Sa fiche reste consultable, mais elle sort du classement. ».",
+        "Toucher « Raphaël Glucksmann » dans cette phrase ouvre la fiche de Raphaël Glucksmann."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "137",
+      "title": "Un candidat retiré n'apparaît plus dans les nouvelles révélations",
+      "depends_on": [
+        "019"
+      ],
+      "does": "Je ne retrouve plus un candidat retiré dans les nouvelles révélations.",
+      "criteria": [
+        "Après le retrait de Marine Tondelier, la révélation d'une question répondue après son retrait ne la range sous aucune option, ni sous « Position inconnue ».",
+        "Cette révélation range les 12 autres candidats comme avant et annonce 12 candidats au lieu de 13."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "138",
+      "title": "Un candidat remplacé prend le nom de son remplaçant",
+      "depends_on": [
+        "121"
+      ],
+      "does": "Je vois qu'un candidat remplacé dans son parti a pris le nom de son remplaçant.",
+      "criteria": [
+        "Quand Bardella remplace Le Pen, la fiche « Marine Le Pen » est renommée au nom de Bardella ; il n'existe plus de fiche à son ancien nom.",
+        "Le parti affiché sur la fiche reste « RN », et aucune mention de retrait n'y apparaît.",
+        "« Mes résultats » classe toujours 13 candidats, avec Bardella à la place de Marine Le Pen."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "139",
+      "title": "Après un remplacement, les positions héritées passent en « déduite »",
+      "depends_on": [
+        "138"
+      ],
+      "does": "Je vois que les positions reprises d'un prédécesseur sont marquées comme déduites.",
+      "criteria": [
+        "Juste après le remplacement de Le Pen par Bardella, chaque position connue de la fiche de Bardella porte « position déduite », aucune ne porte « position officielle », et chacune garde sa source d'origine.",
+        "Quand une déclaration datée de Bardella sur une question est ajoutée, cette seule position passe en « position officielle » avec la déclaration pour source ; les autres restent « position déduite »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "140",
+      "title": "Un nouveau candidat entre dans le classement",
+      "depends_on": [
+        "063"
+      ],
+      "does": "Je vois un nouveau candidat entrer dans le classement.",
+      "criteria": [
+        "Quand Jean Lassalle se déclare, « Mes résultats » classe 14 candidats et Jean Lassalle y figure.",
+        "Jean Lassalle a une fiche, avec le même pion que les autres candidats (initiales, sans couleur de parti).",
+        "Il est proposé dans « Choisir un autre candidat » du face-à-face (12 noms) et de « Moi contre » (13 noms)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "141",
+      "title": "Un nouveau candidat sans source est « position inconnue » partout",
+      "depends_on": [
+        "140"
+      ],
+      "does": "Je vois qu'un nouveau candidat sans source est « position inconnue » partout.",
+      "criteria": [
+        "La fiche de Jean Lassalle, juste après son entrée, affiche « Position inconnue — pas de source à ce jour » sur chacune des 24 questions publiées.",
+        "Dans la révélation d'une question, Jean Lassalle est rangé sous « Position inconnue ».",
+        "Dans un face-à-face avec lui, chaque question est « Non comparée »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "142",
+      "title": "À la liste officielle, seuls les candidats officiels restent",
+      "depends_on": [
+        "135",
+        "140"
+      ],
+      "does": "Je vois qu'à la liste officielle, seuls les candidats officiels restent.",
+      "criteria": [
+        "À la publication de la liste officielle (~16 mars 2027), « Mes résultats » classe exactement les candidats de cette liste : un candidat absent de la liste n'y figure plus.",
+        "Un candidat de la liste officielle qui n'était pas encore dans le classement y entre, avec une fiche."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "143",
+      "title": "La page Méthode explique le score d'une question avec un exemple",
+      "depends_on": [
+        "063"
+      ],
+      "does": "J'ouvre la page Méthode et je comprends comment une question donne un score.",
+      "criteria": [
+        "La page « Méthode de calcul et sources » s'ouvre et sa première règle, « Chaque question donne un score entre 0 et 100 % », écrit la formule « score = 1 − écart ÷ écart maximum ».",
+        "L'exemple de la question n° 24 place TOI sur 62 ans et un candidat sur 64 ans (écart 1, écart maximum 3) et conclut « 1 − 1/3 ≈ 67 % ».",
+        "Pour les options sans ordre, la page montre « A = A » avec « Même carte : 1 (100 %) » et « A ≠ C » avec « Cartes différentes : 0 »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "144",
+      "title": "La page Méthode explique le poids de l'importance",
+      "depends_on": [
+        "143"
+      ],
+      "does": "Je comprends ce que change le choix ×1, ×2 ou ×3.",
+      "criteria": [
+        "La règle n° 2 affiche les trois poids : ×1 « Un peu » (1 point max), ×2 « Beaucoup » (2 points max), ×3 « Essentiel » (3 points max).",
+        "L'exemple « 67 % × 3 = 2 points sur 3 » reprend l'exemple de la règle n° 1 avec un sujet jugé essentiel.",
+        "La règle dit que le poids est le choix de l'électeur et qu'il ne dépend jamais du candidat."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "145",
+      "title": "La page Méthode explique pourquoi une position inconnue ne compte pas",
+      "depends_on": [
+        "143"
+      ],
+      "does": "Je comprends pourquoi une position inconnue ne compte pas.",
+      "criteria": [
+        "La règle n° 3 dit qu'une position sans source est notée « inconnue » et que la question est exclue du calcul pour ce candidat : elle ne donne aucun point, n'en retire aucun et ne compte pas dans le maximum possible.",
+        "L'exemple montre quatre cartes (Q. 21 80 %, Q. 22 55 %, Q. 23 inconnue en pointillés, Q. 24 67 %) et la conclusion « Comptées : 3 questions sur 4 ».",
+        "La règle écrit « On ne devine jamais. Une case vide vaut mieux qu'une case inventée. »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "146",
+      "title": "La page Méthode explique comment le plateau place les pions",
+      "depends_on": [
+        "143"
+      ],
+      "does": "Je comprends comment le plateau place mon pion et ceux des candidats.",
+      "criteria": [
+        "La règle n° 5 dit que chaque option reçoit une note de −2 à +2 sur l'un des deux axes, ou aucune note, et nomme les axes « Économie » (plus de redistribution ↔ plus de marché) et « Société » (progressiste ↔ conservateur).",
+        "L'exemple montre Retraite : 62 ans (−1, ×3), Droits de succession (+2, ×1) et Fin de vie (aucune, ×2), et conclut « −0,25 » : la question sans note est ignorée.",
+        "La règle dit que les candidats sont placés par la même formule, à partir de leurs positions sourcées, et que les notes sont relues par le même contrôle de neutralité que les questions."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "147",
+      "title": "La page Méthode explique l'ordre des sources",
+      "depends_on": [
+        "143"
+      ],
+      "does": "Je comprends d'où viennent les positions des candidats.",
+      "criteria": [
+        "La règle n° 6 liste dans cet ordre : « Le programme officiel 2027 », « Une déclaration publique du candidat » (datée, de moins de 12 mois), « Les votes de son groupe » (Assemblée nationale ou Parlement européen), « Le programme 2022 de son parti ».",
+        "Un cinquième cran, « Aucune source », renvoie à « Position “inconnue”, sautée (règle 3) ».",
+        "La règle écrit « On ne devine jamais » et « on ne sollicite pas les équipes de campagne »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "148",
+      "title": "La page Méthode explique les deux badges",
+      "depends_on": [
+        "147"
+      ],
+      "does": "Je comprends la différence entre une position officielle et une position déduite.",
+      "criteria": [
+        "Dans l'échelle des sources, le programme 2027 et la déclaration publique portent « position officielle » ; les votes du groupe et le programme 2022 portent « position déduite ».",
+        "Le paragraphe dit qu'une position officielle a été écrite ou dite par le candidat pour 2027, qu'une position déduite n'a pas été dite telle quelle, et qu'on la recode dès qu'une déclaration arrive.",
+        "Deux exemples montrent « position officielle » avec « Programme 2027 · Retraites · 12/09/2026 » et « position déduite » avec « Vote du groupe à l'AN · réforme des retraites · 03/2023 »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "149",
+      "title": "La page Méthode explique la règle d'entrée des candidats",
+      "depends_on": [
+        "143"
+      ],
+      "does": "Je comprends qui est dans le jeu, et pourquoi.",
+      "criteria": [
+        "La règle n° 7 écrit les trois critères, dont un seul suffit : le parti dirige un groupe à l'Assemblée nationale ou au Parlement européen ; 2,0 % en moyenne dans les enquêtes d'intentions de vote des 30 derniers jours (moyenne des scénarios où le candidat est testé) ; le parti avait obtenu les 500 parrainages en 2022 (le parti lui-même, pas ses scissions).",
+        "La liste « au 23/10/2026 · 13 candidats » nomme les 13 candidats avec leur parti (par exemple Fabien Roussel, PCF ; Édouard Philippe, Horizons ; Raphaël Glucksmann, Place publique / PS), dans un ordre mélangé et avec le même pion pour tous.",
+        "La page dit que la liste est recalculée le 1er de chaque mois, qu'un candidat entré reste jusqu'à son retrait, et que Jean Lassalle entrerait automatiquement s'il se déclarait."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "150",
+      "title": "La page Méthode explique les retraits et remplacements",
+      "depends_on": [
+        "149"
+      ],
+      "does": "Je comprends ce qui se passe quand un candidat se retire ou est remplacé.",
+      "criteria": [
+        "La page a une entrée « En cas de retrait » qui dit que le candidat sort du classement avec la mention « X s'est retiré·e le JJ/MM et soutient Y ».",
+        "Elle a une entrée « En cas de remplacement dans le même parti » qui dit que la fiche est renommée et que les positions du parti restent « déduites », puis sont recodées au fil des déclarations du nouveau candidat."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "151",
+      "title": "La page Méthode explique la bascule sur la liste officielle",
+      "depends_on": [
+        "149"
+      ],
+      "does": "Je comprends quand la liste devient celle du Conseil constitutionnel.",
+      "criteria": [
+        "La page a une entrée « Vers le 16 mars 2027 » qui dit que le Conseil constitutionnel publie la liste officielle et que la liste de l'app bascule alors exactement sur les candidats officiels."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "152",
+      "title": "La page Méthode explique pourquoi ce n'est pas un sondage",
+      "depends_on": [
+        "143"
+      ],
+      "does": "Je comprends pourquoi ce n'est pas un sondage.",
+      "criteria": [
+        "La règle n° 8 affiche le tampon « Ce n'est pas un sondage. ».",
+        "Elle dit que les utilisateurs ne sont pas représentatifs, qu'on ne collecte pas les réponses et qu'aucune statistique sur les utilisateurs n'est calculée ni publiée.",
+        "Elle dit que le pourcentage n'est pas une prévision de vote : il dit seulement à quel point les réponses rejoignent ce que défend chaque candidat, sur les questions auxquelles l'électeur a répondu."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "153",
+      "title": "La page Méthode mène au code source public",
+      "depends_on": [
+        "143"
+      ],
+      "does": "Je vérifie par moi-même que le code du calcul est public.",
+      "criteria": [
+        "La règle n° 8 dit que la formule, les notes, les sources et les corrections sont publiques et que le calcul tient en quelques lignes de code.",
+        "Elle affiche un bouton « Le code est public sur GitHub ».",
+        "Toucher ce bouton ouvre le dépôt public github.com/aucrible2027 dans un nouvel onglet, et la page Méthode reste ouverte."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "154",
+      "title": "« Méthode de calcul » mène des résultats à la page Méthode",
+      "depends_on": [
+        "143",
+        "061"
+      ],
+      "does": "Depuis mes résultats, j'ouvre la page qui explique le calcul.",
+      "criteria": [
+        "Sur « Mes résultats », toucher « Méthode de calcul » ouvre la page « Méthode de calcul et sources », sur son titre et sa première règle."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "155",
+      "title": "La page À propos dit qui fait l'app",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je veux savoir qui est derrière Au crible 2027 avant de lui faire confiance.",
+      "criteria": [
+        "En ouvrant la page À propos, le titre « À propos. » s'affiche, puis la section « Qui fait Au crible 2027 ? » qui dit « Je m'appelle Antoine » et que le projet est fait par une seule personne.",
+        "La même section dit « pas de but lucratif » et « pas de pub », et la carte de visite affiche « Antoine », « auteur, affiché publiquement » et les trois sceaux Non lucratif, Sans pub, Sans compte.",
+        "La liste « Aller à » propose cinq entrées numérotées (1 Qui, 2 Neutralité, 3 Vie privée, 4 IA, 5 Suite) ; « 1 Qui » amène à la section « Qui fait Au crible 2027 ? »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "156",
+      "title": "La page À propos dit comment les fiches sont relues",
+      "depends_on": [
+        "155"
+      ],
+      "does": "Je veux savoir qui relit les fiches avant qu'elles paraissent, et si on peut me croire.",
+      "criteria": [
+        "Dans la section 2 de la page À propos, le schéma « Avant chaque publication » montre quatre temps dans l'ordre : un premier jet par l'IA à partir de sources officielles ; la relecture par l'auteur de chaque chiffre et de chaque position de candidat ; le contrôle de neutralité par IA avec trois points de vue (Droite, Centre, Gauche), où l'auteur tranche sur chaque remarque ; après publication, la correction publique de toute erreur signalée.",
+        "Le paragraphe « Ce que je ne prétends pas » dit « il n'y a ni comité ni relecteur extérieur » et que c'est relu par l'auteur et contrôlé par une IA ; aucune phrase de la page n'annonce une relecture externe.",
+        "Le texte énumère ce qui se vérifie : chaque position de candidat a sa source, la méthode de calcul est publique, l'ordre des candidats est aléatoire, chaque option est présentée avec l'argument que ses propres défenseurs signeraient."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "157",
+      "title": "La page À propos dit qu'on ne sait pas pour qui tu votes",
+      "depends_on": [
+        "155"
+      ],
+      "does": "Je veux être sûr que personne ne saura pour qui je vote.",
+      "criteria": [
+        "La section dit qu'il n'y a « ni e-mail, ni mot de passe, ni pseudo », que les réponses restent sur le téléphone, dans le navigateur, et qu'elles ne sont envoyées nulle part, « moi non plus ».",
+        "Elle cite le RGPD, article 9 (une opinion politique est une donnée sensible) et dit « Ce n'est pas un sondage ».",
+        "Elle prévient que vider les données du navigateur fait disparaître la partie, et son schéma montre « Ton téléphone : tes réponses restent ici » et « Un serveur : n'en reçoit aucune »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "158",
+      "title": "La page À propos dit ce que fait l'IA",
+      "depends_on": [
+        "155"
+      ],
+      "does": "Je veux savoir si l'IA décide à la place de l'auteur.",
+      "criteria": [
+        "La section dit que l'auteur utilise l'IA pour un premier jet et pour relire, qu'elle « ne décide de rien » et qu'un humain vérifie chaque chiffre avant publication.",
+        "Les deux colonnes se lisent ainsi : « L'IA prépare » = un premier jet à partir de sources officielles, le contrôle de neutralité avec trois points de vue, l'animation des vidéos ; « Un humain décide » = vérifier chaque chiffre, vérifier chaque position de candidat, trancher sur chaque remarque du contrôle.",
+        "La section annonce les lignes rouges (jamais de visage ni de voix de personnes réelles générés par IA ; les chiffres des vidéos viennent de la fiche vérifiée, jamais d'une IA) et affiche « Animation générée avec IA, contenu vérifié par un humain »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "159",
+      "title": "La page À propos mène aux comptes @aucrible2027",
+      "depends_on": [
+        "155"
+      ],
+      "does": "Je veux retrouver Au crible 2027 sur mes réseaux.",
+      "criteria": [
+        "Dans la section 5 de la page À propos, l'encadré montre « @aucrible2027 » et quatre liens, dans l'ordre Instagram, TikTok, YouTube, Facebook, chacun marqué « @aucrible2027 ».",
+        "Un clic sur chacun ouvre, dans un nouvel onglet, le profil @aucrible2027 de la plateforme (instagram.com/aucrible2027, tiktok.com/@aucrible2027, youtube.com/@aucrible2027, facebook.com/aucrible2027) ; l'onglet d'Au crible 2027 reste ouvert."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "160",
+      "title": "« Signaler une erreur » ouvre le formulaire depuis la fiche",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je vois une erreur dans une fiche et je veux la signaler.",
+      "criteria": [
+        "Sur la question n° 24, un clic sur « Signaler une erreur » en bas de la fiche ouvre la page « Signaler une erreur. » avec son introduction.",
+        "Après avoir validé une réponse, « Signaler une erreur » est encore proposé sur la révélation et ouvre la même page."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "161",
+      "title": "Le formulaire sait de quelle fiche il vient",
+      "depends_on": [
+        "160"
+      ],
+      "does": "Je signale une erreur sur la fiche que je viens de lire, sans avoir à la retrouver.",
+      "criteria": [
+        "Depuis la question n° 24, le formulaire affiche « Sur quelle fiche ? » avec « Travail & retraites », « Question n° 24 — À quel âge devrait-on pouvoir partir à la retraite ? » et « Rempli pour toi. ».",
+        "Depuis une autre question ouverte par le rattrapage (par exemple « Faut-il encadrer les loyers ? »), le formulaire affiche cette question-là, avec son thème et son numéro, et non la n° 24."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "162",
+      "title": "L'électeur choisit le type d'erreur",
+      "depends_on": [
+        "160"
+      ],
+      "does": "Je dis de quel genre d'erreur il s'agit.",
+      "criteria": [
+        "À l'ouverture du formulaire, les quatre choix « Un chiffre », « La position d'un candidat », « Une formulation qui penche » et « Autre » sont là, et « Un chiffre » est déjà choisi.",
+        "On ne peut choisir qu'un type à la fois : choisir « La position d'un candidat » décoche « Un chiffre », puis choisir « Autre » décoche « La position d'un candidat »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "163",
+      "title": "L'électeur envoie un signalement",
+      "depends_on": [
+        "160"
+      ],
+      "does": "J'envoie mon signalement.",
+      "criteria": [
+        "Sur la question n° 24, écrire seulement « Le chiffre de 1,7 cotisant pour 1 retraité me semble daté » dans « Qu'est-ce qui ne va pas ? », lien et e-mail laissés vides, puis cliquer « Envoyer » envoie le signalement.",
+        "Envoyer ne demande ni compte, ni mot de passe, ni connexion : aucun écran intermédiaire ne s'intercale."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "164",
+      "title": "Le signalement arrive dans une boîte privée",
+      "depends_on": [
+        "163"
+      ],
+      "does": "Je signale une erreur et je veux que seul l'auteur la lise.",
+      "criteria": [
+        "Après l'envoi de « Le chiffre de 1,7 cotisant pour 1 retraité me semble daté » depuis la question n° 24 avec le type « Un chiffre », l'auteur retrouve ce signalement dans sa boîte privée, avec la question n° 24, le type choisi et le texte.",
+        "Ce signalement n'apparaît ni dans le journal des corrections, ni sur la fiche, ni sur aucune page publique."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "165",
+      "title": "L'électeur joint une source à son signalement",
+      "depends_on": [
+        "163"
+      ],
+      "does": "Je donne le lien qui prouve ce que j'avance.",
+      "criteria": [
+        "Le champ « Ta source (lien) » porte l'étiquette « facultatif » ; avec seulement le texte rempli, l'envoi marche.",
+        "Avec le lien du rapport du COR 2025 collé dans ce champ, le signalement part avec ce lien, que l'auteur retrouve dans sa boîte à côté du texte."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "166",
+      "title": "L'électeur laisse un email pour avoir une réponse",
+      "depends_on": [
+        "163"
+      ],
+      "does": "Je laisse mon e-mail pour qu'on me réponde.",
+      "criteria": [
+        "Le champ « Ton e-mail » porte l'étiquette « facultatif » et la phrase « Pour qu'on te réponde. Il ne sert qu'à ça. » est écrite dessous ; sans e-mail, l'envoi marche.",
+        "Avec « marie@exemple.fr » saisi, l'auteur retrouve cette adresse dans sa boîte privée, à côté du signalement, pour pouvoir répondre ; elle n'apparaît nulle part en public (ni journal, ni fiche)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "167",
+      "title": "Après l'envoi, le formulaire remercie",
+      "depends_on": [
+        "163"
+      ],
+      "does": "Je veux savoir que mon signalement est bien parti.",
+      "criteria": [
+        "Après un envoi réussi, la page affiche « Merci ! Ton signalement est arrivé. » et « Si tu as laissé ton e-mail, on te répond sous 72 h. ».",
+        "Le bouton « Retour à la question du jour » ramène à la question du jour (n° 24 le vendredi 23 octobre)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "168",
+      "title": "Un signalement vide ne part pas",
+      "depends_on": [
+        "163"
+      ],
+      "does": "J'appuie sur « Envoyer » sans avoir rien écrit.",
+      "criteria": [
+        "Cliquer « Envoyer » sans rien écrire dans « Qu'est-ce qui ne va pas ? » n'envoie rien : le formulaire reste ouvert et aucun « Merci ! » ne s'affiche.",
+        "Même avec un lien et un e-mail remplis, un texte vide, ou fait seulement d'espaces, ne part pas."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "169",
+      "title": "Un envoi raté garde le texte et propose de réessayer",
+      "depends_on": [
+        "163"
+      ],
+      "does": "Mon envoi échoue et je ne veux pas tout réécrire.",
+      "criteria": [
+        "Réseau coupé (mode avion), après avoir choisi « Un chiffre », écrit un texte, collé un lien et saisi un e-mail, un clic sur « Envoyer » affiche « L'envoi n'a pas marché. Ton texte est gardé, réessaie. », et le type, le texte, le lien et l'e-mail sont toujours dans le formulaire.",
+        "Réseau rétabli, un clic sur « Réessayer » envoie le signalement, et il n'arrive qu'une fois dans la boîte de l'auteur (pas de doublon)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "170",
+      "title": "Le formulaire promet une réponse sous 72 h",
+      "depends_on": [
+        "160"
+      ],
+      "does": "Je veux savoir quand j'aurai une réponse.",
+      "criteria": [
+        "Juste au-dessus du bouton « Envoyer », sur téléphone comme sur ordinateur, la phrase « On répond sous 72 h. » est écrite, suivie de « Chaque correction est publiée dans le journal des corrections. »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "171",
+      "title": "La fiche candidat propose aussi « Signaler une erreur »",
+      "depends_on": [
+        "160",
+        "121"
+      ],
+      "does": "Je vois une erreur sur la fiche d'un candidat et je veux la signaler.",
+      "criteria": [
+        "Sur la fiche de Marine Tondelier, sous « Une erreur, un chiffre ou une source à revoir ? », le lien « Signaler une erreur sur cette fiche » est présent.",
+        "Le même lien est présent sur la fiche d'un autre candidat (par exemple Nathalie Arthaud) et un clic ouvre la page « Signaler une erreur. »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "172",
+      "title": "Le journal liste les corrections, les plus récentes d'abord",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je veux voir les erreurs qu'on a reconnues et corrigées.",
+      "criteria": [
+        "Avec les sept corrections de la maquette, le journal les liste de la plus récente à la plus ancienne : 22 oct., 20 oct., 19 oct., 17 oct., 16 oct., 12 oct., 09 oct. 2026.",
+        "L'introduction dit que les signalements arrivent dans une boîte privée, que seule la correction est publique et que la réponse vient sous 72 h."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "173",
+      "title": "Chaque correction dit quelle fiche elle touche",
+      "depends_on": [
+        "172"
+      ],
+      "does": "Je veux savoir quelle fiche a été corrigée.",
+      "criteria": [
+        "La correction du 19 oct. 2026 affiche « Formulation », « Question n° 3 » et le titre « Que faire du parc nucléaire ? ».",
+        "La correction du 22 oct. 2026 affiche « Position », « Fiche candidat », « Gabriel Attal » et la question concernée « Question n° 12 · Droits de succession »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "174",
+      "title": "Chaque correction montre l'avant et l'après",
+      "depends_on": [
+        "172"
+      ],
+      "does": "Je veux voir ce qui a changé, mot pour mot.",
+      "criteria": [
+        "La correction de chiffre du 16 oct. 2026 montre « Avant : Déficit du système de retraites en 2030 : 0,4 % du PIB » et « Après : … 0,3 % du PIB », seuls « 0,4 % » et « 0,3 % » étant surlignés.",
+        "La correction de position du 22 oct. 2026 (Gabriel Attal) montre « Avant : Option B : Garder le barème actuel », « Position déduite · programme 2022 du parti », puis « Après : Option C : Alléger pour les petits patrimoines », « Position officielle · déclaration du 02/10/2026 ».",
+        "La correction du 20 oct. 2026 (Nathalie Arthaud) montre en « Après » « Position inconnue » et « Exclue du calcul, faute de source »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "175",
+      "title": "Chaque correction dit sa raison",
+      "depends_on": [
+        "172"
+      ],
+      "does": "Je veux comprendre pourquoi on a corrigé.",
+      "criteria": [
+        "La correction du 12 oct. 2026 a pour « Pourquoi » « Chiffre corrigé : erreur de recopie, source relue ».",
+        "Chacune des sept corrections a une ligne « Pourquoi » qui n'est pas vide (par exemple, le 09 oct. 2026 : « Lien de source rompu : remplacé par la version en ligne »)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "176",
+      "title": "Chaque correction dit qui l'a repérée",
+      "depends_on": [
+        "172"
+      ],
+      "does": "Je veux savoir qui a repéré l'erreur.",
+      "criteria": [
+        "La correction du 22 oct. 2026 affiche « Origine : Signalé par un utilisateur » ; celle du 20 oct. 2026 affiche « Origine : Repéré par le contrôle de neutralité ».",
+        "Pour une correction née d'un signalement laissé avec l'e-mail marie@exemple.fr, le journal affiche seulement « Signalé par un utilisateur » : ni l'e-mail ni aucune autre information sur la personne."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "177",
+      "title": "L'électeur filtre le journal par type",
+      "depends_on": [
+        "172"
+      ],
+      "does": "Je veux ne voir que les corrections d'un type.",
+      "criteria": [
+        "Avec les sept corrections de la maquette, « Toutes » est choisi au départ et la liste montre 7 corrections.",
+        "Choisir « Position de candidat » n'en laisse que 2 (Gabriel Attal et Nathalie Arthaud) ; choisir « Source » n'en laisse qu'une (celle du 09 oct. 2026) ; revenir à « Toutes » les remet à 7.",
+        "Le nombre écrit à côté de chaque filtre est celui des corrections qu'il affiche."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "178",
+      "title": "Sans correction, le journal invite à signaler",
+      "depends_on": [
+        "172"
+      ],
+      "does": "Je regarde le journal avant la moindre correction et je veux savoir quoi faire.",
+      "criteria": [
+        "Tant qu'aucune correction n'est publiée, le journal affiche « Aucune correction pour l'instant. » et « Tu as repéré une erreur ? » à la place de la liste.",
+        "Le lien « Signale-la » ouvre la page « Signaler une erreur. ».",
+        "Dès qu'une première correction est publiée, le message disparaît et la correction s'affiche."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "179",
+      "title": "L'électeur affiche ses réponses en QR code",
+      "depends_on": [
+        "033"
+      ],
+      "does": "Je change de téléphone et je veux emporter mes réponses.",
+      "criteria": [
+        "Avec 23 réponses données, la page Changer d'appareil affiche, sous « Envoyer mes réponses », un QR code et « Scanne-le avec ton autre appareil ».",
+        "Viser ce QR code avec l'appareil photo d'un autre téléphone propose d'ouvrir une adresse en aucrible2027.fr."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "180",
+      "title": "L'électeur copie ses réponses en lien",
+      "depends_on": [
+        "033"
+      ],
+      "does": "Je veux emporter mes réponses par un lien que je m'envoie à moi-même.",
+      "criteria": [
+        "Un clic sur « Copier le lien » puis un collage dans une note donne une adresse qui commence par « aucrible2027.fr/i# ».",
+        "L'avertissement affiche le vrai nombre de réponses : « Le lien contient tes 23 réponses… » ; après une 24e réponse, il dit 24."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "181",
+      "title": "Scanner le QR code importe les réponses",
+      "depends_on": [
+        "179"
+      ],
+      "does": "Sur mon nouveau téléphone, je scanne le QR code de l'ancien.",
+      "criteria": [
+        "Sur un appareil sans réponse, « Scanner un QR code » ouvre l'appareil photo ; en visant le QR code de l'ancien appareil, « Mes résultats » montre les mêmes 23 réponses et le même classement.",
+        "En visant le QR code avec l'appareil photo du téléphone, hors de l'app, le lien ouvre l'app et importe aussi les 23 réponses.",
+        "La question n° 24, répondue E avec l'importance ×2 sur l'ancien appareil, s'ouvre sur sa révélation avec « Ta carte » sur E et ×2 sur le nouveau."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "182",
+      "title": "Coller le lien importe les réponses",
+      "depends_on": [
+        "180"
+      ],
+      "does": "Sur mon nouveau téléphone, je colle le lien que j'avais copié.",
+      "criteria": [
+        "Sur un appareil sans réponse, coller tel quel le lien copié par « Copier le lien » dans « Coller un lien », puis « Importer », fait apparaître les mêmes 23 réponses dans « Mes résultats ».",
+        "La question n° 24, répondue E avec l'importance ×2 sur l'ancien appareil, s'ouvre sur sa révélation avec « Ta carte » sur E et ×2 sur le nouveau."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "183",
+      "title": "Un appareil qui a déjà des réponses demande avant de les remplacer",
+      "depends_on": [
+        "181"
+      ],
+      "does": "J'importe mes réponses sur un appareil qui en a déjà.",
+      "criteria": [
+        "Sur un appareil qui a 5 réponses, scanner le QR code d'un appareil à 23 réponses affiche « Cet appareil a déjà 5 réponses. Les remplacer par les 23 importées ? » avant tout changement ; « Mes résultats » montre alors encore 5 réponses.",
+        "« Annuler » garde les 5 réponses de l'appareil.",
+        "« Remplacer » fait passer « Mes résultats » à 23 réponses (et non 28) : les 5 anciennes sont remplacées, pas ajoutées."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "184",
+      "title": "Un code illisible est refusé avec un message",
+      "depends_on": [
+        "181"
+      ],
+      "does": "Je scanne un code qui n'est pas le bon.",
+      "criteria": [
+        "Scanner, avec « Scanner un QR code », le QR code d'un site quelconque affiche « Ce code n'est pas lisible. Réessaie ou colle le lien. » et n'importe rien.",
+        "Sur un appareil qui a déjà 5 réponses, ce refus ne touche pas à ces 5 réponses et ne pose pas la question « Les remplacer ? »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "185",
+      "title": "La page dit que les réponses ne passent par aucun serveur",
+      "depends_on": [
+        "179"
+      ],
+      "does": "Je veux être sûr que changer d'appareil n'envoie mes réponses à personne.",
+      "criteria": [
+        "En haut de la page Changer d'appareil, le bandeau dit « Tes réponses ne quittent ton téléphone que si tu le décides. » et « Pas de compte, pas de serveur. ».",
+        "Faire un transfert complet (afficher le QR code, le scanner, importer) ne demande ni compte, ni e-mail, ni mot de passe."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "186",
+      "title": "L'en-tête mène aux deux écrans principaux",
+      "depends_on": [
+        "061"
+      ],
+      "does": "Je passe de la question du jour à mes résultats, et je reviens.",
+      "criteria": [
+        "Sur ordinateur (écran large), l'en-tête montre « Question du jour » et « Mes résultats » ; un clic sur « Mes résultats » ouvre Mes résultats, un clic sur « Question du jour » ouvre la question n° 24, et l'entrée de la page où l'on est est mise en avant.",
+        "Sur n'importe quelle page (À propos, Journal des corrections, page introuvable) et à toute largeur, un clic sur le logo « Au crible 2027 » ramène à la question du jour."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "187",
+      "title": "L'en-tête reste en haut au défilement",
+      "depends_on": [
+        "186"
+      ],
+      "does": "Je descends dans une longue page et je veux garder l'en-tête sous la main.",
+      "criteria": [
+        "Sur la question n° 24, en faisant défiler jusqu'au bouton « Valider ma réponse », le logo « Au crible 2027 » et la série restent visibles en haut de l'écran, et le texte qui défile passe dessous sans se superposer à eux.",
+        "Sur la page À propos, un clic sur « 5 Suite » dans « Aller à » descend à la section 5 sans que son titre soit caché par l'en-tête, qui reste visible."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "188",
+      "title": "Le pied de page mène aux pages secondaires",
+      "depends_on": [
+        "052",
+        "143",
+        "155",
+        "172",
+        "179"
+      ],
+      "does": "Je cherche une page secondaire : la méthode, l'à-propos, le journal.",
+      "criteria": [
+        "En bas de la question du jour, de Mes résultats, de la page À propos et de la page introuvable, les cinq liens sont présents, dans cet ordre.",
+        "Un clic sur chacun ouvre la bonne page : la liste des questions à rattraper, la page Méthode, À propos, le Journal des corrections, Changer d'appareil ; sur chacune de ces pages, son propre lien est marqué."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "189",
+      "title": "Une adresse inconnue affiche « Cette carte n'est pas dans le paquet »",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je tape une adresse qui n'existe pas, ou j'ouvre un vieux lien cassé.",
+      "criteria": [
+        "Ouvrir une adresse du site qui n'existe pas (par exemple aucrible2027.fr/zzz) affiche le titre « Cette carte n'est pas dans le paquet. », l'étiquette « Carte introuvable » et « Erreur 404 » dans le bandeau.",
+        "Sous « Que s'est-il passé ? », la page dit « L'adresse que tu as ouverte n'existe pas, ou la page a changé de place. Le reste du paquet, lui, est au complet. »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "190",
+      "title": "La page introuvable ramène à la question du jour",
+      "depends_on": [
+        "189"
+      ],
+      "does": "Je suis perdu et je veux revenir au jeu.",
+      "criteria": [
+        "Sur la page introuvable, un clic sur « La question du jour » ouvre la question du jour (n° 24, vendredi 23 octobre).",
+        "La phrase sous le bouton donne le numéro de la question du jour (« n° 24 » ce jour-là) ; le jour où la question du jour devient la n° 25, elle dit « n° 25 » et le bouton ouvre la n° 25."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "191",
+      "title": "Sans réseau, l'app dit qu'il faut une connexion",
+      "depends_on": [
+        "001"
+      ],
+      "does": "Je perds mon réseau en plein usage.",
+      "criteria": [
+        "Réseau coupé (mode avion), toucher dans l'app un lien vers une page pas encore chargée (par exemple le rattrapage) affiche un message qui dit qu'il faut une connexion, au lieu d'une page vide ou d'une erreur technique.",
+        "Réseau rétabli, la même page s'ouvre normalement et les 23 réponses données sont toujours là dans « Mes résultats »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "192",
+      "title": "L'auteur voit le nombre de visites par jour",
+      "depends_on": [
+        "001"
+      ],
+      "does": "En tant qu'auteur, je veux voir combien de personnes ouvrent l'app chaque jour.",
+      "criteria": [
+        "Après avoir ouvert l'app aujourd'hui depuis deux appareils différents, la ligne d'aujourd'hui dans les statistiques de l'auteur augmente de 2 visites.",
+        "Chaque jour a sa propre ligne : une visite faite le lendemain s'ajoute à la ligne du lendemain et ne change pas celle de la veille."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "193",
+      "title": "Les statistiques ne contiennent aucune réponse",
+      "depends_on": [
+        "192"
+      ],
+      "does": "En tant qu'auteur, je veux être sûr que les statistiques ne contiennent aucune réponse.",
+      "criteria": [
+        "Après avoir validé l'option E avec l'importance ×2 à la question n° 24 depuis un appareil de test, les statistiques de l'auteur n'affichent ni option, ni importance, ni nombre de réponses, ni thème : seulement des visites par jour.",
+        "Un appareil qui a répondu aux 23 questions et un appareil qui n'a rien répondu comptent chacun pour une visite, et rien dans les statistiques ne permet de les distinguer."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "194",
+      "title": "L'app ne dépose aucun cookie",
+      "depends_on": [
+        "192"
+      ],
+      "does": "Je visite l'app sans qu'elle me suive à la trace.",
+      "criteria": [
+        "Après avoir ouvert l'app, répondu à la question n° 24, parcouru Mes résultats et À propos et envoyé un signalement, la liste des cookies du navigateur pour aucrible2027.fr est vide.",
+        "Aucun bandeau ni fenêtre de consentement aux cookies ne s'affiche, ni à la première visite ni ensuite."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "195",
+      "title": "Une fiche ajoutée par l'auteur paraît à sa date",
+      "depends_on": [
+        "037"
+      ],
+      "does": "J'ajoute une fiche datée du jour où elle doit paraître, et je la vois paraître ce jour-là, pas avant.",
+      "criteria": [
+        "Après avoir ajouté une fiche datée d'aujourd'hui, elle est la question du jour dès que j'ouvre l'app.",
+        "Après avoir ajouté une fiche datée de demain, elle n'est pas la question du jour aujourd'hui, et elle l'est demain.",
+        "J'ajoute d'abord la fiche datée d'après-demain, puis celle datée de demain : demain c'est la seconde qui paraît, après-demain c'est la première, quel que soit l'ordre où je les ai ajoutées."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "196",
+      "title": "Une fiche avec un chiffre sans source est refusée",
+      "depends_on": [
+        "195"
+      ],
+      "does": "J'ajoute une fiche dont un chiffre clé n'a pas de source, et je veux qu'elle soit refusée.",
+      "criteria": [
+        "Je tente d'ajouter la fiche de la question n° 24 en retirant la source du 2e chiffre (« ~14 % du PIB consacré aux retraites ») : la fiche est refusée, le refus désigne ce chiffre, et la fiche ne paraît pas à sa date.",
+        "Je remets la source « COR · 2025 » sur ce chiffre : la fiche est acceptée et paraît à sa date.",
+        "Un chiffre qui a sa source (« COR ») mais pas sa date est refusé de la même façon."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "197",
+      "title": "Une position de candidat sans source est refusée",
+      "depends_on": [
+        "195"
+      ],
+      "does": "J'ajoute une fiche où la position d'un candidat n'a pas de source, et je veux qu'elle soit refusée.",
+      "criteria": [
+        "Je tente d'ajouter la fiche de la question n° 24 en donnant à Marine Tondelier l'option E sans source : la fiche est refusée et le refus nomme Marine Tondelier.",
+        "Je donne à cette position un lien et sa date (par exemple une déclaration du 02/10/2026) : la fiche est acceptée et paraît à sa date.",
+        "Un lien sans date est refusé de la même façon."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "198",
+      "title": "L'auteur voit combien de fiches d'avance il a",
+      "depends_on": [
+        "195"
+      ],
+      "does": "Je regarde combien de fiches j'ai d'avance.",
+      "criteria": [
+        "Avec la fiche du jour et 14 fiches datées des 14 jours suivants, je vois 14 fiches d'avance.",
+        "Le lendemain, la fiche suivante devient la question du jour et je vois 13 fiches d'avance.",
+        "J'ajoute une fiche datée un jour plus loin que la dernière : le nombre monte de 1."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "199",
+      "title": "L'auteur est prévenu sous 14 fiches d'avance",
+      "depends_on": [
+        "198"
+      ],
+      "does": "Quand il me reste moins de 14 fiches d'avance, je veux en être prévenu.",
+      "criteria": [
+        "Avec 14 fiches d'avance, aucun avertissement.",
+        "Le lendemain, la fiche suivante paraît et il n'en reste que 13 : un avertissement dit qu'il en reste 13 et qu'il en manque 1 pour revenir à 14.",
+        "J'ajoute une fiche datée un jour plus loin que la dernière : l'avertissement disparaît."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "200",
+      "title": "Corriger une fiche publiée ajoute une ligne au journal",
+      "depends_on": [
+        "195",
+        "172"
+      ],
+      "does": "Je corrige une erreur dans une fiche déjà publiée, et la correction apparaît dans le journal public.",
+      "criteria": [
+        "Je corrige le chiffre « 0,4 % du PIB » en « 0,3 % du PIB » dans la question n° 13, déjà publiée : au journal, une nouvelle ligne est tout en haut, datée d'aujourd'hui, sur la question n° 13, avec l'avant (0,4 %) et l'après (0,3 %).",
+        "Je corrige la position d'Attal sur la question n° 12, de l'option B à l'option C : au journal, une nouvelle ligne montre l'avant (option B) et l'après (option C).",
+        "Je corrige une fiche datée de demain, pas encore publiée : le journal n'a aucune nouvelle ligne."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "201",
+      "title": "L'auteur lance le contrôle de neutralité sur une fiche",
+      "depends_on": [
+        "195"
+      ],
+      "does": "Avant de publier une fiche, je lance le contrôle de neutralité dessus.",
+      "criteria": [
+        "Je lance le contrôle sur la fiche de la question n° 24 (retraite) : un résultat s'affiche et dit qu'il porte sur la question n° 24.",
+        "Je lance le contrôle sur la question n° 3, dont l'option C est écrite « Arrêter le nucléaire pour tout miser sur le renouvelable » : le résultat contient une remarque sur cette option.",
+        "Après le contrôle, la fiche est exactement comme avant : le contrôle n'a rien modifié ni publié."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "202",
+      "title": "Le contrôle rend les remarques d'un regard de droite",
+      "depends_on": [
+        "201"
+      ],
+      "does": "Je lis les remarques que ferait un lecteur de droite sur ma fiche.",
+      "criteria": [
+        "Je lance le contrôle sur la fiche de la question n° 24 : le résultat contient une partie « Regard de droite », distincte des autres.",
+        "Je remplace dans la fiche ce qu'en disent les défenseurs de l'option D (65 ans ou plus) par une phrase ironique qui commence par « En réalité… » : le regard de droite fait une remarque sur cet argument.",
+        "Chaque remarque de cette partie dit sur quelle partie de la fiche elle porte (par exemple « option D, ce qu'en disent ses défenseurs »)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "203",
+      "title": "Le contrôle rend les remarques d'un regard du centre",
+      "depends_on": [
+        "201"
+      ],
+      "does": "Je lis les remarques que ferait un lecteur du centre sur ma fiche.",
+      "criteria": [
+        "Je lance le contrôle sur la fiche de la question n° 24 : le résultat contient une partie « Regard du centre », distincte des autres.",
+        "Je retire de la fiche tout ce que reprochent leurs critiques à l'option C (64 ans), puis je relance : le regard du centre fait une remarque sur cette option.",
+        "Chaque remarque de cette partie dit sur quelle partie de la fiche elle porte (par exemple « option C, ce que lui reprochent ses critiques »)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "204",
+      "title": "Le contrôle rend les remarques d'un regard de gauche",
+      "depends_on": [
+        "201"
+      ],
+      "does": "Je lis les remarques que ferait un lecteur de gauche sur ma fiche.",
+      "criteria": [
+        "Je lance le contrôle sur la fiche de la question n° 24 : le résultat contient une partie « Regard de gauche », distincte des autres.",
+        "Je remplace dans la fiche ce qu'en disent les défenseurs de l'option A (60 ans) par une phrase ironique qui commence par « En réalité… » : le regard de gauche fait une remarque sur cet argument.",
+        "Chaque remarque de cette partie dit sur quelle partie de la fiche elle porte (par exemple « option A, ce qu'en disent ses défenseurs »)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "205",
+      "title": "Chaque remarque dit son type",
+      "depends_on": [
+        "201"
+      ],
+      "does": "Sur chaque remarque du contrôle, je veux voir de quelle sorte de problème il s'agit.",
+      "criteria": [
+        "Je réécris la question de la fiche n° 24 en « À quel âge devrait-on enfin cesser de s'user au travail ? » : la remarque qui la vise porte le type « formulation orientée ».",
+        "Je décris l'option E (À la carte) comme « une usine à gaz que personne ne comprend » : la remarque qui la vise porte le type « option caricaturée ».",
+        "Je retire ce que reprochent leurs critiques à l'option C (64 ans) : la remarque qui la vise porte le type « argument manquant »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "206",
+      "title": "L'auteur accepte ou rejette chaque remarque",
+      "depends_on": [
+        "205"
+      ],
+      "does": "Pour chaque remarque du contrôle, je décide si je l'accepte ou si je la rejette.",
+      "criteria": [
+        "Sur un contrôle de la fiche n° 24 qui rend trois remarques, j'accepte la première et je rejette la deuxième : chacune affiche sa décision, la troisième reste visiblement non tranchée.",
+        "Je tranche aussi la troisième : plus aucune remarque n'est à trancher."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "207",
+      "title": "Le contrôle passe sur la liste des sujets",
+      "depends_on": [
+        "201"
+      ],
+      "does": "Je lance le contrôle de neutralité sur la liste des sujets.",
+      "criteria": [
+        "Je lance le contrôle sur la liste des sujets : le résultat dit qu'il porte sur la liste des sujets, et non sur une fiche, et montre les trois points de vue (droite, centre, gauche).",
+        "J'ajoute au thème « Travail & retraites » un sujet formulé « Faut-il en finir avec la retraite à 64 ans ? » : le contrôle fait une remarque sur ce sujet."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "208",
+      "title": "Le contrôle passe sur les notes du plateau",
+      "depends_on": [
+        "201"
+      ],
+      "does": "Je lance le contrôle de neutralité sur les notes que je donne aux options pour placer les pions sur le plateau.",
+      "criteria": [
+        "Je lance le contrôle sur les notes de la fiche n° 24 : le résultat dit qu'il porte sur les notes de cette fiche, option par option (A à E), et montre les trois points de vue.",
+        "Je donne à l'option E (À la carte) la note +2 sur l'axe Économie, puis je relance : le résultat montre +2 pour l'option E."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "209",
+      "title": "L'auteur génère le carrousel du jour depuis la fiche",
+      "depends_on": [
+        "195"
+      ],
+      "does": "Je génère le carrousel du jour à partir de la fiche du jour.",
+      "criteria": [
+        "Je génère le carrousel de la fiche du jour (question n° 24) : 6 images 4:5 de 1080×1350 apparaissent, numérotées de 1/6 à 6/6, chacune sous la marque « Au crible 2027 ».",
+        "Je corrige dans la fiche le chiffre « 1,7 » en « 1,6 » et je régénère : l'image 3 affiche 1,6, sans que j'aie rien retapé."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "210",
+      "title": "La 1re image montre la question",
+      "depends_on": [
+        "209"
+      ],
+      "does": "Je regarde la 1re image du carrousel, celle qui pose la question.",
+      "criteria": [
+        "L'image 1/6 de la fiche n° 24 montre la pastille « Travail & retraites » et la question « À quel âge devrait-on pouvoir partir à la retraite ? ».",
+        "Elle montre aussi « Question n° 24 » et « J-177 », le nombre de jours avant le 1er tour (18 avril 2027) au jour de la fiche."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "211",
+      "title": "La 2e image montre le contexte",
+      "depends_on": [
+        "209"
+      ],
+      "does": "Je regarde la 2e image du carrousel, celle qui donne le contexte.",
+      "criteria": [
+        "L'image 2/6 de la fiche n° 24 s'intitule « Le contexte » et reprend les trois phrases de la fiche : « Les cotisations des actifs paient les pensions d'aujourd'hui. » ; « Depuis 2023, l'âge légal remonte de 62 vers 64 ans. » ; « Cette hausse est suspendue depuis fin 2025, alors que l'on vit plus longtemps. »",
+        "L'image montre ces trois phrases en entier, ni plus, ni moins : aucune n'est coupée."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "212",
+      "title": "La 3e image montre les chiffres sourcés",
+      "depends_on": [
+        "209"
+      ],
+      "does": "Je regarde la 3e image du carrousel, celle qui donne les chiffres clés avec leurs sources.",
+      "criteria": [
+        "L'image 3/6 de la fiche n° 24 montre les trois chiffres de la fiche : 1,7 ; ~14 % ; 62 ans, chacun avec sa phrase.",
+        "Chaque chiffre porte sa source et sa date : « COR · 2025 », « COR · 2025 » et « DREES · 2025 ».",
+        "Pour une fiche à 2 chiffres, l'image s'intitule « 2 chiffres clés » et en montre deux."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "213",
+      "title": "La 4e image montre les options, sans noms",
+      "depends_on": [
+        "209"
+      ],
+      "does": "Je regarde la 4e image du carrousel, celle qui présente les options.",
+      "criteria": [
+        "L'image 4/6 de la fiche n° 24 montre les cinq cartes A à E avec leurs libellés : 60 ans, 62 ans, 64 ans, 65 ans ou plus, À la carte.",
+        "L'image ne contient aucun nom de candidat ni de parti, et dit « Les noms viennent après ta réponse. »",
+        "Pour une fiche à 3 options, l'image s'intitule « Les 3 options » et montre 3 cartes."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "214",
+      "title": "La 5e image montre le meilleur argument de chaque côté",
+      "depends_on": [
+        "209"
+      ],
+      "does": "Je regarde la 5e image du carrousel, celle qui donne le meilleur argument de chaque côté.",
+      "criteria": [
+        "L'image 5/6 de la fiche n° 24 montre un bloc « Pour relever l'âge » et un bloc « Pour ne pas le relever », avec les deux phrases de la fiche.",
+        "Les deux blocs ont le même format : même taille, même typographie, aucun n'est mis en avant.",
+        "Aucun des deux arguments n'est ironique ni méprisant, et aucun ne commence par « en réalité… »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "215",
+      "title": "La dernière image invite à répondre sur l'app",
+      "depends_on": [
+        "209"
+      ],
+      "does": "Je regarde la dernière image du carrousel, celle qui m'invite à répondre sur l'app.",
+      "criteria": [
+        "L'image 6/6 affiche « Et toi ? », « Réponds et découvre de quels candidats tu es proche » et l'adresse aucrible2027.fr.",
+        "Elle montre le camembert des 11 thèmes."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "216",
+      "title": "Chaque image porte la signature @aucrible2027",
+      "depends_on": [
+        "209"
+      ],
+      "does": "Je veux que chaque image que je publie porte la signature du compte, @aucrible2027.",
+      "criteria": [
+        "Je parcours les 6 images du carrousel : chacune porte « @aucrible2027 », écrit à l'identique.",
+        "La story du jour porte aussi « @aucrible2027 »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "217",
+      "title": "L'auteur génère la story « Et toi ? » à deux choix",
+      "depends_on": [
+        "209"
+      ],
+      "does": "Je génère la story du jour, qui pose la question et propose deux choix à ceux qui la voient.",
+      "criteria": [
+        "Je génère la story de la fiche du jour : une image 9:16 de 1080×1920 apparaît.",
+        "Elle montre la carte question n° 24, un autocollant « Et toi ? » avec les deux choix « 62 ans ou moins » et « 64 ans ou plus », et la mention « Lien en bio ».",
+        "Elle ne contient aucun nom de candidat."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "218",
+      "title": "L'auteur récupère la légende proposée",
+      "depends_on": [
+        "209"
+      ],
+      "does": "Je récupère la légende proposée pour accompagner le carrousel.",
+      "criteria": [
+        "Je copie la légende et je la colle ailleurs : je retrouve les deux paragraphes en entier.",
+        "La légende de la fiche n° 24 reprend la question « À quel âge devrait-on pouvoir partir à la retraite ? » et annonce « le contexte, trois chiffres sourcés, les cinq options et le meilleur argument de chaque côté ».",
+        "Elle invite à répondre sur aucrible2027.fr (lien en bio) et dit « Ce n'est pas un sondage : tes réponses restent sur ton téléphone. »"
+      ],
+      "tracker": null
+    },
+    {
+      "id": "219",
+      "title": "L'auteur télécharge les 7 images d'un coup",
+      "depends_on": [
+        "209",
+        "217"
+      ],
+      "does": "Je télécharge d'un coup les 7 images du jour : le carrousel et la story.",
+      "criteria": [
+        "Je clique sur « Télécharger les 7 images » : je récupère en une seule fois 7 images, les 6 du carrousel (1080×1350) et la story (1080×1920).",
+        "Les images téléchargées sont dans l'ordre du carrousel, de 1/6 à 6/6, puis la story."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "220",
+      "title": "L'auteur génère la vidéo verticale du jour depuis la fiche",
+      "depends_on": [
+        "195"
+      ],
+      "does": "Je génère la vidéo verticale du jour à partir de la fiche du jour.",
+      "criteria": [
+        "Je génère la vidéo de la fiche du jour (question n° 24) : j'obtiens une vidéo verticale de 1080×1920 que je peux lire jusqu'au bout.",
+        "Je corrige dans la fiche le chiffre « 1,7 » en « 1,6 » et je régénère : la nouvelle vidéo montre 1,6.",
+        "Depuis la page du carrousel, « Voir la vidéo du jour » ouvre la page de la vidéo, et « Carrousel et story » ramène au carrousel."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "221",
+      "title": "La vidéo s'ouvre sur la carte question piochée",
+      "depends_on": [
+        "220"
+      ],
+      "does": "Je regarde les premières secondes de la vidéo : une carte question qu'on pioche et qui se retourne.",
+      "criteria": [
+        "De 0 à 3 s, la carte de la question n° 24 est piochée puis se retourne.",
+        "À la fin des 3 secondes, avec le son coupé, je lis sur la carte « Travail & retraites », « À quel âge devrait-on pouvoir partir à la retraite ? » et « Question n° 24 · J-177 »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "222",
+      "title": "La vidéo déroule le contexte",
+      "depends_on": [
+        "220"
+      ],
+      "does": "Je regarde la vidéo dérouler le contexte, phrase après phrase.",
+      "criteria": [
+        "De 3 à 12 s, la vidéo montre « Le contexte » puis les trois phrases de la fiche n° 24, l'une après l'autre.",
+        "Pendant chaque phrase, les mots en cours sont surlignés (par exemple « Depuis 2023, l'âge légal remonte »)."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "223",
+      "title": "Les chiffres de la vidéo montent comme des compteurs",
+      "depends_on": [
+        "220"
+      ],
+      "does": "Je regarde la vidéo faire monter les chiffres clés comme des compteurs.",
+      "criteria": [
+        "Entre 12 et 30 s, chaque chiffre de la fiche n° 24 part de 0 et monte jusqu'à sa valeur : 0 → 1,7, 0 → 14, 0 → 62.",
+        "Chaque chiffre affiche sa source et sa date : « COR 2025 », « COR 2025 » et « DREES 2025 ».",
+        "Je corrige dans la fiche « 1,7 » en « 1,6 » et je régénère : le premier compteur monte jusqu'à 1,6."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "224",
+      "title": "La vidéo montre les options en cartes",
+      "depends_on": [
+        "220"
+      ],
+      "does": "Je regarde la vidéo distribuer les options en cartes.",
+      "criteria": [
+        "Entre 30 et 45 s, les cinq options de la fiche n° 24 arrivent en cartes, de A à E, avec leurs libellés : 60 ans, 62 ans, 64 ans, 65 ans ou plus, À la carte.",
+        "Aucun nom de candidat ni de parti n'apparaît.",
+        "Pour une fiche à 3 options, la vidéo distribue 3 cartes."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "225",
+      "title": "La vidéo montre le meilleur argument de chaque côté",
+      "depends_on": [
+        "220"
+      ],
+      "does": "Je regarde la vidéo donner le meilleur argument de chaque côté.",
+      "criteria": [
+        "Entre 45 et 60 s, la vidéo montre un argument « Pour relever l'âge » et un argument « Pour ne pas le relever », avec les deux phrases de la fiche n° 24.",
+        "Les deux arguments ont le même format.",
+        "Aucun des deux n'est ironique ni méprisant, et aucun ne commence par « en réalité… »."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "226",
+      "title": "La vidéo finit sur « Et toi ? aucrible2027.fr »",
+      "depends_on": [
+        "220"
+      ],
+      "does": "Je regarde la fin de la vidéo : « Et toi ? », l'adresse de l'app, puis la carte de fin.",
+      "criteria": [
+        "De 60 à 70 s, le camembert des 11 thèmes se remplit part par part, puis « Et toi ? » et l'adresse aucrible2027.fr apparaissent.",
+        "De 70 à 75 s, la carte de fin montre le logo, « Au crible 2027 », « aucrible2027.fr » et « @aucrible2027 », qui restent affichés jusqu'à la dernière image.",
+        "La carte de fin dit « Une question par jour, expliquée en 3 minutes. Ce n'est pas un sondage. »"
+      ],
+      "tracker": null
+    },
+    {
+      "id": "227",
+      "title": "Chaque image de la vidéo porte la mention IA",
+      "depends_on": [
+        "220"
+      ],
+      "does": "Je veux que chaque image de la vidéo dise qu'elle est une animation générée avec IA.",
+      "criteria": [
+        "Je regarde la vidéo en entier, de 0 à 75 s : la mention « Animation générée avec IA, contenu vérifié par un humain » est affichée sur chacune des 7 images, sans disparaître.",
+        "La mention reste lisible sur un téléphone, sans que rien ne la cache.",
+        "Aucune des 7 images ne montre de visage ni de candidat."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "228",
+      "title": "La vidéo a une musique libre de droits",
+      "depends_on": [
+        "220"
+      ],
+      "does": "Je veux que la vidéo ait une musique libre de droits, et aucune voix.",
+      "criteria": [
+        "Je lance la vidéo de la fiche n° 24 avec le son : une musique joue du début à la fin des 75 secondes.",
+        "Je n'entends aucune voix, ni parlée ni de synthèse.",
+        "Je relance la vidéo avec le son coupé : tout ce qu'il faut pour comprendre est écrit à l'écran."
+      ],
+      "tracker": null
+    },
+    {
+      "id": "229",
+      "title": "La vidéo dure entre 45 et 90 secondes",
+      "depends_on": [
+        "220"
+      ],
+      "does": "Je veux que la vidéo dure entre 45 et 90 secondes.",
+      "criteria": [
+        "La vidéo de la fiche n° 24 dure 75 secondes.",
+        "La vidéo d'une fiche à 2 chiffres et 3 options dure entre 45 et 90 secondes.",
+        "La vidéo d'une fiche à 4 chiffres et 5 options dure entre 45 et 90 secondes."
+      ],
+      "tracker": null
+    }
+  ],
+  "holes": [
+    "L'importance par défaut, si l'électeur ne la choisit pas (×1 ?).",
+    "L'heure à laquelle la question du jour change.",
+    "Les seuils de fiabilité du classement (faible, moyenne, forte).",
+    "Si répondre en rattrapage fait avancer la série.",
+    "Ce que devient le compte à rebours après le 1er tour.",
+    "Si l'électeur peut changer sa réponse après l'avoir validée.",
+    "Ce que montre la toute première visite.",
+    "Si la fiche candidat montre ses positions sur des questions que l'électeur n'a pas encore répondues (le face-à-face, lui, les cache).",
+    "Le premier jet des fiches par IA : outil dans le produit, ou simple usage d'un assistant ?",
+    "Le travail éditorial (≈150 sujets, fiches d'avance, positions des 13 candidats) : ce ne sont pas des tickets de code.",
+    "Le domaine aucrible2027.fr et les comptes @aucrible2027 : à prendre par toi.",
+    "La rotation des thèmes (jamais trois jours de suite sur le même) : règle de SPEC.md qu'aucun ticket ne porte.",
+    "Le face-à-face pré-rempli de l'entre-deux-tours : le 112 couvre le lien partagé, pas le préréglage sur les deux finalistes.",
+    "Le téléchargement du fichier vidéo : le 219 ne couvre que les images du carrousel.",
+    "Les écrans de l'auteur (fiches d'avance, contrôle de neutralité) ne sont pas maquettés.",
+    "Le calcul du « pouvoir de départage » et la place de « Je ne sais pas » dans les 10 réponses et les 3 par thème ne sont pas définis.",
+    "Les maquettes se contredisent par endroits (23 ou 14 réponses, positions de certains candidats, « veille et jour du vote » au lieu de vendredi 0 h) : chaque ticket suit une seule maquette."
+  ],
+  "tree": "Produit à définir\n    229 tickets, 0 poussé\n\nÀ construire en premier : \"001\" Valider une option de la question du jour révèle les candidats qui la défendent"
+};
+
+const T = {
+  fr: { untitled: "Sans titre", whole: "le produit entier", cutting: "On découpe",
+        source: { design: "depuis le design", documents: "depuis les documents, sans design", words: "depuis tes mots" },
+        stage: { cut: "découpe à valider", written: "tickets écrits", pushed: "tickets poussés" },
+        after: "après", notPushed: "pas encore poussé", holes: "Ce que je n'ai pas pu placer", tree: "Le projet" },
+  en: { untitled: "Untitled", whole: "the whole product", cutting: "Cutting",
+        source: { design: "from the design", documents: "from the documents, no design", words: "from your words" },
+        stage: { cut: "cut to validate", written: "tickets written", pushed: "tickets pushed" },
+        after: "after", notPushed: "not pushed yet", holes: "What I could not place", tree: "The project" },
+};
+
+(function render() {
+  const t = T[TICKETS.lang] || T.en;
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const list = TICKETS.tickets || [];
+
+  const pill = document.getElementById("pill");
+  pill.textContent = list.length ? t.stage[TICKETS.stage] || TICKETS.stage : t.stage.cut;
+  pill.classList.toggle("empty", !list.length);
+  const title = document.getElementById("title");
+  title.textContent = TICKETS.title || t.untitled;
+  title.classList.toggle("untitled", !TICKETS.title);
+  document.getElementById("sub").textContent =
+    `${t.cutting} : ${TICKETS.piece || t.whole}` + (TICKETS.source ? ` · ${t.source[TICKETS.source] || TICKETS.source}` : "");
+
+  const safeUrl = (u) => /^https?:\/\//.test(u || "") ? u : "";
+  document.getElementById("tickets").innerHTML = list.length ? list.map((k) => {
+    const deps = (k.depends_on || []).length ? `<span class="dep">${t.after} ${(k.depends_on || []).map(esc).join(", ")}</span>` : "";
+    const crit = (k.criteria || []).length ? `<ul>${k.criteria.map((c) => `<li>${esc(c)}</li>`).join("")}</ul>` : "";
+    const body = (k.does || crit) ? `<div class="body">${k.does ? `<p class="does">${esc(k.does)}</p>` : ""}${crit}</div>` : "";
+    let foot = "";
+    if (TICKETS.stage !== "cut") {
+      const url = safeUrl(k.tracker && k.tracker.url);
+      foot = `<div class="foot">${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(k.tracker.tool || "")} ↗</a>` : t.notPushed}</div>`;
+    }
+    return `<div class="ticket"><div class="head"><span class="num">${esc(k.id)}</span><span class="title">${esc(k.title)}</span>${deps}</div>${body}${foot}</div>`;
+  }).join("") : `<div class="placeholder"></div><div class="placeholder"></div>`;
+
+  const H = TICKETS.holes || [];
+  document.getElementById("holes").innerHTML = H.length
+    ? `<div class="box"><div class="label">${t.holes}</div><ul>${H.map((h) => `<li>${esc(h)}</li>`).join("")}</ul></div>` : "";
+  document.getElementById("tree").innerHTML = TICKETS.tree
+    ? `<div class="box"><div class="label">${t.tree}</div><pre class="tree">${esc(TICKETS.tree)}</pre></div>` : "";
+})();
+
+// Opened from disk (no Artifact tool): reload every few seconds so the latest rewrite shows up.
+if (location.protocol === "file:") setTimeout(() => location.reload(), 3000);
+</script>

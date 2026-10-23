@@ -1,0 +1,151 @@
+/* Signaler une erreur — chargé après style.css.
+   Le formulaire est la carte de la question concernée (thème Travail & retraites pour la n° 24). */
+
+.ic path, .ic rect, .ic circle {
+  fill: none; stroke: currentColor;
+  stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
+}
+.sig { max-width: 760px; margin: 0 auto; padding: 4px 16px 40px; }
+
+.sig-head h1 {
+  font: 800 clamp(44px, 12.4vw, 84px)/0.92 var(--display);
+  font-variation-settings: "wdth" 80, "opsz" 96;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.sig-head h1 span { color: var(--eco); }
+.nb { white-space: nowrap; }
+.sig-intro { margin-top: 14px; font-size: 16.5px; line-height: 1.5; color: var(--chalk); max-width: 34em; }
+
+/* ---------- la carte formulaire ---------- */
+.sig-card {
+  margin-top: 22px;
+  background: var(--card); color: var(--ink);
+  border-radius: var(--r);
+  padding: 20px 16px 20px;
+  box-shadow: 0 7px 0 var(--pawn-edge);
+  margin-bottom: 7px;
+  display: grid; gap: 24px;
+}
+.f-block { margin: 0; padding: 0; border: 0; min-width: 0; }
+.f-label {
+  font: 800 18px/1.2 var(--display);
+  font-variation-settings: "wdth" 90;
+  letter-spacing: -0.005em;
+  padding: 0;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 4px 10px;
+  margin-bottom: 10px;
+}
+.opt-tag {
+  font: 700 12px/1 var(--text); letter-spacing: 0;
+  background: var(--slot); color: var(--ink-soft);
+  padding: 5px 8px 4px; border-radius: 6px;
+  white-space: nowrap;
+}
+.f-help { margin-top: 8px; font-size: 14px; line-height: 1.4; color: var(--ink-soft); }
+.f-help a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); font-weight: 700; text-underline-offset: 3px; }
+
+/* la fiche concernée : un petit double de la carte question */
+.qref {
+  background: var(--theme); color: var(--on-theme);
+  border-radius: 12px;
+  padding: 14px 14px 16px;
+}
+.qref .theme-chip { font-size: 13px; }
+.qref-t { margin-top: 12px; font: 800 24px/1.12 var(--display); font-variation-settings: "wdth" 84; letter-spacing: -0.015em; text-wrap: pretty; }
+.qref-t b { font-weight: 800; }
+
+/* le genre d'erreur : des puces à choisir */
+.f-set legend { float: left; width: 100%; }
+.f-set .chips-row { clear: both; }
+.chips-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { position: relative; display: block; cursor: pointer; }
+.chip input { position: absolute; opacity: 0; pointer-events: none; }
+.chip span {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 48px; padding: 0 16px;
+  border-radius: 999px;
+  background: #F3F0FB; color: var(--ink);
+  border: 2px solid var(--pawn-edge);
+  font: 700 15.5px/1 var(--text);
+  white-space: nowrap;
+  transition: transform .15s var(--ease-out), background .15s;
+}
+.chip svg { width: 18px; height: 18px; display: none; flex: none; }
+.chip:hover span { transform: translateY(-2px); }
+.chip input:checked + span {
+  background: var(--theme); color: var(--on-theme);
+  border-color: var(--ink);
+  box-shadow: 0 3px 0 var(--ink);
+  transform: translateY(-2px);
+}
+.chip input:checked + span svg { display: block; }
+.chip input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+/* les champs */
+.f-input {
+  display: block; width: 100%;
+  min-height: 52px;
+  background: var(--card); color: var(--ink);
+  border: 2px solid var(--ink-soft); border-radius: 12px;
+  padding: 12px 14px;
+  font: 500 16px/1.4 var(--text);
+}
+textarea.f-input { min-height: 148px; resize: vertical; }
+.f-input::placeholder { color: var(--ink-soft); opacity: 1; }
+.f-input:focus-visible { outline: 3px solid var(--theme-edge); outline-offset: 2px; border-color: var(--ink); }
+
+/* la promesse */
+.promise {
+  display: grid; grid-template-columns: 24px minmax(0, 1fr); column-gap: 12px; align-items: start;
+  background: var(--theme-tint);
+  border-radius: 12px;
+  padding: 13px 14px;
+  font-size: 15px; line-height: 1.45;
+}
+.promise svg { width: 24px; height: 24px; margin-top: 0; }
+.promise a { display: inline; color: var(--ink); font-weight: 700; text-underline-offset: 3px; }
+.sig-card .go { margin-top: 0; }
+.sig-card .go svg { width: 26px; height: 26px; }
+
+/* ---------- les deux états de l'envoi ---------- */
+.states { margin-top: 38px; display: grid; gap: 26px; }
+.state-k { font: 700 14px/1.2 var(--text); color: var(--muted); white-space: nowrap; }
+.state-card {
+  margin-top: 10px;
+  border-radius: var(--r);
+  padding: 16px;
+  display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 14px; row-gap: 14px; align-items: start;
+}
+.state-ic {
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+}
+.state-ic svg { width: 24px; height: 24px; }
+.state-t { font: 800 22px/1.12 var(--display); font-variation-settings: "wdth" 88; letter-spacing: -0.01em; }
+.state-s { margin-top: 8px; font-size: 14.5px; line-height: 1.45; }
+.state-ok { background: var(--chalk); color: var(--ink); box-shadow: 0 6px 0 var(--pawn-edge); margin-bottom: 6px; }
+.state-ok .state-ic { background: var(--ink); color: var(--chalk); }
+.state-err { background: var(--table-2); color: var(--chalk); border: 2px dashed var(--muted); }
+.state-err .state-ic { background: var(--chalk); color: var(--ink); }
+.state-err .act { grid-column: 1 / -1; }
+.btn-ink {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 48px; margin-top: 14px; padding: 0 16px;
+  background: var(--ink); color: var(--chalk);
+  font: 800 16px/1 var(--display);
+  border-radius: 12px; text-decoration: none; white-space: nowrap;
+  box-shadow: 0 4px 0 var(--table-3);
+  margin-bottom: 4px;
+}
+.btn-ink svg { width: 20px; height: 20px; flex: none; }
+.btn-ink:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.state-err .act { cursor: pointer; border: 0; font-family: var(--display); }
+
+@media (min-width: 900px) {
+  .sig { max-width: 880px; padding: 8px 32px 64px; }
+  .sig-card { padding: 28px 28px 26px; gap: 26px; }
+  .qref { padding: 18px 20px 20px; }
+  .qref-t { font-size: 28px; }
+  .states { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
+}

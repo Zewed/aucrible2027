@@ -1,0 +1,21 @@
+# AEOM : captures et runs, jamais committés
+.aeom/runs/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Tests navigateur
+test-results/
+playwright-report/
+
+# Environnement
+.env*
+.vercel/
+
+# Système
+.DS_Store

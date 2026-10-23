@@ -1,0 +1,2601 @@
+{
+ "groups": [
+  "Le socle",
+  "Lire la question du jour",
+  "Répondre",
+  "La révélation",
+  "Garder ses réponses",
+  "Une question par jour",
+  "La série",
+  "Rattraper",
+  "Mon classement",
+  "Le plateau",
+  "Le camembert des thèmes",
+  "Partager sa carte",
+  "Face-à-face",
+  "Moi contre un candidat",
+  "La fiche candidat",
+  "Les candidats changent",
+  "Comprendre la méthode",
+  "À propos",
+  "Signaler une erreur",
+  "Le journal des corrections",
+  "Changer d'appareil",
+  "Naviguer",
+  "Mesurer les visites",
+  "Publier une fiche",
+  "Le contrôle de neutralité",
+  "Le carrousel du jour",
+  "La vidéo du jour"
+ ],
+ "tickets": [
+  {
+   "group": "Le socle",
+   "design": "maquettes/index.html",
+   "key": "socle",
+   "id": "001",
+   "title": "Valider une option de la question du jour révèle les candidats qui la défendent",
+   "deps": [],
+   "file": "001-valider-une-option-de-la-question-du-jour-revele-les.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "theme",
+   "id": "002",
+   "title": "La carte question affiche son thème",
+   "deps": [
+    "001"
+   ],
+   "file": "002-la-carte-question-affiche-son-theme.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "theme_couleur",
+   "id": "003",
+   "title": "La carte question prend la couleur de son thème",
+   "deps": [
+    "002"
+   ],
+   "file": "003-la-carte-question-prend-la-couleur-de-son-theme.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "numero",
+   "id": "004",
+   "title": "La question affiche son numéro et sa date",
+   "deps": [
+    "001"
+   ],
+   "file": "004-la-question-affiche-son-numero-et-sa-date.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "contexte",
+   "id": "005",
+   "title": "La fiche affiche le contexte en trois phrases",
+   "deps": [
+    "001"
+   ],
+   "file": "005-la-fiche-affiche-le-contexte-en-trois-phrases.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "chiffres",
+   "id": "006",
+   "title": "La fiche affiche les chiffres clés",
+   "deps": [
+    "001"
+   ],
+   "file": "006-la-fiche-affiche-les-chiffres-cles.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "chiffre_source",
+   "id": "007",
+   "title": "Chaque chiffre clé affiche sa source datée",
+   "deps": [
+    "006"
+   ],
+   "file": "007-chaque-chiffre-cle-affiche-sa-source-datee.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "opt_lettre",
+   "id": "008",
+   "title": "Chaque option porte une lettre, de A à E",
+   "deps": [
+    "001"
+   ],
+   "file": "008-chaque-option-porte-une-lettre-de-a-a-e.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "opt_impl",
+   "id": "009",
+   "title": "Chaque option dit ce qu'elle implique",
+   "deps": [
+    "001"
+   ],
+   "file": "009-chaque-option-dit-ce-qu-elle-implique.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "opt_def",
+   "id": "010",
+   "title": "Chaque option dit ce qu'en pensent ses défenseurs",
+   "deps": [
+    "001"
+   ],
+   "file": "010-chaque-option-dit-ce-qu-en-pensent-ses-defenseurs.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "opt_crit",
+   "id": "011",
+   "title": "Chaque option dit ce que lui reprochent ses critiques",
+   "deps": [
+    "001"
+   ],
+   "file": "011-chaque-option-dit-ce-que-lui-reprochent-ses-critiques.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "mention_noms",
+   "id": "012",
+   "title": "La fiche prévient que les noms s'affichent après la réponse",
+   "deps": [
+    "001"
+   ],
+   "file": "012-la-fiche-previent-que-les-noms-s-affichent-apres-la.md"
+  },
+  {
+   "group": "Lire la question du jour",
+   "design": "maquettes/index.html",
+   "key": "desktop",
+   "id": "013",
+   "title": "Sur ordinateur, la carte question se pose à côté des cartes réponse",
+   "deps": [
+    "001"
+   ],
+   "file": "013-sur-ordinateur-la-carte-question-se-pose-a-cote-des.md"
+  },
+  {
+   "group": "Répondre",
+   "design": "maquettes/index.html",
+   "key": "ta_carte",
+   "id": "014",
+   "title": "L'option choisie se marque « Ta carte »",
+   "deps": [
+    "001"
+   ],
+   "file": "014-l-option-choisie-se-marque-ta-carte.md"
+  },
+  {
+   "group": "Répondre",
+   "design": "maquettes/index.html",
+   "key": "changer",
+   "id": "015",
+   "title": "L'électeur change d'option avant de valider",
+   "deps": [
+    "014"
+   ],
+   "file": "015-l-electeur-change-d-option-avant-de-valider.md"
+  },
+  {
+   "group": "Répondre",
+   "design": "maquettes/index.html",
+   "key": "valider_inactif",
+   "id": "016",
+   "title": "« Valider ma réponse » reste inactif sans option choisie",
+   "deps": [
+    "001"
+   ],
+   "file": "016-valider-ma-reponse-reste-inactif-sans-option-choisie.md"
+  },
+  {
+   "group": "Répondre",
+   "design": "maquettes/index.html",
+   "key": "jsp",
+   "id": "017",
+   "title": "L'électeur répond « Je ne sais pas »",
+   "deps": [
+    "001"
+   ],
+   "file": "017-l-electeur-repond-je-ne-sais-pas.md"
+  },
+  {
+   "group": "Répondre",
+   "design": "maquettes/index.html",
+   "key": "importance",
+   "id": "018",
+   "title": "L'électeur choisit l'importance du sujet (×1, ×2, ×3)",
+   "deps": [
+    "001"
+   ],
+   "file": "018-l-electeur-choisit-l-importance-du-sujet-1-2-3.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_toutes",
+   "id": "019",
+   "title": "La révélation montre les candidats de chaque option",
+   "deps": [
+    "001"
+   ],
+   "file": "019-la-revelation-montre-les-candidats-de-chaque-option.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_reponse",
+   "id": "020",
+   "title": "La révélation rappelle l'option choisie",
+   "deps": [
+    "019"
+   ],
+   "file": "020-la-revelation-rappelle-l-option-choisie.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_importance",
+   "id": "021",
+   "title": "La révélation rappelle l'importance donnée",
+   "deps": [
+    "020",
+    "018"
+   ],
+   "file": "021-la-revelation-rappelle-l-importance-donnee.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_source",
+   "id": "022",
+   "title": "Chaque candidat révélé affiche la source de sa position",
+   "deps": [
+    "019"
+   ],
+   "file": "022-chaque-candidat-revele-affiche-la-source-de-sa-position.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_badge",
+   "id": "023",
+   "title": "Chaque position révélée porte son badge « officielle » ou « déduite »",
+   "deps": [
+    "022"
+   ],
+   "file": "023-chaque-position-revelee-porte-son-badge-officielle-ou.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_inconnue",
+   "id": "024",
+   "title": "Les candidats sans source se rangent sous « Position inconnue »",
+   "deps": [
+    "019"
+   ],
+   "file": "024-les-candidats-sans-source-se-rangent-sous-position.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_ordre",
+   "id": "025",
+   "title": "Les candidats s'affichent dans un ordre mélangé",
+   "deps": [
+    "019"
+   ],
+   "file": "025-les-candidats-s-affichent-dans-un-ordre-melange.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_pions",
+   "id": "026",
+   "title": "Tous les candidats révélés ont le même pion, sans couleur de parti",
+   "deps": [
+    "019"
+   ],
+   "file": "026-tous-les-candidats-reveles-ont-le-meme-pion-sans.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_aligne",
+   "id": "027",
+   "title": "La révélation dit avec qui il est aligné sur ce sujet",
+   "deps": [
+    "019"
+   ],
+   "file": "027-la-revelation-dit-avec-qui-il-est-aligne-sur-ce-sujet.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_proche",
+   "id": "028",
+   "title": "La révélation dit de qui il est proche",
+   "deps": [
+    "027"
+   ],
+   "file": "028-la-revelation-dit-de-qui-il-est-proche.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_oppose",
+   "id": "029",
+   "title": "La révélation dit à qui il est opposé",
+   "deps": [
+    "027"
+   ],
+   "file": "029-la-revelation-dit-a-qui-il-est-oppose.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_jsp",
+   "id": "030",
+   "title": "Après « Je ne sais pas », la révélation s'affiche sans alignement",
+   "deps": [
+    "019",
+    "017"
+   ],
+   "file": "030-apres-je-ne-sais-pas-la-revelation-s-affiche-sans.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_flip",
+   "id": "031",
+   "title": "Les cartes se retournent une à une à l'arrivée",
+   "deps": [
+    "019"
+   ],
+   "file": "031-les-cartes-se-retournent-une-a-une-a-l-arrivee.md"
+  },
+  {
+   "group": "La révélation",
+   "design": "maquettes/revelation.html",
+   "key": "rev_plusloin",
+   "id": "032",
+   "title": "La révélation propose des liens « Pour aller plus loin »",
+   "deps": [
+    "019"
+   ],
+   "file": "032-la-revelation-propose-des-liens-pour-aller-plus-loin.md"
+  },
+  {
+   "group": "Garder ses réponses",
+   "design": "maquettes/index.html",
+   "key": "garde",
+   "id": "033",
+   "title": "Une question déjà répondue rouvre sur sa révélation",
+   "deps": [
+    "001"
+   ],
+   "file": "033-une-question-deja-repondue-rouvre-sur-sa-revelation.md"
+  },
+  {
+   "group": "Garder ses réponses",
+   "design": "maquettes/index.html",
+   "key": "garde_importance",
+   "id": "034",
+   "title": "L'importance donnée est retrouvée en revenant",
+   "deps": [
+    "033",
+    "018"
+   ],
+   "file": "034-l-importance-donnee-est-retrouvee-en-revenant.md"
+  },
+  {
+   "group": "Garder ses réponses",
+   "design": "maquettes/index.html",
+   "key": "mention_local",
+   "id": "035",
+   "title": "La fiche rappelle que les réponses restent sur le téléphone",
+   "deps": [
+    "033"
+   ],
+   "file": "035-la-fiche-rappelle-que-les-reponses-restent-sur-le.md"
+  },
+  {
+   "group": "Garder ses réponses",
+   "design": "maquettes/index.html",
+   "key": "prive",
+   "id": "036",
+   "title": "En navigation privée, l'app prévient que rien ne sera gardé",
+   "deps": [
+    "033"
+   ],
+   "file": "036-en-navigation-privee-l-app-previent-que-rien-ne-sera.md"
+  },
+  {
+   "group": "Une question par jour",
+   "design": "maquettes/index.html · maquettes/silence.html",
+   "key": "jour",
+   "id": "037",
+   "title": "La question du jour change chaque jour",
+   "deps": [
+    "001"
+   ],
+   "file": "037-la-question-du-jour-change-chaque-jour.md"
+  },
+  {
+   "group": "Une question par jour",
+   "design": "maquettes/index.html · maquettes/silence.html",
+   "key": "futur",
+   "id": "038",
+   "title": "Une question pas encore publiée reste inaccessible",
+   "deps": [
+    "037"
+   ],
+   "file": "038-une-question-pas-encore-publiee-reste-inaccessible.md"
+  },
+  {
+   "group": "Une question par jour",
+   "design": "maquettes/index.html · maquettes/silence.html",
+   "key": "compte",
+   "id": "039",
+   "title": "Le compte à rebours affiche les jours avant le 1er tour",
+   "deps": [
+    "001"
+   ],
+   "file": "039-le-compte-a-rebours-affiche-les-jours-avant-le-1er-tour.md"
+  },
+  {
+   "group": "Une question par jour",
+   "design": "maquettes/index.html · maquettes/silence.html",
+   "key": "aucune",
+   "id": "040",
+   "title": "Avant la première question, l'accueil dit quand elle arrive",
+   "deps": [
+    "037"
+   ],
+   "file": "040-avant-la-premiere-question-l-accueil-dit-quand-elle.md"
+  },
+  {
+   "group": "Une question par jour",
+   "design": "maquettes/index.html · maquettes/silence.html",
+   "key": "fin",
+   "id": "041",
+   "title": "Quand les questions s'arrêtent, l'accueil le dit",
+   "deps": [
+    "037"
+   ],
+   "file": "041-quand-les-questions-s-arretent-l-accueil-le-dit.md"
+  },
+  {
+   "group": "Une question par jour",
+   "design": "maquettes/index.html · maquettes/silence.html",
+   "key": "silence",
+   "id": "042",
+   "title": "Aucune nouvelle question ne paraît pendant le silence électoral",
+   "deps": [
+    "037"
+   ],
+   "file": "042-aucune-nouvelle-question-ne-parait-pendant-le-silence.md"
+  },
+  {
+   "group": "Une question par jour",
+   "design": "maquettes/index.html · maquettes/silence.html",
+   "key": "silence_accueil",
+   "id": "043",
+   "title": "Pendant le silence électoral, l'accueil explique pourquoi",
+   "deps": [
+    "042"
+   ],
+   "file": "043-pendant-le-silence-electoral-l-accueil-explique.md"
+  },
+  {
+   "group": "Une question par jour",
+   "design": "maquettes/index.html · maquettes/silence.html",
+   "key": "silence_portes",
+   "id": "044",
+   "title": "Pendant le silence électoral, résultats, face-à-face et rattrapage restent ouverts",
+   "deps": [
+    "043"
+   ],
+   "file": "044-pendant-le-silence-electoral-resultats-face-a-face-et.md"
+  },
+  {
+   "group": "La série",
+   "design": "maquettes/index.html",
+   "key": "de",
+   "id": "045",
+   "title": "Le dé affiche les jours d'affilée",
+   "deps": [
+    "033",
+    "037"
+   ],
+   "file": "045-le-de-affiche-les-jours-d-affilee.md"
+  },
+  {
+   "group": "La série",
+   "design": "maquettes/index.html",
+   "key": "de_plus",
+   "id": "046",
+   "title": "Répondre à la question du jour ajoute un jour à la série",
+   "deps": [
+    "045"
+   ],
+   "file": "046-repondre-a-la-question-du-jour-ajoute-un-jour-a-la.md"
+  },
+  {
+   "group": "La série",
+   "design": "maquettes/index.html",
+   "key": "de_zero",
+   "id": "047",
+   "title": "Un jour sans réponse remet la série à zéro",
+   "deps": [
+    "045"
+   ],
+   "file": "047-un-jour-sans-reponse-remet-la-serie-a-zero.md"
+  },
+  {
+   "group": "La série",
+   "design": "maquettes/index.html",
+   "key": "de_jsp",
+   "id": "048",
+   "title": "« Je ne sais pas » ne casse pas la série",
+   "deps": [
+    "045",
+    "017"
+   ],
+   "file": "048-je-ne-sais-pas-ne-casse-pas-la-serie.md"
+  },
+  {
+   "group": "La série",
+   "design": "maquettes/index.html",
+   "key": "de_silence",
+   "id": "049",
+   "title": "Le silence électoral met la série en pause",
+   "deps": [
+    "045",
+    "042"
+   ],
+   "file": "049-le-silence-electoral-met-la-serie-en-pause.md"
+  },
+  {
+   "group": "La série",
+   "design": "maquettes/index.html",
+   "key": "de_vide",
+   "id": "050",
+   "title": "Sans aucune réponse, le dé n'affiche pas de série",
+   "deps": [
+    "045"
+   ],
+   "file": "050-sans-aucune-reponse-le-de-n-affiche-pas-de-serie.md"
+  },
+  {
+   "group": "La série",
+   "design": "maquettes/index.html",
+   "key": "de_roule",
+   "id": "051",
+   "title": "Le dé roule quand la série augmente",
+   "deps": [
+    "046"
+   ],
+   "file": "051-le-de-roule-quand-la-serie-augmente.md"
+  },
+  {
+   "group": "Rattraper",
+   "design": "maquettes/rattrapage.html",
+   "key": "ratt_liste",
+   "id": "052",
+   "title": "L'électeur ouvre la liste des questions publiées",
+   "deps": [
+    "033",
+    "037"
+   ],
+   "file": "052-l-electeur-ouvre-la-liste-des-questions-publiees.md"
+  },
+  {
+   "group": "Rattraper",
+   "design": "maquettes/rattrapage.html",
+   "key": "rev_rattrapage",
+   "id": "053",
+   "title": "La révélation mène au rattrapage",
+   "deps": [
+    "019",
+    "052"
+   ],
+   "file": "053-la-revelation-mene-au-rattrapage.md"
+  },
+  {
+   "group": "Rattraper",
+   "design": "maquettes/rattrapage.html",
+   "key": "ratt_tri",
+   "id": "054",
+   "title": "Les questions qui départagent le plus viennent en premier",
+   "deps": [
+    "052"
+   ],
+   "file": "054-les-questions-qui-departagent-le-plus-viennent-en.md"
+  },
+  {
+   "group": "Rattraper",
+   "design": "maquettes/rattrapage.html",
+   "key": "ratt_pips",
+   "id": "055",
+   "title": "Chaque question affiche son pouvoir de départage",
+   "deps": [
+    "054"
+   ],
+   "file": "055-chaque-question-affiche-son-pouvoir-de-departage.md"
+  },
+  {
+   "group": "Rattraper",
+   "design": "maquettes/rattrapage.html",
+   "key": "ratt_repondu",
+   "id": "056",
+   "title": "Une question répondue est marquée « Répondu » et passe en fin de liste",
+   "deps": [
+    "052"
+   ],
+   "file": "056-une-question-repondue-est-marquee-repondu-et-passe-en.md"
+  },
+  {
+   "group": "Rattraper",
+   "design": "maquettes/rattrapage.html",
+   "key": "ratt_compteur",
+   "id": "057",
+   "title": "La liste affiche le nombre de questions à rattraper",
+   "deps": [
+    "056"
+   ],
+   "file": "057-la-liste-affiche-le-nombre-de-questions-a-rattraper.md"
+  },
+  {
+   "group": "Rattraper",
+   "design": "maquettes/rattrapage.html",
+   "key": "ratt_filtre",
+   "id": "058",
+   "title": "L'électeur filtre la liste par thème",
+   "deps": [
+    "052"
+   ],
+   "file": "058-l-electeur-filtre-la-liste-par-theme.md"
+  },
+  {
+   "group": "Rattraper",
+   "design": "maquettes/rattrapage.html",
+   "key": "ratt_ouvrir",
+   "id": "059",
+   "title": "Une question de la liste s'ouvre sur sa fiche",
+   "deps": [
+    "052"
+   ],
+   "file": "059-une-question-de-la-liste-s-ouvre-sur-sa-fiche.md"
+  },
+  {
+   "group": "Rattraper",
+   "design": "maquettes/rattrapage.html",
+   "key": "ratt_ajour",
+   "id": "060",
+   "title": "Tout rattrapé, la liste dit « Tu es à jour ! »",
+   "deps": [
+    "056"
+   ],
+   "file": "060-tout-rattrape-la-liste-dit-tu-es-a-jour.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_ouvrir",
+   "id": "061",
+   "title": "L'électeur ouvre « Mes résultats »",
+   "deps": [
+    "033"
+   ],
+   "file": "061-l-electeur-ouvre-mes-resultats.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "rev_resultats",
+   "id": "062",
+   "title": "La révélation mène à « Mes résultats »",
+   "deps": [
+    "019",
+    "061"
+   ],
+   "file": "062-la-revelation-mene-a-mes-resultats.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_classement",
+   "id": "063",
+   "title": "Le classement range les 13 candidats par % de proximité",
+   "deps": [
+    "061"
+   ],
+   "file": "063-le-classement-range-les-13-candidats-par-de-proximite.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_echelle",
+   "id": "064",
+   "title": "Une option voisine sur l'échelle compte en partie",
+   "deps": [
+    "063"
+   ],
+   "file": "064-une-option-voisine-sur-l-echelle-compte-en-partie.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_hors_echelle",
+   "id": "065",
+   "title": "Une option hors échelle compte tout ou rien",
+   "deps": [
+    "063"
+   ],
+   "file": "065-une-option-hors-echelle-compte-tout-ou-rien.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_importance",
+   "id": "066",
+   "title": "L'importance ×2 ou ×3 pèse plus dans le classement",
+   "deps": [
+    "063",
+    "018"
+   ],
+   "file": "066-l-importance-2-ou-3-pese-plus-dans-le-classement.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_inconnue",
+   "id": "067",
+   "title": "Une position inconnue ne compte pas pour ce candidat",
+   "deps": [
+    "063"
+   ],
+   "file": "067-une-position-inconnue-ne-compte-pas-pour-ce-candidat.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_jsp",
+   "id": "068",
+   "title": "« Je ne sais pas » ne compte pas dans le classement",
+   "deps": [
+    "063",
+    "017"
+   ],
+   "file": "068-je-ne-sais-pas-ne-compte-pas-dans-le-classement.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_barre",
+   "id": "069",
+   "title": "Chaque candidat du classement a sa barre",
+   "deps": [
+    "063"
+   ],
+   "file": "069-chaque-candidat-du-classement-a-sa-barre.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_pions",
+   "id": "070",
+   "title": "Tous les candidats du classement ont le même pion",
+   "deps": [
+    "063"
+   ],
+   "file": "070-tous-les-candidats-du-classement-ont-le-meme-pion.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_fiab",
+   "id": "071",
+   "title": "Le classement affiche sa fiabilité",
+   "deps": [
+    "063"
+   ],
+   "file": "071-le-classement-affiche-sa-fiabilite.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_pas_sondage",
+   "id": "072",
+   "title": "Les résultats affichent « Ce n'est pas un sondage »",
+   "deps": [
+    "061"
+   ],
+   "file": "072-les-resultats-affichent-ce-n-est-pas-un-sondage.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_vide",
+   "id": "073",
+   "title": "Avant 10 réponses, le classement dit combien il en manque",
+   "deps": [
+    "063"
+   ],
+   "file": "073-avant-10-reponses-le-classement-dit-combien-il-en.md"
+  },
+  {
+   "group": "Mon classement",
+   "design": "maquettes/resultats.html · maquettes/resultats-vide.html",
+   "key": "res_vide_bouton",
+   "id": "074",
+   "title": "Avant 10 réponses, un bouton mène au rattrapage",
+   "deps": [
+    "073",
+    "052"
+   ],
+   "file": "074-avant-10-reponses-un-bouton-mene-au-rattrapage.md"
+  },
+  {
+   "group": "Le plateau",
+   "design": "maquettes/resultats.html",
+   "key": "plat",
+   "id": "075",
+   "title": "Le plateau place le pion « toi » sur les deux axes",
+   "deps": [
+    "061"
+   ],
+   "file": "075-le-plateau-place-le-pion-toi-sur-les-deux-axes.md"
+  },
+  {
+   "group": "Le plateau",
+   "design": "maquettes/resultats.html",
+   "key": "res_desktop",
+   "id": "076",
+   "title": "Sur ordinateur, le plateau se pose à côté du classement",
+   "deps": [
+    "063",
+    "075"
+   ],
+   "file": "076-sur-ordinateur-le-plateau-se-pose-a-cote-du-classement.md"
+  },
+  {
+   "group": "Le plateau",
+   "design": "maquettes/resultats.html",
+   "key": "plat_axes",
+   "id": "077",
+   "title": "Le plateau nomme ses deux axes",
+   "deps": [
+    "075"
+   ],
+   "file": "077-le-plateau-nomme-ses-deux-axes.md"
+  },
+  {
+   "group": "Le plateau",
+   "design": "maquettes/resultats.html",
+   "key": "plat_cands",
+   "id": "078",
+   "title": "Les 13 candidats sont posés en pions identiques",
+   "deps": [
+    "075"
+   ],
+   "file": "078-les-13-candidats-sont-poses-en-pions-identiques.md"
+  },
+  {
+   "group": "Le plateau",
+   "design": "maquettes/resultats.html",
+   "key": "plat_legende",
+   "id": "079",
+   "title": "La légende relie chaque pion à son candidat",
+   "deps": [
+    "078"
+   ],
+   "file": "079-la-legende-relie-chaque-pion-a-son-candidat.md"
+  },
+  {
+   "group": "Le plateau",
+   "design": "maquettes/resultats.html",
+   "key": "plat_sans_note",
+   "id": "080",
+   "title": "Une option sans note sur un axe ne déplace pas le pion",
+   "deps": [
+    "075"
+   ],
+   "file": "080-une-option-sans-note-sur-un-axe-ne-deplace-pas-le-pion.md"
+  },
+  {
+   "group": "Le plateau",
+   "design": "maquettes/resultats.html",
+   "key": "plat_vide",
+   "id": "081",
+   "title": "Avant 10 réponses, le plateau dit que la position s'affinera",
+   "deps": [
+    "075"
+   ],
+   "file": "081-avant-10-reponses-le-plateau-dit-que-la-position-s.md"
+  },
+  {
+   "group": "Le plateau",
+   "design": "maquettes/resultats.html",
+   "key": "plat_chevauche",
+   "id": "082",
+   "title": "Des pions qui se chevauchent restent lisibles au téléphone",
+   "deps": [
+    "078"
+   ],
+   "file": "082-des-pions-qui-se-chevauchent-restent-lisibles-au.md"
+  },
+  {
+   "group": "Le camembert des thèmes",
+   "design": "maquettes/resultats.html",
+   "key": "cam",
+   "id": "083",
+   "title": "Le camembert affiche 11 parts, une par thème",
+   "deps": [
+    "061"
+   ],
+   "file": "083-le-camembert-affiche-11-parts-une-par-theme.md"
+  },
+  {
+   "group": "Le camembert des thèmes",
+   "design": "maquettes/resultats.html",
+   "key": "cam_part",
+   "id": "084",
+   "title": "Une part se remplit après 3 réponses dans son thème",
+   "deps": [
+    "083"
+   ],
+   "file": "084-une-part-se-remplit-apres-3-reponses-dans-son-theme.md"
+  },
+  {
+   "group": "Le camembert des thèmes",
+   "design": "maquettes/resultats.html",
+   "key": "cam_compteur",
+   "id": "085",
+   "title": "Le camembert affiche le nombre de parts gagnées",
+   "deps": [
+    "084"
+   ],
+   "file": "085-le-camembert-affiche-le-nombre-de-parts-gagnees.md"
+  },
+  {
+   "group": "Le camembert des thèmes",
+   "design": "maquettes/resultats.html",
+   "key": "cam_proche",
+   "id": "086",
+   "title": "Chaque thème affiche son candidat le plus proche",
+   "deps": [
+    "084",
+    "063"
+   ],
+   "file": "086-chaque-theme-affiche-son-candidat-le-plus-proche.md"
+  },
+  {
+   "group": "Le camembert des thèmes",
+   "design": "maquettes/resultats.html",
+   "key": "cam_pas_assez",
+   "id": "087",
+   "title": "Un thème sous 3 réponses dit « pas encore assez de réponses »",
+   "deps": [
+    "086"
+   ],
+   "file": "087-un-theme-sous-3-reponses-dit-pas-encore-assez-de.md"
+  },
+  {
+   "group": "Le camembert des thèmes",
+   "design": "maquettes/resultats.html",
+   "key": "cam_enjeu",
+   "id": "088",
+   "title": "La question du jour annonce la part en jeu",
+   "deps": [
+    "084"
+   ],
+   "file": "088-la-question-du-jour-annonce-la-part-en-jeu.md"
+  },
+  {
+   "group": "Le camembert des thèmes",
+   "design": "maquettes/resultats.html",
+   "key": "cam_gagnee",
+   "id": "089",
+   "title": "La révélation annonce la part gagnée",
+   "deps": [
+    "084",
+    "019"
+   ],
+   "file": "089-la-revelation-annonce-la-part-gagnee.md"
+  },
+  {
+   "group": "Le camembert des thèmes",
+   "design": "maquettes/resultats.html",
+   "key": "cam_trophee",
+   "id": "090",
+   "title": "Les 11 parts remplies font du camembert un trophée",
+   "deps": [
+    "084"
+   ],
+   "file": "090-les-11-parts-remplies-font-du-camembert-un-trophee.md"
+  },
+  {
+   "group": "Partager sa carte",
+   "design": "maquettes/carte-story.html",
+   "key": "carte",
+   "id": "091",
+   "title": "Les résultats montrent la carte « Je suis à X % proche de Y »",
+   "deps": [
+    "063"
+   ],
+   "file": "091-les-resultats-montrent-la-carte-je-suis-a-x-proche-de-y.md"
+  },
+  {
+   "group": "Partager sa carte",
+   "design": "maquettes/carte-story.html",
+   "key": "carte_compteurs",
+   "id": "092",
+   "title": "La carte affiche réponses, thèmes et série",
+   "deps": [
+    "091",
+    "084",
+    "045"
+   ],
+   "file": "092-la-carte-affiche-reponses-themes-et-serie.md"
+  },
+  {
+   "group": "Partager sa carte",
+   "design": "maquettes/carte-story.html",
+   "key": "carte_cam",
+   "id": "093",
+   "title": "La carte affiche le camembert",
+   "deps": [
+    "091",
+    "083"
+   ],
+   "file": "093-la-carte-affiche-le-camembert.md"
+  },
+  {
+   "group": "Partager sa carte",
+   "design": "maquettes/carte-story.html",
+   "key": "carte_pion",
+   "id": "094",
+   "title": "L'électeur choisit une carte qui ne montre que son pion",
+   "deps": [
+    "091",
+    "075"
+   ],
+   "file": "094-l-electeur-choisit-une-carte-qui-ne-montre-que-son-pion.md"
+  },
+  {
+   "group": "Partager sa carte",
+   "design": "maquettes/carte-story.html",
+   "key": "carte_partager",
+   "id": "095",
+   "title": "« Partager » envoie l'image 9:16 au partage du téléphone",
+   "deps": [
+    "091"
+   ],
+   "file": "095-partager-envoie-l-image-9-16-au-partage-du-telephone.md"
+  },
+  {
+   "group": "Partager sa carte",
+   "design": "maquettes/carte-story.html",
+   "key": "carte_telecharger",
+   "id": "096",
+   "title": "« Télécharger l'image » enregistre la carte",
+   "deps": [
+    "091"
+   ],
+   "file": "096-telecharger-l-image-enregistre-la-carte.md"
+  },
+  {
+   "group": "Partager sa carte",
+   "design": "maquettes/carte-story.html",
+   "key": "carte_vide",
+   "id": "097",
+   "title": "Avant 10 réponses, la carte reste verrouillée",
+   "deps": [
+    "091"
+   ],
+   "file": "097-avant-10-reponses-la-carte-reste-verrouillee.md"
+  },
+  {
+   "group": "Partager sa carte",
+   "design": "maquettes/carte-story.html",
+   "key": "carte_adresse",
+   "id": "098",
+   "title": "La carte affiche « Et toi ? aucrible2027.fr »",
+   "deps": [
+    "091"
+   ],
+   "file": "098-la-carte-affiche-et-toi-aucrible2027-fr.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa",
+   "id": "099",
+   "title": "Le face-à-face montre deux candidats côte à côte, question par question",
+   "deps": [
+    "061"
+   ],
+   "file": "099-le-face-a-face-montre-deux-candidats-cote-a-cote.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_source",
+   "id": "100",
+   "title": "Chaque position du face-à-face affiche sa source",
+   "deps": [
+    "099"
+   ],
+   "file": "100-chaque-position-du-face-a-face-affiche-sa-source.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_badge",
+   "id": "101",
+   "title": "Chaque position du face-à-face porte son badge",
+   "deps": [
+    "100"
+   ],
+   "file": "101-chaque-position-du-face-a-face-porte-son-badge.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_accord",
+   "id": "102",
+   "title": "Les questions où ils sont d'accord sont marquées",
+   "deps": [
+    "099"
+   ],
+   "file": "102-les-questions-ou-ils-sont-d-accord-sont-marquees.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_compte",
+   "id": "103",
+   "title": "Le face-à-face compte leurs accords",
+   "deps": [
+    "102"
+   ],
+   "file": "103-le-face-a-face-compte-leurs-accords.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_changer",
+   "id": "104",
+   "title": "« Changer » remplace un des deux candidats",
+   "deps": [
+    "099"
+   ],
+   "file": "104-changer-remplace-un-des-deux-candidats.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_meme",
+   "id": "105",
+   "title": "Le même candidat ne peut pas être choisi deux fois",
+   "deps": [
+    "104"
+   ],
+   "file": "105-le-meme-candidat-ne-peut-pas-etre-choisi-deux-fois.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_inverser",
+   "id": "106",
+   "title": "Le disque central inverse les deux candidats",
+   "deps": [
+    "099"
+   ],
+   "file": "106-le-disque-central-inverse-les-deux-candidats.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_filtre",
+   "id": "107",
+   "title": "L'électeur filtre le face-à-face par thème",
+   "deps": [
+    "099"
+   ],
+   "file": "107-l-electeur-filtre-le-face-a-face-par-theme.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_inconnue",
+   "id": "108",
+   "title": "Une position inconnue s'affiche comme telle",
+   "deps": [
+    "099"
+   ],
+   "file": "108-une-position-inconnue-s-affiche-comme-telle.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_repondu",
+   "id": "109",
+   "title": "Le face-à-face ne montre que les questions déjà répondues",
+   "deps": [
+    "099",
+    "033"
+   ],
+   "file": "109-le-face-a-face-ne-montre-que-les-questions-deja.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_cachees",
+   "id": "110",
+   "title": "Une carte retournée compte les questions cachées",
+   "deps": [
+    "109"
+   ],
+   "file": "110-une-carte-retournee-compte-les-questions-cachees.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_vide",
+   "id": "111",
+   "title": "Sans réponse, le face-à-face invite à répondre d'abord",
+   "deps": [
+    "109"
+   ],
+   "file": "111-sans-reponse-le-face-a-face-invite-a-repondre-d-abord.md"
+  },
+  {
+   "group": "Face-à-face",
+   "design": "maquettes/face-a-face.html",
+   "key": "fa_lien",
+   "id": "112",
+   "title": "Un lien partagé ouvre le face-à-face sur deux candidats",
+   "deps": [
+    "099"
+   ],
+   "file": "112-un-lien-partage-ouvre-le-face-a-face-sur-deux-candidats.md"
+  },
+  {
+   "group": "Moi contre un candidat",
+   "design": "maquettes/moi-vs.html",
+   "key": "mv",
+   "id": "113",
+   "title": "« Moi contre » montre ses réponses face à celles d'un candidat",
+   "deps": [
+    "061"
+   ],
+   "file": "113-moi-contre-montre-ses-reponses-face-a-celles-d-un.md"
+  },
+  {
+   "group": "Moi contre un candidat",
+   "design": "maquettes/moi-vs.html",
+   "key": "mv_score",
+   "id": "114",
+   "title": "« Moi contre » affiche le % d'accord",
+   "deps": [
+    "113",
+    "063"
+   ],
+   "file": "114-moi-contre-affiche-le-d-accord.md"
+  },
+  {
+   "group": "Moi contre un candidat",
+   "design": "maquettes/moi-vs.html",
+   "key": "mv_theme",
+   "id": "115",
+   "title": "« Moi contre » affiche un score par thème",
+   "deps": [
+    "114"
+   ],
+   "file": "115-moi-contre-affiche-un-score-par-theme.md"
+  },
+  {
+   "group": "Moi contre un candidat",
+   "design": "maquettes/moi-vs.html",
+   "key": "mv_changer",
+   "id": "116",
+   "title": "L'électeur change de candidat",
+   "deps": [
+    "113"
+   ],
+   "file": "116-l-electeur-change-de-candidat.md"
+  },
+  {
+   "group": "Moi contre un candidat",
+   "design": "maquettes/moi-vs.html",
+   "key": "mv_source",
+   "id": "117",
+   "title": "Chaque position du candidat affiche sa source",
+   "deps": [
+    "113"
+   ],
+   "file": "117-chaque-position-du-candidat-affiche-sa-source.md"
+  },
+  {
+   "group": "Moi contre un candidat",
+   "design": "maquettes/moi-vs.html",
+   "key": "mv_badge",
+   "id": "118",
+   "title": "Chaque position du candidat porte son badge",
+   "deps": [
+    "117"
+   ],
+   "file": "118-chaque-position-du-candidat-porte-son-badge.md"
+  },
+  {
+   "group": "Moi contre un candidat",
+   "design": "maquettes/moi-vs.html",
+   "key": "mv_non_repondu",
+   "id": "119",
+   "title": "Une question non répondue est grisée et mène au rattrapage",
+   "deps": [
+    "113",
+    "052"
+   ],
+   "file": "119-une-question-non-repondue-est-grisee-et-mene-au.md"
+  },
+  {
+   "group": "Moi contre un candidat",
+   "design": "maquettes/moi-vs.html",
+   "key": "mv_fa",
+   "id": "120",
+   "title": "« Moi contre » mène au face-à-face",
+   "deps": [
+    "113",
+    "099"
+   ],
+   "file": "120-moi-contre-mene-au-face-a-face.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_ouvrir",
+   "id": "121",
+   "title": "L'électeur ouvre la fiche d'un candidat",
+   "deps": [
+    "001"
+   ],
+   "file": "121-l-electeur-ouvre-la-fiche-d-un-candidat.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "rev_candidat",
+   "id": "122",
+   "title": "Un nom révélé ouvre la fiche du candidat",
+   "deps": [
+    "019",
+    "121"
+   ],
+   "file": "122-un-nom-revele-ouvre-la-fiche-du-candidat.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "res_candidat",
+   "id": "123",
+   "title": "Un candidat du classement ouvre sa fiche",
+   "deps": [
+    "063",
+    "121"
+   ],
+   "file": "123-un-candidat-du-classement-ouvre-sa-fiche.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_parti",
+   "id": "124",
+   "title": "La fiche affiche le parti du candidat",
+   "deps": [
+    "121"
+   ],
+   "file": "124-la-fiche-affiche-le-parti-du-candidat.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_statut",
+   "id": "125",
+   "title": "La fiche affiche le statut de la candidature",
+   "deps": [
+    "121"
+   ],
+   "file": "125-la-fiche-affiche-le-statut-de-la-candidature.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_positions",
+   "id": "126",
+   "title": "La fiche range ses positions par thème",
+   "deps": [
+    "121"
+   ],
+   "file": "126-la-fiche-range-ses-positions-par-theme.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_source",
+   "id": "127",
+   "title": "Chaque position affiche sa source datée",
+   "deps": [
+    "126"
+   ],
+   "file": "127-chaque-position-affiche-sa-source-datee.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_badge",
+   "id": "128",
+   "title": "Chaque position porte son badge",
+   "deps": [
+    "127"
+   ],
+   "file": "128-chaque-position-porte-son-badge.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_inconnue",
+   "id": "129",
+   "title": "Une question sans source affiche « position inconnue »",
+   "deps": [
+    "126"
+   ],
+   "file": "129-une-question-sans-source-affiche-position-inconnue.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_publiees",
+   "id": "130",
+   "title": "La fiche ne montre que les questions publiées",
+   "deps": [
+    "126",
+    "038"
+   ],
+   "file": "130-la-fiche-ne-montre-que-les-questions-publiees.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_proximite",
+   "id": "131",
+   "title": "La fiche affiche sa proximité avec l'électeur",
+   "deps": [
+    "121",
+    "063"
+   ],
+   "file": "131-la-fiche-affiche-sa-proximite-avec-l-electeur.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_legende",
+   "id": "132",
+   "title": "La fiche explique les deux badges",
+   "deps": [
+    "128"
+   ],
+   "file": "132-la-fiche-explique-les-deux-badges.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_mv",
+   "id": "133",
+   "title": "La fiche mène à « Moi contre » ce candidat",
+   "deps": [
+    "121",
+    "113"
+   ],
+   "file": "133-la-fiche-mene-a-moi-contre-ce-candidat.md"
+  },
+  {
+   "group": "La fiche candidat",
+   "design": "maquettes/candidat.html",
+   "key": "cand_fa",
+   "id": "134",
+   "title": "La fiche mène au face-à-face",
+   "deps": [
+    "121",
+    "099"
+   ],
+   "file": "134-la-fiche-mene-au-face-a-face.md"
+  },
+  {
+   "group": "Les candidats changent",
+   "design": "maquettes/candidat.html",
+   "key": "ch_retrait",
+   "id": "135",
+   "title": "Un candidat retiré sort du classement",
+   "deps": [
+    "063"
+   ],
+   "file": "135-un-candidat-retire-sort-du-classement.md"
+  },
+  {
+   "group": "Les candidats changent",
+   "design": "maquettes/candidat.html",
+   "key": "ch_retrait_fiche",
+   "id": "136",
+   "title": "La fiche d'un candidat retiré dit quand et qui il soutient",
+   "deps": [
+    "121"
+   ],
+   "file": "136-la-fiche-d-un-candidat-retire-dit-quand-et-qui-il.md"
+  },
+  {
+   "group": "Les candidats changent",
+   "design": "maquettes/candidat.html",
+   "key": "ch_retrait_rev",
+   "id": "137",
+   "title": "Un candidat retiré n'apparaît plus dans les nouvelles révélations",
+   "deps": [
+    "019"
+   ],
+   "file": "137-un-candidat-retire-n-apparait-plus-dans-les-nouvelles.md"
+  },
+  {
+   "group": "Les candidats changent",
+   "design": "maquettes/candidat.html",
+   "key": "ch_rempl",
+   "id": "138",
+   "title": "Un candidat remplacé prend le nom de son remplaçant",
+   "deps": [
+    "121"
+   ],
+   "file": "138-un-candidat-remplace-prend-le-nom-de-son-remplacant.md"
+  },
+  {
+   "group": "Les candidats changent",
+   "design": "maquettes/candidat.html",
+   "key": "ch_rempl_deduite",
+   "id": "139",
+   "title": "Après un remplacement, les positions héritées passent en « déduite »",
+   "deps": [
+    "138"
+   ],
+   "file": "139-apres-un-remplacement-les-positions-heritees-passent-en.md"
+  },
+  {
+   "group": "Les candidats changent",
+   "design": "maquettes/candidat.html",
+   "key": "ch_entree",
+   "id": "140",
+   "title": "Un nouveau candidat entre dans le classement",
+   "deps": [
+    "063"
+   ],
+   "file": "140-un-nouveau-candidat-entre-dans-le-classement.md"
+  },
+  {
+   "group": "Les candidats changent",
+   "design": "maquettes/candidat.html",
+   "key": "ch_entree_inconnue",
+   "id": "141",
+   "title": "Un nouveau candidat sans source est « position inconnue » partout",
+   "deps": [
+    "140"
+   ],
+   "file": "141-un-nouveau-candidat-sans-source-est-position-inconnue.md"
+  },
+  {
+   "group": "Les candidats changent",
+   "design": "maquettes/candidat.html",
+   "key": "ch_officielle",
+   "id": "142",
+   "title": "À la liste officielle, seuls les candidats officiels restent",
+   "deps": [
+    "135",
+    "140"
+   ],
+   "file": "142-a-la-liste-officielle-seuls-les-candidats-officiels.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me",
+   "id": "143",
+   "title": "La page Méthode explique le score d'une question avec un exemple",
+   "deps": [
+    "063"
+   ],
+   "file": "143-la-page-methode-explique-le-score-d-une-question-avec.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me_importance",
+   "id": "144",
+   "title": "La page Méthode explique le poids de l'importance",
+   "deps": [
+    "143"
+   ],
+   "file": "144-la-page-methode-explique-le-poids-de-l-importance.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me_inconnue",
+   "id": "145",
+   "title": "La page Méthode explique pourquoi une position inconnue ne compte pas",
+   "deps": [
+    "143"
+   ],
+   "file": "145-la-page-methode-explique-pourquoi-une-position-inconnue.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me_plateau",
+   "id": "146",
+   "title": "La page Méthode explique comment le plateau place les pions",
+   "deps": [
+    "143"
+   ],
+   "file": "146-la-page-methode-explique-comment-le-plateau-place-les.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me_sources",
+   "id": "147",
+   "title": "La page Méthode explique l'ordre des sources",
+   "deps": [
+    "143"
+   ],
+   "file": "147-la-page-methode-explique-l-ordre-des-sources.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me_badges",
+   "id": "148",
+   "title": "La page Méthode explique les deux badges",
+   "deps": [
+    "147"
+   ],
+   "file": "148-la-page-methode-explique-les-deux-badges.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me_entree",
+   "id": "149",
+   "title": "La page Méthode explique la règle d'entrée des candidats",
+   "deps": [
+    "143"
+   ],
+   "file": "149-la-page-methode-explique-la-regle-d-entree-des.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me_retraits",
+   "id": "150",
+   "title": "La page Méthode explique les retraits et remplacements",
+   "deps": [
+    "149"
+   ],
+   "file": "150-la-page-methode-explique-les-retraits-et-remplacements.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me_officielle",
+   "id": "151",
+   "title": "La page Méthode explique la bascule sur la liste officielle",
+   "deps": [
+    "149"
+   ],
+   "file": "151-la-page-methode-explique-la-bascule-sur-la-liste.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me_sondage",
+   "id": "152",
+   "title": "La page Méthode explique pourquoi ce n'est pas un sondage",
+   "deps": [
+    "143"
+   ],
+   "file": "152-la-page-methode-explique-pourquoi-ce-n-est-pas-un.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me_code",
+   "id": "153",
+   "title": "La page Méthode mène au code source public",
+   "deps": [
+    "143"
+   ],
+   "file": "153-la-page-methode-mene-au-code-source-public.md"
+  },
+  {
+   "group": "Comprendre la méthode",
+   "design": "maquettes/methode.html",
+   "key": "me_lien",
+   "id": "154",
+   "title": "« Méthode de calcul » mène des résultats à la page Méthode",
+   "deps": [
+    "143",
+    "061"
+   ],
+   "file": "154-methode-de-calcul-mene-des-resultats-a-la-page-methode.md"
+  },
+  {
+   "group": "À propos",
+   "design": "maquettes/a-propos.html",
+   "key": "ap",
+   "id": "155",
+   "title": "La page À propos dit qui fait l'app",
+   "deps": [
+    "001"
+   ],
+   "file": "155-la-page-a-propos-dit-qui-fait-l-app.md"
+  },
+  {
+   "group": "À propos",
+   "design": "maquettes/a-propos.html",
+   "key": "ap_relecture",
+   "id": "156",
+   "title": "La page À propos dit comment les fiches sont relues",
+   "deps": [
+    "155"
+   ],
+   "file": "156-la-page-a-propos-dit-comment-les-fiches-sont-relues.md"
+  },
+  {
+   "group": "À propos",
+   "design": "maquettes/a-propos.html",
+   "key": "ap_donnees",
+   "id": "157",
+   "title": "La page À propos dit qu'on ne sait pas pour qui tu votes",
+   "deps": [
+    "155"
+   ],
+   "file": "157-la-page-a-propos-dit-qu-on-ne-sait-pas-pour-qui-tu.md"
+  },
+  {
+   "group": "À propos",
+   "design": "maquettes/a-propos.html",
+   "key": "ap_ia",
+   "id": "158",
+   "title": "La page À propos dit ce que fait l'IA",
+   "deps": [
+    "155"
+   ],
+   "file": "158-la-page-a-propos-dit-ce-que-fait-l-ia.md"
+  },
+  {
+   "group": "À propos",
+   "design": "maquettes/a-propos.html",
+   "key": "ap_reseaux",
+   "id": "159",
+   "title": "La page À propos mène aux comptes @aucrible2027",
+   "deps": [
+    "155"
+   ],
+   "file": "159-la-page-a-propos-mene-aux-comptes-aucrible2027.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig",
+   "id": "160",
+   "title": "« Signaler une erreur » ouvre le formulaire depuis la fiche",
+   "deps": [
+    "001"
+   ],
+   "file": "160-signaler-une-erreur-ouvre-le-formulaire-depuis-la-fiche.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig_fiche",
+   "id": "161",
+   "title": "Le formulaire sait de quelle fiche il vient",
+   "deps": [
+    "160"
+   ],
+   "file": "161-le-formulaire-sait-de-quelle-fiche-il-vient.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig_type",
+   "id": "162",
+   "title": "L'électeur choisit le type d'erreur",
+   "deps": [
+    "160"
+   ],
+   "file": "162-l-electeur-choisit-le-type-d-erreur.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig_envoi",
+   "id": "163",
+   "title": "L'électeur envoie un signalement",
+   "deps": [
+    "160"
+   ],
+   "file": "163-l-electeur-envoie-un-signalement.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig_boite",
+   "id": "164",
+   "title": "Le signalement arrive dans une boîte privée",
+   "deps": [
+    "163"
+   ],
+   "file": "164-le-signalement-arrive-dans-une-boite-privee.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig_source",
+   "id": "165",
+   "title": "L'électeur joint une source à son signalement",
+   "deps": [
+    "163"
+   ],
+   "file": "165-l-electeur-joint-une-source-a-son-signalement.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig_email",
+   "id": "166",
+   "title": "L'électeur laisse un email pour avoir une réponse",
+   "deps": [
+    "163"
+   ],
+   "file": "166-l-electeur-laisse-un-email-pour-avoir-une-reponse.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig_merci",
+   "id": "167",
+   "title": "Après l'envoi, le formulaire remercie",
+   "deps": [
+    "163"
+   ],
+   "file": "167-apres-l-envoi-le-formulaire-remercie.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig_vide",
+   "id": "168",
+   "title": "Un signalement vide ne part pas",
+   "deps": [
+    "163"
+   ],
+   "file": "168-un-signalement-vide-ne-part-pas.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig_echec",
+   "id": "169",
+   "title": "Un envoi raté garde le texte et propose de réessayer",
+   "deps": [
+    "163"
+   ],
+   "file": "169-un-envoi-rate-garde-le-texte-et-propose-de-reessayer.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig_72h",
+   "id": "170",
+   "title": "Le formulaire promet une réponse sous 72 h",
+   "deps": [
+    "160"
+   ],
+   "file": "170-le-formulaire-promet-une-reponse-sous-72-h.md"
+  },
+  {
+   "group": "Signaler une erreur",
+   "design": "maquettes/signaler.html",
+   "key": "sig_candidat",
+   "id": "171",
+   "title": "La fiche candidat propose aussi « Signaler une erreur »",
+   "deps": [
+    "160",
+    "121"
+   ],
+   "file": "171-la-fiche-candidat-propose-aussi-signaler-une-erreur.md"
+  },
+  {
+   "group": "Le journal des corrections",
+   "design": "maquettes/journal.html",
+   "key": "jo",
+   "id": "172",
+   "title": "Le journal liste les corrections, les plus récentes d'abord",
+   "deps": [
+    "001"
+   ],
+   "file": "172-le-journal-liste-les-corrections-les-plus-recentes-d.md"
+  },
+  {
+   "group": "Le journal des corrections",
+   "design": "maquettes/journal.html",
+   "key": "jo_fiche",
+   "id": "173",
+   "title": "Chaque correction dit quelle fiche elle touche",
+   "deps": [
+    "172"
+   ],
+   "file": "173-chaque-correction-dit-quelle-fiche-elle-touche.md"
+  },
+  {
+   "group": "Le journal des corrections",
+   "design": "maquettes/journal.html",
+   "key": "jo_avant_apres",
+   "id": "174",
+   "title": "Chaque correction montre l'avant et l'après",
+   "deps": [
+    "172"
+   ],
+   "file": "174-chaque-correction-montre-l-avant-et-l-apres.md"
+  },
+  {
+   "group": "Le journal des corrections",
+   "design": "maquettes/journal.html",
+   "key": "jo_raison",
+   "id": "175",
+   "title": "Chaque correction dit sa raison",
+   "deps": [
+    "172"
+   ],
+   "file": "175-chaque-correction-dit-sa-raison.md"
+  },
+  {
+   "group": "Le journal des corrections",
+   "design": "maquettes/journal.html",
+   "key": "jo_origine",
+   "id": "176",
+   "title": "Chaque correction dit qui l'a repérée",
+   "deps": [
+    "172"
+   ],
+   "file": "176-chaque-correction-dit-qui-l-a-reperee.md"
+  },
+  {
+   "group": "Le journal des corrections",
+   "design": "maquettes/journal.html",
+   "key": "jo_filtre",
+   "id": "177",
+   "title": "L'électeur filtre le journal par type",
+   "deps": [
+    "172"
+   ],
+   "file": "177-l-electeur-filtre-le-journal-par-type.md"
+  },
+  {
+   "group": "Le journal des corrections",
+   "design": "maquettes/journal.html",
+   "key": "jo_vide",
+   "id": "178",
+   "title": "Sans correction, le journal invite à signaler",
+   "deps": [
+    "172"
+   ],
+   "file": "178-sans-correction-le-journal-invite-a-signaler.md"
+  },
+  {
+   "group": "Changer d'appareil",
+   "design": "maquettes/appareil.html",
+   "key": "app_qr",
+   "id": "179",
+   "title": "L'électeur affiche ses réponses en QR code",
+   "deps": [
+    "033"
+   ],
+   "file": "179-l-electeur-affiche-ses-reponses-en-qr-code.md"
+  },
+  {
+   "group": "Changer d'appareil",
+   "design": "maquettes/appareil.html",
+   "key": "app_lien",
+   "id": "180",
+   "title": "L'électeur copie ses réponses en lien",
+   "deps": [
+    "033"
+   ],
+   "file": "180-l-electeur-copie-ses-reponses-en-lien.md"
+  },
+  {
+   "group": "Changer d'appareil",
+   "design": "maquettes/appareil.html",
+   "key": "app_scan",
+   "id": "181",
+   "title": "Scanner le QR code importe les réponses",
+   "deps": [
+    "179"
+   ],
+   "file": "181-scanner-le-qr-code-importe-les-reponses.md"
+  },
+  {
+   "group": "Changer d'appareil",
+   "design": "maquettes/appareil.html",
+   "key": "app_coller",
+   "id": "182",
+   "title": "Coller le lien importe les réponses",
+   "deps": [
+    "180"
+   ],
+   "file": "182-coller-le-lien-importe-les-reponses.md"
+  },
+  {
+   "group": "Changer d'appareil",
+   "design": "maquettes/appareil.html",
+   "key": "app_remplacer",
+   "id": "183",
+   "title": "Un appareil qui a déjà des réponses demande avant de les remplacer",
+   "deps": [
+    "181"
+   ],
+   "file": "183-un-appareil-qui-a-deja-des-reponses-demande-avant-de.md"
+  },
+  {
+   "group": "Changer d'appareil",
+   "design": "maquettes/appareil.html",
+   "key": "app_invalide",
+   "id": "184",
+   "title": "Un code illisible est refusé avec un message",
+   "deps": [
+    "181"
+   ],
+   "file": "184-un-code-illisible-est-refuse-avec-un-message.md"
+  },
+  {
+   "group": "Changer d'appareil",
+   "design": "maquettes/appareil.html",
+   "key": "app_rassure",
+   "id": "185",
+   "title": "La page dit que les réponses ne passent par aucun serveur",
+   "deps": [
+    "179"
+   ],
+   "file": "185-la-page-dit-que-les-reponses-ne-passent-par-aucun.md"
+  },
+  {
+   "group": "Naviguer",
+   "design": "maquettes/introuvable.html",
+   "key": "nav_entete",
+   "id": "186",
+   "title": "L'en-tête mène aux deux écrans principaux",
+   "deps": [
+    "061"
+   ],
+   "file": "186-l-en-tete-mene-aux-deux-ecrans-principaux.md"
+  },
+  {
+   "group": "Naviguer",
+   "design": "maquettes/introuvable.html",
+   "key": "nav_colle",
+   "id": "187",
+   "title": "L'en-tête reste en haut au défilement",
+   "deps": [
+    "186"
+   ],
+   "file": "187-l-en-tete-reste-en-haut-au-defilement.md"
+  },
+  {
+   "group": "Naviguer",
+   "design": "maquettes/introuvable.html",
+   "key": "nav_pied",
+   "id": "188",
+   "title": "Le pied de page mène aux pages secondaires",
+   "deps": [
+    "052",
+    "143",
+    "155",
+    "172",
+    "179"
+   ],
+   "file": "188-le-pied-de-page-mene-aux-pages-secondaires.md"
+  },
+  {
+   "group": "Naviguer",
+   "design": "maquettes/introuvable.html",
+   "key": "nav_404",
+   "id": "189",
+   "title": "Une adresse inconnue affiche « Cette carte n'est pas dans le paquet »",
+   "deps": [
+    "001"
+   ],
+   "file": "189-une-adresse-inconnue-affiche-cette-carte-n-est-pas-dans.md"
+  },
+  {
+   "group": "Naviguer",
+   "design": "maquettes/introuvable.html",
+   "key": "nav_404_retour",
+   "id": "190",
+   "title": "La page introuvable ramène à la question du jour",
+   "deps": [
+    "189"
+   ],
+   "file": "190-la-page-introuvable-ramene-a-la-question-du-jour.md"
+  },
+  {
+   "group": "Naviguer",
+   "design": "maquettes/introuvable.html",
+   "key": "nav_hors_ligne",
+   "id": "191",
+   "title": "Sans réseau, l'app dit qu'il faut une connexion",
+   "deps": [
+    "001"
+   ],
+   "file": "191-sans-reseau-l-app-dit-qu-il-faut-une-connexion.md"
+  },
+  {
+   "group": "Mesurer les visites",
+   "design": null,
+   "key": "st",
+   "id": "192",
+   "title": "L'auteur voit le nombre de visites par jour",
+   "deps": [
+    "001"
+   ],
+   "file": "192-l-auteur-voit-le-nombre-de-visites-par-jour.md"
+  },
+  {
+   "group": "Mesurer les visites",
+   "design": null,
+   "key": "st_sans_reponse",
+   "id": "193",
+   "title": "Les statistiques ne contiennent aucune réponse",
+   "deps": [
+    "192"
+   ],
+   "file": "193-les-statistiques-ne-contiennent-aucune-reponse.md"
+  },
+  {
+   "group": "Mesurer les visites",
+   "design": null,
+   "key": "st_cookie",
+   "id": "194",
+   "title": "L'app ne dépose aucun cookie",
+   "deps": [
+    "192"
+   ],
+   "file": "194-l-app-ne-depose-aucun-cookie.md"
+  },
+  {
+   "group": "Publier une fiche",
+   "design": null,
+   "key": "pub",
+   "id": "195",
+   "title": "Une fiche ajoutée par l'auteur paraît à sa date",
+   "deps": [
+    "037"
+   ],
+   "file": "195-une-fiche-ajoutee-par-l-auteur-parait-a-sa-date.md"
+  },
+  {
+   "group": "Publier une fiche",
+   "design": null,
+   "key": "pub_chiffre",
+   "id": "196",
+   "title": "Une fiche avec un chiffre sans source est refusée",
+   "deps": [
+    "195"
+   ],
+   "file": "196-une-fiche-avec-un-chiffre-sans-source-est-refusee.md"
+  },
+  {
+   "group": "Publier une fiche",
+   "design": null,
+   "key": "pub_position",
+   "id": "197",
+   "title": "Une position de candidat sans source est refusée",
+   "deps": [
+    "195"
+   ],
+   "file": "197-une-position-de-candidat-sans-source-est-refusee.md"
+  },
+  {
+   "group": "Publier une fiche",
+   "design": null,
+   "key": "pub_avance",
+   "id": "198",
+   "title": "L'auteur voit combien de fiches d'avance il a",
+   "deps": [
+    "195"
+   ],
+   "file": "198-l-auteur-voit-combien-de-fiches-d-avance-il-a.md"
+  },
+  {
+   "group": "Publier une fiche",
+   "design": null,
+   "key": "pub_alerte",
+   "id": "199",
+   "title": "L'auteur est prévenu sous 14 fiches d'avance",
+   "deps": [
+    "198"
+   ],
+   "file": "199-l-auteur-est-prevenu-sous-14-fiches-d-avance.md"
+  },
+  {
+   "group": "Publier une fiche",
+   "design": null,
+   "key": "pub_corr",
+   "id": "200",
+   "title": "Corriger une fiche publiée ajoute une ligne au journal",
+   "deps": [
+    "195",
+    "172"
+   ],
+   "file": "200-corriger-une-fiche-publiee-ajoute-une-ligne-au-journal.md"
+  },
+  {
+   "group": "Le contrôle de neutralité",
+   "design": null,
+   "key": "neu",
+   "id": "201",
+   "title": "L'auteur lance le contrôle de neutralité sur une fiche",
+   "deps": [
+    "195"
+   ],
+   "file": "201-l-auteur-lance-le-controle-de-neutralite-sur-une-fiche.md"
+  },
+  {
+   "group": "Le contrôle de neutralité",
+   "design": null,
+   "key": "neu_droite",
+   "id": "202",
+   "title": "Le contrôle rend les remarques d'un regard de droite",
+   "deps": [
+    "201"
+   ],
+   "file": "202-le-controle-rend-les-remarques-d-un-regard-de-droite.md"
+  },
+  {
+   "group": "Le contrôle de neutralité",
+   "design": null,
+   "key": "neu_centre",
+   "id": "203",
+   "title": "Le contrôle rend les remarques d'un regard du centre",
+   "deps": [
+    "201"
+   ],
+   "file": "203-le-controle-rend-les-remarques-d-un-regard-du-centre.md"
+  },
+  {
+   "group": "Le contrôle de neutralité",
+   "design": null,
+   "key": "neu_gauche",
+   "id": "204",
+   "title": "Le contrôle rend les remarques d'un regard de gauche",
+   "deps": [
+    "201"
+   ],
+   "file": "204-le-controle-rend-les-remarques-d-un-regard-de-gauche.md"
+  },
+  {
+   "group": "Le contrôle de neutralité",
+   "design": null,
+   "key": "neu_type",
+   "id": "205",
+   "title": "Chaque remarque dit son type",
+   "deps": [
+    "201"
+   ],
+   "file": "205-chaque-remarque-dit-son-type.md"
+  },
+  {
+   "group": "Le contrôle de neutralité",
+   "design": null,
+   "key": "neu_trancher",
+   "id": "206",
+   "title": "L'auteur accepte ou rejette chaque remarque",
+   "deps": [
+    "205"
+   ],
+   "file": "206-l-auteur-accepte-ou-rejette-chaque-remarque.md"
+  },
+  {
+   "group": "Le contrôle de neutralité",
+   "design": null,
+   "key": "neu_sujets",
+   "id": "207",
+   "title": "Le contrôle passe sur la liste des sujets",
+   "deps": [
+    "201"
+   ],
+   "file": "207-le-controle-passe-sur-la-liste-des-sujets.md"
+  },
+  {
+   "group": "Le contrôle de neutralité",
+   "design": null,
+   "key": "neu_notes",
+   "id": "208",
+   "title": "Le contrôle passe sur les notes du plateau",
+   "deps": [
+    "201"
+   ],
+   "file": "208-le-controle-passe-sur-les-notes-du-plateau.md"
+  },
+  {
+   "group": "Le carrousel du jour",
+   "design": "maquettes/carrousel.html",
+   "key": "car",
+   "id": "209",
+   "title": "L'auteur génère le carrousel du jour depuis la fiche",
+   "deps": [
+    "195"
+   ],
+   "file": "209-l-auteur-genere-le-carrousel-du-jour-depuis-la-fiche.md"
+  },
+  {
+   "group": "Le carrousel du jour",
+   "design": "maquettes/carrousel.html",
+   "key": "car_question",
+   "id": "210",
+   "title": "La 1re image montre la question",
+   "deps": [
+    "209"
+   ],
+   "file": "210-la-1re-image-montre-la-question.md"
+  },
+  {
+   "group": "Le carrousel du jour",
+   "design": "maquettes/carrousel.html",
+   "key": "car_contexte",
+   "id": "211",
+   "title": "La 2e image montre le contexte",
+   "deps": [
+    "209"
+   ],
+   "file": "211-la-2e-image-montre-le-contexte.md"
+  },
+  {
+   "group": "Le carrousel du jour",
+   "design": "maquettes/carrousel.html",
+   "key": "car_chiffres",
+   "id": "212",
+   "title": "La 3e image montre les chiffres sourcés",
+   "deps": [
+    "209"
+   ],
+   "file": "212-la-3e-image-montre-les-chiffres-sources.md"
+  },
+  {
+   "group": "Le carrousel du jour",
+   "design": "maquettes/carrousel.html",
+   "key": "car_options",
+   "id": "213",
+   "title": "La 4e image montre les options, sans noms",
+   "deps": [
+    "209"
+   ],
+   "file": "213-la-4e-image-montre-les-options-sans-noms.md"
+  },
+  {
+   "group": "Le carrousel du jour",
+   "design": "maquettes/carrousel.html",
+   "key": "car_arguments",
+   "id": "214",
+   "title": "La 5e image montre le meilleur argument de chaque côté",
+   "deps": [
+    "209"
+   ],
+   "file": "214-la-5e-image-montre-le-meilleur-argument-de-chaque-cote.md"
+  },
+  {
+   "group": "Le carrousel du jour",
+   "design": "maquettes/carrousel.html",
+   "key": "car_appel",
+   "id": "215",
+   "title": "La dernière image invite à répondre sur l'app",
+   "deps": [
+    "209"
+   ],
+   "file": "215-la-derniere-image-invite-a-repondre-sur-l-app.md"
+  },
+  {
+   "group": "Le carrousel du jour",
+   "design": "maquettes/carrousel.html",
+   "key": "car_signature",
+   "id": "216",
+   "title": "Chaque image porte la signature @aucrible2027",
+   "deps": [
+    "209"
+   ],
+   "file": "216-chaque-image-porte-la-signature-aucrible2027.md"
+  },
+  {
+   "group": "Le carrousel du jour",
+   "design": "maquettes/carrousel.html",
+   "key": "car_story",
+   "id": "217",
+   "title": "L'auteur génère la story « Et toi ? » à deux choix",
+   "deps": [
+    "209"
+   ],
+   "file": "217-l-auteur-genere-la-story-et-toi-a-deux-choix.md"
+  },
+  {
+   "group": "Le carrousel du jour",
+   "design": "maquettes/carrousel.html",
+   "key": "car_legende",
+   "id": "218",
+   "title": "L'auteur récupère la légende proposée",
+   "deps": [
+    "209"
+   ],
+   "file": "218-l-auteur-recupere-la-legende-proposee.md"
+  },
+  {
+   "group": "Le carrousel du jour",
+   "design": "maquettes/carrousel.html",
+   "key": "car_lot",
+   "id": "219",
+   "title": "L'auteur télécharge les 7 images d'un coup",
+   "deps": [
+    "209",
+    "217"
+   ],
+   "file": "219-l-auteur-telecharge-les-7-images-d-un-coup.md"
+  },
+  {
+   "group": "La vidéo du jour",
+   "design": "maquettes/video.html",
+   "key": "vid",
+   "id": "220",
+   "title": "L'auteur génère la vidéo verticale du jour depuis la fiche",
+   "deps": [
+    "195"
+   ],
+   "file": "220-l-auteur-genere-la-video-verticale-du-jour-depuis-la.md"
+  },
+  {
+   "group": "La vidéo du jour",
+   "design": "maquettes/video.html",
+   "key": "vid_pioche",
+   "id": "221",
+   "title": "La vidéo s'ouvre sur la carte question piochée",
+   "deps": [
+    "220"
+   ],
+   "file": "221-la-video-s-ouvre-sur-la-carte-question-piochee.md"
+  },
+  {
+   "group": "La vidéo du jour",
+   "design": "maquettes/video.html",
+   "key": "vid_contexte",
+   "id": "222",
+   "title": "La vidéo déroule le contexte",
+   "deps": [
+    "220"
+   ],
+   "file": "222-la-video-deroule-le-contexte.md"
+  },
+  {
+   "group": "La vidéo du jour",
+   "design": "maquettes/video.html",
+   "key": "vid_chiffres",
+   "id": "223",
+   "title": "Les chiffres de la vidéo montent comme des compteurs",
+   "deps": [
+    "220"
+   ],
+   "file": "223-les-chiffres-de-la-video-montent-comme-des-compteurs.md"
+  },
+  {
+   "group": "La vidéo du jour",
+   "design": "maquettes/video.html",
+   "key": "vid_options",
+   "id": "224",
+   "title": "La vidéo montre les options en cartes",
+   "deps": [
+    "220"
+   ],
+   "file": "224-la-video-montre-les-options-en-cartes.md"
+  },
+  {
+   "group": "La vidéo du jour",
+   "design": "maquettes/video.html",
+   "key": "vid_arguments",
+   "id": "225",
+   "title": "La vidéo montre le meilleur argument de chaque côté",
+   "deps": [
+    "220"
+   ],
+   "file": "225-la-video-montre-le-meilleur-argument-de-chaque-cote.md"
+  },
+  {
+   "group": "La vidéo du jour",
+   "design": "maquettes/video.html",
+   "key": "vid_fin",
+   "id": "226",
+   "title": "La vidéo finit sur « Et toi ? aucrible2027.fr »",
+   "deps": [
+    "220"
+   ],
+   "file": "226-la-video-finit-sur-et-toi-aucrible2027-fr.md"
+  },
+  {
+   "group": "La vidéo du jour",
+   "design": "maquettes/video.html",
+   "key": "vid_ia",
+   "id": "227",
+   "title": "Chaque image de la vidéo porte la mention IA",
+   "deps": [
+    "220"
+   ],
+   "file": "227-chaque-image-de-la-video-porte-la-mention-ia.md"
+  },
+  {
+   "group": "La vidéo du jour",
+   "design": "maquettes/video.html",
+   "key": "vid_musique",
+   "id": "228",
+   "title": "La vidéo a une musique libre de droits",
+   "deps": [
+    "220"
+   ],
+   "file": "228-la-video-a-une-musique-libre-de-droits.md"
+  },
+  {
+   "group": "La vidéo du jour",
+   "design": "maquettes/video.html",
+   "key": "vid_duree",
+   "id": "229",
+   "title": "La vidéo dure entre 45 et 90 secondes",
+   "deps": [
+    "220"
+   ],
+   "file": "229-la-video-dure-entre-45-et-90-secondes.md"
+  }
+ ],
+ "holes": [
+  "L'importance par défaut, si l'électeur ne la choisit pas (×1 ?).",
+  "L'heure à laquelle la question du jour change.",
+  "Les seuils de fiabilité du classement (faible, moyenne, forte).",
+  "Si répondre en rattrapage fait avancer la série.",
+  "Ce que devient le compte à rebours après le 1er tour.",
+  "Si l'électeur peut changer sa réponse après l'avoir validée.",
+  "Ce que montre la toute première visite.",
+  "Si la fiche candidat montre ses positions sur des questions que l'électeur n'a pas encore répondues (le face-à-face, lui, les cache).",
+  "Le premier jet des fiches par IA : outil dans le produit, ou simple usage d'un assistant ?",
+  "Le travail éditorial (≈150 sujets, fiches d'avance, positions des 13 candidats) : ce ne sont pas des tickets de code.",
+  "Le domaine aucrible2027.fr et les comptes @aucrible2027 : à prendre par toi."
+ ]
+}

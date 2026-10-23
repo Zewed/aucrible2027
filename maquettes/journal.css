@@ -1,0 +1,132 @@
+/* Au crible 2027 — Journal des corrections.
+   Chargé après style.css et regles.css. */
+
+.stats { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.stats li {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--table-2); border-radius: 10px; padding: 7px 14px 7px 7px;
+  font: 600 14px/1.2 var(--text); white-space: nowrap; max-width: 100%;
+}
+.stats b {
+  min-width: 32px; height: 32px; border-radius: 8px; padding: 0 6px;
+  background: var(--chalk); color: var(--ink);
+  display: grid; place-items: center;
+  font: 800 17px/1 var(--display);
+}
+
+.log-sec { margin-top: 34px; }
+
+/* ---------- les filtres, sans script : des boutons radio ---------- */
+.jfilter { position: relative; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.jfilter > input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.jfilter > label {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 12px 0 14px;
+  background: var(--table-2); border-radius: 10px;
+  font: 700 14px/1 var(--text); white-space: nowrap; cursor: pointer;
+  transition: background .15s var(--ease-out);
+}
+.jfilter > label:hover { background: var(--table-3); }
+.jfilter > label b {
+  min-width: 24px; height: 24px; border-radius: 7px; padding: 0 5px;
+  background: var(--table-3); color: var(--chalk);
+  display: grid; place-items: center; font: 800 13px/1 var(--display);
+}
+.jfilter > input:checked + label { background: var(--chalk); color: var(--ink); box-shadow: 0 4px 0 var(--pawn-edge); margin-bottom: 4px; }
+.jfilter > input:checked + label b { background: var(--ink); color: var(--chalk); }
+.jfilter > input:focus-visible + label { outline: 3px solid var(--eco); outline-offset: 3px; }
+
+#f-chiffre:checked ~ .log .entry:not([data-type="chiffre"]),
+#f-position:checked ~ .log .entry:not([data-type="position"]),
+#f-formulation:checked ~ .log .entry:not([data-type="formulation"]),
+#f-source:checked ~ .log .entry:not([data-type="source"]) { display: none; }
+
+/* ---------- la liste ---------- */
+.log { flex: 0 0 100%; list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 26px; }
+.entry { min-width: 0; display: flex; }
+.entry article {
+  flex: 1; min-width: 0;
+  background: var(--card); color: var(--ink);
+  border-radius: var(--r); overflow: hidden;
+  box-shadow: 0 6px 0 var(--theme);
+  margin-bottom: 6px;
+  display: flex; flex-direction: column;
+}
+.entry-top {
+  background: var(--theme); color: var(--on-theme);
+  padding: 14px 14px 16px;
+  display: grid; grid-template-columns: 68px minmax(0, 1fr); column-gap: 14px; align-items: start;
+}
+.date {
+  background: var(--ink); color: var(--chalk);
+  border-radius: 12px; padding: 9px 4px 8px;
+  display: grid; justify-items: center; gap: 3px; text-align: center;
+}
+.date b { font: 800 28px/0.9 var(--display); font-variation-settings: "wdth" 80; font-variant-numeric: tabular-nums; }
+.date span { font: 700 12.5px/1 var(--text); white-space: nowrap; }
+.where { min-width: 0; }
+.entry-k { display: flex; align-items: center; gap: 8px; font: 800 12.5px/1.2 var(--display); text-transform: uppercase; letter-spacing: .06em; min-width: 0; }
+.type {
+  background: var(--ink); color: var(--chalk);
+  border-radius: 999px; padding: 5px 10px 4px;
+  font: 800 12px/1 var(--display); letter-spacing: .06em; white-space: nowrap;
+}
+.entry-h { margin-top: 8px; font: 800 clamp(20px, 5.4vw, 23px)/1.1 var(--display); font-variation-settings: "wdth" 85; letter-spacing: -0.015em; }
+.entry-h a {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px;
+  color: inherit; text-decoration: none;
+}
+.entry-h a:hover span:last-child { text-decoration: underline; text-underline-offset: 4px; }
+.entry-h a:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; border-radius: 6px; }
+.entry-h .pawn { --size: 38px; font-size: 12px; box-shadow: 0 3px 0 var(--pawn-edge); }
+.entry-sub { margin-top: 4px; font: 600 14.5px/1.3 var(--text); }
+
+.diff { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 14px 14px 0; }
+.was, .now {
+  background: var(--theme-tint); color: var(--ink);
+  border-radius: 10px; padding: 10px 10px 12px; min-width: 0;
+}
+.diff-k {
+  display: inline-block;
+  font: 800 12px/1 var(--display); text-transform: uppercase; letter-spacing: .08em;
+  padding: 5px 8px 4px; border-radius: 6px; margin-bottom: 8px;
+  background: var(--ink); color: var(--chalk);
+}
+.was .diff-k { background: var(--ink-soft); }
+.val { font: 600 14.5px/1.4 var(--text); overflow-wrap: anywhere; }
+.srcv { margin-top: 6px; font: 500 13px/1.35 var(--text); color: var(--ink-soft); overflow-wrap: anywhere; }
+.diff mark {
+  background: transparent; color: inherit; font-weight: 800;
+  text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 3px;
+  text-decoration-color: var(--theme-edge);
+}
+.was .val { color: var(--ink-soft); }
+.was mark { color: var(--ink); }
+
+.why { margin: 0; padding: 14px 14px 16px; display: grid; gap: 10px; margin-top: auto; }
+.why > div { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.why dt { font: 800 12.5px/1.2 var(--display); text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); }
+.why dd { margin: 0; font: 600 15px/1.35 var(--text); }
+
+/* ---------- l'état vide ---------- */
+.preview { margin-top: 40px; border: 2px dashed var(--table-3); border-radius: var(--r); padding: 14px 14px 18px; }
+.pv-k { font: 800 13px/1.35 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.pv-k span { display: inline-block; text-transform: none; letter-spacing: 0; font: 600 14px/1.35 var(--text); }
+.empty {
+  margin-top: 14px; background: var(--table-2); border-radius: 12px;
+  padding: 24px 16px 22px; text-align: center;
+  display: grid; justify-items: center; gap: 6px;
+}
+.empty svg { width: 104px; height: 86px; margin-bottom: 8px; }
+.empty h2 { font: 800 clamp(24px, 6.6vw, 32px)/1.05 var(--display); font-variation-settings: "wdth" 85; letter-spacing: -0.02em; text-wrap: balance; }
+.empty p { color: var(--muted); font-size: 16px; }
+.empty .btn-link { margin-top: 12px; }
+
+@media (min-width: 900px) {
+  .stats { margin-top: 28px; }
+  .log { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 28px; }
+  .entry-top { padding: 18px 18px 20px; }
+  .diff, .why { padding-left: 18px; padding-right: 18px; }
+  .preview { padding: 18px 20px 22px; }
+  .empty { padding: 32px 24px 30px; }
+}
