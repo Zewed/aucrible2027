@@ -1,0 +1,23 @@
+.veebee/tickets/122-un-nom-revele-ouvre-la-fiche-du-candidat.md
+  s_330ba31127fa8a::t_3fc9c9eac10b12 8
+src/components/Revelation.tsx
+  s_330ba31127fa8a::t_98520a4a462055 42,45,259-261,291-293
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_6e6404f6905278 2937-2959
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "25f0ca5c8225c039624070da0c6b54d8c04e258b",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
