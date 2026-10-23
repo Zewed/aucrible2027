@@ -1073,3 +1073,29 @@ test.describe("l'importance donnée est retrouvée en revenant", () => {
     await expect(pleines(rouverte)).toHaveCount(1);
   });
 });
+
+test("sous « Valider ma réponse », la fiche n° 24 dit « Tes réponses restent sur ton téléphone, sans compte. »", async ({ page }) => {
+  await page.goto("/");
+  const valider = page.getByRole("button", { name: "Valider ma réponse" });
+  const rappel = page.getByText("Tes réponses restent sur ton téléphone, sans compte.", { exact: true });
+  await expect(rappel).toBeVisible();
+  const [bouton, ligne] = await Promise.all([valider.boundingBox(), rappel.boundingBox()]);
+  expect(ligne!.y).toBeGreaterThan(bouton!.y + bouton!.height - 1);
+});
+
+test("rien dans l'app ne demande de créer un compte ou de se connecter, ni avant ni après la réponse", async ({ page }) => {
+  const demandeDeCompte = /créer (un|ton|votre) compte|se connecter|connecte-toi|connectez-vous|s'inscrire|inscris-toi|identifiant|mot de passe|login|sign ?in/i;
+  const verifier = async () => {
+    const texte = await page.locator("body").innerText();
+    expect(texte).not.toMatch(demandeDeCompte);
+    await expect(page.locator('input[type="password"], input[type="email"], input[autocomplete="username"]')).toHaveCount(0);
+  };
+  await page.goto("/");
+  await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeVisible();
+  await verifier();
+  await choisir(page, "64 ans");
+  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await expect(page).toHaveURL(/\/revelation$/);
+  await expect(quiDefendQuoi(page)).toBeVisible();
+  await verifier();
+});
