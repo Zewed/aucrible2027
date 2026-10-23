@@ -643,3 +643,18 @@ test("quelle que soit la réponse, les cinq blocs s'affichent, annoncent leur no
     expect(new Set(tous).size).toBe(tous.length);
   }
 });
+
+test.describe("la révélation rappelle l'option choisie", () => {
+  for (const [lettre, libelle] of [["E", "À la carte, avec un système à points"], ["B", "62 ans"]]) {
+    test(`après ${lettre} (${libelle}), l'encart « Ta réponse » l'affiche et « Ta carte » est sur le bloc ${lettre}, nulle part ailleurs`, async ({ page }) => {
+      await repondre(page, libelle);
+      const encart = page.getByRole("region", { name: `Ta réponse : ${lettre} · ${libelle}` });
+      await expect(encart).toBeVisible();
+      await expect(encart.getByText(lettre, { exact: true })).toBeVisible();
+      await expect(encart.getByText(libelle, { exact: true })).toBeVisible();
+      const bloc = quiDefendQuoi(page).getByRole("article", { name: `Option ${lettre} : ${libelle}` });
+      await expect(bloc.getByText("Ta carte", { exact: true })).toBeVisible();
+      await expect(quiDefendQuoi(page).getByText("Ta carte", { exact: true })).toHaveCount(1);
+    });
+  }
+});
