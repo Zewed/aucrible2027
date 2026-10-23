@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { connection } from "next/server";
 import { lireQuestions, type Question } from "@/lib/contenu";
+import type { QuestionDuCalcul } from "@/lib/proximite";
 import { aujourdhuiAParis } from "@/lib/date";
 import { silenceEnCours } from "@/lib/silence";
 
@@ -48,4 +49,14 @@ export async function lireNumeroDeDemain(): Promise<number | null> {
   const demain = new Date(Date.parse(`${aujourdhui}T12:00:00Z`) + 86_400_000).toISOString().slice(0, 10);
   if (silenceEnCours(demain)) return null;
   return lireQuestions().find((q) => q.date === demain)?.numero ?? null;
+}
+
+/** Les fiches déjà parues, réduites à ce que le calcul lit : c'est tout ce que le navigateur en reçoit. */
+export async function lireQuestionsDuCalcul(): Promise<QuestionDuCalcul[]> {
+  return (await lireQuestionsPubliees()).map((q) => ({
+    numero: q.numero,
+    theme: q.theme,
+    options: q.options.map((o) => ({ id: o.id, horsEchelle: o.horsEchelle, axes: o.axes })),
+    positions: Object.fromEntries(Object.entries(q.positions).map(([id, p]) => [id, { option: p.option }])),
+  }));
 }
