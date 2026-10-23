@@ -2488,3 +2488,34 @@ test.describe("le camembert affiche le nombre de parts gagnées", () => {
     await expect(compteur(page).locator("b")).toHaveText("0/11");
   });
 });
+
+/** Ce que dit chaque ligne de « Tes 11 thèmes » sous son nom, par thème. */
+const sousLesThemes = async (page: Page) => {
+  const lignes = page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem");
+  await expect(lignes).toHaveCount(11);
+  return Object.fromEntries(
+    await lignes.evaluateAll((items) => items.map((item) => [item.querySelector(".th-name")!.textContent, item.querySelector(".th-who")?.textContent ?? null])),
+  );
+};
+
+test.describe("chaque thème affiche son candidat le plus proche", () => {
+  test("avec 23 réponses, les 5 thèmes gagnés nomment Ruffin, Tondelier, Dupont-Aignan, Lisnard et Roussel", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.locator(".big-token .count b")).toHaveText("5/11");
+    const textes = await sousLesThemes(page);
+    expect(textes["Économie & impôts"]).toBe("le plus proche : François Ruffin");
+    expect(textes["Écologie & énergie"]).toBe("le plus proche : Marine Tondelier");
+    expect(textes["Immigration"]).toBe("le plus proche : Nicolas Dupont-Aignan");
+    expect(textes["Sécurité & justice"]).toBe("le plus proche : David Lisnard");
+    expect(textes["Santé"]).toBe("le plus proche : Fabien Roussel");
+  });
+
+  test("le candidat d'un thème peut différer du premier du classement : en Santé, Fabien Roussel, alors que François Ruffin est premier", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    expect((await lignesDuClassement(page))[0][1]).toBe("François Ruffin");
+    expect((await sousLesThemes(page))["Santé"]).toBe("le plus proche : Fabien Roussel");
+  });
+});
