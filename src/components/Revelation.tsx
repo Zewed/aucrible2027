@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { CompteARebours } from "@/components/CompteARebours";
 import { De } from "@/components/De";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
@@ -269,6 +270,16 @@ export function Revelation({
             )}
           </div>
         </section>
+        {/* « Voir mes résultats », l'autre action de la maquette, attend la page des résultats. */}
+        <div className="rev-actions">
+          <Link className="act second" href="/rattrapage">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="6" width="13" height="15" rx="3" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.4 }} />
+              <path d="M8 3h10a3 3 0 0 1 3 3v11" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.4, strokeLinecap: "round" }} />
+            </svg>
+            Rattraper d&apos;autres questions
+          </Link>
+        </div>
         {question.pourAllerPlusLoin && question.pourAllerPlusLoin.length > 0 && (
           <section className="more" aria-labelledby="pour-aller-plus-loin">
             <h2 className="label" id="pour-aller-plus-loin">

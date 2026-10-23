@@ -1571,3 +1571,27 @@ test.describe("une question de la liste s'ouvre sur sa fiche", () => {
     await expect(page.getByText(/^Question n° 6/).filter({ visible: true })).toHaveText("Question n° 6 · lundi 5 octobre", { useInnerText: true });
   });
 });
+
+test.describe("la révélation mène au rattrapage", () => {
+  const rattraper = (page: Page) => page.getByRole("link", { name: "Rattraper d'autres questions" }).filter({ visible: true });
+
+  test("sur la révélation de la question n° 24 (réponse E validée), toucher « Rattraper d'autres questions » ouvre la page « Rattraper les questions »", async ({ page }) => {
+    await repondre(page, "À la carte, avec un système à points");
+    await rattraper(page).click();
+    await expect(page).toHaveURL(/\/rattrapage$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Rattraper les questions." })).toBeVisible();
+  });
+
+  test("le même bouton est sur la révélation de la n° 9 « Faut-il rétablir l'ISF ? », répondue depuis la liste, et ramène à la liste", async ({ page }) => {
+    await page.goto("/rattrapage");
+    await page.getByRole("link", { name: /Faut-il rétablir l'ISF/ }).click();
+    await expect(page.getByRole("heading", { level: 1, name: "Faut-il rétablir l'ISF ?" })).toBeVisible();
+    await page.getByRole("radiogroup", { name: "Les options" }).filter({ visible: true }).locator("label").first().click();
+    await page.getByRole("button", { name: "Valider ma réponse" }).filter({ visible: true }).click();
+    await expect(page).toHaveURL(/\/question\/9\/revelation$/);
+    await expect(page.getByRole("heading", { level: 1, name: "La révélation" }).filter({ visible: true })).toBeVisible();
+    await rattraper(page).click();
+    await expect(page).toHaveURL(/\/rattrapage$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Rattraper les questions." }).filter({ visible: true })).toBeVisible();
+  });
+});
