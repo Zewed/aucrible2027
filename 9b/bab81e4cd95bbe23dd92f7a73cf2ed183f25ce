@@ -1,0 +1,28 @@
+src/components/Revelation.tsx
+  s_2c9a7110ce04dd::t_6f69af1db90d3f 22,36,43,47,50
+  s_2c9a7110ce04dd::t_99579c41a89d5a 34-35,37,44-46,48-49,51-52
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_3bdabde7f03044 661-676
+src/components/QuestionDuJour.tsx
+  s_2c9a7110ce04dd::t_99579c41a89d5a 32
+src/lib/reponses.ts
+  s_2c9a7110ce04dd::t_99579c41a89d5a 2
+.veebee/tickets/021-la-revelation-rappelle-l-importance-donnee.md
+  s_2c9a7110ce04dd::t_c60d4e6e152d0e 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9bbab81e4cd95bbe23dd92f7a73cf2ed183f25ce",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
