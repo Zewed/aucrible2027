@@ -1626,7 +1626,7 @@ test.describe("une question répondue est marquée « Répondu » et passe en fi
     expect(liste.slice(0, 22).every((c) => c.mention === "À répondre")).toBe(true);
     expect(liste.slice(22)).toEqual([
       { question: "Fiche de test du mercredi 7 octobre ?", mention: "Répondu" },
-      { question: "Fiche de test du dimanche 4 octobre ?", mention: "Répondu" },
+      { question: "Faut-il passer à la semaine de quatre jours ?", mention: "Répondu" },
     ]);
   });
 
@@ -1677,5 +1677,44 @@ test.describe("la liste affiche le nombre de questions à rattraper", () => {
     await expect(tuile(page)).toContainText("15 répondues sur 24 publiées");
     await expect(tuile(page).getByRole("img", { name: "15 questions répondues sur 24 publiées" })).toBeVisible();
     expect(await remplissage(page)).toBeCloseTo(15 / 24, 2);
+  });
+});
+
+test.describe("l'électeur filtre la liste par thème", () => {
+  const carte = (page: Page, question: string) =>
+    page
+      .getByRole("region", { name: "Toutes les questions" })
+      .getByRole("listitem")
+      .filter({ has: page.getByRole("heading", { name: question, exact: true }) });
+
+  async function filtrer(page: Page, theme: string) {
+    const puces = page.getByRole("radiogroup", { name: "Filtrer par thème" });
+    // Sur téléphone, les puces sont repliées sous « Filtrer par thème ».
+    if (!(await puces.isVisible())) await page.getByText("Filtrer par thème", { exact: true }).click();
+    await puces.getByText(theme, { exact: true }).click();
+    await expect(puces.getByRole("radio", { name: theme })).toBeChecked();
+  }
+
+  test("en choisissant « Travail & retraites », les n° 24 (« À répondre ») et n° 5 (« Répondu ») restent, et la n° 9 « Faut-il rétablir l'ISF ? » disparaît", async ({ page }) => {
+    await page.goto("/question/5");
+    await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/question\/5\/revelation$/);
+    await page.goto("/rattrapage");
+    await filtrer(page, "Travail & retraites");
+    await expect(carte(page, "À quel âge devrait-on pouvoir partir à la retraite ?")).toBeVisible();
+    await expect(carte(page, "À quel âge devrait-on pouvoir partir à la retraite ?").getByText("À répondre")).toBeVisible();
+    await expect(carte(page, "Faut-il passer à la semaine de quatre jours ?").getByText("Répondu")).toBeVisible();
+    await expect(carte(page, "Faut-il rétablir l'ISF ?")).toBeHidden();
+  });
+
+  test("en choisissant « Santé », la n° 3 reste et les n° 9 et n° 24 disparaissent ; « Tous les thèmes » fait revenir la liste complète", async ({ page }) => {
+    await page.goto("/rattrapage");
+    await filtrer(page, "Santé");
+    await expect(carte(page, "Faut-il réguler l'installation des médecins ?")).toBeVisible();
+    await expect(carte(page, "Faut-il rétablir l'ISF ?")).toBeHidden();
+    await expect(carte(page, "À quel âge devrait-on pouvoir partir à la retraite ?")).toBeHidden();
+    await filtrer(page, "Tous les thèmes");
+    await expect(page.getByRole("region", { name: "Toutes les questions" }).getByRole("listitem").filter({ visible: true })).toHaveCount(24);
   });
 });
