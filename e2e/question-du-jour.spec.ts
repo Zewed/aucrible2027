@@ -862,3 +862,18 @@ test("sous les listes, la note définit « Aligné·e : même carte que toi », 
   await repondre(page, "62 ans");
   await expect(page.getByText("Aligné·e : même carte que toi (B).")).toBeVisible();
 });
+
+const proches = (page: Page) => page.getByRole("list", { name: "et proche de" });
+
+test("après E, la révélation dit « et proche de » Bruno Retailleau (D, voisine de E)", async ({ page }) => {
+  await repondre(page, "À la carte, avec un système à points");
+  await expect(page.getByRole("heading", { name: "et proche de" })).toBeVisible();
+  expect(await nomsDe(proches(page))).toEqual(["Bruno Retailleau"]);
+  await expect(page.getByText("Proche : carte voisine (D).")).toBeVisible();
+});
+
+test("après A, la révélation dit « et proche de » Le Pen, Tondelier et Glucksmann (B, voisine de A)", async ({ page }) => {
+  await repondre(page, "60 ans");
+  expect(await nomsDe(proches(page))).toEqual(["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]);
+  await expect(page.getByText("Proche : carte voisine (B).")).toBeVisible();
+});
