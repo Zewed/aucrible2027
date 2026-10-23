@@ -1,0 +1,29 @@
+content/questions/025-nucleaire.yaml
+  s_2c9a7110ce04dd::t_c77d394621a353 2-3,42-53
+src/lib/contenu.ts
+  s_2c9a7110ce04dd::t_c77d394621a353 10-11,20
+src/components/Revelation.tsx
+  s_2c9a7110ce04dd::t_c77d394621a353 19,69,88-90
+e2e/question-du-jour.spec.ts
+  s_2c9a7110ce04dd::t_d2c12c8c632f35 616,639,677-707
+content/questions/024-retraite.yaml
+  s_2c9a7110ce04dd::t_c77d394621a353 3-4,51-61
+.veebee/tickets/022-chaque-candidat-revele-affiche-la-source-de-sa-position.md
+  s_2c9a7110ce04dd::t_f116160bafbb6a 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bb2a8fb8e8d06d8f266b71873cb005c97f532120",
+  "prompts": {},
+  "sessions": {
+    "s_2c9a7110ce04dd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1391c04-3a38-4d7e-b0fa-8b9d00bda0f8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
