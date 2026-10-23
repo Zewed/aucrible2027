@@ -5,6 +5,7 @@ milestone: null
 depends_on: ["001"]
 design: maquettes/introuvable.html
 tracker: null
+status: done
 ---
 
 ## Ce que l'utilisateur fait

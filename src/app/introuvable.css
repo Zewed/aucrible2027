@@ -1,0 +1,40 @@
+/* Copie de maquettes/introuvable.css. */
+
+/* Page introuvable : une carte blanche, sans thème, qui n'est pas dans le paquet. Complète style.css.
+   Classes ajoutées : .lost (page) · .qcard.blank (carte sans couleur de thème) · .digits (4, camembert vide, 4) */
+
+.lost { max-width: 640px; margin: 0 auto; padding: 0 16px 40px; }
+
+/* la carte vierge : ni thème ni couleur, juste la teinte « case vide » du camembert */
+.qcard.blank {
+  --theme: var(--slot);
+  --theme-edge: var(--pawn-edge);
+  --theme-tint: #F3F0FB;
+  --on-theme: var(--ink);
+}
+.lost .qcard-top { padding: 18px 18px 26px; }
+.lost .qcard h1 {
+  margin-top: 16px;
+  font-size: clamp(32px, 9vw, 46px);
+  line-height: 0.98;
+}
+.digits {
+  margin-top: 22px;
+  display: flex; align-items: center; justify-content: center; gap: .02em;
+  font: 800 clamp(120px, 38vw, 190px)/0.8 var(--display);
+  font-variation-settings: "wdth" 75, "opsz" 96;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.digits span { display: block; }
+.digits svg { width: .74em; height: .74em; flex: none; display: block; margin: 0 .03em; }
+
+.lost .go { text-decoration: none; }
+.lost .go:focus-visible, .lost .btn-link:focus-visible { outline: 3px solid var(--eco); outline-offset: 4px; }
+.lost .foot .small { white-space: normal; }
+
+@media (min-width: 900px) {
+  .lost { padding: 18px 32px 64px; }
+  .lost .qcard-top { padding: 26px 28px 34px; }
+  .lost .qcard h1 { font-size: 52px; }
+}
