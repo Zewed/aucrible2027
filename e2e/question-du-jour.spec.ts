@@ -756,3 +756,29 @@ test("les candidats sans source n'apparaissent sous aucune option : 11 sous les 
   expect(new Set([...sousOptions, ...inconnus]).size).toBe(13);
   for (const nom of inconnus) expect(sousOptions).not.toContain(nom);
 });
+
+test("la mention « ordre mélangé » se lit à côté de « Qui défend quoi »", async ({ page }) => {
+  await repondre(page, "62 ans");
+  const titre = quiDefendQuoi(page).getByRole("heading", { name: "Qui défend quoi" });
+  const mention = quiDefendQuoi(page).getByText("ordre mélangé", { exact: true });
+  await expect(mention).toBeVisible();
+  const [t, m] = await Promise.all([titre.boundingBox(), mention.boundingBox()]);
+  expect(m!.x).toBeGreaterThan(t!.x + t!.width - 1);
+  expect(Math.abs(m!.y + m!.height / 2 - (t!.y + t!.height / 2))).toBeLessThan(t!.height);
+});
+
+test("d'un appareil à l'autre, l'ordre des défenseurs de A change, sans suivre l'alphabet ni les partis", async ({ browser }) => {
+  const ordres = new Set<string>();
+  for (let appareil = 0; appareil < 16; appareil++) {
+    const contexte = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    const page = await contexte.newPage();
+    await page.clock.setFixedTime(new Date("2026-10-23T09:00:00+02:00"));
+    await repondre(page, "62 ans");
+    const bloc = quiDefendQuoi(page).getByRole("article", { name: "Option A : 60 ans" });
+    await expect(bloc.getByRole("listitem")).toHaveCount(3);
+    ordres.add((await bloc.locator(".def-name").allInnerTexts()).join(" / "));
+    await contexte.close();
+  }
+  // Six ordres possibles : au moins trois différents, donc au moins un qui n'est ni alphabétique ni celui des partis.
+  expect(ordres.size).toBeGreaterThanOrEqual(3);
+});
