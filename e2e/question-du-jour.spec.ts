@@ -1758,7 +1758,7 @@ test.describe("l'électeur ouvre « Mes résultats »", () => {
 
   test("sur cette page, le lien « Question du jour » en haut ramène à la fiche de la question n° 24", async ({ page }) => {
     await page.goto("/resultats");
-    await page.getByRole("link", { name: "Question du jour" }).click();
+    await page.getByRole("link", { name: "Question du jour", exact: true }).click();
     await expect(page).toHaveURL(/\/$/);
     await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" }).filter({ visible: true })).toBeVisible();
     await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toBeVisible();
@@ -2058,5 +2058,27 @@ test.describe("tous les candidats du classement ont le même pion", () => {
     expect(Object.fromEntries(Object.entries(pions).map(([nom, p]) => [nom, p.initiales]))).toEqual(INITIALES);
     expect(pions["François Ruffin"].initiales).toBe("FRu");
     expect(pions["Fabien Roussel"].initiales).toBe("FRo");
+  });
+});
+
+test.describe("les résultats affichent « Ce n'est pas un sondage »", () => {
+  test("dès l'ouverture de « Mes résultats », la phrase « Ce n'est pas un sondage : seulement tes réponses, gardées sur ton téléphone. » est sous le titre", async ({ page }) => {
+    await page.goto("/resultats");
+    const titre = page.getByRole("heading", { level: 1, name: "Mes résultats." });
+    const phrase = page.getByText("Ce n'est pas un sondage : seulement tes réponses, gardées sur ton téléphone.");
+    await expect(phrase).toBeVisible();
+    expect((await phrase.boundingBox())!.y).toBeGreaterThan((await titre.boundingBox())!.y);
+  });
+
+  test("en bas de la page, l'étiquette « Ce n'est pas un sondage » figure aussi, en tête du pied de page", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    // Le pied de « Mes résultats » est dans la page (main) : ce n'est pas le pied du site.
+    const pied = page.locator("main footer").filter({ hasText: "Ce n'est pas un sondage" });
+    await expect(pied.getByText("Ce n'est pas un sondage", { exact: true })).toBeVisible();
+    const classement = page.getByRole("region", { name: "Ton classement" });
+    expect((await pied.boundingBox())!.y).toBeGreaterThan((await classement.boundingBox())!.y);
+    await pied.getByRole("link", { name: "Retour à la question du jour" }).click();
+    await expect(page).toHaveURL(/\/$/);
   });
 });

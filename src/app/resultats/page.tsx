@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { Classement } from "@/components/Classement";
@@ -24,12 +25,22 @@ async function Resultats() {
               <h1>
                 Mes résultats<span>.</span>
               </h1>
+              <p className="notpoll">
+                <b>Ce n&apos;est pas un sondage</b> : seulement tes réponses, gardées sur ton téléphone.
+              </p>
             </div>
           </div>
         </section>
         <div className="res-grid">
           <Classement questions={duCalcul} candidats={lireCandidats()} />
         </div>
+        {/* « Signaler une erreur », avant le retour dans la maquette, attend son formulaire. */}
+        <footer className="res-foot">
+          <span className="tag">Ce n&apos;est pas un sondage</span>
+          <nav>
+            <Link href="/">Retour à la question du jour</Link>
+          </nav>
+        </footer>
       </main>
     </>
   );
