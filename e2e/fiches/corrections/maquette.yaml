@@ -1,0 +1,10 @@
+# CORRECTIONS DE TEST : lues seulement par le serveur des tests de bout en bout, quand un test choisit « maquette »
+# (cookie aucrible-corrections-de-test). Ce sont les sept corrections de maquettes/journal.html, inventées : aucune
+# n'a eu lieu. Elles sont rangées ici dans le désordre, pour que le tri du journal se voie.
+- { date: "2026-10-16", type: chiffre, theme: travail-retraites }
+- { date: "2026-10-22", type: position, theme: economie-impots }
+- { date: "2026-10-09", type: source, theme: sante }
+- { date: "2026-10-19", type: formulation, theme: ecologie-energie }
+- { date: "2026-10-12", type: chiffre, theme: logement }
+- { date: "2026-10-20", type: position, theme: sante }
+- { date: "2026-10-17", type: formulation, theme: immigration }
