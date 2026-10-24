@@ -4780,3 +4780,23 @@ test.describe("chaque position du face-à-face porte son badge", () => {
     ]);
   });
 });
+
+test.describe("les questions où ils sont d'accord sont marquées", () => {
+  test("sur la défense européenne, Glucksmann et Retailleau ont tous deux B « Mutualiser achats et industries », et la carte porte « Même option »", async ({ page }) => {
+    await faceAFace(page);
+    const { carte, cotes } = await carteDuFaceAFace(page, "Faut-il mutualiser la défense à l'échelle européenne ?");
+    expect(cotes.map(({ lettre, titre }) => [lettre, titre])).toEqual([
+      ["B", "Mutualiser achats et industries"],
+      ["B", "Mutualiser achats et industries"],
+    ]);
+    await expect(carte.locator(".link .verdict")).toHaveText("Même option");
+    await expect(carte).toHaveClass(/\bagree\b/);
+  });
+
+  test("sur la retraite (B contre D), la carte porte « Options différentes »", async ({ page }) => {
+    await faceAFace(page);
+    const { carte } = await carteDuFaceAFace(page, "À quel âge devrait-on pouvoir partir à la retraite ?");
+    await expect(carte.locator(".link .verdict")).toHaveText("Options différentes");
+    await expect(carte).toHaveClass(/\bdiffer\b/);
+  });
+});

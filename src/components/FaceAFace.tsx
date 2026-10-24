@@ -69,6 +69,29 @@ function Cote({ joueur, position }: { joueur: Joueur; position: PositionComparee
   );
 }
 
+/** Le verdict d'une question : la même option, des options différentes, ou rien à comparer (une position inconnue). */
+const verdict = (q: QuestionComparee): "agree" | "differ" | "unk" =>
+  q.positions[0] && q.positions[1] ? (q.positions[0].lettre === q.positions[1].lettre ? "agree" : "differ") : "unk";
+
+/** Le disque entre les deux positions, et ce qu'il dit. Une question non comparée : ticket 108. */
+function Verdict({ etat }: { etat: "agree" | "differ" }) {
+  return (
+    <div className="link">
+      <div className="link-in">
+        <span className="disc" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d={etat === "agree" ? "M5 12.5l4.5 4.5L19 7.5" : "M6 9h12M6 15h12M16 4.5L8 19.5"}
+              style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }}
+            />
+          </svg>
+        </span>
+        <span className="verdict">{etat === "agree" ? "Même option" : "Options différentes"}</span>
+      </div>
+    </div>
+  );
+}
+
 /**
  * Les questions du face-à-face, de la plus récente à la plus ancienne. Seules celles auxquelles l'électeur a déjà
  * répondu sont montrées, pour ne rien révéler avant sa réponse (SPEC.md, « Règles validées sur les maquettes »).
@@ -78,27 +101,29 @@ export function QuestionsDuFaceAFace({ questions, joueurs }: { questions: Questi
   const repondues = questions.filter((q) => reponses[q.numero]);
   return (
     <ul className="vs-list">
-      {repondues.map((q) => (
-        <li key={q.numero} className={`vs ${q.theme.classe}`}>
-          <article className="vs-card" aria-labelledby={`q${q.numero}`}>
-            <header className="vs-head">
-              <p className="label">
-                <i></i>
-                {q.theme.nom}
-              </p>
-              <h3 className="vs-q" id={`q${q.numero}`}>
-                {q.question}
-              </h3>
-            </header>
-            <div className="vs-body">
-              <Cote joueur={joueurs[0]} position={q.positions[0]} />
-              {/* Le trait entre les deux positions ; ce qu'il dit, « Même option » ou non, est le ticket 102. */}
-              <div className="link" aria-hidden="true"></div>
-              <Cote joueur={joueurs[1]} position={q.positions[1]} />
-            </div>
-          </article>
-        </li>
-      ))}
+      {repondues.map((q) => {
+        const etat = verdict(q);
+        return (
+          <li key={q.numero} className={`vs ${q.theme.classe} ${etat}`}>
+            <article className="vs-card" aria-labelledby={`q${q.numero}`}>
+              <header className="vs-head">
+                <p className="label">
+                  <i></i>
+                  {q.theme.nom}
+                </p>
+                <h3 className="vs-q" id={`q${q.numero}`}>
+                  {q.question}
+                </h3>
+              </header>
+              <div className="vs-body">
+                <Cote joueur={joueurs[0]} position={q.positions[0]} />
+                {etat === "unk" ? <div className="link" aria-hidden="true"></div> : <Verdict etat={etat} />}
+                <Cote joueur={joueurs[1]} position={q.positions[1]} />
+              </div>
+            </article>
+          </li>
+        );
+      })}
     </ul>
   );
 }
