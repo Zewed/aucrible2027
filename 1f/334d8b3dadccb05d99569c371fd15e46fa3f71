@@ -1,0 +1,85 @@
+e2e/fiches/moi-contre/020.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-28
+e2e/fiches/moi-contre/023.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+e2e/fiches/moi-contre/013.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-50
+e2e/fiches/moi-contre/027.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+e2e/fiches/moi-contre/015.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-50
+src/components/MoiContre.tsx
+  s_330ba31127fa8a::t_1cee5bb9a7a641 5,8,97-128,130-146
+  s_330ba31127fa8a::t_91b85244b58ec0 22-24,129
+  s_330ba31127fa8a::t_236dd492a52f43 147
+e2e/fiches/moi-contre/012.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-28
+e2e/fiches/moi-contre/017.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+e2e/fiches/moi-contre/006.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 30-41
+  s_330ba31127fa8a::t_7af777cf06a39d 4-5
+e2e/fiches/moi-contre/025.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+e2e/fiches/moi-contre/002.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 30-41
+  s_330ba31127fa8a::t_7af777cf06a39d 4-5
+e2e/fiches/moi-contre/008.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 30-41
+  s_330ba31127fa8a::t_7af777cf06a39d 4-5
+e2e/fiches/moi-contre/022.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+e2e/fiches/moi-contre/016.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+e2e/fiches/moi-contre/026.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-50
+e2e/fiches/moi-contre/001.yaml
+  s_330ba31127fa8a::t_7af777cf06a39d 4-5
+  s_330ba31127fa8a::t_ac79ddba566321 30-41
+e2e/fiches/moi-contre/021.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+e2e/fiches/moi-contre/024.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+e2e/fiches/moi-contre/003.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 29,32-43
+  s_330ba31127fa8a::t_7af777cf06a39d 4-6
+e2e/fiches/moi-contre/018.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+e2e/fiches/moi-contre/010.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+src/app/moi-contre/[candidat]/page.tsx
+  s_330ba31127fa8a::t_17ed9f95c9f95d 71
+  s_330ba31127fa8a::t_91b85244b58ec0 4,6,18
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_c80a1d974f310e 5146-5198
+e2e/fiches/moi-contre/014.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+e2e/fiches/moi-contre/005.yaml
+  s_330ba31127fa8a::t_7af777cf06a39d 4-5
+  s_330ba31127fa8a::t_ac79ddba566321 30-41
+e2e/fiches/moi-contre/019.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-45
+e2e/fiches/moi-contre/011.yaml
+  s_330ba31127fa8a::t_ac79ddba566321 1-40
+e2e/fiches/moi-contre/007.yaml
+  s_330ba31127fa8a::t_7af777cf06a39d 4-5
+  s_330ba31127fa8a::t_ac79ddba566321 30-41
+.veebee/tickets/114-moi-contre-affiche-le-d-accord.md
+  s_330ba31127fa8a::t_90c522ecce7e6e 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1f334d8b3dadccb05d99569c371fd15e46fa3f71",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
