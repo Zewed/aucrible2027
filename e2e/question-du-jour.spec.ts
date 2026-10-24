@@ -5301,3 +5301,33 @@ test.describe("Chaque position du candidat affiche sa source dans « Moi contre 
     }
   });
 });
+
+test.describe("Le badge de la position du candidat dans « Moi contre »", () => {
+  /** Le badge du côté de Philippe sur une question, et sa source. */
+  async function badgeDePhilippe(page: Page, question: string) {
+    const { carte } = await carteMoiContre(page, question);
+    const philippe = carte.locator('.side[aria-label="Position de Édouard Philippe"] .meta');
+    return { badge: philippe.locator(".badge"), source: philippe.locator(".src") };
+  }
+
+  test("sur la retraite, Édouard Philippe (« Entretien Le Figaro · 5 sept. 2026 ») porte « Position officielle »", async ({ page }) => {
+    await moiContre(page);
+    const { badge, source } = await badgeDePhilippe(page, "À quel âge devrait-on pouvoir partir à la retraite ?");
+    await expect(source).toHaveText("Entretien Le Figaro · 5 sept. 2026");
+    await expect(badge).toHaveText("Position officielle");
+  });
+
+  test("sur le nucléaire, Édouard Philippe (« Vote du groupe Horizons · 11 juin 2025 ») porte « Position déduite »", async ({ page }) => {
+    await moiContre(page);
+    const { badge, source } = await badgeDePhilippe(page, "Faut-il construire de nouveaux réacteurs nucléaires ?");
+    await expect(source).toHaveText("Vote du groupe Horizons · 11 juin 2025");
+    await expect(badge).toHaveText("Position déduite");
+  });
+
+  test("du côté de l'électeur, le badge est « Ta réponse », jamais « Position officielle » ni « Position déduite »", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    const badges = page.locator(".vs-list .side.me .badge").filter({ visible: true });
+    await expect(badges).toHaveCount(23);
+    expect(new Set(await badges.allInnerTexts())).toEqual(new Set(["Ta réponse"]));
+  });
+});
