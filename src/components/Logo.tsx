@@ -1,7 +1,7 @@
 /** Le logo d'Au crible 2027 : le camembert des onze thèmes (maquettes, en-tête). Décoratif : le nom le suit en texte. */
-export function Logo() {
+export function Logo({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 200 200" aria-hidden="true">
+    <svg className={className} viewBox="0 0 200 200" aria-hidden="true">
       <circle cx="100" cy="100" r="99" style={{ fill: "#fff" }} />
       <path className="wedge on" d="M100.00 10.00A90 90 0 0 1 148.66 24.29L112.98 79.81A24 24 0 0 0 100.00 76.00Z" style={{ fill: "var(--eco)", animationDelay: "0.25s" }} />
       <path className="wedge on" d="M148.66 24.29A90 90 0 0 1 181.87 62.61L121.83 90.03A24 24 0 0 0 112.98 79.81Z" style={{ fill: "var(--trav)", animationDelay: "0.34s" }} />

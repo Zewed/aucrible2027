@@ -5,6 +5,7 @@ milestone: null
 depends_on: ["195"]
 design: maquettes/carrousel.html
 tracker: null
+status: done
 ---
 
 ## Ce que l'utilisateur fait

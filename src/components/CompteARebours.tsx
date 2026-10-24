@@ -1,7 +1,7 @@
 import { joursEntre } from "@/lib/date";
 
 /** Le 1er tour de la présidentielle (SPEC.md, introduction). */
-const PREMIER_TOUR = "2027-04-18";
+export const PREMIER_TOUR = "2027-04-18";
 
 /** « J-177 avant le 1er tour », pour le jour donné (AAAA-MM-JJ). */
 export function CompteARebours({ jour }: { jour: string }) {
