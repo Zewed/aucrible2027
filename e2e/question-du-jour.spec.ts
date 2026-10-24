@@ -4970,3 +4970,29 @@ test.describe("l'électeur filtre le face-à-face par thème", () => {
     await expect(visibles(page)).toHaveCount(7);
   });
 });
+
+test.describe("le face-à-face ne montre que les questions déjà répondues", () => {
+  const aideActive = "Faut-il autoriser une aide active à mourir ?";
+
+  test("sans réponse à « Faut-il autoriser une aide active à mourir ? », le face-à-face ne montre aucune position sur ce sujet", async ({ page }) => {
+    await faceAFace(page, VINGT_QUATRE);
+    await expect(page.locator(".vs-list .vs").filter({ visible: true })).toHaveCount(24);
+    await expect(page.getByRole("heading", { level: 3, name: aideActive })).toHaveCount(0);
+    await expect(page.getByText(aideActive)).toHaveCount(0);
+  });
+
+  test("après avoir répondu à cette question, elle apparaît dans le face-à-face avec les deux positions", async ({ page }) => {
+    await faceAFace(page, VINGT_QUATRE);
+    await page.goto("/question/25");
+    await expect(page.getByRole("heading", { name: aideActive }).filter({ visible: true })).toBeVisible();
+    await page.getByRole("radiogroup", { name: "Les options" }).filter({ visible: true }).locator("label").first().click();
+    await page.getByRole("button", { name: "Valider ma réponse" }).filter({ visible: true }).click();
+    await page.waitForURL(/\/question\/25\/revelation$/);
+    await page.goto("/face-a-face/glucksmann/retailleau");
+    const { cotes } = await carteDuFaceAFace(page, aideActive);
+    expect(cotes.map(({ nom, lettre }) => [nom, lettre])).toEqual([
+      ["Raphaël Glucksmann", "A"],
+      ["Bruno Retailleau", "C"],
+    ]);
+  });
+});
