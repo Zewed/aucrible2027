@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
-import { QuestionsMoiContre, type QuestionMoiContre } from "@/components/MoiContre";
+import { QuestionsMoiContre, ScoreMoiContre, type QuestionMoiContre } from "@/components/MoiContre";
 import { lireThemes } from "@/lib/contenu";
-import { lireAujourdhui, lireLesCandidats, lireQuestionsPubliees } from "@/lib/publication";
+import { lireAujourdhui, lireLesCandidats, lireQuestionsDuCalcul, lireQuestionsPubliees } from "@/lib/publication";
 import "@/app/face-a-face.css";
 import "./moi-vs.css";
 
@@ -15,7 +15,7 @@ import "./moi-vs.css";
 async function MoiContre({ id }: { id: string }) {
   const candidat = (await lireLesCandidats()).find((c) => c.id === id);
   if (!candidat) notFound();
-  const [jour, publiees] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
+  const [jour, publiees, duCalcul] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees(), lireQuestionsDuCalcul()]);
   const themes = lireThemes();
   const questions: QuestionMoiContre[] = [...publiees]
     .sort((x, y) => y.date.localeCompare(x.date))
@@ -68,6 +68,7 @@ async function MoiContre({ id }: { id: string }) {
             </div>
           </div>
         </section>
+        <ScoreMoiContre questions={questions.map((q) => duCalcul.find((d) => d.numero === q.numero)!)} candidat={candidat} />
         <section className="sec" aria-labelledby="h-list">
           <div className="sec-h">
             <h2 id="h-list">Question par question</h2>

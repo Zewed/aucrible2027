@@ -1,7 +1,8 @@
 # FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « moi-contre »
 # (cookie aucrible-jeu-de-test). Elle reprend une carte de maquettes/moi-vs.html : la question, et la position
 # d'Édouard Philippe avec sa source, inventées : elles ne disent rien de ses positions réelles. Les autres options
-# sont des libellés de test.
+# sont des libellés de test. Les positions des autres candidats, inventées aussi, retrouvent le classement de
+# maquettes/resultats.html.
 numero: 2
 date: 2026-10-17
 theme: ecologie-energie
@@ -26,3 +27,15 @@ options:
     critiques: ""
 positions:
   philippe: { option: C, source: "Vote du groupe Horizons · 11 juin 2025", statut: deduite }
+  ruffin: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  lisnard: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  tondelier: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  dupont-aignan: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  glucksmann: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  le-pen: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  roussel: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  melenchon: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  retailleau: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  arthaud: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  attal: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  zemmour: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }

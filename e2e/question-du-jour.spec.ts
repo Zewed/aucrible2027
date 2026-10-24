@@ -5143,3 +5143,56 @@ test.describe("« Moi contre » montre ses réponses face à celles d'un candida
     ]);
   });
 });
+
+/**
+ * Les 23 réponses de maquettes/moi-vs.html sur le jeu « moi-contre » : les 7 cartes de la maquette, et 16 autres
+ * réponses qui retrouvent ses nombres (11 fois la même option qu'Édouard Philippe, 54 %). Sans réponse : les n° 4, 9,
+ * 12 et 20.
+ */
+const VINGT_TROIS_MOI_CONTRE: Record<number, [string, number, string]> = {
+  ...REPONSES_MOI_CONTRE,
+  10: ["B", 1, "2026-10-18"],
+  11: ["A", 1, "2026-10-18"],
+  13: ["C", 1, "2026-10-18"],
+  14: ["B", 1, "2026-10-18"],
+  15: ["A", 3, "2026-10-17"],
+  16: ["C", 1, "2026-10-17"],
+  17: ["A", 3, "2026-10-17"],
+  18: ["C", 1, "2026-10-17"],
+  19: ["A", 2, "2026-10-16"],
+  21: ["A", 1, "2026-10-16"],
+  22: ["B", 1, "2026-10-16"],
+  23: ["A", 2, "2026-10-15"],
+  24: ["A", 2, "2026-10-15"],
+  25: ["C", 2, "2026-10-15"],
+  26: ["A", 1, "2026-10-14"],
+  27: ["A", 1, "2026-10-14"],
+};
+
+test.describe("« Moi contre » affiche le % d'accord", () => {
+  test("avec les 23 réponses de la maquette, dont 11 identiques à celles de Philippe, la page affiche « 54 % » et « Tu es d'accord avec Édouard Philippe sur 11 questions sur 23 (54 %) »", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    const score = page.locator(".score").filter({ visible: true });
+    await expect(score.locator(".score-k")).toHaveText("Ta proximité avec Édouard Philippe");
+    await expect(score.locator(".score-big")).toHaveText("54 %");
+    await expect(score.getByRole("heading", { level: 2 })).toHaveText("Tu es d'accord avec Édouard Philippe sur 11 questions sur 23 (54 %)");
+  });
+
+  test("ce pourcentage est celui de la ligne Édouard Philippe dans « Mes résultats » (7e, 54 %)", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    await expect(page.locator(".score .score-big").filter({ visible: true })).toHaveText("54 %");
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    expect(await lignesDuClassement(page)).toContainEqual(["7", "Édouard Philippe", "54 %"]);
+  });
+
+  test("la rangée de 23 pastilles compte 11 pastilles « même option » et 12 « autre option »", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    const rangee = page.locator(".score .tally").filter({ visible: true });
+    await expect(rangee).toHaveAttribute("role", "img");
+    await expect(rangee).toHaveAttribute("aria-label", "Sur tes 23 réponses comparées : 11 fois la même option qu'Édouard Philippe, 12 fois une autre");
+    await expect(rangee.locator("i")).toHaveCount(23);
+    await expect(rangee.locator("i.on")).toHaveCount(11);
+    await expect(page.locator(".score .score-key li").filter({ visible: true })).toHaveText(["même option", "autre option"]);
+  });
+});

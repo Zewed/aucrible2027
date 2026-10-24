@@ -1,7 +1,9 @@
 # FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « moi-contre »
 # (cookie aucrible-jeu-de-test). Elle reprend une carte de maquettes/moi-vs.html : la question, et la position
 # d'Édouard Philippe avec sa source, inventées : elles ne disent rien de ses positions réelles. Les autres options
-# sont des libellés de test.
+# sont des libellés de test. Les positions des autres candidats, inventées aussi, retrouvent le classement de
+# maquettes/resultats.html.
+# C est hors échelle : c'est ce qui donne 55 % en « Économie & impôts » avec les réponses de la maquette.
 numero: 3
 date: 2026-10-16
 theme: economie-impots
@@ -24,5 +26,18 @@ options:
     implique: "On conserve l'IFI actuel, limité à l'immobilier."
     defenseurs: ""
     critiques: ""
+    horsEchelle: true
 positions:
   philippe: { option: C, source: "Vote du groupe Horizons · 4 déc. 2025", statut: deduite }
+  ruffin: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  lisnard: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  tondelier: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  dupont-aignan: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  glucksmann: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  le-pen: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  roussel: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  melenchon: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  retailleau: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  arthaud: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  attal: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  zemmour: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }

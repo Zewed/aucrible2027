@@ -1,7 +1,8 @@
 # FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « moi-contre »
 # (cookie aucrible-jeu-de-test). Elle reprend une carte de maquettes/moi-vs.html : la question, et la position
 # d'Édouard Philippe avec sa source, inventées : elles ne disent rien de ses positions réelles. Les autres options
-# sont des libellés de test.
+# sont des libellés de test. Les positions des autres candidats, inventées aussi, retrouvent le classement de
+# maquettes/resultats.html.
 numero: 6
 date: 2026-10-13
 theme: securite-justice
@@ -26,3 +27,15 @@ options:
     critiques: ""
 positions:
   philippe: { option: B, source: "Tribune dans Le Monde · 2 mars 2026", statut: officielle }
+  ruffin: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  lisnard: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  tondelier: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  dupont-aignan: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  glucksmann: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  le-pen: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  roussel: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  melenchon: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  retailleau: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  arthaud: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  attal: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  zemmour: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
