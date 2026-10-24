@@ -1,0 +1,8 @@
+# AJOUTS DE TEST : lus seulement par le serveur des tests de bout en bout, quand un test choisit « lassalle »
+# (cookie aucrible-candidats-de-test). Une entrée dont l'identifiant n'est pas dans content/candidats.yaml s'ajoute à
+# la liste. Cette déclaration est l'exemple de SPEC.md (« Lassalle entre automatiquement s'il se déclare »), inventée
+# pour ce test : elle ne dit rien des candidatures réelles.
+- id: lassalle
+  nom: Jean Lassalle
+  parti: Résistons !
+  initiales: JLa

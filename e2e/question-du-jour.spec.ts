@@ -5439,3 +5439,55 @@ test.describe("« Moi contre » mène au face-à-face", () => {
     expect([...adresses].sort()).toEqual(contenu.filter((c) => c.id !== "philippe").map((c) => `/face-a-face/philippe/${c.id}`).sort());
   });
 });
+
+test.describe("Un nouveau candidat entre dans le classement", () => {
+  /** Jean Lassalle se déclare : il s'ajoute aux 13 candidats du contenu. */
+  const lassalleSeDeclare = (page: Page) =>
+    page.context().addCookies([{ name: "aucrible-candidats-de-test", value: "lassalle", url: "http://localhost:3127" }]);
+
+  test("quand Jean Lassalle se déclare, « Mes résultats » classe 14 candidats et Jean Lassalle y figure", async ({ page }) => {
+    await lassalleSeDeclare(page);
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(14);
+    const lignes = await lignesDuClassement(page);
+    expect(lignes.map(([, nom]) => nom)).toContain("Jean Lassalle");
+    expect(lignes.map(([n]) => n)).toEqual(Array.from({ length: 14 }, (_, i) => String(i + 1)));
+  });
+
+  test("Jean Lassalle a une fiche, avec le même pion que les autres candidats (initiales, sans couleur de parti)", async ({ page }) => {
+    await lassalleSeDeclare(page);
+    const pion = async (id: string) => {
+      await page.goto(`/candidat/${id}`);
+      const p = page.locator(".id-card .pawn");
+      return { texte: await p.textContent(), classe: await p.getAttribute("class"), fond: await p.evaluate((e) => getComputedStyle(e).backgroundColor) };
+    };
+    const lassalle = await pion("lassalle");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Jean Lassalle");
+    await expect(page.locator(".id-card .party")).toHaveText("Résistons !");
+    expect(lassalle.texte).toBe("JLa");
+    for (const autre of ["tondelier", "le-pen", "melenchon"]) {
+      const p = await pion(autre);
+      expect([p.classe, p.fond]).toEqual([lassalle.classe, lassalle.fond]);
+    }
+  });
+
+  test("il est proposé dans « Choisir un autre candidat » du face-à-face (12 noms) et de « Moi contre » (13 noms)", async ({ page }) => {
+    await lassalleSeDeclare(page);
+    const proposes = async (nom: string) => {
+      const bouton = page.locator(`summary[aria-label="Changer de candidat : ${nom}"]`).filter({ visible: true });
+      await bouton.click();
+      const liens = page.locator(".pick").filter({ has: bouton }).locator(".chg-panel").getByRole("link");
+      await expect(liens.first()).toBeVisible();
+      return (await liens.allInnerTexts()).map((n) => n.replace(/^\S+\s+/, "").trim());
+    };
+    await faceAFace(page);
+    const duFaceAFace = await proposes("Bruno Retailleau");
+    expect(duFaceAFace).toHaveLength(12);
+    expect(duFaceAFace).toContain("Jean Lassalle");
+    await moiContre(page);
+    const deMoiContre = await proposes("Édouard Philippe");
+    expect(deMoiContre).toHaveLength(13);
+    expect(deMoiContre).toContain("Jean Lassalle");
+  });
+});
