@@ -4359,3 +4359,35 @@ test.describe("la page introuvable ramène à la question du jour", () => {
     await expect(page.getByRole("heading", { name: "Faut-il sortir du nucléaire ?" }).filter({ visible: true })).toBeVisible();
   });
 });
+
+test.describe("sans réseau, l'app dit qu'il faut une connexion", () => {
+  test("réseau coupé, toucher le lien du rattrapage affiche un message qui dit qu'il faut une connexion, au lieu d'une page vide ou d'une erreur", async ({ page, context }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/question/23/revelation");
+    const lien = page.getByRole("link", { name: "Rattraper d'autres questions" });
+    await expect(lien).toBeVisible();
+    await context.setOffline(true);
+    await lien.click();
+    const message = page.getByRole("alert").filter({ hasText: /connexion/ });
+    await expect(message).toBeVisible();
+    await expect(message).toHaveText(/Pas de connexion/);
+    expect(page.url()).toMatch(/\/question\/23\/revelation$/);
+    await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true }).first()).toBeVisible();
+    await context.setOffline(false);
+  });
+
+  test("réseau rétabli, la même page s'ouvre normalement, et les 23 réponses sont toujours là dans « Mes résultats »", async ({ page, context }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/question/23/revelation");
+    await context.setOffline(true);
+    await page.getByRole("link", { name: "Rattraper d'autres questions" }).click();
+    await expect(page.getByRole("alert").filter({ hasText: /connexion/ })).toBeVisible();
+    await context.setOffline(false);
+    await expect(page.getByRole("alert").filter({ hasText: /connexion/ })).toHaveCount(0);
+    await page.getByRole("link", { name: "Rattraper d'autres questions" }).click();
+    await page.waitForURL(/\/rattrapage$/);
+    await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toBeVisible();
+    await page.goto("/resultats");
+    await expect(page.getByText("Calculé sur tes 23 réponses, pondérées par l'importance que tu leur donnes.")).toBeVisible();
+  });
+});

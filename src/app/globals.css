@@ -31,3 +31,12 @@
 
 /* Journal vide : dans la page, son titre est un h3, sous « Les corrections » ; la maquette le montre à part, en h2. */
 .log-sec .empty h3 { font: 800 clamp(24px, 6.6vw, 32px)/1.05 var(--display); font-variation-settings: "wdth" 85; letter-spacing: -0.02em; text-wrap: balance; }
+
+/* Sans réseau : le message qui retient un lien (aucune maquette ; le ton est celui des cartes du kit). */
+.hors-ligne {
+  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 40;
+  max-width: 520px; margin: 0 auto;
+  background: var(--chalk); color: var(--ink);
+  border-radius: var(--r); box-shadow: 0 6px 0 var(--pawn-edge);
+  padding: 14px 16px; font: 500 15px/1.45 var(--text);
+}
