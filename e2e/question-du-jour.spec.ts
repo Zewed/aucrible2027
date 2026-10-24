@@ -4583,3 +4583,35 @@ test.describe("la 3e image montre les chiffres sourcés", () => {
     }
   });
 });
+
+test.describe("la 4e image montre les options, sans noms", () => {
+  test("l'image 4/6 de la fiche n° 24 montre les cinq cartes A à E avec leurs libellés", async ({ page }) => {
+    const image = (await carrouselDeLaMaquette(page)).nth(3);
+    await expect(image.getByRole("heading", { level: 3 })).toHaveText("Les 5 options");
+    await expect(image.locator(".s-opt i")).toHaveText(["A", "B", "C", "D", "E"]);
+    await expect(image.locator(".s-opt b")).toHaveText(["60 ans", "62 ans", "64 ans", "65 ans ou plus", "À la carte"]);
+  });
+
+  test("l'image ne contient aucun nom de candidat ni de parti, et dit « Les noms viennent après ta réponse. »", async ({ page }) => {
+    const image = (await carrouselDeLaMaquette(page)).nth(3);
+    await expect(image.locator(".s-sub")).toHaveText("Les noms viennent après ta réponse.");
+    expect(nomsOuPartisDans((await image.textContent())!)).toEqual([]);
+  });
+
+  test("pour une fiche à 3 options, l'image s'intitule « Les 3 options » et montre 3 cartes", async ({ page }) => {
+    const dossier = "e2e/fiches/carrousel-trois-options";
+    mkdirSync(dossier, { recursive: true });
+    try {
+      // La même fiche, réduite à ses options A, B et C, dans un jeu de fiches à ce test seul.
+      const fiche = readFileSync("e2e/fiches/carrousel/024.yaml", "utf8");
+      writeFileSync(`${dossier}/024.yaml`, fiche.replace(/  - id: D\n[\s\S]*?(?=positions:)/, ""));
+      await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "carrousel-trois-options", url: "http://localhost:3127" }]);
+      await page.goto("/carrousel");
+      const image = page.getByRole("region", { name: "Le carrousel" }).locator("article.slide").nth(3);
+      await expect(image.getByRole("heading", { level: 3 })).toHaveText("Les 3 options");
+      await expect(image.locator(".s-opt")).toHaveCount(3);
+    } finally {
+      rmSync(dossier, { recursive: true, force: true });
+    }
+  });
+});
