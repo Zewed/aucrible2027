@@ -1,0 +1,28 @@
+# FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « moi-contre »
+# (cookie aucrible-jeu-de-test). Elle reprend une carte de maquettes/moi-vs.html : la question, et la position
+# d'Édouard Philippe avec sa source, inventées : elles ne disent rien de ses positions réelles. Les autres options
+# sont des libellés de test.
+numero: 5
+date: 2026-10-14
+theme: immigration
+question: "Comment encadrer l'immigration de travail ?"
+contexte: []
+chiffres: []
+options:
+  - id: A
+    libelle: "Option de test A"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+  - id: B
+    libelle: "Une liste de métiers en tension"
+    implique: "On recrute à l'étranger là où les employeurs ne trouvent personne."
+    defenseurs: ""
+    critiques: ""
+  - id: C
+    libelle: "Option de test C"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+positions:
+  philippe: { option: B, source: "Entretien France Inter · 12 mai 2026", statut: officielle }

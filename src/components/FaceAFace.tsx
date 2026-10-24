@@ -37,7 +37,7 @@ function Badge({ officielle }: { officielle: boolean }) {
 }
 
 /** L'icône de document devant la source. */
-function Document() {
+export function Document() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M6 3h8l4 4v14H6zM14 3v4h4" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }} />
@@ -50,7 +50,7 @@ function Document() {
  * « Position inconnue ». La maquette dit « Aucune source datée de moins de 12 mois » : une source plus ancienne
  * (le programme 2022) compte pourtant, d'où « Pas de source à ce jour ».
  */
-function Cote({ joueur, position }: { joueur: Joueur; position: PositionComparee }) {
+export function Cote({ joueur, position }: { joueur: Joueur; position: PositionComparee }) {
   return (
     <section className={position ? "side" : "side unk"} aria-label={`Position de ${joueur.nom}`}>
       <p className="who">
@@ -101,7 +101,7 @@ const verdict = (q: QuestionComparee): "agree" | "differ" | "unk" =>
   q.positions[0] && q.positions[1] ? (q.positions[0].lettre === q.positions[1].lettre ? "agree" : "differ") : "unk";
 
 /** Le disque entre les deux positions, et ce qu'il dit. */
-function Verdict({ etat }: { etat: "agree" | "differ" | "unk" }) {
+export function Verdict({ etat }: { etat: "agree" | "differ" | "unk" }) {
   if (etat === "unk")
     return (
       <div className="link">

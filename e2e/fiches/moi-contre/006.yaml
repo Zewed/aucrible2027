@@ -1,0 +1,28 @@
+# FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « moi-contre »
+# (cookie aucrible-jeu-de-test). Elle reprend une carte de maquettes/moi-vs.html : la question, et la position
+# d'Édouard Philippe avec sa source, inventées : elles ne disent rien de ses positions réelles. Les autres options
+# sont des libellés de test.
+numero: 6
+date: 2026-10-13
+theme: securite-justice
+question: "Faut-il rétablir les peines planchers ?"
+contexte: []
+chiffres: []
+options:
+  - id: A
+    libelle: "Non, le juge décide"
+    implique: "La peine est fixée au cas par cas, selon la situation."
+    defenseurs: ""
+    critiques: ""
+  - id: B
+    libelle: "Oui, pour les récidives graves"
+    implique: "Une peine minimale pour les récidivistes de crimes et délits graves."
+    defenseurs: ""
+    critiques: ""
+  - id: C
+    libelle: "Option de test C"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+positions:
+  philippe: { option: B, source: "Tribune dans Le Monde · 2 mars 2026", statut: officielle }
