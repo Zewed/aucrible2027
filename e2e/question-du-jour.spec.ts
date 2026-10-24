@@ -5491,3 +5491,37 @@ test.describe("Un nouveau candidat entre dans le classement", () => {
     expect(deMoiContre).toContain("Jean Lassalle");
   });
 });
+
+test.describe("Un nouveau candidat sans source est « position inconnue » partout", () => {
+  const lassalleSeDeclare = (page: Page) =>
+    page.context().addCookies([{ name: "aucrible-candidats-de-test", value: "lassalle", url: "http://localhost:3127" }]);
+
+  test("la fiche de Jean Lassalle, juste après son entrée, affiche « Position inconnue — pas de source à ce jour » sur chacune des 24 questions publiées", async ({ page }) => {
+    await lassalleSeDeclare(page);
+    await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
+    await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "candidat", url: "http://localhost:3127" }]);
+    await page.goto("/candidat/lassalle");
+    // Les lignes des questions, sans celles de la légende « Comment lire une position ».
+    const lignes = page.getByRole("region", { name: "Ses positions" }).getByRole("listitem").filter({ has: page.locator(".pos-n") });
+    await expect(lignes).toHaveCount(24);
+    const titres = await lignes.evaluateAll((l) => l.map((e) => e.querySelector(".pos-title")?.textContent));
+    expect(titres).toEqual(Array(24).fill("Position inconnue — pas de source à ce jour"));
+    await expect(lignes.locator(".badge")).toHaveCount(0);
+  });
+
+  test("dans la révélation d'une question, Jean Lassalle est rangé sous « Position inconnue »", async ({ page }) => {
+    await lassalleSeDeclare(page);
+    await repondre(page, "62 ans");
+    expect(await nomsSous(page, "Position inconnue")).toContain("Jean Lassalle");
+    const options = await blocsDOption(page).getByRole("listitem").allInnerTexts();
+    expect(options.join("\n")).not.toContain("Jean Lassalle");
+  });
+
+  test("dans un face-à-face avec lui, chaque question est « Non comparée »", async ({ page }) => {
+    await lassalleSeDeclare(page);
+    await faceAFace(page, [3, 9, 12, 15, 18, 21, 24], "/face-a-face/glucksmann/lassalle");
+    const verdicts = page.locator(".vs-list .vs .verdict").filter({ visible: true });
+    await expect(verdicts).toHaveCount(7);
+    expect(new Set((await verdicts.allInnerTexts()).map((v) => v.trim()))).toEqual(new Set(["Non comparée"]));
+  });
+});
