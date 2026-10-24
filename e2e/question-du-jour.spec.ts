@@ -4338,3 +4338,24 @@ test.describe("l'en-tête reste en haut au défilement", () => {
     expect(boite!.y).toBeGreaterThanOrEqual(entete!.y + entete!.height);
   });
 });
+
+test.describe("la page introuvable ramène à la question du jour", () => {
+  test("sur la page introuvable, « La question du jour » ouvre la question du jour, la n° 24 du vendredi 23 octobre", async ({ page }) => {
+    await page.goto("/zzz");
+    await page.getByRole("link", { name: "La question du jour" }).click();
+    await page.waitForURL(/\/$/);
+    // Le bandeau dit « Question n° 24 · vendredi 23 octobre » ; au téléphone, il cache le jour de la semaine.
+    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24 · vendredi 23 octobre");
+  });
+
+  test("la phrase sous le bouton donne le numéro du jour : « n° 24 » le 23 octobre, « n° 25 » le 24, et le bouton ouvre alors la n° 25", async ({ page }) => {
+    await page.goto("/zzz");
+    await expect(page.locator(".lost .go-note")).toHaveText("Tu y retrouveras la carte du jour, n° 24.");
+    await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
+    await page.goto("/zzz");
+    await expect(page.locator(".lost .go-note")).toHaveText("Tu y retrouveras la carte du jour, n° 25.");
+    await page.getByRole("link", { name: "La question du jour" }).click();
+    await page.waitForURL(/\/$/);
+    await expect(page.getByRole("heading", { name: "Faut-il sortir du nucléaire ?" }).filter({ visible: true })).toBeVisible();
+  });
+});
