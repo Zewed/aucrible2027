@@ -1,0 +1,23 @@
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_333794cf9e51c8 5369-5380
+src/app/candidat/[id]/page.tsx
+  s_330ba31127fa8a::t_2fcf615863aa0e 216-224
+.veebee/tickets/133-la-fiche-mene-a-moi-contre-ce-candidat.md
+  s_330ba31127fa8a::t_d7519f40e24b75 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "77b9c9d27fd237495686bb02a2490bab082db9d1",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
