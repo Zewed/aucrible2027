@@ -4916,3 +4916,29 @@ test.describe("le même candidat ne peut pas être choisi deux fois", () => {
     expect(aGauche).toHaveLength(11);
   });
 });
+
+test.describe("le disque central inverse les deux candidats", () => {
+  const disque = (page: Page) => page.getByRole("link", { name: "Inverser l'ordre des deux candidats" }).filter({ visible: true });
+  const noms = (page: Page) => page.locator(".duel .pick-name").filter({ visible: true });
+
+  test("toucher le disque central met Retailleau à gauche et Glucksmann à droite, avec leurs pions et leurs noms", async ({ page }) => {
+    await faceAFace(page);
+    await disque(page).click();
+    await page.waitForURL(/\/face-a-face\/retailleau\/glucksmann$/);
+    await expect(noms(page)).toHaveText(["BrunoRetailleau", "RaphaëlGlucksmann"]);
+    await expect(page.locator(".duel .pick > .pawn").filter({ visible: true })).toHaveText(["BR", "RG"]);
+  });
+
+  test("après l'inversion, sur la retraite, « 65 ans ou plus » est à gauche et « 62 ans » à droite, chacun avec sa source et son badge ; un second toucher remet l'ordre de départ", async ({ page }) => {
+    await faceAFace(page);
+    await disque(page).click();
+    await page.waitForURL(/\/face-a-face\/retailleau\/glucksmann$/);
+    const carte = page.locator(".vs-list .vs").filter({ visible: true }).filter({ hasText: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+    await expect(carte.locator(".side .pos-t")).toHaveText(["65 ans ou plus", "62 ans"]);
+    await expect(carte.locator(".side .meta .src")).toHaveText(["Programme LR 2022 · janv. 2022", "Entretien Libération · 9 sept. 2026"]);
+    await expect(carte.locator(".side .meta .badge")).toHaveText(["Position déduite", "Position officielle"]);
+    await disque(page).click();
+    await page.waitForURL(/\/face-a-face\/glucksmann\/retailleau$/);
+    await expect(noms(page)).toHaveText(["RaphaëlGlucksmann", "BrunoRetailleau"]);
+  });
+});

@@ -40,8 +40,3 @@
   border-radius: var(--r); box-shadow: 0 6px 0 var(--pawn-edge);
   padding: 14px 16px; font: 500 15px/1.45 var(--text);
 }
-
-/* Face-à-face : la place du disque central (le bouton d'inversion du ticket 106). Comme le disque de la maquette, elle
-   tient la colonne du milieu sur grand écran et ne prend aucune case au téléphone. */
-.duel-grid > .ff-centre { display: none; }
-@media (min-width: 900px) { .duel-grid > .ff-centre { display: block; } }
