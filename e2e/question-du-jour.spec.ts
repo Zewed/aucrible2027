@@ -5019,3 +5019,21 @@ test.describe("une carte retournée compte les questions cachées", () => {
     await expect(page.locator(".vs-list .fd-card")).toHaveCount(0);
   });
 });
+
+test.describe("sans réponse, le face-à-face invite à répondre d'abord", () => {
+  test("un électeur qui n'a répondu à aucune question ne voit ni position, ni option, ni source", async ({ page }) => {
+    await faceAFace(page, []);
+    await expect(page.locator(".fd-card").filter({ visible: true })).toBeVisible();
+    for (const selecteur of [".side", ".opt-letter", ".pos-t", ".meta .src", ".badge"]) await expect(page.locator(selecteur)).toHaveCount(0);
+    await expect(page.getByText(/^Option de test/)).toHaveCount(0);
+  });
+
+  test("à la place, une invitation à répondre d'abord, avec un bouton « Rattraper les questions »", async ({ page }) => {
+    await faceAFace(page, []);
+    const invitation = page.locator(".fd-card").filter({ visible: true });
+    await expect(invitation.getByRole("heading", { level: 3 })).toHaveText("Les 27 questions attendent ta réponse");
+    await expect(invitation.locator(".fd-n")).toHaveText("Les positions des candidats s'affichent après ta réponse, pour ne pas t'influencer.");
+    await invitation.getByRole("link", { name: "Rattraper les questions" }).click();
+    await page.waitForURL(/\/rattrapage$/);
+  });
+});
