@@ -4734,3 +4734,25 @@ test.describe("le face-à-face montre deux candidats côte à côte, question pa
     expect(allure[0]).toEqual(allure[1]);
   });
 });
+
+test.describe("chaque position du face-à-face affiche sa source", () => {
+  test("sur la retraite, « 62 ans » de Glucksmann affiche « Entretien Libération · 9 sept. 2026 », « 65 ans ou plus » de Retailleau « Programme LR 2022 · janv. 2022 »", async ({ page }) => {
+    await faceAFace(page);
+    const { carte } = await carteDuFaceAFace(page, "À quel âge devrait-on pouvoir partir à la retraite ?");
+    await expect(carte.locator(".side .pos-t")).toHaveText(["62 ans", "65 ans ou plus"]);
+    await expect(carte.locator(".side .meta .src")).toHaveText(["Entretien Libération · 9 sept. 2026", "Programme LR 2022 · janv. 2022"]);
+  });
+
+  test("sur chaque question où les deux ont une position, les deux positions affichent une source avec une date", async ({ page }) => {
+    await faceAFace(page);
+    const cartes = page.locator(".vs-list .vs");
+    await expect(cartes).toHaveCount(7);
+    const sources = await cartes.evaluateAll((liste) =>
+      liste.map((c) => [...c.querySelectorAll(".side")].map((s) => s.querySelector(".meta .src")?.textContent?.trim() ?? "")),
+    );
+    for (const paire of sources) {
+      expect(paire).toHaveLength(2);
+      for (const source of paire) expect(source).toMatch(/\b(19|20)\d{2}\b/);
+    }
+  });
+});
