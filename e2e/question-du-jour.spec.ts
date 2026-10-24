@@ -4458,3 +4458,35 @@ test.describe("une fiche ajoutée par l'auteur paraît à sa date", () => {
     }
   });
 });
+
+test.describe("l'auteur génère le carrousel du jour depuis la fiche", () => {
+  const images = (page: Page) => page.getByRole("region", { name: "Le carrousel" }).locator("article.slide");
+
+  test("le carrousel de la fiche du jour (n° 24) : 6 images 4:5, numérotées de 1/6 à 6/6, chacune sous la marque « Au crible 2027 »", async ({ page }) => {
+    await page.goto("/carrousel");
+    await expect(page.getByText("question n° 24", { exact: false }).first()).toBeVisible();
+    await expect(images(page)).toHaveCount(6);
+    await expect(images(page).locator(".s-page")).toHaveText(["1/6", "2/6", "3/6", "4/6", "5/6", "6/6"]);
+    await expect(images(page).locator(".s-brand")).toHaveText(Array(6).fill("Au crible 2027"));
+    for (const boite of await images(page).evaluateAll((s) => s.map((e) => e.getBoundingClientRect()).map(({ width, height }) => ({ width, height }))))
+      expect(boite.width / boite.height).toBeCloseTo(4 / 5, 3);
+    // Dessinées à 320 px de large, elles s'exportent à 1080 px : 1080 × 1350.
+    expect(await images(page).first().evaluate((e) => e.getBoundingClientRect().width)).toBe(320);
+  });
+
+  test("je corrige dans la fiche « 1,7 » en « 1,6 » et je régénère : l'image 3 affiche 1,6, sans rien retaper", async ({ page }) => {
+    await page.goto("/carrousel");
+    await expect(images(page).nth(2).locator(".s-fig-num").first()).toHaveText("1,7");
+    // La même fiche n° 24, corrigée, dans un jeu de fiches à ce test seul.
+    const dossier = "e2e/fiches/carrousel-corrige";
+    mkdirSync(dossier, { recursive: true });
+    try {
+      writeFileSync(`${dossier}/024.yaml`, readFileSync("content/questions/024-retraite.yaml", "utf8").replace('valeur: "1,7"', 'valeur: "1,6"'));
+      await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "carrousel-corrige", url: "http://localhost:3127" }]);
+      await page.goto("/carrousel");
+      await expect(images(page).nth(2).locator(".s-fig-num").first()).toHaveText("1,6");
+    } finally {
+      rmSync(dossier, { recursive: true, force: true });
+    }
+  });
+});
