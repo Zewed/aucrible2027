@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCoteClient } from "@/lib/cote-client";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 
@@ -227,6 +228,7 @@ export function FiltreDuFaceAFace({ themes, questions }: { themes: { nom: string
  */
 export function QuestionsDuFaceAFace({ questions, joueurs }: { questions: QuestionComparee[]; joueurs: [Joueur, Joueur] }) {
   const repondues = useQuestionsRepondues(questions);
+  const cachees = questions.length - repondues.length;
   return (
     <ul className="vs-list">
       {repondues.map((q) => {
@@ -252,6 +254,29 @@ export function QuestionsDuFaceAFace({ questions, joueurs }: { questions: Questi
           </li>
         );
       })}
+      {/* La carte retournée : les questions pas encore répondues, dont les positions restent cachées. */}
+      {cachees > 0 && repondues.length > 0 && (
+        <li className="vs fd-row">
+          <article className="fd-card">
+            <p className="label">
+              <i style={{ background: "var(--muted)" }}></i>Questions cachées
+            </p>
+            <h3 className="fd-q">
+              {cachees > 1 ? `${cachees} questions attendent` : "1 question attend"} encore ta réponse
+            </h3>
+            <p className="fd-n">
+              Leurs positions s&apos;affichent après ta réponse, pour ne pas t&apos;influencer. Tu vois ici{" "}
+              {repondues.length > 1 ? `les ${repondues.length} questions déjà ouvertes` : "la question déjà ouverte"} pour toi.
+            </p>
+            <Link className="btn-link" href="/rattrapage">
+              Rattraper les questions
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }} />
+              </svg>
+            </Link>
+          </article>
+        </li>
+      )}
     </ul>
   );
 }
