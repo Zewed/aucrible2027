@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
-import { QuestionsDuFaceAFace, type Joueur, type PositionComparee, type QuestionComparee } from "@/components/FaceAFace";
+import { QuestionsDuFaceAFace, ResumeDuFaceAFace, type Joueur, type PositionComparee, type QuestionComparee } from "@/components/FaceAFace";
 import { lireThemes, type Candidat, type Question } from "@/lib/contenu";
 import { lireAujourdhui, lireLesCandidats, lireQuestionsPubliees } from "@/lib/publication";
 import "@/app/face-a-face.css";
@@ -73,6 +73,10 @@ async function FaceAFace({ a, b }: { a: string; b: string }) {
             <Pioche candidat={droite} />
           </div>
         </section>
+        {/* « Moi contre un candidat », à côté du résumé dans la maquette : ticket 120. */}
+        <div className="ff-mid">
+          <ResumeDuFaceAFace questions={questions} joueurs={joueurs} />
+        </div>
         <section aria-labelledby="h-list">
           <h2 className="sr" id="h-list">
             Les questions, une par une

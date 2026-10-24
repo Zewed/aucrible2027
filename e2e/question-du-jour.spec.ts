@@ -4819,3 +4819,29 @@ test.describe("une position inconnue s'affiche comme telle", () => {
     expect([cotes[0].lettre, cotes[0].titre]).toEqual(["A", "Encadrement obligatoire en zone tendue"]);
   });
 });
+
+/** Les 24 questions du jeu « face-a-face » auxquelles répond l'électeur de la maquette (les n° 25 à 27 restent sans réponse). */
+const VINGT_QUATRE = Array.from({ length: 24 }, (_, i) => i + 1);
+
+test.describe("le face-à-face compte leurs accords", () => {
+  test("pour Glucksmann et Retailleau, le résumé affiche « D'accord sur 4 questions sur 24 », « 17 fois… » et « 3 questions restent sans comparaison »", async ({ page }) => {
+    await faceAFace(page, VINGT_QUATRE);
+    const resume = page.getByRole("region", { name: "D'accord sur 4 questions sur 24" });
+    await expect(resume.locator(".sum-k")).toHaveText("Entre Glucksmann et Retailleau");
+    await expect(resume.getByRole("heading", { level: 2 })).toHaveText("D'accord sur 4 questions sur 24");
+    await expect(resume.locator(".sum-s")).toHaveText(
+      "17 fois, ils ne choisissent pas la même option. 3 questions restent sans comparaison : un des deux n'a pas de position connue.",
+    );
+  });
+
+  test("la rangée de 24 pastilles compte 4 « même option », 17 « options différentes » et 3 « position inconnue », comme les cartes de la liste", async ({ page }) => {
+    await faceAFace(page, VINGT_QUATRE);
+    const pastilles = page.locator(".sum .tally i");
+    await expect(pastilles).toHaveCount(24);
+    const compte = async (selecteur: string) => pastilles.evaluateAll((p, s) => p.filter((e) => (s ? e.matches(s) : e.className === "")).length, selecteur);
+    expect([await compte(".on"), await compte(""), await compte(".none")]).toEqual([4, 17, 3]);
+    await expect(page.getByRole("img", { name: "Sur 24 questions : 4 fois la même option, 17 fois des options différentes, 3 comparaisons impossibles" })).toBeVisible();
+    const verdicts = await page.locator(".vs-list .vs .verdict").allInnerTexts();
+    expect(["Même option", "Options différentes", "Non comparée"].map((v) => verdicts.filter((t) => t.trim() === v).length)).toEqual([4, 17, 3]);
+  });
+});

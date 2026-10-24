@@ -1,0 +1,29 @@
+# FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « face-a-face »
+# (cookie aucrible-jeu-de-test). Fiche générique, qui complète les cartes de maquettes/face-a-face.html pour retrouver
+# ses nombres (24 questions répondues : 4 fois la même option, 17 fois des options différentes, 3 sans comparaison).
+# Les positions sont inventées : elles ne disent rien de ce que pensent les candidats.
+numero: 14
+date: 2026-09-29
+theme: institutions-democratie
+question: "Question de test n° 14 ?"
+contexte: []
+chiffres: []
+options:
+  - id: A
+    libelle: "Option de test A"
+    implique: "Ce que veut dire l'option A de la question n° 14."
+    defenseurs: ""
+    critiques: ""
+  - id: B
+    libelle: "Option de test B"
+    implique: "Ce que veut dire l'option B de la question n° 14."
+    defenseurs: ""
+    critiques: ""
+  - id: C
+    libelle: "Option de test C"
+    implique: "Ce que veut dire l'option C de la question n° 14."
+    defenseurs: ""
+    critiques: ""
+positions:
+  glucksmann: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  retailleau: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }

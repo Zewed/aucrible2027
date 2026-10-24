@@ -128,13 +128,69 @@ function Verdict({ etat }: { etat: "agree" | "differ" | "unk" }) {
   );
 }
 
+/** Les questions répondues par l'électeur, les seules que le face-à-face compare. */
+function useQuestionsRepondues(questions: QuestionComparee[]) {
+  const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
+  return questions.filter((q) => reponses[q.numero]);
+}
+
+const nomDeFamille = (joueur: Joueur) => joueur.nom.split(" ").slice(1).join(" ");
+const enQuestions = (n: number) => `${n} question${n > 1 ? "s" : ""}`;
+
+/**
+ * « D'accord sur N questions sur M » : le compte des verdicts des cartes, sur les questions répondues, et une pastille
+ * par question, dans l'ordre de la liste (maquettes/face-a-face.html). Rien sans aucune question répondue (ticket 111).
+ */
+export function ResumeDuFaceAFace({ questions, joueurs }: { questions: QuestionComparee[]; joueurs: [Joueur, Joueur] }) {
+  const repondues = useQuestionsRepondues(questions);
+  if (repondues.length === 0) return null;
+  const etats = repondues.map(verdict);
+  const [memes, differentes, inconnues] = (["agree", "differ", "unk"] as const).map((e) => etats.filter((x) => x === e).length);
+  return (
+    <section className="sum" aria-labelledby="h-sum">
+      <p className="sum-k">
+        Entre {nomDeFamille(joueurs[0])} et {nomDeFamille(joueurs[1])}
+      </p>
+      <h2 className="sum-t" id="h-sum">
+        <span className="sum-pre">D&apos;accord sur</span>{" "}
+        <span className="sum-n">
+          <em>{memes}</em> {memes > 1 ? "questions" : "question"} sur <em>{repondues.length}</em>
+        </span>
+      </h2>
+      <p className="sum-s">
+        <b>{differentes}</b> fois, ils ne choisissent pas la même option. <b>{inconnues}</b>{" "}
+        {inconnues > 1 ? "questions restent" : "question reste"} sans comparaison : un des deux n&apos;a pas de position connue.
+      </p>
+      <div
+        className="tally"
+        role="img"
+        aria-label={`Sur ${enQuestions(repondues.length)} : ${memes} fois la même option, ${differentes} fois des options différentes, ${inconnues} ${inconnues > 1 ? "comparaisons impossibles" : "comparaison impossible"}`}
+      >
+        {etats.map((e, i) => (
+          <i key={i} className={e === "agree" ? "on" : e === "unk" ? "none" : undefined}></i>
+        ))}
+      </div>
+      <ul className="tally-key" aria-hidden="true">
+        <li>
+          <i className="on"></i>même option
+        </li>
+        <li>
+          <i></i>options différentes
+        </li>
+        <li>
+          <i className="none"></i>position inconnue
+        </li>
+      </ul>
+    </section>
+  );
+}
+
 /**
  * Les questions du face-à-face, de la plus récente à la plus ancienne. Seules celles auxquelles l'électeur a déjà
  * répondu sont montrées, pour ne rien révéler avant sa réponse (SPEC.md, « Règles validées sur les maquettes »).
  */
 export function QuestionsDuFaceAFace({ questions, joueurs }: { questions: QuestionComparee[]; joueurs: [Joueur, Joueur] }) {
-  const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
-  const repondues = questions.filter((q) => reponses[q.numero]);
+  const repondues = useQuestionsRepondues(questions);
   return (
     <ul className="vs-list">
       {repondues.map((q) => {
