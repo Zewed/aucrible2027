@@ -5331,3 +5331,38 @@ test.describe("Le badge de la position du candidat dans « Moi contre »", () =>
     expect(new Set(await badges.allInnerTexts())).toEqual(new Set(["Ta réponse"]));
   });
 });
+
+test.describe("Une question non répondue est grisée dans « Moi contre » et mène au rattrapage", () => {
+  /** La carte d'une question sans réponse. */
+  const carteSansReponse = (page: Page, question: string) =>
+    page.locator(".vs-list .vs.fd-row").filter({ visible: true }).filter({ has: page.getByRole("heading", { level: 3, name: question }) });
+
+  test("pour « Faut-il rétablir un service national obligatoire ? », sans réponse, la carte est grisée, dit « Tu n'as pas encore répondu » et ne montre aucune position d'Édouard Philippe", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    const carte = carteSansReponse(page, "Faut-il rétablir un service national obligatoire ?");
+    await expect(carte).toHaveCount(1);
+    await expect(carte.locator(".fd-card")).toBeVisible();
+    await expect(carte.locator(".fd-s")).toHaveText("Tu n'as pas encore répondu");
+    await expect(carte.locator(".fd-n")).toHaveText("La position d'Édouard Philippe s'affiche après ta réponse.");
+    await expect(carte.locator(".side, .opt-letter, .badge")).toHaveCount(0);
+    // L'option A d'Édouard Philippe sur cette fiche de test ne s'affiche nulle part.
+    await expect(carte).not.toContainText("Option de test A");
+    // Grisée : la carte retournée, sans le fond blanc d'une carte répondue.
+    const fond = await carte.locator(".fd-card").evaluate((e) => getComputedStyle(e).backgroundColor);
+    expect(fond).not.toBe("rgb(255, 255, 255)");
+  });
+
+  test("le bouton « Répondre » de cette carte ouvre la liste de rattrapage", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    await carteSansReponse(page, "Faut-il rétablir un service national obligatoire ?").getByRole("link", { name: "Répondre" }).click();
+    await expect(page).toHaveURL(/\/rattrapage$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Rattraper les questions." })).toBeVisible();
+  });
+
+  test("l'en-tête « Question par question » affiche « 23 réponses · 4 sans réponse » pour un électeur qui a répondu à 23 questions et en a 4 sans réponse", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    const entete = page.locator(".sec-h").filter({ visible: true }).filter({ has: page.getByRole("heading", { level: 2, name: "Question par question" }) });
+    await expect(entete.locator("p")).toHaveText("23 réponses · 4 sans réponse");
+    await expect(page.locator(".vs-list .vs.fd-row").filter({ visible: true })).toHaveCount(4);
+  });
+});

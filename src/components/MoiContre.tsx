@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useSyncExternalStore } from "react";
 import { Cote, Document, Verdict, type Joueur, type PositionComparee } from "@/components/FaceAFace";
 import { PartDuTheme } from "@/components/PuceTheme";
@@ -21,8 +22,11 @@ export type QuestionMoiContre = {
 
 const sansAbonnement = () => () => {};
 
+const voyelle = (nom: string) => /^[aeiouyàâéèêëîïôû]/i.test(nom);
 /** « qu'Édouard Philippe », « que Marine Le Pen ». */
-const que = (nom: string) => (/^[aeiouyàâéèêëîïôû]/i.test(nom) ? `qu'${nom}` : `que ${nom}`);
+const que = (nom: string) => (voyelle(nom) ? `qu'${nom}` : `que ${nom}`);
+/** « d'Édouard Philippe », « de Marine Le Pen ». */
+const de = (nom: string) => (voyelle(nom) ? `d'${nom}` : `de ${nom}`);
 
 /**
  * Le côté de l'électeur : sa carte (lettre, titre, phrase), « Ta réponse », et le jour et l'importance de sa réponse.
@@ -56,44 +60,92 @@ function CoteDeLElecteur({ question, reponse }: { question: QuestionMoiContre; r
   );
 }
 
+/** L'icône d'œil barré de la carte sans réponse. */
+function OeilBarre() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M3 3l18 18M10.6 6.2A9.8 9.8 0 0 1 12 6c5 0 8.5 4 10 6-.7 1-1.8 2.3-3.2 3.4M6.5 7.6C4.6 8.9 3.2 10.6 2 12c1.5 2 5 6 10 6 1.4 0 2.7-.3 3.8-.8M9.9 9.9a3 3 0 0 0 4.2 4.2"
+        style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }}
+      />
+    </svg>
+  );
+}
+
 /**
- * Les réponses de l'électeur face aux positions d'un candidat, question par question, de la plus récente à la plus
- * ancienne : seules les questions répondues, et rien avant d'être dans le navigateur, seul à connaître les réponses.
- * Les questions non répondues (ticket 119) ne sont pas encore montrées.
+ * « Question par question » : les réponses de l'électeur face aux positions d'un candidat, de la question la plus
+ * récente à la plus ancienne. Une question sans réponse garde sa place, grisée et sans la position du candidat, pour ne
+ * rien révéler avant la réponse, avec « Répondre » vers le rattrapage. « Je ne sais pas » compte comme une réponse (à
+ * trancher). Rien avant d'être dans le navigateur, seul à connaître les réponses.
  */
 export function QuestionsMoiContre({ questions, candidat }: { questions: QuestionMoiContre[]; candidat: Joueur }) {
   const dansLeNavigateur = useSyncExternalStore(sansAbonnement, () => true, () => false);
   const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
-  if (!dansLeNavigateur) return null;
-  const repondues = questions.filter((q) => reponses[q.numero]);
+  const repondues = questions.filter((q) => reponses[q.numero]).length;
+  const sansReponse = questions.length - repondues;
   return (
-    <ul className="vs-list">
-      {repondues.map((q) => {
-        const reponse = reponses[q.numero];
-        const etat =
-          reponse.option === JE_NE_SAIS_PAS || !q.position ? "unk" : reponse.option === q.position.lettre ? "agree" : "differ";
-        return (
-          <li key={q.numero} className={`vs ${q.theme.classe} ${etat === "unk" ? "unk-row" : etat}`}>
-            <article className="vs-card" aria-labelledby={`q${q.numero}`}>
-              <header className="vs-head">
-                <p className="label">
-                  <i></i>
-                  {q.theme.nom}
-                </p>
-                <h3 className="vs-q" id={`q${q.numero}`}>
-                  {q.question}
-                </h3>
-              </header>
-              <div className="vs-body">
-                <CoteDeLElecteur question={q} reponse={reponse} />
-                <Verdict etat={etat} />
-                <Cote joueur={candidat} position={q.position} />
-              </div>
-            </article>
-          </li>
-        );
-      })}
-    </ul>
+    <section className="sec" aria-labelledby="h-list">
+      <div className="sec-h">
+        <h2 id="h-list">Question par question</h2>
+        {dansLeNavigateur && (
+          <p>
+            {repondues} {repondues > 1 ? "réponses" : "réponse"} · {sansReponse} sans réponse
+          </p>
+        )}
+      </div>
+      {dansLeNavigateur && (
+        <ul className="vs-list">
+          {questions.map((q) => {
+            const reponse = reponses[q.numero];
+            if (!reponse)
+              return (
+                <li key={q.numero} className={`vs ${q.theme.classe} fd-row`}>
+                  <article className="fd-card">
+                    <p className="label">
+                      <i></i>
+                      {q.theme.nom}
+                    </p>
+                    <h3 className="fd-q">{q.question}</h3>
+                    <p className="fd-s">
+                      <OeilBarre />
+                      Tu n&apos;as pas encore répondu
+                    </p>
+                    <p className="fd-n">La position {de(candidat.nom)} s&apos;affiche après ta réponse.</p>
+                    <Link className="btn-link" href="/rattrapage">
+                      Répondre
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }} />
+                      </svg>
+                    </Link>
+                  </article>
+                </li>
+              );
+            const etat =
+              reponse.option === JE_NE_SAIS_PAS || !q.position ? "unk" : reponse.option === q.position.lettre ? "agree" : "differ";
+            return (
+              <li key={q.numero} className={`vs ${q.theme.classe} ${etat === "unk" ? "unk-row" : etat}`}>
+                <article className="vs-card" aria-labelledby={`q${q.numero}`}>
+                  <header className="vs-head">
+                    <p className="label">
+                      <i></i>
+                      {q.theme.nom}
+                    </p>
+                    <h3 className="vs-q" id={`q${q.numero}`}>
+                      {q.question}
+                    </h3>
+                  </header>
+                  <div className="vs-body">
+                    <CoteDeLElecteur question={q} reponse={reponse} />
+                    <Verdict etat={etat} />
+                    <Cote joueur={candidat} position={q.position} />
+                  </div>
+                </article>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </section>
   );
 }
 
