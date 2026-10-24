@@ -1,0 +1,40 @@
+# FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « moi-contre »
+# (cookie aucrible-jeu-de-test). Fiche générique, qui complète les cartes de maquettes/moi-vs.html pour retrouver ses
+# nombres (23 réponses, 11 fois la même option qu'Édouard Philippe, 54 %) et le classement de maquettes/resultats.html.
+# Les positions sont inventées : elles ne disent rien de ce que pensent les candidats.
+numero: 14
+date: 2026-10-05
+theme: ecologie-energie
+question: "Question de test n° 14 ?"
+contexte: []
+chiffres: []
+options:
+  - id: A
+    libelle: "Option de test A"
+    implique: "Ce que veut dire l'option A de la question n° 14."
+    defenseurs: ""
+    critiques: ""
+  - id: B
+    libelle: "Option de test B"
+    implique: "Ce que veut dire l'option B de la question n° 14."
+    defenseurs: ""
+    critiques: ""
+  - id: C
+    libelle: "Option de test C"
+    implique: "Ce que veut dire l'option C de la question n° 14."
+    defenseurs: ""
+    critiques: ""
+positions:
+  philippe: { option: B, source: "Source de test · 1 oct. 2026", statut: deduite }
+  ruffin: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  lisnard: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  tondelier: { option: B, source: "Source de test · 2 oct. 2026", statut: deduite }
+  dupont-aignan: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  glucksmann: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  le-pen: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  roussel: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  melenchon: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  retailleau: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  arthaud: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
+  attal: { option: A, source: "Source de test · 2 oct. 2026", statut: deduite }
+  zemmour: { option: C, source: "Source de test · 2 oct. 2026", statut: deduite }
