@@ -34,15 +34,45 @@ function Badge({ officielle }: { officielle: boolean }) {
   );
 }
 
-/** Un côté de la carte : le candidat, puis son option, sa lettre et sa phrase d'explication. */
+/** L'icône de document devant la source. */
+function Document() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6 3h8l4 4v14H6zM14 3v4h4" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }} />
+    </svg>
+  );
+}
+
+/**
+ * Un côté de la carte : le candidat, puis son option, sa lettre et sa phrase d'explication ; ou, sans source,
+ * « Position inconnue ». La maquette dit « Aucune source datée de moins de 12 mois » : une source plus ancienne
+ * (le programme 2022) compte pourtant, d'où « Pas de source à ce jour ».
+ */
 function Cote({ joueur, position }: { joueur: Joueur; position: PositionComparee }) {
   return (
-    <section className="side" aria-label={`Position de ${joueur.nom}`}>
+    <section className={position ? "side" : "side unk"} aria-label={`Position de ${joueur.nom}`}>
       <p className="who">
         <span className="pawn">{joueur.initiales}</span>
         <b className="one">{joueur.nom}</b>
       </p>
-      {/* Une position inconnue : ticket 108. */}
+      {!position && (
+        <>
+          <div className="pos">
+            <span className="opt-letter" aria-hidden="true">
+              ?
+            </span>
+            <p className="pos-t">Position inconnue</p>
+            <p className="pos-i">Pas de source à ce jour. Cette question est exclue du calcul pour ce candidat.</p>
+          </div>
+          <div className="meta">
+            <span className="badge badge--none">Exclue du calcul</span>
+            <p className="src">
+              <Document />
+              <span>Aucune source</span>
+            </p>
+          </div>
+        </>
+      )}
       {position && (
         <div className="pos">
           <span className="opt-letter">{position.lettre}</span>
@@ -55,12 +85,7 @@ function Cote({ joueur, position }: { joueur: Joueur; position: PositionComparee
         <div className="meta">
           <Badge officielle={position.officielle} />
           <p className="src">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M6 3h8l4 4v14H6zM14 3v4h4"
-                style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }}
-              />
-            </svg>
+            <Document />
             <span>{position.source}</span>
           </p>
         </div>
@@ -73,8 +98,19 @@ function Cote({ joueur, position }: { joueur: Joueur; position: PositionComparee
 const verdict = (q: QuestionComparee): "agree" | "differ" | "unk" =>
   q.positions[0] && q.positions[1] ? (q.positions[0].lettre === q.positions[1].lettre ? "agree" : "differ") : "unk";
 
-/** Le disque entre les deux positions, et ce qu'il dit. Une question non comparée : ticket 108. */
-function Verdict({ etat }: { etat: "agree" | "differ" }) {
+/** Le disque entre les deux positions, et ce qu'il dit. */
+function Verdict({ etat }: { etat: "agree" | "differ" | "unk" }) {
+  if (etat === "unk")
+    return (
+      <div className="link">
+        <div className="link-in">
+          <span className="disc" aria-hidden="true">
+            <span aria-hidden="true">?</span>
+          </span>
+          <span className="verdict">Non comparée</span>
+        </div>
+      </div>
+    );
   return (
     <div className="link">
       <div className="link-in">
@@ -104,7 +140,7 @@ export function QuestionsDuFaceAFace({ questions, joueurs }: { questions: Questi
       {repondues.map((q) => {
         const etat = verdict(q);
         return (
-          <li key={q.numero} className={`vs ${q.theme.classe} ${etat}`}>
+          <li key={q.numero} className={`vs ${q.theme.classe} ${etat === "unk" ? "unk-row" : etat}`}>
             <article className="vs-card" aria-labelledby={`q${q.numero}`}>
               <header className="vs-head">
                 <p className="label">
@@ -117,7 +153,7 @@ export function QuestionsDuFaceAFace({ questions, joueurs }: { questions: Questi
               </header>
               <div className="vs-body">
                 <Cote joueur={joueurs[0]} position={q.positions[0]} />
-                {etat === "unk" ? <div className="link" aria-hidden="true"></div> : <Verdict etat={etat} />}
+                <Verdict etat={etat} />
                 <Cote joueur={joueurs[1]} position={q.positions[1]} />
               </div>
             </article>

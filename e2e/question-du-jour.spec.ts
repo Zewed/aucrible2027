@@ -4800,3 +4800,22 @@ test.describe("les questions où ils sont d'accord sont marquées", () => {
     await expect(carte).toHaveClass(/\bdiffer\b/);
   });
 });
+
+test.describe("une position inconnue s'affiche comme telle", () => {
+  test("sur les loyers, Retailleau s'affiche « Position inconnue », avec « Exclue du calcul », « Aucune source » et un « ? » à la place de la lettre", async ({ page }) => {
+    await faceAFace(page, [3, 6, 9, 12, 15, 18, 21, 24]);
+    const { carte } = await carteDuFaceAFace(page, "Faut-il encadrer les loyers ?");
+    const retailleau = carte.getByRole("region", { name: "Position de Bruno Retailleau" });
+    await expect(retailleau.locator(".opt-letter")).toHaveText("?");
+    await expect(retailleau.locator(".pos-t")).toHaveText("Position inconnue");
+    await expect(retailleau.locator(".meta .badge")).toHaveText("Exclue du calcul");
+    await expect(retailleau.locator(".meta .src")).toHaveText("Aucune source");
+  });
+
+  test("au centre, le verdict est « Non comparée », alors que Glucksmann garde sa position A « Encadrement obligatoire en zone tendue »", async ({ page }) => {
+    await faceAFace(page, [3, 6, 9, 12, 15, 18, 21, 24]);
+    const { carte, cotes } = await carteDuFaceAFace(page, "Faut-il encadrer les loyers ?");
+    await expect(carte.locator(".link .verdict")).toHaveText("Non comparée");
+    expect([cotes[0].lettre, cotes[0].titre]).toEqual(["A", "Encadrement obligatoire en zone tendue"]);
+  });
+});
