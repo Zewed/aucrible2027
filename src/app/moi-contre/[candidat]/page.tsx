@@ -72,12 +72,7 @@ async function MoiContre({ id }: { id: string }) {
         </section>
         <ScoreMoiContre questions={calcul} candidat={candidat} />
         <ThemesMoiContre questions={calcul} themes={themes} candidat={candidat} />
-        <section className="sec" aria-labelledby="h-list">
-          <div className="sec-h">
-            <h2 id="h-list">Question par question</h2>
-          </div>
-          <QuestionsMoiContre questions={questions} candidat={{ nom: candidat.nom, initiales: candidat.initiales }} />
-        </section>
+        <QuestionsMoiContre questions={questions} candidat={{ nom: candidat.nom, initiales: candidat.initiales }} />
       </main>
     </>
   );
