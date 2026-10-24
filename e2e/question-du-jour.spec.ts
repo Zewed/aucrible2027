@@ -5411,3 +5411,31 @@ test.describe("La fiche mène au face-à-face", () => {
     expect(noms).not.toEqual([...noms].sort((a, b) => a.localeCompare(b, "fr")));
   });
 });
+
+test.describe("« Moi contre » mène au face-à-face", () => {
+  /** Les liens de « Face-à-face entre deux candidats », en bas de « Moi contre Édouard Philippe », ouvert. */
+  async function adversairesDePhilippe(page: Page) {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    const bloc = page.getByRole("region", { name: "Aller plus loin" }).filter({ visible: true });
+    const bouton = bloc.locator("summary", { hasText: "Face-à-face entre deux candidats" });
+    await expect(bouton).toHaveClass(/\bact\b.*\bprimary\b/);
+    await bouton.click();
+    await expect(bloc.locator(".duo-panel")).toBeVisible();
+    return bloc.locator(".duo-panel").getByRole("link");
+  }
+
+  test("depuis « Moi contre Édouard Philippe », toucher « Face-à-face entre deux candidats » ouvre le face-à-face", async ({ page }) => {
+    await (await adversairesDePhilippe(page)).filter({ hasText: "Marine Le Pen" }).click();
+    await page.waitForURL(/\/face-a-face\/philippe\/le-pen$/);
+    await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toHaveText("Face-à-face.");
+    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["ÉdouardPhilippe", "MarineLe Pen"]);
+  });
+
+  test("le bouton propose les 12 autres candidats, sans duo par défaut : chacun mène au face-à-face d'Édouard Philippe et de lui", async ({ page }) => {
+    const liens = await adversairesDePhilippe(page);
+    await expect(liens).toHaveCount(12);
+    const contenu = parse(readFileSync("content/candidats.yaml", "utf8")) as { id: string }[];
+    const adresses = await liens.evaluateAll((l) => l.map((a) => a.getAttribute("href")));
+    expect([...adresses].sort()).toEqual(contenu.filter((c) => c.id !== "philippe").map((c) => `/face-a-face/philippe/${c.id}`).sort());
+  });
+});

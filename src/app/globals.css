@@ -45,8 +45,8 @@
    « Choisir un autre candidat » de maquettes/face-a-face.css (aucune maquette ne dessine ce choix ici). */
 .duo > summary { list-style: none; cursor: pointer; }
 .duo > summary::-webkit-details-marker { display: none; }
-.duo > summary svg { transition: transform .2s var(--ease-out); }
-.duo[open] > summary svg { transform: rotate(90deg); }
+.duo > summary .ic { transition: transform .2s var(--ease-out); }
+.duo[open] > summary .ic { transform: rotate(90deg); }
 .duo-panel {
   margin-top: 4px;
   background: var(--table-2); color: var(--chalk);
