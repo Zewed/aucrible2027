@@ -1,0 +1,28 @@
+# FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « face-a-face »
+# (cookie aucrible-jeu-de-test). Elle reprend une carte de maquettes/face-a-face.html : la question, et la position
+# de Raphaël Glucksmann avec sa source, inventées : elles ne disent rien de ses positions réelles. Bruno Retailleau
+# n'a pas de position : c'est la carte « Non comparée » de la maquette. Les autres options sont des libellés de test.
+numero: 6
+date: 2026-10-09
+theme: logement
+question: "Faut-il encadrer les loyers ?"
+contexte: []
+chiffres: []
+options:
+  - id: A
+    libelle: "Encadrement obligatoire en zone tendue"
+    implique: "Un plafond de loyer dans toutes les zones où les logements manquent."
+    defenseurs: ""
+    critiques: ""
+  - id: B
+    libelle: "Option de test B"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+  - id: C
+    libelle: "Option de test C"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+positions:
+  glucksmann: { option: A, source: "Proposition de loi · 17 juin 2026", statut: officielle }
