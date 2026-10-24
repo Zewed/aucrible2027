@@ -17,3 +17,11 @@ export function dateLisible(date: string, avecJour: boolean): string {
 export function joursEntre(de: string, a: string): number {
   return Math.round((Date.parse(`${a}T12:00:00Z`) - Date.parse(`${de}T12:00:00Z`)) / 86_400_000);
 }
+
+const MOIS_COURTS = ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."];
+
+/** « 19 oct. 2026 », pour une date AAAA-MM-JJ. */
+export function dateCourte(date: string): string {
+  const [annee, mois, jour] = date.split("-");
+  return `${Number(jour)} ${MOIS_COURTS[Number(mois) - 1]} ${annee}`;
+}

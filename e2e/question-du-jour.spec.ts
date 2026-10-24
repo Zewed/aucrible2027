@@ -5066,3 +5066,80 @@ test.describe("un lien partagé ouvre le face-à-face sur deux candidats", () =>
     await autre.close();
   });
 });
+
+/** Les réponses de l'électeur de maquettes/moi-vs.html, sur le jeu de fiches de test « moi-contre » : option, importance, jour. */
+const REPONSES_MOI_CONTRE: Record<number, [string, number, string]> = {
+  1: ["C", 2, "2026-10-19"],
+  2: ["C", 3, "2026-10-19"],
+  3: ["B", 2, "2026-10-20"],
+  5: ["B", 1, "2026-10-20"],
+  6: ["A", 2, "2026-10-21"],
+  7: ["B", 1, "2026-10-21"],
+  8: ["C", 2, "2026-10-22"],
+};
+
+/** « Moi contre » le candidat donné, pour l'électeur de la maquette (ou les réponses données). */
+async function moiContre(page: Page, candidat = "philippe", reponses = REPONSES_MOI_CONTRE) {
+  await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "moi-contre", url: "http://localhost:3127" }]);
+  await page.goto("/");
+  await page.evaluate((r) => {
+    const stockees: Record<string, object> = {};
+    for (const [n, [option, importance, jour]] of Object.entries(r)) stockees[n] = { option, importance, graine: 1, jour, duJour: false };
+    localStorage.setItem("aucrible:reponses", JSON.stringify(stockees));
+  }, reponses);
+  await page.goto(`/moi-contre/${candidat}`);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Moi contre un candidat.");
+}
+
+/** Une carte de « Moi contre » : ce qu'elle montre de l'électeur (à gauche) et du candidat (à droite), et son verdict. */
+async function carteMoiContre(page: Page, question: string) {
+  const carte = page.locator(".vs-list .vs:has(.vs-card)").filter({ has: page.getByRole("heading", { level: 3, name: question }) });
+  await expect(carte).toHaveCount(1);
+  const cotes = await carte.locator(".side").evaluateAll((sides) =>
+    sides.map((s) => [s.getAttribute("aria-label"), s.querySelector(".opt-letter")?.textContent, s.querySelector(".pos-t")?.textContent]),
+  );
+  return { carte, cotes, verdict: (await carte.locator(".link .verdict").textContent())?.trim() };
+}
+
+test.describe("« Moi contre » montre ses réponses face à celles d'un candidat", () => {
+  test("face à Édouard Philippe, la retraite montre « Ta réponse » C « 64 ans » à gauche, C « 64 ans » de Philippe à droite, et « Même option »", async ({ page }) => {
+    await moiContre(page);
+    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["Ta partieToi", "ÉdouardPhilippe"]);
+    const { cotes, verdict } = await carteMoiContre(page, "À quel âge devrait-on pouvoir partir à la retraite ?");
+    expect(cotes).toEqual([
+      ["Ta réponse", "C", "64 ans"],
+      ["Position de Édouard Philippe", "C", "64 ans"],
+    ]);
+    expect(verdict).toBe("Même option");
+  });
+
+  test("sur l'impôt sur la fortune, B « Un impôt plancher… » de l'électeur fait face à C « Garder l'impôt sur la fortune immobilière », « Options différentes »", async ({ page }) => {
+    await moiContre(page);
+    const { cotes, verdict } = await carteMoiContre(page, "Faut-il rétablir l'impôt sur la fortune ?");
+    expect(cotes).toEqual([
+      ["Ta réponse", "B", "Un impôt plancher sur les très hauts patrimoines"],
+      ["Position de Édouard Philippe", "C", "Garder l'impôt sur la fortune immobilière"],
+    ]);
+    expect(verdict).toBe("Options différentes");
+  });
+
+  test("chaque réponse de l'électeur rappelle sa date et son importance, par exemple « 19 oct. 2026 · importance ×2 »", async ({ page }) => {
+    await moiContre(page);
+    const { carte } = await carteMoiContre(page, "À quel âge devrait-on pouvoir partir à la retraite ?");
+    await expect(carte.locator(".side.me .meta .src")).toHaveText("19 oct. 2026 · importance ×2");
+    await expect(carte.locator(".side.me .meta .badge")).toHaveText("Ta réponse");
+    const rappels = await page.locator(".vs-list .side.me .meta .src").filter({ visible: true }).allInnerTexts();
+    expect(rappels).toHaveLength(7);
+    for (const r of rappels) expect(r.trim()).toMatch(/^\d{1,2} \S+ 2026 · importance ×[123]$/);
+    // Comme le face-à-face, de la question la plus récente à la plus ancienne : l'ordre de la maquette.
+    await expect(page.locator(".vs-list .vs-q").filter({ visible: true })).toHaveText([
+      "À quel âge devrait-on pouvoir partir à la retraite ?",
+      "Faut-il construire de nouveaux réacteurs nucléaires ?",
+      "Faut-il rétablir l'impôt sur la fortune ?",
+      "Comment encadrer l'immigration de travail ?",
+      "Faut-il rétablir les peines planchers ?",
+      "Faut-il encadrer les loyers ?",
+      "Faut-il réguler l'installation des médecins ?",
+    ]);
+  });
+});
