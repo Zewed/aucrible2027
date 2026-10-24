@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { ChoixDuFaceAFace } from "@/components/ChoixDuFaceAFace";
 import { CompteARebours } from "@/components/CompteARebours";
 import { ProximiteDuCandidat } from "@/components/ProximiteDuCandidat";
 import { PartDuTheme } from "@/components/PuceTheme";
 import { lireThemes, type Candidat, type Position, type Question, type Theme } from "@/lib/contenu";
+import { melanger } from "@/lib/melange";
 import { lireAujourdhui, lireCandidatsEnLice, lireLesCandidats, lireQuestionsDuCalcul, lireQuestionsPubliees } from "@/lib/publication";
 import "./candidat.css";
 
@@ -220,7 +222,19 @@ async function FicheCandidat({ id }: { id: string }) {
                   <path d="M5 12h13M13 6l6 6-6 6" />
                 </svg>
               </Link>
-              {/* « Face-à-face », juste dessous : ticket 134. */}
+              <ChoixDuFaceAFace
+                candidat={candidat}
+                autres={melanger(
+                  candidats.filter((c) => c.id !== candidat.id),
+                  Number(jour.replaceAll("-", "")),
+                )}
+                classe="act second"
+              >
+                Face-à-face
+                <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h13M13 6l6 6-6 6" />
+                </svg>
+              </ChoixDuFaceAFace>
             </div>
           </aside>
           <div className="fiche-main">
