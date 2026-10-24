@@ -58,8 +58,8 @@ function positionDe(question: Question, candidat: Candidat): PositionComparee {
 
 /**
  * Le face-à-face de deux candidats, nommés par l'adresse (`/face-a-face/<a>/<b>`) : il s'ouvre depuis la fiche d'un
- * candidat, sans duo par défaut (décision de l'auteur, 24 octobre 2026). L'inversion, le filtre, les questions cachées,
- * l'invitation sans réponse et le partage viennent avec les tickets 106 à 112.
+ * candidat, sans duo par défaut (décision de l'auteur, 24 octobre 2026) ; le disque central mène au duo inversé. Le
+ * filtre, les questions cachées, l'invitation sans réponse et le partage viennent avec les tickets 107 à 112.
  */
 async function FaceAFace({ a, b }: { a: string; b: string }) {
   const candidats = await lireLesCandidats();
@@ -101,8 +101,14 @@ async function FaceAFace({ a, b }: { a: string; b: string }) {
         <section className="duel" aria-label="Les deux candidats comparés">
           <div className="duel-grid">
             <Pioche candidat={gauche} autres={autres} adresse={(c) => `/face-a-face/${c.id}/${droite.id}`} />
-            {/* La place du disque central, qui inversera les deux candidats (ticket 106). */}
-            <span className="ff-centre" aria-hidden="true"></span>
+            <Link className="mid swap" href={`/face-a-face/${droite.id}/${gauche.id}`} aria-label="Inverser l'ordre des deux candidats">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4 8h15M15 4l4 4-4 4M20 16H5M9 12l-4 4 4 4"
+                  style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }}
+                />
+              </svg>
+            </Link>
             <Pioche candidat={droite} autres={autres} adresse={(c) => `/face-a-face/${gauche.id}/${c.id}`} />
           </div>
         </section>
