@@ -213,6 +213,15 @@ async function FicheCandidat({ id }: { id: string }) {
             ) : (
               <Retrait candidat={candidat} candidats={candidats} />
             )}
+            <div className="actions side-actions">
+              <Link className="act primary" href={`/moi-contre/${candidat.id}`}>
+                Moi contre {candidat.nom}
+                <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h13M13 6l6 6-6 6" />
+                </svg>
+              </Link>
+              {/* « Face-à-face », juste dessous : ticket 134. */}
+            </div>
           </aside>
           <div className="fiche-main">
             <section aria-labelledby="h-pos">
