@@ -5,6 +5,7 @@ milestone: null
 depends_on: ["037"]
 design: null
 tracker: null
+status: done
 ---
 
 ## Ce que l'utilisateur fait

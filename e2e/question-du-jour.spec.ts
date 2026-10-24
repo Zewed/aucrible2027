@@ -1,4 +1,4 @@
-import { readFileSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { expect, test, type Locator, type Page } from "@playwright/test";
 import { parse } from "yaml";
 
@@ -4389,5 +4389,72 @@ test.describe("sans réseau, l'app dit qu'il faut une connexion", () => {
     await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toBeVisible();
     await page.goto("/resultats");
     await expect(page.getByText("Calculé sur tes 23 réponses, pondérées par l'importance que tu leur donnes.")).toBeVisible();
+  });
+});
+
+test.describe("une fiche ajoutée par l'auteur paraît à sa date", () => {
+  /**
+   * Un jeu de fiches à ce test seul (e2e/fiches/<nom>/, choisi par le cookie du jeu de test), vide au départ : les tests
+   * qui tournent en même temps ne voient pas les fiches qu'il ajoute. `ajouter` y écrit une fiche complète, datée,
+   * comme l'auteur l'ajouterait au contenu.
+   */
+  async function jeuVide(page: Page, nom: string) {
+    const dossier = `e2e/fiches/${nom}`;
+    mkdirSync(dossier, { recursive: true });
+    await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: nom, url: "http://localhost:3127" }]);
+    const ajouter = (numero: number, date: string, question: string) =>
+      writeFileSync(
+        `${dossier}/${numero}.yaml`,
+        readFileSync("content/questions/023-loyers.yaml", "utf8")
+          .replace(/^numero: 23$/m, `numero: ${numero}`)
+          .replace(/^date: 2026-10-22$/m, `date: ${date}`)
+          .replace(/^question: .*$/m, `question: ${question}`),
+      );
+    return { ajouter, effacer: () => rmSync(dossier, { recursive: true, force: true }) };
+  }
+  const questionDuJour = (page: Page) => page.getByRole("radiogroup", { name: "Les options" }).filter({ visible: true });
+
+  test("après avoir ajouté une fiche datée d'aujourd'hui, elle est la question du jour dès que j'ouvre l'app", async ({ page }) => {
+    const jeu = await jeuVide(page, "ajout-aujourd-hui");
+    try {
+      jeu.ajouter(901, "2026-10-23", "Une fiche ajoutée pour aujourd'hui ?");
+      await page.goto("/");
+      await expect(page.getByRole("heading", { name: "Une fiche ajoutée pour aujourd'hui ?" }).filter({ visible: true })).toBeVisible();
+      await expect(questionDuJour(page)).toBeVisible();
+    } finally {
+      jeu.effacer();
+    }
+  });
+
+  test("une fiche datée de demain n'est pas la question du jour aujourd'hui, et elle l'est demain", async ({ page }) => {
+    const jeu = await jeuVide(page, "ajout-demain");
+    try {
+      jeu.ajouter(901, "2026-10-23", "La fiche d'aujourd'hui ?");
+      jeu.ajouter(902, "2026-10-24", "La fiche de demain ?");
+      await page.goto("/");
+      await expect(page.getByRole("heading", { name: "La fiche d'aujourd'hui ?" }).filter({ visible: true })).toBeVisible();
+      await expect(page.getByText("La fiche de demain ?")).toHaveCount(0);
+      await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
+      await page.goto("/");
+      await expect(page.getByRole("heading", { name: "La fiche de demain ?" }).filter({ visible: true })).toBeVisible();
+    } finally {
+      jeu.effacer();
+    }
+  });
+
+  test("ajoutées dans le désordre (après-demain d'abord, puis demain), chaque fiche paraît à sa date", async ({ page }) => {
+    const jeu = await jeuVide(page, "ajout-desordre");
+    try {
+      jeu.ajouter(903, "2026-10-25", "La fiche d'après-demain ?");
+      jeu.ajouter(902, "2026-10-24", "La fiche de demain ?");
+      await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
+      await page.goto("/");
+      await expect(page.getByRole("heading", { name: "La fiche de demain ?" }).filter({ visible: true })).toBeVisible();
+      await fixerLeJour(page, "2026-10-25T09:00:00+02:00");
+      await page.goto("/");
+      await expect(page.getByRole("heading", { name: "La fiche d'après-demain ?" }).filter({ visible: true })).toBeVisible();
+    } finally {
+      jeu.effacer();
+    }
   });
 });
