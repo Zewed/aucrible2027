@@ -4845,3 +4845,48 @@ test.describe("le face-à-face compte leurs accords", () => {
     expect(["Même option", "Options différentes", "Non comparée"].map((v) => verdicts.filter((t) => t.trim() === v).length)).toEqual([4, 17, 3]);
   });
 });
+
+test.describe("« Changer » remplace un des deux candidats", () => {
+  /** Le panneau « Choisir un autre candidat » sous le candidat donné, ouvert. */
+  async function panneau(page: Page, nom: string) {
+    // Un <summary> n'a pas de rôle pour Playwright : on le trouve par son libellé.
+    const bouton = page.locator(`summary[aria-label="Changer de candidat : ${nom}"]`);
+    await bouton.click();
+    const choix = page.locator(".pick").filter({ has: bouton }).locator(".chg-panel");
+    await expect(choix.getByText("Choisir un autre candidat")).toBeVisible();
+    return choix;
+  }
+
+  test("sous Retailleau, « changer » ouvre « Choisir un autre candidat » avec les 11 autres, dans un ordre mélangé", async ({ page }) => {
+    await faceAFace(page);
+    const noms = await (await panneau(page, "Bruno Retailleau")).getByRole("link").allInnerTexts();
+    const contenu = (parse(readFileSync("content/candidats.yaml", "utf8")) as { nom: string }[]).map((c) => c.nom);
+    const proposes = noms.map((n) => n.replace(/^\S+\s+/, "").trim());
+    expect([...proposes].sort()).toEqual(contenu.filter((n) => n !== "Raphaël Glucksmann" && n !== "Bruno Retailleau").sort());
+    expect(proposes).not.toEqual([...proposes].sort((a, b) => a.localeCompare(b, "fr")));
+    expect(proposes).not.toEqual(contenu.filter((n) => proposes.includes(n)));
+    await page.goto("/resultats");
+    const classement = (await lignesDuClassement(page)).map(([, nom]) => nom!);
+    expect(proposes).not.toEqual(classement.filter((n) => proposes.includes(n)));
+  });
+
+  test("choisir Marine Tondelier la met à droite à la place de Retailleau, Glucksmann reste à gauche, et chaque question montre sa position à droite", async ({ page }) => {
+    await faceAFace(page);
+    await (await panneau(page, "Bruno Retailleau")).getByRole("link", { name: /Marine Tondelier/ }).click();
+    await page.waitForURL(/\/face-a-face\/glucksmann\/tondelier$/);
+    // Next garde un instant l'ancienne page montée : seuls les éléments visibles comptent.
+    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["RaphaëlGlucksmann", "MarineTondelier"]);
+    const cartes = page.locator(".vs-list .vs").filter({ visible: true });
+    await expect(cartes).toHaveCount(7);
+    expect(await cartes.evaluateAll((c) => c.map((e) => [...e.querySelectorAll(".side")].map((s) => s.getAttribute("aria-label"))))).toEqual(
+      Array(7).fill(["Position de Raphaël Glucksmann", "Position de Marine Tondelier"]),
+    );
+  });
+
+  test("le même geste sous Glucksmann le remplace à gauche, sans toucher au candidat de droite", async ({ page }) => {
+    await faceAFace(page);
+    await (await panneau(page, "Raphaël Glucksmann")).getByRole("link", { name: /Marine Tondelier/ }).click();
+    await page.waitForURL(/\/face-a-face\/tondelier\/retailleau$/);
+    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["MarineTondelier", "BrunoRetailleau"]);
+  });
+});
