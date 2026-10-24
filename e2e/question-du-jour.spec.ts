@@ -5274,3 +5274,30 @@ test.describe("L'électeur change de candidat dans « Moi contre »", () => {
     expect(await gauche()).toEqual(avant);
   });
 });
+
+test.describe("Chaque position du candidat affiche sa source dans « Moi contre »", () => {
+  test("pour un électeur qui a répondu aux deux questions, la retraite (« 64 ans ») de Philippe affiche « Entretien Le Figaro · 5 sept. 2026 » et le nucléaire (« Construire les 6 EPR2 prévus ») « Vote du groupe Horizons · 11 juin 2025 »", async ({ page }) => {
+    await moiContre(page, "philippe", { 1: ["C", 2, "2026-10-19"], 2: ["C", 3, "2026-10-19"] });
+    for (const [question, titre, source] of [
+      ["À quel âge devrait-on pouvoir partir à la retraite ?", "64 ans", "Entretien Le Figaro · 5 sept. 2026"],
+      ["Faut-il construire de nouveaux réacteurs nucléaires ?", "Construire les 6 EPR2 prévus", "Vote du groupe Horizons · 11 juin 2025"],
+    ]) {
+      const { carte } = await carteMoiContre(page, question);
+      const philippe = carte.locator('.side[aria-label="Position de Édouard Philippe"]');
+      await expect(philippe.locator(".pos-t")).toHaveText(titre);
+      await expect(philippe.locator(".meta .src")).toHaveText(source);
+      await expect(philippe.locator(".meta .src svg")).toHaveCount(1);
+    }
+  });
+
+  test("toute position de Philippe visible a une source datée : aucune position n'est affichée sans source", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    const cotes = page.locator('.vs-list .side[aria-label="Position de Édouard Philippe"]').filter({ visible: true });
+    await expect(cotes).toHaveCount(23);
+    const sources = await cotes.evaluateAll((s) => s.map((e) => [e.querySelector(".pos-t")?.textContent, e.querySelector(".meta .src")?.textContent?.trim()]));
+    for (const [titre, source] of sources) {
+      expect(titre).toBeTruthy();
+      expect(source).toMatch(/^\S.* · \d{1,2} (janv\.|févr\.|mars|avr\.|mai|juin|juil\.|août|sept\.|oct\.|nov\.|déc\.) \d{4}$/);
+    }
+  });
+});
