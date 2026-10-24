@@ -57,18 +57,22 @@ const RACINE = path.join(process.cwd(), "content");
 /**
  * Les candidats de content/candidats.yaml. Pour les tests de bout en bout seulement, des ajouts de test
  * (e2e/fiches/candidats/<nom>.yaml) les complètent candidat par candidat, par exemple d'un retrait ; un ajout qui
- * « remplace » un candidat prend sa place et garde son parti.
+ * « remplace » un candidat prend sa place et garde son parti, et un ajout d'un autre identifiant entre dans la liste,
+ * comme un candidat qui se déclare.
  */
 export function lireCandidats(ajoutsDeTest?: string): Candidat[] {
   const candidats: Candidat[] = parse(readFileSync(path.join(RACINE, "candidats.yaml"), "utf8"));
   const test = process.env.AUCRIBLE_FICHES_DE_TEST;
   if (!test || !ajoutsDeTest || !/^[a-z-]+$/.test(ajoutsDeTest)) return candidats;
   const ajouts: Partial<Candidat>[] = parse(readFileSync(path.join(process.cwd(), test, "candidats", `${ajoutsDeTest}.yaml`), "utf8"));
-  return candidats.map((c) => {
-    const remplacant = ajouts.find((a) => a.remplace === c.id);
-    if (remplacant) return { id: c.id, nom: c.nom, parti: c.parti, initiales: c.initiales, ...remplacant };
-    return { ...c, ...ajouts.find((a) => a.id === c.id) };
-  });
+  const entrants = ajouts.filter((a) => !a.remplace && !candidats.some((c) => c.id === a.id)) as Candidat[];
+  return candidats
+    .map((c) => {
+      const remplacant = ajouts.find((a) => a.remplace === c.id);
+      if (remplacant) return { id: c.id, nom: c.nom, parti: c.parti, initiales: c.initiales, ...remplacant };
+      return { ...c, ...ajouts.find((a) => a.id === c.id) };
+    })
+    .concat(entrants);
 }
 
 /**
