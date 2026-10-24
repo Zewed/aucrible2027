@@ -3,49 +3,11 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { FiltreDuFaceAFace, QuestionsDuFaceAFace, ResumeDuFaceAFace, type Joueur, type PositionComparee, type QuestionComparee } from "@/components/FaceAFace";
+import { Pioche } from "@/components/Pioche";
 import { lireThemes, type Candidat, type Question } from "@/lib/contenu";
 import { melanger } from "@/lib/melange";
 import { lireAujourdhui, lireLesCandidats, lireQuestionsPubliees } from "@/lib/publication";
 import "@/app/face-a-face.css";
-
-/**
- * Le candidat du duel : son pion, son prénom en petit et son nom en grand, et « changer », qui propose les onze autres
- * (ni lui, ni son adversaire), chacun menant à l'adresse du nouveau duo (maquettes/face-a-face.html). Sans script : un
- * <details> s'ouvre et se referme seul.
- */
-function Pioche({ candidat, autres, adresse }: { candidat: Candidat; autres: Candidat[]; adresse: (c: Candidat) => string }) {
-  const [prenom, ...nom] = candidat.nom.split(" ");
-  return (
-    <div className="pick">
-      <span className="pawn pawn--paper">{candidat.initiales}</span>
-      <p className="pick-name">
-        <small>{prenom}</small>
-        <b>{nom.join(" ")}</b>
-      </p>
-      <details className="chg">
-        <summary aria-label={`Changer de candidat : ${candidat.nom}`}>
-          <span>changer</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6 9l6 6 6-6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }} />
-          </svg>
-        </summary>
-        <div className="chg-panel">
-          <p className="chg-h">Choisir un autre candidat</p>
-          <ul>
-            {autres.map((c) => (
-              <li key={c.id}>
-                <Link href={adresse(c)}>
-                  <span className="pawn pawn--paper">{c.initiales}</span>
-                  <span className="one">{c.nom}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </details>
-    </div>
-  );
-}
 
 /** L'option d'un candidat sur une question, ou rien si sa position n'est pas connue. */
 function positionDe(question: Question, candidat: Candidat): PositionComparee {
@@ -98,6 +60,7 @@ async function FaceAFace({ a, b }: { a: string; b: string }) {
             Deux candidats, les mêmes questions, <b>côte à côte</b>. Chaque position garde sa source et sa date.
           </p>
         </section>
+        {/* « changer » propose les onze autres : ni l'un, ni l'autre des deux candidats. */}
         <section className="duel" aria-label="Les deux candidats comparés">
           <div className="duel-grid">
             <Pioche candidat={gauche} autres={autres} adresse={(c) => `/face-a-face/${c.id}/${droite.id}`} />

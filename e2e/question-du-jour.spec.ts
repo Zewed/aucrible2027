@@ -5236,3 +5236,41 @@ test.describe("« Moi contre » affiche un score par thème", () => {
     await expect(ligne).toHaveClass(/\bdone\b/);
   });
 });
+
+test.describe("L'électeur change de candidat dans « Moi contre »", () => {
+  /** Les liens du panneau « Choisir un autre candidat » sous Édouard Philippe, ouvert. */
+  async function choixSousPhilippe(page: Page) {
+    const bouton = page.locator('summary[aria-label="Changer de candidat : Édouard Philippe"]').filter({ visible: true });
+    await bouton.click();
+    const panneau = page.locator(".pick").filter({ has: bouton }).locator(".chg-panel");
+    await expect(panneau.getByText("Choisir un autre candidat")).toBeVisible();
+    return panneau.getByRole("link");
+  }
+
+  test("« changer » sous Édouard Philippe liste 12 candidats (les 13 moins Philippe), dans un ordre mélangé", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    const liens = await choixSousPhilippe(page);
+    await expect(liens).toHaveCount(12);
+    const proposes = (await liens.allInnerTexts()).map((n) => n.replace(/^\S+\s+/, "").trim());
+    const contenu = (parse(readFileSync("content/candidats.yaml", "utf8")) as { nom: string }[]).map((c) => c.nom);
+    expect([...proposes].sort()).toEqual(contenu.filter((n) => n !== "Édouard Philippe").sort());
+    expect(proposes).not.toEqual([...proposes].sort((a, b) => a.localeCompare(b, "fr")));
+    expect(proposes).not.toEqual(contenu.filter((n) => proposes.includes(n)));
+  });
+
+  test("après avoir choisi Marine Le Pen, « Ta proximité avec Marine Le Pen » remplace celle de Philippe, les positions de droite sont les siennes, et les réponses de gauche ne changent pas", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    const gauche = () => page.locator(".vs-list .side.me").filter({ visible: true }).allInnerTexts();
+    const avant = await gauche();
+    expect(avant).toHaveLength(23);
+    await (await choixSousPhilippe(page)).filter({ hasText: "Marine Le Pen" }).click();
+    await page.waitForURL(/\/moi-contre\/le-pen$/);
+    await expect(page.locator(".score .score-k").filter({ visible: true })).toHaveText("Ta proximité avec Marine Le Pen");
+    await expect(page.locator(".score .score-big").filter({ visible: true })).toHaveText("58 %");
+    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["Ta partieToi", "MarineLe Pen"]);
+    const droite = page.locator(".vs-list .side:not(.me)").filter({ visible: true });
+    await expect(droite).toHaveCount(23);
+    expect(new Set(await droite.evaluateAll((s) => s.map((e) => e.getAttribute("aria-label"))))).toEqual(new Set(["Position de Marine Le Pen"]));
+    expect(await gauche()).toEqual(avant);
+  });
+});

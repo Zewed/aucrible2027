@@ -2,7 +2,9 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { QuestionsMoiContre, ScoreMoiContre, ThemesMoiContre, type QuestionMoiContre } from "@/components/MoiContre";
+import { Pioche } from "@/components/Pioche";
 import { lireThemes } from "@/lib/contenu";
+import { melanger } from "@/lib/melange";
 import { lireAujourdhui, lireLesCandidats, lireQuestionsDuCalcul, lireQuestionsPubliees } from "@/lib/publication";
 import "@/app/face-a-face.css";
 import "./moi-vs.css";
@@ -13,7 +15,8 @@ import "./moi-vs.css";
  * le serveur n'envoie que les fiches et les positions du candidat.
  */
 async function MoiContre({ id }: { id: string }) {
-  const candidat = (await lireLesCandidats()).find((c) => c.id === id);
+  const candidats = await lireLesCandidats();
+  const candidat = candidats.find((c) => c.id === id);
   if (!candidat) notFound();
   const [jour, publiees, duCalcul] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees(), lireQuestionsDuCalcul()]);
   const themes = lireThemes();
@@ -35,7 +38,11 @@ async function MoiContre({ id }: { id: string }) {
     });
   // Les mêmes questions, réduites à ce que lit le calcul, dans l'ordre des cartes.
   const calcul = questions.map((q) => duCalcul.find((d) => d.numero === q.numero)!);
-  const [prenom, ...nom] = candidat.nom.split(" ");
+  // Les autres candidats, dans un ordre mélangé par le jour, comme le face-à-face.
+  const autres = melanger(
+    candidats.filter((c) => c.id !== candidat.id),
+    Number(jour.replaceAll("-", "")),
+  );
   return (
     <>
       <BandeauRetour jour={jour} vers="/resultats" libelle="Mes résultats" />
@@ -60,14 +67,7 @@ async function MoiContre({ id }: { id: string }) {
             <span className="mid mid--txt" aria-hidden="true">
               contre
             </span>
-            {/* « changer » de candidat : ticket 116. */}
-            <div className="pick">
-              <span className="pawn pawn--paper">{candidat.initiales}</span>
-              <p className="pick-name">
-                <small>{prenom}</small>
-                <b>{nom.join(" ")}</b>
-              </p>
-            </div>
+            <Pioche candidat={candidat} autres={autres} adresse={(c) => `/moi-contre/${c.id}`} />
           </div>
         </section>
         <ScoreMoiContre questions={calcul} candidat={candidat} />
