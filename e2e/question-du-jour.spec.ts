@@ -4670,3 +4670,67 @@ test.describe("l'auteur récupère la légende proposée", () => {
     );
   });
 });
+
+/**
+ * Le face-à-face Glucksmann / Retailleau sur le jeu de fiches de test « face-a-face » (les cartes de
+ * maquettes/face-a-face.html), pour un électeur qui a répondu aux questions données (toutes, par défaut).
+ */
+async function faceAFace(page: Page, repondues = [3, 9, 12, 15, 18, 21, 24], adresse = "/face-a-face/glucksmann/retailleau") {
+  await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "face-a-face", url: "http://localhost:3127" }]);
+  await page.goto("/");
+  await page.evaluate((numeros) => {
+    const reponses: Record<number, object> = {};
+    for (const n of numeros) reponses[n] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22", duJour: false };
+    localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+  }, repondues);
+  await page.goto(adresse);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Face-à-face.");
+}
+
+/** La carte d'une question du face-à-face, et ce qu'elle montre de chaque candidat : nom, pion, lettre, titre, phrase. */
+async function carteDuFaceAFace(page: Page, question: string) {
+  const carte = page.locator(".vs-list .vs").filter({ has: page.getByRole("heading", { level: 3, name: question }) });
+  await expect(carte).toHaveCount(1);
+  const cotes = await carte.locator(".side").evaluateAll((sides) =>
+    sides.map((s) => ({
+      nom: s.querySelector(".who b")!.textContent,
+      pion: s.querySelector(".who .pawn")!.textContent,
+      lettre: s.querySelector(".opt-letter")?.textContent,
+      titre: s.querySelector(".pos-t")?.textContent,
+      phrase: s.querySelector(".pos-i")?.textContent,
+    })),
+  );
+  return { carte, cotes };
+}
+
+test.describe("le face-à-face montre deux candidats côte à côte, question par question", () => {
+  test("pour un électeur qui a répondu à la n° 24, Glucksmann / Retailleau montre sous la retraite l'option B « 62 ans » de Glucksmann à gauche et D « 65 ans ou plus » de Retailleau à droite", async ({ page }) => {
+    await faceAFace(page);
+    await expect(page.locator(".duel .pick-name")).toHaveText(["RaphaëlGlucksmann", "BrunoRetailleau"]);
+    const { cotes } = await carteDuFaceAFace(page, "À quel âge devrait-on pouvoir partir à la retraite ?");
+    expect(cotes.map(({ nom, lettre, titre }) => [nom, lettre, titre])).toEqual([
+      ["Raphaël Glucksmann", "B", "62 ans"],
+      ["Bruno Retailleau", "D", "65 ans ou plus"],
+    ]);
+  });
+
+  test("sous « Faut-il construire de nouveaux réacteurs nucléaires ? », Glucksmann a C et Retailleau D, chacun avec son pion et la même présentation", async ({ page }) => {
+    await faceAFace(page);
+    const { carte, cotes } = await carteDuFaceAFace(page, "Faut-il construire de nouveaux réacteurs nucléaires ?");
+    expect(cotes).toEqual([
+      { nom: "Raphaël Glucksmann", pion: "RG", lettre: "C", titre: "Construire les 6 EPR2 prévus", phrase: "Le programme déjà engagé, pour remplacer les plus anciens." },
+      { nom: "Bruno Retailleau", pion: "BR", lettre: "D", titre: "Construire davantage", phrase: "Au-delà des 6 EPR2 prévus, de nouveaux sites et plus de réacteurs." },
+    ]);
+    // La même présentation : mêmes classes, mêmes couleurs, de chaque côté.
+    const allure = await carte.locator(".side").evaluateAll((sides) =>
+      sides.map((s) =>
+        [".who .pawn", ".opt-letter", ".pos-t"].map((c) => {
+          const e = s.querySelector(c)!;
+          const st = getComputedStyle(e);
+          return [e.className, st.backgroundColor, st.color, st.fontSize].join(" | ");
+        }),
+      ),
+    );
+    expect(allure[0]).toEqual(allure[1]);
+  });
+});

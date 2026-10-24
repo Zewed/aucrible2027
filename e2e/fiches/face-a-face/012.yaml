@@ -1,0 +1,29 @@
+# FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « face-a-face »
+# (cookie aucrible-jeu-de-test). Elle reprend une carte de maquettes/face-a-face.html : la question, et les positions
+# de Raphaël Glucksmann et de Bruno Retailleau avec leurs sources, inventées : elles ne disent rien de leurs positions
+# réelles. Les autres options sont des libellés de test.
+numero: 12
+date: 2026-10-13
+theme: economie-impots
+question: "Faut-il rétablir l'impôt sur la fortune ?"
+contexte: []
+chiffres: []
+options:
+  - id: A
+    libelle: "Option de test A"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+  - id: B
+    libelle: "Un impôt plancher sur les très hauts patrimoines"
+    implique: "Un minimum d'imposition au-delà de plusieurs dizaines de millions d'euros."
+    defenseurs: ""
+    critiques: ""
+  - id: C
+    libelle: "Garder l'impôt sur la fortune immobilière"
+    implique: "On conserve l'IFI actuel, limité à l'immobilier."
+    defenseurs: ""
+    critiques: ""
+positions:
+  glucksmann: { option: B, source: "Proposition de loi · 24 sept. 2026", statut: officielle }
+  retailleau: { option: C, source: "Vote du groupe LR · 4 déc. 2025", statut: deduite }

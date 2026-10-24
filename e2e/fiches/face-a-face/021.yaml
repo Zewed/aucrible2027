@@ -1,0 +1,29 @@
+# FICHE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit le jeu « face-a-face »
+# (cookie aucrible-jeu-de-test). Elle reprend une carte de maquettes/face-a-face.html : la question, et les positions
+# de Raphaël Glucksmann et de Bruno Retailleau avec leurs sources, inventées : elles ne disent rien de leurs positions
+# réelles. Les autres options sont des libellés de test.
+numero: 21
+date: 2026-10-16
+theme: institutions-democratie
+question: "Faut-il instaurer un référendum d'initiative citoyenne ?"
+contexte: []
+chiffres: []
+options:
+  - id: A
+    libelle: "Option de test A"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+  - id: B
+    libelle: "Un RIC encadré"
+    implique: "Des propositions de loi citoyennes, à partir d'un seuil de signatures."
+    defenseurs: ""
+    critiques: ""
+  - id: C
+    libelle: "Option de test C"
+    implique: ""
+    defenseurs: ""
+    critiques: ""
+positions:
+  glucksmann: { option: B, source: "Entretien Le Monde · 21 sept. 2026", statut: officielle }
+  retailleau: { option: B, source: "Programme LR 2022 · janv. 2022", statut: deduite }
