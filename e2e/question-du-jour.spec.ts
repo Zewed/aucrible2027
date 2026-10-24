@@ -4548,3 +4548,38 @@ test.describe("la 2e image montre le contexte", () => {
     expect(await tiennentEnEntier(image, ".s-ctx li")).toEqual([true, true, true]);
   });
 });
+
+test.describe("la 3e image montre les chiffres sourcés", () => {
+  const chiffres = (image: Locator) =>
+    image.locator(".s-fig").evaluateAll((lignes) =>
+      lignes.map((l) => [".s-fig-num", ".s-fig-txt", ".s-fig-src"].map((c) => l.querySelector(c)!.textContent!.replace(/\s+/g, " ").trim())),
+    );
+
+  test("l'image 3/6 de la fiche n° 24 montre 1,7 ; ~14 % ; 62 ans, chacun avec sa phrase, sa source et sa date", async ({ page }) => {
+    const image = (await carrouselDeLaMaquette(page)).nth(2);
+    await expect(image.getByRole("heading", { level: 3 })).toHaveText("3 chiffres clés");
+    expect(await chiffres(image)).toEqual([
+      ["1,7", "cotisant pour 1 retraité", "Source : COR · 2025"],
+      ["~14 %", "du PIB consacré aux retraites", "Source : COR · 2025"],
+      ["62 ans", "et 10 mois : l'âge moyen de départ", "Source : DREES · 2025"],
+    ]);
+  });
+
+  test("pour une fiche à 2 chiffres, l'image s'intitule « 2 chiffres clés » et en montre deux", async ({ page }) => {
+    // La même fiche, sans son 3e chiffre, dans un jeu de fiches à ce test seul.
+    const dossier = "e2e/fiches/carrousel-deux-chiffres";
+    mkdirSync(dossier, { recursive: true });
+    try {
+      const fiche = readFileSync("e2e/fiches/carrousel/024.yaml", "utf8");
+      writeFileSync(`${dossier}/024.yaml`, fiche.replace(/  - valeur: "62"\n(    .*\n){3}/, ""));
+      await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "carrousel-deux-chiffres", url: "http://localhost:3127" }]);
+      await page.goto("/carrousel");
+      const image = page.getByRole("region", { name: "Le carrousel" }).locator("article.slide").nth(2);
+      await expect(image.getByRole("heading", { level: 3 })).toHaveText("2 chiffres clés");
+      await expect(image).toHaveAccessibleName("Image 3 sur 6 : 2 chiffres clés");
+      expect((await chiffres(image)).map(([nombre]) => nombre)).toEqual(["1,7", "~14 %"]);
+    } finally {
+      rmSync(dossier, { recursive: true, force: true });
+    }
+  });
+});
