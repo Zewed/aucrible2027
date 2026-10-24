@@ -1,0 +1,28 @@
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_659c695de2a688 5239-5276
+src/components/Pioche.tsx
+  s_330ba31127fa8a::t_288c55c874637c 5-7
+  s_330ba31127fa8a::t_138df243929438 1-4,8-41
+src/app/face-a-face/[a]/[b]/page.tsx
+  s_330ba31127fa8a::t_288c55c874637c 6,63
+src/app/moi-contre/[candidat]/page.tsx
+  s_330ba31127fa8a::t_288c55c874637c 5,7,18-19,41-45,70
+.veebee/tickets/116-l-electeur-change-de-candidat.md
+  s_330ba31127fa8a::t_628aa378e1102c 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2617834a665ef427c0fe3234dd71f8e3bff6132e",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
