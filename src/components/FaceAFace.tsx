@@ -4,7 +4,7 @@ import { useCoteClient } from "@/lib/cote-client";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 
 /** Ce que le face-à-face montre d'un candidat sur une question : son option, ou rien si sa position est inconnue. */
-export type PositionComparee = { lettre: string; titre: string; implique: string } | null;
+export type PositionComparee = { lettre: string; titre: string; implique: string; source: string } | null;
 /** Une question du face-à-face, réduite à ce qu'il en montre, et aux positions des deux candidats seulement. */
 export type QuestionComparee = {
   numero: number;
@@ -28,6 +28,20 @@ function Cote({ joueur, position }: { joueur: Joueur; position: PositionComparee
           <span className="opt-letter">{position.lettre}</span>
           <p className="pos-t">{position.titre}</p>
           <p className="pos-i">{position.implique}</p>
+        </div>
+      )}
+      {/* La source est du texte, comme la maquette : en faire un lien reste à trancher. Le badge : ticket 101. */}
+      {position && (
+        <div className="meta">
+          <p className="src">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6 3h8l4 4v14H6zM14 3v4h4"
+                style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }}
+              />
+            </svg>
+            <span>{position.source}</span>
+          </p>
         </div>
       )}
     </section>
