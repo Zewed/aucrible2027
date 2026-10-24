@@ -4615,3 +4615,22 @@ test.describe("la 4e image montre les options, sans noms", () => {
     }
   });
 });
+
+test.describe("la dernière image invite à répondre sur l'app", () => {
+  const derniere = (page: Page) => page.getByRole("region", { name: "Le carrousel" }).getByRole("article", { name: "Image 6 sur 6 : et toi ?" });
+
+  test("l'image 6/6 affiche « Et toi ? », « Réponds et découvre de quels candidats tu es proche » et l'adresse aucrible2027.fr", async ({ page }) => {
+    await page.goto("/carrousel");
+    await expect(derniere(page).getByRole("heading", { level: 3 })).toHaveText("Et toi ?");
+    await expect(derniere(page).getByText("Réponds et découvre de quels candidats tu es proche", { exact: true })).toBeVisible();
+    await expect(derniere(page).locator(".s-url")).toHaveText("aucrible2027.fr");
+  });
+
+  test("elle montre le camembert des 11 thèmes", async ({ page }) => {
+    await page.goto("/carrousel");
+    const camembert = derniere(page).locator(".mark-big svg");
+    await expect(camembert).toBeVisible();
+    const parts = await camembert.locator("path.wedge").evaluateAll((p) => p.map((e) => (e as SVGPathElement).style.fill));
+    expect(parts).toEqual(["eco", "trav", "ecol", "immi", "secu", "sante", "educ", "loge", "euro", "inst", "soc"].map((t) => `var(--${t})`));
+  });
+});
