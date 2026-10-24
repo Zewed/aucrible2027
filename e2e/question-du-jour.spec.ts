@@ -4756,3 +4756,27 @@ test.describe("chaque position du face-à-face affiche sa source", () => {
     }
   });
 });
+
+test.describe("chaque position du face-à-face porte son badge", () => {
+  /** Pour chaque côté de la carte : la source et le badge. */
+  const badges = (carte: Locator) =>
+    carte.locator(".side").evaluateAll((s) => s.map((c) => [c.querySelector(".meta .src")!.textContent!.trim(), c.querySelector(".meta .badge")?.textContent?.trim()]));
+
+  test("sur la retraite, Glucksmann (« Entretien Libération ») porte « Position officielle », Retailleau (« Programme LR 2022 ») « Position déduite »", async ({ page }) => {
+    await faceAFace(page);
+    const { carte } = await carteDuFaceAFace(page, "À quel âge devrait-on pouvoir partir à la retraite ?");
+    expect(await badges(carte)).toEqual([
+      ["Entretien Libération · 9 sept. 2026", "Position officielle"],
+      ["Programme LR 2022 · janv. 2022", "Position déduite"],
+    ]);
+  });
+
+  test("sur le nucléaire, c'est l'inverse : le badge suit la source, pas le candidat", async ({ page }) => {
+    await faceAFace(page);
+    const { carte } = await carteDuFaceAFace(page, "Faut-il construire de nouveaux réacteurs nucléaires ?");
+    expect(await badges(carte)).toEqual([
+      ["Vote de son groupe · 11 juin 2025", "Position déduite"],
+      ["Entretien JDD · 28 sept. 2026", "Position officielle"],
+    ]);
+  });
+});

@@ -24,7 +24,9 @@ function Pioche({ candidat }: { candidat: Candidat }) {
 function positionDe(question: Question, candidat: Candidat): PositionComparee {
   const position = question.positions[candidat.id];
   const option = question.options.find((o) => o.id === position?.option);
-  return option ? { lettre: option.id, titre: option.libelle, implique: option.implique, source: position.source } : null;
+  return option
+    ? { lettre: option.id, titre: option.libelle, implique: option.implique, source: position.source, officielle: position.statut === "officielle" }
+    : null;
 }
 
 /**
