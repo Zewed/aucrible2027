@@ -4506,3 +4506,45 @@ test.describe("la 1re image montre la question", () => {
     await expect(image(page).locator(".s-pill")).toHaveText("J-177");
   });
 });
+
+/** Le carrousel de la fiche n° 24 telle que la dessine maquettes/carrousel.html (jeu de fiches de test « carrousel »). */
+async function carrouselDeLaMaquette(page: Page) {
+  await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "carrousel", url: "http://localhost:3127" }]);
+  await page.goto("/carrousel");
+  const images = page.getByRole("region", { name: "Le carrousel" }).locator("article.slide");
+  await expect(images).toHaveCount(6);
+  return images;
+}
+
+/**
+ * Les éléments donnés de l'image tiennent-ils en entier dans l'image, au-dessus de sa signature, sans texte rogné ? Une
+ * signature poussée hors de l'image compte aussi comme une coupure.
+ */
+const tiennentEnEntier = (image: Locator, selecteur: string) =>
+  image.evaluate((visuel, selecteur) => {
+    const cadre = visuel.getBoundingClientRect().bottom;
+    const signature = visuel.querySelector(".s-foot")!.getBoundingClientRect();
+    const bas = Math.min(signature.top, cadre);
+    return [...visuel.querySelectorAll(selecteur)].map((e) => {
+      const r = e.getBoundingClientRect();
+      return signature.bottom <= cadre + 0.5 && r.bottom <= bas + 0.5 && e.scrollHeight <= e.clientHeight + 1 && e.scrollWidth <= e.clientWidth + 1;
+    });
+  }, selecteur);
+
+test.describe("la 2e image montre le contexte", () => {
+  test("l'image 2/6 de la fiche n° 24 s'intitule « Le contexte » et reprend les trois phrases de la fiche", async ({ page }) => {
+    const image = (await carrouselDeLaMaquette(page)).nth(1);
+    await expect(image.getByRole("heading", { level: 3 })).toHaveText("Le contexte");
+    await expect(image.locator(".s-ctx li")).toHaveText([
+      "Les cotisations des actifs paient les pensions d'aujourd'hui.",
+      "Depuis 2023, l'âge légal remonte de 62 vers 64 ans.",
+      "Cette hausse est suspendue depuis fin 2025, alors que l'on vit plus longtemps.",
+    ]);
+  });
+
+  test("l'image montre ces trois phrases en entier, ni plus, ni moins : aucune n'est coupée", async ({ page }) => {
+    const image = (await carrouselDeLaMaquette(page)).nth(1);
+    await expect(image.locator(".s-ctx li")).toHaveCount(3);
+    expect(await tiennentEnEntier(image, ".s-ctx li")).toEqual([true, true, true]);
+  });
+});
