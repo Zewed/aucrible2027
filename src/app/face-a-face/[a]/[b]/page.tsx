@@ -58,8 +58,8 @@ function positionDe(question: Question, candidat: Candidat): PositionComparee {
 
 /**
  * Le face-à-face de deux candidats, nommés par l'adresse (`/face-a-face/<a>/<b>`) : il s'ouvre depuis la fiche d'un
- * candidat, sans duo par défaut (décision de l'auteur, 24 octobre 2026) ; le disque central mène au duo inversé. Les
- * questions cachées, l'invitation sans réponse et le partage viennent avec les tickets 110 à 112.
+ * candidat, sans duo par défaut (décision de l'auteur, 24 octobre 2026), et cette adresse se partage telle quelle ; le
+ * disque central mène au duo inversé.
  */
 async function FaceAFace({ a, b }: { a: string; b: string }) {
   const candidats = await lireLesCandidats();
@@ -111,6 +111,16 @@ async function FaceAFace({ a, b }: { a: string; b: string }) {
             </Link>
             <Pioche candidat={droite} autres={autres} adresse={(c) => `/face-a-face/${gauche.id}/${c.id}`} />
           </div>
+          {/* L'adresse ne nomme que les deux candidats : la partager ne livre aucune réponse. */}
+          <p className="ff-share">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"
+                style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }}
+              />
+            </svg>
+            <span>Lien partageable : ce face-à-face s&apos;ouvre tout prêt</span>
+          </p>
         </section>
         {/* « Moi contre un candidat », à côté du résumé dans la maquette : ticket 120. */}
         <div className="ff-mid">

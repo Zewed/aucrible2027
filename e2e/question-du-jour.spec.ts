@@ -5037,3 +5037,32 @@ test.describe("sans réponse, le face-à-face invite à répondre d'abord", () =
     await page.waitForURL(/\/rattrapage$/);
   });
 });
+
+test.describe("un lien partagé ouvre le face-à-face sur deux candidats", () => {
+  test("après avoir choisi Glucksmann et Tondelier, l'adresse ouverte dans un nouvel onglet affiche Glucksmann à gauche et Tondelier à droite", async ({ page, context }) => {
+    await faceAFace(page);
+    await expect(page.locator(".ff-share")).toHaveText("Lien partageable : ce face-à-face s'ouvre tout prêt");
+    await page.locator('summary[aria-label="Changer de candidat : Bruno Retailleau"]').click();
+    await page.locator(".pick").last().getByRole("link", { name: /Marine Tondelier/ }).click();
+    await page.waitForURL(/\/face-a-face\/glucksmann\/tondelier$/);
+    const onglet = await context.newPage();
+    await onglet.goto(page.url());
+    await expect(onglet.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["RaphaëlGlucksmann", "MarineTondelier"]);
+  });
+
+  test("l'adresse ne nomme que les deux candidats : sur un autre appareil, elle n'affiche aucune réponse de celui qui l'a partagée", async ({ page, browser }) => {
+    await faceAFace(page, VINGT_QUATRE, "/face-a-face/glucksmann/tondelier");
+    await expect(page.locator(".vs-list .vs:has(.vs-card)").filter({ visible: true })).toHaveCount(24);
+    const adresse = new URL(page.url());
+    expect([adresse.pathname, adresse.search, adresse.hash]).toEqual(["/face-a-face/glucksmann/tondelier", "", ""]);
+    // Un autre appareil : un navigateur neuf, sans aucune réponse.
+    const autre = await browser.newContext();
+    await autre.addCookies([{ name: "aucrible-jeu-de-test", value: "face-a-face", url: "http://localhost:3127" }]);
+    const ailleurs = await autre.newPage();
+    await ailleurs.goto(page.url());
+    await expect(ailleurs.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["RaphaëlGlucksmann", "MarineTondelier"]);
+    await expect(ailleurs.locator(".fd-card").filter({ visible: true })).toBeVisible();
+    await expect(ailleurs.locator(".vs-card")).toHaveCount(0);
+    await autre.close();
+  });
+});
