@@ -1,0 +1,24 @@
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_946d862bf7d15a 4783-4802
+src/components/FaceAFace.tsx
+  s_330ba31127fa8a::t_3b8f61293f5486 72,74-94
+  s_330ba31127fa8a::t_63f19d3369c68c 73,104-126
+.veebee/tickets/102-les-questions-ou-ils-sont-d-accord-sont-marquees.md
+  s_330ba31127fa8a::t_4f85cea5b087ad 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "afe1a0b1a9f283345f3a40484e941e5ac06b5940",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
