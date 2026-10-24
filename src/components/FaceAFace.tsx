@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useSyncExternalStore } from "react";
 import { useCoteClient } from "@/lib/cote-client";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 
@@ -129,10 +130,16 @@ function Verdict({ etat }: { etat: "agree" | "differ" | "unk" }) {
   );
 }
 
-/** Les questions répondues par l'électeur, les seules que le face-à-face compare. */
+const sansAbonnement = () => () => {};
+
+/**
+ * Les questions répondues par l'électeur, les seules que le face-à-face compare ; null tant que la page n'est pas dans
+ * le navigateur, seul à connaître les réponses : rien ne s'affiche avant, ni une liste vide ni l'invitation à répondre.
+ */
 function useQuestionsRepondues(questions: QuestionComparee[]) {
+  const dansLeNavigateur = useSyncExternalStore(sansAbonnement, () => true, () => false);
   const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
-  return questions.filter((q) => reponses[q.numero]);
+  return dansLeNavigateur ? questions.filter((q) => reponses[q.numero]) : null;
 }
 
 const nomDeFamille = (joueur: Joueur) => joueur.nom.split(" ").slice(1).join(" ");
@@ -144,7 +151,7 @@ const enQuestions = (n: number) => `${n} question${n > 1 ? "s" : ""}`;
  */
 export function ResumeDuFaceAFace({ questions, joueurs }: { questions: QuestionComparee[]; joueurs: [Joueur, Joueur] }) {
   const repondues = useQuestionsRepondues(questions);
-  if (repondues.length === 0) return null;
+  if (!repondues || repondues.length === 0) return null;
   const etats = repondues.map(verdict);
   const [memes, differentes, inconnues] = (["agree", "differ", "unk"] as const).map((e) => etats.filter((x) => x === e).length);
   return (
@@ -193,6 +200,8 @@ export function ResumeDuFaceAFace({ questions, joueurs }: { questions: QuestionC
  */
 export function FiltreDuFaceAFace({ themes, questions }: { themes: { nom: string; classe: string }[]; questions: QuestionComparee[] }) {
   const repondues = useQuestionsRepondues(questions);
+  // Sans aucune réponse, rien à filtrer (à trancher : la maquette ne dessine pas ce cas).
+  if (!repondues || repondues.length === 0) return null;
   return (
     <fieldset className="filt">
       <legend>
@@ -228,6 +237,7 @@ export function FiltreDuFaceAFace({ themes, questions }: { themes: { nom: string
  */
 export function QuestionsDuFaceAFace({ questions, joueurs }: { questions: QuestionComparee[]; joueurs: [Joueur, Joueur] }) {
   const repondues = useQuestionsRepondues(questions);
+  if (!repondues) return null;
   const cachees = questions.length - repondues.length;
   return (
     <ul className="vs-list">
@@ -254,20 +264,30 @@ export function QuestionsDuFaceAFace({ questions, joueurs }: { questions: Questi
           </li>
         );
       })}
-      {/* La carte retournée : les questions pas encore répondues, dont les positions restent cachées. */}
-      {cachees > 0 && repondues.length > 0 && (
+      {/* La carte retournée : les questions pas encore répondues, dont les positions restent cachées. Sans aucune
+          réponse, elle invite à répondre d'abord (texte provisoire : la maquette ne dessine pas ce cas). */}
+      {cachees > 0 && (
         <li className="vs fd-row">
           <article className="fd-card">
             <p className="label">
               <i style={{ background: "var(--muted)" }}></i>Questions cachées
             </p>
-            <h3 className="fd-q">
-              {cachees > 1 ? `${cachees} questions attendent` : "1 question attend"} encore ta réponse
-            </h3>
-            <p className="fd-n">
-              Leurs positions s&apos;affichent après ta réponse, pour ne pas t&apos;influencer. Tu vois ici{" "}
-              {repondues.length > 1 ? `les ${repondues.length} questions déjà ouvertes` : "la question déjà ouverte"} pour toi.
-            </p>
+            {repondues.length > 0 ? (
+              <>
+                <h3 className="fd-q">
+                  {cachees > 1 ? `${cachees} questions attendent` : "1 question attend"} encore ta réponse
+                </h3>
+                <p className="fd-n">
+                  Leurs positions s&apos;affichent après ta réponse, pour ne pas t&apos;influencer. Tu vois ici{" "}
+                  {repondues.length > 1 ? `les ${repondues.length} questions déjà ouvertes` : "la question déjà ouverte"} pour toi.
+                </p>
+              </>
+            ) : (
+              <>
+                <h3 className="fd-q">{cachees > 1 ? `Les ${cachees} questions attendent` : "La question attend"} ta réponse</h3>
+                <p className="fd-n">Les positions des candidats s&apos;affichent après ta réponse, pour ne pas t&apos;influencer.</p>
+              </>
+            )}
             <Link className="btn-link" href="/rattrapage">
               Rattraper les questions
               <svg viewBox="0 0 24 24" aria-hidden="true">
