@@ -5196,3 +5196,43 @@ test.describe("« Moi contre » affiche le % d'accord", () => {
     await expect(page.locator(".score .score-key li").filter({ visible: true })).toHaveText(["même option", "autre option"]);
   });
 });
+
+/** La ligne d'un thème dans « Thème par thème » de « Moi contre ». */
+const ligneDuThemeMoiContre = (page: Page, nom: string) =>
+  page
+    .getByRole("region", { name: "Thème par thème" })
+    .locator(".th")
+    .filter({ visible: true })
+    .filter({ has: page.locator(".th-name", { hasText: nom }) });
+
+test.describe("« Moi contre » affiche un score par thème", () => {
+  test("dans « Économie & impôts » (4 réponses), la ligne affiche « 55 % » et « d'accord sur 2 questions sur 4 »", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    const section = page.getByRole("region", { name: "Thème par thème" });
+    await expect(section.getByText("score dès 3 réponses")).toBeVisible();
+    await expect(section.locator(".th").filter({ visible: true })).toHaveCount(11);
+    const ligne = ligneDuThemeMoiContre(page, "Économie & impôts");
+    await expect(ligne).toHaveClass(/\bdone\b/);
+    await expect(ligne.locator(".th-pc")).toHaveText("55 %");
+    await expect(ligne.locator(".th-who")).toHaveText("d'accord sur 2 questions sur 4");
+  });
+
+  test("« Travail & retraites » (2 réponses) affiche 2 pastilles remplies sur 3 et « pas encore assez de réponses », sans pourcentage", async ({ page }) => {
+    await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
+    const ligne = ligneDuThemeMoiContre(page, "Travail & retraites");
+    await expect(ligne.locator(".th-who")).toHaveText("pas encore assez de réponses");
+    await expect(ligne.locator(".pips")).toHaveAttribute("aria-label", "2 réponses");
+    await expect(ligne.locator(".pips i")).toHaveCount(3);
+    await expect(ligne.locator(".pips i[style]")).toHaveCount(2);
+    await expect(ligne.locator(".th-pc")).toHaveCount(0);
+    await expect(ligne).not.toHaveClass(/\bdone\b/);
+  });
+
+  test("après une 3e réponse dans « Travail & retraites », la ligne affiche un pourcentage à la place de « pas encore assez de réponses »", async ({ page }) => {
+    await moiContre(page, "philippe", { ...VINGT_TROIS_MOI_CONTRE, 12: ["B", 1, "2026-10-23"] });
+    const ligne = ligneDuThemeMoiContre(page, "Travail & retraites");
+    await expect(ligne.locator(".th-pc")).toHaveText("60 %");
+    await expect(ligne.locator(".th-who")).toHaveText("d'accord sur 2 questions sur 3");
+    await expect(ligne).toHaveClass(/\bdone\b/);
+  });
+});

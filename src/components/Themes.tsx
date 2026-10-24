@@ -19,7 +19,7 @@ const useThemesGagnes = (questions: QuestionDuCalcul[], themes: Theme[]) =>
   useReponsesDesThemes(questions, themes).map((nombre) => nombre >= REPONSES_PAR_PART);
 
 /** La couleur d'un thème, celle de sa part : `--eco` pour « theme-eco ». */
-const couleurDe = (theme: Theme) => `var(--${theme.classe.replace("theme-", "")})`;
+export const couleurDe = (theme: Theme) => `var(--${theme.classe.replace("theme-", "")})`;
 
 /** Le grand camembert en haut de « Mes résultats » : une part par thème, remplie quand elle est gagnée. */
 export function GrandCamembert({ questions, themes }: { questions: QuestionDuCalcul[]; themes: Theme[] }) {

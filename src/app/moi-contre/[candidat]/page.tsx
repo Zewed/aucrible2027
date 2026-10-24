@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
-import { QuestionsMoiContre, ScoreMoiContre, type QuestionMoiContre } from "@/components/MoiContre";
+import { QuestionsMoiContre, ScoreMoiContre, ThemesMoiContre, type QuestionMoiContre } from "@/components/MoiContre";
 import { lireThemes } from "@/lib/contenu";
 import { lireAujourdhui, lireLesCandidats, lireQuestionsDuCalcul, lireQuestionsPubliees } from "@/lib/publication";
 import "@/app/face-a-face.css";
@@ -33,6 +33,8 @@ async function MoiContre({ id }: { id: string }) {
           : null,
       };
     });
+  // Les mêmes questions, réduites à ce que lit le calcul, dans l'ordre des cartes.
+  const calcul = questions.map((q) => duCalcul.find((d) => d.numero === q.numero)!);
   const [prenom, ...nom] = candidat.nom.split(" ");
   return (
     <>
@@ -68,7 +70,8 @@ async function MoiContre({ id }: { id: string }) {
             </div>
           </div>
         </section>
-        <ScoreMoiContre questions={questions.map((q) => duCalcul.find((d) => d.numero === q.numero)!)} candidat={candidat} />
+        <ScoreMoiContre questions={calcul} candidat={candidat} />
+        <ThemesMoiContre questions={calcul} themes={themes} candidat={candidat} />
         <section className="sec" aria-labelledby="h-list">
           <div className="sec-h">
             <h2 id="h-list">Question par question</h2>

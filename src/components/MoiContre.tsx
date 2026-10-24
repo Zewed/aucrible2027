@@ -2,10 +2,12 @@
 
 import { useSyncExternalStore } from "react";
 import { Cote, Document, Verdict, type Joueur, type PositionComparee } from "@/components/FaceAFace";
-import type { Candidat } from "@/lib/contenu";
+import { PartDuTheme } from "@/components/PuceTheme";
+import { couleurDe } from "@/components/Themes";
+import type { Candidat, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
 import { dateCourte } from "@/lib/date";
-import { classement, reponsesComptees, SEUIL_DES_RESULTATS, type QuestionDuCalcul } from "@/lib/proximite";
+import { classement, REPONSES_PAR_PART, reponsesComptees, reponsesParTheme, SEUIL_DES_RESULTATS, type QuestionDuCalcul } from "@/lib/proximite";
 import { abonnerAuxReponses, JE_NE_SAIS_PAS, lesReponses, lireReponses, type Reponse } from "@/lib/reponses";
 
 /** Une question de « Moi contre » : ses options (pour retrouver celle de l'électeur) et la position du candidat. */
@@ -96,21 +98,28 @@ export function QuestionsMoiContre({ questions, candidat }: { questions: Questio
 }
 
 /**
+ * Les questions où l'électeur et le candidat se comparent : répondues autre chose que « Je ne sais pas », et dont la
+ * position du candidat est connue, comme dans le calcul.
+ */
+function questionsComparees(questions: QuestionDuCalcul[], reponses: Record<number, Reponse>, candidat: Candidat) {
+  const valide = (q: QuestionDuCalcul, option?: string) => q.options.some((o) => o.id === option);
+  return questions.filter(
+    (q) => reponses[q.numero] && reponses[q.numero].option !== JE_NE_SAIS_PAS && valide(q, reponses[q.numero].option) && valide(q, q.positions[candidat.id]?.option),
+  );
+}
+
+/**
  * « Ta proximité avec » le candidat : son pourcentage, celui de « Mes résultats », la phrase qui compte les questions
  * où l'électeur a choisi la même option que lui, et une pastille par question comparée, dans l'ordre des cartes (de la
- * plus récente à la plus ancienne). Une question n'est comparée que si l'électeur y a répondu autre chose que « Je ne
- * sais pas » et que la position du candidat est connue, comme dans le calcul. Rien avant 10 réponses comptées, comme
- * « Mes résultats » (à trancher : la maquette ne dessine pas ce cas).
+ * plus récente à la plus ancienne). Rien avant 10 réponses comptées, comme « Mes résultats » (à trancher : la maquette
+ * ne dessine pas ce cas).
  */
 export function ScoreMoiContre({ questions, candidat }: { questions: QuestionDuCalcul[]; candidat: Candidat }) {
   const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
   if (reponsesComptees(questions, reponses) < SEUIL_DES_RESULTATS) return null;
   const pourcentage = classement(questions, reponses, [candidat])[0].pourcentage;
   if (pourcentage == null) return null;
-  const valide = (q: QuestionDuCalcul, option?: string) => q.options.some((o) => o.id === option);
-  const comparees = questions.filter(
-    (q) => reponses[q.numero] && reponses[q.numero].option !== JE_NE_SAIS_PAS && valide(q, reponses[q.numero].option) && valide(q, q.positions[candidat.id]?.option),
-  );
+  const comparees = questionsComparees(questions, reponses, candidat);
   const memes = comparees.filter((q) => reponses[q.numero].option === q.positions[candidat.id].option).length;
   return (
     <section className="score" aria-labelledby="h-score">
@@ -142,6 +151,63 @@ export function ScoreMoiContre({ questions, candidat }: { questions: QuestionDuC
       </ul>
       {/* Le lien « Comment on calcule » de la maquette n'est porté par aucun ticket. */}
       <p className="score-n">Le pourcentage compte aussi les options proches et l&apos;importance que tu donnes à chaque sujet.</p>
+    </section>
+  );
+}
+
+/**
+ * « Thème par thème » : le pourcentage d'accord avec le candidat sur les seules questions d'un thème, dès 3 réponses
+ * comptées dans le thème, comme les parts de « Mes résultats » ; avant, une pastille par réponse, sur 3. Rien avant
+ * d'être dans le navigateur, seul à connaître les réponses.
+ */
+export function ThemesMoiContre({ questions, themes, candidat }: { questions: QuestionDuCalcul[]; themes: Theme[]; candidat: Candidat }) {
+  const dansLeNavigateur = useSyncExternalStore(sansAbonnement, () => true, () => false);
+  const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
+  if (!dansLeNavigateur) return null;
+  const parTheme = reponsesParTheme(questions, reponses);
+  return (
+    <section className="sec" aria-labelledby="h-th">
+      <div className="sec-h">
+        <h2 id="h-th">Thème par thème</h2>
+        <p>score dès {REPONSES_PAR_PART} réponses</p>
+      </div>
+      <ul className="themes">
+        {themes.map((theme) => {
+          const nombre = parTheme[theme.id] ?? 0;
+          const duTheme = questions.filter((q) => q.theme === theme.id);
+          const pourcentage = nombre >= REPONSES_PAR_PART ? classement(duTheme, reponses, [candidat])[0].pourcentage : null;
+          if (pourcentage == null)
+            return (
+              <li key={theme.id} className={`th ${theme.classe}`}>
+                <PartDuTheme vide />
+                <span className="th-name one">{theme.nom}</span>
+                <span className="pips" aria-label={`${nombre} ${nombre > 1 ? "réponses" : "réponse"}`}>
+                  {Array.from({ length: REPONSES_PAR_PART }, (_, k) => (
+                    <i key={k} style={k < nombre ? { background: couleurDe(theme) } : undefined}></i>
+                  ))}
+                </span>
+                <span className="th-who one">
+                  {nombre >= REPONSES_PAR_PART ? "positions inconnues sur ce thème" : "pas encore assez de réponses"}
+                </span>
+              </li>
+            );
+          const comparees = questionsComparees(duTheme, reponses, candidat);
+          const memes = comparees.filter((q) => reponses[q.numero].option === q.positions[candidat.id].option).length;
+          return (
+            <li key={theme.id} className={`th done ${theme.classe}`} style={{ "--p": pourcentage } as React.CSSProperties}>
+              <PartDuTheme />
+              <span className="th-name one">{theme.nom}</span>
+              <span className="th-pc" aria-label={`${pourcentage} pour cent`}>
+                {pourcentage}
+                <small>&nbsp;%</small>
+              </span>
+              <span className="th-who one">
+                d&apos;accord sur <b>{memes}</b> {memes > 1 ? "questions" : "question"} sur {comparees.length}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }
