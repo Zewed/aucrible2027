@@ -5366,3 +5366,15 @@ test.describe("Une question non répondue est grisée dans « Moi contre » et m
     await expect(page.locator(".vs-list .vs.fd-row").filter({ visible: true })).toHaveCount(4);
   });
 });
+
+test.describe("La fiche mène à « Moi contre » ce candidat", () => {
+  test("sur la fiche de Marine Tondelier, toucher « Moi contre Marine Tondelier » ouvre « Moi contre un candidat » avec Marine Tondelier déjà choisie", async ({ page }) => {
+    await page.goto("/candidat/tondelier");
+    const bouton = page.getByRole("complementary", { name: "Qui est-ce" }).getByRole("link", { name: "Moi contre Marine Tondelier" });
+    await expect(bouton).toHaveClass(/\bact\b.*\bprimary\b/);
+    await bouton.click();
+    await page.waitForURL(/\/moi-contre\/tondelier$/);
+    await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toHaveText("Moi contre un candidat.");
+    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["Ta partieToi", "MarineTondelier"]);
+  });
+});
