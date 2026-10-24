@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import { EnTete } from "@/components/EnTete";
+import { SansReseau } from "@/components/SansReseau";
 import "./kit.css";
 import "./globals.css";
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <EnTete />
         {children}
+        <SansReseau />
       </body>
     </html>
   );
