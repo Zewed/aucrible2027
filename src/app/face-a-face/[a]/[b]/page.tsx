@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
-import { QuestionsDuFaceAFace, ResumeDuFaceAFace, type Joueur, type PositionComparee, type QuestionComparee } from "@/components/FaceAFace";
+import { FiltreDuFaceAFace, QuestionsDuFaceAFace, ResumeDuFaceAFace, type Joueur, type PositionComparee, type QuestionComparee } from "@/components/FaceAFace";
 import { lireThemes, type Candidat, type Question } from "@/lib/contenu";
 import { melanger } from "@/lib/melange";
 import { lireAujourdhui, lireLesCandidats, lireQuestionsPubliees } from "@/lib/publication";
@@ -58,8 +58,8 @@ function positionDe(question: Question, candidat: Candidat): PositionComparee {
 
 /**
  * Le face-à-face de deux candidats, nommés par l'adresse (`/face-a-face/<a>/<b>`) : il s'ouvre depuis la fiche d'un
- * candidat, sans duo par défaut (décision de l'auteur, 24 octobre 2026) ; le disque central mène au duo inversé. Le
- * filtre, les questions cachées, l'invitation sans réponse et le partage viennent avec les tickets 107 à 112.
+ * candidat, sans duo par défaut (décision de l'auteur, 24 octobre 2026) ; le disque central mène au duo inversé. Les
+ * questions cachées, l'invitation sans réponse et le partage viennent avec les tickets 110 à 112.
  */
 async function FaceAFace({ a, b }: { a: string; b: string }) {
   const candidats = await lireLesCandidats();
@@ -116,6 +116,7 @@ async function FaceAFace({ a, b }: { a: string; b: string }) {
         <div className="ff-mid">
           <ResumeDuFaceAFace questions={questions} joueurs={joueurs} />
         </div>
+        <FiltreDuFaceAFace themes={themes.map(({ nom, classe }) => ({ nom, classe }))} questions={questions} />
         <section aria-labelledby="h-list">
           <h2 className="sr" id="h-list">
             Les questions, une par une

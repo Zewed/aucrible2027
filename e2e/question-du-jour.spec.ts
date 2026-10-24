@@ -4942,3 +4942,31 @@ test.describe("le disque central inverse les deux candidats", () => {
     await expect(noms(page)).toHaveText(["RaphaëlGlucksmann", "BrunoRetailleau"]);
   });
 });
+
+test.describe("l'électeur filtre le face-à-face par thème", () => {
+  const visibles = (page: Page) => page.locator(".vs-list .vs").filter({ visible: true });
+  const choisir = (page: Page, theme: string) => page.locator(".filt label.chip", { hasText: new RegExp(`^${theme}$`) }).click();
+
+  test("« Toutes » est choisi au départ ; choisir « Travail & retraites » ne laisse que les questions de ce thème, dont la retraite", async ({ page }) => {
+    await faceAFace(page);
+    const filtre = page.getByRole("group", { name: "Filtrer par thème" });
+    await expect(filtre.getByRole("radio")).toHaveCount(12);
+    await expect(filtre.getByRole("radio", { name: "Toutes" })).toBeChecked();
+    await expect(page.locator(".filt .sec-h p")).toHaveText("7 questions");
+    await expect(visibles(page)).toHaveCount(7);
+    await choisir(page, "Travail & retraites");
+    await expect(visibles(page)).toHaveCount(1);
+    await expect(visibles(page).getByRole("heading", { level: 3 })).toHaveText("À quel âge devrait-on pouvoir partir à la retraite ?");
+  });
+
+  test("« Écologie & énergie » remplace le premier choix (un seul thème à la fois) ; « Toutes » ramène toutes les questions", async ({ page }) => {
+    await faceAFace(page);
+    await choisir(page, "Travail & retraites");
+    await choisir(page, "Écologie & énergie");
+    await expect(page.getByRole("radio", { name: "Travail & retraites" })).not.toBeChecked();
+    await expect(visibles(page)).toHaveCount(1);
+    await expect(visibles(page).getByRole("heading", { level: 3 })).toHaveText("Faut-il construire de nouveaux réacteurs nucléaires ?");
+    await choisir(page, "Toutes");
+    await expect(visibles(page)).toHaveCount(7);
+  });
+});

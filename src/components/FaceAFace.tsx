@@ -186,6 +186,42 @@ export function ResumeDuFaceAFace({ questions, joueurs }: { questions: QuestionC
 }
 
 /**
+ * « Filtrer par thème » : « Toutes », puis les 11 thèmes, un seul à la fois. Le filtre est celui de la maquette, sans
+ * script : le bouton coché masque, par la feuille de style, les cartes des autres thèmes. Le nombre est celui des
+ * questions répondues, quel que soit le thème choisi (que le résumé et ce nombre suivent le filtre reste à trancher).
+ */
+export function FiltreDuFaceAFace({ themes, questions }: { themes: { nom: string; classe: string }[]; questions: QuestionComparee[] }) {
+  const repondues = useQuestionsRepondues(questions);
+  return (
+    <fieldset className="filt">
+      <legend>
+        <span className="sec-h">
+          <h2>Filtrer par thème</h2>
+          <p>{enQuestions(repondues.length)}</p>
+        </span>
+      </legend>
+      <div className="chips-row">
+        <label className="chip all">
+          <input type="radio" name="theme" id="f-all" defaultChecked />
+          <span>
+            <i></i>Toutes
+          </span>
+        </label>
+        {themes.map((theme) => (
+          <label key={theme.classe} className={`chip ${theme.classe}`}>
+            <input type="radio" name="theme" id={`f-${theme.classe.replace("theme-", "")}`} />
+            <span>
+              <i></i>
+              {theme.nom}
+            </span>
+          </label>
+        ))}
+      </div>
+    </fieldset>
+  );
+}
+
+/**
  * Les questions du face-à-face, de la plus récente à la plus ancienne. Seules celles auxquelles l'électeur a déjà
  * répondu sont montrées, pour ne rien révéler avant sa réponse (SPEC.md, « Règles validées sur les maquettes »).
  */
