@@ -4689,7 +4689,7 @@ async function faceAFace(page: Page, repondues = [3, 9, 12, 15, 18, 21, 24], adr
 
 /** La carte d'une question du face-à-face, et ce qu'elle montre de chaque candidat : nom, pion, lettre, titre, phrase. */
 async function carteDuFaceAFace(page: Page, question: string) {
-  const carte = page.locator(".vs-list .vs").filter({ has: page.getByRole("heading", { level: 3, name: question }) });
+  const carte = page.locator(".vs-list .vs:has(.vs-card)").filter({ has: page.getByRole("heading", { level: 3, name: question }) });
   await expect(carte).toHaveCount(1);
   const cotes = await carte.locator(".side").evaluateAll((sides) =>
     sides.map((s) => ({
@@ -4745,7 +4745,7 @@ test.describe("chaque position du face-à-face affiche sa source", () => {
 
   test("sur chaque question où les deux ont une position, les deux positions affichent une source avec une date", async ({ page }) => {
     await faceAFace(page);
-    const cartes = page.locator(".vs-list .vs");
+    const cartes = page.locator(".vs-list .vs:has(.vs-card)");
     await expect(cartes).toHaveCount(7);
     const sources = await cartes.evaluateAll((liste) =>
       liste.map((c) => [...c.querySelectorAll(".side")].map((s) => s.querySelector(".meta .src")?.textContent?.trim() ?? "")),
@@ -4876,7 +4876,7 @@ test.describe("« Changer » remplace un des deux candidats", () => {
     await page.waitForURL(/\/face-a-face\/glucksmann\/tondelier$/);
     // Next garde un instant l'ancienne page montée : seuls les éléments visibles comptent.
     await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["RaphaëlGlucksmann", "MarineTondelier"]);
-    const cartes = page.locator(".vs-list .vs").filter({ visible: true });
+    const cartes = page.locator(".vs-list .vs:has(.vs-card)").filter({ visible: true });
     await expect(cartes).toHaveCount(7);
     expect(await cartes.evaluateAll((c) => c.map((e) => [...e.querySelectorAll(".side")].map((s) => s.getAttribute("aria-label"))))).toEqual(
       Array(7).fill(["Position de Raphaël Glucksmann", "Position de Marine Tondelier"]),
@@ -4933,7 +4933,7 @@ test.describe("le disque central inverse les deux candidats", () => {
     await faceAFace(page);
     await disque(page).click();
     await page.waitForURL(/\/face-a-face\/retailleau\/glucksmann$/);
-    const carte = page.locator(".vs-list .vs").filter({ visible: true }).filter({ hasText: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+    const carte = page.locator(".vs-list .vs:has(.vs-card)").filter({ visible: true }).filter({ hasText: "À quel âge devrait-on pouvoir partir à la retraite ?" });
     await expect(carte.locator(".side .pos-t")).toHaveText(["65 ans ou plus", "62 ans"]);
     await expect(carte.locator(".side .meta .src")).toHaveText(["Programme LR 2022 · janv. 2022", "Entretien Libération · 9 sept. 2026"]);
     await expect(carte.locator(".side .meta .badge")).toHaveText(["Position déduite", "Position officielle"]);
@@ -4944,7 +4944,7 @@ test.describe("le disque central inverse les deux candidats", () => {
 });
 
 test.describe("l'électeur filtre le face-à-face par thème", () => {
-  const visibles = (page: Page) => page.locator(".vs-list .vs").filter({ visible: true });
+  const visibles = (page: Page) => page.locator(".vs-list .vs:has(.vs-card)").filter({ visible: true });
   const choisir = (page: Page, theme: string) => page.locator(".filt label.chip", { hasText: new RegExp(`^${theme}$`) }).click();
 
   test("« Toutes » est choisi au départ ; choisir « Travail & retraites » ne laisse que les questions de ce thème, dont la retraite", async ({ page }) => {
@@ -4976,7 +4976,7 @@ test.describe("le face-à-face ne montre que les questions déjà répondues", (
 
   test("sans réponse à « Faut-il autoriser une aide active à mourir ? », le face-à-face ne montre aucune position sur ce sujet", async ({ page }) => {
     await faceAFace(page, VINGT_QUATRE);
-    await expect(page.locator(".vs-list .vs").filter({ visible: true })).toHaveCount(24);
+    await expect(page.locator(".vs-list .vs:has(.vs-card)").filter({ visible: true })).toHaveCount(24);
     await expect(page.getByRole("heading", { level: 3, name: aideActive })).toHaveCount(0);
     await expect(page.getByText(aideActive)).toHaveCount(0);
   });
@@ -4994,5 +4994,28 @@ test.describe("le face-à-face ne montre que les questions déjà répondues", (
       ["Raphaël Glucksmann", "A"],
       ["Bruno Retailleau", "C"],
     ]);
+  });
+});
+
+test.describe("une carte retournée compte les questions cachées", () => {
+  const carteRetournee = (page: Page) => page.locator(".vs-list .fd-card").filter({ visible: true });
+
+  test("à qui il reste 3 questions sans réponse, la carte après la dernière annonce « 3 questions attendent encore ta réponse »", async ({ page }) => {
+    await faceAFace(page, VINGT_QUATRE);
+    await expect(carteRetournee(page).getByRole("heading", { level: 3 })).toHaveText("3 questions attendent encore ta réponse");
+    await expect(carteRetournee(page).locator(".fd-n")).toContainText("Leurs positions s'affichent après ta réponse, pour ne pas t'influencer.");
+    const derniere = await page.locator(".vs-list > li").filter({ visible: true }).last().getAttribute("class");
+    expect(derniere).toContain("fd-row");
+  });
+
+  test("après une réponse à l'une d'elles, la carte annonce « 2 questions attendent encore ta réponse »", async ({ page }) => {
+    await faceAFace(page, [...VINGT_QUATRE, 25]);
+    await expect(carteRetournee(page).getByRole("heading", { level: 3 })).toHaveText("2 questions attendent encore ta réponse");
+  });
+
+  test("à qui a répondu à toutes les questions publiées, pas de carte retournée", async ({ page }) => {
+    await faceAFace(page, [...VINGT_QUATRE, 25, 26, 27]);
+    await expect(page.locator(".vs-list .vs:has(.vs-card)").filter({ visible: true })).toHaveCount(27);
+    await expect(page.locator(".vs-list .fd-card")).toHaveCount(0);
   });
 });
