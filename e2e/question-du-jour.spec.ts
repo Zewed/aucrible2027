@@ -5378,3 +5378,36 @@ test.describe("La fiche mène à « Moi contre » ce candidat", () => {
     await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["Ta partieToi", "MarineTondelier"]);
   });
 });
+
+test.describe("La fiche mène au face-à-face", () => {
+  /** Les liens de « Face-à-face » sur la fiche de Marine Tondelier, ouvert. */
+  async function adversaires(page: Page) {
+    await page.goto("/candidat/tondelier");
+    const colonne = page.getByRole("complementary", { name: "Qui est-ce" });
+    // Un <summary> n'a pas de rôle pour Playwright : on le trouve par son texte.
+    const bouton = colonne.locator("summary", { hasText: "Face-à-face" });
+    await expect(bouton).toHaveClass(/\bact\b.*\bsecond\b/);
+    await bouton.click();
+    const panneau = colonne.locator(".duo-panel");
+    await expect(panneau).toBeVisible();
+    return panneau.getByRole("link");
+  }
+
+  test("sur la fiche de Marine Tondelier, toucher « Face-à-face » ouvre le face-à-face", async ({ page }) => {
+    const liens = await adversaires(page);
+    await liens.filter({ hasText: "Raphaël Glucksmann" }).click();
+    await page.waitForURL(/\/face-a-face\/tondelier\/glucksmann$/);
+    await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toHaveText("Face-à-face.");
+    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["MarineTondelier", "RaphaëlGlucksmann"]);
+  });
+
+  test("« Face-à-face » propose les 12 autres candidats, sans duo par défaut : chacun mène au face-à-face de Marine Tondelier et de lui", async ({ page }) => {
+    const liens = await adversaires(page);
+    await expect(liens).toHaveCount(12);
+    const contenu = parse(readFileSync("content/candidats.yaml", "utf8")) as { id: string; nom: string }[];
+    const adresses = await liens.evaluateAll((l) => l.map((a) => a.getAttribute("href")));
+    expect([...adresses].sort()).toEqual(contenu.filter((c) => c.id !== "tondelier").map((c) => `/face-a-face/tondelier/${c.id}`).sort());
+    const noms = (await liens.allInnerTexts()).map((n) => n.replace(/^\S+\s+/, "").trim());
+    expect(noms).not.toEqual([...noms].sort((a, b) => a.localeCompare(b, "fr")));
+  });
+});
