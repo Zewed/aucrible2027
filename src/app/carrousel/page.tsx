@@ -123,6 +123,30 @@ function lesImages(question: Question, theme: Theme): React.ReactElement[] {
   ];
 }
 
+const EN_LETTRES = ["zéro", "un", "deux", "trois", "quatre", "cinq", "six"];
+
+/**
+ * La légende proposée pour le carrousel : la question et ce que montrent les images, puis l'invitation à répondre.
+ * Elle annonce l'argument de chaque côté, comme la maquette, même si l'image 5 l'attend encore (ticket 214).
+ */
+function Legende({ question }: { question: Question }) {
+  return (
+    <section className="sheet legende sec" aria-labelledby="h-leg">
+      <div className="sec-h">
+        <h2 id="h-leg">La légende</h2>
+        <p>à copier</p>
+      </div>
+      <div className="box">
+        <p>
+          {question.question} Fais défiler : le contexte, {EN_LETTRES[question.chiffres.length]} chiffres sourcés, les{" "}
+          {EN_LETTRES[question.options.length]} options et le meilleur argument de chaque côté.
+        </p>
+        <p>Réponds sur aucrible2027.fr (lien en bio). Ce n&apos;est pas un sondage : tes réponses restent sur ton téléphone.</p>
+      </div>
+    </section>
+  );
+}
+
 const LEGENDES = [
   ["La question", "La carte du jour, telle qu'on la pioche dans l'app."],
   ["Le contexte", "Trois phrases courtes, sans jargon."],
@@ -134,8 +158,8 @@ const LEGENDES = [
 
 /**
  * « Carrousel du jour » (maquettes/carrousel.html) : les visuels de la question du jour, tirés de sa fiche, pour les
- * réseaux de l'auteur. Seule la fiche du jour, déjà publiée, est lue. La story, la légende, le téléchargement et le
- * lien vers la vidéo viennent avec les tickets 217 à 220.
+ * réseaux de l'auteur, et la légende proposée. Seule la fiche du jour, déjà publiée, est lue. La story, le
+ * téléchargement et le lien vers la vidéo viennent avec les tickets 217, 219 et 220.
  */
 async function CarrouselDuJour() {
   const [jour, publiees] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
@@ -179,6 +203,7 @@ async function CarrouselDuJour() {
             </div>
           </section>
         )}
+        {question && <Legende question={question} />}
       </main>
     </>
   );

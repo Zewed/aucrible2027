@@ -4634,3 +4634,39 @@ test.describe("la dernière image invite à répondre sur l'app", () => {
     expect(parts).toEqual(["eco", "trav", "ecol", "immi", "secu", "sante", "educ", "loge", "euro", "inst", "soc"].map((t) => `var(--${t})`));
   });
 });
+
+test.describe("l'auteur récupère la légende proposée", () => {
+  const legende = (page: Page) => page.getByRole("region", { name: "La légende" }).locator(".box");
+
+  test("je copie la légende et je la colle ailleurs : je retrouve les deux paragraphes en entier", async ({ page, context }) => {
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+    await carrouselDeLaMaquette(page);
+    const paragraphes = await legende(page).locator("p").allInnerTexts();
+    expect(paragraphes).toHaveLength(2);
+    // Sélectionner l'encadré et copier, comme on le ferait à la main.
+    await legende(page).evaluate((boite) => {
+      const plage = document.createRange();
+      plage.selectNodeContents(boite);
+      const selection = window.getSelection()!;
+      selection.removeAllRanges();
+      selection.addRange(plage);
+      document.execCommand("copy");
+    });
+    const colle = (await page.evaluate(() => navigator.clipboard.readText())).replace(/ /g, " ");
+    for (const paragraphe of paragraphes) expect(colle).toContain(paragraphe.replace(/ /g, " "));
+  });
+
+  test("la légende de la n° 24 reprend la question et annonce le contexte, trois chiffres sourcés, les cinq options et le meilleur argument de chaque côté", async ({ page }) => {
+    await carrouselDeLaMaquette(page);
+    await expect(legende(page).locator("p").first()).toHaveText(
+      "À quel âge devrait-on pouvoir partir à la retraite ? Fais défiler : le contexte, trois chiffres sourcés, les cinq options et le meilleur argument de chaque côté.",
+    );
+  });
+
+  test("elle invite à répondre sur aucrible2027.fr (lien en bio) et dit « Ce n'est pas un sondage : tes réponses restent sur ton téléphone. »", async ({ page }) => {
+    await carrouselDeLaMaquette(page);
+    await expect(legende(page).locator("p").nth(1)).toHaveText(
+      "Réponds sur aucrible2027.fr (lien en bio). Ce n'est pas un sondage : tes réponses restent sur ton téléphone.",
+    );
+  });
+});
