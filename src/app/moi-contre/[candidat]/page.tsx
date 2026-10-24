@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
+import { ChoixDuFaceAFace } from "@/components/ChoixDuFaceAFace";
 import { QuestionsMoiContre, ScoreMoiContre, ThemesMoiContre, type QuestionMoiContre } from "@/components/MoiContre";
 import { Pioche } from "@/components/Pioche";
 import { lireThemes } from "@/lib/contenu";
@@ -73,6 +74,20 @@ async function MoiContre({ id }: { id: string }) {
         <ScoreMoiContre questions={calcul} candidat={candidat} />
         <ThemesMoiContre questions={calcul} themes={themes} candidat={candidat} />
         <QuestionsMoiContre questions={questions} candidat={{ nom: candidat.nom, initiales: candidat.initiales }} />
+        {/* Le face-à-face s'ouvre avec ce candidat, comme depuis sa fiche ; « Mes résultats », à côté dans la maquette,
+            n'est porté par aucun ticket. */}
+        <section className="ff-end" aria-label="Aller plus loin">
+          <div className="actions">
+            <ChoixDuFaceAFace candidat={candidat} autres={autres} classe="act primary">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="7" cy="9" r="4" style={{ fill: "currentColor" }} />
+                <circle cx="17" cy="9" r="4" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.4 }} />
+                <path d="M2 20c1-3 3-4 5-4s4 1 5 4M12 20c1-3 3-4 5-4s4 1 5 4" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.4, strokeLinecap: "round" }} />
+              </svg>
+              Face-à-face entre deux candidats
+            </ChoixDuFaceAFace>
+          </div>
+        </section>
       </main>
     </>
   );
