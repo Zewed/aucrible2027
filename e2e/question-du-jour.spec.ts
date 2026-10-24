@@ -4890,3 +4890,29 @@ test.describe("« Changer » remplace un des deux candidats", () => {
     await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["MarineTondelier", "BrunoRetailleau"]);
   });
 });
+
+test.describe("le même candidat ne peut pas être choisi deux fois", () => {
+  /** Les noms proposés dans le panneau « Choisir un autre candidat » sous le candidat donné. */
+  async function proposes(page: Page, nom: string) {
+    const bouton = page.locator(`summary[aria-label="Changer de candidat : ${nom}"]`).filter({ visible: true });
+    await bouton.click();
+    const liens = page.locator(".pick").filter({ has: bouton }).locator(".chg-panel").getByRole("link");
+    await expect(liens.first()).toBeVisible();
+    return (await liens.allInnerTexts()).map((n) => n.replace(/^\S+\s+/, "").trim());
+  }
+
+  test("sous Glucksmann, Retailleau n'est pas proposé ; sous Retailleau, Glucksmann non plus", async ({ page }) => {
+    await faceAFace(page);
+    expect(await proposes(page, "Raphaël Glucksmann")).not.toContain("Bruno Retailleau");
+    await page.reload();
+    expect(await proposes(page, "Bruno Retailleau")).not.toContain("Raphaël Glucksmann");
+  });
+
+  test("après avoir choisi Tondelier à droite, le panneau de gauche ne propose plus Tondelier mais de nouveau Retailleau", async ({ page }) => {
+    await faceAFace(page, undefined, "/face-a-face/glucksmann/tondelier");
+    const aGauche = await proposes(page, "Raphaël Glucksmann");
+    expect(aGauche).not.toContain("Marine Tondelier");
+    expect(aGauche).toContain("Bruno Retailleau");
+    expect(aGauche).toHaveLength(11);
+  });
+});
