@@ -4490,3 +4490,19 @@ test.describe("l'auteur génère le carrousel du jour depuis la fiche", () => {
     }
   });
 });
+
+test.describe("la 1re image montre la question", () => {
+  const image = (page: Page) => page.getByRole("region", { name: "Le carrousel" }).getByRole("article", { name: "Image 1 sur 6 : la question" });
+
+  test("l'image 1/6 de la fiche n° 24 montre la pastille « Travail & retraites » et la question", async ({ page }) => {
+    await page.goto("/carrousel");
+    await expect(image(page).locator(".theme-chip")).toHaveText("Travail & retraites");
+    await expect(image(page).getByRole("heading", { level: 3 })).toHaveText("À quel âge devrait-on pouvoir partir à la retraite ?");
+  });
+
+  test("elle montre aussi « Question n° 24 » et « J-177 », les jours avant le 1er tour au jour de la fiche", async ({ page }) => {
+    await page.goto("/carrousel");
+    await expect(image(page).locator(".s-face-body")).toHaveText("Question n° 24 ·J-177");
+    await expect(image(page).locator(".s-pill")).toHaveText("J-177");
+  });
+});
