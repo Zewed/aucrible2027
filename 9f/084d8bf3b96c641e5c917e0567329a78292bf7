@@ -1,0 +1,41 @@
+src/app/carrousel/page.tsx
+  s_330ba31127fa8a::t_38c18da3592143 107,110-122
+e2e/fiches/carrousel/024.yaml
+  s_330ba31127fa8a::t_38c18da3592143 60-65
+src/lib/contenu.ts
+  s_330ba31127fa8a::t_38c18da3592143 42-43,55-56
+content/questions/023-loyers.yaml
+  s_330ba31127fa8a::t_38c18da3592143 36-41
+.veebee/tickets/214-la-5e-image-montre-le-meilleur-argument-de-chaque-cote.md
+  s_330ba31127fa8a::t_1fe8e9f3b5f2e4 8
+content/questions/025-nucleaire.yaml
+  s_330ba31127fa8a::t_aad73034af947b 41-42,45
+  s_330ba31127fa8a::t_38c18da3592143 43-44,46-47
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_3861cd0865c818 4428-4438
+  s_330ba31127fa8a::t_9a4aee7e093c3e 4442-4443
+  s_330ba31127fa8a::t_4893a670e295cf 4411,4441
+  s_330ba31127fa8a::t_4fbe43c25207b8 4395-4410,4412-4427,4439-4440,4444-4449
+content/questions/026-medecins.yaml
+  s_330ba31127fa8a::t_38c18da3592143 43-48
+src/app/carrousel/carrousel.css
+  s_330ba31127fa8a::t_e12f251e9f7f30 111
+content/questions/024-retraite.yaml
+  s_330ba31127fa8a::t_38c18da3592143 59-64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9f084d8bf3b96c641e5c917e0567329a78292bf7",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
