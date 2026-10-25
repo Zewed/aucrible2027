@@ -75,5 +75,6 @@ export function ProchaineQuestion({
   }
 
   const enJeu = { questions: questions.map(({ numero, theme }) => ({ numero, theme })), themes };
-  return <Fiche question={question} theme={theme} revelation={`/question/${question.numero}/revelation`} enJeu={enJeu} />;
+  // Next garde l'accueil quitté, avec son état : sans clé, la question suivante reprendrait le choix de la précédente.
+  return <Fiche key={question.numero} question={question} theme={theme} revelation={`/question/${question.numero}/revelation`} enJeu={enJeu} />;
 }
