@@ -612,6 +612,17 @@ function RegleDesLimites() {
             Ton pourcentage n&apos;est pas une prévision de vote. Il dit seulement à quel point tes réponses rejoignent ce que défend
             chaque candidat, <b>sur les questions auxquelles tu as répondu</b>.
           </p>
+          <p>
+            <b>Tu peux tout vérifier.</b> La formule, les notes, les sources et les corrections sont publiques, et le calcul tient
+            en quelques lignes de code.
+          </p>
+          {/* Le dépôt est sous le compte de l'auteur (décision du 25 octobre 2026), pas sous un compte @aucrible2027. */}
+          <a className="btn-wide" href="https://github.com/Zewed/aucrible2027" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }} />
+            </svg>
+            Le code est public sur GitHub
+          </a>
         </div>
       </div>
     </article>
