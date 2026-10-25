@@ -1,0 +1,41 @@
+package.json
+  s_330ba31127fa8a::t_bba04c86dfee66 18
+playwright.config.ts
+  s_330ba31127fa8a::t_653f6b46944cfe 4-6,10-11
+src/lib/signalement.ts
+  s_330ba31127fa8a::t_1f19a897e4558c 1-17
+src/app/signaler/actions.ts
+  s_330ba31127fa8a::t_4000604b76e679 1-19
+src/app/signaler/page.tsx
+  s_330ba31127fa8a::t_736d08f9ecf3a0 3,7,54,74,77
+scripts/base-locale.sh
+  s_330ba31127fa8a::t_cac89f02bc1929 1-15
+src/lib/base.ts
+  s_330ba31127fa8a::t_301d6bbd2dce2e 1-27
+e2e/base.setup.ts
+  s_330ba31127fa8a::t_653f6b46944cfe 1-6
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_dac0b515962535 3821
+  s_330ba31127fa8a::t_653f6b46944cfe 3,3792-3820,3822-3824
+  s_330ba31127fa8a::t_4e6adc014c9af8 3825-3826
+src/components/FormulaireDeSignalement.tsx
+  s_330ba31127fa8a::t_dee2287d0e6691 1-36
+pnpm-lock.yaml
+  s_330ba31127fa8a::t_793338f3061aa0 20-22,2287-2290,5121-5122
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3c74634461de4c4ca577392c812dad9bbb1a4f79",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
