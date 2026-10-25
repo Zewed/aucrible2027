@@ -5919,3 +5919,50 @@ test.describe("coller le lien importe les réponses", () => {
     await nouveau.close();
   });
 });
+
+test.describe("un appareil qui a déjà des réponses demande avant de les remplacer", () => {
+  /** Un appareil à 5 réponses (A aux n° 1 à 5) qui ouvre le lien d'un appareil à 23 réponses. */
+  async function cinqPuisLien(page: Page, browser: import("@playwright/test").Browser) {
+    await vingtTroisReponses(page);
+    const lien = await adresseDeLAppareil(page);
+    const contexte = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    const autre = await contexte.newPage();
+    await fixerLeJour(autre, "2026-10-23T09:00:00+02:00");
+    await autre.goto("/");
+    await autre.evaluate(() => {
+      const r: Record<number, object> = {};
+      for (let n = 1; n <= 5; n++) r[n] = { option: "B", importance: 1, graine: 1, jour: "2026-10-20" };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(r));
+    });
+    await autre.goto(lien);
+    return { contexte, autre };
+  }
+  const nombreDeReponses = (page: Page) => page.evaluate(() => Object.keys(JSON.parse(localStorage.getItem("aucrible:reponses") ?? "{}")).length);
+  const question = (page: Page) => page.getByRole("alertdialog", { name: "Cet appareil a déjà 5 réponses. Les remplacer par les 23 importées ?" });
+
+  test("ouvrir le lien d'un appareil à 23 réponses sur un appareil à 5 demande « Les remplacer ? » avant tout changement", async ({ page, browser }) => {
+    const { contexte, autre } = await cinqPuisLien(page, browser);
+    await expect(question(autre)).toBeVisible();
+    await expect(question(autre).locator(".swap")).toContainText("5sur cet appareil");
+    await expect(question(autre).locator(".swap")).toContainText("23dans le lien");
+    expect(await nombreDeReponses(autre)).toBe(5);
+    await contexte.close();
+  });
+
+  test("« Annuler » garde les 5 réponses de l'appareil", async ({ page, browser }) => {
+    const { contexte, autre } = await cinqPuisLien(page, browser);
+    await question(autre).getByRole("button", { name: "Annuler" }).click();
+    await autre.waitForURL(/\/appareil$/);
+    expect(await nombreDeReponses(autre)).toBe(5);
+    await contexte.close();
+  });
+
+  test("« Remplacer » fait passer « Mes résultats » à 23 réponses, et non 28 : les 5 anciennes sont remplacées, pas ajoutées", async ({ page, browser }) => {
+    const { contexte, autre } = await cinqPuisLien(page, browser);
+    await question(autre).getByRole("button", { name: "Remplacer" }).click();
+    await autre.waitForURL(/\/resultats$/);
+    await expect(autre.locator(".reliab").filter({ visible: true })).toHaveText("Fiabilité : moyenne (23 réponses)");
+    expect(await nombreDeReponses(autre)).toBe(23);
+    await contexte.close();
+  });
+});
