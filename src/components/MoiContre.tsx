@@ -25,8 +25,6 @@ const sansAbonnement = () => () => {};
 const voyelle = (nom: string) => /^[aeiouyàâéèêëîïôû]/i.test(nom);
 /** « qu'Édouard Philippe », « que Marine Le Pen ». */
 const que = (nom: string) => (voyelle(nom) ? `qu'${nom}` : `que ${nom}`);
-/** « d'Édouard Philippe », « de Marine Le Pen ». */
-const de = (nom: string) => (voyelle(nom) ? `d'${nom}` : `de ${nom}`);
 
 /**
  * Le côté de l'électeur : sa carte (lettre, titre, phrase), « Ta réponse », et le jour et l'importance de sa réponse.
@@ -110,7 +108,6 @@ export function QuestionsMoiContre({ questions, candidat }: { questions: Questio
                       <OeilBarre />
                       Tu n&apos;as pas encore répondu
                     </p>
-                    <p className="fd-n">La position {de(candidat.nom)} s&apos;affiche après ta réponse.</p>
                     <Link className="btn-link" href={`/question/${q.numero}`}>
                       Répondre
                       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -201,8 +198,6 @@ export function ScoreMoiContre({ questions, candidat }: { questions: QuestionDuC
           <i></i>autre option
         </li>
       </ul>
-      {/* Le lien « Comment on calcule » de la maquette n'est porté par aucun ticket. */}
-      <p className="score-n">Le pourcentage compte aussi les options proches et l&apos;importance que tu donnes à chaque sujet.</p>
     </section>
   );
 }
@@ -221,7 +216,6 @@ export function ThemesMoiContre({ questions, themes, candidat }: { questions: Qu
     <section className="sec" aria-labelledby="h-th">
       <div className="sec-h">
         <h2 id="h-th">Thème par thème</h2>
-        <p>score dès {REPONSES_PAR_PART} réponses</p>
       </div>
       <ul className="themes">
         {themes.map((theme) => {

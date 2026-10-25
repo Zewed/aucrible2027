@@ -277,15 +277,10 @@ export function QuestionsDuFaceAFace({ questions, joueurs }: { questions: Questi
                 <h3 className="fd-q">
                   {cachees > 1 ? `${cachees} questions attendent` : "1 question attend"} encore ta réponse
                 </h3>
-                <p className="fd-n">
-                  Leurs positions s&apos;affichent après ta réponse, pour ne pas t&apos;influencer. Tu vois ici{" "}
-                  {repondues.length > 1 ? `les ${repondues.length} questions déjà ouvertes` : "la question déjà ouverte"} pour toi.
-                </p>
               </>
             ) : (
               <>
                 <h3 className="fd-q">{cachees > 1 ? `Les ${cachees} questions attendent` : "La question attend"} ta réponse</h3>
-                <p className="fd-n">Les positions des candidats s&apos;affichent après ta réponse, pour ne pas t&apos;influencer.</p>
               </>
             )}
             <Link className="btn-link" href="/">

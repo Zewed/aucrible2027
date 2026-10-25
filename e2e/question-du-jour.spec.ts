@@ -777,7 +777,7 @@ test("les 11 candidats sourcés portent l'un ou l'autre badge, jamais les deux :
 test("sur la révélation n° 24, Ruffin et Lisnard sont rangés sous « Position inconnue », sans source, avec leur badge", async ({ page }) => {
   await repondre(page, "62 ans");
   const bloc = quiDefendQuoi(page).getByRole("article", { name: "Position inconnue" });
-  await expect(bloc.getByText("2 candidats · exclus du calcul sur ce sujet", { exact: true })).toBeVisible();
+  await expect(bloc.getByText("2 candidats", { exact: true })).toBeVisible();
   expect(await nomsSous(page, "Position inconnue")).toEqual(["David Lisnard", "François Ruffin"]);
   for (const ligne of await bloc.getByRole("listitem").all()) {
     await expect(ligne.getByText("Pas de source à ce jour", { exact: true })).toBeVisible();
@@ -895,11 +895,11 @@ test("après B, aligné·e avec Le Pen, Tondelier et Glucksmann ; Ruffin et Lisn
   }
 });
 
-test("sous les listes, la note définit « Aligné·e : même carte que toi », avec la lettre de la réponse", async ({ page }) => {
-  await repondre(page, "À la carte, avec un système à points");
-  await expect(page.getByText("Aligné·e : même carte que toi (E).")).toBeVisible();
+test("sous les listes, pas de note qui définit « aligné·e », « proche » et « opposé·e » : les titres se lisent seuls", async ({ page }) => {
   await repondre(page, "62 ans");
-  await expect(page.getByText("Aligné·e : même carte que toi (B).")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Sur ce sujet, tu es aligné·e avec" })).toBeVisible();
+  await expect(page.getByText(/même carte que toi/)).toHaveCount(0);
+  await expect(page.locator(".align-note")).toHaveCount(0);
 });
 
 const proches = (page: Page) => page.getByRole("list", { name: "et proche de" });
@@ -908,13 +908,11 @@ test("après E, la révélation dit « et proche de » Bruno Retailleau (D, vois
   await repondre(page, "À la carte, avec un système à points");
   await expect(page.getByRole("heading", { name: "et proche de" })).toBeVisible();
   expect(await nomsDe(proches(page))).toEqual(["Bruno Retailleau"]);
-  await expect(page.getByText("Proche : carte voisine (D).")).toBeVisible();
 });
 
 test("après A, la révélation dit « et proche de » Le Pen, Tondelier et Glucksmann (B, voisine de A)", async ({ page }) => {
   await repondre(page, "60 ans");
   expect(await nomsDe(proches(page))).toEqual(["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]);
-  await expect(page.getByText("Proche : carte voisine (B).")).toBeVisible();
 });
 
 const opposes = (page: Page) => page.getByRole("list", { name: "opposé·e à" });
@@ -923,7 +921,6 @@ test("après E, la révélation dit « opposé·e à » Mélenchon, Roussel et A
   await repondre(page, "À la carte, avec un système à points");
   await expect(page.getByRole("heading", { name: "opposé·e à" })).toBeVisible();
   expect(await nomsDe(opposes(page))).toEqual(["Fabien Roussel", "Jean-Luc Mélenchon", "Nathalie Arthaud"]);
-  await expect(page.getByText("Opposé·e : carte la plus éloignée (A).")).toBeVisible();
   const [clair, sombre] = await Promise.all([
     opposes(page).locator(".pawn").first().evaluate((el) => getComputedStyle(el).backgroundColor),
     alignes(page).locator(".pawn").first().evaluate((el) => getComputedStyle(el).backgroundColor),
@@ -934,7 +931,6 @@ test("après E, la révélation dit « opposé·e à » Mélenchon, Roussel et A
 test("après A, la révélation dit « opposé·e à » Nicolas Dupont-Aignan et Édouard Philippe (E)", async ({ page }) => {
   await repondre(page, "60 ans");
   expect(await nomsDe(opposes(page))).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
-  await expect(page.getByText("Opposé·e : carte la plus éloignée (E).")).toBeVisible();
 });
 
 test("après « Je ne sais pas », la révélation montre les cinq options, leurs candidats et « Position inconnue »", async ({ page }) => {
@@ -1108,13 +1104,10 @@ test.describe("l'importance donnée est retrouvée en revenant", () => {
   });
 });
 
-test("sous « Valider ma réponse », la fiche n° 24 dit « Tes réponses restent sur ton téléphone, sans compte. »", async ({ page }) => {
+test("sous « Valider ma réponse », plus de phrase : la promesse sur les réponses est dans « À propos »", async ({ page }) => {
   await page.goto("/");
-  const valider = page.getByRole("button", { name: "Valider ma réponse" });
-  const rappel = page.getByText("Tes réponses restent sur ton téléphone, sans compte.", { exact: true });
-  await expect(rappel).toBeVisible();
-  const [bouton, ligne] = await Promise.all([valider.boundingBox(), rappel.boundingBox()]);
-  expect(ligne!.y).toBeGreaterThan(bouton!.y + bouton!.height - 1);
+  await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeVisible();
+  await expect(page.locator("form.answer .go-note")).toHaveCount(0);
 });
 
 test("rien dans l'app ne demande de créer un compte ou de se connecter, ni avant ni après la réponse", async ({ page }) => {
@@ -1681,10 +1674,10 @@ test.describe("la révélation mène à « Mes résultats »", () => {
     await expect(page).toHaveURL(/\/revelation$/);
   }
 
-  test("sur la révélation de la question n° 24, la phrase sous le bouton dit « Ton classement est recalculé avec cette 24e réponse. » et « Voir mes résultats » ouvre « Mes résultats »", async ({ page }) => {
+  test("sur la révélation de la question n° 24, « Voir mes résultats » ouvre « Mes résultats », sans phrase de plus sous le bouton", async ({ page }) => {
     await vingtTroisReponses(page);
     await repondreEALaQuestionDuJour(page);
-    await expect(page.getByText("Ton classement est recalculé avec cette 24e réponse.").filter({ visible: true })).toBeVisible();
+    await expect(page.getByText(/Ton classement est recalculé/)).toHaveCount(0);
     await page.getByRole("link", { name: "Voir mes résultats" }).filter({ visible: true }).click();
     await expect(page).toHaveURL(/\/resultats$/);
     await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." }).filter({ visible: true })).toBeVisible();
@@ -1768,10 +1761,11 @@ test.describe("l'importance ×2 ou ×3 pèse plus dans le classement", () => {
     expect(melenchonX3).toBeLessThan(melenchonX1);
   });
 
-  test("sous le classement, la note dit que les réponses sont « pondérées par l'importance que tu leur donnes »", async ({ page }) => {
+  test("sous le classement, pas de note : la méthode est sur la page Méthode", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/resultats");
-    await expect(page.getByRole("region", { name: "Ton classement" }).getByText("Calculé sur tes 23 réponses, pondérées par l'importance que tu leur donnes.")).toBeVisible();
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    await expect(page.locator(".rank-note")).toHaveCount(0);
   });
 });
 
@@ -2182,13 +2176,13 @@ test.describe("une option sans note sur un axe ne déplace pas le pion", () => {
   });
 });
 
-test.describe("avant 10 réponses, le plateau dit que la position s'affinera", () => {
+test.describe("avant 10 réponses, le plateau montre une position encore floue", () => {
   const plateauDeLaPage = (page: Page) => page.getByRole("region", { name: "Ton plateau" });
 
-  test("avec 3 réponses, le plateau montre un pion « TOI » estompé et le texte « Ta position s'affinera avec tes réponses »", async ({ page }) => {
+  test("avec 3 réponses, le plateau montre un pion « TOI » estompé, sans phrase par-dessus", async ({ page }) => {
     await premieresReponses(page, 3);
     await page.goto("/resultats");
-    await expect(plateauDeLaPage(page).getByText("Ta position s'affinera avec tes réponses")).toBeVisible();
+    await expect(plateauDeLaPage(page).locator(".board-note")).toHaveCount(0);
     const opacite = await plateauDeLaPage(page).locator(".field .you svg").evaluate((svg) => Number(getComputedStyle(svg).opacity));
     expect(opacite).toBeLessThan(1);
   });
@@ -2382,7 +2376,7 @@ test.describe("la question du jour annonce la part en jeu", () => {
     await expect(enJeu(page)).toBeVisible();
     await expect(enJeu(page).getByText("Avec cette réponse", { exact: true })).toBeVisible();
     await expect(enJeu(page).getByText("La part Travail & retraites", { exact: true })).toBeVisible();
-    await expect(enJeu(page).getByText("Tu as 2 réponses sur 3 dans ce thème. Réponds et ton camembert passe à 6 parts sur 11.")).toBeVisible();
+    await expect(enJeu(page).getByText("Ton camembert passe à 6 parts sur 11.")).toBeVisible();
   });
 
   test("toucher ce bloc ouvre « Mes résultats »", async ({ page }) => {
@@ -2923,15 +2917,15 @@ test.describe("une question sans source affiche « position inconnue »", () => 
       .getByRole("listitem")
       .filter({ has: page.locator(".pos-n", { hasText: new RegExp(`^Q${numero}$`) }) });
 
-  /** La ligne dit « ? », « Position inconnue — pas de source à ce jour » et pourquoi elle ne compte pas, sans badge. */
+  /** La ligne dit « ? » et « Position inconnue — pas de source à ce jour », sans note ni badge. */
   async function attendreUnePositionInconnue(ligne: Locator) {
     await expect(ligne.locator(".pos-letter")).toHaveText("?");
     await expect(ligne.locator(".pos-title")).toHaveText("Position inconnue — pas de source à ce jour");
-    await expect(ligne.locator(".pos-src")).toHaveText("Elle ne compte pas dans ta proximité tant qu'on n'a rien de sûr.");
+    await expect(ligne.locator(".pos-src")).toHaveCount(0);
     await expect(ligne.locator(".badge")).toHaveCount(0);
   }
 
-  test("sur la fiche de Marine Tondelier, Q17 affiche « ? », « Position inconnue — pas de source à ce jour » et sa note, sans badge", async ({ page }) => {
+  test("sur la fiche de Marine Tondelier, Q17 affiche « ? » et « Position inconnue — pas de source à ce jour », sans badge", async ({ page }) => {
     await positionsDeTondelier(page);
     await attendreUnePositionInconnue(ligneDeLaFiche(page, 17));
   });
@@ -2989,11 +2983,11 @@ test.describe("la fiche affiche sa proximité avec l'électeur", () => {
     return [(await encart.locator(".prox-line").textContent())!.trim(), (await encart.locator(".prox-note").textContent())!.trim()];
   }
 
-  test("pour l'électeur de la maquette (23 réponses), la fiche de Marine Tondelier affiche « Ta proximité : 71 % » et « 3e sur 13, d'après tes 23 réponses »", async ({ page }) => {
+  test("pour l'électeur de la maquette (23 réponses), la fiche de Marine Tondelier affiche « Ta proximité : 71 % » et « 3e sur 13 »", async ({ page }) => {
     await vingtTroisReponses(page);
     const [ligne, note] = await proximiteSurLaFiche(page, "tondelier");
     expect(ligne).toBe("Ta proximité : 71 %");
-    expect(note).toBe("3e sur 13, d'après tes 23 réponses. Les positions inconnues ne comptent pas.");
+    expect(note).toBe("3e sur 13");
     await expect(page.locator(".prox-bar i")).toHaveAttribute("style", /--p: ?71/);
   });
 
@@ -3006,37 +3000,19 @@ test.describe("la fiche affiche sa proximité avec l'électeur", () => {
       const [rang, , pourcentage] = lignes.find(([, n]) => n === nom)!;
       const [ligne, note] = await proximiteSurLaFiche(page, id);
       expect(ligne).toBe(`Ta proximité : ${pourcentage}`);
-      expect(note).toMatch(new RegExp(`^${rang}(er|e) sur 13, d'après tes 23 réponses\\.`));
+      expect(note).toMatch(new RegExp(`^${rang}(er|e) sur 13$`));
     }
     const [ligne, note] = await proximiteSurLaFiche(page, "ruffin");
     expect([ligne, note.split(",")[0]]).toEqual(["Ta proximité : 81 %", "1er sur 13"]);
   });
 });
 
-test.describe("la fiche explique les deux badges", () => {
-  test("la fiche contient « Comment lire une position » avec ses trois lignes (officielle, déduite, inconnue) et leurs phrases d'explication", async ({ page }) => {
-    await positionsDeTondelier(page);
-    const legende = page.getByRole("group", { name: "Comment lire une position" });
-    const lignes = legende.getByRole("listitem");
-    await expect(lignes).toHaveCount(3);
-    // Le « ? » du badge inconnu est décoratif (caché aux lecteurs d'écran), mais il fait partie du texte.
-    await expect(lignes.locator(".badge")).toHaveText(["position officielle", "position déduite", "?position inconnue"]);
-    await expect(lignes.locator(".badge--unk [aria-hidden=true]")).toHaveText("?");
-    await expect(lignes.locator(".badge + span")).toHaveText([
-      "Marine Tondelier l'a dit ou écrit en personne : programme 2027, déclaration datée.",
-      "Tirée d'un vote de son groupe ou du programme de son parti.",
-      "Pas de source : on ne devine jamais.",
-    ]);
-  });
-
-  test("le lien « Voir la méthode et les sources » est affiché sous ces trois lignes", async ({ page }) => {
-    await positionsDeTondelier(page);
-    const legende = page.getByRole("group", { name: "Comment lire une position" });
-    const lien = legende.getByRole("link", { name: "Voir la méthode et les sources" });
-    await expect(lien).toBeVisible();
-    await expect(lien).toHaveAttribute("href", "/methode");
-    const [liste, sousLaListe] = await Promise.all([legende.getByRole("list").boundingBox(), lien.boundingBox()]);
-    expect(sousLaListe!.y).toBeGreaterThanOrEqual(liste!.y + liste!.height - 1);
+test.describe("la fiche ne refait pas la légende des badges", () => {
+  test("ni « Comment lire une position », ni résumé au-dessus des positions : chaque badge dit déjà ce qu'il est", async ({ page }) => {
+    const positions = await positionsDeTondelier(page);
+    await expect(page.getByRole("group", { name: "Comment lire une position" })).toHaveCount(0);
+    await expect(page.locator(".pos-sum")).toHaveCount(0);
+    await expect(positions.locator(".badge").first()).toHaveText(/position (officielle|déduite)/);
   });
 });
 
@@ -3176,18 +3152,16 @@ test.describe("un candidat retiré n'apparaît plus dans les nouvelles révélat
     await expect(qui.getByText("Marine Tondelier")).toHaveCount(0);
   });
 
-  test("cette révélation range les 12 autres candidats comme avant et annonce 12 candidats au lieu de 13", async ({ page }) => {
+  test("cette révélation range les 12 autres candidats comme avant : 12 noms au lieu de 13", async ({ page }) => {
     const avant = await revelationApresLeRetrait(page, false);
     expect(avant.blocs.flatMap(([, noms]) => noms)).toContain("Marine Tondelier");
-    await expect(avant.qui.locator(".rev-note")).toHaveText(/^13 candidats : \d+ positions? sourcées?, \d+ sans source à ce jour\. Touche un nom pour sa fiche\.$/);
+    expect(avant.blocs.flatMap(([, noms]) => noms)).toHaveLength(13);
     const apres = await revelationApresLeRetrait(page, true);
     const sansElle = avant.blocs
       .map(([titre, noms]) => [titre, (noms as string[]).filter((n) => n !== "Marine Tondelier")])
       .filter(([titre, noms]) => noms.length > 0 || !String(titre).includes("Position inconnue"));
     expect(apres.blocs).toEqual(sansElle);
-    await expect(apres.qui.locator(".rev-note")).toHaveText(/^12 candidats : /);
-    const nombres = (await apres.qui.locator(".rev-note").textContent())!.match(/(\d+) positions? sourcées?, (\d+) sans source/)!;
-    expect(Number(nombres[1]) + Number(nombres[2])).toBe(12);
+    expect(apres.blocs.flatMap(([, noms]) => noms)).toHaveLength(12);
   });
 });
 
@@ -4185,7 +4159,7 @@ test.describe("sans réseau, l'app dit qu'il faut une connexion", () => {
     await page.waitForURL(/\/$/);
     await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toBeVisible();
     await page.goto("/resultats");
-    await expect(page.getByText("Calculé sur tes 23 réponses, pondérées par l'importance que tu leur donnes.")).toBeVisible();
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
   });
 });
 
@@ -4800,7 +4774,7 @@ test.describe("une carte retournée compte les questions cachées", () => {
   test("à qui il reste 3 questions sans réponse, la carte après la dernière annonce « 3 questions attendent encore ta réponse »", async ({ page }) => {
     await faceAFace(page, VINGT_QUATRE);
     await expect(carteRetournee(page).getByRole("heading", { level: 3 })).toHaveText("3 questions attendent encore ta réponse");
-    await expect(carteRetournee(page).locator(".fd-n")).toContainText("Leurs positions s'affichent après ta réponse, pour ne pas t'influencer.");
+    await expect(carteRetournee(page).locator(".fd-n")).toHaveCount(0);
     const derniere = await page.locator(".vs-list > li").filter({ visible: true }).last().getAttribute("class");
     expect(derniere).toContain("fd-row");
   });
@@ -4829,7 +4803,7 @@ test.describe("sans réponse, le face-à-face invite à répondre d'abord", () =
     await faceAFace(page, []);
     const invitation = page.locator(".fd-card").filter({ visible: true });
     await expect(invitation.getByRole("heading", { level: 3 })).toHaveText("Les 27 questions attendent ta réponse");
-    await expect(invitation.locator(".fd-n")).toHaveText("Les positions des candidats s'affichent après ta réponse, pour ne pas t'influencer.");
+    await expect(invitation.locator(".fd-n")).toHaveCount(0);
     await invitation.getByRole("link", { name: "Répondre" }).click();
     await page.waitForURL(/\/$/);
     await expect(page.getByRole("radiogroup", { name: "Les options" }).filter({ visible: true })).toBeVisible();
@@ -5007,7 +4981,7 @@ test.describe("« Moi contre » affiche un score par thème", () => {
   test("dans « Économie & impôts » (4 réponses), la ligne affiche « 55 % » et « d'accord sur 2 questions sur 4 »", async ({ page }) => {
     await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
     const section = page.getByRole("region", { name: "Thème par thème" });
-    await expect(section.getByText("score dès 3 réponses")).toBeVisible();
+    await expect(section.getByText(/score dès/)).toHaveCount(0);
     await expect(section.locator(".th").filter({ visible: true })).toHaveCount(11);
     const ligne = ligneDuThemeMoiContre(page, "Économie & impôts");
     await expect(ligne).toHaveClass(/\bdone\b/);
@@ -5143,7 +5117,7 @@ test.describe("Une question non répondue est grisée dans « Moi contre » et m
     await expect(carte).toHaveCount(1);
     await expect(carte.locator(".fd-card")).toBeVisible();
     await expect(carte.locator(".fd-s")).toHaveText("Tu n'as pas encore répondu");
-    await expect(carte.locator(".fd-n")).toHaveText("La position d'Édouard Philippe s'affiche après ta réponse.");
+    await expect(carte.locator(".fd-n")).toHaveCount(0);
     await expect(carte.locator(".side, .opt-letter, .badge")).toHaveCount(0);
     // L'option A d'Édouard Philippe sur cette fiche de test ne s'affiche nulle part.
     await expect(carte).not.toContainText("Option de test A");
@@ -5523,5 +5497,18 @@ test.describe("la question suivante s'ouvre vierge", () => {
     const fiche = page.locator("form.answer").filter({ visible: true });
     await expect(fiche.getByRole("radio", { checked: true })).toHaveCount(0);
     await expect(fiche.getByRole("button", { name: "Valider ma réponse" })).toBeDisabled();
+  });
+});
+
+test.describe("la révélation n'affiche pas de bloc vide", () => {
+  test("sur une question où aucun candidat n'a de source (n° 26), pas de bloc d'alignement vide sous « Ta réponse »", async ({ page }) => {
+    await fixerLeJour(page, "2026-10-25T09:00:00+02:00");
+    await page.goto("/");
+    await expect(page.getByRole("heading", { level: 1, name: "Faut-il réguler l'installation des médecins ?" }).filter({ visible: true })).toBeVisible();
+    await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/question\/26\/revelation$/);
+    await expect(quiDefendQuoi(page)).toBeVisible();
+    await expect(page.getByRole("region", { name: "Alignement sur ce sujet" })).toHaveCount(0);
   });
 });

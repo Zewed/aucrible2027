@@ -57,7 +57,6 @@ function ClassementAVenir({ comptees }: { comptees: number }) {
           ))}
         </ol>
       </div>
-      <p className="rank-note">Avant {SEUIL_DES_RESULTATS} réponses, un classement serait trop fragile pour être honnête.</p>
     </section>
   );
 }
@@ -104,11 +103,6 @@ export function Classement({ questions, candidats }: { questions: QuestionDuCalc
           </li>
         ))}
       </ol>
-      <p className="rank-note">
-        {comptees > 1
-          ? `Calculé sur tes ${comptees} réponses, pondérées par l'importance que tu leur donnes.`
-          : "Calculé sur ta réponse, pondérée par l'importance que tu lui donnes."}
-      </p>
     </section>
   );
 }

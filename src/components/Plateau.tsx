@@ -49,7 +49,6 @@ export function Plateau({ questions, candidats }: { questions: QuestionDuCalcul[
               <Camembert />
               <span>TOI</span>
             </span>
-            {!avecCandidats && <p className="board-note">Ta position s&apos;affinera avec tes réponses</p>}
           </div>
           <span className="edge top">↑ progressiste</span>
           <span className="edge bottom">↓ conservateur</span>
