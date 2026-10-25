@@ -3903,6 +3903,50 @@ test.describe("le signalement arrive dans une boîte privée", () => {
   });
 });
 
+test.describe("l'électeur joint une source à son signalement", () => {
+  const champ = (page: Page) => page.getByRole("textbox", { name: /^Ta source \(lien\)/ });
+
+  test("le champ « Ta source (lien) » porte « facultatif », propose « https:// », et l'envoi marche sans lui", async ({ page }) => {
+    await page.goto("/signaler?question=24");
+    await expect(page.locator("label[for=lien]")).toHaveText("Ta source (lien) facultatif");
+    await expect(page.locator("label[for=lien] .opt-tag")).toHaveText("facultatif");
+    await expect(champ(page)).toHaveAttribute("placeholder", "https://");
+    await expect(champ(page)).toHaveValue("");
+    const marque = `sans source ${Date.now()}-${Math.random()}`;
+    await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(marque);
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    await expect.poll(async () => (await signalementArrive(marque)).map((s) => s.source)).toEqual([null]);
+  });
+
+  test("« bonjour » dans le champ n'est pas un lien : le navigateur refuse l'envoi, et rien ne part", async ({ page }) => {
+    const marque = `source bonjour ${Date.now()}-${Math.random()}`;
+    await page.goto("/signaler?question=24");
+    await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(marque);
+    await champ(page).fill("bonjour");
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    expect(await champ(page).evaluate((e) => (e as HTMLInputElement).validity.typeMismatch)).toBe(true);
+    await page.waitForTimeout(500);
+    await expect(page.getByRole("status")).toHaveCount(0);
+    expect(await signalementArrive(marque)).toEqual([]);
+  });
+
+  test("avec le lien du rapport du COR 2025, le signalement part avec ce lien, que l'auteur retrouve à côté du texte", async ({ page }) => {
+    const lien = "https://www.cor-retraites.fr/rapport-annuel-2025";
+    const texte = `Le chiffre de 1,7 me semble daté ${Date.now()}-${Math.random()}`;
+    await page.goto("/signaler?question=24");
+    await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(texte);
+    await champ(page).fill(lien);
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    await connecterAvecGitHub(page);
+    await page.goto("/admin");
+    const signalement = page.getByRole("region", { name: "Signalements" }).getByRole("article").filter({ hasText: texte });
+    await expect(signalement.locator(".sg-source")).toHaveText(`Source : ${lien}`);
+    await expect(signalement.getByRole("link", { name: lien })).toHaveAttribute("href", lien);
+  });
+});
+
 test.describe("le formulaire promet une réponse sous 72 h", () => {
   for (const [nom, taille] of [["sur téléphone", null], ["sur ordinateur", { width: 1280, height: 900 }]] as const) {
     test(`${nom}, juste au-dessus de « Envoyer » : « On répond sous 72 h. » puis « Chaque correction est publiée dans le journal des corrections. »`, async ({ page }) => {

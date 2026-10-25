@@ -10,6 +10,23 @@ export const metadata: Metadata = { title: "Espace de l'auteur — Au crible 202
 
 const LE_JOUR_ET_L_HEURE = new Intl.DateTimeFormat("fr-FR", { timeZone: "Europe/Paris", dateStyle: "medium", timeStyle: "short" });
 
+/** La source jointe : un lien cliquable seulement s'il est en http(s), sinon le texte tel quel, jamais exécuté. */
+function Source({ source }: { source: string }) {
+  const lien = /^https?:\/\//i.test(source);
+  return (
+    <p className="sg-source">
+      Source :{" "}
+      {lien ? (
+        <a href={source} target="_blank" rel="noopener noreferrer nofollow">
+          {source}
+        </a>
+      ) : (
+        source
+      )}
+    </p>
+  );
+}
+
 /** « Se connecter avec GitHub » ; après un compte GitHub qui n'est pas celui de l'auteur, le refus au-dessus. */
 function Connexion({ refuse }: { refuse: boolean }) {
   return (
@@ -23,7 +40,7 @@ function Connexion({ refuse }: { refuse: boolean }) {
   );
 }
 
-/** La boîte privée : chaque signalement reçu, avec sa question, son type, son texte et son heure d'arrivée. */
+/** La boîte privée : chaque signalement reçu, avec sa question, son type, son texte, sa source et son heure d'arrivée. */
 async function Boite() {
   const signalements = await lireLesSignalements();
   return (
@@ -43,6 +60,7 @@ async function Boite() {
                 <time dateTime={s.recuLe.toISOString()}>{LE_JOUR_ET_L_HEURE.format(s.recuLe)}</time>
               </p>
               <p className="sg-texte">{s.texte}</p>
+              {s.source && <Source source={s.source} />}
             </article>
           </li>
         ))}

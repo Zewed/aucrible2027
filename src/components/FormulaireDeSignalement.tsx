@@ -5,7 +5,7 @@ import { useActionState } from "react";
 import { envoyerUnSignalement } from "@/app/signaler/actions";
 
 /**
- * Le formulaire de « Signaler une erreur » : la fiche et le type (rendus par la page), « Qu'est-ce qui ne va pas ? »,
+ * Le formulaire de « Signaler une erreur » : la fiche et le type (rendus par la page), « Qu'est-ce qui ne va pas ? », la source,
  * la promesse des 72 h, puis « Envoyer », qui garde le signalement sans demander de compte. Le remerciement, le refus d'un texte vide et
  * l'échec d'envoi viennent avec les tickets 167 à 169.
  */
@@ -20,6 +20,12 @@ export function FormulaireDeSignalement({ numero, children }: { numero: number; 
           Qu&apos;est-ce qui ne va pas ?
         </label>
         <textarea className="f-input" id="quoi" name="quoi" rows={5} placeholder="Dis-nous ce que tu as vu, avec tes mots."></textarea>
+      </div>
+      <div className="f-block">
+        <label className="f-label" htmlFor="lien">
+          Ta source (lien) <span className="opt-tag">facultatif</span>
+        </label>
+        <input className="f-input" id="lien" name="lien" type="url" inputMode="url" placeholder="https://" />
       </div>
       {/* La promesse de la maquette, juste au-dessus du bouton (SPEC.md, « Corrections » : réponse sous 72 h). */}
       <p className="promise">
