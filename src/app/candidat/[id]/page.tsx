@@ -35,8 +35,8 @@ const RETIRE = { feminin: "retirée", masculin: "retiré" } as const;
  * Le retrait d'un candidat : son jour, celui qu'il soutient (un lien vers sa fiche), et ce que devient sa fiche.
  * « Elle » est la fiche : la phrase ne dépend pas du candidat.
  */
-function Retrait({ candidat, candidats }: { candidat: Candidat; candidats: Candidat[] }) {
-  const { date, soutien, accord } = candidat.retrait!;
+function Retrait({ candidat, retrait, candidats }: { candidat: Candidat; retrait: NonNullable<Candidat["retrait"]>; candidats: Candidat[] }) {
+  const { date, soutien, accord } = retrait;
   const soutenu = candidats.find((c) => c.id === soutien);
   return (
     <div className="gone">
@@ -209,11 +209,12 @@ async function FicheCandidat({ id }: { id: string }) {
                 </p>
               )}
             </section>
-            {/* La maquette montre le retrait en bas de page, en annotation : il prend ici la place de la proximité. */}
+            {/* La maquette montre le retrait en bas de page, en annotation : il prend ici la place de la proximité. Un
+                candidat écarté par la liste officielle n'a ni l'un ni l'autre : sa mention reste à trancher. */}
             {enLice.some((c) => c.id === candidat.id) ? (
               <ProximiteDuCandidat questions={duCalcul} candidats={enLice} candidatId={candidat.id} />
             ) : (
-              <Retrait candidat={candidat} candidats={candidats} />
+              candidat.retrait && <Retrait candidat={candidat} retrait={candidat.retrait} candidats={candidats} />
             )}
             <div className="actions side-actions">
               <Link className="act primary" href={`/moi-contre/${candidat.id}`}>

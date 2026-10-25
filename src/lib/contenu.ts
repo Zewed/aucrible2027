@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { parse } from "yaml";
 
@@ -73,6 +73,28 @@ export function lireCandidats(ajoutsDeTest?: string): Candidat[] {
       return { ...c, ...ajouts.find((a) => a.id === c.id) };
     })
     .concat(entrants);
+}
+
+/**
+ * La liste officielle du Conseil constitutionnel (SPEC.md, « Candidats ») : son jour de publication et ses candidats.
+ * Un candidat déjà dans content/candidats.yaml n'y est nommé que par son identifiant ; un nouveau y a tout ce que sa
+ * fiche montre.
+ */
+export type ListeOfficielle = { date: string; candidats: (Pick<Candidat, "id"> & Partial<Candidat>)[] };
+
+/**
+ * La liste officielle de content/liste-officielle.yaml, ou rien tant que l'auteur ne l'a pas ajoutée. Pour les tests de
+ * bout en bout seulement, une liste de test (e2e/fiches/listes/<nom>.yaml) la remplace.
+ */
+export function lireListeOfficielle(jeuDeTest?: string): ListeOfficielle | null {
+  const test = process.env.AUCRIBLE_FICHES_DE_TEST;
+  const fichier =
+    test && jeuDeTest && /^[a-z-]+$/.test(jeuDeTest)
+      ? path.join(process.cwd(), test, "listes", `${jeuDeTest}.yaml`)
+      : path.join(RACINE, "liste-officielle.yaml");
+  if (!existsSync(fichier)) return null;
+  const liste: ListeOfficielle = parse(readFileSync(fichier, "utf8"));
+  return { ...liste, date: String(liste.date) };
 }
 
 /**

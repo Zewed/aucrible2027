@@ -6,19 +6,19 @@ import { Classement } from "@/components/Classement";
 import { Plateau } from "@/components/Plateau";
 import { GrandCamembert, TesThemes } from "@/components/Themes";
 import { lireThemes } from "@/lib/contenu";
-import { lireAujourdhui, lireCandidatsEnLice, lireLesCandidats, lireQuestionsDuCalcul } from "@/lib/publication";
+import { lireAujourdhui, lireCandidatsDeLaListe, lireCandidatsEnLice, lireQuestionsDuCalcul } from "@/lib/publication";
 import "./resultats-vide.css";
 
 /**
  * « Mes résultats » : le titre, puis le classement calculé sur l'appareil à partir de ses réponses. Le classement
  * et la carte ne comptent que les candidats en lice ; ce que deviennent le plateau et les thèmes après un retrait
- * reste à trancher, ils gardent tous les candidats.
+ * reste à trancher, ils gardent tous les candidats, sauf ceux qu'écarte la liste officielle une fois parue.
  */
 async function Resultats() {
   const [jour, duCalcul, candidats, enLice] = await Promise.all([
     lireAujourdhui(),
     lireQuestionsDuCalcul(),
-    lireLesCandidats(),
+    lireCandidatsDeLaListe(),
     lireCandidatsEnLice(),
   ]);
   const themes = lireThemes();

@@ -1,0 +1,22 @@
+# LISTE OFFICIELLE DE TEST : lue seulement par le serveur des tests de bout en bout, quand un test choisit « officielle »
+# (cookie aucrible-liste-officielle-de-test). Inventée pour ce test : elle ne dit rien de la vraie liste du Conseil
+# constitutionnel. Elle garde les candidats de content/candidats.yaml sauf le dernier (arthaud), un choix
+# mécanique, et y ajoute Jean Lassalle, l'exemple d'entrée de SPEC.md, avec ce que sa fiche doit montrer.
+date: 2027-03-16
+candidats:
+  - id: le-pen
+  - id: melenchon
+  - id: philippe
+  - id: glucksmann
+  - id: retailleau
+  - id: lisnard
+  - id: attal
+  - id: zemmour
+  - id: tondelier
+  - id: roussel
+  - id: dupont-aignan
+  - id: ruffin
+  - id: lassalle
+    nom: Jean Lassalle
+    parti: Résistons !
+    initiales: JLa
