@@ -5510,3 +5510,18 @@ test.describe("sur ordinateur, le menu montre la progression vers le prochain pa
     await expect(page.getByRole("banner").getByRole("img", { name: /prochain palier/ })).toHaveCount(0);
   });
 });
+
+test.describe("la question suivante s'ouvre vierge", () => {
+  test("après B en ×3 sur la n° 24, « Question suivante » ouvre la n° 23 sans aucune option ni importance cochée", async ({ page }) => {
+    await page.goto("/");
+    await choisir(page, "62 ans");
+    await peser(page, "×3");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/question\/24\/revelation$/);
+    await page.getByRole("link", { name: "Question suivante" }).filter({ visible: true }).click();
+    await expect(page.getByRole("heading", { level: 1, name: "Faut-il encadrer les loyers dans les grandes villes ?" }).filter({ visible: true })).toBeVisible();
+    const fiche = page.locator("form.answer").filter({ visible: true });
+    await expect(fiche.getByRole("radio", { checked: true })).toHaveCount(0);
+    await expect(fiche.getByRole("button", { name: "Valider ma réponse" })).toBeDisabled();
+  });
+});
