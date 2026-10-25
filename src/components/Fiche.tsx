@@ -92,8 +92,7 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
   function valider(evenement: React.FormEvent) {
     evenement.preventDefault();
     if (!choix || !jour) return;
-    // Répondue le jour de sa parution, c'est la question du jour : elle compte pour la série.
-    enregistrerReponse(question.numero, { option: choix, importance: poids, graine: tirerGraine(), jour, duJour: question.date === jour });
+    enregistrerReponse(question.numero, { option: choix, importance: poids, graine: tirerGraine(), jour });
     router.push(revelation);
   }
 
@@ -187,7 +186,7 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
             <span className="opt-face">
               <span className="opt-letter" aria-hidden="true">?</span>
               <span className="opt-title" id="titre-nsp">Je ne sais pas</span>
-              <span className="opt-impl" id="implique-nsp">Tu passes, ta série continue.</span>
+              <span className="opt-impl" id="implique-nsp">Tu passes.</span>
             </span>
           </label>
         </div>

@@ -20,13 +20,24 @@ Nom : **Au crible 2027** — domaine `aucrible2027.fr`, comptes `@aucrible2027` 
 
 ## Boucle principale
 
-- **Une nouvelle question par jour, 7j/7.** Pas de mode express séparé.
-- On peut répondre à **toutes les questions déjà publiées**. Le rattrapage présente d'abord celles qui départagent le plus les candidats, pour qu'un nouveau venu ait un match fiable en 10–15 réponses.
+**Décision du 25/10/2026 (remplace « une question par jour ») :**
+
+- **Toutes les questions sont jouables d'un coup**, dès l'ouverture : plus de question du jour ni de parution au jour le jour dans l'app.
+- L'électeur enchaîne : **réponse, révélation, « Question suivante »**.
+- Les questions viennent dans un **ordre tiré au hasard pour chaque électeur**, gardé sur son appareil.
+- **Paliers** : toutes les 5 réponses, une étape « gagnée » (à 10, le classement se débloque) ; et chaque part du camembert gagnée (3 réponses dans un thème) est une petite victoire.
+- **Plus de série de jours d'affilée**, nulle part.
+- La liste de toutes les questions reste là pour en choisir une.
+
+Avant cette décision :
+
+- ~~**Une nouvelle question par jour, 7j/7.** Pas de mode express séparé.~~
+- ~~On peut répondre à **toutes les questions déjà publiées**. Le rattrapage présente d'abord celles qui départagent le plus les candidats, pour qu'un nouveau venu ait un match fiable en 10–15 réponses.~~
 - Lancement quand la v1 est prête **et** que 14 fiches d'avance sont écrites. Pas de date fixe.
 - Pas de phase de fin planifiée : on arrête quand on arrête.
-- **Silence électoral (légal) :** rien de nouveau publié (app et réseaux) à partir du vendredi 0h avant chaque tour (16 avril et 30 avril 2027), par prudence car l'outre-mer vote le samedi.
+- **Silence électoral (légal) :** rien de nouveau publié (app et réseaux) à partir du vendredi 0h avant chaque tour (16 avril et 30 avril 2027), par prudence car l'outre-mer vote le samedi. Depuis le 25/10/2026, l'app ne publie plus au jour le jour : la règle vaut pour une fiche ajoutée pendant le silence, et pour les réseaux.
 
-## Une fiche (question du jour)
+## Une fiche
 
 Lecture en 3 minutes maximum.
 
@@ -46,7 +57,7 @@ Bouton « Signaler une erreur » sur chaque fiche.
 
 - Environ 150 sujets listés en amont (~13 par thème).
 - Critères d'un sujet : les candidats ne sont pas d'accord, c'est chiffrable, c'est concret.
-- Publication en rotation des thèmes (jamais trois jours de suite sur le même), les sujets les plus départageants d'abord.
+- ~~Publication en rotation des thèmes (jamais trois jours de suite sur le même), les sujets les plus départageants d'abord.~~ Depuis le 25/10/2026, l'ordre est tiré au hasard pour chaque électeur ; la rotation ne vaut plus que pour les réseaux.
 
 ## Résultats
 
@@ -59,7 +70,8 @@ Bouton « Signaler une erreur » sur chaque fiche.
 
 ## Ludique
 
-- Série (jours d'affilée).
+- ~~Série (jours d'affilée).~~ Supprimée le 25/10/2026.
+- **Paliers** : une étape gagnée toutes les 5 réponses, et une petite victoire à chaque part du camembert.
 - Progression par thème (« 4 thèmes explorés sur 11 »).
 - **Carte de résultat partageable** au format story (« Je suis à 74 % proche de X, et toi ? »). C'est le principal moteur de croissance, puisque la pub est impossible.
 - Pas de classement entre utilisateurs, pas de badges gadgets.
@@ -160,7 +172,7 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 
 ## Règles validées sur les maquettes (23/10/2026)
 
-- **Silence électoral** : la série de jours d'affilée est mise en pause, pas perdue.
+- ~~**Silence électoral** : la série de jours d'affilée est mise en pause, pas perdue.~~ (la série n'existe plus)
 - **Badges** : « position officielle » = programme 2027 ou déclaration du candidat ; « position déduite » = votes de son groupe ou programme 2022.
 - **Face-à-face** : il ne montre que les questions auxquelles l'électeur a déjà répondu, pour ne rien révéler avant sa réponse.
 - **Carte partageable** : l'électeur choisit de montrer son candidat le plus proche ou seulement son pion.
@@ -169,10 +181,10 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 
 Maquettes statiques de tous les écrans, dans la direction « Jeu de société » : `maquettes/` (ouvrir `maquettes/index.html`).
 
-1. **Accueil / question du jour** : compte à rebours avant le 1er tour, série, accès à la fiche du jour.
+1. **Accueil** : la prochaine question de l'électeur, compte à rebours avant le 1er tour, progression vers le prochain palier (avant le 25/10/2026 : question du jour et série).
 2. **Fiche** : question, contexte, chiffres, options (sans noms), réponse + importance.
 3. **Révélation** : qui défend quoi, alignement, classement mis à jour.
-4. **Rattrapage** : liste des questions publiées, triées par pouvoir de départage.
+4. **Toutes les questions** : la liste, pour en choisir une (avant le 25/10/2026 : rattrapage, trié par pouvoir de départage).
 5. **Mes résultats** : classement en %, fiabilité, carte 2 axes, détail par thème.
 6. **Face-à-face** et **Moi vs X**.
 7. **Fiche candidat** : positions sourcées par thème, badges déduite / officielle.

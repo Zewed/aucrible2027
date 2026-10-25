@@ -2,13 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Suspense, useState } from "react";
-import { De } from "@/components/De";
+import { Suspense } from "react";
 import { Logo } from "@/components/Logo";
-import { useCoteClient } from "@/lib/cote-client";
-import { aujourdhuiAParis } from "@/lib/date";
-import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
-import { joursDAffilee } from "@/lib/serie";
 
 /** Les deux écrans principaux, dans le menu de l'en-tête (visible à partir de 900 px, comme la maquette). */
 const ECRANS = [
@@ -35,23 +30,10 @@ function MenuDeLaPage() {
 }
 
 /**
- * La barre du haut : le logo, qui ramène à la question du jour ; le menu des deux écrans principaux, celui où l'on
- * est mis en avant ; la série de jours d'affilée.
+ * La barre du haut : le logo, qui ramène à la question du jour, et le menu des deux écrans principaux, celui où l'on
+ * est mis en avant. La série de jours d'affilée n'existe plus (décision de l'auteur, 25 octobre 2026).
  */
 export function EnTete() {
-  const jour = useCoteClient(() => aujourdhuiAParis());
-  const reponses = Object.values(lesReponses(useCoteClient(lireReponses, abonnerAuxReponses)));
-  const serie = jour ? joursDAffilee(reponses, jour) : 0;
-
-  // La série déjà affichée par cet en-tête, qui reste monté d'une page à l'autre : le dé ne roule que
-  // si elle augmente sous ses yeux, pas au chargement d'une page.
-  const [affichee, setAffichee] = useState<number | null>(null);
-  const [roule, setRoule] = useState(false);
-  if (jour && affichee !== serie) {
-    if (affichee !== null && serie > affichee) setRoule(true);
-    setAffichee(serie);
-  }
-
   return (
     <header className="topbar">
       <Link className="brand" href="/">
@@ -63,17 +45,6 @@ export function EnTete() {
       <Suspense fallback={<Menu chemin={null} />}>
         <MenuDeLaPage />
       </Suspense>
-      {serie > 0 && (
-        <div className="streak">
-          <De roule={roule} onRoule={() => setRoule(false)} />
-          <span>
-            <b>
-              {serie} {serie > 1 ? "jours" : "jour"}
-            </b>{" "}
-            <small>d&apos;affilée</small>
-          </span>
-        </div>
-      )}
     </header>
   );
 }
