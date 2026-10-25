@@ -5874,3 +5874,48 @@ test.describe("scanner le QR code importe les réponses", () => {
     await nouveau.close();
   });
 });
+
+test.describe("coller le lien importe les réponses", () => {
+  /** Coller tel quel le lien de l'ancien appareil dans « Coller un lien » du nouveau, puis « Importer ». */
+  async function collerSurUnNouvelAppareil(browser: import("@playwright/test").Browser, lien: string) {
+    const nouveau = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    const autre = await nouveau.newPage();
+    await fixerLeJour(autre, "2026-10-23T09:00:00+02:00");
+    await autre.goto("/appareil");
+    const carte = autre.getByRole("region", { name: "Récupérer mes réponses" });
+    await carte.getByRole("textbox", { name: "Coller un lien" }).fill(lien);
+    await carte.getByRole("button", { name: "Importer" }).click();
+    await autre.waitForURL(/\/resultats$/);
+    return { nouveau, autre };
+  }
+
+  test("sur un appareil sans réponse, coller le lien copié puis « Importer » fait apparaître les mêmes 23 réponses dans « Mes résultats »", async ({ page, browser }) => {
+    await vingtTroisReponses(page);
+    const { nouveau, autre } = await collerSurUnNouvelAppareil(browser, await adresseDeLAppareil(page));
+    await expect(autre.locator(".reliab").filter({ visible: true })).toHaveText("Fiabilité : moyenne (23 réponses)");
+    await expect(autre.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    await nouveau.close();
+  });
+
+  test("la n° 24, répondue E en ×2 sur l'ancien appareil, s'ouvre sur sa révélation avec « Ta carte » sur E et ×2 sur le nouveau", async ({ page, browser }) => {
+    await page.goto("/");
+    await choisir(page, "À la carte, avec un système à points");
+    await peser(page, "×2");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    const { nouveau, autre } = await collerSurUnNouvelAppareil(browser, await adresseDeLAppareil(page));
+    await autre.goto("/question/24");
+    await autre.waitForURL(/\/question\/24\/revelation$/);
+    await expect(autre.getByRole("region", { name: /^Ta réponse : E/ })).toBeVisible();
+    await expect(autre.getByText("Importance ×2", { exact: true })).toBeVisible();
+    await nouveau.close();
+  });
+
+  test("le champ accepte aussi le lien sans http:// devant, tel que la ligne de la carte 1 l'affiche", async ({ page, browser }) => {
+    await vingtTroisReponses(page);
+    const lien = (await adresseDeLAppareil(page)).replace(/^https?:\/\//, "");
+    const { nouveau, autre } = await collerSurUnNouvelAppareil(browser, lien);
+    await expect(autre.locator(".reliab").filter({ visible: true })).toHaveText("Fiabilité : moyenne (23 réponses)");
+    await nouveau.close();
+  });
+});
