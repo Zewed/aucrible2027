@@ -4500,6 +4500,27 @@ const tiennentEnEntierDansLaStory = (story: Locator) =>
     });
   });
 
+test.describe("chaque image porte la signature @aucrible2027", () => {
+  test("les 6 images du carrousel portent « @aucrible2027 » en pied, écrit à l'identique, avec « Glisse » sur les images 1 à 5", async ({ page }) => {
+    await page.goto("/carrousel");
+    const images = page.getByRole("region", { name: "Le carrousel" }).locator("article.slide");
+    await expect(images).toHaveCount(6);
+    await expect(images.locator(".s-foot > span:first-child")).toHaveText(Array(6).fill("@aucrible2027"), { useInnerText: true });
+    await expect(images.locator(".s-foot .next")).toHaveText(Array(5).fill("Glisse"));
+    await expect(images.nth(5).locator(".s-foot .next")).toHaveCount(0);
+  });
+
+  test("la story porte « @aucrible2027 » en haut à droite", async ({ page }) => {
+    await page.goto("/carrousel");
+    const story = page.getByRole("region", { name: "La story" }).getByRole("article", { name: "Story : la question avec un autocollant à deux choix" });
+    const signature = story.locator(".s-top > :last-child");
+    await expect(signature).toHaveText("@aucrible2027", { useInnerText: true });
+    const [cadre, boite] = await Promise.all([story.boundingBox(), signature.boundingBox()]);
+    expect(cadre!.x + cadre!.width - (boite!.x + boite!.width)).toBeLessThan(24);
+    expect(boite!.y - cadre!.y).toBeLessThan(80);
+  });
+});
+
 test.describe("la dernière image invite à répondre sur l'app", () => {
   const derniere = (page: Page) => page.getByRole("region", { name: "Le carrousel" }).getByRole("article", { name: "Image 6 sur 6 : et toi ?" });
 
