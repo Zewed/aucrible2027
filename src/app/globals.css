@@ -129,3 +129,10 @@
   .rail-crans i { width: 22px; height: 5px; border-radius: 3px; background: var(--table-3); }
   .rail-crans i.on { background: var(--chalk); }
 }
+
+/* Le camembert complet (11/11) de « Mes résultats » : ses confettis tombent sur le trophée. */
+.trophy.complet { position: relative; }
+.trophy.complet .confetti { inset: -10px 0 auto 0; }
+@media (prefers-reduced-motion: reduce) {
+  .trophy.complet .confetti { display: none; }
+}

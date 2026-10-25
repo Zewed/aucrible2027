@@ -1,0 +1,50 @@
+# FICHE DE TEST du jeu « camembert-complet » (cookie aucrible-jeu-de-test) : trois fiches par thème, pour les 11 thèmes,
+# copiées de la fiche de test n° 1. Positions et notes inventées : elles ne disent rien des candidats.
+numero: 28
+date: 2026-09-28
+theme: institutions-democratie
+question: Fiche de test n° 28 ?
+contexte:
+  - Dans plusieurs grandes villes, un loyer de référence fixe le plafond qu'un propriétaire ne peut pas dépasser.
+  - Ce dispositif est une expérimentation, et les villes choisissent de l'appliquer ou non.
+  - Ses effets sur les loyers et sur le nombre de logements à louer sont discutés.
+chiffres:
+  - valeur: 40 %
+    legende: des ménages sont locataires de leur résidence principale
+    source: { organisme: INSEE, annee: 2023 }
+  - valeur: "26"
+    unite: villes
+    legende: appliquent un encadrement des loyers
+    source: { organisme: Ministère du Logement, annee: 2025 }
+options:
+  - id: A
+    libelle: Oui, dans toutes les grandes villes
+    implique: Un plafond de loyer s'applique partout où le logement est le plus cher.
+    defenseurs: Les locataires gardent un logement abordable près de leur travail.
+    critiques: Des propriétaires risquent de retirer leur logement de la location.
+    axes: { economie: -2 }
+  - id: B
+    libelle: Seulement là où la ville le demande
+    implique: Chaque ville décide d'encadrer ou non ses loyers.
+    defenseurs: La ville connaît son marché et choisit l'outil qui lui convient.
+    critiques: Les règles changent d'une ville à l'autre et deviennent difficiles à suivre.
+    axes: { economie: 0 }
+  - id: C
+    libelle: Non, laisser les loyers libres
+    implique: Le loyer se fixe entre le propriétaire et le locataire.
+    defenseurs: Des loyers libres encouragent à construire et à mettre des logements en location.
+    critiques: Dans les villes les plus chères, les loyers peuvent continuer de grimper.
+    axes: { economie: 2 }
+positions:
+  ruffin: { option: A, source: Source de test, statut: officielle }
+  lisnard: { option: A, source: Source de test, statut: officielle }
+  tondelier: { option: C, source: Source de test, statut: officielle }
+  dupont-aignan: { option: B, source: Source de test, statut: officielle }
+  glucksmann: { option: A, source: Source de test, statut: officielle }
+  le-pen: { option: A, source: Source de test, statut: officielle }
+  roussel: { option: A, source: Source de test, statut: officielle }
+  melenchon: { option: A, source: Source de test, statut: officielle }
+  retailleau: { option: C, source: Source de test, statut: officielle }
+  arthaud: { option: C, source: Source de test, statut: officielle }
+  attal: { option: C, source: Source de test, statut: officielle }
+  zemmour: { option: C, source: Source de test, statut: officielle }

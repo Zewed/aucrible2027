@@ -178,7 +178,23 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
                 </span>
               </div>
             )}
-            {partGagnee && (
+            {partGagnee && gagnes.length === themes.length && (
+              <div className="stake palier" role="region" aria-label="Camembert complet">
+                <span className="confetti" aria-hidden="true">
+                  {themes.map((t, i) => (
+                    <i key={t.id} style={{ left: `${4 + i * 8.7}%`, background: couleurDe(t), animationDelay: `${(i % 4) * 0.12}s` }}></i>
+                  ))}
+                </span>
+                <Camembert couleurs={themes.map((t) => couleurDe(t))} description={`Camembert complet : ${themes.length} parts sur ${themes.length}`} />
+                <span>
+                  <span className="stake-k">{themes.length} parts sur {themes.length}</span>
+                  <span className="stake-t" style={{ display: "block" }}>
+                    Camembert complet&nbsp;!
+                  </span>
+                </span>
+              </div>
+            )}
+            {partGagnee && gagnes.length < themes.length && (
               <div className="stake win" role="region" aria-label="Ton camembert">
                 <Camembert
                   couleurs={themes.map((t) => (gagnes.includes(t) ? couleurDe(t) : null))}

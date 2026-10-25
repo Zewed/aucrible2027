@@ -5647,3 +5647,46 @@ test.describe("un candidat sans aucune note n'a pas de pion sur le plateau", () 
     await expect(plateau.getByRole("list", { name: "Légende du plateau" }).getByRole("listitem").filter({ hasText: "Jean Lassalle" })).toContainText("pas encore placé");
   });
 });
+
+test.describe("les 11 parts remplies font du camembert un trophée", () => {
+  /** Le jeu « camembert-complet » (3 fiches par thème) et les réponses aux n° 1 à `n`. */
+  async function repondreJusqua(page: Page, n: number) {
+    await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "camembert-complet", url: "http://localhost:3127" }]);
+    await page.goto("/");
+    await page.evaluate((n) => {
+      const r: Record<number, object> = {};
+      for (let numero = 1; numero <= n; numero++) r[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22" };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(r));
+    }, n);
+  }
+
+  test("avec 3 réponses dans chacun des 11 thèmes, « Mes résultats » affiche « 11/11 », ses 11 parts remplies, et « Camembert complet »", async ({ page }) => {
+    await repondreJusqua(page, 33);
+    await page.goto("/resultats");
+    const trophee = page.locator(".res-hero .trophy").filter({ visible: true });
+    await expect(trophee.locator(".count b")).toHaveText("11/11");
+    await expect(trophee.getByRole("img", { name: /11 thèmes complétés sur 11/ })).toBeVisible();
+    await expect(trophee).toContainText("Camembert complet");
+    await expect(trophee.locator(".confetti i").first()).toBeAttached();
+  });
+
+  test("à 10/11, ni « Camembert complet » ni confettis : c'est le passage à 11/11 qui marque le trophée", async ({ page }) => {
+    await repondreJusqua(page, 32);
+    await page.goto("/resultats");
+    const trophee = page.locator(".res-hero .trophy").filter({ visible: true });
+    await expect(trophee.locator(".count b")).toHaveText("10/11");
+    await expect(trophee).not.toContainText("Camembert complet");
+    await expect(trophee.locator(".confetti")).toHaveCount(0);
+  });
+
+  test("la réponse qui complète le camembert : la révélation fête « Camembert complet », un palier spécial", async ({ page }) => {
+    await repondreJusqua(page, 32);
+    await page.goto("/");
+    await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/question\/33\/revelation$/);
+    const trophee = page.getByRole("region", { name: "Camembert complet" }).filter({ visible: true });
+    await expect(trophee).toBeVisible();
+    await expect(trophee).toContainText("11 parts sur 11");
+  });
+});
