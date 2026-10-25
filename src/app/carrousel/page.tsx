@@ -46,26 +46,33 @@ function Visuel({ rang, nom, classe, children }: { rang: number; nom: string; cl
   );
 }
 
+/** La carte question, telle qu'on la pioche dans l'app : en image 1 du carrousel et en haut de la story. */
+function CarteQuestion({ question, theme, classe }: { question: Question; theme: Theme; classe?: string }) {
+  const jours = joursEntre(question.date, PREMIER_TOUR);
+  return (
+    <div className={classe ? `s-deck ${classe}` : "s-deck"}>
+      <div className="s-face">
+        <div className="s-face-top">
+          <p className="theme-chip">
+            <PartDuTheme />
+            {theme.nom}
+          </p>
+          <h3>{question.question}</h3>
+        </div>
+        <p className="s-face-body">
+          <span>Question n° {question.numero} ·</span>
+          {jours > 0 && <span className="s-pill">J-{jours}</span>}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /** Les six images de la fiche du jour, chacune tirée de la fiche : corriger la fiche corrige le carrousel. */
 function lesImages(question: Question, theme: Theme): React.ReactElement[] {
-  const jours = joursEntre(question.date, PREMIER_TOUR);
   return [
     <Visuel key={1} rang={1} nom="la question">
-      <div className="s-deck">
-        <div className="s-face">
-          <div className="s-face-top">
-            <p className="theme-chip">
-              <PartDuTheme />
-              {theme.nom}
-            </p>
-            <h3>{question.question}</h3>
-          </div>
-          <p className="s-face-body">
-            <span>Question n° {question.numero} ·</span>
-            {jours > 0 && <span className="s-pill">J-{jours}</span>}
-          </p>
-        </div>
-      </div>
+      <CarteQuestion question={question} theme={theme} />
     </Visuel>,
     <Visuel key={2} rang={2} nom="le contexte" classe="themed">
       <h3 className="s-title">Le contexte</h3>
@@ -170,8 +177,8 @@ const LEGENDES = [
 
 /**
  * « Carrousel du jour » (maquettes/carrousel.html) : les visuels de la question du jour, tirés de sa fiche, pour les
- * réseaux de l'auteur, et la légende proposée. Seule la fiche du jour, déjà publiée, est lue. La story, le
- * téléchargement et le lien vers la vidéo viennent avec les tickets 217, 219 et 220.
+ * réseaux de l'auteur, la story et la légende proposée. Seule la fiche du jour, déjà publiée, est lue. Le
+ * téléchargement et le lien vers la vidéo viennent avec les tickets 219 et 220.
  */
 async function CarrouselDuJour() {
   const [jour, publiees] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
@@ -190,7 +197,7 @@ async function CarrouselDuJour() {
           <p className="lead">
             {question ? (
               <>
-                Les visuels de la <b>question n° {question.numero}</b> : 6 images à faire défiler.
+                Les visuels de la <b>question n° {question.numero}</b> : 6 images à faire défiler et une story.
               </>
             ) : (
               "Pas de question aujourd'hui : pas de carrousel."
@@ -199,6 +206,9 @@ async function CarrouselDuJour() {
           <ul className="specs" aria-label="Formats">
             <li>
               <b>6</b> images 4:5 · 1080×1350
+            </li>
+            <li>
+              <b>1</b> story 9:16 · 1080×1920
             </li>
             <li>Dessinées ici à 320 px de large</li>
           </ul>
@@ -215,9 +225,66 @@ async function CarrouselDuJour() {
             </div>
           </section>
         )}
+        {question && theme && <Story question={question} theme={theme} />}
         {question && <Legende question={question} />}
       </main>
     </>
+  );
+}
+
+/**
+ * La story du jour, 9:16, dessinée à 320 × 569 et exportée en 1080 × 1920 : la carte question, l'autocollant « Et toi ? »
+ * aux deux choix que l'auteur écrit dans la fiche, et « Lien en bio ». Le vote se pose à la main dans Instagram :
+ * l'autocollant est dessiné ici pour la relecture.
+ */
+function Story({ question, theme }: { question: Question; theme: Theme }) {
+  return (
+    <section className="sheet sec" aria-labelledby="h-story">
+      <div className="sec-h">
+        <h2 id="h-story">La story</h2>
+        <p>1 image · 9:16</p>
+      </div>
+      <div className="story-row seule">
+        <figure className="fr">
+          <article className="slide slide--story" aria-label="Story : la question avec un autocollant à deux choix">
+            <div className="s-top">
+              <span className="s-brand">
+                <Logo className="mark" />
+                Au crible <b>2027</b>
+              </span>
+              <span className="s-page">@aucrible2027</span>
+            </div>
+            <CarteQuestion question={question} theme={theme} classe="st-card" />
+            {question.story && (
+              <div className="sticker" role="group" aria-label="Autocollant à deux choix">
+                <p className="sticker-q">Et toi&nbsp;?</p>
+                <div className="sticker-opts">
+                  {question.story.map(({ choix, precision }) => (
+                    <span key={choix}>
+                      {choix} {precision && <small>{precision}</small>}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+            <p className="st-link">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"
+                  style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }}
+                />
+              </svg>
+              Lien en bio
+            </p>
+          </article>
+          <figcaption>
+            <span className="no">Story · 9:16</span>
+            <span className="cap">La question et le vote en un geste</span>
+            <span className="sub">Le vote se pose à la main dans Instagram.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
   );
 }
 

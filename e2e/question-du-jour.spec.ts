@@ -4447,6 +4447,59 @@ test.describe("la 5e image montre le meilleur argument de chaque côté", () => 
   });
 });
 
+test.describe("l'auteur génère la story « Et toi ? » à deux choix", () => {
+  const story = (page: Page) => page.getByRole("region", { name: "La story" }).getByRole("article", { name: "Story : la question avec un autocollant à deux choix" });
+
+  test("la story de la fiche du jour est une image 9:16, dessinée à 320 px de large pour 1080 × 1920", async ({ page }) => {
+    await page.goto("/carrousel");
+    await expect(story(page)).toBeVisible();
+    const { width, height } = (await story(page).boundingBox())!;
+    expect(width).toBe(320);
+    expect(width / height).toBeCloseTo(9 / 16, 3);
+  });
+
+  test("elle montre la carte question n° 24, l'autocollant « Et toi ? » à deux choix, « 62 ans ou moins » et « 64 ans ou plus », et « Lien en bio »", async ({ page }) => {
+    await page.goto("/carrousel");
+    await expect(story(page).locator(".s-face h3")).toHaveText("À quel âge devrait-on pouvoir partir à la retraite ?");
+    await expect(story(page).locator(".s-face-body")).toHaveText("Question n° 24 ·J-177");
+    const autocollant = story(page).getByRole("group", { name: "Autocollant à deux choix" });
+    await expect(autocollant.locator(".sticker-q")).toHaveText("Et toi ?");
+    await expect(autocollant.locator(".sticker-opts > span")).toHaveText(["62 ans ou moins", "64 ans ou plus"]);
+    await expect(story(page).locator(".st-link")).toHaveText("Lien en bio");
+    expect(await tiennentEnEntierDansLaStory(story(page))).toBe(true);
+  });
+
+  for (const jour of ["2026-10-22", "2026-10-24", "2026-10-25"]) {
+    test(`le ${jour}, la story de la fiche du jour a ses deux choix et tient en entier dans ses 9:16`, async ({ page }) => {
+      await fixerLeJour(page, `${jour}T09:00:00+02:00`);
+      await page.goto("/carrousel");
+      await expect(story(page).locator(".sticker-opts > span")).toHaveCount(2);
+      expect(await tiennentEnEntierDansLaStory(story(page))).toBe(true);
+    });
+  }
+
+  test("elle ne contient aucun nom de candidat", async ({ page }) => {
+    await page.goto("/carrousel");
+    await expect(story(page).locator(".sticker-opts > span")).toHaveCount(2);
+    const texte = await story(page).innerText();
+    const candidats: { nom: string }[] = parse(readFileSync("content/candidats.yaml", "utf8"));
+    for (const { nom } of candidats) {
+      expect(texte).not.toContain(nom);
+      expect(texte).not.toContain(nom.split(" ").at(-1)!);
+    }
+  });
+});
+
+/** Tout ce que la story montre tient-il dans ses 9:16, sans rien de rogné ? */
+const tiennentEnEntierDansLaStory = (story: Locator) =>
+  story.evaluate((visuel) => {
+    const cadre = visuel.getBoundingClientRect();
+    return [...visuel.querySelectorAll(".s-top, .s-face, .sticker, .st-link")].every((e) => {
+      const r = e.getBoundingClientRect();
+      return r.top >= cadre.top - 0.5 && r.bottom <= cadre.bottom + 0.5 && e.scrollHeight <= e.clientHeight + 1;
+    });
+  });
+
 test.describe("la dernière image invite à répondre sur l'app", () => {
   const derniere = (page: Page) => page.getByRole("region", { name: "Le carrousel" }).getByRole("article", { name: "Image 6 sur 6 : et toi ?" });
 

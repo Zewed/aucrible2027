@@ -46,4 +46,10 @@ cotes:
     argument: "Rééquilibrer l'offre de soins pour que chacun trouve un médecin près de chez lui."
   - titre: "Pour ne pas la réguler"
     argument: "La liberté d'installation rend le métier attractif ; il faut d'abord former plus de médecins."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Réguler"
+    precision: "l'installation"
+  - choix: "Garder"
+    precision: "la liberté"
 positions: {}

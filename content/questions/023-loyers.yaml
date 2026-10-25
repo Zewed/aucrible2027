@@ -39,4 +39,10 @@ cotes:
     argument: "Les locataires gardent un logement abordable près de leur travail."
   - titre: "Pour ne pas les encadrer"
     argument: "Des loyers libres encouragent à construire et à mettre des logements en location."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Encadrer"
+    precision: "les loyers"
+  - choix: "Les laisser"
+    precision: "libres"
 positions: {}

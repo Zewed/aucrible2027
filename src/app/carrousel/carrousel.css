@@ -177,4 +177,6 @@
 
 @media (min-width: 900px) {
   .story-row { grid-template-columns: 320px minmax(0, 340px); justify-content: center; column-gap: 56px; align-items: center; }
+  /* La story seule, sans l'encadré des règles de la maquette. */
+  .story-row.seule { grid-template-columns: 320px; }
 }

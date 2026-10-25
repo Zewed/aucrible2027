@@ -45,6 +45,12 @@ cotes:
     argument: "On écarte le risque d'accident et les déchets, avec des renouvelables moins chères."
   - titre: "Pour ne pas en sortir"
     argument: "Les réacteurs existants produisent une électricité bas carbone déjà payée."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "En sortir"
+    precision: "ou réduire"
+  - choix: "Le garder"
+    precision: "ou construire"
 positions:
   arthaud: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
   tondelier: { option: A, source: "Source de démonstration, à trouver", statut: deduite }

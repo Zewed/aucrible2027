@@ -41,6 +41,8 @@ export type Position = { option: string; source: string; statut: "officielle" | 
 export type Lien = { titre: string; url: string };
 /** Un côté du débat, pour l'image 5 du carrousel : son titre (« Pour relever l'âge ») et l'argument que ses défenseurs signeraient. */
 export type Cote = { titre: string; argument: string };
+/** Un choix de l'autocollant « Et toi ? » de la story : « 62 ans », et en plus petit « ou moins ». */
+export type ChoixDeStory = { choix: string; precision?: string };
 export type Question = {
   numero: number;
   date: string;
@@ -54,6 +56,8 @@ export type Question = {
   pourAllerPlusLoin?: Lien[];
   /** Les deux côtés de l'image 5 du carrousel, que l'auteur écrit dans la fiche (décision du 25 octobre). */
   cotes?: [Cote, Cote];
+  /** Les deux choix de l'autocollant « Et toi ? » de la story, que l'auteur écrit aussi dans la fiche. */
+  story?: [ChoixDeStory, ChoixDeStory];
 };
 
 const RACINE = path.join(process.cwd(), "content");
