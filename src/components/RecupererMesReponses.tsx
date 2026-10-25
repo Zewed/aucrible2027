@@ -1,17 +1,32 @@
 "use client";
 
 import jsQR from "jsqr";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 /**
  * La carte 2 de « Changer d'appareil » : sur le nouvel appareil, « Scanner un QR code » ouvre l'appareil photo et lit
- * le QR code de l'ancien ; son adresse (`/i#…`) importe les réponses. Rien ne passe par un serveur : l'image est lue
- * dans la page.
+ * le QR code de l'ancien, ou « Coller un lien » reprend le lien copié ; l'adresse de transfert (`/i#…`) importe les
+ * réponses. Rien ne passe par un serveur : l'image et le lien sont lus dans la page.
  */
 export function RecupererMesReponses() {
   const [flux, setFlux] = useState<MediaStream | null>(null);
   const [refus, setRefus] = useState(false);
+  const [illisible, setIllisible] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
+  const router = useRouter();
+
+  /** « Importer » : le lien collé, avec ou sans « http:// » devant, ouvre l'adresse de transfert du site. */
+  function importer(evenement: React.FormEvent<HTMLFormElement>) {
+    evenement.preventDefault();
+    const lien = String(new FormData(evenement.currentTarget).get("lien") ?? "").trim();
+    const fragment = lien.split("/i#")[1];
+    if (!fragment) {
+      setIllisible(true);
+      return;
+    }
+    router.push(`/i#${fragment}`);
+  }
 
   async function scanner() {
     setRefus(false);
@@ -74,6 +89,22 @@ export function RecupererMesReponses() {
             Scanner un QR code
           </button>
         )}
+        <p className="or">
+          <span>ou avec un lien</span>
+        </p>
+        <form onSubmit={importer}>
+          <label className="label app-label" htmlFor="lien">
+            <i></i>Coller un lien
+          </label>
+          <input className="app-input" id="lien" name="lien" type="text" inputMode="url" autoComplete="off" placeholder="Colle ici le lien copié" />
+          <button className="go go--ink" type="submit">
+            <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14" />
+            </svg>
+            Importer
+          </button>
+        </form>
+        {illisible && <p className="caution theme-sante">Ce code n&apos;est pas lisible. Réessaie ou colle le lien.</p>}
         {/* Texte provisoire : la maquette ne dessine pas le refus de l'appareil photo. */}
         {refus && <p className="caution theme-sante">Pas d&apos;accès à l&apos;appareil photo.</p>}
       </div>
