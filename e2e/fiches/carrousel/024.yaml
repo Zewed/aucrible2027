@@ -57,6 +57,12 @@ pourAllerPlusLoin:
     url: https://drees.solidarites-sante.gouv.fr/
   - titre: Cour des comptes, retraites, 2025
     url: https://www.ccomptes.fr/
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour relever l'âge"
+    argument: "On vit plus longtemps : travailler un peu plus protège le niveau des pensions."
+  - titre: "Pour ne pas le relever"
+    argument: "Les métiers pénibles et les carrières hachées en paient le prix."
 positions:
   melenchon: { option: A, source: "Programme 2022, p. 12", statut: deduite }
   roussel: { option: A, source: "Interview franceinfo, 21/09/2026", statut: officielle }

@@ -108,7 +108,7 @@
 .s-opt b { font: 800 24px/1.05 var(--display); font-variation-settings: "wdth" 85; letter-spacing: -0.015em; white-space: nowrap; }
 
 /* ---------- 5 · le meilleur argument ---------- */
-.s-args { margin-top: 14px; display: grid; gap: 10px; }
+.s-args { margin-top: 14px; display: grid; grid-auto-rows: 1fr; gap: 10px; }
 .s-arg { background: var(--card); color: var(--ink); border-radius: 12px; padding: 11px 13px 12px; }
 .s-arg h4 {
   margin: 0;

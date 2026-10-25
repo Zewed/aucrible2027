@@ -104,9 +104,22 @@ function lesImages(question: Question, theme: Theme): React.ReactElement[] {
         ))}
       </ul>
     </Visuel>,
-    // D'où vient l'argument de chaque côté reste à trancher (ticket 214) : l'image n'a que son titre.
+    // Les deux côtés viennent de la fiche, que l'auteur écrit : deux blocs au même format, aucun mis en avant.
     <Visuel key={5} rang={5} nom="le meilleur argument des deux côtés" classe="themed">
       <h3 className="s-title">Le meilleur argument des deux côtés</h3>
+      {question.cotes && (
+        <div className="s-args">
+          {question.cotes.map((cote) => (
+            <section key={cote.titre} className="s-arg">
+              <h4>
+                <i></i>
+                {cote.titre}
+              </h4>
+              <p>{cote.argument}</p>
+            </section>
+          ))}
+        </div>
+      )}
     </Visuel>,
     <Visuel key={6} rang={6} nom="et toi ?" classe="slide--theme">
       <div className="s-cta">
@@ -127,7 +140,6 @@ const EN_LETTRES = ["zéro", "un", "deux", "trois", "quatre", "cinq", "six"];
 
 /**
  * La légende proposée pour le carrousel : la question et ce que montrent les images, puis l'invitation à répondre.
- * Elle annonce l'argument de chaque côté, comme la maquette, même si l'image 5 l'attend encore (ticket 214).
  */
 function Legende({ question }: { question: Question }) {
   return (

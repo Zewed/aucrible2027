@@ -40,4 +40,10 @@ options:
     implique: Chaque médecin continue de choisir où il exerce.
     defenseurs: La liberté d'installation rend le métier attractif ; il faut d'abord former plus de médecins.
     critiques: Sans règle, les territoires qui manquent de médecins risquent d'attendre encore longtemps.
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour réguler l'installation"
+    argument: "Rééquilibrer l'offre de soins pour que chacun trouve un médecin près de chez lui."
+  - titre: "Pour ne pas la réguler"
+    argument: "La liberté d'installation rend le métier attractif ; il faut d'abord former plus de médecins."
 positions: {}

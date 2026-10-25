@@ -38,6 +38,13 @@ options:
     implique: De nouveaux réacteurs remplacent les plus anciens ou s'ajoutent au parc.
     defenseurs: Une électricité bas carbone et pilotable pour électrifier les transports et l'industrie.
     critiques: Les chantiers récents ont pris des années de retard et coûté bien plus que prévu.
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options,
+# le premier resserré pour tenir dans l'image).
+cotes:
+  - titre: "Pour sortir du nucléaire"
+    argument: "On écarte le risque d'accident et les déchets, avec des renouvelables moins chères."
+  - titre: "Pour ne pas en sortir"
+    argument: "Les réacteurs existants produisent une électricité bas carbone déjà payée."
 positions:
   arthaud: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
   tondelier: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
