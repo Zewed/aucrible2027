@@ -1,0 +1,40 @@
+src/app/i/page.tsx
+  s_330ba31127fa8a::t_b33038977f39e6 1-6
+package.json
+  s_330ba31127fa8a::t_d6949074e65d27 15
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_adbf1cbaa23762 5,5787-5827,5829-5875
+  s_330ba31127fa8a::t_472901f415a12d 5828
+  s_330ba31127fa8a::t_0e92c04dae970d 5876
+src/components/Importer.tsx
+  s_330ba31127fa8a::t_b33038977f39e6 1-3,5-18,21-41
+  s_330ba31127fa8a::t_ed32625cd2458c 4,19-20
+src/app/globals.css
+  s_330ba31127fa8a::t_b33038977f39e6 143
+src/components/RecupererMesReponses.tsx
+  s_330ba31127fa8a::t_b33038977f39e6 1-82
+src/app/appareil/page.tsx
+  s_330ba31127fa8a::t_b33038977f39e6 4,26-28
+src/lib/reponses.ts
+  s_330ba31127fa8a::t_b33038977f39e6 28-33
+.veebee/tickets/181-scanner-le-qr-code-importe-les-reponses.md
+  s_330ba31127fa8a::t_11d604c9c0688f 8
+pnpm-lock.yaml
+  s_330ba31127fa8a::t_e29d4d341e13d7 14-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f89c9b4a0e9e63f39dc09e3acf1edba4eed63b05",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
