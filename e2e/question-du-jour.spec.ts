@@ -3824,6 +3824,36 @@ test.describe("l'électeur envoie un signalement", () => {
   });
 });
 
+test.describe("le formulaire promet une réponse sous 72 h", () => {
+  for (const [nom, taille] of [["sur téléphone", null], ["sur ordinateur", { width: 1280, height: 900 }]] as const) {
+    test(`${nom}, juste au-dessus de « Envoyer » : « On répond sous 72 h. » puis « Chaque correction est publiée dans le journal des corrections. »`, async ({ page }) => {
+      if (taille) await page.setViewportSize(taille);
+      await page.goto("/signaler?question=24");
+      const promesse = page.locator(".sig-card .promise");
+      await expect(promesse).toHaveText("On répond sous 72 h. Chaque correction est publiée dans le journal des corrections.");
+      await expect(promesse.locator("b")).toHaveText("On répond sous 72 h.");
+      // Juste au-dessus du bouton : rien ne s'intercale entre la promesse et « Envoyer », et le bouton suit de près.
+      // Les deux sont mesurés d'un seul coup, dans la page, pendant que la fiche arrive en flux.
+      await expect
+        .poll(() =>
+          promesse.evaluate((p) => {
+            const bouton = p.nextElementSibling;
+            if (bouton?.textContent?.trim() !== "Envoyer") return "autre chose sous la promesse";
+            const ecart = bouton.getBoundingClientRect().top - p.getBoundingClientRect().bottom;
+            return ecart >= 0 && ecart < 40 ? "juste au-dessus" : `écart de ${ecart} px`;
+          }),
+        )
+        .toBe("juste au-dessus");
+    });
+  }
+
+  test("« journal des corrections » mène au journal des corrections", async ({ page }) => {
+    await page.goto("/signaler?question=24");
+    await page.locator(".sig-card .promise").getByRole("link", { name: "journal des corrections" }).click();
+    await page.waitForURL(/\/journal$/);
+  });
+});
+
 test.describe("la fiche candidat propose aussi « Signaler une erreur »", () => {
   const lienDeLaFiche = (page: Page) =>
     page.locator(".report").filter({ hasText: "Une erreur, un chiffre ou une source à revoir ?" }).getByRole("link", { name: "Signaler une erreur sur cette fiche" });

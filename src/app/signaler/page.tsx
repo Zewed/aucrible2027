@@ -51,7 +51,7 @@ function TypeDErreur() {
 /**
  * « Signaler une erreur » (maquettes/signaler.html) : le titre, l'introduction, puis le formulaire, rempli de la
  * fiche d'où vient l'électeur (`?question=N`, une question déjà publiée). Sans fiche connue, « Sur quelle fiche ? »
- * n'apparaît pas : ce cas reste à trancher. La source, l'e-mail et la promesse des 72 h viennent avec 165, 166 et 170.
+ * n'apparaît pas : ce cas reste à trancher. La source et l'e-mail viennent avec 165 et 166.
  */
 async function Signaler({ numero }: { numero?: string }) {
   const [jour, publiees] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
