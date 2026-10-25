@@ -1,0 +1,184 @@
+/* Copie de maquettes/appareil.css. */
+
+/* Au crible 2027 — « Changer d'appareil » : export et import des réponses par QR code ou lien.
+   Chargé après style.css : n'utilise que ses jetons (couleurs, rayons, courbe de mouvement).
+   Classes propres à l'écran : .app (page) · .app-top · .promise · .app-grid > .app-col > .app-card
+   (.app-card-top .app-step · .app-card-body) · .qr · .linkrow · .caution · .or · .app-input · .cases > .case */
+
+.ic { fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+.app { max-width: 1240px; margin: 0 auto; padding: 0 16px 40px; }
+
+/* ---------- titre + promesse ---------- */
+.app-top { display: grid; gap: 22px; padding: 8px 0 0; }
+.app-top h1 {
+  font: 800 clamp(54px, 20vw, 112px)/0.92 var(--display);
+  font-variation-settings: "wdth" 80, "opsz" 96;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+.app-top h1 .l2 { display: block; }
+.app-top h1 i { color: var(--eco); font-style: normal; }
+.app-lead { margin-top: 14px; max-width: 44ch; font-size: 16px; line-height: 1.5; color: var(--muted); }
+
+.promise {
+  display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: 14px; align-items: start;
+  background: var(--chalk); color: var(--ink);
+  border-radius: var(--r);
+  padding: 16px 16px 15px;
+  box-shadow: 0 6px 0 var(--pawn-edge);
+  margin-bottom: 6px;
+}
+.promise-ico { width: 52px; height: 52px; border-radius: 12px; background: var(--eco); display: grid; place-items: center; }
+.promise-ico svg { width: 30px; height: 30px; stroke-width: 2.2; }
+.promise-t { font: 800 21px/1.12 var(--display); font-variation-settings: "wdth" 88; letter-spacing: -0.01em; text-wrap: balance; }
+.promise-s { margin-top: 5px; font: 700 16px/1.3 var(--text); color: var(--ink-soft); }
+
+/* ---------- les deux grandes cartes ---------- */
+.app-grid { margin-top: 30px; display: grid; gap: 30px; align-items: start; }
+.app-col { display: grid; gap: 30px; min-width: 0; }
+.app-card {
+  background: var(--card); color: var(--ink);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: 0 7px 0 var(--theme-edge);
+  margin-bottom: 7px;
+  min-width: 0;
+}
+.app-card-top { background: var(--theme); color: var(--on-theme); padding: 16px 18px 20px; }
+.app-kick { display: flex; align-items: center; gap: 10px; }
+.app-step {
+  width: 34px; height: 34px; flex: none; border-radius: 9px;
+  background: var(--ink); color: var(--theme-text);
+  display: grid; place-items: center;
+  font: 800 19px/1 var(--display);
+}
+.app-where { font: 800 13px/1.1 var(--display); text-transform: uppercase; letter-spacing: .08em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.app-card h2 {
+  margin-top: 12px;
+  font: 800 clamp(27px, 7.6vw, 38px)/1 var(--display);
+  font-variation-settings: "wdth" 85;
+  letter-spacing: -0.02em;
+}
+.app-card-body { padding: 22px 18px 22px; display: grid; gap: 0; }
+
+/* le QR code : posé sur une bande teintée pleine largeur, sans second cadre */
+.qr-wrap {
+  display: grid; justify-items: center;
+  margin: -22px -18px 0; padding: 24px 18px 20px;
+  background: var(--theme-tint);
+}
+.qr { width: min(256px, 100%); aspect-ratio: 1 / 1; }
+.qr svg { display: block; width: 100%; height: 100%; }
+.qr-cap {
+  margin-top: 18px; text-align: center;
+  font: 800 21px/1.1 var(--display); font-variation-settings: "wdth" 88; letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.qr-sub { margin-top: 6px; text-align: center; font-size: 14px; line-height: 1.4; color: var(--ink-soft); }
+
+.or {
+  margin: 22px 0 4px;
+  display: flex; align-items: center; gap: 12px;
+  font: 800 13px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft);
+}
+.or::before, .or::after { content: ""; flex: 1; border-top: 2px dashed var(--pawn-edge); }
+
+.linkrow {
+  margin-top: 12px;
+  display: flex; align-items: center; gap: 10px;
+  min-height: 52px; padding: 0 14px;
+  background: var(--theme-tint);
+  border: 2px dashed var(--theme-edge);
+  border-radius: 12px;
+  font: 600 15px/1.2 var(--text); color: var(--ink);
+}
+.linkrow svg { width: 22px; height: 22px; flex: none; }
+.app-card .go { margin-top: 16px; }
+.app-card .scan-first { margin-top: 0; }
+.app-card .go.go--ink { background: var(--ink); color: var(--chalk); box-shadow: 0 7px 0 var(--ink-deep); }
+.app-card .go.go--ink:hover { box-shadow: 0 9px 0 var(--ink-deep); }
+.app-card .go.go--ink:active { box-shadow: 0 1px 0 var(--ink-deep); }
+.app-card .go:focus-visible, .app-input:focus-visible, .case .btn:focus-visible { outline: 3px solid var(--secu); outline-offset: 3px; }
+
+.caution {
+  margin: 22px -18px -22px;
+  display: grid; grid-template-columns: 26px minmax(0, 1fr); column-gap: 10px; align-items: start;
+  background: var(--theme-tint); color: var(--ink);
+  border-top: 2px solid var(--theme-edge);
+  padding: 16px 18px 18px;
+  font: 600 15px/1.35 var(--text);
+}
+.caution svg { width: 26px; height: 26px; stroke-width: 2.4; }
+.caution b { font-weight: 800; }
+
+/* récupérer */
+.app-label { margin-top: 0; }
+.app-input {
+  display: block; width: 100%; min-height: 58px; margin-top: 12px;
+  background: #fff; color: var(--ink);
+  border: 3px solid var(--ink); border-radius: 12px;
+  padding: 0 14px;
+  font: 600 16px/1.2 var(--text);
+}
+.app-input::placeholder { color: var(--ink-soft); opacity: 1; }
+.app-card form { margin-top: 14px; }
+.app-hint { margin-top: 8px; font-size: 13.5px; line-height: 1.4; color: var(--ink-soft); }
+
+/* ---------- les deux aperçus de cas particuliers ---------- */
+.cases { display: grid; gap: 24px; }
+.cases .sec-h { margin-bottom: -10px; }
+.case { margin: 0; display: grid; gap: 10px; }
+.case figcaption { font: 700 14px/1.2 var(--text); color: var(--muted); }
+.case-box {
+  background: var(--card); color: var(--ink);
+  border-radius: var(--r);
+  padding: 16px;
+  box-shadow: 0 6px 0 var(--theme-edge);
+  margin-bottom: 6px;
+}
+.case-head { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 12px; align-items: center; }
+.case-ico { width: 44px; height: 44px; border-radius: 10px; background: var(--theme); color: var(--on-theme); display: grid; place-items: center; }
+.case-ico svg { width: 26px; height: 26px; stroke-width: 2.4; }
+.case-msg { font: 800 19px/1.15 var(--display); font-variation-settings: "wdth" 88; letter-spacing: -0.005em; }
+.swap { margin-top: 14px; display: grid; grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr); align-items: center; gap: 6px; }
+.swap > div { border-radius: 10px; padding: 10px 10px 9px; display: grid; justify-items: start; }
+.swap .old { background: var(--slot); }
+.swap .new { background: var(--eco); }
+.swap b { font: 800 32px/0.95 var(--display); font-variation-settings: "wdth" 80; font-variant-numeric: tabular-nums; }
+.swap span { font: 700 13px/1.2 var(--text); white-space: nowrap; }
+.swap svg { width: 28px; height: 28px; }
+.case-btns { margin-top: 16px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.case .btn {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 52px; border: 0; cursor: pointer; border-radius: 12px;
+  font: 800 18px/1 var(--display); font-variation-settings: "wdth" 88;
+  margin-bottom: 5px;
+  transition: transform .12s var(--ease-out), box-shadow .12s var(--ease-out);
+}
+.case .btn:hover { transform: translateY(-2px); }
+.case .btn:active { transform: translateY(4px); box-shadow: none; }
+.case .btn.yes { background: var(--ink); color: var(--chalk); box-shadow: 0 5px 0 var(--ink-deep); }
+.case .btn.no { background: var(--slot); color: var(--ink); box-shadow: 0 5px 0 var(--pawn-edge); }
+.case-box.bad { border-left: 0; background: var(--theme-tint); box-shadow: 0 6px 0 var(--theme-edge); }
+
+.site-foot a[aria-current] { color: var(--chalk); text-decoration: underline; text-decoration-thickness: 2px; }
+
+/* ==================== GRAND ÉCRAN ==================== */
+@media (min-width: 900px) {
+  .app { padding: 0 32px 56px; }
+  .app-top { grid-template-columns: minmax(0, 1fr) minmax(0, 440px); column-gap: 56px; align-items: end; padding-top: 10px; }
+  .app-top h1 { font-size: clamp(60px, 8vw, 112px); }
+  .app-lead { font-size: 18px; }
+  .promise { padding: 18px 20px 17px; }
+  .promise-t { font-size: 23px; }
+  .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; margin-top: 40px; }
+  .app-card-top { padding: 20px 26px 24px; }
+  .app-card h2 { font-size: 40px; }
+  .app-card-body { padding: 28px 26px 26px; }
+  .qr-wrap { margin: -28px -26px 0; padding: 30px 26px 24px; }
+  .qr { width: 300px; }
+  .caution { margin: 26px -26px -26px; padding: 18px 26px 20px; }
+  .qr-cap { font-size: 24px; }
+  .case-msg { font-size: 21px; }
+}
