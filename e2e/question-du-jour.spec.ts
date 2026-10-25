@@ -5525,3 +5525,50 @@ test.describe("Un nouveau candidat sans source est « position inconnue » parto
     expect(new Set((await verdicts.allInnerTexts()).map((v) => v.trim()))).toEqual(new Set(["Non comparée"]));
   });
 });
+
+test.describe("À la liste officielle, seuls les candidats officiels restent", () => {
+  /** La liste officielle de test (e2e/fiches/listes/officielle.yaml, publiée le 16 mars 2027), au jour donné. */
+  async function listeOfficielle(page: Page, jour: string) {
+    await fixerLeJour(page, jour);
+    await page.context().addCookies([{ name: "aucrible-liste-officielle-de-test", value: "officielle", url: "http://localhost:3127" }]);
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" })).toBeVisible();
+    return (await lignesDuClassement(page)).map(([, nom]) => nom!);
+  }
+  const contenu = () => (parse(readFileSync("content/candidats.yaml", "utf8")) as { nom: string }[]).map((c) => c.nom);
+
+  test("à la publication de la liste officielle (~16 mars 2027), « Mes résultats » classe exactement les candidats de cette liste : un candidat absent de la liste n'y figure plus", async ({ page }) => {
+    const classes = await listeOfficielle(page, "2027-03-17T09:00:00+01:00");
+    expect([...classes].sort()).toEqual([...contenu().slice(0, -1), "Jean Lassalle"].sort());
+    expect(classes).not.toContain(contenu().at(-1));
+    // Le plateau aussi bascule : la liste est exacte partout dans « Mes résultats ».
+    const legende = page.getByRole("list", { name: "Légende du plateau" });
+    await expect(legende.getByRole("listitem")).toHaveCount(classes.length + 1);
+    await expect(legende).not.toContainText(contenu().at(-1)!);
+    await expect(legende).toContainText("Jean Lassalle");
+  });
+
+  test("un candidat de la liste officielle qui n'était pas encore dans le classement y entre, avec une fiche", async ({ page }) => {
+    expect(await listeOfficielle(page, "2027-03-17T09:00:00+01:00")).toContain("Jean Lassalle");
+    await page.goto("/candidat/lassalle");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Jean Lassalle");
+    await expect(page.locator(".id-card .pawn")).toHaveText("JLa");
+  });
+
+  test("la fiche du candidat écarté par la liste s'ouvre encore, sans proximité ni mention de retrait", async ({ page }) => {
+    await listeOfficielle(page, "2027-03-17T09:00:00+01:00");
+    const ecarte = (parse(readFileSync("content/candidats.yaml", "utf8")) as { id: string; nom: string }[]).at(-1)!;
+    await page.goto(`/candidat/${ecarte.id}`);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(ecarte.nom);
+    await expect(page.getByRole("region", { name: "Ses positions" })).toBeVisible();
+    await expect(page.locator(".prox, .gone")).toHaveCount(0);
+  });
+
+  test("la veille de sa publication, le classement reste celui des candidats du contenu, et Jean Lassalle n'a pas de fiche", async ({ page }) => {
+    const classes = await listeOfficielle(page, "2027-03-15T09:00:00+01:00");
+    expect([...classes].sort()).toEqual([...contenu()].sort());
+    await page.goto("/candidat/lassalle");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Cette carte n'est pas dans le paquet.");
+  });
+});

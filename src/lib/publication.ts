@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { connection } from "next/server";
-import { lireCandidats, lireCorrections, lireQuestions, type Candidat, type Correction, type Question } from "@/lib/contenu";
+import { lireCandidats, lireCorrections, lireListeOfficielle, lireQuestions, type Candidat, type Correction, type ListeOfficielle, type Question } from "@/lib/contenu";
 import type { QuestionDuCalcul } from "@/lib/proximite";
 import { aujourdhuiAParis } from "@/lib/date";
 import { silenceEnCours } from "@/lib/silence";
@@ -34,15 +34,43 @@ async function lesFiches(): Promise<Question[]> {
 /** Le cookie par lequel, en test seulement, un test ajoute aux candidats (e2e/fiches/candidats/<nom>.yaml). */
 const CANDIDATS_DE_TEST = "aucrible-candidats-de-test";
 
-/** Tous les candidats, retirés compris : en production, toujours ceux du contenu. */
-export async function lireLesCandidats(): Promise<Candidat[]> {
-  const ajouts = process.env.AUCRIBLE_FICHES_DE_TEST ? (await cookies()).get(CANDIDATS_DE_TEST)?.value : undefined;
-  return lireCandidats(ajouts);
+/** Le cookie par lequel, en test seulement, un test choisit sa liste officielle (e2e/fiches/listes/<nom>.yaml). */
+const LISTE_DE_TEST = "aucrible-liste-officielle-de-test";
+
+/** La liste officielle, si elle est parue au jour de la requête. */
+async function laListeParue(): Promise<ListeOfficielle | null> {
+  const jeu = process.env.AUCRIBLE_FICHES_DE_TEST ? (await cookies()).get(LISTE_DE_TEST)?.value : undefined;
+  const liste = lireListeOfficielle(jeu);
+  return liste && liste.date <= aujourdhuiAParis(await maintenant()) ? liste : null;
 }
 
-/** Les candidats encore en lice aujourd'hui : un candidat retiré sort du classement le jour de son retrait. */
+/**
+ * Tous les candidats, retirés compris : en production, toujours ceux du contenu ; et, une fois la liste officielle
+ * parue, ceux de la liste qui n'y étaient pas encore.
+ */
+export async function lireLesCandidats(): Promise<Candidat[]> {
+  const ajouts = process.env.AUCRIBLE_FICHES_DE_TEST ? (await cookies()).get(CANDIDATS_DE_TEST)?.value : undefined;
+  const candidats = lireCandidats(ajouts);
+  const liste = await laListeParue();
+  if (!liste) return candidats;
+  return candidats.concat(liste.candidats.filter((e) => !candidats.some((c) => c.id === e.id)) as Candidat[]);
+}
+
+/**
+ * Les candidats de « Mes résultats » hors classement (le plateau, les thèmes) : tous, retirés compris, sauf, une fois la
+ * liste officielle parue, ceux qu'elle écarte, puisque la liste bascule exactement sur ses candidats.
+ */
+export async function lireCandidatsDeLaListe(): Promise<Candidat[]> {
+  const [candidats, liste] = await Promise.all([lireLesCandidats(), laListeParue()]);
+  return liste ? candidats.filter((c) => liste.candidats.some((e) => e.id === c.id)) : candidats;
+}
+
+/**
+ * Les candidats encore en lice aujourd'hui : un candidat retiré sort du classement le jour de son retrait. Une fois la
+ * liste officielle parue, le classement bascule exactement sur ses candidats (SPEC.md, « Candidats »).
+ */
 export async function lireCandidatsEnLice(): Promise<Candidat[]> {
-  const [candidats, jour] = await Promise.all([lireLesCandidats(), maintenant().then(aujourdhuiAParis)]);
+  const [candidats, jour] = await Promise.all([lireCandidatsDeLaListe(), maintenant().then(aujourdhuiAParis)]);
   return candidats.filter((c) => !c.retrait || c.retrait.date > jour);
 }
 
