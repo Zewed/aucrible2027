@@ -155,20 +155,27 @@ test.describe("numéro et date de la question", () => {
   });
 });
 
-test.describe("le numéro de la question, sur grand écran, sans sa date", () => {
-  test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
+test.describe("sur ordinateur, le menu est une colonne d'icônes à gauche, et la page commence en haut", () => {
+  test.use({ viewport: { width: 1000, height: 550 }, isMobile: false, hasTouch: false });
 
-  test("le bandeau affiche « Question n° 24 », sans la date de parution", async ({ page }) => {
+  test("à 1000 × 550, la question commence en haut de l'écran : ni barre ni bandeau au-dessus, le compte à rebours est en bas du menu", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24", { useInnerText: true });
+    const titre = page.getByRole("heading", { level: 1 }).filter({ visible: true });
+    await expect(titre).toHaveText("À quel âge devrait-on pouvoir partir à la retraite ?");
+    expect((await titre.boundingBox())!.y).toBeLessThan(150);
+    await expect(page.locator(".strip").filter({ visible: true })).toHaveCount(0);
+    const compte = page.getByRole("banner").getByLabel("J-177 avant le 1er tour");
+    await expect(compte).toBeVisible();
+    expect((await compte.boundingBox())!.y).toBeGreaterThan(400);
   });
 
-  test("la révélation affiche « Question n° 24 », sans date", async ({ page }) => {
+  test("la révélation aussi commence en haut, sans bandeau", async ({ page }) => {
     await page.goto("/");
     await choisir(page, "62 ans");
     await page.getByRole("button", { name: "Valider ma réponse" }).click();
     await expect(page).toHaveURL(/\/revelation$/);
-    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24", { useInnerText: true });
+    await expect(page.getByRole("heading", { level: 1, name: "La révélation" }).filter({ visible: true })).toBeVisible();
+    await expect(page.locator(".strip").filter({ visible: true })).toHaveCount(0);
   });
 });
 
@@ -469,7 +476,8 @@ test.describe("sur ordinateur, la carte question se pose à côté des cartes r�
       await page.getByRole("radiogroup", { name: "Les options" }).getByText(libelle, { exact: true }).scrollIntoViewIfNeeded();
       await expect(carte).toBeInViewport({ ratio: 0.9 });
     }
-    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(200);
+    // Sans bandeau au-dessus, la page défile moins qu'avant : ce qui compte, c'est qu'elle ait défilé.
+    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
   });
 });
 
@@ -1332,7 +1340,7 @@ test.describe("l'électeur ouvre la liste des questions publiées", () => {
   test.beforeEach(async ({ page }) => {
     await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
     await page.goto("/rattrapage");
-    await expect(page.getByRole("heading", { level: 1, name: "Rattraper les questions." })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: "Les questions." })).toBeVisible();
   });
 
   test("le 23 octobre, la page annonce « 24 publiées » et contient la carte n° 24 « À quel âge devrait-on pouvoir partir à la retraite ? » (Travail & retraites, 23 octobre)", async ({ page }) => {
@@ -1355,8 +1363,6 @@ test.describe("l'électeur ouvre la liste des questions publiées", () => {
 });
 
 test.describe("une question de la liste s'ouvre sur sa fiche", () => {
-  test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
-
   async function ouvrirDepuisLaListe(page: Page, question: string) {
     await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
     await page.goto("/rattrapage");
@@ -1467,8 +1473,8 @@ test.describe("une question répondue est marquée « Répondu » et passe en fi
   });
 });
 
-test.describe("la liste affiche le nombre de questions à rattraper", () => {
-  const tuile = (page: Page) => page.getByRole("group", { name: "À rattraper" });
+test.describe("la liste affiche le nombre de questions sans réponse", () => {
+  const tuile = (page: Page) => page.getByRole("group", { name: "Sans réponse" });
   /** La part remplie de la barre de progression, de 0 à 1 (sa largeur posée, hors animation de croissance). */
   const remplissage = (page: Page) =>
     tuile(page)
@@ -1485,20 +1491,20 @@ test.describe("la liste affiche le nombre de questions à rattraper", () => {
     });
   }
 
-  test("avec 24 questions publiées dont 14 répondues, la tuile affiche « 10 questions à rattraper » et « 14 répondues sur 24 publiées »", async ({ page }) => {
+  test("avec 24 questions publiées dont 14 répondues, la tuile affiche « 10 sans réponse » et « 14 répondues sur 24 publiées »", async ({ page }) => {
     await quatorzeReponses(page);
     await page.goto("/rattrapage");
-    await expect(tuile(page)).toContainText("10 questions à rattraper");
+    await expect(tuile(page)).toContainText("10 sans réponse");
     await expect(tuile(page)).toContainText("14 répondues sur 24 publiées");
     await expect(tuile(page).getByRole("img", { name: "14 questions répondues sur 24 publiées" })).toBeVisible();
     expect(await remplissage(page)).toBeCloseTo(14 / 24, 2);
   });
 
-  test("après avoir répondu à la question n° 24, la tuile affiche « 9 questions à rattraper » et « 15 répondues sur 24 publiées », et la barre avance d'un cran", async ({ page }) => {
+  test("après avoir répondu à la question n° 24, la tuile affiche « 9 sans réponse » et « 15 répondues sur 24 publiées », et la barre avance d'un cran", async ({ page }) => {
     await quatorzeReponses(page);
     await repondreCeJour(page, "2026-10-23");
     await page.goto("/rattrapage");
-    await expect(tuile(page)).toContainText("9 questions à rattraper");
+    await expect(tuile(page)).toContainText("9 sans réponse");
     await expect(tuile(page)).toContainText("15 répondues sur 24 publiées");
     await expect(tuile(page).getByRole("img", { name: "15 questions répondues sur 24 publiées" })).toBeVisible();
     expect(await remplissage(page)).toBeCloseTo(15 / 24, 2);
@@ -1576,7 +1582,7 @@ test.describe("l'électeur ouvre « Mes résultats »", () => {
   test("depuis la fiche de la question n° 24, toucher « Mes résultats » ouvre la page « Mes résultats »", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
-    await page.getByRole("link", { name: "Mes résultats" }).click();
+    await page.getByRole("main").getByRole("link", { name: "Mes résultats" }).click();
     await expect(page).toHaveURL(/\/resultats$/);
     await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." })).toBeVisible();
   });
@@ -2368,13 +2374,13 @@ test.describe("un thème sous 3 réponses dit « pas encore assez de réponses �
 });
 
 test.describe("la question du jour annonce la part en jeu", () => {
-  const enJeu = (page: Page) => page.getByRole("link", { name: /En jeu aujourd'hui/ });
+  const enJeu = (page: Page) => page.getByRole("link", { name: /Avec cette réponse/ });
 
   test("sur la fiche n° 24, avec 2 réponses en Travail & retraites et 5 parts gagnées, le bloc annonce la part en jeu et les 6 parts sur 11", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/");
     await expect(enJeu(page)).toBeVisible();
-    await expect(enJeu(page).getByText("En jeu aujourd'hui", { exact: true })).toBeVisible();
+    await expect(enJeu(page).getByText("Avec cette réponse", { exact: true })).toBeVisible();
     await expect(enJeu(page).getByText("La part Travail & retraites", { exact: true })).toBeVisible();
     await expect(enJeu(page).getByText("Tu as 2 réponses sur 3 dans ce thème. Réponds et ton camembert passe à 6 parts sur 11.")).toBeVisible();
   });
@@ -3424,7 +3430,7 @@ test.describe("la page Méthode explique les deux badges", () => {
 });
 
 test.describe("la page Méthode explique la règle d'entrée des candidats", () => {
-  const regle7 = (page: Page) => page.getByRole("article", { name: "Qui est dans le jeu : 13 candidats" });
+  const regle7 = (page: Page) => page.getByRole("article", { name: "Qui est dans la liste : 13 candidats" });
 
   test("la règle n° 7 écrit les trois critères, dont un seul suffit", async ({ page }) => {
     await page.goto("/methode");
@@ -3465,7 +3471,7 @@ test.describe("la page Méthode explique la règle d'entrée des candidats", () 
 test.describe("la page Méthode explique les retraits et remplacements", () => {
   /** Le jalon de la frise de la règle n° 7 qui commence par `quand`. */
   const jalon = (page: Page, quand: string) =>
-    page.getByRole("article", { name: "Qui est dans le jeu : 13 candidats" }).locator(".tl li").filter({ has: page.locator(".when", { hasText: quand }) });
+    page.getByRole("article", { name: "Qui est dans la liste : 13 candidats" }).locator(".tl li").filter({ has: page.locator(".when", { hasText: quand }) });
 
   test("une entrée « En cas de retrait » dit que le candidat sort du classement avec la mention « X s'est retiré·e le JJ/MM et soutient Y »", async ({ page }) => {
     await page.goto("/methode");
@@ -3483,7 +3489,7 @@ test.describe("la page Méthode explique les retraits et remplacements", () => {
 test.describe("la page Méthode explique la bascule sur la liste officielle", () => {
   test("une entrée « Vers le 16 mars 2027 » dit que le Conseil constitutionnel publie la liste officielle, et que la liste de l'app bascule alors sur les candidats officiels", async ({ page }) => {
     await page.goto("/methode");
-    const frise = page.getByRole("article", { name: "Qui est dans le jeu : 13 candidats" }).locator(".tl li");
+    const frise = page.getByRole("article", { name: "Qui est dans la liste : 13 candidats" }).locator(".tl li");
     await expect(frise.locator(".when")).toHaveText(["Le 1er de chaque mois", "Vers le 16 mars 2027", "En cas de retrait", "En cas de remplacement dans le même parti"]);
     await expect(frise.nth(1).locator(".what")).toHaveText(
       "Le Conseil constitutionnel publie la liste officielle. La nôtre bascule alors exactement sur les candidats officiels.",
@@ -3492,7 +3498,7 @@ test.describe("la page Méthode explique la bascule sur la liste officielle", ()
 });
 
 test.describe("la page Méthode explique pourquoi ce n'est pas un sondage", () => {
-  const regle8 = (page: Page) => page.getByRole("article", { name: "Ce que ce jeu n'est pas, et comment le vérifier" });
+  const regle8 = (page: Page) => page.getByRole("article", { name: "Ce que cet outil n'est pas, et comment le vérifier" });
 
   test("la règle n° 8 affiche le tampon « Ce n'est pas un sondage. »", async ({ page }) => {
     await page.goto("/methode");
@@ -4051,9 +4057,15 @@ test.describe("l'en-tête mène aux deux écrans principaux", () => {
   test.describe("sur ordinateur", () => {
     test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
 
-    test("l'en-tête montre « Répondre » et « Mes résultats », mène à chacun, et met en avant la page où l'on est", async ({ page }) => {
+    test("le menu est une colonne de quatre icônes à gauche, sans texte, qui mène à chaque écran et met en avant la page où l'on est", async ({ page }) => {
       await page.goto("/");
-      await expect(menu(page).getByRole("link")).toHaveText(["Répondre", "Mes résultats"]);
+      const liens = menu(page).getByRole("link");
+      expect(await liens.evaluateAll((l) => l.map((a) => a.getAttribute("aria-label")))).toEqual(["Répondre", "Mes résultats", "Toutes les questions", "Méthode"]);
+      await expect(liens).toHaveText(["", "", "", ""]);
+      for (const lien of await liens.all()) {
+        const boite = (await lien.boundingBox())!;
+        expect(boite.x + boite.width).toBeLessThan(90);
+      }
       await expect(menu(page).getByRole("link", { name: "Répondre" })).toHaveAttribute("aria-current", "page");
       await menu(page).getByRole("link", { name: "Mes résultats" }).click();
       await page.waitForURL(/\/resultats$/);
@@ -4061,7 +4073,7 @@ test.describe("l'en-tête mène aux deux écrans principaux", () => {
       await expect(menu(page).getByRole("link", { name: "Répondre" })).not.toHaveAttribute("aria-current");
       await menu(page).getByRole("link", { name: "Répondre" }).click();
       await page.waitForURL(/\/$/);
-      await expect(page.getByText("Question n° 24", { exact: false }).filter({ visible: true }).first()).toBeVisible();
+      await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" }).filter({ visible: true })).toBeVisible();
     });
   });
 
@@ -4813,13 +4825,14 @@ test.describe("sans réponse, le face-à-face invite à répondre d'abord", () =
     await expect(page.getByText(/^Option de test/)).toHaveCount(0);
   });
 
-  test("à la place, une invitation à répondre d'abord, avec un bouton « Rattraper les questions »", async ({ page }) => {
+  test("à la place, une invitation à répondre d'abord, avec un bouton « Répondre » vers la prochaine question", async ({ page }) => {
     await faceAFace(page, []);
     const invitation = page.locator(".fd-card").filter({ visible: true });
     await expect(invitation.getByRole("heading", { level: 3 })).toHaveText("Les 27 questions attendent ta réponse");
     await expect(invitation.locator(".fd-n")).toHaveText("Les positions des candidats s'affichent après ta réponse, pour ne pas t'influencer.");
-    await invitation.getByRole("link", { name: "Rattraper les questions" }).click();
-    await page.waitForURL(/\/rattrapage$/);
+    await invitation.getByRole("link", { name: "Répondre" }).click();
+    await page.waitForURL(/\/$/);
+    await expect(page.getByRole("radiogroup", { name: "Les options" }).filter({ visible: true })).toBeVisible();
   });
 });
 
@@ -4889,7 +4902,7 @@ async function carteMoiContre(page: Page, question: string) {
 test.describe("« Moi contre » montre ses réponses face à celles d'un candidat", () => {
   test("face à Édouard Philippe, la retraite montre « Ta réponse » C « 64 ans » à gauche, C « 64 ans » de Philippe à droite, et « Même option »", async ({ page }) => {
     await moiContre(page);
-    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["Ta partieToi", "ÉdouardPhilippe"]);
+    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["Tes réponsesToi", "ÉdouardPhilippe"]);
     const { cotes, verdict } = await carteMoiContre(page, "À quel âge devrait-on pouvoir partir à la retraite ?");
     expect(cotes).toEqual([
       ["Ta réponse", "C", "64 ans"],
@@ -5053,7 +5066,7 @@ test.describe("L'électeur change de candidat dans « Moi contre »", () => {
     await page.waitForURL(/\/moi-contre\/le-pen$/);
     await expect(page.locator(".score .score-k").filter({ visible: true })).toHaveText("Ta proximité avec Marine Le Pen");
     await expect(page.locator(".score .score-big").filter({ visible: true })).toHaveText("58 %");
-    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["Ta partieToi", "MarineLe Pen"]);
+    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["Tes réponsesToi", "MarineLe Pen"]);
     const droite = page.locator(".vs-list .side:not(.me)").filter({ visible: true });
     await expect(droite).toHaveCount(23);
     expect(new Set(await droite.evaluateAll((s) => s.map((e) => e.getAttribute("aria-label"))))).toEqual(new Set(["Position de Marine Le Pen"]));
@@ -5139,11 +5152,11 @@ test.describe("Une question non répondue est grisée dans « Moi contre » et m
     expect(fond).not.toBe("rgb(255, 255, 255)");
   });
 
-  test("le bouton « Répondre » de cette carte ouvre la liste de rattrapage", async ({ page }) => {
+  test("le bouton « Répondre » de cette carte ouvre cette question", async ({ page }) => {
     await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
     await carteSansReponse(page, "Faut-il rétablir un service national obligatoire ?").getByRole("link", { name: "Répondre" }).click();
-    await expect(page).toHaveURL(/\/rattrapage$/);
-    await expect(page.getByRole("heading", { level: 1, name: "Rattraper les questions." })).toBeVisible();
+    await expect(page).toHaveURL(/\/question\/4$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Faut-il rétablir un service national obligatoire ?" }).filter({ visible: true })).toBeVisible();
   });
 
   test("l'en-tête « Question par question » affiche « 23 réponses · 4 sans réponse » pour un électeur qui a répondu à 23 questions et en a 4 sans réponse", async ({ page }) => {
@@ -5162,7 +5175,7 @@ test.describe("La fiche mène à « Moi contre » ce candidat", () => {
     await bouton.click();
     await page.waitForURL(/\/moi-contre\/tondelier$/);
     await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toHaveText("Moi contre un candidat.");
-    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["Ta partieToi", "MarineTondelier"]);
+    await expect(page.locator(".duel .pick-name").filter({ visible: true })).toHaveText(["Tes réponsesToi", "MarineTondelier"]);
   });
 });
 
@@ -5383,4 +5396,27 @@ test.describe("les questions viennent dans un ordre tiré pour chaque appareil",
     }
     expect(premieres.size).toBeGreaterThan(1);
   });
+});
+
+test.describe("au téléphone, les icônes du menu sont en haut, à droite du logo", () => {
+  for (const largeur of [375, 390]) {
+    test(`à ${largeur} px, les quatre icônes tiennent dans la barre du haut, sans défilement de côté, et mènent à leur écran`, async ({ page }) => {
+      await page.setViewportSize({ width: largeur, height: 812 });
+      await page.goto("/");
+      const barre = page.getByRole("banner");
+      const liens = barre.getByRole("navigation", { name: "Navigation" }).getByRole("link");
+      await expect(liens).toHaveCount(4);
+      const haut = (await barre.boundingBox())!;
+      for (const lien of await liens.all()) {
+        await expect(lien).toBeVisible();
+        const boite = (await lien.boundingBox())!;
+        expect(boite.y + boite.height).toBeLessThanOrEqual(haut.y + haut.height + 1);
+        expect(boite.x + boite.width).toBeLessThanOrEqual(largeur);
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(largeur);
+      await barre.getByRole("link", { name: "Toutes les questions" }).click();
+      await page.waitForURL(/\/rattrapage$/);
+      await expect(page.getByRole("heading", { level: 1, name: "Les questions." })).toBeVisible();
+    });
+  }
 });

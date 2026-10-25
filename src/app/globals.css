@@ -70,3 +70,44 @@
 @media (max-width: 899.98px) {
   .answer { margin-top: 52px; }
 }
+
+/* Le menu en icônes (décision du 25 octobre 2026 : gagner la hauteur, moins de mots). Au téléphone, il reste en haut,
+   à droite du logo ; le compte à rebours y garde le bandeau. */
+.topnav { display: flex; gap: 4px; }
+.topnav a {
+  display: grid; place-items: center;
+  width: 44px; height: 44px; border-radius: 12px;
+  color: var(--muted); text-decoration: none;
+  transition: background-color .15s var(--ease-out), color .15s var(--ease-out);
+}
+.topnav a svg { width: 24px; height: 24px; }
+.topnav a:hover { background: var(--table-2); color: var(--chalk); }
+.topnav a[aria-current] { background: var(--chalk); color: var(--ink); box-shadow: 0 4px 0 var(--pawn-edge); }
+.topnav a:focus-visible { outline: 3px solid var(--eco); outline-offset: 2px; }
+.rail-cd { display: none; }
+
+/* Sur ordinateur, une colonne à gauche : le logo, les icônes, et le compte à rebours en bas. Le bandeau du haut
+   (compte à rebours, numéro, retour) disparaît : la page commence en haut de l'écran. */
+@media (min-width: 900px) {
+  :root { --rail: 84px; --header-h: 0px; }
+  body { padding-left: var(--rail); }
+  .topbar {
+    position: fixed; top: 0; left: 0; bottom: 0; width: var(--rail);
+    flex-direction: column; justify-content: flex-start; align-items: center; gap: 18px;
+    padding: 18px 0 16px;
+    box-shadow: 1px 0 0 var(--table-2);
+  }
+  .brand span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .brand svg { width: 40px; height: 40px; }
+  .topnav { flex-direction: column; gap: 6px; }
+  .topnav a { width: 52px; height: 52px; padding: 0; border-radius: 14px; font: inherit; }
+  .topnav a:not([aria-current]) { background: none; }
+  .topnav a:not([aria-current]):hover { background: var(--table-2); }
+  .topnav a svg { width: 26px; height: 26px; }
+  .rail-cd { display: block; margin-top: auto; }
+  .rail-cd .countdown { flex-direction: column; align-items: center; background: none; overflow: visible; }
+  .rail-cd .countdown b { border-radius: 8px; padding: 5px 7px 4px; font-size: 13px; }
+  .rail-cd .countdown span { padding: 5px 0 0; font-size: 11px; color: var(--muted); }
+  body > .strip, main ~ .strip, .strip { display: none; }
+  .today, .res, .fiche, .lost, main { padding-top: 28px; }
+}

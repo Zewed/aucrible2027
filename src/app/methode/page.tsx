@@ -506,7 +506,7 @@ function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string
           7
         </span>
         <p className="rule-k">Règle n° 7</p>
-        <h2 id="r7-t">Qui est dans le jeu&nbsp;: {nombre}</h2>
+        <h2 id="r7-t">Qui est dans la liste&nbsp;: {nombre}</h2>
       </header>
       <div className="rule-body">
         <div className="rule-txt">
@@ -597,7 +597,7 @@ function RegleDesLimites() {
           8
         </span>
         <p className="rule-k">Règle n° 8</p>
-        <h2 id="r8-t">Ce que ce jeu n&apos;est pas, et comment le vérifier</h2>
+        <h2 id="r8-t">Ce que cet outil n&apos;est pas, et comment le vérifier</h2>
       </header>
       <div className="rule-body">
         <div className="rule-txt">
@@ -633,7 +633,7 @@ async function Methode() {
             <div>
               <p className="leaf-k">
                 <DeDesRegles />
-                Les règles du jeu
+                Les règles
               </p>
               <h1 id="h-top">
                 Méthode de calcul
@@ -642,7 +642,7 @@ async function Methode() {
               </h1>
               <p className="lead">
                 Comment tes réponses deviennent un pourcentage de proximité, d&apos;où viennent les positions des candidats, et qui a le
-                droit d&apos;être dans le jeu. <b>Tout est publié, rien n&apos;est caché.</b>
+                droit d&apos;être dans la liste. <b>Tout est publié, rien n&apos;est caché.</b>
               </p>
             </div>
             <Illustration />

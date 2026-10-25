@@ -67,7 +67,7 @@ async function Rattrapage() {
         <section className="catch-hero" aria-labelledby="titre">
           <div className="catch-text">
             <h1 id="titre">
-              Rattraper les questions<span>.</span>
+              Les questions<span>.</span>
             </h1>
           </div>
           <div className="tiles">

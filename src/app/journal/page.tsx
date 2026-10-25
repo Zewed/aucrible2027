@@ -173,7 +173,7 @@ async function Journal() {
             <div>
               <p className="leaf-k">
                 <DeDesRegles />
-                Les règles du jeu · transparence
+                Transparence
               </p>
               <h1 id="h-top">
                 Journal des
