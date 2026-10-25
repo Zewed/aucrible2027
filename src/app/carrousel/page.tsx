@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Link from "next/link";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { PREMIER_TOUR } from "@/components/CompteARebours";
 import { Logo } from "@/components/Logo";
 import { PartDuTheme } from "@/components/PuceTheme";
+import { VisuelsDuJour } from "@/components/VisuelsDuJour";
 import { lireThemes, type Question, type Theme } from "@/lib/contenu";
 import { joursEntre } from "@/lib/date";
 import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
@@ -165,6 +167,11 @@ function Legende({ question }: { question: Question }) {
         </p>
         <p>Réponds sur aucrible2027.fr (lien en bio). Ce n&apos;est pas un sondage : tes réponses restent sur ton téléphone.</p>
       </div>
+      <div className="acts">
+        <Link className="act second" href="/video">
+          Voir la vidéo du jour <Fleche />
+        </Link>
+      </div>
     </section>
   );
 }
@@ -181,7 +188,7 @@ const LEGENDES = [
 /**
  * « Carrousel du jour » (maquettes/carrousel.html) : les visuels de la question du jour, tirés de sa fiche, pour les
  * réseaux de l'auteur, la story et la légende proposée. Seule la fiche du jour, déjà publiée, est lue. Le
- * téléchargement et le lien vers la vidéo viennent avec les tickets 219 et 220.
+ * téléchargement vient avec le ticket 219.
  */
 async function CarrouselDuJour() {
   const [jour, publiees] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
@@ -215,6 +222,7 @@ async function CarrouselDuJour() {
             </li>
             <li>Dessinées ici à 320 px de large</li>
           </ul>
+          <VisuelsDuJour page="carrousel" />
         </header>
         {question && theme && (
           <section className="sheet sec" aria-labelledby="h-car">
