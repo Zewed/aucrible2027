@@ -1,6 +1,8 @@
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { expect, test, type BrowserContext, type Locator, type Page } from "@playwright/test";
 import { parse } from "yaml";
+import jsQR from "jsqr";
+import { PNG } from "pngjs";
 
 const CANDIDATS = [
   "Marine Le Pen", "Jean-Luc Mélenchon", "Édouard Philippe", "Raphaël Glucksmann",
@@ -5708,5 +5710,40 @@ test.describe("la page Méthode mène au code source public", () => {
     await onglet.waitForLoadState();
     expect(onglet.url()).toBe("https://github.com/Zewed/aucrible2027");
     await expect(page).toHaveURL(/\/methode$/);
+  });
+});
+
+/** Ce que dit un QR code de la page, lu comme le ferait l'appareil photo d'un autre téléphone. */
+async function lireLeQrCode(qr: Locator) {
+  const image = PNG.sync.read(await qr.screenshot());
+  return jsQR(new Uint8ClampedArray(image.data), image.width, image.height)?.data ?? null;
+}
+
+test.describe("l'électeur affiche ses réponses en QR code", () => {
+  const envoyer = (page: Page) => page.getByRole("region", { name: "Envoyer mes réponses" });
+
+  test("avec 23 réponses, « Changer d'appareil » affiche sous « Envoyer mes réponses » un QR code et « Scanne-le avec ton autre appareil »", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/appareil");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Changer d'appareil.");
+    await expect(envoyer(page).getByRole("img", { name: "QR code de tes réponses" })).toBeVisible();
+    await expect(envoyer(page).getByText("Scanne-le avec ton autre appareil", { exact: true })).toBeVisible();
+  });
+
+  test("lu par l'appareil photo d'un autre téléphone, le QR code propose d'ouvrir une adresse du site, avec les 23 réponses après le #", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/appareil");
+    const adresse = await lireLeQrCode(envoyer(page).getByRole("img", { name: "QR code de tes réponses" }));
+    expect(adresse).toMatch(/^http:\/\/localhost:3127\/i#/);
+    const [, ...reponses] = adresse!.split("#")[1].split(",");
+    expect(reponses).toHaveLength(23);
+    expect(reponses.find((r) => r.startsWith("1."))).toBe("1.A.3.20261022");
+  });
+
+  test("le QR code ne contient que des réponses, rien qui ne soit à l'électeur : ni adresse, ni compte", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/appareil");
+    const adresse = await lireLeQrCode(envoyer(page).getByRole("img", { name: "QR code de tes réponses" }));
+    expect(adresse!.split("#")[1]).toMatch(/^1(,\d+\.(?:[A-E]|nsp)\.[0-3]\.\d{8})+$/);
   });
 });
