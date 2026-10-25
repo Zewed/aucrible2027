@@ -52,10 +52,15 @@ test("je corrige dans la fiche « 1,7 » en « 1,6 » et je régénère : l'imag
     };
     const [chiffres, chiffresCorriges, carte, carteCorrigee] = [await image(20), await image(20, "video-corrigee"), await image(1), await image(1, "video-corrigee")];
     expect([chiffres.width, chiffres.height]).toEqual([1080, 1920]);
-    // À 20 s, l'image des chiffres : le premier chiffre a changé, le reste de l'image non.
+    // À 20 s, l'image des chiffres : le premier chiffre a changé, le reste de l'image non. Deux rendus d'une même image
+    // peuvent différer de quelques nuances sur un bord lissé : seul compte un pixel qui change franchement.
     const difference = (a: PNG, b: PNG, haut: number, bas: number) => {
       let pixels = 0;
-      for (let y = haut; y < bas; y++) for (let x = 0; x < a.width; x++) if (a.data.readUInt32BE((y * a.width + x) * 4) !== b.data.readUInt32BE((y * a.width + x) * 4)) pixels++;
+      for (let y = haut; y < bas; y++)
+        for (let x = 0; x < a.width; x++) {
+          const i = (y * a.width + x) * 4;
+          if (Math.max(...[0, 1, 2].map((c) => Math.abs(a.data[i + c] - b.data[i + c]))) > 32) pixels++;
+        }
       return pixels;
     };
     expect(difference(chiffres, chiffresCorriges, 0, 1920)).toBeGreaterThan(500);
