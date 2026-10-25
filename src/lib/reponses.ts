@@ -25,6 +25,12 @@ export function enregistrerReponse(numero: number, reponse: Reponse) {
   window.dispatchEvent(new Event(NOUVELLE_REPONSE));
 }
 
+/** Remplace toutes les réponses de l'appareil, par exemple par celles importées d'un autre appareil. */
+export function remplacerLesReponses(reponses: Record<number, Reponse>) {
+  localStorage.setItem(CLE, JSON.stringify(reponses));
+  window.dispatchEvent(new Event(NOUVELLE_REPONSE));
+}
+
 /** Pour `useCoteClient` : relire les réponses quand l'une est enregistrée, ici ou dans un autre onglet. */
 export function abonnerAuxReponses(relire: () => void) {
   window.addEventListener(NOUVELLE_REPONSE, relire);

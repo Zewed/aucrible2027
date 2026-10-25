@@ -140,3 +140,4 @@
 /* Changer d'appareil : le vrai lien est long (toutes les réponses) ; sa ligne reste dans la carte et le coupe. */
 .app-card-body { min-width: 0; }
 .linkrow { min-width: 0; max-width: 100%; overflow: hidden; }
+.app-card .cam { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; background: var(--ink); }

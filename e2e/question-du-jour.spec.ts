@@ -2,6 +2,7 @@ import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { expect, test, type BrowserContext, type Locator, type Page } from "@playwright/test";
 import { parse } from "yaml";
 import jsQR from "jsqr";
+import qrcode from "qrcode-generator";
 import { PNG } from "pngjs";
 
 const CANDIDATS = [
@@ -5781,5 +5782,95 @@ test.describe("l'électeur copie ses réponses en lien", () => {
     await expect(ligne).toContainText("localhost:3127/i#1,");
     const [boite, carte] = await Promise.all([ligne.boundingBox(), envoyer(page).boundingBox()]);
     expect(boite!.x + boite!.width).toBeLessThanOrEqual(carte!.x + carte!.width + 1);
+  });
+});
+
+/** L'adresse que l'appareil `page` emporte : celle de son QR code, lue depuis l'image. */
+async function adresseDeLAppareil(page: Page) {
+  await page.goto("/appareil");
+  return (await lireLeQrCode(page.getByRole("region", { name: "Envoyer mes réponses" }).getByRole("img", { name: "QR code de tes réponses" })))!;
+}
+
+/**
+ * Un appareil photo de test : il filme, en boucle, le QR code de `contenu` (ou n'importe quelle image). Seul le test
+ * le pose ; l'app, elle, demande l'appareil photo au navigateur comme d'habitude.
+ */
+async function appareilPhotoQuiFilme(contexte: BrowserContext, contenu: string) {
+  const qr = qrcode(0, "M");
+  qr.addData(contenu);
+  qr.make();
+  const svg = qr.createSvgTag({ cellSize: 8, margin: 4 });
+  await contexte.addInitScript((svg) => {
+    navigator.mediaDevices.getUserMedia = async () => {
+      const toile = document.createElement("canvas");
+      toile.width = toile.height = 480;
+      const dessin = toile.getContext("2d")!;
+      const image = new Image();
+      image.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+      await image.decode();
+      const filmer = () => {
+        dessin.fillStyle = "#fff";
+        dessin.fillRect(0, 0, 480, 480);
+        dessin.drawImage(image, 40, 40, 400, 400);
+        requestAnimationFrame(filmer);
+      };
+      filmer();
+      return toile.captureStream(15);
+    };
+  }, svg);
+}
+
+test.describe("scanner le QR code importe les réponses", () => {
+  test("sur un appareil sans réponse, « Scanner un QR code » ouvre l'appareil photo ; en visant le QR code de l'ancien, « Mes résultats » montre les mêmes 23 réponses et le même classement", async ({ page, browser }) => {
+    await vingtTroisReponses(page);
+    const adresse = await adresseDeLAppareil(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const classementAncien = await lignesDuClassement(page);
+
+    const nouveau = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    await fixerLOrdre(nouveau);
+    await appareilPhotoQuiFilme(nouveau, adresse);
+    const autre = await nouveau.newPage();
+    await fixerLeJour(autre, "2026-10-23T09:00:00+02:00");
+    await autre.goto("/appareil");
+    await autre.getByRole("region", { name: "Récupérer mes réponses" }).getByRole("button", { name: "Scanner un QR code" }).click();
+    await autre.waitForURL(/\/resultats$/);
+    await expect(autre.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    expect(await lignesDuClassement(autre)).toEqual(classementAncien);
+    await expect(autre.locator(".reliab").filter({ visible: true })).toHaveText("Fiabilité : moyenne (23 réponses)");
+    await nouveau.close();
+  });
+
+  test("visé hors de l'app, avec l'appareil photo du téléphone, le lien du QR code ouvre l'app et importe aussi les 23 réponses", async ({ page, browser }) => {
+    await vingtTroisReponses(page);
+    const adresse = await adresseDeLAppareil(page);
+    const nouveau = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    const autre = await nouveau.newPage();
+    await fixerLeJour(autre, "2026-10-23T09:00:00+02:00");
+    await autre.goto(adresse);
+    await autre.waitForURL(/\/resultats$/);
+    await expect(autre.locator(".reliab").filter({ visible: true })).toHaveText("Fiabilité : moyenne (23 réponses)");
+    await nouveau.close();
+  });
+
+  test("la n° 24, répondue E en ×2 sur l'ancien appareil, s'ouvre sur sa révélation avec « Ta carte » sur E et ×2 sur le nouveau", async ({ page, browser }) => {
+    await page.goto("/");
+    await choisir(page, "À la carte, avec un système à points");
+    await peser(page, "×2");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    const adresse = await adresseDeLAppareil(page);
+    const nouveau = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    const autre = await nouveau.newPage();
+    await fixerLeJour(autre, "2026-10-23T09:00:00+02:00");
+    await autre.goto(adresse);
+    await autre.waitForURL(/\/resultats$/);
+    await autre.goto("/question/24");
+    await autre.waitForURL(/\/question\/24\/revelation$/);
+    await expect(autre.getByRole("region", { name: /^Ta réponse : E/ })).toBeVisible();
+    await expect(autre.getByText("Importance ×2", { exact: true })).toBeVisible();
+    await expect(autre.getByRole("article", { name: "Option E : À la carte, avec un système à points" }).getByText("Ta carte")).toBeVisible();
+    await nouveau.close();
   });
 });
