@@ -3,6 +3,14 @@
 import jsQR from "jsqr";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { CodeIllisible } from "@/components/CodeIllisible";
+import { decoderLesReponses } from "@/lib/transfert";
+
+/** Les réponses après le # d'une adresse de transfert de ce site, ou null si ce n'en est pas une, ou si elle est abîmée. */
+function fragmentDeTransfert(adresse: string) {
+  const fragment = adresse.split("/i#")[1];
+  return fragment && decoderLesReponses(fragment) ? fragment : null;
+}
 
 /**
  * La carte 2 de « Changer d'appareil » : sur le nouvel appareil, « Scanner un QR code » ouvre l'appareil photo et lit
@@ -20,7 +28,7 @@ export function RecupererMesReponses() {
   function importer(evenement: React.FormEvent<HTMLFormElement>) {
     evenement.preventDefault();
     const lien = String(new FormData(evenement.currentTarget).get("lien") ?? "").trim();
-    const fragment = lien.split("/i#")[1];
+    const fragment = fragmentDeTransfert(lien);
     if (!fragment) {
       setIllisible(true);
       return;
@@ -38,6 +46,7 @@ export function RecupererMesReponses() {
   }
 
   // Tant que l'appareil photo filme, chaque image est lue ; le premier QR code d'une adresse de transfert l'emporte.
+  // Un autre QR code est refusé, et l'appareil photo continue de filmer pour réessayer.
   useEffect(() => {
     if (!flux || !video.current) return;
     const lecteur = video.current;
@@ -52,11 +61,12 @@ export function RecupererMesReponses() {
         const dessin = toile.getContext("2d", { willReadFrequently: true })!;
         dessin.drawImage(lecteur, 0, 0);
         const code = jsQR(dessin.getImageData(0, 0, toile.width, toile.height).data, toile.width, toile.height);
-        if (code?.data.startsWith(`${location.origin}/i#`)) {
+        if (code?.data.startsWith(`${location.origin}/i#`) && fragmentDeTransfert(code.data)) {
           flux.getTracks().forEach((piste) => piste.stop());
           location.assign(code.data);
           return;
         }
+        if (code) setIllisible(true);
       }
       suivante = requestAnimationFrame(lire);
     };
@@ -104,7 +114,7 @@ export function RecupererMesReponses() {
             Importer
           </button>
         </form>
-        {illisible && <p className="caution theme-sante">Ce code n&apos;est pas lisible. Réessaie ou colle le lien.</p>}
+        {illisible && <CodeIllisible />}
         {/* Texte provisoire : la maquette ne dessine pas le refus de l'appareil photo. */}
         {refus && <p className="caution theme-sante">Pas d&apos;accès à l&apos;appareil photo.</p>}
       </div>
