@@ -1,0 +1,12 @@
+/* La vidéo du jour, rendue par Remotion : les polices viennent de @fontsource-variable, pas de next/font. */
+:root {
+  --display: "Bricolage Grotesque Variable", system-ui, sans-serif;
+  --text: "Instrument Sans Variable", system-ui, sans-serif;
+}
+
+/* Tout ce qui bouge est piloté image par image par Remotion : les animations CSS du kit ne doivent pas jouer. */
+.video *, .video *::before, .video *::after { animation: none !important; transition: none !important; }
+
+.video { background: var(--table); }
+.video-cadre { transform-origin: 0 0; }
+.video-cadre .vf { width: 100%; height: 100%; border-radius: 0; box-shadow: none; }

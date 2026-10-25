@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "video": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/video.mts"
   },
   "dependencies": {
     "html-to-image": "1.11.13",
@@ -20,7 +21,11 @@
     "yaml": "^2.9.1"
   },
   "devDependencies": {
+    "@fontsource-variable/bricolage-grotesque": "5.2.10",
+    "@fontsource-variable/instrument-sans": "5.2.8",
     "@playwright/test": "^1.64.1",
+    "@remotion/bundler": "4.0.535",
+    "@remotion/renderer": "4.0.535",
     "@types/node": "^20",
     "@types/pngjs": "^6.0.5",
     "@types/react": "^19",
@@ -28,6 +33,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
     "pngjs": "7.0.0",
+    "remotion": "4.0.535",
     "typescript": "^5"
   },
   "packageManager": "pnpm@10.31.0"

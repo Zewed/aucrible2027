@@ -4521,6 +4521,66 @@ test.describe("chaque image porte la signature @aucrible2027", () => {
   });
 });
 
+test.describe("l'auteur génère la vidéo verticale du jour depuis la fiche", () => {
+  const storyboard = (page: Page) => page.getByRole("region", { name: "Le storyboard" }).locator(".vf");
+
+  test("depuis le carrousel, « Voir la vidéo du jour » ouvre la page de la vidéo, et « Carrousel et story » ramène au carrousel", async ({ page }) => {
+    await page.goto("/carrousel");
+    const visuels = page.getByRole("navigation", { name: "Visuels du jour" });
+    await expect(visuels.getByRole("link", { name: "Carrousel et story" })).toHaveAttribute("aria-current", "page");
+    await page.getByRole("link", { name: "Voir la vidéo du jour" }).click();
+    await page.waitForURL(/\/video$/);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Vidéodu jour.");
+    await expect(visuels.getByRole("link", { name: "Vidéo" })).toHaveAttribute("aria-current", "page");
+    await visuels.getByRole("link", { name: "Carrousel et story" }).click();
+    await page.waitForURL(/\/carrousel$/);
+    await expect(page.getByRole("region", { name: "Le carrousel" })).toBeVisible();
+  });
+
+  test("la page de la vidéo montre le storyboard de la n° 24 : 7 images 9:16, de 0 à 75 s", async ({ page }) => {
+    await page.goto("/video");
+    await expect(page.getByText("question n° 24", { exact: false }).first()).toBeVisible();
+    await expect(storyboard(page)).toHaveCount(7);
+    await expect(page.getByRole("region", { name: "Le storyboard" }).locator("figcaption .cap b")).toHaveText(["0–3 s", "3–12 s", "12–30 s", "30–45 s", "45–60 s", "60–70 s", "70–75 s"]);
+    for (const { width, height } of await storyboard(page).evaluateAll((s) => s.map((e) => e.getBoundingClientRect()).map(({ width, height }) => ({ width, height }))))
+      expect(width / height).toBeCloseTo(9 / 16, 2);
+    await expect(storyboard(page).nth(2).locator(".v-fig-num")).toHaveText(["1,7", "14 %", "62 ans"]);
+  });
+
+  for (const jour of ["2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25"]) {
+    test(`le ${jour}, rien ne sort des 7 images de la vidéo`, async ({ page }) => {
+      await fixerLeJour(page, `${jour}T09:00:00+02:00`);
+      await page.goto("/video");
+      await expect(storyboard(page)).toHaveCount(7);
+      const debords = await storyboard(page).evaluateAll((cadres) =>
+        cadres.flatMap((cadre, i) => {
+          const c = cadre.getBoundingClientRect();
+          return [...cadre.querySelectorAll(".v-brand, .v-card, .v-k, .v-words p, .v-fig, .v-opt, .v-arg, .mark-big, h3, .v-url, .v-handle")]
+            .filter((e) => {
+              const r = e.getBoundingClientRect();
+              return r.left < c.left - 0.5 || r.right > c.right + 0.5 || r.top < c.top - 0.5 || r.bottom > c.bottom + 0.5;
+            })
+            .map((e) => `image ${i + 1} : ${e.className || e.tagName}`);
+        }),
+      );
+      expect(debords).toEqual([]);
+    });
+  }
+
+  test("je corrige dans la fiche « 1,7 » en « 1,6 » : l'image des chiffres de la vidéo montre 1,6, sans rien retaper", async ({ page }) => {
+    const dossier = "e2e/fiches/video-corrige";
+    mkdirSync(dossier, { recursive: true });
+    try {
+      writeFileSync(`${dossier}/024.yaml`, readFileSync("content/questions/024-retraite.yaml", "utf8").replace('valeur: "1,7"', 'valeur: "1,6"'));
+      await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "video-corrige", url: "http://localhost:3127" }]);
+      await page.goto("/video");
+      await expect(storyboard(page).nth(2).locator(".v-fig-num").first()).toHaveText("1,6");
+    } finally {
+      rmSync(dossier, { recursive: true, force: true });
+    }
+  });
+});
+
 test.describe("la dernière image invite à répondre sur l'app", () => {
   const derniere = (page: Page) => page.getByRole("region", { name: "Le carrousel" }).getByRole("article", { name: "Image 6 sur 6 : et toi ?" });
 

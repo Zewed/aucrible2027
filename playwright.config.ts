@@ -12,7 +12,9 @@ export default defineConfig({
     timezoneId: "Europe/Paris",
   },
   projects: [
-    { name: "telephone", use: { ...devices["Pixel 7"] } },
+    { name: "telephone", use: { ...devices["Pixel 7"] }, testIgnore: /video\.spec\.ts/ },
+    // Les vrais rendus de la vidéo du jour, longs et gourmands : après les autres tests, pour ne pas les ralentir.
+    { name: "video", testMatch: /video\.spec\.ts/, dependencies: ["telephone"] },
   ],
   webServer: {
     command: `pnpm build && pnpm start --port ${PORT}`,
