@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { EnvoyerMesReponses } from "@/components/EnvoyerMesReponses";
+import { RecupererMesReponses } from "@/components/RecupererMesReponses";
 import { lireAujourdhui } from "@/lib/publication";
 import "./appareil.css";
 
@@ -22,6 +23,9 @@ async function Appareil() {
         </section>
         <div className="app-grid">
           <EnvoyerMesReponses />
+          <div className="app-col">
+            <RecupererMesReponses />
+          </div>
         </div>
       </main>
     </>
