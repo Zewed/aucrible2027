@@ -5,6 +5,8 @@ milestone: null
 depends_on: ["033"]
 design: maquettes/index.html
 tracker: null
+status: done
+abandonne: "2026-10-25 — pas d'avertissement en navigation privée (décision de l'auteur)"
 ---
 
 ## Ce que l'utilisateur fait

@@ -5,6 +5,8 @@ milestone: null
 depends_on: ["052"]
 design: maquettes/rattrapage.html
 tracker: null
+status: done
+abandonne: "2026-10-25 — l'ordre est tiré au hasard (décision de l'auteur)"
 ---
 
 ## Ce que l'utilisateur fait
