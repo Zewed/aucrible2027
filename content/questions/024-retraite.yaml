@@ -62,6 +62,12 @@ cotes:
     argument: "On vit plus longtemps : travailler un peu plus protège le niveau des pensions."
   - titre: "Pour ne pas le relever"
     argument: "Les métiers pénibles et les carrières hachées en paient le prix."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "62 ans"
+    precision: "ou moins"
+  - choix: "64 ans"
+    precision: "ou plus"
 positions:
   melenchon: { option: A, source: "Programme 2022, p. 12", statut: deduite }
   roussel: { option: A, source: "Interview franceinfo, 21/09/2026", statut: officielle }
