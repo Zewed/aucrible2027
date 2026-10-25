@@ -57,6 +57,8 @@ if (options.image !== undefined) {
 } else {
   const sortie = options.sortie ?? path.join(racine, "videos", `${nom}.mp4`);
   mkdirSync(path.dirname(sortie), { recursive: true });
-  await renderMedia({ composition, serveUrl, inputProps, codec: "h264", outputLocation: sortie, ...navigateur });
+  // Trois images rendues à la fois : mesuré plus rapide que six ou huit ici, et Remotion ne cale plus en ouvrant
+  // tous ses onglets d'un coup quand la machine est chargée.
+  await renderMedia({ composition, serveUrl, inputProps, codec: "h264", outputLocation: sortie, concurrency: 3, ...navigateur });
   console.log(sortie);
 }
