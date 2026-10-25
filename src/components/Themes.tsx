@@ -62,7 +62,6 @@ export function TesThemes({ questions, themes, candidats }: { questions: Questio
     <section className="sec" aria-labelledby="h-game">
       <div className="sec-h">
         <h2 id="h-game">Tes {themes.length} thèmes</h2>
-        <p>{REPONSES_PAR_PART} réponses = 1 part</p>
       </div>
       <ul className="themes">
         {themes.map((theme, i) => {

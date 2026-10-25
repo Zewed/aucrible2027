@@ -92,7 +92,6 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
   const rangChoisi = question.options.findIndex((o) => o.id === reponse.option);
   const choisie = question.options[rangChoisi];
   const importance = reponse.importance;
-  const nombreDeReponses = Object.keys(reponses).length;
   // Cette réponse est la 3e de son thème : la part est gagnée. Les autres cas restent à trancher.
   const parTheme = reponsesParTheme(questions, reponses);
   const partGagnee = reponse.option !== JE_NE_SAIS_PAS && parTheme[theme.id] === REPONSES_PAR_PART;
@@ -153,22 +152,12 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
             )}
           </section>
         )}
-        {choisie && (
+        {/* Sans personne d'aligné, de proche ni d'opposé (aucune position sourcée), le bloc n'a rien à montrer. */}
+        {choisie && alignes.length + proches.length + opposes.length > 0 && (
           <section className="align" aria-label="Alignement sur ce sujet">
             <LigneAlignement id="alignes" titre="Sur ce sujet, tu es aligné·e avec" candidats={alignes} principale />
             <LigneAlignement id="proches" titre="et proche de" candidats={proches} />
             <LigneAlignement id="opposes" titre="opposé·e à" candidats={opposes} loin />
-            <p className="align-note">
-              Aligné·e&nbsp;: même carte que toi ({lettreOption(rangChoisi)}). Proche&nbsp;:{" "}
-              {voisins.length > 1 ? "cartes voisines" : "carte voisine"} ({voisins.map(lettreOption).join(" et ")}).
-              {eloignees.length > 0 && (
-                <>
-                  {" "}
-                  Opposé·e&nbsp;: {eloignees.length > 1 ? "cartes les plus éloignées" : "carte la plus éloignée"} (
-                  {eloignees.map(lettreOption).join(" et ")}).
-                </>
-              )}
-            </p>
           </section>
         )}
         {(partGagnee || palier) && (
@@ -223,11 +212,6 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
             <h2 id="qui-defend-quoi">Qui défend quoi</h2>
             <p>ordre mélangé</p>
           </div>
-          <p className="rev-note">
-            {nombreDeCandidats(enLice.length)} : {enLice.length - inconnus.length}{" "}
-            {enLice.length - inconnus.length > 1 ? "positions sourcées" : "position sourcée"}, {inconnus.length} sans source à ce
-            jour. Touche un nom pour sa fiche.
-          </p>
           <div className="ropts">
             {question.options.map((option, rang) => {
               const leurs = melanger(
@@ -280,9 +264,7 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
                   <span className="ropt-letter" aria-hidden="true">?</span>
                   <h3 className="ropt-title" id="o-inconnue">Position inconnue</h3>
                   <p className="ropt-meta">
-                    <span>
-                      {nombreDeCandidats(inconnus.length)} · {inconnus.length > 1 ? "exclus" : "exclu"} du calcul sur ce sujet
-                    </span>
+                    <span>{nombreDeCandidats(inconnus.length)}</span>
                   </p>
                 </header>
                 <ul className="defs">
@@ -324,10 +306,6 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
               </svg>
             </Link>
           )}
-          <p className="go-note">
-            Ton classement est recalculé avec cette {nombreDeReponses}
-            <sup>{nombreDeReponses === 1 ? "re" : "e"}</sup>&nbsp;réponse.
-          </p>
         </div>
         {question.pourAllerPlusLoin && question.pourAllerPlusLoin.length > 0 && (
           <section className="more" aria-labelledby="pour-aller-plus-loin">

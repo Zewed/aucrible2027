@@ -42,8 +42,7 @@ export function ProximiteDuCandidat({
         <i style={{ "--p": pourcentage } as React.CSSProperties}></i>
       </span>
       <p className="prox-note">
-        {rangEnLettres(rang + 1)} sur {lignes.length}, d&apos;après tes {comptees} réponses. Les positions inconnues ne
-        comptent pas.
+        {rangEnLettres(rang + 1)} sur {lignes.length}
       </p>
     </section>
   );

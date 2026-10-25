@@ -60,7 +60,7 @@ function EnJeu({ question, theme, enJeu, reponses }: { question: Question; theme
           La part {theme.nom}
         </span>
         <span className="stake-s" style={{ display: "block" }}>
-          Tu as {dansLeTheme} réponses sur {REPONSES_PAR_PART} dans ce thème. Réponds et ton camembert passe à{" "}
+          Ton camembert passe à{" "}
           <u>
             {gagnes.length + 1} parts sur {enJeu.themes.length}
           </u>
@@ -209,7 +209,6 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
           </div>
         </fieldset>
         <button type="submit" className="go" aria-disabled={!choix}>Valider ma réponse</button>
-        <p className="go-note">Tes réponses restent sur ton téléphone, sans compte.</p>
       </form>
       <footer className="foot">
         <Link className="small" href={`/signaler?question=${question.numero}`}>
