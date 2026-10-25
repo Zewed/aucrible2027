@@ -1,5 +1,6 @@
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { expect, test, type BrowserContext, type Locator, type Page } from "@playwright/test";
+import { sealData } from "iron-session";
 import postgres from "postgres";
 import { parse } from "yaml";
 import jsQR from "jsqr";
@@ -3821,6 +3822,84 @@ test.describe("l'électeur envoie un signalement", () => {
     expect([...new Set(pages)]).toEqual(["/signaler?question=24"]);
     await expect(page.locator("input[type=password], input[autocomplete=username]")).toHaveCount(0);
     await expect.poll(async () => (await signalementArrive(marque)).length).toBe(1);
+  });
+});
+
+/**
+ * Connecte ce navigateur à l'espace de l'auteur avec ce compte GitHub, comme le ferait le retour de GitHub : une session
+ * chiffrée avec le secret des tests (playwright.config.ts). Seul le compte n° 44063631 (Zewed) est celui de l'auteur.
+ */
+async function connecterAvecGitHub(page: Page, compte = { id: 44063631, login: "Zewed" }) {
+  const session = await sealData({ github: compte }, { password: process.env.AUTH_SECRET! });
+  await page.context().addCookies([{ name: "aucrible-auteur", value: session, url: "http://localhost:3127", httpOnly: true, secure: true, sameSite: "Lax" }]);
+}
+
+/** Envoie un signalement « Un chiffre » sur la n° 24 depuis le formulaire, avec ce texte. */
+async function signaler(page: Page, texte: string) {
+  await page.goto("/signaler?question=24");
+  await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(texte);
+  await page.getByRole("button", { name: "Envoyer" }).click();
+  await expect(page.getByRole("status")).toHaveText("Envoyé.");
+}
+
+test.describe("le signalement arrive dans une boîte privée", () => {
+  const boite = (page: Page) => page.getByRole("region", { name: "Signalements" });
+
+  test("après l'envoi depuis la n° 24 avec « Un chiffre », l'auteur le retrouve dans sa boîte, avec la question, le type et le texte", async ({ page }) => {
+    const texte = `Le chiffre de 1,7 cotisant pour 1 retraité me semble daté ${Date.now()}-${Math.random()}`;
+    await signaler(page, texte);
+    await connecterAvecGitHub(page);
+    await page.goto("/admin");
+    const signalement = boite(page).getByRole("article").filter({ hasText: texte });
+    await expect(signalement).toHaveCount(1);
+    await expect(signalement.locator(".sg-q")).toHaveText("Question n° 24");
+    await expect(signalement.locator(".sg-type")).toHaveText("Un chiffre");
+    await expect(signalement.locator(".sg-texte")).toHaveText(texte);
+  });
+
+  test("ce signalement n'apparaît ni dans le journal des corrections, ni sur la fiche, ni sur aucune page publique", async ({ page }) => {
+    const texte = `Une phrase qui penche, introuvable ailleurs ${Date.now()}-${Math.random()}`;
+    await signaler(page, texte);
+    for (const adresse of ["/journal", "/question/24", "/question/24/revelation", "/", "/resultats", "/rattrapage", "/methode", "/a-propos", "/signaler?question=24", "/candidat/tondelier"]) {
+      await page.goto(adresse);
+      await page.waitForLoadState("networkidle");
+      expect(await page.content(), adresse).not.toContain(texte);
+    }
+  });
+
+  test("sans connexion, /admin ne montre aucun signalement, seulement « Se connecter avec GitHub », qui part vers GitHub", async ({ page }) => {
+    const texte = `Pas pour les visiteurs ${Date.now()}-${Math.random()}`;
+    await signaler(page, texte);
+    await page.goto("/admin");
+    await expect(page.getByRole("link", { name: "Se connecter avec GitHub" })).toBeVisible();
+    await expect(boite(page)).toHaveCount(0);
+    expect(await page.content()).not.toContain(texte);
+    const depart = await page.request.get("/admin/connexion", { maxRedirects: 0 });
+    expect(depart.status()).toBe(307);
+    const versGitHub = new URL(depart.headers()["location"]);
+    expect(versGitHub.origin + versGitHub.pathname).toBe("https://github.com/login/oauth/authorize");
+    expect(versGitHub.searchParams.get("client_id")).toBe("app-oauth-de-test");
+    expect(versGitHub.searchParams.get("redirect_uri")).toBe("http://localhost:3127/admin/retour");
+    expect(versGitHub.searchParams.get("state")).toMatch(/^[\w-]{20,}$/);
+  });
+
+  test("connecté avec un autre compte GitHub que celui de l'auteur, /admin refuse : « Ce compte GitHub n'a pas accès. »", async ({ page }) => {
+    const texte = `Pas pour un autre compte ${Date.now()}-${Math.random()}`;
+    await signaler(page, texte);
+    await connecterAvecGitHub(page, { id: 1, login: "quelquun" });
+    await page.goto("/admin");
+    await expect(page.getByText("Ce compte GitHub n'a pas accès.")).toBeVisible();
+    await expect(boite(page)).toHaveCount(0);
+    expect(await page.content()).not.toContain(texte);
+  });
+
+  test("un retour de GitHub dont le « state » n'est pas celui du départ est refusé, sans ouvrir de session", async ({ page }) => {
+    const retour = await page.request.get("/admin/retour?code=nimporte&state=pas-le-bon", { maxRedirects: 0 });
+    expect(retour.status()).toBe(307);
+    expect(new URL(retour.headers()["location"]).pathname).toBe("/admin");
+    await page.goto("/admin");
+    await expect(page.getByRole("link", { name: "Se connecter avec GitHub" })).toBeVisible();
+    await expect(boite(page)).toHaveCount(0);
   });
 });
 

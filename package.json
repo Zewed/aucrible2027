@@ -13,12 +13,14 @@
   },
   "dependencies": {
     "html-to-image": "1.11.13",
+    "iron-session": "9.0.1",
     "jsqr": "1.4.0",
     "next": "16.4.2",
     "postgres": "3.4.9",
     "qrcode-generator": "1.4.4",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "server-only": "0.0.1",
     "yaml": "^2.9.1"
   },
   "devDependencies": {
