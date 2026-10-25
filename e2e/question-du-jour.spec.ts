@@ -5512,3 +5512,50 @@ test.describe("la révélation n'affiche pas de bloc vide", () => {
     await expect(page.getByRole("region", { name: "Alignement sur ce sujet" })).toHaveCount(0);
   });
 });
+
+test.describe("le classement affiche sa fiabilité", () => {
+  /** `n` réponses comptées (A aux n° 1 à n). */
+  async function reponses(page: Page, n: number) {
+    await page.goto("/");
+    await page.evaluate((n) => {
+      const r: Record<number, object> = {};
+      for (let numero = 1; numero <= n; numero++) r[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22" };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(r));
+    }, n);
+  }
+  const fiabilite = (page: Page) => page.locator(".res-hero .reliab").filter({ visible: true });
+
+  test("avec 23 réponses, « Mes résultats » affiche « Fiabilité : moyenne (23 réponses) » avec deux crans allumés sur trois", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(fiabilite(page)).toHaveText("Fiabilité : moyenne (23 réponses)");
+    await expect(fiabilite(page).locator(".meter i")).toHaveCount(3);
+    await expect(fiabilite(page).locator(".meter i.on")).toHaveCount(2);
+  });
+
+  test("le nombre suit les réponses : après la réponse à la question n° 24, il indique 24 réponses", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await page.goto("/resultats");
+    await expect(fiabilite(page)).toHaveText("Fiabilité : moyenne (24 réponses)");
+  });
+
+  test("les seuils : faible de 10 à 19 (un cran), forte à partir de 30 (trois crans), rien avant 10", async ({ page }) => {
+    await reponses(page, 12);
+    await page.goto("/resultats");
+    await expect(fiabilite(page)).toHaveText("Fiabilité : faible (12 réponses)");
+    await expect(fiabilite(page).locator(".meter i.on")).toHaveCount(1);
+    await fixerLeJour(page, "2027-04-20T09:00:00+02:00");
+    await reponses(page, 400);
+    await page.goto("/resultats");
+    await expect(fiabilite(page)).toHaveText(/^Fiabilité : forte \(\d+ réponses\)$/);
+    await expect(fiabilite(page).locator(".meter i.on")).toHaveCount(3);
+    await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
+    await reponses(page, 5);
+    await page.goto("/resultats");
+    await expect(page.locator(".reliab")).toHaveCount(0);
+  });
+});

@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { ApercuDeLaCarte } from "@/components/Carte";
 import { Classement } from "@/components/Classement";
+import { Fiabilite } from "@/components/Fiabilite";
 import { Plateau } from "@/components/Plateau";
 import { GrandCamembert, TesThemes } from "@/components/Themes";
 import { lireThemes } from "@/lib/contenu";
@@ -32,6 +33,7 @@ async function Resultats() {
               <h1>
                 Mes résultats<span>.</span>
               </h1>
+              <Fiabilite questions={duCalcul} />
               <p className="notpoll">
                 <b>Ce n&apos;est pas un sondage</b> : seulement tes réponses, gardées sur ton téléphone.
               </p>
