@@ -9,7 +9,8 @@ export const TYPES = [
   { valeur: "autre", nom: "Autre" },
 ];
 
-export type Signalement = { question: number; type: string; texte: string };
+/** Un signalement : sa question, son type, son texte, et la source que l'électeur a pu joindre (un lien, facultatif). */
+export type Signalement = { question: number; type: string; texte: string; source: string | null };
 
 export type SignalementRecu = Signalement & { id: string; recuLe: Date };
 
@@ -21,11 +22,11 @@ export async function lireLesSignalements(): Promise<SignalementRecu[]> {
   const auteur = await lAuteur();
   if (!auteur || auteur === "refuse") throw new Error("La boîte des signalements est réservée à l'auteur.");
   const sql = await base();
-  return sql<SignalementRecu[]>`SELECT id, recu_le AS "recuLe", question, type, texte FROM signalements ORDER BY recu_le DESC, id DESC LIMIT 200`;
+  return sql<SignalementRecu[]>`SELECT id, recu_le AS "recuLe", question, type, texte, source FROM signalements ORDER BY recu_le DESC, id DESC LIMIT 200`;
 }
 
 /** Garde un signalement dans la base, pour la boîte privée de l'auteur. */
-export async function enregistrerUnSignalement({ question, type, texte }: Signalement) {
+export async function enregistrerUnSignalement({ question, type, texte, source }: Signalement) {
   const sql = await base();
-  await sql`INSERT INTO signalements (question, type, texte) VALUES (${question}, ${type}, ${texte})`;
+  await sql`INSERT INTO signalements (question, type, texte, source) VALUES (${question}, ${type}, ${texte}, ${source})`;
 }

@@ -14,6 +14,7 @@ export async function envoyerUnSignalement(_precedent: EtatDeLEnvoi, formulaire:
   const type = String(formulaire.get("type"));
   const publiee = (await lireQuestionsPubliees()).some((q) => q.numero === numero);
   if (!publiee || !TYPES.some((t) => t.valeur === type)) return { envoye: false };
-  await enregistrerUnSignalement({ question: numero, type, texte: String(formulaire.get("quoi") ?? "") });
+  const source = String(formulaire.get("lien") ?? "").trim();
+  await enregistrerUnSignalement({ question: numero, type, texte: String(formulaire.get("quoi") ?? ""), source: source || null });
   return { envoye: true };
 }
