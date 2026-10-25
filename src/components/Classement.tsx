@@ -10,7 +10,7 @@ import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 /** Les largeurs des noms estompés de l'aperçu, celles de maquettes/resultats-vide.html. */
 const APERCU = [62, 48, 55];
 
-/** Avant 10 réponses : ce qu'il manque, une jauge, et un aperçu estompé, sans aucun nom ni pourcentage. */
+/** Avant 10 réponses : ce qu'il manque, une jauge, « Répondre » vers la prochaine question, et un aperçu estompé, sans nom ni pourcentage. */
 function ClassementAVenir({ comptees }: { comptees: number }) {
   const manque = SEUIL_DES_RESULTATS - comptees;
   return (
@@ -37,6 +37,13 @@ function ClassementAVenir({ comptees }: { comptees: number }) {
               ))}
             </div>
           </div>
+          {/* La maquette met une jauge dans ce bouton : l'auteur n'en veut pas (25 octobre 2026), le compteur du menu suffit. */}
+          <Link className="btn-link" href="/">
+            Répondre
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
+            </svg>
+          </Link>
         </div>
         <p className="ghost-k" aria-hidden="true">
           Il ressemblera à ça
