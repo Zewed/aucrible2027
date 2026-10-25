@@ -141,3 +141,6 @@
 .app-card-body { min-width: 0; }
 .linkrow { min-width: 0; max-width: 100%; overflow: hidden; }
 .app-card .cam { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; background: var(--ink); }
+
+/* Le pied de page commun : le lien de la page en cours est marqué. */
+.site-foot a[aria-current] { color: var(--chalk); text-decoration: underline; text-decoration-thickness: 2px; }
