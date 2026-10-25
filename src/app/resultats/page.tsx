@@ -55,12 +55,6 @@ async function Resultats() {
           </nav>
         </footer>
       </main>
-      {/* Le pied de page commun et ses autres liens (Rattraper, À propos, Journal, Changer d'appareil) : ticket 188. */}
-      <footer className="site-foot">
-        <nav aria-label="Pied de page">
-          <Link href="/methode">Méthode de calcul</Link>
-        </nav>
-      </footer>
     </>
   );
 }

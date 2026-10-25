@@ -809,6 +809,8 @@ test("la mention « ordre mélangé » se lit à côté de « Qui défend quoi �
 });
 
 test("d'un appareil à l'autre, l'ordre des défenseurs de A change, sans suivre l'alphabet ni les partis", async ({ browser }) => {
+  // Seize appareils l'un après l'autre : 20 à 30 s, au bord des 30 s d'un test ordinaire quand la suite tourne.
+  test.slow();
   const ordres = new Set<string>();
   for (let appareil = 0; appareil < 16; appareil++) {
     const contexte = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
@@ -6050,5 +6052,33 @@ test.describe("la page dit que les réponses ne passent par aucun serveur", () =
     await expect(autre.locator(".reliab").filter({ visible: true })).toHaveText("Fiabilité : moyenne (23 réponses)");
     expect(pages.filter((p) => !["/appareil", "/i", "/resultats"].includes(p))).toEqual([]);
     await nouveau.close();
+  });
+});
+
+test.describe("le pied de page mène aux pages secondaires", () => {
+  const LIENS = [
+    ["Toutes les questions", "/rattrapage"],
+    ["Méthode de calcul", "/methode"],
+    ["À propos", "/a-propos"],
+    ["Journal des corrections", "/journal"],
+    ["Changer d'appareil", "/appareil"],
+  ];
+  const pied = (page: Page) => page.getByRole("contentinfo").getByRole("navigation", { name: "Pied de page" });
+
+  for (const adresse of ["/", "/resultats", "/a-propos", "/cette-page-n-existe-pas"]) {
+    test(`en bas de ${adresse}, les cinq liens sont là, dans l'ordre`, async ({ page }) => {
+      await page.goto(adresse);
+      await expect(pied(page).getByRole("link")).toHaveText(LIENS.map(([nom]) => nom));
+    });
+  }
+
+  test("chaque lien ouvre sa page, où il est marqué comme la page en cours", async ({ page }) => {
+    await page.goto("/");
+    for (const [nom, adresse] of LIENS) {
+      await pied(page).getByRole("link", { name: nom }).click();
+      await page.waitForURL(new RegExp(`${adresse}$`));
+      await expect(pied(page).getByRole("link", { name: nom })).toHaveAttribute("aria-current", "page");
+      await expect(pied(page).locator("a[aria-current]")).toHaveCount(1);
+    }
   });
 });

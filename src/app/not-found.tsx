@@ -12,7 +12,7 @@ async function CompteDuJour() {
 /**
  * La page introuvable (maquettes/introuvable.html) : une carte blanche, « Cette carte n'est pas dans le paquet. ». Elle
  * sert aux adresses qui n'existent pas comme aux fiches inconnues, et ramène aux questions. Les liens du bas
- * de la maquette ne sont portés par aucun ticket.
+ * de la maquette sont ceux du pied de page commun.
  */
 export default function Introuvable() {
   return (
