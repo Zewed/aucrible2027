@@ -1,0 +1,56 @@
+# FICHE DE TEST du jeu « plateau-proche » (cookie aucrible-jeu-de-test), copiée des fiches de test : David Lisnard y a
+# partout la position de Bruno Retailleau, pour que leurs pions tombent au même endroit du plateau. Inventée.
+# Son contenu reprend la fiche de démonstration n° 23 ; seuls le numéro, la date, le thème et la question changent.
+# Les positions des candidats sont inventées pour les tests du classement (tickets 063 et 086) : elles ne disent rien
+# de ce que pensent ces candidats. Les notes du plateau des options sont inventées pour les tests
+# du plateau (tickets 075 et 078). Les thèmes des fiches de test n° 1 à 22 suivent la répartition des
+# 23 réponses de maquettes/resultats.html (tickets 083 à 085).
+numero: 8
+date: 2026-10-07
+theme: sante
+question: Fiche de test du mercredi 7 octobre ?
+contexte:
+  - Dans plusieurs grandes villes, un loyer de référence fixe le plafond qu'un propriétaire ne peut pas dépasser.
+  - Ce dispositif est une expérimentation, et les villes choisissent de l'appliquer ou non.
+  - Ses effets sur les loyers et sur le nombre de logements à louer sont discutés.
+chiffres:
+  - valeur: 40 %
+    legende: des ménages sont locataires de leur résidence principale
+    source: { organisme: INSEE, annee: 2023 }
+  - valeur: "26"
+    unite: villes
+    legende: appliquent un encadrement des loyers
+    source: { organisme: Ministère du Logement, annee: 2025 }
+options:
+  - id: A
+    libelle: Oui, dans toutes les grandes villes
+    implique: Un plafond de loyer s'applique partout où le logement est le plus cher.
+    defenseurs: Les locataires gardent un logement abordable près de leur travail.
+    critiques: Des propriétaires risquent de retirer leur logement de la location.
+    axes: { economie: 1 }
+  - id: B
+    libelle: Seulement là où la ville le demande
+    implique: Chaque ville décide d'encadrer ou non ses loyers.
+    defenseurs: La ville connaît son marché et choisit l'outil qui lui convient.
+    critiques: Les règles changent d'une ville à l'autre et deviennent difficiles à suivre.
+    axes: { economie: -2 }
+  - id: C
+    libelle: Non, laisser les loyers libres
+    implique: Le loyer se fixe entre le propriétaire et le locataire.
+    defenseurs: Des loyers libres encouragent à construire et à mettre des logements en location.
+    critiques: Dans les villes les plus chères, les loyers peuvent continuer de grimper.
+    axes: { economie: 1 }
+positions:
+  ruffin: { option: A, source: Source de test, statut: officielle }
+  lisnard: { option: C, source: Source de test, statut: officielle }
+  tondelier: { option: B, source: Source de test, statut: officielle }
+  dupont-aignan: { option: B, source: Source de test, statut: officielle }
+  glucksmann: { option: A, source: Source de test, statut: officielle }
+  le-pen: { option: A, source: Source de test, statut: officielle }
+  philippe: { option: B, source: Source de test, statut: officielle }
+  roussel: { option: A, source: Source de test, statut: officielle }
+  melenchon: { option: B, source: Source de test, statut: officielle }
+  retailleau: { option: C, source: Source de test, statut: officielle }
+  arthaud: { option: B, source: Source de test, statut: officielle }
+  attal: { option: B, source: Source de test, statut: officielle }
+  zemmour: { option: C, source: Source de test, statut: officielle }

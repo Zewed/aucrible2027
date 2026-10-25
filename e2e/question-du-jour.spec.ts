@@ -5579,3 +5579,71 @@ test.describe("avant 10 réponses, un bouton mène à la prochaine question", ()
     await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("link", { name: "Répondre" })).toHaveCount(0);
   });
 });
+
+test.describe("des pions qui se chevauchent restent lisibles au téléphone", () => {
+  // Jeu « plateau-proche » : Lisnard y a partout la position de Retailleau ; l'électeur répond comme Zemmour.
+  const COMME_ZEMMOUR: Record<number, string> = { 1: "C", 2: "B", 3: "C", 4: "C", 5: "A", 6: "B", 7: "C", 8: "C", 9: "C", 10: "C", 11: "C", 12: "C" };
+
+  /** Le centre et le diamètre de chaque pion du plateau (« TOI » compris), par ses initiales. */
+  async function pionsDuPlateau(page: Page) {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "plateau-proche", url: "http://localhost:3127" }]);
+    await page.goto("/");
+    await page.evaluate((r) => {
+      const reponses: Record<number, object> = {};
+      for (const [n, option] of Object.entries(r)) reponses[Number(n)] = { option, importance: 1, graine: 1, jour: "2026-10-22" };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    }, COMME_ZEMMOUR);
+    await page.goto("/resultats");
+    const plateau = page.getByRole("region", { name: "Ton plateau" });
+    await expect(plateau.locator(".field .pawn").first()).toBeVisible();
+    // Les centres se mesurent à l'écran : le champ doit y être en entier.
+    await plateau.locator(".field").scrollIntoViewIfNeeded();
+    return plateau.locator(".field .pawn, .field .you").evaluateAll((els) =>
+      Object.fromEntries(
+        els.map((e) => {
+          const r = e.getBoundingClientRect();
+          return [e.classList.contains("you") ? "TOI" : e.textContent!.trim(), { x: r.x + r.width / 2, y: r.y + r.height / 2, d: Math.min(r.width, r.height) }];
+        }),
+      ),
+    );
+  }
+  const ecart = (a: { x: number; y: number }, b: { x: number; y: number }) => Math.hypot(a.x - b.x, a.y - b.y);
+
+  test("à 375 px, Lisnard et Retailleau, à la même place, ont deux pions distincts dont on lit les initiales", async ({ page }) => {
+    const pions = await pionsDuPlateau(page);
+    expect(ecart(pions.DL, pions.BR)).toBeGreaterThanOrEqual(Math.min(pions.DL.d, pions.BR.d) * 0.9);
+    for (const initiales of ["DL", "BR"]) {
+      const { x, y } = pions[initiales];
+      expect(await page.evaluate(([x, y]) => document.elementFromPoint(x, y)?.textContent?.trim(), [x, y])).toBe(initiales);
+    }
+  });
+
+  test("quand « TOI » tombe sur le pion de Zemmour, on repère encore les deux", async ({ page }) => {
+    const pions = await pionsDuPlateau(page);
+    expect(ecart(pions.TOI, pions["ÉZ"])).toBeGreaterThanOrEqual((pions.TOI.d + pions["ÉZ"].d) / 2 * 0.9);
+  });
+
+  test("aucun pion ne sort du plateau en s'écartant", async ({ page }) => {
+    const pions = await pionsDuPlateau(page);
+    const champ = (await page.getByRole("region", { name: "Ton plateau" }).locator(".field").boundingBox())!;
+    for (const { x, y } of Object.values(pions)) {
+      expect(x).toBeGreaterThanOrEqual(champ.x);
+      expect(x).toBeLessThanOrEqual(champ.x + champ.width);
+      expect(y).toBeGreaterThanOrEqual(champ.y);
+      expect(y).toBeLessThanOrEqual(champ.y + champ.height);
+    }
+  });
+});
+
+test.describe("un candidat sans aucune note n'a pas de pion sur le plateau", () => {
+  test("Jean Lassalle, entré sans position, n'est pas posé sur le plateau ; la légende le dit « pas encore placé »", async ({ page }) => {
+    await page.context().addCookies([{ name: "aucrible-candidats-de-test", value: "lassalle", url: "http://localhost:3127" }]);
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const plateau = page.getByRole("region", { name: "Ton plateau" });
+    await expect(plateau.locator(".field .pawn").first()).toBeVisible();
+    await expect(plateau.locator(".field .pawn", { hasText: /^JLa$/ })).toHaveCount(0);
+    await expect(plateau.getByRole("list", { name: "Légende du plateau" }).getByRole("listitem").filter({ hasText: "Jean Lassalle" })).toContainText("pas encore placé");
+  });
+});
