@@ -5,6 +5,8 @@ milestone: null
 depends_on: ["043"]
 design: maquettes/silence.html
 tracker: null
+status: done
+abandonne: "2026-10-25 — plus d'écran de silence depuis la nouvelle boucle (décision de l'auteur)"
 ---
 
 ## Ce que l'utilisateur fait

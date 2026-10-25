@@ -8,7 +8,7 @@ Nom : **Au crible 2027** — domaine `aucrible2027.fr`, comptes `@aucrible2027` 
 
 - **Neutralité vérifiable, pas déclarée.** Chaque position de candidat est sourcée (lien + date), la méthode de calcul est publique, l'ordre d'affichage des candidats est aléatoire, toute erreur signalée est corrigée publiquement.
 - **Meilleur argument de chaque camp.** Chaque option est présentée avec l'argument que ses propres défenseurs signeraient. Jamais d'ironie, de mépris ni de « en réalité… ». Un électeur RN doit se sentir aussi respecté qu'un électeur LFI.
-- **On ne sait pas pour qui tu votes.** Aucun compte, réponses stockées uniquement sur l'appareil (opinions politiques = données sensibles, RGPD art. 9).
+- **On ne sait pas pour qui tu votes.** Aucun compte, réponses stockées uniquement sur l'appareil (opinions politiques = données sensibles, RGPD art. 9). *Amendé le 25/10/2026 : l'électeur peut partager ses réponses, anonymement, s'il coche une case décochée par défaut ; sans adresse IP ni identifiant, seulement les réponses et leur jour, pour des totaux dans /admin.*
 - **Pas un sondage.** Aucune statistique agrégée sur les utilisateurs, rien n'est jamais présenté comme un sondage ; la mention « Ce n'est pas un sondage » accompagne les résultats.
 - **Aucun candidat codé par la couleur de son parti** (contrainte de DA).
 
@@ -176,6 +176,25 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 - **Badges** : « position officielle » = programme 2027 ou déclaration du candidat ; « position déduite » = votes de son groupe ou programme 2022.
 - **Face-à-face** : il ne montre que les questions auxquelles l'électeur a déjà répondu, pour ne rien révéler avant sa réponse.
 - **Carte partageable** : l'électeur choisit de montrer son candidat le plus proche ou seulement son pion.
+
+## Décisions de l'auteur du 25/10/2026
+
+- **Signalements** : ils arrivent dans **/admin**, une partie privée du site, gardés dans une base **Postgres** (site sur **Vercel**).
+- **/admin** : on y entre avec **son compte GitHub** ; seuls les comptes autorisés (celui de l'auteur, Zewed) passent. On y trouve les signalements, les outils de l'auteur (refus d'une fiche dont un chiffre ou une position n'a pas de source, fiches d'avance, correction d'une fiche publiée, contrôle de neutralité), et les totaux des réponses partagées.
+- **Corriger une fiche** depuis /admin fait **un commit sur GitHub**, avec la raison : le contenu reste en YAML dans le dépôt, et l'historique Git nourrit le journal.
+- **Contrôle de neutralité** : avec Claude (API Anthropic) ; **conseillé, pas obligatoire** pour publier.
+- **Vidéo** : Remotion (licence gratuite, structure de 3 personnes au plus), rendue par une commande locale, avec une musique libre de droits fournie par l'auteur.
+- **Code public** : github.com/Zewed/aucrible2027.
+- **Changer d'appareil** : les réponses voyagent après le `#` du lien et dans le QR code, jamais vers un serveur ; le lien prend l'adresse où le site tourne (le domaine n'est pas encore choisi).
+- **Partage des réponses** : seulement avec accord explicite (voir « Principes »).
+- **Carrousel et story** : l'auteur écrit dans la fiche les deux côtés de l'image 5 (titre et meilleur argument de chacun) et les deux choix de l'autocollant « Et toi ? ».
+- **Pouvoir de départage** : abandonné (l'ordre est tiré au hasard).
+- **Fiabilité du classement** : faible de 10 à 19 réponses, moyenne de 20 à 29, forte à partir de 30.
+- **Plateau** : au téléphone, des pions qui se recouvrent s'écartent juste assez pour rester lisibles ; un candidat sans aucune note n'a pas de pion.
+- **Camembert complet** (11/11) : un palier spécial sur la révélation, avec confettis.
+- **Navigation privée** : pas d'avertissement.
+- **Dates des fiches** : une fiche se joue à partir de sa date ; l'auteur la date du jour où il l'ajoute.
+- **Face-à-face** depuis une fiche ou « Moi contre » : ce candidat à gauche, l'autre au choix.
 
 ## Écrans de la v1
 
