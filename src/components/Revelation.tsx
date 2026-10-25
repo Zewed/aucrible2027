@@ -11,6 +11,7 @@ import { melanger } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
 import { REPONSES_PAR_PART, reponsesParTheme } from "@/lib/proximite";
+import { lireOrdre, prochaineQuestion } from "@/lib/ordre";
 import { JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
 
 /** Une ligne de l'alignement : un titre, puis les candidats concernés ; rien quand il n'y en a aucun. */
@@ -68,24 +69,20 @@ function Badge({ statut }: { statut: Position["statut"] }) {
 
 const nombreDeCandidats = (n: number) => `${n} candidat${n > 1 ? "s" : ""}`;
 
-/** La révélation de la question `numero`, ou, sans numéro, celle de la question du jour. */
-export function Revelation({
-  questions,
-  candidats,
-  themes,
-  numero,
-}: {
-  questions: Question[];
-  candidats: Candidat[];
-  themes: Theme[];
-  numero?: number;
-}) {
+/**
+ * La révélation de la question `numero`, puis la suite : « Question suivante », la prochaine sans réponse dans l'ordre
+ * de l'appareil, tant qu'il en reste (SPEC.md, « Boucle principale », 25 octobre 2026).
+ */
+export function Revelation({ questions, candidats, themes, numero }: { questions: Question[]; candidats: Candidat[]; themes: Theme[]; numero: number }) {
   const jour = useCoteClient(() => aujourdhuiAParis());
   const reponses = lesReponses(useCoteClient(lireReponses));
-  const question = questions.find((q) => (numero === undefined ? q.date === jour : q.numero === numero));
+  const numeros = questions.map((q) => q.numero);
+  const ordre = useCoteClient(() => lireOrdre(numeros));
+  const question = questions.find((q) => q.numero === numero);
   const reponse = question && reponses[question.numero];
   const theme = question && themes.find((t) => t.id === question.theme);
   if (!reponse || !question || !theme) return null;
+  const suivante = ordre ? prochaineQuestion(ordre, numeros, Object.keys(reponses).map(Number)) : undefined;
 
   // Un candidat retiré au jour de la réponse ou avant n'est plus révélé. Rouvrir une révélation répondue avant
   // son retrait le montre encore : ce cas reste à trancher.
@@ -126,7 +123,7 @@ export function Revelation({
     <>
       <div className="strip">
         {jour && <CompteARebours jour={jour} />}
-        <NumeroQuestion numero={question.numero} date={question.date} avecJour={false} />
+        <NumeroQuestion numero={question.numero} />
       </div>
       <main className={`res rev ${theme.classe}`}>
         <header className="rev-hero">
@@ -287,19 +284,26 @@ export function Revelation({
           </div>
         </section>
         <div className="rev-actions">
-          <Link className="go" href="/resultats">
-            Voir mes résultats{" "}
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
-            </svg>
-          </Link>
-          <Link className="act second" href="/rattrapage">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="6" width="13" height="15" rx="3" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.4 }} />
-              <path d="M8 3h10a3 3 0 0 1 3 3v11" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.4, strokeLinecap: "round" }} />
-            </svg>
-            Rattraper d&apos;autres questions
-          </Link>
+          {suivante !== undefined ? (
+            <>
+              <Link className="go" href="/">
+                Question suivante{" "}
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
+                </svg>
+              </Link>
+              <Link className="act second" href="/resultats">
+                Voir mes résultats
+              </Link>
+            </>
+          ) : (
+            <Link className="go" href="/resultats">
+              Voir mes résultats{" "}
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
+              </svg>
+            </Link>
+          )}
           <p className="go-note">
             Ton classement est recalculé avec cette {nombreDeReponses}
             <sup>{nombreDeReponses === 1 ? "re" : "e"}</sup>&nbsp;réponse.

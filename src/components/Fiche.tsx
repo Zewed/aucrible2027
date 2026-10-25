@@ -26,7 +26,7 @@ export function Bandeau({ jour, question }: { jour: string; question: Question |
   return (
     <div className="strip">
       <CompteARebours jour={jour} />
-      {question && <NumeroQuestion numero={question.numero} date={question.date} avecJour />}
+      {question && <NumeroQuestion numero={question.numero} />}
     </div>
   );
 }
@@ -139,10 +139,6 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
         {enJeu && <EnJeu question={question} theme={theme} enJeu={enJeu} reponses={reponses} />}
       </div>
       <form className="answer" onSubmit={valider}>
-        <div className="answer-head">
-          <h2>Choisis ta carte</h2>
-          <p>Les noms des candidats s&apos;affichent après ta réponse.</p>
-        </div>
         <div className="opts" role="radiogroup" aria-label="Les options">
           {question.options.map((option, rang) => (
             <label key={option.id} className="opt">
@@ -181,12 +177,10 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
               checked={choix === JE_NE_SAIS_PAS}
               onChange={() => setChoix(JE_NE_SAIS_PAS)}
               aria-labelledby="titre-nsp"
-              aria-describedby="implique-nsp"
             />
             <span className="opt-face">
               <span className="opt-letter" aria-hidden="true">?</span>
               <span className="opt-title" id="titre-nsp">Je ne sais pas</span>
-              <span className="opt-impl" id="implique-nsp">Tu passes.</span>
             </span>
           </label>
         </div>
