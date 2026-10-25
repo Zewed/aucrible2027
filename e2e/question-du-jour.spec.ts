@@ -5690,3 +5690,23 @@ test.describe("les 11 parts remplies font du camembert un trophée", () => {
     await expect(trophee).toContainText("11 parts sur 11");
   });
 });
+
+test.describe("la page Méthode mène au code source public", () => {
+  const regle8 = (page: Page) => page.getByRole("article", { name: "Ce que cet outil n'est pas, et comment le vérifier" });
+
+  test("la règle n° 8 dit que la formule, les notes, les sources et les corrections sont publiques, et affiche « Le code est public sur GitHub »", async ({ page }) => {
+    await page.goto("/methode");
+    await expect(regle8(page)).toContainText("Tu peux tout vérifier. La formule, les notes, les sources et les corrections sont publiques, et le calcul tient en quelques lignes de code.");
+    await expect(regle8(page).getByRole("link", { name: "Le code est public sur GitHub" })).toBeVisible();
+  });
+
+  test("toucher le bouton ouvre github.com/Zewed/aucrible2027 dans un nouvel onglet ; la page Méthode reste ouverte", async ({ page, context }) => {
+    // Le dépôt n'est pas chargé pour de vrai : seul compte l'onglet qui s'ouvre, et son adresse.
+    await context.route("https://github.com/**", (route) => route.fulfill({ status: 200, body: "dépôt" }));
+    await page.goto("/methode");
+    const [onglet] = await Promise.all([context.waitForEvent("page"), regle8(page).getByRole("link", { name: "Le code est public sur GitHub" }).click()]);
+    await onglet.waitForLoadState();
+    expect(onglet.url()).toBe("https://github.com/Zewed/aucrible2027");
+    await expect(page).toHaveURL(/\/methode$/);
+  });
+});
