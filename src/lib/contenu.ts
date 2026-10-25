@@ -39,6 +39,8 @@ export type Theme = { id: string; nom: string; classe: string };
 /** Ce qu'un candidat défend sur une fiche, et d'où on le sait. */
 export type Position = { option: string; source: string; statut: "officielle" | "deduite" };
 export type Lien = { titre: string; url: string };
+/** Un côté du débat, pour l'image 5 du carrousel : son titre (« Pour relever l'âge ») et l'argument que ses défenseurs signeraient. */
+export type Cote = { titre: string; argument: string };
 export type Question = {
   numero: number;
   date: string;
@@ -50,6 +52,8 @@ export type Question = {
   positions: Record<string, Position>;
   /** 2 à 3 liens vers les organismes qui documentent le sujet. */
   pourAllerPlusLoin?: Lien[];
+  /** Les deux côtés de l'image 5 du carrousel, que l'auteur écrit dans la fiche (décision du 25 octobre). */
+  cotes?: [Cote, Cote];
 };
 
 const RACINE = path.join(process.cwd(), "content");

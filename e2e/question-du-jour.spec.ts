@@ -4392,6 +4392,61 @@ test.describe("la 4e image montre les options, sans noms", () => {
   });
 });
 
+test.describe("la 5e image montre le meilleur argument de chaque côté", () => {
+  const image = (page: Page) => page.getByRole("region", { name: "Le carrousel" }).getByRole("article", { name: "Image 5 sur 6 : le meilleur argument des deux côtés" });
+
+  test("l'image 5/6 de la fiche n° 24 montre un bloc « Pour relever l'âge » et un bloc « Pour ne pas le relever », avec les deux phrases de la fiche", async ({ page }) => {
+    await page.goto("/carrousel");
+    await expect(image(page).getByRole("heading", { level: 3 })).toHaveText("Le meilleur argument des deux côtés");
+    await expect(image(page).getByRole("heading", { level: 4 })).toHaveText(["Pour relever l'âge", "Pour ne pas le relever"]);
+    await expect(image(page).locator(".s-arg p")).toHaveText([
+      "On vit plus longtemps : travailler un peu plus protège le niveau des pensions.",
+      "Les métiers pénibles et les carrières hachées en paient le prix.",
+    ]);
+    expect(await tiennentEnEntier(image(page), ".s-arg")).toEqual([true, true]);
+  });
+
+  test("les deux blocs ont le même format : même taille, même typographie, aucun n'est mis en avant", async ({ page }) => {
+    await page.goto("/carrousel");
+    await expect(image(page).locator(".s-arg")).toHaveCount(2);
+    const blocs = await image(page)
+      .locator(".s-arg")
+      .evaluateAll((sections) =>
+        sections.map((bloc) => {
+          const { width, height } = bloc.getBoundingClientRect();
+          const style = (e: Element) => {
+            const s = getComputedStyle(e);
+            return [s.fontFamily, s.fontSize, s.fontWeight, s.color, s.backgroundColor].join(" ");
+          };
+          return { width, height, fond: style(bloc), titre: style(bloc.querySelector("h4")!), texte: style(bloc.querySelector("p")!), classe: bloc.className };
+        }),
+      );
+    expect(blocs).toHaveLength(2);
+    expect(blocs[1]).toEqual(blocs[0]);
+  });
+
+  for (const jour of ["2026-10-22", "2026-10-24", "2026-10-25"]) {
+    test(`le ${jour}, les deux côtés de la fiche du jour tiennent en entier dans l'image, au même format`, async ({ page }) => {
+      await fixerLeJour(page, `${jour}T09:00:00+02:00`);
+      await page.goto("/carrousel");
+      await expect(image(page).locator(".s-arg")).toHaveCount(2);
+      expect(await tiennentEnEntier(image(page), ".s-arg, .s-arg p")).toEqual([true, true, true, true]);
+      const [haut, bas] = await image(page).locator(".s-arg").evaluateAll((blocs) => blocs.map((e) => e.getBoundingClientRect().height));
+      expect(haut).toBe(bas);
+    });
+  }
+
+  test("aucun des deux arguments n'est ironique ni méprisant, et aucun ne commence par « en réalité… »", async ({ page }) => {
+    await page.goto("/carrousel");
+    await expect(image(page).locator(".s-arg p")).toHaveCount(2);
+    const phrases = await image(page).locator(".s-arg p").allInnerTexts();
+    for (const phrase of phrases) {
+      expect(phrase).not.toMatch(/^en réalité/i);
+      expect(phrase).not.toMatch(/soi-disant|prétendu|naïf|absurde|ridicule|\?!|!/i);
+    }
+  });
+});
+
 test.describe("la dernière image invite à répondre sur l'app", () => {
   const derniere = (page: Page) => page.getByRole("region", { name: "Le carrousel" }).getByRole("article", { name: "Image 6 sur 6 : et toi ?" });
 

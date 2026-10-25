@@ -33,4 +33,10 @@ options:
     implique: Le loyer se fixe entre le propriétaire et le locataire.
     defenseurs: Des loyers libres encouragent à construire et à mettre des logements en location.
     critiques: Dans les villes les plus chères, les loyers peuvent continuer de grimper.
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour encadrer les loyers"
+    argument: "Les locataires gardent un logement abordable près de leur travail."
+  - titre: "Pour ne pas les encadrer"
+    argument: "Des loyers libres encouragent à construire et à mettre des logements en location."
 positions: {}
