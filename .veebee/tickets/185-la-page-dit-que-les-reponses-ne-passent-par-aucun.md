@@ -5,6 +5,7 @@ milestone: null
 depends_on: ["179"]
 design: maquettes/appareil.html
 tracker: null
+status: done
 ---
 
 ## Ce que l'utilisateur fait

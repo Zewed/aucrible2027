@@ -6020,3 +6020,35 @@ test.describe("un code illisible est refusé avec un message", () => {
     await expect(page).toHaveURL(/\/appareil$/);
   });
 });
+
+test.describe("la page dit que les réponses ne passent par aucun serveur", () => {
+  test("en haut de « Changer d'appareil », le bandeau dit « Tes réponses ne quittent ton téléphone que si tu le décides. » et « Pas de compte, pas de serveur. »", async ({ page }) => {
+    await page.goto("/appareil");
+    const bandeau = page.getByRole("note");
+    await expect(bandeau.locator("p")).toHaveText(["Tes réponses ne quittent ton téléphone que si tu le décides.", "Pas de compte, pas de serveur."]);
+    const [haut, carte] = await Promise.all([bandeau.boundingBox(), page.getByRole("region", { name: "Envoyer mes réponses" }).boundingBox()]);
+    expect(haut!.y).toBeLessThan(carte!.y);
+  });
+
+  test("un transfert complet (afficher le QR code, le scanner, importer) ne demande ni compte, ni e-mail, ni mot de passe", async ({ page, browser }) => {
+    await vingtTroisReponses(page);
+    const adresse = await adresseDeLAppareil(page);
+    const champsDeCompte = "input[type=email], input[type=password], input[autocomplete=username]";
+    await expect(page.locator(champsDeCompte)).toHaveCount(0);
+
+    const nouveau = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    await fixerLOrdre(nouveau);
+    await appareilPhotoQuiFilme(nouveau, adresse);
+    const autre = await nouveau.newPage();
+    await fixerLeJour(autre, "2026-10-23T09:00:00+02:00");
+    const pages: string[] = [];
+    autre.on("framenavigated", (cadre) => cadre === autre.mainFrame() && pages.push(new URL(cadre.url()).pathname));
+    await autre.goto("/appareil");
+    await expect(autre.locator(champsDeCompte)).toHaveCount(0);
+    await autre.getByRole("region", { name: "Récupérer mes réponses" }).getByRole("button", { name: "Scanner un QR code" }).click();
+    await autre.waitForURL(/\/resultats$/);
+    await expect(autre.locator(".reliab").filter({ visible: true })).toHaveText("Fiabilité : moyenne (23 réponses)");
+    expect(pages.filter((p) => !["/appareil", "/i", "/resultats"].includes(p))).toEqual([]);
+    await nouveau.close();
+  });
+});
