@@ -12,6 +12,7 @@ import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
 import { REPONSES_PAR_PART, reponsesParTheme } from "@/lib/proximite";
 import { lireOrdre, prochaineQuestion } from "@/lib/ordre";
+import { messageDuPalier } from "@/lib/paliers";
 import { JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
 
 /** Une ligne de l'alignement : un titre, puis les candidats concernés ; rien quand il n'y en a aucun. */
@@ -83,6 +84,7 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
   const theme = question && themes.find((t) => t.id === question.theme);
   if (!reponse || !question || !theme) return null;
   const suivante = ordre ? prochaineQuestion(ordre, numeros, Object.keys(reponses).map(Number)) : undefined;
+  const palier = reponse.rang ? messageDuPalier(reponse.rang) : null;
 
   // Un candidat retiré au jour de la réponse ou avant n'est plus révélé. Rouvrir une révélation répondue avant
   // son retrait le montre encore : ce cas reste à trancher.
@@ -169,33 +171,51 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
             </p>
           </section>
         )}
-        {partGagnee && (
-          <section className="reward" aria-label="Ta récompense du jour">
-            <div className="stake win" role="region" aria-label="Ton camembert">
-              <Camembert
-                couleurs={themes.map((t) => (gagnes.includes(t) ? couleurDe(t) : null))}
-                nouvelle={themes.indexOf(theme)}
-                description={`Camembert : ${gagnes.length} parts sur ${themes.length}, la part ${theme.nom} vient d'être gagnée`}
-              />
-              <span>
-                <span className="stake-k">Ton camembert</span>
-                <span className="stake-t" style={{ display: "block" }}>
-                  +1 réponse en {theme.nom}&nbsp;: {REPONSES_PAR_PART}/{REPONSES_PAR_PART}, la part est gagnée&nbsp;!
-                </span>
-                <span className="seg" aria-hidden="true">
-                  {Array.from({ length: REPONSES_PAR_PART }, (_, i) => (
-                    <i key={i} className={i === REPONSES_PAR_PART - 1 ? "fresh" : undefined}></i>
+        {(partGagnee || palier) && (
+          <section className="reward" aria-label="Ta récompense">
+            {palier && reponse.rang && (
+              <div className="stake palier" role="region" aria-label="Palier">
+                <span className="confetti" aria-hidden="true">
+                  {themes.map((t, i) => (
+                    <i key={t.id} style={{ left: `${4 + i * 8.7}%`, background: couleurDe(t), animationDelay: `${(i % 4) * 0.12}s` }}></i>
                   ))}
                 </span>
-                <span className="stake-s" style={{ display: "block" }}>
-                  Ton camembert passe à{" "}
-                  <u>
-                    {gagnes.length} parts sur {themes.length}
-                  </u>
-                  .
+                <span className="palier-n">{reponse.rang}</span>
+                <span>
+                  <span className="stake-k">{reponse.rang} réponses</span>
+                  <span className="stake-t" style={{ display: "block" }}>
+                    {palier}
+                  </span>
                 </span>
-              </span>
-            </div>
+              </div>
+            )}
+            {partGagnee && (
+              <div className="stake win" role="region" aria-label="Ton camembert">
+                <Camembert
+                  couleurs={themes.map((t) => (gagnes.includes(t) ? couleurDe(t) : null))}
+                  nouvelle={themes.indexOf(theme)}
+                  description={`Camembert : ${gagnes.length} parts sur ${themes.length}, la part ${theme.nom} vient d'être gagnée`}
+                />
+                <span>
+                  <span className="stake-k">Ton camembert</span>
+                  <span className="stake-t" style={{ display: "block" }}>
+                    +1 réponse en {theme.nom}&nbsp;: {REPONSES_PAR_PART}/{REPONSES_PAR_PART}, la part est gagnée&nbsp;!
+                  </span>
+                  <span className="seg" aria-hidden="true">
+                    {Array.from({ length: REPONSES_PAR_PART }, (_, i) => (
+                      <i key={i} className={i === REPONSES_PAR_PART - 1 ? "fresh" : undefined}></i>
+                    ))}
+                  </span>
+                  <span className="stake-s" style={{ display: "block" }}>
+                    Ton camembert passe à{" "}
+                    <u>
+                      {gagnes.length} parts sur {themes.length}
+                    </u>
+                    .
+                  </span>
+                </span>
+              </div>
+            )}
           </section>
         )}
         <section className="rev-list" aria-labelledby="qui-defend-quoi">

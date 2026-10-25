@@ -7,6 +7,8 @@ import { CompteARebours } from "@/components/CompteARebours";
 import { Logo } from "@/components/Logo";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
+import { prochainPalier, REPONSES_PAR_PALIER } from "@/lib/paliers";
+import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 
 const TRAIT = { fill: "none", stroke: "currentColor", strokeWidth: 2.4, strokeLinecap: "round", strokeLinejoin: "round" } as const;
 
@@ -56,6 +58,25 @@ function MenuDeLaPage() {
   return <Menu chemin={usePathname()} />;
 }
 
+/** Sur ordinateur, au bas du menu : le nombre de réponses, et un cran par réponse vers le prochain palier. */
+function Progression() {
+  const nombre = Object.keys(lesReponses(useCoteClient(lireReponses, abonnerAuxReponses))).length;
+  if (nombre === 0) return null;
+  const prochain = prochainPalier(nombre);
+  // Pile sur un palier, la jauge est pleine ; elle repart de zéro à la réponse suivante.
+  const faits = nombre % REPONSES_PAR_PALIER || REPONSES_PAR_PALIER;
+  return (
+    <div className="rail-prog" role="img" aria-label={`${nombre} ${nombre > 1 ? "réponses" : "réponse"}, prochain palier à ${prochain}`}>
+      <b className="rail-n">{nombre}</b>
+      <span className="rail-crans">
+        {Array.from({ length: REPONSES_PAR_PALIER }, (_, i) => (
+          <i key={i} className={i < faits ? "on" : undefined}></i>
+        ))}
+      </span>
+    </div>
+  );
+}
+
 /**
  * Le menu de l'app : sur ordinateur, une colonne d'icônes à gauche, avec le compte à rebours en bas, pour laisser toute
  * la hauteur à la page ; au téléphone, une barre en haut. Le logo ramène à la prochaine question.
@@ -73,7 +94,10 @@ export function EnTete() {
       <Suspense fallback={<Menu chemin={null} />}>
         <MenuDeLaPage />
       </Suspense>
-      <div className="rail-cd">{jour && <CompteARebours jour={jour} court />}</div>
+      <div className="rail-cd">
+        <Progression />
+        {jour && <CompteARebours jour={jour} court />}
+      </div>
     </header>
   );
 }
