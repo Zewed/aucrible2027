@@ -1,8 +1,10 @@
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
+import { FormulaireDeSignalement } from "@/components/FormulaireDeSignalement";
 import { PuceTheme } from "@/components/PuceTheme";
 import { lireThemes, type Question, type Theme } from "@/lib/contenu";
 import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
+import { TYPES } from "@/lib/signalement";
 import "./signaler.css";
 
 /** « Sur quelle fiche ? », rempli d'après la fiche d'où vient l'électeur. */
@@ -23,14 +25,6 @@ function SurQuelleFiche({ question, theme }: { question: Question; theme: Theme 
     </div>
   );
 }
-
-/** Les types d'erreur du formulaire, « Un chiffre » choisi au départ (maquettes/signaler.html). */
-const TYPES = [
-  { valeur: "chiffre", nom: "Un chiffre" },
-  { valeur: "position", nom: "La position d'un candidat" },
-  { valeur: "formulation", nom: "Une formulation qui penche" },
-  { valeur: "autre", nom: "Autre" },
-];
 
 /** « C'est quel genre d'erreur ? » : un seul type à la fois, des boutons radio en pastilles, sans script. */
 function TypeDErreur() {
@@ -57,7 +51,7 @@ function TypeDErreur() {
 /**
  * « Signaler une erreur » (maquettes/signaler.html) : le titre, l'introduction, puis le formulaire, rempli de la
  * fiche d'où vient l'électeur (`?question=N`, une question déjà publiée). Sans fiche connue, « Sur quelle fiche ? »
- * n'apparaît pas : ce cas reste à trancher. Le reste du formulaire et l'envoi viennent avec les tickets 163 à 170.
+ * n'apparaît pas : ce cas reste à trancher. La source, l'e-mail et la promesse des 72 h viennent avec 165, 166 et 170.
  */
 async function Signaler({ numero }: { numero?: string }) {
   const [jour, publiees] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
@@ -77,10 +71,10 @@ async function Signaler({ numero }: { numero?: string }) {
           </p>
         </section>
         {question && theme && (
-          <form className="sig-card">
+          <FormulaireDeSignalement numero={question.numero}>
             <SurQuelleFiche question={question} theme={theme} />
             <TypeDErreur />
-          </form>
+          </FormulaireDeSignalement>
         )}
       </main>
     </>

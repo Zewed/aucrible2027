@@ -1,9 +1,14 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const PORT = 3127;
+// La base Postgres des tests (scripts/base-locale.sh), jamais une autre : le serveur des tests y écrit, les tests y
+// relisent ce qui est arrivé.
+process.env.DATABASE_URL = "postgres://aucrible:aucrible@127.0.0.1:5447/aucrible_test";
 
 export default defineConfig({
   testDir: "./e2e",
+  // Démarre la base Postgres locale avant les tests.
+  globalSetup: "./e2e/base.setup.ts",
   fullyParallel: true,
   reporter: "list",
   use: {
