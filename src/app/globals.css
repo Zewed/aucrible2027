@@ -136,3 +136,7 @@
 @media (prefers-reduced-motion: reduce) {
   .trophy.complet .confetti { display: none; }
 }
+
+/* Changer d'appareil : le vrai lien est long (toutes les réponses) ; sa ligne reste dans la carte et le coupe. */
+.app-card-body { min-width: 0; }
+.linkrow { min-width: 0; max-width: 100%; overflow: hidden; }

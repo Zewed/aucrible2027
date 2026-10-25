@@ -5747,3 +5747,39 @@ test.describe("l'électeur affiche ses réponses en QR code", () => {
     expect(adresse!.split("#")[1]).toMatch(/^1(,\d+\.(?:[A-E]|nsp)\.[0-3]\.\d{8})+$/);
   });
 });
+
+test.describe("l'électeur copie ses réponses en lien", () => {
+  const envoyer = (page: Page) => page.getByRole("region", { name: "Envoyer mes réponses" });
+
+  test("un clic sur « Copier le lien » met dans le presse-papiers une adresse du site en /i#, la même que le QR code", async ({ page, context }) => {
+    await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+    await vingtTroisReponses(page);
+    await page.goto("/appareil");
+    await envoyer(page).getByRole("button", { name: "Copier le lien" }).click();
+    const copie = await page.evaluate(() => navigator.clipboard.readText());
+    expect(copie).toMatch(/^http:\/\/localhost:3127\/i#1,/);
+    expect(copie).toBe(await lireLeQrCode(envoyer(page).getByRole("img", { name: "QR code de tes réponses" })));
+    await expect(envoyer(page).getByRole("button", { name: "Lien copié" })).toBeVisible();
+  });
+
+  test("l'avertissement dit le vrai nombre de réponses : 23, puis 24 après une réponse de plus", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/appareil");
+    await expect(envoyer(page).locator(".caution")).toHaveText("Le lien contient tes 23 réponses : ne le partage qu'avec toi-même.");
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await page.goto("/appareil");
+    await expect(envoyer(page).locator(".caution")).toHaveText("Le lien contient tes 24 réponses : ne le partage qu'avec toi-même.");
+  });
+
+  test("la ligne du lien montre son début, sans le déborder", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/appareil");
+    const ligne = envoyer(page).locator(".linkrow");
+    await expect(ligne).toContainText("localhost:3127/i#1,");
+    const [boite, carte] = await Promise.all([ligne.boundingBox(), envoyer(page).boundingBox()]);
+    expect(boite!.x + boite!.width).toBeLessThanOrEqual(carte!.x + carte!.width + 1);
+  });
+});
