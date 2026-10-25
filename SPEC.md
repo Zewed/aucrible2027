@@ -25,7 +25,7 @@ Nom : **Au crible 2027** — domaine `aucrible2027.fr`, comptes `@aucrible2027` 
 - **Toutes les questions sont jouables d'un coup**, dès l'ouverture : plus de question du jour ni de parution au jour le jour dans l'app.
 - L'électeur enchaîne : **réponse, révélation, « Question suivante »**.
 - Les questions viennent dans un **ordre tiré au hasard pour chaque électeur**, gardé sur son appareil.
-- **Paliers** : toutes les 5 réponses, une étape « gagnée » (à 10, le classement se débloque) ; et chaque part du camembert gagnée (3 réponses dans un thème) est une petite victoire.
+- **Paliers** : toutes les 5 réponses, une étape « gagnée » (à 10, le classement se débloque) ; et chaque part du camembert gagnée (3 réponses dans un thème) est une petite victoire. Sur la révélation de la 5e, 10e, 15e… réponse : le nombre, une phrase courte (« Encore 5 pour ton classement. », « Ton classement est prêt. », « Ton classement s'affine. ») et des confettis aux couleurs des thèmes ; sur ordinateur, le bas du menu compte les réponses et ses crans vers le prochain palier.
 - **Plus de série de jours d'affilée**, nulle part.
 - La liste de toutes les questions reste là pour en choisir une.
 

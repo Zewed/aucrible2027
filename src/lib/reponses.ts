@@ -6,6 +6,8 @@ export type Reponse = {
   graine: number;
   /** Le jour de la réponse, à Paris (AAAA-MM-JJ). */
   jour: string;
+  /** Le rang de la réponse sur l'appareil (1 pour la première) : c'est lui qui fait les paliers. Absent des plus anciennes. */
+  rang?: number;
 };
 
 /** L'option « Je ne sais pas », que toute fiche propose en plus des siennes. */

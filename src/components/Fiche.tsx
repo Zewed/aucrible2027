@@ -92,7 +92,7 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
   function valider(evenement: React.FormEvent) {
     evenement.preventDefault();
     if (!choix || !jour) return;
-    enregistrerReponse(question.numero, { option: choix, importance: poids, graine: tirerGraine(), jour });
+    enregistrerReponse(question.numero, { option: choix, importance: poids, graine: tirerGraine(), jour, rang: Object.keys(reponses).length + 1 });
     router.push(revelation);
   }
 

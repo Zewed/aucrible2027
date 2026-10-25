@@ -111,3 +111,21 @@
   body > .strip, main ~ .strip, .strip { display: none; }
   .today, .res, .fiche, .lost, main { padding-top: 28px; }
 }
+
+/* Les paliers (toutes les 5 réponses) : sur la révélation, un bloc gagné, avec des confettis aux couleurs des thèmes ;
+   au bas du menu, sur ordinateur, le nombre de réponses et ses crans vers le prochain palier. */
+.palier { position: relative; overflow: hidden; grid-template-columns: auto minmax(0, 1fr); }
+.palier-n { font: 800 56px/0.9 var(--display); font-variation-settings: "wdth" 80; letter-spacing: -0.03em; color: var(--chalk); min-width: 64px; text-align: center; }
+.palier .confetti { inset: 0 0 auto 0; }
+@media (prefers-reduced-motion: reduce) {
+  .palier .confetti { display: none; }
+}
+.rail-prog { display: none; }
+@media (min-width: 900px) {
+  .rail-cd { display: grid; justify-items: center; gap: 14px; }
+  .rail-prog { display: grid; justify-items: center; gap: 6px; }
+  .rail-n { font: 800 24px/1 var(--display); }
+  .rail-crans { display: grid; gap: 3px; }
+  .rail-crans i { width: 22px; height: 5px; border-radius: 3px; background: var(--table-3); }
+  .rail-crans i.on { background: var(--chalk); }
+}

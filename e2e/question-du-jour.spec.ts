@@ -5420,3 +5420,93 @@ test.describe("au téléphone, les icônes du menu sont en haut, à droite du lo
     });
   }
 });
+
+test.describe("toutes les 5 réponses, un palier", () => {
+  /** `n` réponses déjà données (les n° 1 à n), puis la réponse à la n° 24, la prochaine question de l'accueil. */
+  async function repondreApres(page: Page, n: number) {
+    await page.goto("/");
+    await page.evaluate((n) => {
+      const reponses: Record<number, object> = {};
+      for (let numero = 1; numero <= n; numero++) reponses[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22" };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    }, n);
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/question\/24\/revelation$/);
+  }
+  const palier = (page: Page) => page.getByRole("region", { name: "Palier" }).filter({ visible: true });
+
+  for (const [rang, message] of [
+    [5, "Encore 5 pour ton classement."],
+    [10, "Ton classement est prêt."],
+    [15, "Ton classement s'affine."],
+  ] as const) {
+    test(`la ${rang}e réponse : la révélation fête le palier, « ${rang} réponses » et « ${message} »`, async ({ page }) => {
+      await repondreApres(page, rang - 1);
+      await expect(palier(page)).toBeVisible();
+      await expect(palier(page).locator(".palier-n")).toHaveText(String(rang));
+      await expect(palier(page)).toContainText(`${rang} réponses`);
+      await expect(palier(page)).toContainText(message);
+    });
+  }
+
+  test("la 7e réponse n'a pas de palier", async ({ page }) => {
+    await repondreApres(page, 6);
+    await expect(page.getByRole("region", { name: "Qui défend quoi" })).toBeVisible();
+    await expect(page.getByRole("region", { name: "Palier" })).toHaveCount(0);
+  });
+
+  test("le palier reste attaché à sa réponse : rouvrir la révélation de la 5e le montre, celle d'une autre question non", async ({ page }) => {
+    await repondreApres(page, 4);
+    await page.goto("/question/24/revelation");
+    await expect(palier(page)).toBeVisible();
+    await page.goto("/question/3/revelation");
+    await expect(page.getByRole("region", { name: "Qui défend quoi" })).toBeVisible();
+    await expect(page.getByRole("region", { name: "Palier" })).toHaveCount(0);
+  });
+
+  test("avec « réduire les animations », le palier s'affiche sans confettis", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await repondreApres(page, 4);
+    await expect(palier(page)).toBeVisible();
+    await expect(palier(page).locator(".confetti")).toBeHidden();
+  });
+});
+
+test.describe("sur ordinateur, le menu montre la progression vers le prochain palier", () => {
+  test.use({ viewport: { width: 1000, height: 550 }, isMobile: false, hasTouch: false });
+
+  test("avec 7 réponses, le menu affiche « 7 » et deux crans pleins sur cinq : le prochain palier est à 10", async ({ page }) => {
+    await page.goto("/");
+    await page.evaluate(() => {
+      const reponses: Record<number, object> = {};
+      for (let numero = 1; numero <= 7; numero++) reponses[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22" };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    });
+    await page.goto("/");
+    const progression = page.getByRole("banner").getByRole("img", { name: "7 réponses, prochain palier à 10" });
+    await expect(progression).toBeVisible();
+    await expect(progression.locator(".rail-n")).toHaveText("7");
+    await expect(progression.locator("i")).toHaveCount(5);
+    await expect(progression.locator("i.on")).toHaveCount(2);
+  });
+
+  test("pile sur le palier de 10 réponses, les cinq crans sont pleins ; le prochain palier est à 15", async ({ page }) => {
+    await page.goto("/");
+    await page.evaluate(() => {
+      const reponses: Record<number, object> = {};
+      for (let numero = 1; numero <= 10; numero++) reponses[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22" };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    });
+    await page.goto("/");
+    const progression = page.getByRole("banner").getByRole("img", { name: "10 réponses, prochain palier à 15" });
+    await expect(progression.locator("i.on")).toHaveCount(5);
+  });
+
+  test("sans réponse, le menu n'affiche pas de progression", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
+    await expect(page.getByRole("banner").getByRole("img", { name: /prochain palier/ })).toHaveCount(0);
+  });
+});
