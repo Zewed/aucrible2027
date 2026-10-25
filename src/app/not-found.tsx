@@ -1,15 +1,8 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
-import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
+import { lireAujourdhui } from "@/lib/publication";
 import "./introuvable.css";
-
-/** « Tu y retrouveras la carte du jour, n° N. », quand ce jour a une question (ni silence électoral, ni jour sans fiche). */
-async function NumeroDuJour() {
-  const [jour, publiees] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
-  const duJour = publiees.find((q) => q.date === jour);
-  return duJour ? <p className="go-note">Tu y retrouveras la carte du jour, n°&nbsp;{duJour.numero}.</p> : null;
-}
 
 /** Le compte à rebours du bandeau, qui lit le jour de la requête. */
 async function CompteDuJour() {
@@ -18,7 +11,7 @@ async function CompteDuJour() {
 
 /**
  * La page introuvable (maquettes/introuvable.html) : une carte blanche, « Cette carte n'est pas dans le paquet. ». Elle
- * sert aux adresses qui n'existent pas comme aux fiches inconnues, et ramène à la question du jour. Les liens du bas
+ * sert aux adresses qui n'existent pas comme aux fiches inconnues, et ramène aux questions. Les liens du bas
  * de la maquette ne sont portés par aucun ticket.
  */
 export default function Introuvable() {
@@ -87,14 +80,11 @@ export default function Introuvable() {
           </article>
         </div>
         <Link className="go" href="/">
-          La question du jour{" "}
+          Revenir aux questions{" "}
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
           </svg>
         </Link>
-        <Suspense>
-          <NumeroDuJour />
-        </Suspense>
       </main>
     </>
   );

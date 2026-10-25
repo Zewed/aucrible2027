@@ -1,12 +1,11 @@
 import { Suspense } from "react";
-import { QuestionDuJour } from "@/components/QuestionDuJour";
+import { ProchaineQuestion } from "@/components/ProchaineQuestion";
 import { lireThemes } from "@/lib/contenu";
 import { lireProchaineParution, lireQuestionsPubliees } from "@/lib/publication";
-import "./silence.css";
 
-async function FicheDuJour() {
+async function Accueil() {
   return (
-    <QuestionDuJour
+    <ProchaineQuestion
       questions={await lireQuestionsPubliees()}
       prochaineParution={await lireProchaineParution()}
       themes={lireThemes()}
@@ -14,10 +13,10 @@ async function FicheDuJour() {
   );
 }
 
-export default function Accueil() {
+export default function PageAccueil() {
   return (
     <Suspense>
-      <FicheDuJour />
+      <Accueil />
     </Suspense>
   );
 }

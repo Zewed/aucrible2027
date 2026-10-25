@@ -64,3 +64,9 @@
 .duo-panel a:hover { background: var(--table-3); }
 .duo-panel a:focus-visible { outline: 3px solid var(--eco); outline-offset: -3px; }
 .duo-panel .pawn { --size: 36px; font-size: 12px; box-shadow: 0 3px 0 var(--pawn-edge); }
+
+/* Sans le titre « Choisis ta carte » (retiré le 25 octobre 2026 : la fiche n'explique plus), les cartes réponse gardent,
+   au téléphone, leur écart avec la carte question et sa pile. */
+@media (max-width: 899.98px) {
+  .answer { margin-top: 52px; }
+}

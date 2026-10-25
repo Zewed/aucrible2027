@@ -7,7 +7,7 @@ import { Logo } from "@/components/Logo";
 
 /** Les deux écrans principaux, dans le menu de l'en-tête (visible à partir de 900 px, comme la maquette). */
 const ECRANS = [
-  { adresse: "/", nom: "Question du jour" },
+  { adresse: "/", nom: "Répondre" },
   { adresse: "/resultats", nom: "Mes résultats" },
 ];
 
@@ -30,7 +30,7 @@ function MenuDeLaPage() {
 }
 
 /**
- * La barre du haut : le logo, qui ramène à la question du jour, et le menu des deux écrans principaux, celui où l'on
+ * La barre du haut : le logo, qui ramène à la prochaine question, et le menu des deux écrans principaux, celui où l'on
  * est mis en avant. La série de jours d'affilée n'existe plus (décision de l'auteur, 25 octobre 2026).
  */
 export function EnTete() {

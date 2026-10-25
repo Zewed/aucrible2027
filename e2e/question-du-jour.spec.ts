@@ -1,5 +1,5 @@
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
-import { expect, test, type Locator, type Page } from "@playwright/test";
+import { expect, test, type BrowserContext, type Locator, type Page } from "@playwright/test";
 import { parse } from "yaml";
 
 const CANDIDATS = [
@@ -31,8 +31,16 @@ async function choisir(page: Page, libelle: string) {
   await expect(page.getByRole("radio", { name: libelle })).toBeChecked();
 }
 
+/**
+ * L'ordre des questions de l'appareil, d'habitude tiré au hasard : ici du plus grand numéro au plus petit, à chaque
+ * page, pour que l'accueil propose d'abord la question la plus récente déjà parue (l'ancienne question du jour).
+ */
+const fixerLOrdre = (contexte: BrowserContext) =>
+  contexte.addInitScript(() => localStorage.setItem("aucrible:ordre", JSON.stringify(Array.from({ length: 1000 }, (_, i) => 1000 - i))));
+
 test.beforeEach(async ({ page }) => {
   await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
+  await fixerLOrdre(page.context());
 });
 
 test("le 23 octobre 2026, l'accueil affiche la question du jour, ses cinq options et aucun nom de candidat", async ({ page }) => {
@@ -147,20 +155,20 @@ test.describe("numéro et date de la question", () => {
   });
 });
 
-test.describe("numéro et date de la question, sur grand écran", () => {
+test.describe("le numéro de la question, sur grand écran, sans sa date", () => {
   test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
 
-  test("le vendredi 23 octobre 2026, le bandeau affiche « Question n° 24 · vendredi 23 octobre »", async ({ page }) => {
+  test("le bandeau affiche « Question n° 24 », sans la date de parution", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24 · vendredi 23 octobre", { useInnerText: true });
+    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24", { useInnerText: true });
   });
 
-  test("la révélation affiche « Question n° 24 · 23 octobre »", async ({ page }) => {
+  test("la révélation affiche « Question n° 24 », sans date", async ({ page }) => {
     await page.goto("/");
     await choisir(page, "62 ans");
     await page.getByRole("button", { name: "Valider ma réponse" }).click();
     await expect(page).toHaveURL(/\/revelation$/);
-    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24 · 23 octobre", { useInnerText: true });
+    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24", { useInnerText: true });
   });
 });
 
@@ -432,19 +440,13 @@ test.describe("les arguments des options, sur grand écran", () => {
   });
 });
 
-test("sous « Choisis ta carte », la fiche prévient que les noms s'affichent après la réponse, avant et après le choix", async ({ page }) => {
+test("au-dessus des options, ni titre ni phrase d'explication : les options viennent directement", async ({ page }) => {
   await page.goto("/");
-  const titre = page.getByRole("heading", { name: "Choisis ta carte" });
-  const avis = page.getByText("Les noms des candidats s'affichent après ta réponse.", { exact: true });
-  const options = page.getByRole("radiogroup", { name: "Les options" });
-  await expect(avis).toBeVisible();
-  const [boiteTitre, boiteAvis, boiteOptions] = await Promise.all([titre.boundingBox(), avis.boundingBox(), options.boundingBox()]);
-  expect(boiteAvis!.y).toBeGreaterThan(boiteTitre!.y);
-  expect(boiteAvis!.y).toBeLessThan(boiteOptions!.y);
-
-  await choisir(page, "64 ans");
-  await expect(avis).toBeVisible();
-  await expect(page).toHaveURL(/\/$/);
+  await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Choisis ta carte" })).toHaveCount(0);
+  await expect(page.getByText(/Les noms des candidats s'affichent/)).toHaveCount(0);
+  await expect(page.locator(".answer-head")).toHaveCount(0);
+  await expect(page.getByText("Tu passes.", { exact: true })).toHaveCount(0);
 });
 
 test.describe("sur ordinateur, la carte question se pose à côté des cartes réponse", () => {
@@ -540,8 +542,9 @@ test("après A puis B et validation, la révélation nomme les défenseurs de B,
   for (const nom of ["Jean-Luc Mélenchon", "Fabien Roussel", "Nathalie Arthaud"]) await expect(defenseurs.getByText(nom)).toHaveCount(0);
 });
 
+/** Ce que l'app a gardé de l'électeur, sans l'ordre des questions de l'appareil, qui n'est pas une réponse. */
 const reponsesEnregistrees = (page: Page) =>
-  page.evaluate(() => [...Object.keys(sessionStorage), ...Object.keys(localStorage)].filter((cle) => cle.startsWith("aucrible")));
+  page.evaluate(() => [...Object.keys(sessionStorage), ...Object.keys(localStorage)].filter((cle) => cle.startsWith("aucrible") && cle !== "aucrible:ordre"));
 
 test("sans rien choisir, « Valider ma réponse » est inactif : le toucher n'ouvre pas la révélation et n'enregistre rien", async ({ page }) => {
   await page.goto("/");
@@ -798,6 +801,7 @@ test("d'un appareil à l'autre, l'ordre des défenseurs de A change, sans suivre
   const ordres = new Set<string>();
   for (let appareil = 0; appareil < 16; appareil++) {
     const contexte = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    await fixerLOrdre(contexte);
     const page = await contexte.newPage();
     await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
     await repondre(page, "62 ans");
@@ -1012,20 +1016,20 @@ test("toucher un lien « Pour aller plus loin » ouvre le site de l'organisme da
 });
 
 test.describe("une question déjà répondue rouvre sur sa révélation", () => {
-  /** Fermer l'app, puis la rouvrir le même jour sur le même appareil. */
+  /** Fermer l'app, puis rouvrir la question n° 24 (depuis la liste, ou par son adresse) sur le même appareil. */
   async function rouvrir(page: Page) {
     const contexte = page.context();
     await page.close();
     const rouverte = await contexte.newPage();
     await fixerLeJour(rouverte, "2026-10-23T18:00:00+02:00");
-    await rouverte.goto("/");
+    await rouverte.goto("/question/24");
     return rouverte;
   }
 
-  test("après E, fermer puis rouvrir l'app le même jour ouvre la révélation, Dupont-Aignan et Philippe sous E", async ({ page }) => {
+  test("après E, fermer l'app puis rouvrir la question n° 24 ouvre sa révélation, Dupont-Aignan et Philippe sous E", async ({ page }) => {
     await repondre(page, "À la carte, avec un système à points");
     const rouverte = await rouvrir(page);
-    await expect(rouverte).toHaveURL(/\/revelation$/);
+    await expect(rouverte).toHaveURL(/\/question\/24\/revelation$/);
     expect(await nomsSous(rouverte, "Option E : À la carte, avec un système à points")).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
     await expect(rouverte.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
   });
@@ -1033,7 +1037,7 @@ test.describe("une question déjà répondue rouvre sur sa révélation", () => 
   test("une réponse « Je ne sais pas » est gardée de la même façon", async ({ page }) => {
     await repondre(page, "Je ne sais pas");
     const rouverte = await rouvrir(page);
-    await expect(rouverte).toHaveURL(/\/revelation$/);
+    await expect(rouverte).toHaveURL(/\/question\/24\/revelation$/);
     await expect(blocsDOption(rouverte)).toHaveCount(5);
     await expect(rouverte.getByRole("region", { name: "Alignement sur ce sujet" })).toHaveCount(0);
   });
@@ -1041,6 +1045,7 @@ test.describe("une question déjà répondue rouvre sur sa révélation", () => 
   test("sur un autre téléphone, la même question s'ouvre sur une fiche vierge", async ({ page, browser }) => {
     await repondre(page, "À la carte, avec un système à points");
     const autreTelephone = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    await fixerLOrdre(autreTelephone);
     const autre = await autreTelephone.newPage();
     await fixerLeJour(autre, "2026-10-23T18:00:00+02:00");
     await autre.goto("/");
@@ -1062,22 +1067,22 @@ test.describe("l'importance donnée est retrouvée en revenant", () => {
     await expect(page).toHaveURL(/\/revelation$/);
   }
 
-  /** Fermer l'app, puis la rouvrir tel jour sur le même appareil. */
-  async function rouvrirLe(page: Page, jour: string) {
+  /** Fermer l'app, puis rouvrir tel jour, sur le même appareil, la question répondue `numero`. */
+  async function rouvrirLe(page: Page, jour: string, numero: number) {
     const contexte = page.context();
     await page.close();
     const rouverte = await contexte.newPage();
     await fixerLeJour(rouverte, jour);
-    await rouverte.goto("/");
-    await expect(rouverte).toHaveURL(/\/revelation$/);
+    await rouverte.goto(`/question/${numero}`);
+    await expect(rouverte).toHaveURL(new RegExp(`/question/${numero}/revelation$`));
     return rouverte;
   }
 
   const pleines = (page: Page) => page.getByRole("region", { name: /^Ta réponse/ }).locator(".chips i:not(.off)");
 
-  test("après E en ×3, fermer puis rouvrir l'app : la révélation n° 24 affiche « Importance ×3 », trois pastilles pleines", async ({ page }) => {
+  test("après E en ×3, fermer puis rouvrir la question : la révélation n° 24 affiche « Importance ×3 », trois pastilles pleines", async ({ page }) => {
     await repondreLe(page, "2026-10-23T09:00:00+02:00", "À la carte, avec un système à points", "×3");
-    const rouverte = await rouvrirLe(page, "2026-10-23T18:00:00+02:00");
+    const rouverte = await rouvrirLe(page, "2026-10-23T18:00:00+02:00", 24);
     await expect(rouverte.getByText("Importance ×3", { exact: true })).toBeVisible();
     await expect(pleines(rouverte)).toHaveCount(3);
   });
@@ -1085,10 +1090,10 @@ test.describe("l'importance donnée est retrouvée en revenant", () => {
   test("la n° 23 en ×1 et la n° 24 en ×3 gardent chacune leur importance", async ({ page }) => {
     await repondreLe(page, "2026-10-22T09:00:00+02:00", "Seulement là où la ville le demande", "×1");
     await repondreLe(page, "2026-10-23T09:00:00+02:00", "64 ans", "×3");
-    let rouverte = await rouvrirLe(page, "2026-10-23T18:00:00+02:00");
+    let rouverte = await rouvrirLe(page, "2026-10-23T18:00:00+02:00", 24);
     await expect(rouverte.getByText(/^Question n° 24/).filter({ visible: true })).toBeVisible();
     await expect(rouverte.getByText("Importance ×3", { exact: true })).toBeVisible();
-    rouverte = await rouvrirLe(rouverte, "2026-10-22T18:00:00+02:00");
+    rouverte = await rouvrirLe(rouverte, "2026-10-22T18:00:00+02:00", 23);
     await expect(rouverte.getByText(/^Question n° 23/).filter({ visible: true })).toBeVisible();
     await expect(rouverte.getByText("Importance ×1", { exact: true })).toBeVisible();
     await expect(pleines(rouverte)).toHaveCount(1);
@@ -1208,22 +1213,33 @@ test.describe("avant la première question, l'accueil dit quand elle arrive", ()
   });
 });
 
-test.describe("quand les questions s'arrêtent, l'accueil le dit", () => {
+test.describe("quand toutes les questions ont une réponse, l'accueil le dit", () => {
   // Le second test publie une fiche : le premier ne doit pas tourner en même temps.
   test.describe.configure({ mode: "serial" });
 
-  // La dernière fiche (de test) est datée du samedi 1er mai 2027.
-  test("le 10 mai 2027, sans fiche ce jour-là ni après, l'accueil dit qu'il n'y a plus de nouvelle question", async ({ page }) => {
-    await fixerLeJour(page, "2027-05-10T09:00:00+02:00");
+  /** Une réponse à chaque question, publiée ou non. */
+  async function toutRepondre(page: Page) {
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: /plus de nouvelle question/i })).toBeVisible();
+    await page.evaluate(() => {
+      const reponses: Record<number, object> = {};
+      for (let n = 1; n <= 400; n++) reponses[n] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22" };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    });
+    await page.goto("/");
+  }
+
+  test("après la dernière réponse, l'accueil dit « Tu as répondu à toutes les questions. » et mène à « Mes résultats »", async ({ page }) => {
+    await toutRepondre(page);
+    await expect(page.getByRole("heading", { name: "Tu as répondu à toutes les questions." })).toBeVisible();
     await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
+    await page.getByRole("link", { name: "Voir mes résultats" }).click();
+    await expect(page).toHaveURL(/\/resultats$/);
   });
 
   test("si l'auteur publie ensuite une nouvelle fiche, elle apparaît à l'accueil à sa date, à la place du message", async ({ page }) => {
     await fixerLeJour(page, "2027-05-11T09:00:00+02:00");
-    await page.goto("/");
-    await expect(page.getByRole("heading", { name: /plus de nouvelle question/i })).toBeVisible();
+    await toutRepondre(page);
+    await expect(page.getByRole("heading", { name: "Tu as répondu à toutes les questions." })).toBeVisible();
 
     // L'auteur publie une fiche datée du 11 mai, comme il le ferait : un fichier de plus dans content/questions.
     const fiche = "content/questions/900-fiche-de-test.yaml";
@@ -1237,7 +1253,7 @@ test.describe("quand les questions s'arrêtent, l'accueil le dit", () => {
     try {
       await page.goto("/");
       await expect(page.getByRole("heading", { name: "Une fiche publiée après coup ?" })).toBeVisible();
-      await expect(page.getByRole("heading", { name: /plus de nouvelle question/i })).toHaveCount(0);
+      await expect(page.getByRole("heading", { name: "Tu as répondu à toutes les questions." })).toHaveCount(0);
     } finally {
       rmSync(fiche);
     }
@@ -1245,12 +1261,12 @@ test.describe("quand les questions s'arrêtent, l'accueil le dit", () => {
 });
 
 test.describe("aucune nouvelle question ne paraît pendant le silence électoral", () => {
-  // Fiches de test (e2e/fiches) datées du 14 au 18 avril, du 30 avril et du 1er mai 2027.
+  // Fiches de test (e2e/fiches) datées du 14 au 19 avril, du 30 avril et du 1er mai 2027.
   const fiche = (jour: string) => `Fiche de test du ${jour} ?`;
 
   /** Ni à l'écran, ni dans le code des pages : la fiche n'apparaît nulle part. */
   async function nullePart(page: Page, question: string) {
-    for (const adresse of ["/", "/revelation"]) {
+    for (const adresse of ["/", "/rattrapage"]) {
       const html = await (await page.request.get(adresse)).text();
       expect(html.includes(question), `${adresse} contient « ${question} »`).toBe(false);
     }
@@ -1258,47 +1274,22 @@ test.describe("aucune nouvelle question ne paraît pendant le silence électoral
     await expect(page.getByText(question)).toHaveCount(0);
   }
 
-  test("le jeudi 15 avril, la fiche du 15 ; les vendredi 16 et samedi 17, aucune nouvelle question, et leurs fiches nulle part", async ({ page }) => {
-    await fixerLeJour(page, "2027-04-15T09:00:00+02:00");
-    await page.goto("/");
-    await expect(page.getByRole("heading", { name: fiche("jeudi 15 avril") })).toBeVisible();
-
+  test("les vendredi 16 et samedi 17 avril, l'accueil propose encore la question du jeudi 15, et les fiches du 16 et du 17 n'apparaissent nulle part", async ({ page }) => {
     for (const jour of ["2027-04-16T09:00:00+02:00", "2027-04-17T09:00:00+02:00"]) {
       await fixerLeJour(page, jour);
       await page.goto("/");
-      await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
+      await expect(page.getByRole("heading", { level: 1, name: fiche("jeudi 15 avril") })).toBeVisible();
       for (const question of [fiche("vendredi 16 avril"), fiche("samedi 17 avril")]) await nullePart(page, question);
     }
   });
 
-  test("avant le 2nd tour aussi : le vendredi 30 avril et le samedi 1er mai, aucune nouvelle question", async ({ page }) => {
+  test("avant le 2nd tour aussi : le vendredi 30 avril et le samedi 1er mai, l'accueil propose la question du lundi 19 avril, et les fiches du silence n'apparaissent nulle part", async ({ page }) => {
     for (const jour of ["2027-04-30T09:00:00+02:00", "2027-05-01T09:00:00+02:00"]) {
       await fixerLeJour(page, jour);
       await page.goto("/");
-      await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
+      await expect(page.getByRole("heading", { level: 1, name: fiche("lundi 19 avril") })).toBeVisible();
       for (const question of [fiche("vendredi 30 avril"), fiche("samedi 1er mai")]) await nullePart(page, question);
     }
-  });
-});
-
-test.describe("pendant le silence électoral, l'accueil explique pourquoi", () => {
-  test.beforeEach(async ({ page }) => {
-    await fixerLeJour(page, "2027-04-17T09:00:00+02:00");
-    await page.goto("/");
-  });
-
-  test("le samedi 17 avril 2027, la carte face cachée « J-1 avant le 1er tour · dimanche 18 avril 2027 » remplace la question", async ({ page }) => {
-    const carte = page.locator(".qcard.back");
-    await expect(carte).toBeVisible();
-    await expect(carte.getByText(/^J\s*-\s*1$/)).toBeVisible();
-    await expect(carte.getByText("avant le 1er tour", { exact: true })).toBeVisible();
-    await expect(carte.getByText("dimanche 18 avril 2027", { exact: true })).toBeVisible();
-    await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
-  });
-
-  test("l'accueil titre « Silence électoral. » et explique que la loi interdit toute publication la veille et le jour du vote", async ({ page }) => {
-    await expect(page.getByRole("heading", { level: 1, name: "Silence électoral." })).toBeVisible();
-    await expect(page.getByText(/La loi interdit toute nouvelle publication la veille et le jour du vote\./)).toBeVisible();
   });
 });
 
@@ -1364,7 +1355,6 @@ test.describe("l'électeur ouvre la liste des questions publiées", () => {
 });
 
 test.describe("une question de la liste s'ouvre sur sa fiche", () => {
-  // Sur ordinateur, le bandeau donne la date de la fiche à côté de son numéro.
   test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
 
   async function ouvrirDepuisLaListe(page: Page, question: string) {
@@ -1379,40 +1369,54 @@ test.describe("une question de la liste s'ouvre sur sa fiche", () => {
     await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
   }
 
-  test("toucher la carte n° 9 « Faut-il rétablir l'ISF ? » ouvre la fiche de la question n° 9, datée du 8 octobre, et non celle de la question du jour n° 24", async ({ page }) => {
+  test("toucher la carte n° 9 « Faut-il rétablir l'ISF ? » ouvre la fiche de la question n° 9, et non celle que propose l'accueil, la n° 24", async ({ page }) => {
     await ouvrirDepuisLaListe(page, "Faut-il rétablir l'ISF ?");
-    await expect(page.getByText(/^Question n° 9/).filter({ visible: true })).toHaveText("Question n° 9 · jeudi 8 octobre", { useInnerText: true });
+    await expect(page.getByText(/^Question n° 9/).filter({ visible: true })).toHaveText("Question n° 9", { useInnerText: true });
     await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveCount(0);
     await expect(page.getByRole("heading", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" }).filter({ visible: true })).toHaveCount(0);
   });
 
-  test("toucher la carte n° 6 « Faut-il fixer chaque année des quotas d'immigration ? » ouvre la fiche de la question n° 6, datée du 5 octobre", async ({ page }) => {
+  test("toucher la carte n° 6 « Faut-il fixer chaque année des quotas d'immigration ? » ouvre la fiche de la question n° 6", async ({ page }) => {
     await ouvrirDepuisLaListe(page, "Faut-il fixer chaque année des quotas d'immigration ?");
-    await expect(page.getByText(/^Question n° 6/).filter({ visible: true })).toHaveText("Question n° 6 · lundi 5 octobre", { useInnerText: true });
+    await expect(page.getByText(/^Question n° 6/).filter({ visible: true })).toHaveText("Question n° 6", { useInnerText: true });
   });
 });
 
-test.describe("la révélation mène au rattrapage", () => {
-  const rattraper = (page: Page) => page.getByRole("link", { name: "Rattraper d'autres questions" }).filter({ visible: true });
+test.describe("la révélation mène à la question suivante", () => {
+  const suivante = (page: Page) => page.getByRole("link", { name: "Question suivante" }).filter({ visible: true });
 
-  test("sur la révélation de la question n° 24 (réponse E validée), toucher « Rattraper d'autres questions » ouvre la page « Rattraper les questions »", async ({ page }) => {
+  test("sur la révélation de la question n° 24 (réponse E validée), « Question suivante » ouvre la prochaine question sans réponse, la n° 23", async ({ page }) => {
     await repondre(page, "À la carte, avec un système à points");
-    await rattraper(page).click();
-    await expect(page).toHaveURL(/\/rattrapage$/);
-    await expect(page.getByRole("heading", { level: 1, name: "Rattraper les questions." })).toBeVisible();
+    await suivante(page).click();
+    await expect(page).toHaveURL(/\/$/);
+    await expect(page.getByRole("heading", { level: 1, name: "Faut-il encadrer les loyers dans les grandes villes ?" }).filter({ visible: true })).toBeVisible();
+    await expect(page.getByText(/^Question n° 23/).filter({ visible: true })).toBeVisible();
   });
 
-  test("le même bouton est sur la révélation de la n° 9 « Faut-il rétablir l'ISF ? », répondue depuis la liste, et ramène à la liste", async ({ page }) => {
+  test("le même bouton est sur la révélation de la n° 9, répondue depuis la liste, et ouvre la n° 24, pas encore répondue", async ({ page }) => {
     await page.goto("/rattrapage");
     await page.getByRole("link", { name: /Faut-il rétablir l'ISF/ }).click();
     await expect(page.getByRole("heading", { level: 1, name: "Faut-il rétablir l'ISF ?" })).toBeVisible();
     await page.getByRole("radiogroup", { name: "Les options" }).filter({ visible: true }).locator("label").first().click();
     await page.getByRole("button", { name: "Valider ma réponse" }).filter({ visible: true }).click();
     await expect(page).toHaveURL(/\/question\/9\/revelation$/);
-    await expect(page.getByRole("heading", { level: 1, name: "La révélation" }).filter({ visible: true })).toBeVisible();
-    await rattraper(page).click();
-    await expect(page).toHaveURL(/\/rattrapage$/);
-    await expect(page.getByRole("heading", { level: 1, name: "Rattraper les questions." }).filter({ visible: true })).toBeVisible();
+    await suivante(page).click();
+    await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" }).filter({ visible: true })).toBeVisible();
+  });
+
+  test("après la dernière question sans réponse, la révélation n'a plus de « Question suivante », mais « Voir mes résultats »", async ({ page }) => {
+    await page.goto("/");
+    await page.evaluate(() => {
+      const reponses: Record<number, object> = {};
+      for (let n = 1; n <= 23; n++) reponses[n] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22" };
+      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+    });
+    await page.goto("/");
+    await choisir(page, "64 ans");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/revelation$/);
+    await expect(page.getByRole("link", { name: "Voir mes résultats" }).filter({ visible: true }).first()).toBeVisible();
+    await expect(suivante(page)).toHaveCount(0);
   });
 });
 
@@ -1577,9 +1581,9 @@ test.describe("l'électeur ouvre « Mes résultats »", () => {
     await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." })).toBeVisible();
   });
 
-  test("sur cette page, le lien « Question du jour » en haut ramène à la fiche de la question n° 24", async ({ page }) => {
+  test("sur cette page, le lien « Questions » en haut ramène à la prochaine question, la n° 24", async ({ page }) => {
     await page.goto("/resultats");
-    await page.getByRole("link", { name: "Question du jour", exact: true }).click();
+    await page.getByRole("link", { name: "Questions", exact: true }).click();
     await expect(page).toHaveURL(/\/$/);
     await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" }).filter({ visible: true })).toBeVisible();
     await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toBeVisible();
@@ -1900,7 +1904,7 @@ test.describe("les résultats affichent « Ce n'est pas un sondage »", () => {
     const classement = page.getByRole("region", { name: "Ton classement" });
     await expect(classement.getByRole("listitem")).toHaveCount(13);
     expect((await pied.boundingBox())!.y).toBeGreaterThan((await classement.boundingBox())!.y);
-    await pied.getByRole("link", { name: "Retour à la question du jour" }).click();
+    await pied.getByRole("link", { name: "Retour aux questions" }).click();
     await expect(page).toHaveURL(/\/$/);
   });
 });
@@ -4047,15 +4051,15 @@ test.describe("l'en-tête mène aux deux écrans principaux", () => {
   test.describe("sur ordinateur", () => {
     test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
 
-    test("l'en-tête montre « Question du jour » et « Mes résultats », mène à chacun, et met en avant la page où l'on est", async ({ page }) => {
+    test("l'en-tête montre « Répondre » et « Mes résultats », mène à chacun, et met en avant la page où l'on est", async ({ page }) => {
       await page.goto("/");
-      await expect(menu(page).getByRole("link")).toHaveText(["Question du jour", "Mes résultats"]);
-      await expect(menu(page).getByRole("link", { name: "Question du jour" })).toHaveAttribute("aria-current", "page");
+      await expect(menu(page).getByRole("link")).toHaveText(["Répondre", "Mes résultats"]);
+      await expect(menu(page).getByRole("link", { name: "Répondre" })).toHaveAttribute("aria-current", "page");
       await menu(page).getByRole("link", { name: "Mes résultats" }).click();
       await page.waitForURL(/\/resultats$/);
       await expect(menu(page).getByRole("link", { name: "Mes résultats" })).toHaveAttribute("aria-current", "page");
-      await expect(menu(page).getByRole("link", { name: "Question du jour" })).not.toHaveAttribute("aria-current");
-      await menu(page).getByRole("link", { name: "Question du jour" }).click();
+      await expect(menu(page).getByRole("link", { name: "Répondre" })).not.toHaveAttribute("aria-current");
+      await menu(page).getByRole("link", { name: "Répondre" }).click();
       await page.waitForURL(/\/$/);
       await expect(page.getByText("Question n° 24", { exact: false }).filter({ visible: true }).first()).toBeVisible();
     });
@@ -4131,32 +4135,21 @@ test.describe("l'en-tête reste en haut au défilement", () => {
   });
 });
 
-test.describe("la page introuvable ramène à la question du jour", () => {
-  test("sur la page introuvable, « La question du jour » ouvre la question du jour, la n° 24 du vendredi 23 octobre", async ({ page }) => {
+test.describe("la page introuvable ramène aux questions", () => {
+  test("sur la page introuvable, « Revenir aux questions » ouvre la prochaine question, la n° 24, sans phrase de plus", async ({ page }) => {
     await page.goto("/zzz");
-    await page.getByRole("link", { name: "La question du jour" }).click();
+    await expect(page.locator(".lost .go-note")).toHaveCount(0);
+    await page.getByRole("link", { name: "Revenir aux questions" }).click();
     await page.waitForURL(/\/$/);
-    // Le bandeau dit « Question n° 24 · vendredi 23 octobre » ; au téléphone, il cache le jour de la semaine.
-    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24 · vendredi 23 octobre");
-  });
-
-  test("la phrase sous le bouton donne le numéro du jour : « n° 24 » le 23 octobre, « n° 25 » le 24, et le bouton ouvre alors la n° 25", async ({ page }) => {
-    await page.goto("/zzz");
-    await expect(page.locator(".lost .go-note")).toHaveText("Tu y retrouveras la carte du jour, n° 24.");
-    await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
-    await page.goto("/zzz");
-    await expect(page.locator(".lost .go-note")).toHaveText("Tu y retrouveras la carte du jour, n° 25.");
-    await page.getByRole("link", { name: "La question du jour" }).click();
-    await page.waitForURL(/\/$/);
-    await expect(page.getByRole("heading", { name: "Faut-il sortir du nucléaire ?" }).filter({ visible: true })).toBeVisible();
+    await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24");
   });
 });
 
 test.describe("sans réseau, l'app dit qu'il faut une connexion", () => {
-  test("réseau coupé, toucher le lien du rattrapage affiche un message qui dit qu'il faut une connexion, au lieu d'une page vide ou d'une erreur", async ({ page, context }) => {
+  test("réseau coupé, toucher « Question suivante » affiche un message qui dit qu'il faut une connexion, au lieu d'une page vide ou d'une erreur", async ({ page, context }) => {
     await vingtTroisReponses(page);
     await page.goto("/question/23/revelation");
-    const lien = page.getByRole("link", { name: "Rattraper d'autres questions" });
+    const lien = page.getByRole("link", { name: "Question suivante" });
     await expect(lien).toBeVisible();
     await context.setOffline(true);
     await lien.click();
@@ -4172,12 +4165,12 @@ test.describe("sans réseau, l'app dit qu'il faut une connexion", () => {
     await vingtTroisReponses(page);
     await page.goto("/question/23/revelation");
     await context.setOffline(true);
-    await page.getByRole("link", { name: "Rattraper d'autres questions" }).click();
+    await page.getByRole("link", { name: "Question suivante" }).click();
     await expect(page.getByRole("alert").filter({ hasText: /connexion/ })).toBeVisible();
     await context.setOffline(false);
     await expect(page.getByRole("alert").filter({ hasText: /connexion/ })).toHaveCount(0);
-    await page.getByRole("link", { name: "Rattraper d'autres questions" }).click();
-    await page.waitForURL(/\/rattrapage$/);
+    await page.getByRole("link", { name: "Question suivante" }).click();
+    await page.waitForURL(/\/$/);
     await expect(page.getByRole("heading", { level: 1 }).filter({ visible: true })).toBeVisible();
     await page.goto("/resultats");
     await expect(page.getByText("Calculé sur tes 23 réponses, pondérées par l'importance que tu leur donnes.")).toBeVisible();
@@ -5364,5 +5357,30 @@ test.describe("À la liste officielle, seuls les candidats officiels restent", (
     expect([...classes].sort()).toEqual([...contenu()].sort());
     await page.goto("/candidat/lassalle");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Cette carte n'est pas dans le paquet.");
+  });
+});
+
+test.describe("les questions viennent dans un ordre tiré pour chaque appareil", () => {
+  /** La question que l'accueil propose d'abord sur un appareil neuf, sans l'ordre fixé des autres tests. */
+  async function premiereQuestion(page: Page) {
+    await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
+    await page.goto("/");
+    return (await page.getByText(/^Question n° \d+/).filter({ visible: true }).innerText()).trim();
+  }
+
+  test("sur huit appareils neufs, l'accueil ne propose pas toujours la même première question ; un appareil garde la sienne d'une visite à l'autre", async ({ browser }) => {
+    const premieres = new Set<string>();
+    for (let appareil = 0; appareil < 8; appareil++) {
+      const contexte = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+      const page = await contexte.newPage();
+      const premiere = await premiereQuestion(page);
+      premieres.add(premiere);
+      if (appareil === 0) {
+        await page.reload();
+        await expect(page.getByText(/^Question n° \d+/).filter({ visible: true })).toHaveText(premiere);
+      }
+      await contexte.close();
+    }
+    expect(premieres.size).toBeGreaterThan(1);
   });
 });
