@@ -179,6 +179,8 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 
 ## Écrans de la v1
 
+**Navigation (25/10/2026)** : sur ordinateur, une colonne d'icônes à gauche (Répondre, Mes résultats, Toutes les questions, Méthode) avec le compte à rebours en bas, sans bandeau au-dessus des pages ; au téléphone, les mêmes icônes dans la barre du haut. Peu de mots : un écran qui a besoin d'être expliqué est à revoir. Ce n'est pas un jeu : ni « jouer », ni « partie », ni « le jeu » dans les textes.
+
 Maquettes statiques de tous les écrans, dans la direction « Jeu de société » : `maquettes/` (ouvrir `maquettes/index.html`).
 
 1. **Accueil** : la prochaine question de l'électeur, compte à rebours avant le 1er tour, progression vers le prochain palier (avant le 25/10/2026 : question du jour et série).

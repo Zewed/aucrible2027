@@ -111,7 +111,7 @@ export function QuestionsMoiContre({ questions, candidat }: { questions: Questio
                       Tu n&apos;as pas encore répondu
                     </p>
                     <p className="fd-n">La position {de(candidat.nom)} s&apos;affiche après ta réponse.</p>
-                    <Link className="btn-link" href="/rattrapage">
+                    <Link className="btn-link" href={`/question/${q.numero}`}>
                       Répondre
                       <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }} />

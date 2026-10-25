@@ -55,7 +55,7 @@ function EnJeu({ question, theme, enJeu, reponses }: { question: Question; theme
         description={`${gagnes.length} parts sur ${enJeu.themes.length}, la part ${theme.nom} est en jeu`}
       />
       <span>
-        <span className="stake-k">En jeu aujourd&apos;hui</span>
+        <span className="stake-k">Avec cette réponse</span>
         <span className="stake-t" style={{ display: "block" }}>
           La part {theme.nom}
         </span>

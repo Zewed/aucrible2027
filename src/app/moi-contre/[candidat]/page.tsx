@@ -61,7 +61,7 @@ async function MoiContre({ id }: { id: string }) {
             <div className="pick">
               <span className="pawn pawn--you">TOI</span>
               <p className="pick-name">
-                <small>Ta partie</small>
+                <small>Tes réponses</small>
                 <b>Toi</b>
               </p>
             </div>

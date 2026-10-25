@@ -412,7 +412,7 @@ async function APropos() {
             <div>
               <p className="leaf-k">
                 <DeDesRegles />
-                Les règles du jeu · le mot de l&apos;auteur
+                Le mot de l&apos;auteur
               </p>
               <h1 id="h-top" style={{ "--lines": 1 } as React.CSSProperties}>
                 À propos<span>.</span>

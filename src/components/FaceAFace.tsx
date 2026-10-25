@@ -288,8 +288,8 @@ export function QuestionsDuFaceAFace({ questions, joueurs }: { questions: Questi
                 <p className="fd-n">Les positions des candidats s&apos;affichent après ta réponse, pour ne pas t&apos;influencer.</p>
               </>
             )}
-            <Link className="btn-link" href="/rattrapage">
-              Rattraper les questions
+            <Link className="btn-link" href="/">
+              Répondre
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" }} />
               </svg>

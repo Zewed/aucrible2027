@@ -70,7 +70,7 @@ function CarteVerrouillee({ comptees, pied }: { comptees: number; pied: string }
               <i key={i}></i>
             ))}
           </div>
-          <p className="story-k">Au crible 2027 · ma partie</p>
+          <p className="story-k">Au crible 2027 · mes réponses</p>
           <p className="story-lock">
             <Cadenas />
           </p>
@@ -118,7 +118,7 @@ export function ApercuDeLaCarte({ questions, candidats, themes }: { questions: Q
               <i key={theme.id} style={{ background: couleurDe(theme) }}></i>
             ))}
           </div>
-          <p className="story-k">Au crible 2027 · ma partie</p>
+          <p className="story-k">Au crible 2027 · mes réponses</p>
           <p className="story-big">
             {premier.pourcentage}
             <small>&nbsp;%</small>
@@ -228,7 +228,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
           <div className="sc-deck sc-deck--a">
             <article ref={carteDuCandidat} className="sc sc--a" aria-label={`Carte à partager : ${premier.pourcentage} % proche de ${premier.candidat.nom}`}>
               {frise}
-              <p className="sc-k">Au crible 2027 · ma partie</p>
+              <p className="sc-k">Au crible 2027 · mes réponses</p>
               <p className="sc-big">
                 {premier.pourcentage}
                 <small>&nbsp;%</small>
@@ -258,7 +258,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
           <div className="sc-deck sc-deck--b">
             <article ref={carteDuPion} className="sc sc--b" aria-label="Carte à partager : mon pion sur le plateau, sans nom de candidat">
               {frise}
-              <p className="sc-k">Au crible 2027 · ma partie</p>
+              <p className="sc-k">Au crible 2027 · mes réponses</p>
               <h2 className="sc-h">Mon pion sur le plateau</h2>
               <div className="sc-board">
                 <div className="board" role="img" aria-label="Plateau à deux axes, avec mon pion seulement">
