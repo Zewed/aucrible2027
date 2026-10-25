@@ -13,6 +13,9 @@ import "./carrousel.css";
 // Un outil de l'auteur : la page n'a pas à être trouvée par les moteurs de recherche.
 export const metadata: Metadata = { title: "Carrousel du jour — Au crible 2027", robots: { index: false } };
 
+/** La signature du compte, écrite à l'identique sur chaque image (SPEC.md : « comptes @aucrible2027 partout »). */
+const SIGNATURE = "@aucrible2027";
+
 /** La flèche « Glisse », en bas des images 1 à 5. */
 function Fleche() {
   return (
@@ -35,7 +38,7 @@ function Visuel({ rang, nom, classe, children }: { rang: number; nom: string; cl
       </div>
       {children}
       <div className="s-foot">
-        <span>@aucrible2027</span>
+        <span>{SIGNATURE}</span>
         {rang < 6 && (
           <span className="next">
             Glisse <Fleche />
@@ -252,7 +255,7 @@ function Story({ question, theme }: { question: Question; theme: Theme }) {
                 <Logo className="mark" />
                 Au crible <b>2027</b>
               </span>
-              <span className="s-page">@aucrible2027</span>
+              <span className="s-page">{SIGNATURE}</span>
             </div>
             <CarteQuestion question={question} theme={theme} classe="st-card" />
             {question.story && (
