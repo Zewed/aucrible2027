@@ -1315,208 +1315,20 @@ async function repondreCeJour(page: Page, jour: string, libelle?: string) {
   await expect(page).toHaveURL(/\/revelation$/);
 }
 
-/** La série affichée dans l'en-tête. */
-const serie = (page: Page) => page.getByRole("banner").getByText(/^\d+ jours? d'affilée$/);
-
-test.describe("le dé affiche les jours d'affilée", () => {
-  const JOURS = SIX_JOURS;
-
-  test("après six jours de suite, l'en-tête de l'accueil du septième jour, avant de répondre, affiche « 6 jours d'affilée »", async ({ page }) => {
-    for (const jour of JOURS) await repondreCeJour(page, jour);
+test.describe("la série de jours d'affilée n'existe plus", () => {
+  test("après six jours de réponses, ni l'en-tête, ni la révélation, ni la carte « Je ne sais pas » ne parlent de série", async ({ page }) => {
+    for (const jour of SIX_JOURS) await repondreCeJour(page, jour);
     await fixerLeJour(page, "2026-10-28T09:00:00+01:00");
     await page.goto("/");
     await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
-    await expect(serie(page)).toHaveText("6 jours d'affilée");
-  });
-
-  test("le dé et ce nombre sont aussi dans l'en-tête de la fiche et de la révélation", async ({ page }) => {
-    for (const jour of JOURS) await repondreCeJour(page, jour);
-    await fixerLeJour(page, "2026-10-28T09:00:00+01:00");
-    await page.goto("/");
-    await expect(page.getByRole("banner").locator(".die")).toBeVisible();
-    await expect(serie(page)).toBeVisible();
+    await expect(page.getByRole("banner")).not.toContainText("affilée");
+    await expect(page.getByRole("radiogroup", { name: "Les options" })).not.toContainText("série");
     await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
     await page.getByRole("button", { name: "Valider ma réponse" }).click();
     await expect(page).toHaveURL(/\/revelation$/);
-    await expect(page.getByRole("banner").locator(".die")).toBeVisible();
-    await expect(serie(page)).toBeVisible();
-  });
-});
-
-test.describe("répondre à la question du jour ajoute un jour à la série", () => {
-  test("avec 6 jours, valider la réponse du jour passe l'en-tête à 7 et la révélation dit « Ta série continue »", async ({ page }) => {
-    for (const jour of SIX_JOURS) await repondreCeJour(page, jour);
-    await fixerLeJour(page, "2026-10-28T09:00:00+01:00");
-    await page.goto("/");
-    await expect(serie(page)).toHaveText("6 jours d'affilée");
-    await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
-    await expect(page).toHaveURL(/\/revelation$/);
-    await expect(serie(page)).toHaveText("7 jours d'affilée");
-    const carte = page.getByRole("region", { name: "Ta série" });
-    await expect(carte.getByText("Ta série continue", { exact: true })).toBeVisible();
-    await expect(carte.getByText("Série : 7 jours d'affilée")).toBeVisible();
-    await expect(carte.getByText("Reviens demain pour la garder.", { exact: true })).toBeVisible();
-    await expect(carte.getByRole("img", { name: "7 jours sur 7" })).toBeVisible();
-  });
-
-  test("rouvrir la révélation le même jour, ou changer de page et revenir, laisse 7 jours : un jour de plus par jour", async ({ page }) => {
-    for (const jour of [...SIX_JOURS, "2026-10-28T09:00:00+01:00"]) await repondreCeJour(page, jour);
-    await expect(serie(page)).toHaveText("7 jours d'affilée");
-    await page.reload();
-    await expect(serie(page)).toHaveText("7 jours d'affilée");
-    await page.goto("/");
-    await expect(page).toHaveURL(/\/revelation$/);
-    await expect(serie(page)).toHaveText("7 jours d'affilée");
-    await expect(page.getByRole("region", { name: "Ta série" }).getByText("Série : 7 jours d'affilée")).toBeVisible();
-  });
-});
-
-test.describe("un jour sans réponse remet la série à zéro", () => {
-  const JUSQUAU_22 = ["2026-10-17", "2026-10-18", "2026-10-19", "2026-10-20", "2026-10-21", "2026-10-22"];
-
-  test("avec 6 jours au soir du jeudi 22 octobre, sans réponse le vendredi 23, le samedi 24 l'en-tête n'affiche plus « 6 jours »", async ({ page }) => {
-    for (const jour of JUSQUAU_22) await repondreCeJour(page, jour);
-    await fixerLeJour(page, "2026-10-22T21:00:00+02:00");
-    await page.goto("/revelation");
-    await expect(serie(page)).toHaveText("6 jours d'affilée");
-    await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
-    await page.goto("/");
-    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
-    await expect(page.getByRole("banner").getByText("6 jours d'affilée")).toHaveCount(0);
-  });
-
-  test("répondre alors à la question du samedi 24 donne « 1 jour d'affilée » : la série repart de 1", async ({ page }) => {
-    for (const jour of JUSQUAU_22) await repondreCeJour(page, jour);
-    await repondreCeJour(page, "2026-10-24");
-    await expect(serie(page)).toHaveText("1 jour d'affilée");
-  });
-});
-
-test.describe("« Je ne sais pas » ne casse pas la série", () => {
-  test("avec 6 jours, répondre « Je ne sais pas » laisse au moins 6 jours d'affilée", async ({ page }) => {
-    for (const jour of SIX_JOURS) await repondreCeJour(page, jour);
-    await repondreCeJour(page, "2026-10-28T09:00:00+01:00", "Je ne sais pas");
-    const jours = Number((await serie(page).innerText()).match(/^\d+/)![0]);
-    expect(jours).toBeGreaterThanOrEqual(6);
-  });
-
-  test("le lendemain, répondre à la question suivante prolonge la série au lieu de la relancer à 1", async ({ page }) => {
-    for (const jour of ["2026-10-22", "2026-10-23", "2026-10-24", "2026-10-25", "2026-10-26"]) await repondreCeJour(page, jour);
-    await repondreCeJour(page, "2026-10-27", "Je ne sais pas");
-    await repondreCeJour(page, "2026-10-28T09:00:00+01:00");
-    const jours = Number((await serie(page).innerText()).match(/^\d+/)![0]);
-    expect(jours).toBeGreaterThan(1);
-    expect(jours).toBeGreaterThanOrEqual(6);
-  });
-});
-
-test.describe("le silence électoral met la série en pause", () => {
-  /**
-   * 37 jours d'affilée, du mardi 9 mars au mercredi 14 avril 2027, posés directement sur l'appareil :
-   * il n'y a pas de fiche de test pour chacun de ces jours.
-   */
-  async function trenteSeptJoursJusquau14Avril(page: Page) {
-    await page.goto("/");
-    await page.evaluate(() => {
-      const reponses: Record<number, object> = {};
-      for (let i = 0; i < 37; i++) {
-        const jour = new Date(Date.UTC(2027, 2, 9 + i, 12)).toISOString().slice(0, 10);
-        reponses[900 + i] = { option: "A", importance: null, graine: 1, jour, duJour: true };
-      }
-      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
-    });
-  }
-
-  test("avec 38 jours au jeudi 15 avril 2027, le samedi 17 l'en-tête affiche toujours « 38 jours d'affilée » et l'accueil dit que la série est en pause", async ({ page }) => {
-    await trenteSeptJoursJusquau14Avril(page);
-    await repondreCeJour(page, "2027-04-15");
-    await expect(serie(page)).toHaveText("38 jours d'affilée");
-    await fixerLeJour(page, "2027-04-17T09:00:00+02:00");
-    await page.goto("/");
-    await expect(page.getByRole("heading", { level: 1, name: "Silence électoral." })).toBeVisible();
-    await expect(serie(page)).toHaveText("38 jours d'affilée");
-    await expect(page.getByText("Ta série de 38 jours est en pause, elle n'est pas perdue.", { exact: true })).toBeVisible();
-  });
-
-  test("à la première question publiée après le silence, le lundi 19 avril, répondre fait passer la série à « 39 jours d'affilée »", async ({ page }) => {
-    await trenteSeptJoursJusquau14Avril(page);
-    await repondreCeJour(page, "2027-04-15");
-    await repondreCeJour(page, "2027-04-19");
-    await expect(serie(page)).toHaveText("39 jours d'affilée");
-  });
-});
-
-test.describe("sans aucune réponse, le dé n'affiche pas de série", () => {
-  /** Ni « 0 jour », ni un nombre de jours d'affilée (« Question du jour », dans le menu, n'est pas une série). */
-  const uneSerie = (page: Page) => page.getByRole("banner").getByText(/\b\d+ jours?\b|affilée/);
-
-  test("sur un appareil neuf, avant la moindre réponse, l'en-tête n'affiche pas de série", async ({ page }) => {
-    await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
-    await page.goto("/");
-    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
-    await expect(page.getByRole("banner")).toBeAttached();
-    await expect(uneSerie(page)).toHaveCount(0);
-  });
-
-  test("le lendemain, toujours sans aucune réponse, l'en-tête n'affiche toujours pas de série", async ({ page }) => {
-    await fixerLeJour(page, "2026-10-23T09:00:00+02:00");
-    await page.goto("/");
-    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
-    await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
-    await page.goto("/");
-    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
-    await expect(page.getByRole("banner")).toBeAttached();
-    await expect(uneSerie(page)).toHaveCount(0);
-  });
-});
-
-test.describe("le dé roule quand la série augmente", () => {
-  /** Les animations en cours sur le dé de l'en-tête, par nom. */
-  const animationsDuDe = (page: Page) =>
-    page
-      .getByRole("banner")
-      .locator(".die")
-      .evaluate((de) => de.getAnimations().map((animation) => (animation as CSSAnimation).animationName));
-
-  async function validerLaReponseDuJour(page: Page) {
-    await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
-    await expect(page).toHaveURL(/\/revelation$/);
-  }
-
-  test("en validant la réponse du jour avec « 6 jours d'affilée », le dé de l'en-tête roule à l'arrivée sur la révélation puis affiche « 7 jours d'affilée »", async ({ page }) => {
-    for (const jour of SIX_JOURS) await repondreCeJour(page, jour);
-    await fixerLeJour(page, "2026-10-28T09:00:00+01:00");
-    await page.goto("/");
-    await expect(serie(page)).toHaveText("6 jours d'affilée");
-    expect(await animationsDuDe(page)).toEqual([]);
-    await validerLaReponseDuJour(page);
-    expect(await animationsDuDe(page)).toEqual(["roll"]);
-    await expect(serie(page)).toHaveText("7 jours d'affilée");
-  });
-
-  test("en rouvrant la même révélation plus tard, ou en ouvrant une autre page, le dé ne roule pas", async ({ page }) => {
-    for (const jour of [...SIX_JOURS, "2026-10-28T09:00:00+01:00"]) await repondreCeJour(page, jour);
-    await fixerLeJour(page, "2026-10-28T18:00:00+01:00");
-    await page.goto("/revelation");
-    await expect(serie(page)).toHaveText("7 jours d'affilée");
-    expect(await animationsDuDe(page)).toEqual([]);
-    // L'accueil, qui rouvre la révélation de la question déjà répondue.
-    await page.goto("/");
-    await expect(page).toHaveURL(/\/revelation$/);
-    await expect(serie(page)).toHaveText("7 jours d'affilée");
-    expect(await animationsDuDe(page)).toEqual([]);
-  });
-
-  test("avec « réduire les animations », le dé ne roule pas mais affiche quand même « 7 jours d'affilée »", async ({ page }) => {
-    await page.emulateMedia({ reducedMotion: "reduce" });
-    for (const jour of SIX_JOURS) await repondreCeJour(page, jour);
-    await fixerLeJour(page, "2026-10-28T09:00:00+01:00");
-    await page.goto("/");
-    await validerLaReponseDuJour(page);
-    expect(await animationsDuDe(page)).toEqual([]);
-    await expect(serie(page)).toHaveText("7 jours d'affilée");
+    await expect(quiDefendQuoi(page)).toBeVisible();
+    await expect(page.getByRole("region", { name: "Ta série" })).toHaveCount(0);
+    await expect(page.locator("main")).not.toContainText("affilée");
   });
 });
 
@@ -2606,39 +2418,23 @@ test.describe("les résultats montrent la carte « Je suis à X % proche de Y »
   });
 });
 
-/**
- * Les 23 réponses de `vingtTroisReponses`, mais les n° 18 à 23 données chacune le jour de leur parution
- * (du 17 au 22 octobre), comme questions du jour : 6 jours d'affilée au 23 octobre.
- */
-async function vingtTroisReponsesEtSixJours(page: Page) {
-  await vingtTroisReponses(page);
-  await page.evaluate(() => {
-    const reponses = JSON.parse(localStorage.getItem("aucrible:reponses")!);
-    for (let numero = 18; numero <= 23; numero++) {
-      const jour = new Date(Date.UTC(2026, 9, numero - 1, 12)).toISOString().slice(0, 10);
-      reponses[numero] = { ...reponses[numero], jour, duJour: true };
-    }
-    localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
-  });
-}
-
-test.describe("la carte affiche réponses, thèmes et série", () => {
+test.describe("la carte affiche réponses et thèmes", () => {
   const piedDeLaCarte = (page: Page) => page.getByRole("article", { name: /Carte à partager/ }).filter({ visible: true }).locator(".sc-f");
 
-  test("avec 23 réponses, 5 parts gagnées et 6 jours de série, la carte affiche « 23 réponses · 5/11 thèmes · 6 jours d'affilée »", async ({ page }) => {
-    await vingtTroisReponsesEtSixJours(page);
+  test("avec 23 réponses et 5 parts gagnées, la carte affiche « 23 réponses · 5/11 thèmes »", async ({ page }) => {
+    await vingtTroisReponses(page);
     await page.goto("/carte");
-    await expect(piedDeLaCarte(page)).toHaveText("23 réponses · 5/11 thèmes · 6 jours d'affilée");
+    await expect(piedDeLaCarte(page)).toHaveText("23 réponses · 5/11 thèmes");
   });
 
-  test("après la réponse à la n° 24, la carte affiche « 24 réponses · 6/11 thèmes · 7 jours d'affilée »", async ({ page }) => {
-    await vingtTroisReponsesEtSixJours(page);
+  test("après la réponse à la n° 24, la carte affiche « 24 réponses · 6/11 thèmes »", async ({ page }) => {
+    await vingtTroisReponses(page);
     await page.goto("/");
     await choisir(page, "64 ans");
     await page.getByRole("button", { name: "Valider ma réponse" }).click();
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/carte");
-    await expect(piedDeLaCarte(page)).toHaveText("24 réponses · 6/11 thèmes · 7 jours d'affilée");
+    await expect(piedDeLaCarte(page)).toHaveText("24 réponses · 6/11 thèmes");
   });
 });
 
@@ -2854,7 +2650,7 @@ test.describe("« Télécharger l'image » enregistre la carte", () => {
 });
 
 test.describe("avant 10 réponses, la carte reste verrouillée", () => {
-  /** 3 réponses : les n° 1 et 2 en rattrapage, la n° 23 comme question du jour du 22 octobre (1 jour d'affilée). */
+  /** 3 réponses : les n° 1 et 2 en rattrapage, la n° 23 comme question du jour du 22 octobre. */
   async function troisReponses(page: Page) {
     await premieresReponses(page, 2);
     await page.evaluate(() => {
@@ -2874,7 +2670,7 @@ test.describe("avant 10 réponses, la carte reste verrouillée", () => {
     await expect(apercu.getByText("Je suis à … % proche de …", { exact: true })).toBeVisible();
     await expect(apercu.getByText(/\d+\s?%/)).toHaveCount(0);
     for (const nom of Object.keys(INITIALES)) await expect(apercu.getByText(nom)).toHaveCount(0);
-    await expect(apercu.locator(".story-f")).toHaveText("3 réponses · 0/11 parts · 1 jour d'affilée");
+    await expect(apercu.locator(".story-f")).toHaveText("3 réponses · 0/11 parts");
   });
 
   test("le bouton « Partager ma carte » est inactif et le texte dit « Ta carte se débloque à 10 réponses. Il t'en reste 7. »", async ({ page }) => {
@@ -4306,20 +4102,16 @@ test.describe("l'en-tête reste en haut au défilement", () => {
   /** L'élément au point donné appartient-il à l'en-tête ? Si oui, rien de ce qui défile n'est passé par-dessus. */
   const devantAuPoint = (page: Page, x: number, y: number) => page.evaluate(([x, y]) => !!document.elementFromPoint(x, y)?.closest("header.topbar"), [x, y]);
 
-  test("sur la n° 24, défiler jusqu'à « Valider ma réponse » laisse le logo et la série en haut, et le texte passe dessous", async ({ page }) => {
-    await vingtTroisReponsesEtSixJours(page);
+  test("sur la n° 24, défiler jusqu'à « Valider ma réponse » laisse le logo en haut, et le texte passe dessous", async ({ page }) => {
+    await vingtTroisReponses(page);
     await page.goto("/");
-    await expect(page.getByRole("banner").getByText("6 jours d'affilée")).toBeVisible();
     await page.getByRole("button", { name: "Valider ma réponse" }).scrollIntoViewIfNeeded();
     expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(300);
     const logo = page.getByRole("banner").getByRole("link", { name: "Au crible 2027" });
-    const serie = page.getByRole("banner").getByText("6 jours d'affilée");
-    for (const element of [logo, serie]) {
-      await expect(element).toBeInViewport();
-      const boite = (await element.boundingBox())!;
-      expect(boite.y).toBeLessThan(80);
-      expect(await devantAuPoint(page, boite.x + boite.width / 2, boite.y + boite.height / 2)).toBe(true);
-    }
+    await expect(logo).toBeInViewport();
+    const boite = (await logo.boundingBox())!;
+    expect(boite.y).toBeLessThan(80);
+    expect(await devantAuPoint(page, boite.x + boite.width / 2, boite.y + boite.height / 2)).toBe(true);
     const fond = await page.getByRole("banner").evaluate((e) => getComputedStyle(e).backgroundColor);
     expect(fond).not.toMatch(/rgba\\(.*,\\s*0(\\.\\d+)?\\)$|transparent/);
   });
@@ -5261,8 +5053,9 @@ test.describe("L'électeur change de candidat dans « Moi contre »", () => {
   test("après avoir choisi Marine Le Pen, « Ta proximité avec Marine Le Pen » remplace celle de Philippe, les positions de droite sont les siennes, et les réponses de gauche ne changent pas", async ({ page }) => {
     await moiContre(page, "philippe", VINGT_TROIS_MOI_CONTRE);
     const gauche = () => page.locator(".vs-list .side.me").filter({ visible: true }).allInnerTexts();
+    // La liste s'affiche une fois dans le navigateur : on attend ses 23 cartes avant de les lire.
+    await expect(page.locator(".vs-list .side.me").filter({ visible: true })).toHaveCount(23);
     const avant = await gauche();
-    expect(avant).toHaveLength(23);
     await (await choixSousPhilippe(page)).filter({ hasText: "Marine Le Pen" }).click();
     await page.waitForURL(/\/moi-contre\/le-pen$/);
     await expect(page.locator(".score .score-k").filter({ visible: true })).toHaveText("Ta proximité avec Marine Le Pen");
@@ -5271,6 +5064,7 @@ test.describe("L'électeur change de candidat dans « Moi contre »", () => {
     const droite = page.locator(".vs-list .side:not(.me)").filter({ visible: true });
     await expect(droite).toHaveCount(23);
     expect(new Set(await droite.evaluateAll((s) => s.map((e) => e.getAttribute("aria-label"))))).toEqual(new Set(["Position de Marine Le Pen"]));
+    await expect(page.locator(".vs-list .side.me").filter({ visible: true })).toHaveCount(23);
     expect(await gauche()).toEqual(avant);
   });
 });

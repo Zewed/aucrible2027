@@ -19,21 +19,8 @@ const dateDuTour = (date: string) =>
     new Date(`${date}T12:00:00Z`),
   );
 
-/** Le dé à quatre points de la note sur la série, repris de maquettes/silence.html. */
-function DeQuatre() {
-  return (
-    <svg viewBox="0 0 40 40" aria-hidden="true">
-      <rect x="2" y="2" width="36" height="36" rx="9" style={{ fill: "currentColor" }} />
-      <circle cx="12" cy="12" r="3.6" style={{ fill: "var(--table)" }} />
-      <circle cx="28" cy="28" r="3.6" style={{ fill: "var(--table)" }} />
-      <circle cx="12" cy="28" r="3.6" style={{ fill: "var(--table)" }} />
-      <circle cx="28" cy="12" r="3.6" style={{ fill: "var(--table)" }} />
-    </svg>
-  );
-}
-
-/** L'accueil pendant le silence électoral : la carte du jour reste face cachée, la série attend. */
-export function Silence({ jour, silence, serie }: { jour: string; silence: PeriodeDeSilence; serie: number }) {
+/** L'accueil pendant le silence électoral : la carte du jour reste face cachée. */
+export function Silence({ jour, silence }: { jour: string; silence: PeriodeDeSilence }) {
   const jours = joursEntre(jour, silence.fin);
   return (
     <main className="calm">
@@ -65,14 +52,6 @@ export function Silence({ jour, silence, serie }: { jour: string; silence: Perio
         </h1>
         <p className="lead">La loi interdit toute nouvelle publication la veille et le jour du vote.</p>
 
-        {serie > 0 && (
-          <ul className="notes">
-            <li>
-              <DeQuatre />
-              <span>{`Ta série de ${serie} ${serie > 1 ? "jours" : "jour"} est en pause, elle n'est pas perdue.`}</span>
-            </li>
-          </ul>
-        )}
       </section>
     </main>
   );

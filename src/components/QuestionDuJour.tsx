@@ -6,8 +6,6 @@ import type { Question, Theme } from "@/lib/contenu";
 import { silenceEnCours } from "@/lib/silence";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis, dateLisible } from "@/lib/date";
-import { lesReponses, lireReponses } from "@/lib/reponses";
-import { joursDAffilee } from "@/lib/serie";
 
 /** Ce que montre l'accueil quand il n'y a pas de question à poser : une carte, un message. */
 function Annonce({ message }: { message: string }) {
@@ -38,7 +36,6 @@ export function QuestionDuJour({
   const jour = useCoteClient(() => aujourdhuiAParis());
   const question = questions.find((q) => q.date === jour) ?? null;
   const theme = question && themes.find((t) => t.id === question.theme);
-  const reponses = lesReponses(useCoteClient(lireReponses));
 
   if (!jour) return null;
 
@@ -48,7 +45,7 @@ export function QuestionDuJour({
     return (
       <>
         {bandeau}
-        <Silence jour={jour} silence={silence} serie={joursDAffilee(Object.values(reponses), jour)} />
+        <Silence jour={jour} silence={silence} />
       </>
     );
   }

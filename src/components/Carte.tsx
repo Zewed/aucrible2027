@@ -6,12 +6,10 @@ import { Camembert } from "@/components/Camembert";
 import { PisteDuPlateau } from "@/components/PisteDuPlateau";
 import type { Candidat, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
-import { aujourdhuiAParis } from "@/lib/date";
 import { dessinerLaCarte, enregistrer, lirePolices } from "@/lib/image-de-carte";
 import { classement, REPONSES_PAR_PART, reponsesComptees, reponsesParTheme, SEUIL_DES_RESULTATS, type QuestionDuCalcul } from "@/lib/proximite";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 import { placeDeLElecteur, surLeChamp } from "@/lib/plateau";
-import { joursDAffilee } from "@/lib/serie";
 
 /** La couleur d'un thème : `--eco` pour « theme-eco ». */
 const couleurDe = (theme: Theme) => `var(--${theme.classe.replace("theme-", "")})`;
@@ -28,8 +26,8 @@ function usePremierDuClassement(questions: QuestionDuCalcul[], candidats: Candid
 }
 
 /**
- * Le pied de la carte : « 23 réponses · 5/11 thèmes · 6 jours d'affilée ». Toutes les réponses de
- * l'appareil, les parts gagnées, et la série ; sans série, la ligne s'en passe (à trancher).
+ * Le pied de la carte : « 23 réponses · 5/11 thèmes ». Toutes les réponses de l'appareil et les parts gagnées ; la
+ * série de jours d'affilée n'existe plus (décision de l'auteur, 25 octobre 2026).
  */
 /** Les thèmes dont la part est gagnée, dans l'ordre des thèmes. */
 function usePartsGagnees(questions: QuestionDuCalcul[], themes: Theme[]) {
@@ -40,16 +38,10 @@ function usePartsGagnees(questions: QuestionDuCalcul[], themes: Theme[]) {
 
 function usePiedDeCarte(questions: QuestionDuCalcul[], themes: Theme[], parts = "thèmes") {
   const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
-  const jour = useCoteClient(() => aujourdhuiAParis());
   const nombre = Object.keys(reponses).length;
   const parTheme = reponsesParTheme(questions, reponses);
   const gagnees = themes.filter((t) => (parTheme[t.id] ?? 0) >= REPONSES_PAR_PART).length;
-  const serie = jour ? joursDAffilee(Object.values(reponses), jour) : 0;
-  return [
-    `${nombre} ${nombre > 1 ? "réponses" : "réponse"}`,
-    `${gagnees}/${themes.length} ${parts}`,
-    ...(serie > 0 ? [`${serie} ${serie > 1 ? "jours" : "jour"} d'affilée`] : []),
-  ].join(" · ");
+  return [`${nombre} ${nombre > 1 ? "réponses" : "réponse"}`, `${gagnees}/${themes.length} ${parts}`].join(" · ");
 }
 
 /** Le cadenas de la carte verrouillée (maquettes/resultats-vide.html). */

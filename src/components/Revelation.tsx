@@ -3,13 +3,11 @@
 import Link from "next/link";
 import { Camembert } from "@/components/Camembert";
 import { CompteARebours } from "@/components/CompteARebours";
-import { De } from "@/components/De";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { Pion } from "@/components/Pion";
 import type { Candidat, Position, Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
 import { melanger } from "@/lib/melange";
-import { joursDAffilee } from "@/lib/serie";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
 import { REPONSES_PAR_PART, reponsesParTheme } from "@/lib/proximite";
@@ -95,7 +93,6 @@ export function Revelation({
   const rangChoisi = question.options.findIndex((o) => o.id === reponse.option);
   const choisie = question.options[rangChoisi];
   const importance = reponse.importance;
-  const serie = reponse.duJour ? joursDAffilee(Object.values(reponses), reponse.jour) : 0;
   const nombreDeReponses = Object.keys(reponses).length;
   // Cette réponse est la 3e de son thème : la part est gagnée. Les autres cas restent à trancher.
   const parTheme = reponsesParTheme(questions, reponses);
@@ -175,54 +172,33 @@ export function Revelation({
             </p>
           </section>
         )}
-        {(partGagnee || serie > 0) && (
+        {partGagnee && (
           <section className="reward" aria-label="Ta récompense du jour">
-            {partGagnee && (
-              <div className="stake win" role="region" aria-label="Ton camembert">
-                <Camembert
-                  couleurs={themes.map((t) => (gagnes.includes(t) ? couleurDe(t) : null))}
-                  nouvelle={themes.indexOf(theme)}
-                  description={`Camembert : ${gagnes.length} parts sur ${themes.length}, la part ${theme.nom} vient d'être gagnée`}
-                />
-                <span>
-                  <span className="stake-k">Ton camembert</span>
-                  <span className="stake-t" style={{ display: "block" }}>
-                    +1 réponse en {theme.nom}&nbsp;: {REPONSES_PAR_PART}/{REPONSES_PAR_PART}, la part est gagnée&nbsp;!
-                  </span>
-                  <span className="seg" aria-hidden="true">
-                    {Array.from({ length: REPONSES_PAR_PART }, (_, i) => (
-                      <i key={i} className={i === REPONSES_PAR_PART - 1 ? "fresh" : undefined}></i>
-                    ))}
-                  </span>
-                  <span className="stake-s" style={{ display: "block" }}>
-                    Ton camembert passe à{" "}
-                    <u>
-                      {gagnes.length} parts sur {themes.length}
-                    </u>
-                    .
-                  </span>
+            <div className="stake win" role="region" aria-label="Ton camembert">
+              <Camembert
+                couleurs={themes.map((t) => (gagnes.includes(t) ? couleurDe(t) : null))}
+                nouvelle={themes.indexOf(theme)}
+                description={`Camembert : ${gagnes.length} parts sur ${themes.length}, la part ${theme.nom} vient d'être gagnée`}
+              />
+              <span>
+                <span className="stake-k">Ton camembert</span>
+                <span className="stake-t" style={{ display: "block" }}>
+                  +1 réponse en {theme.nom}&nbsp;: {REPONSES_PAR_PART}/{REPONSES_PAR_PART}, la part est gagnée&nbsp;!
                 </span>
-              </div>
-            )}
-            {serie > 0 && (
-              <div className="stake streak-card" role="region" aria-label="Ta série">
-                <De />
-                <span>
-                  <span className="stake-k">Ta série continue</span>
-                  <span className="stake-t" style={{ display: "block" }}>
-                    Série&nbsp;: {serie} {serie > 1 ? "jours" : "jour"} d&apos;affilée
-                  </span>
-                  <span className="days" role="img" aria-label={`${Math.min(serie, 7)} jours sur 7`}>
-                    {Array.from({ length: Math.min(serie, 7) }, (_, i) => (
-                      <i key={i} className={i === Math.min(serie, 7) - 1 ? "now" : undefined}></i>
-                    ))}
-                  </span>
-                  <span className="stake-s" style={{ display: "block" }}>
-                    Reviens demain pour la garder.
-                  </span>
+                <span className="seg" aria-hidden="true">
+                  {Array.from({ length: REPONSES_PAR_PART }, (_, i) => (
+                    <i key={i} className={i === REPONSES_PAR_PART - 1 ? "fresh" : undefined}></i>
+                  ))}
                 </span>
-              </div>
-            )}
+                <span className="stake-s" style={{ display: "block" }}>
+                  Ton camembert passe à{" "}
+                  <u>
+                    {gagnes.length} parts sur {themes.length}
+                  </u>
+                  .
+                </span>
+              </span>
+            </div>
           </section>
         )}
         <section className="rev-list" aria-labelledby="qui-defend-quoi">

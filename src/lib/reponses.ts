@@ -6,8 +6,6 @@ export type Reponse = {
   graine: number;
   /** Le jour de la réponse, à Paris (AAAA-MM-JJ). */
   jour: string;
-  /** Répondue le jour même, comme question du jour : c'est ce qui fait la série. */
-  duJour: boolean;
 };
 
 /** L'option « Je ne sais pas », que toute fiche propose en plus des siennes. */
