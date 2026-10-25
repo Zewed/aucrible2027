@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useSyncExternalStore } from "react";
+import { CodeIllisible } from "@/components/CodeIllisible";
 import { useCoteClient } from "@/lib/cote-client";
 import { lesReponses, lireReponses, remplacerLesReponses } from "@/lib/reponses";
 import { decoderLesReponses } from "@/lib/transfert";
@@ -75,7 +76,7 @@ export function Importer() {
           Changer <span className="l2">d&apos;appareil<i>.</i></span>
         </h1>
       </section>
-      {!importees && <p className="caution theme-sante">Ce code n&apos;est pas lisible. Réessaie ou colle le lien.</p>}
+      {!importees && <CodeIllisible />}
       {importees && existantes > 0 && (
         <Remplacer
           existantes={existantes}

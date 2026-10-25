@@ -161,6 +161,8 @@
 .case .btn.yes { background: var(--ink); color: var(--chalk); box-shadow: 0 5px 0 var(--ink-deep); }
 .case .btn.no { background: var(--slot); color: var(--ink); box-shadow: 0 5px 0 var(--pawn-edge); }
 .case-box.bad { border-left: 0; background: var(--theme-tint); box-shadow: 0 6px 0 var(--theme-edge); }
+.app-card-body .case { margin-top: 16px; }
+.app-card-body .case-msg { font-size: 17px; }
 
 .site-foot a[aria-current] { color: var(--chalk); text-decoration: underline; text-decoration-thickness: 2px; }
 

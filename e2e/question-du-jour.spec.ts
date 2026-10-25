@@ -5966,3 +5966,57 @@ test.describe("un appareil qui a déjà des réponses demande avant de les rempl
     await contexte.close();
   });
 });
+
+test.describe("un code illisible est refusé avec un message", () => {
+  /** Un nouvel appareil, avec `reponses` réponses déjà là, dont l'appareil photo filme le QR code de `contenu`. */
+  async function scannerSurUnAppareil(browser: import("@playwright/test").Browser, contenu: string, reponses = 0) {
+    const contexte = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    await fixerLOrdre(contexte);
+    await appareilPhotoQuiFilme(contexte, contenu);
+    const autre = await contexte.newPage();
+    await fixerLeJour(autre, "2026-10-23T09:00:00+02:00");
+    await autre.goto("/appareil");
+    await autre.evaluate((reponses) => {
+      const r: Record<number, object> = {};
+      for (let n = 1; n <= reponses; n++) r[n] = { option: "B", importance: 1, graine: 1, jour: "2026-10-20" };
+      if (reponses) localStorage.setItem("aucrible:reponses", JSON.stringify(r));
+    }, reponses);
+    const carte = autre.getByRole("region", { name: "Récupérer mes réponses" });
+    await carte.getByRole("button", { name: "Scanner un QR code" }).click();
+    return { contexte, autre, carte };
+  }
+  const nombreDeReponses = (page: Page) => page.evaluate(() => Object.keys(JSON.parse(localStorage.getItem("aucrible:reponses") ?? "{}")).length);
+
+  test("scanner le QR code d'un site quelconque affiche « Ce code n'est pas lisible. Réessaie ou colle le lien. » et n'importe rien", async ({ browser }) => {
+    const { contexte, autre, carte } = await scannerSurUnAppareil(browser, "https://exemple.org/menu-du-jour");
+    await expect(carte.getByRole("alert")).toHaveText("Ce code n'est pas lisible. Réessaie ou colle le lien.");
+    await expect(autre).toHaveURL(/\/appareil$/);
+    expect(await nombreDeReponses(autre)).toBe(0);
+    await contexte.close();
+  });
+
+  test("le QR code d'une adresse de transfert abîmée est refusé de la même façon", async ({ browser, baseURL }) => {
+    const { contexte, autre, carte } = await scannerSurUnAppareil(browser, `${baseURL}/i#1,24.Z.9.2026`);
+    await expect(carte.getByRole("alert")).toHaveText("Ce code n'est pas lisible. Réessaie ou colle le lien.");
+    await expect(autre).toHaveURL(/\/appareil$/);
+    expect(await nombreDeReponses(autre)).toBe(0);
+    await contexte.close();
+  });
+
+  test("sur un appareil qui a déjà 5 réponses, ce refus garde les 5 réponses et ne demande pas « Les remplacer ? »", async ({ browser }) => {
+    const { contexte, autre, carte } = await scannerSurUnAppareil(browser, "https://exemple.org/menu-du-jour", 5);
+    await expect(carte.getByRole("alert")).toHaveText("Ce code n'est pas lisible. Réessaie ou colle le lien.");
+    await expect(autre.getByRole("alertdialog")).toHaveCount(0);
+    expect(await nombreDeReponses(autre)).toBe(5);
+    await contexte.close();
+  });
+
+  test("un texte collé qui n'est pas un lien de transfert affiche le même message", async ({ page }) => {
+    await page.goto("/appareil");
+    const carte = page.getByRole("region", { name: "Récupérer mes réponses" });
+    await carte.getByRole("textbox", { name: "Coller un lien" }).fill("bonjour");
+    await carte.getByRole("button", { name: "Importer" }).click();
+    await expect(carte.getByRole("alert")).toHaveText("Ce code n'est pas lisible. Réessaie ou colle le lien.");
+    await expect(page).toHaveURL(/\/appareil$/);
+  });
+});
