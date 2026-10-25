@@ -1,5 +1,6 @@
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { expect, test, type BrowserContext, type Locator, type Page } from "@playwright/test";
+import postgres from "postgres";
 import { parse } from "yaml";
 import jsQR from "jsqr";
 import qrcode from "qrcode-generator";
@@ -3785,6 +3786,41 @@ test.describe("l'électeur choisit le type d'erreur", () => {
     await expect(page.getByRole("radio", { name: "Autre" })).toBeChecked();
     await expect(page.getByRole("radio", { name: "La position d'un candidat" })).not.toBeChecked();
     expect(await types(page).evaluateAll((r) => r.filter((e) => (e as HTMLInputElement).checked).length)).toBe(1);
+  });
+});
+
+/** La base Postgres des tests (playwright.config.ts), où le serveur des tests écrit les signalements. */
+const baseDeTest = postgres(process.env.DATABASE_URL!, { max: 2, onnotice: () => {} });
+
+/** Le signalement dont le texte contient `marque`, tel qu'il est arrivé dans la base, ou rien. */
+async function signalementArrive(marque: string) {
+  const lignes = await baseDeTest`SELECT question, type, texte, source, email FROM signalements WHERE texte LIKE ${"%" + marque + "%"}`;
+  return lignes;
+}
+
+test.describe("l'électeur envoie un signalement", () => {
+  test("sur la n° 24, écrire seulement le texte, lien et e-mail laissés vides, puis « Envoyer » envoie le signalement", async ({ page }) => {
+    const marque = `daté ${Date.now()}-${Math.random()}`;
+    await page.goto("/signaler?question=24");
+    await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(`Le chiffre de 1,7 cotisant pour 1 retraité me semble ${marque}`);
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    await expect.poll(() => signalementArrive(marque)).toEqual([
+      { question: 24, type: "chiffre", texte: `Le chiffre de 1,7 cotisant pour 1 retraité me semble ${marque}`, source: null, email: null },
+    ]);
+  });
+
+  test("envoyer ne demande ni compte, ni mot de passe, ni connexion : aucun écran ne s'intercale", async ({ page }) => {
+    const marque = `écran ${Date.now()}-${Math.random()}`;
+    const pages: string[] = [];
+    page.on("framenavigated", (cadre) => cadre === page.mainFrame() && pages.push(new URL(cadre.url()).pathname + new URL(cadre.url()).search));
+    await page.goto("/signaler?question=24");
+    await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(`Une phrase qui penche, ${marque}`);
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    expect([...new Set(pages)]).toEqual(["/signaler?question=24"]);
+    await expect(page.locator("input[type=password], input[autocomplete=username]")).toHaveCount(0);
+    await expect.poll(async () => (await signalementArrive(marque)).length).toBe(1);
   });
 });
 
