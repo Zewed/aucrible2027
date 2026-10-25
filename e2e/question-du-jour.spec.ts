@@ -5559,3 +5559,23 @@ test.describe("le classement affiche sa fiabilité", () => {
     await expect(page.locator(".reliab")).toHaveCount(0);
   });
 });
+
+test.describe("avant 10 réponses, un bouton mène à la prochaine question", () => {
+  test("avec 3 réponses, toucher « Répondre » dans « Ton classement » ouvre la prochaine question ; le bouton n'a pas de jauge", async ({ page }) => {
+    await premieresReponses(page, 3);
+    await page.goto("/resultats");
+    const bouton = page.getByRole("region", { name: "Ton classement" }).getByRole("link", { name: "Répondre" });
+    await expect(bouton).toBeVisible();
+    await expect(bouton.locator("i")).toHaveCount(0);
+    await bouton.click();
+    await page.waitForURL(/\/$/);
+    await expect(page.getByRole("radiogroup", { name: "Les options" }).filter({ visible: true })).toBeVisible();
+  });
+
+  test("à 10 réponses, le classement s'affiche et le bouton disparaît", async ({ page }) => {
+    await premieresReponses(page, 10);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem").first()).toBeVisible();
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("link", { name: "Répondre" })).toHaveCount(0);
+  });
+});
