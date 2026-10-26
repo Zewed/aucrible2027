@@ -3947,6 +3947,59 @@ test.describe("l'électeur joint une source à son signalement", () => {
   });
 });
 
+test.describe("l'électeur laisse un e-mail pour avoir une réponse", () => {
+  const champ = (page: Page) => page.getByRole("textbox", { name: /^Ton e-mail/ });
+
+  test("« Ton e-mail » porte « facultatif » et, dessous, « Pour qu'on te réponde. Il ne sert qu'à ça. » ; sans e-mail, l'envoi marche", async ({ page }) => {
+    await page.goto("/signaler?question=24");
+    await expect(page.locator("label[for=mel]")).toHaveText("Ton e-mail facultatif");
+    await expect(champ(page)).toHaveAttribute("type", "email");
+    await expect(champ(page)).toHaveAttribute("placeholder", "toi@exemple.fr");
+    await expect(page.locator("#mel + .f-help")).toHaveText("Pour qu'on te réponde. Il ne sert qu'à ça.");
+    const marque = `sans e-mail ${Date.now()}-${Math.random()}`;
+    await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(marque);
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    await expect.poll(async () => (await signalementArrive(marque)).map((s) => s.email)).toEqual([null]);
+  });
+
+  test("avec « marie@exemple.fr », l'auteur retrouve l'adresse à côté du signalement ; elle n'apparaît nulle part en public", async ({ page }) => {
+    const texte = `Une formulation qui penche ${Date.now()}-${Math.random()}`;
+    await page.goto("/signaler?question=24");
+    await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(texte);
+    await champ(page).fill("marie@exemple.fr");
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    for (const adresse of ["/journal", "/question/24", "/question/24/revelation", "/", "/resultats"]) {
+      await page.goto(adresse);
+      await page.waitForLoadState("networkidle");
+      expect(await page.content(), adresse).not.toContain("marie@exemple.fr");
+    }
+    await connecterAvecGitHub(page);
+    await page.goto("/admin");
+    const signalement = page.getByRole("region", { name: "Signalements" }).getByRole("article").filter({ hasText: texte });
+    await expect(signalement.locator(".sg-email")).toHaveText("Répondre à : marie@exemple.fr");
+    await expect(signalement.getByRole("link", { name: "marie@exemple.fr" })).toHaveAttribute("href", "mailto:marie@exemple.fr");
+  });
+
+  test("l'adresse ne sert qu'à répondre : plus de trois mois après l'envoi, elle est effacée, le signalement reste ; à deux mois, elle est encore là", async ({ page }) => {
+    const texte = `Ancien signalement ${Date.now()}-${Math.random()}`;
+    const recent = `Signalement récent ${Date.now()}-${Math.random()}`;
+    // La boîte ouverte une première fois : l'app a créé ses tables. Puis deux signalements avec e-mail, d'il y a quatre
+    // mois et d'il y a deux mois.
+    await connecterAvecGitHub(page);
+    await page.goto("/admin");
+    await expect(page.getByRole("region", { name: "Signalements" })).toBeVisible();
+    await baseDeTest`INSERT INTO signalements (recu_le, question, type, texte, email) VALUES (now() - interval '4 months', 24, 'chiffre', ${texte}, 'ancien@exemple.fr')`;
+    await baseDeTest`INSERT INTO signalements (recu_le, question, type, texte, email) VALUES (now() - interval '2 months', 24, 'chiffre', ${recent}, 'recent@exemple.fr')`;
+    await page.reload();
+    await expect(page.getByRole("region", { name: "Signalements" })).toBeVisible();
+    expect(await signalementArrive(texte)).toEqual([{ question: 24, type: "chiffre", texte, source: null, email: null }]);
+    expect((await signalementArrive(recent)).map((s) => s.email)).toEqual(["recent@exemple.fr"]);
+    expect(await page.content()).not.toContain("ancien@exemple.fr");
+  });
+});
+
 test.describe("le formulaire promet une réponse sous 72 h", () => {
   for (const [nom, taille] of [["sur téléphone", null], ["sur ordinateur", { width: 1280, height: 900 }]] as const) {
     test(`${nom}, juste au-dessus de « Envoyer » : « On répond sous 72 h. » puis « Chaque correction est publiée dans le journal des corrections. »`, async ({ page }) => {

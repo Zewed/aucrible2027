@@ -40,7 +40,10 @@ function Connexion({ refuse }: { refuse: boolean }) {
   );
 }
 
-/** La boîte privée : chaque signalement reçu, avec sa question, son type, son texte, sa source et son heure d'arrivée. */
+/**
+ * La boîte privée : chaque signalement reçu, avec sa question, son type, son texte, sa source, l'e-mail pour répondre
+ * (effacé après trois mois) et son heure d'arrivée.
+ */
 async function Boite() {
   const signalements = await lireLesSignalements();
   return (
@@ -61,6 +64,11 @@ async function Boite() {
               </p>
               <p className="sg-texte">{s.texte}</p>
               {s.source && <Source source={s.source} />}
+              {s.email && (
+                <p className="sg-email">
+                  Répondre à : <a href={`mailto:${s.email}`}>{s.email}</a>
+                </p>
+              )}
             </article>
           </li>
         ))}
