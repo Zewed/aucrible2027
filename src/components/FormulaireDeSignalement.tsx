@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState } from "react";
+import { useActionState, useState, useTransition } from "react";
 import { envoyerUnSignalement } from "@/app/signaler/actions";
 
 /**
@@ -31,22 +31,50 @@ function Merci() {
 }
 
 /**
- * Le formulaire de « Signaler une erreur » : la fiche et le type (rendus par la page), « Qu'est-ce qui ne va pas ? », la source, l'e-mail,
- * la promesse des 72 h, puis « Envoyer », qui garde le signalement sans demander de compte, et remercie. Le refus d'un
- * texte vide et l'échec d'envoi viennent avec les tickets 168 et 169.
+ * Le formulaire de « Signaler une erreur » : la fiche et le type (rendus par la page), « Qu'est-ce qui ne va pas ? »,
+ * la source, l'e-mail, la promesse des 72 h, puis « Envoyer », qui garde le signalement sans demander de compte, et
+ * remercie. Un texte vide, ou fait seulement d'espaces, ne part pas. L'envoi passe par le script de la page : rien de
+ * ce qui est écrit n'est effacé quand il est refusé. L'échec d'envoi vient avec le ticket 169.
  */
 export function FormulaireDeSignalement({ numero, children }: { numero: number; children: React.ReactNode }) {
   const [etat, envoyer, enCours] = useActionState(envoyerUnSignalement, { envoye: false });
+  const [videIci, setVideIci] = useState(false);
+  const [, demarrer] = useTransition();
   if (etat.envoye) return <Merci />;
+  const vide = videIci || etat.vide === true;
+
+  function soumettre(evenement: React.FormEvent<HTMLFormElement>) {
+    evenement.preventDefault();
+    const formulaire = evenement.currentTarget;
+    const quoi = formulaire.elements.namedItem("quoi") as HTMLTextAreaElement;
+    setVideIci(!quoi.value.trim());
+    if (!quoi.value.trim()) return quoi.focus();
+    const donnees = new FormData(formulaire);
+    demarrer(() => envoyer(donnees));
+  }
+
   return (
-    <form className="sig-card" action={envoyer}>
+    <form className="sig-card" action={envoyer} onSubmit={soumettre}>
       <input type="hidden" name="question" value={numero} />
       {children}
       <div className="f-block">
         <label className="f-label" htmlFor="quoi">
           Qu&apos;est-ce qui ne va pas ?
         </label>
-        <textarea className="f-input" id="quoi" name="quoi" rows={5} placeholder="Dis-nous ce que tu as vu, avec tes mots."></textarea>
+        <textarea
+          className="f-input"
+          id="quoi"
+          name="quoi"
+          rows={5}
+          placeholder="Dis-nous ce que tu as vu, avec tes mots."
+          aria-invalid={vide || undefined}
+          aria-describedby={vide ? "quoi-vide" : undefined}
+        ></textarea>
+        {vide && (
+          <p className="f-err theme-sante" id="quoi-vide" role="alert">
+            Écris ce qui ne va pas avant d&apos;envoyer.
+          </p>
+        )}
       </div>
       <div className="f-block">
         <label className="f-label" htmlFor="lien">

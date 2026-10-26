@@ -94,6 +94,7 @@
   font: 500 16px/1.4 var(--text);
 }
 textarea.f-input { min-height: 148px; resize: vertical; }
+.f-err { margin-top: 8px; background: var(--theme-tint); color: var(--ink); border-radius: 8px; padding: 9px 12px; font: 700 14px/1.35 var(--text); }
 .f-input::placeholder { color: var(--ink-soft); opacity: 1; }
 .f-input:focus-visible { outline: 3px solid var(--theme-edge); outline-offset: 2px; border-color: var(--ink); }
 

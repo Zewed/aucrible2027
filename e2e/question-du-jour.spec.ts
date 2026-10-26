@@ -4018,6 +4018,46 @@ test.describe("après l'envoi, le formulaire remercie", () => {
   });
 });
 
+test.describe("un signalement vide ne part pas", () => {
+  const texte = (page: Page) => page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" });
+
+  test("« Envoyer » sans rien écrire n'envoie rien : le formulaire reste ouvert, sans « Merci ! », et dit pourquoi", async ({ page }) => {
+    await page.goto("/signaler?question=24");
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(page.getByRole("alert").filter({ hasText: "Écris ce qui ne va pas avant d'envoyer." })).toBeVisible();
+    await expect(texte(page)).toBeVisible();
+    await expect(page.getByText("Merci ! Ton signalement est arrivé.")).toHaveCount(0);
+  });
+
+  test("même avec un lien et un e-mail, un texte fait seulement d'espaces ne part pas, et le lien et l'e-mail restent", async ({ page }) => {
+    const lien = `https://exemple.org/vide-${Date.now()}-${Math.floor(Math.random() * 1e6)}`;
+    await page.goto("/signaler?question=24");
+    await texte(page).fill("   \n  ");
+    await page.getByRole("textbox", { name: /^Ta source \(lien\)/ }).fill(lien);
+    await page.getByRole("textbox", { name: /^Ton e-mail/ }).fill("marie@exemple.fr");
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(page.getByRole("alert").filter({ hasText: "Écris ce qui ne va pas avant d'envoyer." })).toBeVisible();
+    await expect(page.getByText("Merci ! Ton signalement est arrivé.")).toHaveCount(0);
+    await expect(page.getByRole("textbox", { name: /^Ta source \(lien\)/ })).toHaveValue(lien);
+    await expect(page.getByRole("textbox", { name: /^Ton e-mail/ })).toHaveValue("marie@exemple.fr");
+    await page.waitForTimeout(500);
+    expect(await baseDeTest`SELECT 1 FROM signalements WHERE source = ${lien}`.catch(() => [])).toHaveLength(0);
+  });
+
+  test("le serveur refuse aussi un texte vide, même si le formulaire était contourné", async ({ page }) => {
+    const lien = `https://exemple.org/contourne-${Date.now()}-${Math.floor(Math.random() * 1e6)}`;
+    await page.goto("/signaler?question=24");
+    await texte(page).fill("Un vrai texte, d'abord");
+    await page.getByRole("textbox", { name: /^Ta source \(lien\)/ }).fill(lien);
+    // Le texte vidé juste avant l'envoi, sans passer par le formulaire : seul le serveur peut encore dire non.
+    await texte(page).evaluate((zone) => zone.closest("form")!.addEventListener("formdata", (e) => (e as FormDataEvent).formData.set("quoi", "   "), { capture: true }));
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await page.waitForTimeout(800);
+    await expect(page.getByText("Merci ! Ton signalement est arrivé.")).toHaveCount(0);
+    expect(await baseDeTest`SELECT 1 FROM signalements WHERE source = ${lien}`.catch(() => [])).toHaveLength(0);
+  });
+});
+
 test.describe("le formulaire promet une réponse sous 72 h", () => {
   for (const [nom, taille] of [["sur téléphone", null], ["sur ordinateur", { width: 1280, height: 900 }]] as const) {
     test(`${nom}, juste au-dessus de « Envoyer » : « On répond sous 72 h. » puis « Chaque correction est publiée dans le journal des corrections. »`, async ({ page }) => {
