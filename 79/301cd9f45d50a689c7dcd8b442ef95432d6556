@@ -1,0 +1,29 @@
+e2e/fiches/contenu/023-loyers.yaml
+  s_613931134209e1::t_292a3bcd63e15b 1-49
+e2e/fiches/contenu/024-retraite.yaml
+  s_613931134209e1::t_da44b2779f6f94 1-83
+e2e/fiches/contenu/025-nucleaire.yaml
+  s_613931134209e1::t_de3e0c4d56f334 1-67
+e2e/fiches/contenu/026-medecins.yaml
+  s_613931134209e1::t_c7ee7b39915fb7 1-56
+e2e/question-du-jour.spec.ts
+  s_613931134209e1::t_110553379f1ccf 1281-1283,1286,4643,4720,5034
+src/lib/contenu.ts
+  s_613931134209e1::t_334b96abe91b22 161-163,173-175
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "79301cd9f45d50a689c7dcd8b442ef95432d6556",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
