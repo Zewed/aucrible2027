@@ -6730,7 +6730,8 @@ test.describe("le pied de page mène aux pages secondaires", () => {
   ];
   const pied = (page: Page) => page.getByRole("contentinfo").getByRole("navigation", { name: "Pied de page" });
 
-  for (const adresse of ["/", "/resultats", "/a-propos", "/cette-page-n-existe-pas"]) {
+  // Pas sur la première étape de la fiche (l'accueil), qui n'a pas de pied de page.
+  for (const adresse of ["/resultats", "/a-propos", "/cette-page-n-existe-pas"]) {
     test(`en bas de ${adresse}, les cinq liens sont là, dans l'ordre`, async ({ page }) => {
       await page.goto(adresse);
       await expect(pied(page).getByRole("link")).toHaveText(LIENS.map(([nom]) => nom));
