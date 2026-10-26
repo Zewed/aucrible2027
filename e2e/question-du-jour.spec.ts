@@ -3805,7 +3805,7 @@ test.describe("l'électeur envoie un signalement", () => {
     await page.goto("/signaler?question=24");
     await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(`Le chiffre de 1,7 cotisant pour 1 retraité me semble ${marque}`);
     await page.getByRole("button", { name: "Envoyer" }).click();
-    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    await expect(page.getByRole("status")).toContainText("Merci ! Ton signalement est arrivé.");
     await expect.poll(() => signalementArrive(marque)).toEqual([
       { question: 24, type: "chiffre", texte: `Le chiffre de 1,7 cotisant pour 1 retraité me semble ${marque}`, source: null, email: null },
     ]);
@@ -3818,7 +3818,7 @@ test.describe("l'électeur envoie un signalement", () => {
     await page.goto("/signaler?question=24");
     await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(`Une phrase qui penche, ${marque}`);
     await page.getByRole("button", { name: "Envoyer" }).click();
-    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    await expect(page.getByRole("status")).toContainText("Merci ! Ton signalement est arrivé.");
     expect([...new Set(pages)]).toEqual(["/signaler?question=24"]);
     await expect(page.locator("input[type=password], input[autocomplete=username]")).toHaveCount(0);
     await expect.poll(async () => (await signalementArrive(marque)).length).toBe(1);
@@ -3839,7 +3839,7 @@ async function signaler(page: Page, texte: string) {
   await page.goto("/signaler?question=24");
   await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(texte);
   await page.getByRole("button", { name: "Envoyer" }).click();
-  await expect(page.getByRole("status")).toHaveText("Envoyé.");
+  await expect(page.getByRole("status")).toContainText("Merci ! Ton signalement est arrivé.");
 }
 
 test.describe("le signalement arrive dans une boîte privée", () => {
@@ -3915,7 +3915,7 @@ test.describe("l'électeur joint une source à son signalement", () => {
     const marque = `sans source ${Date.now()}-${Math.random()}`;
     await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(marque);
     await page.getByRole("button", { name: "Envoyer" }).click();
-    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    await expect(page.getByRole("status")).toContainText("Merci ! Ton signalement est arrivé.");
     await expect.poll(async () => (await signalementArrive(marque)).map((s) => s.source)).toEqual([null]);
   });
 
@@ -3938,7 +3938,7 @@ test.describe("l'électeur joint une source à son signalement", () => {
     await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(texte);
     await champ(page).fill(lien);
     await page.getByRole("button", { name: "Envoyer" }).click();
-    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    await expect(page.getByRole("status")).toContainText("Merci ! Ton signalement est arrivé.");
     await connecterAvecGitHub(page);
     await page.goto("/admin");
     const signalement = page.getByRole("region", { name: "Signalements" }).getByRole("article").filter({ hasText: texte });
@@ -3959,7 +3959,7 @@ test.describe("l'électeur laisse un e-mail pour avoir une réponse", () => {
     const marque = `sans e-mail ${Date.now()}-${Math.random()}`;
     await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(marque);
     await page.getByRole("button", { name: "Envoyer" }).click();
-    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    await expect(page.getByRole("status")).toContainText("Merci ! Ton signalement est arrivé.");
     await expect.poll(async () => (await signalementArrive(marque)).map((s) => s.email)).toEqual([null]);
   });
 
@@ -3969,7 +3969,7 @@ test.describe("l'électeur laisse un e-mail pour avoir une réponse", () => {
     await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(texte);
     await champ(page).fill("marie@exemple.fr");
     await page.getByRole("button", { name: "Envoyer" }).click();
-    await expect(page.getByRole("status")).toHaveText("Envoyé.");
+    await expect(page.getByRole("status")).toContainText("Merci ! Ton signalement est arrivé.");
     for (const adresse of ["/journal", "/question/24", "/question/24/revelation", "/", "/resultats"]) {
       await page.goto(adresse);
       await page.waitForLoadState("networkidle");
@@ -3997,6 +3997,24 @@ test.describe("l'électeur laisse un e-mail pour avoir une réponse", () => {
     expect(await signalementArrive(texte)).toEqual([{ question: 24, type: "chiffre", texte, source: null, email: null }]);
     expect((await signalementArrive(recent)).map((s) => s.email)).toEqual(["recent@exemple.fr"]);
     expect(await page.content()).not.toContain("ancien@exemple.fr");
+  });
+});
+
+test.describe("après l'envoi, le formulaire remercie", () => {
+  test("après un envoi réussi : « Merci ! Ton signalement est arrivé. » et « Si tu as laissé ton e-mail, on te répond sous 72 h. », à la place du formulaire", async ({ page }) => {
+    await signaler(page, `Merci ${Date.now()}-${Math.random()}`);
+    const merci = page.getByRole("status");
+    await expect(merci.locator(".state-t")).toHaveText("Merci ! Ton signalement est arrivé.");
+    await expect(merci.locator(".state-s")).toHaveText("Si tu as laissé ton e-mail, on te répond sous 72 h.");
+    await expect(page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" })).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Envoyer" })).toHaveCount(0);
+  });
+
+  test("« Retour aux questions » ramène à la question du jour : la n° 24 le vendredi 23 octobre", async ({ page }) => {
+    await signaler(page, `Retour ${Date.now()}-${Math.random()}`);
+    await page.getByRole("status").getByRole("link", { name: "Retour aux questions" }).click();
+    await page.waitForURL(/\/$/);
+    await expect(page.getByRole("heading", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
   });
 });
 

@@ -5,12 +5,39 @@ import { useActionState } from "react";
 import { envoyerUnSignalement } from "@/app/signaler/actions";
 
 /**
+ * Après un envoi réussi (maquettes/signaler.html, « après l'envoi ») : le remerciement prend la place du formulaire,
+ * qu'on ne renvoie pas une seconde fois par mégarde.
+ */
+function Merci() {
+  return (
+    <div className="state-card state-ok" role="status">
+      <span className="state-ic">
+        <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12.5l4.5 4.5L19 7.5" />
+        </svg>
+      </span>
+      <div>
+        <p className="state-t">Merci&nbsp;! Ton signalement est arrivé.</p>
+        <p className="state-s">Si tu as laissé ton e-mail, on te répond sous 72&nbsp;h.</p>
+        <Link className="btn-ink" href="/">
+          Retour aux questions
+          <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h13M13 6l6 6-6 6" />
+          </svg>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+/**
  * Le formulaire de « Signaler une erreur » : la fiche et le type (rendus par la page), « Qu'est-ce qui ne va pas ? », la source, l'e-mail,
- * la promesse des 72 h, puis « Envoyer », qui garde le signalement sans demander de compte. Le remerciement, le refus d'un texte vide et
- * l'échec d'envoi viennent avec les tickets 167 à 169.
+ * la promesse des 72 h, puis « Envoyer », qui garde le signalement sans demander de compte, et remercie. Le refus d'un
+ * texte vide et l'échec d'envoi viennent avec les tickets 168 et 169.
  */
 export function FormulaireDeSignalement({ numero, children }: { numero: number; children: React.ReactNode }) {
   const [etat, envoyer, enCours] = useActionState(envoyerUnSignalement, { envoye: false });
+  if (etat.envoye) return <Merci />;
   return (
     <form className="sig-card" action={envoyer}>
       <input type="hidden" name="question" value={numero} />
@@ -50,11 +77,6 @@ export function FormulaireDeSignalement({ numero, children }: { numero: number; 
           <path d="M5 12h13M13 6l6 6-6 6" />
         </svg>
       </button>
-      {etat.envoye && (
-        <p className="f-help" role="status">
-          Envoyé.
-        </p>
-      )}
     </form>
   );
 }
