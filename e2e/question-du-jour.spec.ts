@@ -4058,6 +4058,69 @@ test.describe("un signalement vide ne part pas", () => {
   });
 });
 
+test.describe("un envoi raté garde le texte et propose de réessayer", () => {
+  const echec = (page: Page) => page.getByRole("alert").filter({ hasText: "L'envoi n'a pas marché. Ton texte est gardé, réessaie." });
+
+  /** Remplit tout le formulaire de la n° 24 : « Un chiffre », le texte, un lien, un e-mail. */
+  async function toutRemplir(page: Page, texte: string, lien: string) {
+    await page.goto("/signaler?question=24");
+    await page.getByText("Un chiffre", { exact: true }).click();
+    await page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" }).fill(texte);
+    await page.getByRole("textbox", { name: /^Ta source \(lien\)/ }).fill(lien);
+    await page.getByRole("textbox", { name: /^Ton e-mail/ }).fill("marie@exemple.fr");
+  }
+
+  async function toujoursRempli(page: Page, texte: string, lien: string) {
+    await expect(page.getByRole("radio", { name: "Un chiffre" })).toBeChecked();
+    await expect(page.getByRole("textbox", { name: "Qu'est-ce qui ne va pas ?" })).toHaveValue(texte);
+    await expect(page.getByRole("textbox", { name: /^Ta source \(lien\)/ })).toHaveValue(lien);
+    await expect(page.getByRole("textbox", { name: /^Ton e-mail/ })).toHaveValue("marie@exemple.fr");
+  }
+
+  test("réseau coupé, « Envoyer » affiche l'échec, et le type, le texte, le lien et l'e-mail sont toujours là", async ({ page, context }) => {
+    const texte = `Hors réseau ${Date.now()}-${Math.random()}`;
+    const lien = "https://www.cor-retraites.fr/rapport-annuel-2025";
+    await toutRemplir(page, texte, lien);
+    await context.setOffline(true);
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(echec(page)).toBeVisible();
+    await toujoursRempli(page, texte, lien);
+    await expect(page.getByText("Merci ! Ton signalement est arrivé.")).toHaveCount(0);
+    await context.setOffline(false);
+  });
+
+  test("réseau rétabli, « Réessayer » envoie le signalement, qui n'arrive qu'une fois", async ({ page, context }) => {
+    const texte = `Réessayé ${Date.now()}-${Math.random()}`;
+    await toutRemplir(page, texte, "https://exemple.org/source");
+    await context.setOffline(true);
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(echec(page)).toBeVisible();
+    await context.setOffline(false);
+    await page.getByRole("button", { name: "Réessayer" }).click();
+    await expect(page.getByRole("status")).toContainText("Merci ! Ton signalement est arrivé.");
+    expect(await signalementArrive(texte)).toHaveLength(1);
+  });
+
+  test("si le signalement est arrivé mais que la réponse s'est perdue, « Réessayer » ne le fait pas arriver deux fois", async ({ page }) => {
+    const texte = `Réponse perdue ${Date.now()}-${Math.random()}`;
+    await toutRemplir(page, texte, "https://exemple.org/perdue");
+    // Le premier envoi atteint le serveur, qui garde le signalement ; seule sa réponse n'arrive jamais au navigateur.
+    let premier = true;
+    await page.route("**/signaler?question=24", async (route) => {
+      if (route.request().method() !== "POST" || !premier) return route.fallback();
+      premier = false;
+      await route.fetch();
+      await route.abort("connectionreset");
+    });
+    await page.getByRole("button", { name: "Envoyer" }).click();
+    await expect(echec(page)).toBeVisible();
+    await expect.poll(async () => (await signalementArrive(texte)).length).toBe(1);
+    await page.getByRole("button", { name: "Réessayer" }).click();
+    await expect(page.getByRole("status")).toContainText("Merci ! Ton signalement est arrivé.");
+    expect(await signalementArrive(texte)).toHaveLength(1);
+  });
+});
+
 test.describe("le formulaire promet une réponse sous 72 h", () => {
   for (const [nom, taille] of [["sur téléphone", null], ["sur ordinateur", { width: 1280, height: 900 }]] as const) {
     test(`${nom}, juste au-dessus de « Envoyer » : « On répond sous 72 h. » puis « Chaque correction est publiée dans le journal des corrections. »`, async ({ page }) => {

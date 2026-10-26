@@ -21,7 +21,10 @@ export async function base() {
       texte text NOT NULL,
       source text,
       email text
-    )`;
+    )`.then(
+    // La clé d'envoi (ticket 169) : un même signalement renvoyé après un échec n'arrive qu'une fois.
+    () => connexion!`ALTER TABLE signalements ADD COLUMN IF NOT EXISTS cle text UNIQUE`,
+  );
   await tablesPretes;
   return connexion;
 }
