@@ -1,8 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useState, useTransition } from "react";
-import { envoyerUnSignalement } from "@/app/signaler/actions";
+import { useActionState, useRef, useState, useTransition } from "react";
+import { envoyerUnSignalement, type EtatDeLEnvoi } from "@/app/signaler/actions";
+
+/** L'envoi au serveur ; si sa réponse n'arrive pas (réseau coupé, réponse perdue), c'est un échec, pas une erreur de la page. */
+async function envoyerOuEchouer(precedent: EtatDeLEnvoi, donnees: FormData): Promise<EtatDeLEnvoi> {
+  try {
+    return await envoyerUnSignalement(precedent, donnees);
+  } catch {
+    return { envoye: false, echec: true };
+  }
+}
+
+/** « si l'envoi échoue » (maquettes/signaler.html) : rien n'est effacé, et « Réessayer » renvoie le même signalement. */
+function Echec() {
+  return (
+    <div className="state-card state-err" role="alert">
+      <span className="state-ic">
+        <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5v9M12 19v.01" />
+        </svg>
+      </span>
+      <div>
+        <p className="state-t">L&apos;envoi n&apos;a pas marché. Ton texte est gardé, réessaie.</p>
+      </div>
+      <button className="act primary" type="submit">
+        <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M19.5 12a7.5 7.5 0 1 1-2.4-5.5M19.5 4.5v5h-5" />
+        </svg>
+        Réessayer
+      </button>
+    </div>
+  );
+}
 
 /**
  * Après un envoi réussi (maquettes/signaler.html, « après l'envoi ») : le remerciement prend la place du formulaire,
@@ -34,11 +65,13 @@ function Merci() {
  * Le formulaire de « Signaler une erreur » : la fiche et le type (rendus par la page), « Qu'est-ce qui ne va pas ? »,
  * la source, l'e-mail, la promesse des 72 h, puis « Envoyer », qui garde le signalement sans demander de compte, et
  * remercie. Un texte vide, ou fait seulement d'espaces, ne part pas. L'envoi passe par le script de la page : rien de
- * ce qui est écrit n'est effacé quand il est refusé. L'échec d'envoi vient avec le ticket 169.
+ * ce qui est écrit n'est effacé quand il est refusé ou qu'il échoue. Chaque signalement porte une clé, tirée au premier
+ * essai et gardée pour les suivants : renvoyé après une réponse perdue, il n'arrive qu'une fois.
  */
 export function FormulaireDeSignalement({ numero, children }: { numero: number; children: React.ReactNode }) {
-  const [etat, envoyer, enCours] = useActionState(envoyerUnSignalement, { envoye: false });
+  const [etat, envoyer, enCours] = useActionState(envoyerOuEchouer, { envoye: false });
   const [videIci, setVideIci] = useState(false);
+  const cle = useRef<string | null>(null);
   const [, demarrer] = useTransition();
   if (etat.envoye) return <Merci />;
   const vide = videIci || etat.vide === true;
@@ -49,7 +82,9 @@ export function FormulaireDeSignalement({ numero, children }: { numero: number; 
     const quoi = formulaire.elements.namedItem("quoi") as HTMLTextAreaElement;
     setVideIci(!quoi.value.trim());
     if (!quoi.value.trim()) return quoi.focus();
+    cle.current ??= crypto.randomUUID();
     const donnees = new FormData(formulaire);
+    donnees.set("cle", cle.current);
     demarrer(() => envoyer(donnees));
   }
 
@@ -105,6 +140,7 @@ export function FormulaireDeSignalement({ numero, children }: { numero: number; 
           <path d="M5 12h13M13 6l6 6-6 6" />
         </svg>
       </button>
+      {etat.echec && !enCours && <Echec />}
     </form>
   );
 }

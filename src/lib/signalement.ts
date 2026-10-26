@@ -15,6 +15,9 @@ export const TYPES = [
  */
 export type Signalement = { question: number; type: string; texte: string; source: string | null; email: string | null };
 
+/** La clé d'un envoi : tirée par le formulaire, la même pour chaque nouvel essai du même signalement. */
+export type Cle = string;
+
 /**
  * Combien de temps l'e-mail d'un signalement est gardé : trois mois, le temps de répondre (décision du 25/10/2026).
  * Passé ce délai, l'adresse est effacée ; le signalement reste.
@@ -39,9 +42,12 @@ export async function lireLesSignalements(): Promise<SignalementRecu[]> {
   return sql<SignalementRecu[]>`SELECT id, recu_le AS "recuLe", question, type, texte, source, email FROM signalements ORDER BY recu_le DESC, id DESC LIMIT 200`;
 }
 
-/** Garde un signalement dans la base, pour la boîte privée de l'auteur. */
-export async function enregistrerUnSignalement({ question, type, texte, source, email }: Signalement) {
+/**
+ * Garde un signalement dans la base, pour la boîte privée de l'auteur. Un second envoi avec la même clé (« Réessayer »
+ * après une réponse perdue) ne le garde pas une seconde fois.
+ */
+export async function enregistrerUnSignalement({ question, type, texte, source, email }: Signalement, cle: Cle) {
   const sql = await base();
-  await sql`INSERT INTO signalements (question, type, texte, source, email) VALUES (${question}, ${type}, ${texte}, ${source}, ${email})`;
+  await sql`INSERT INTO signalements (question, type, texte, source, email, cle) VALUES (${question}, ${type}, ${texte}, ${source}, ${email}, ${cle}) ON CONFLICT (cle) DO NOTHING`;
   await effacerLesVieuxEmails(sql);
 }
