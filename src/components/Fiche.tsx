@@ -7,6 +7,7 @@ import { Camembert } from "@/components/Camembert";
 import { CompteARebours } from "@/components/CompteARebours";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
+import { VignetteVideo } from "@/components/VignetteVideo";
 import type { Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
 import { tirerGraine } from "@/lib/melange";
@@ -108,54 +109,61 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
     <Bandeau jour={jour} question={question} />
     <main className={`today ${theme.classe} etape-${etape}`}>
       {etape === "lire" ? (
-        <>
-          <article className="cartes-posees" aria-labelledby="q">
-            <div className="qcard c1">
-              <div className="qcard-top">
-                <PuceTheme theme={theme} />
-                <h1 id="q">{question.question}</h1>
-                {question.video && (
-                  <video className="video" src={question.video.url} controls preload="metadata" aria-label={`Vidéo, ${question.video.duree}`} />
-                )}
-              </div>
+        <article className="ecran-partage" aria-labelledby="q">
+          <div className="scene">
+            <div className="bloc">
+              <PuceTheme theme={theme} />
+              <h1 id="q">{question.question}</h1>
             </div>
-            <div className="qcard c2">
-              <section className="qcard-body" aria-labelledby="contexte">
-                <h2 id="contexte" className="label"><i></i>Le contexte</h2>
-                <div className="context ctx">
-                  {question.contexte.map((phrase) => (
-                    <p key={phrase}>{phrase}</p>
-                  ))}
-                </div>
-              </section>
+            <div className="bobine">
+              <VignetteVideo titre={question.titreCourt ?? theme.nom} video={question.video} />
             </div>
-            <div className="qcard c3">
-              <section className="qcard-body" aria-labelledby="chiffres">
-                <h2 id="chiffres" className="label"><i></i>{question.chiffres.length} chiffres clés</h2>
-                <ul className="figures">
-                  {question.chiffres.map((chiffre) => (
-                    <li key={chiffre.legende} className="fig">
-                      <span className="fig-num">
-                        {chiffre.valeur}
-                        {chiffre.unite && <> <small>{chiffre.unite}</small></>}
-                      </span>
-                      <span className="fig-txt">{chiffre.legende}</span>
-                      <span className="fig-src">
-                        Source : <b>{chiffre.source.organisme}, {chiffre.source.document && `${chiffre.source.document} `}{chiffre.source.annee}</b>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            </div>
-          </article>
-          {enJeu && <EnJeu question={question} theme={theme} enJeu={enJeu} reponses={reponses} />}
-          <div className="actionbar">
-            <button type="button" className="go" onClick={() => allerA("repondre")}>
-              Voir les propositions
-            </button>
           </div>
-        </>
+          <div className="faits">
+            <section aria-labelledby="contexte">
+              <h2 id="contexte" className="sr">Le contexte</h2>
+              <div className="context ctx">
+                {question.contexte.map((phrase) => (
+                  <p key={phrase}>{phrase}</p>
+                ))}
+              </div>
+            </section>
+            <section className="chiffres" aria-labelledby="chiffres">
+              <div className="chiffres-tete">
+                <h2 id="chiffres" className="sr">{question.chiffres.length} chiffres clés</h2>
+                <Link className="drapeau" href={`/signaler?question=${question.numero}`}>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 2a1 1 0 0 1 1 1v.6c1.6-.7 3.5-.9 5.6.1 2.3 1.1 4.3.9 6.6-.3a1 1 0 0 1 1.4.9v9.4a1 1 0 0 1-.5.9c-2.8 1.5-5.6 1.8-8.4.5-1.8-.8-3.3-.7-4.7.1V21a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1z" />
+                  </svg>
+                  Signaler une erreur
+                </Link>
+              </div>
+              <ul className="figures tuiles" data-n={question.chiffres.length}>
+                {question.chiffres.map((chiffre, rang) => (
+                  <li key={chiffre.legende} className={`fig t t${rang + 1}`}>
+                    <span className="fig-num">
+                      {chiffre.valeur}
+                      {chiffre.unite && <> <small>{chiffre.unite}</small></>}
+                    </span>
+                    <span className="fig-txt">{chiffre.legende}</span>
+                    <span className="fig-src">
+                      Source : <b>{chiffre.source.organisme}, {chiffre.source.document && `${chiffre.source.document} `}{chiffre.source.annee}</b>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+            {enJeu && <EnJeu question={question} theme={theme} enJeu={enJeu} reponses={reponses} />}
+            <div className="actionbar">
+              <button type="button" className="go" onClick={() => allerA("repondre")}>
+                Voir les propositions
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
       ) : (
         <>
           <div className="left">
@@ -248,17 +256,19 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
           </form>
         </>
       )}
-      <footer className="foot">
-        <Link className="small" href={`/signaler?question=${question.numero}`}>
-          Signaler une erreur
-        </Link>
-        <Link className="btn-link" href="/resultats" style={{ marginLeft: "auto" }}>
-          Mes résultats{" "}
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
-          </svg>
-        </Link>
-      </footer>
+      {etape === "repondre" && (
+        <footer className="foot">
+          <Link className="small" href={`/signaler?question=${question.numero}`}>
+            Signaler une erreur
+          </Link>
+          <Link className="btn-link" href="/resultats" style={{ marginLeft: "auto" }}>
+            Mes résultats{" "}
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
+            </svg>
+          </Link>
+        </footer>
+      )}
     </main>
     </>
   );

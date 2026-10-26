@@ -146,95 +146,139 @@
 .site-foot a[aria-current] { color: var(--chalk); text-decoration: underline; text-decoration-thickness: 2px; }
 
 /* La fiche en deux étapes.
-   Étape « lire » : trois cartes posées sur la table (la question et sa vidéo, le contexte, les chiffres clés), puis
-   « Voir les propositions ». Étape « répondre » : la question seule, en haut, puis les cartes réponse. */
-:root { --barre-action: 92px; }
-.today.etape-lire { display: block; padding-bottom: calc(var(--barre-action) + 18px); }
-.cartes-posees { display: grid; gap: 16px; }
-.cartes-posees .qcard { display: flex; flex-direction: column; box-shadow: 0 6px 0 var(--ink-deep); }
-.cartes-posees .qcard::after {
-  content: ""; position: absolute; inset: 8px; z-index: 0;
-  border: 2px solid var(--slot); border-radius: 9px; pointer-events: none;
+   Étape « lire » : l'écran partagé. À gauche, la couleur du thème porte la question et la vignette de la vidéo ;
+   à droite, le contexte numéroté, les chiffres clés en tuiles de poids différents, puis « Voir les propositions ».
+   Étape « répondre » : la question seule, en haut, puis les cartes réponse. */
+:root { --barre-action: 96px; }
+body:has(.etape-lire) .site-foot { display: none; }
+.today.etape-lire { display: block; max-width: none; padding: 0 0 calc(var(--barre-action) + 18px); }
+.ecran-partage { --padX: 16px; --padY: 20px; }
+.ecran-partage .scene { display: flex; flex-direction: column; container-type: inline-size; }
+.ecran-partage .bloc {
+  background: var(--theme); color: var(--on-theme);
+  padding: var(--padY) var(--padX) clamp(18px, 3.2dvh, 40px);
+  display: flex; flex-direction: column; gap: clamp(18px, 3dvh, 40px);
 }
-.cartes-posees .c1::after { border-color: rgba(29, 24, 56, .28); }
-.cartes-posees .c1 .qcard-top { flex: 1; display: flex; flex-direction: column; padding: 20px 20px 22px; z-index: 1; }
-.cartes-posees .c1 .theme-chip { align-self: flex-start; margin: 0; }
-.cartes-posees .c1 h1 { margin-top: 14px; font-size: clamp(34px, 9.4vw, 52px); }
-.cartes-posees .video {
-  display: block; width: 100%; margin-top: 16px; aspect-ratio: 16 / 9;
-  border: 3px solid var(--ink); border-radius: 12px; background: var(--ink-deep);
+.ecran-partage .bloc .theme-chip { align-self: flex-start; margin: 0; }
+.ecran-partage .bloc h1 {
+  font: 800 clamp(38px, 15cqw, 138px)/0.92 var(--display);
+  font-variation-settings: "wdth" 84, "opsz" 96; letter-spacing: -0.022em; text-wrap: balance; color: var(--on-theme);
 }
-.cartes-posees .qcard-body { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; padding: 20px 20px 22px; }
-.cartes-posees .qcard-body .label { padding-bottom: 12px; border-bottom: 4px solid var(--theme); }
-.cartes-posees .ctx { flex: 1; display: flex; flex-direction: column; margin-top: 4px; }
-.cartes-posees .ctx p {
-  position: relative; flex: 1 1 auto; display: flex; align-items: center;
-  margin: 0; padding: 12px 0 12px 22px; font-size: 15.5px; line-height: 1.45;
+.ecran-partage .bobine { padding: 0 var(--padX); background: linear-gradient(to bottom, var(--theme) 0 54%, transparent 54%); }
+.affiche {
+  position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; border: 0;
+  border-radius: clamp(12px, 1.2vw, 20px); overflow: hidden; background: var(--card); color: var(--ink);
+  text-align: left; container-type: inline-size;
+  box-shadow: 0 8px 0 var(--ink-deep), 0 28px 50px -22px rgba(11, 9, 25, .8);
 }
-.cartes-posees .ctx p + p { border-top: 2px dotted #CFC8E8; }
-.cartes-posees .ctx p::before {
-  content: ""; position: absolute; left: 1px; top: 50%; margin-top: -4.5px;
-  width: 9px; height: 9px; border-radius: 2px; background: var(--theme); transform: rotate(45deg);
+button.affiche { cursor: pointer; transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out); }
+button.affiche:hover { transform: translateY(-3px); }
+video.affiche { background: var(--ink-deep); }
+.affiche .art { position: absolute; inset: 0; width: 100%; height: 100%; }
+.affiche .point { fill: #DCD6F0; }
+.affiche .carte { fill: var(--theme); }
+.affiche .carte-bord { fill: var(--theme-edge); }
+.affiche .talon { fill: var(--ink); }
+.affiche .marque {
+  position: absolute; left: 5.5cqw; top: 5.5cqw;
+  font: 800 clamp(12px, 2.3cqw, 19px)/1 var(--display); text-transform: uppercase; letter-spacing: .06em;
 }
-.cartes-posees .figures { flex: 1; margin: 12px 0 0; display: flex; flex-direction: column; gap: 9px; }
-.cartes-posees .fig {
-  flex: 1 1 auto; grid-template-columns: 92px minmax(0, 1fr); column-gap: 12px;
-  align-content: center; align-items: center; padding: 6px; border: 0;
+.affiche .sujet {
+  position: absolute; left: 5.5cqw; bottom: 7cqw; max-width: 52cqw;
+  font: 800 clamp(20px, 7.4cqw, 66px)/0.9 var(--display); font-variation-settings: "wdth" 78, "opsz" 96; letter-spacing: -0.025em;
 }
-.cartes-posees .fig-num {
-  grid-row: 1 / span 2; align-self: stretch;
-  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-  background: var(--theme); color: var(--on-theme); border-radius: 8px; padding: 8px 4px 7px; font-size: 30px;
+.affiche .lecture {
+  position: absolute; left: 75%; top: 50%; width: 20cqw; aspect-ratio: 1; transform: translate(-50%, -50%);
+  border-radius: 50%; background: var(--ink); box-shadow: 0 1cqw 0 var(--ink-deep); display: grid; place-items: center;
 }
-.cartes-posees .fig-num small { display: block; margin-top: 3px; font: 700 13px/1 var(--text); letter-spacing: 0; }
-.cartes-posees .fig-txt { margin-top: 0; font-size: 14.5px; line-height: 1.28; }
-.cartes-posees .fig-src { grid-column: 2; margin-top: 4px; white-space: normal; overflow: visible; text-overflow: clip; font-size: 12.5px; line-height: 1.25; }
+.affiche .lecture svg { width: 42%; height: 42%; margin-left: 8%; }
+.affiche .lecture path { fill: var(--chalk); }
+.affiche .duree {
+  position: absolute; right: 3.6cqw; bottom: 3.6cqw; background: var(--ink); color: var(--chalk);
+  font: 700 clamp(12px, 2.5cqw, 21px)/1 var(--text); padding: .5em .7em .45em; border-radius: .5em;
+}
+.ecran-partage .faits { padding: clamp(26px, 4dvh, 48px) var(--padX) 0; display: flex; flex-direction: column; --ctx: 17px; }
+.ecran-partage .ctx { counter-reset: phrase; display: grid; gap: calc(var(--ctx) * .8); }
+.ecran-partage .ctx p {
+  counter-increment: phrase; margin: 0;
+  display: grid; grid-template-columns: calc(var(--ctx) * 1.9) 1fr; column-gap: calc(var(--ctx) * .55); align-items: start;
+  font: 500 var(--ctx)/1.42 var(--text); color: var(--chalk); text-wrap: pretty;
+}
+.ecran-partage .ctx p::before {
+  content: counter(phrase); font: 800 calc(var(--ctx) * 2.6)/0.78 var(--display);
+  font-variation-settings: "wdth" 80, "opsz" 96; color: var(--theme-text); padding-top: .04em;
+}
+.ecran-partage .chiffres { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+.chiffres-tete { display: flex; justify-content: flex-end; margin-top: clamp(14px, 2.4dvh, 30px); }
+.drapeau {
+  display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 2px 0 8px;
+  font: 600 13px/1 var(--text); color: var(--muted); text-decoration: none; border-radius: 8px;
+}
+.drapeau svg { width: 16px; height: 16px; }
+.drapeau path { fill: var(--theme-text); }
+.drapeau:hover { color: var(--chalk); }
+.tuiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 10px; --tp: 14px; }
+.tuiles[data-n="2"] { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
+.tuiles[data-n="3"] .t1 { grid-row: span 2; }
+.tuiles .t { border: 0; border-radius: 14px; padding: var(--tp); display: flex; flex-direction: column; min-width: 0; }
+.tuiles .fig-num {
+  font: 800 clamp(40px, 11vw, 96px)/0.86 var(--display); font-variation-settings: "wdth" 78, "opsz" 96;
+  letter-spacing: -0.03em; white-space: nowrap;
+}
+.tuiles .fig-num small { font-size: .4em; letter-spacing: -0.01em; margin-left: .08em; }
+.tuiles .fig-txt { margin-top: .7em; font: 600 14px/1.3 var(--text); text-wrap: pretty; }
+.tuiles .fig-src { margin-top: auto; padding-top: 10px; font: 600 12px/1.25 var(--text); white-space: normal; overflow: visible; text-overflow: clip; }
+.tuiles .t1 { background: var(--theme); color: var(--on-theme); }
+.tuiles .t1 .fig-num { font-size: clamp(64px, 18vw, 170px); }
+.tuiles .t1 .fig-num small { font-size: .3em; }
+.tuiles .t1 .fig-txt { font-size: 15px; }
+.tuiles .t1 .fig-src { color: var(--on-theme); }
+.tuiles .t2 { background: var(--card); color: var(--ink); }
+.tuiles .t2 .fig-num { color: var(--theme-edge); }
+.tuiles .t2 .fig-src { color: var(--ink-soft); }
+.tuiles .t3 { background: var(--table-2); color: var(--chalk); }
+.tuiles .t4 { background: transparent; box-shadow: inset 0 0 0 2px var(--table-3); color: var(--chalk); }
+.tuiles .t1 .fig-src b { color: var(--on-theme); }
+.tuiles .t3 .fig-src b, .tuiles .t4 .fig-src b { color: var(--chalk); }
+.tuiles .t3 .fig-src, .tuiles .t4 .fig-src { color: var(--muted); }
 .etape-lire .stake { margin-top: 18px; }
 /* Au téléphone, « Voir les propositions » est dans une barre collée en bas, qui garde sa place sous la page. */
 .actionbar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
   padding: 12px 16px max(14px, env(safe-area-inset-bottom));
-  background: var(--table); box-shadow: 0 -2px 0 var(--table-3);
+  background: var(--table); box-shadow: 0 -14px 24px -12px rgba(11, 9, 25, .9);
 }
-.actionbar .go { margin: 0 0 7px; padding: 17px 18px 16px; font-size: 20px; }
+.actionbar .go { margin: 0 0 7px; display: flex; align-items: center; justify-content: center; gap: .5em; }
+.actionbar .go svg { width: 1.1em; height: 1.1em; }
 .etape-repondre .qcard-top { padding-bottom: 22px; }
 .retour-contexte { margin-top: 14px; }
 .retour-contexte svg { width: 18px; height: 18px; }
 @media (min-width: 900px) {
-  .today.etape-lire {
-    --u: min(1vw, 1.75vh);
-    max-width: none; padding: calc(2.4 * var(--u)) clamp(28px, 3vw, 64px) 0;
-  }
-  .cartes-posees {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1.08fr);
-    gap: clamp(22px, 2vw, 42px); align-items: stretch; padding-bottom: 8px;
-  }
-  .cartes-posees .qcard { box-shadow: 0 9px 0 var(--ink-deep); }
-  .cartes-posees .qcard::after { inset: calc(.6 * var(--u)); border-radius: calc(.55 * var(--u)); }
-  .cartes-posees .c1 { rotate: -.7deg; }
-  .cartes-posees .c2 { rotate: .45deg; translate: 0 calc(.3 * var(--u)); }
-  .cartes-posees .c3 { rotate: -.4deg; }
-  .cartes-posees .c1 .qcard-top { padding: calc(2 * var(--u)) calc(2 * var(--u)) calc(1.8 * var(--u)); }
-  .cartes-posees .c1 h1 { margin: calc(1.6 * var(--u)) 0; font-size: calc(4.7 * var(--u)); line-height: .95; }
-  .cartes-posees .video { margin-top: auto; border-radius: calc(.9 * var(--u)); border-width: 4px; }
-  .cartes-posees .qcard-body { padding: calc(1.9 * var(--u)) calc(1.9 * var(--u)) calc(1.7 * var(--u)); }
-  .cartes-posees .qcard-body .label { font-size: max(14px, calc(.95 * var(--u))); padding-bottom: calc(.9 * var(--u)); }
-  .cartes-posees .ctx p { font-size: max(17px, calc(1.5 * var(--u))); line-height: 1.42; padding: calc(.9 * var(--u)) 0 calc(.9 * var(--u)) calc(1.6 * var(--u)); }
-  .cartes-posees .figures { margin-top: calc(1 * var(--u)); gap: calc(.7 * var(--u)); }
-  .cartes-posees .fig { grid-template-columns: calc(7.2 * var(--u)) minmax(0, 1fr); column-gap: calc(1.1 * var(--u)); padding: calc(.45 * var(--u)) calc(.9 * var(--u)) calc(.45 * var(--u)) calc(.45 * var(--u)); }
-  .cartes-posees .fig-num { font-size: calc(3.1 * var(--u)); padding: calc(.6 * var(--u)) calc(.3 * var(--u)); border-radius: calc(.6 * var(--u)); }
-  .cartes-posees .fig-num small { font-size: max(13px, calc(.9 * var(--u))); margin-top: calc(.2 * var(--u)); }
-  .cartes-posees .fig-txt { font-size: max(15px, calc(1.15 * var(--u))); }
-  .cartes-posees .fig-src { margin-top: calc(.35 * var(--u)); font-size: max(13px, calc(.8 * var(--u))); }
-  /* Sur ordinateur, le bouton est sous les cartes, au centre, dans le flux. */
-  .actionbar {
-    position: static; z-index: auto; background: none; box-shadow: none;
-    display: flex; justify-content: center; padding: calc(1.8 * var(--u)) 0 calc(2.2 * var(--u));
-  }
-  .actionbar .go {
-    width: auto; min-width: calc(24 * var(--u));
-    padding: calc(1.2 * var(--u)) calc(3.6 * var(--u)) calc(1.1 * var(--u)); font-size: max(22px, calc(1.5 * var(--u)));
-  }
   .etape-repondre .qcard h1 { font-size: 46px; }
 }
-@media (prefers-reduced-motion: reduce) { .cartes-posees .qcard { animation: none; } }
+/* Grand écran : deux moitiés pleine hauteur, rien ne défile. */
+@media (min-width: 1200px) {
+  .today.etape-lire { padding: 0; }
+  .ecran-partage {
+    --padX: clamp(32px, 3.2vw, 64px); --padY: clamp(24px, 4dvh, 52px);
+    display: grid; grid-template-columns: minmax(0, 55fr) minmax(0, 45fr); height: 100dvh;
+  }
+  .ecran-partage .scene { height: 100dvh; min-height: 0; }
+  .ecran-partage .bloc { flex: 1 1 auto; justify-content: space-between; }
+  .ecran-partage .bloc h1 { font-size: clamp(44px, min(13.5cqw, 10.6dvh), 138px); }
+  .ecran-partage .bobine { padding-bottom: var(--padY); background: linear-gradient(to bottom, var(--theme) 0 calc((100% - var(--padY)) * .56), transparent 0); }
+  .ecran-partage .affiche { width: min(100%, calc(46dvh * 16 / 9)); }
+  .ecran-partage .faits { height: 100dvh; min-height: 0; padding: var(--padY) clamp(28px, 2.9vw, 60px); --ctx: clamp(16px, min(1.32vw, 2.15dvh), 25px); }
+  .chiffres-tete { margin-top: clamp(10px, 2dvh, 28px); }
+  .drapeau { min-height: 36px; font-size: clamp(13px, 1.4dvh, 15px); }
+  .tuiles { flex: 1 1 auto; min-height: 0; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1.22fr) minmax(0, 1fr); gap: clamp(10px, 1.3dvh, 16px); --tp: clamp(16px, min(1.35vw, 2.4dvh), 28px); }
+  .tuiles[data-n="2"] { grid-template-rows: minmax(0, 1fr); }
+  .tuiles .fig-num { font-size: clamp(40px, 7.4dvh, 96px); }
+  .tuiles .fig-txt { font-size: clamp(14px, min(1.05vw, 2.05dvh), 20px); }
+  .tuiles .fig-src { font-size: clamp(12px, 1.35dvh, 14px); }
+  .tuiles .t1 .fig-num { font-size: clamp(64px, 13dvh, 170px); }
+  .tuiles .t1 .fig-txt { font-size: clamp(15px, min(1.2vw, 2dvh), 22px); }
+  .actionbar { position: static; padding: 0; background: none; box-shadow: none; margin-top: clamp(16px, 2.6dvh, 32px); }
+  .actionbar .go { font-size: clamp(20px, min(1.6vw, 2.8dvh), 30px); padding: clamp(16px, 2.3dvh, 27px) 18px; }
+}
+@media (prefers-reduced-motion: reduce) { button.affiche { transition: none; } }

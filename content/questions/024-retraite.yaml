@@ -6,6 +6,7 @@ numero: 24
 date: 2026-10-23
 theme: travail-retraites
 question: À quel âge devrait-on pouvoir partir à la retraite ?
+titreCourt: "L'âge de la retraite"
 contexte:
   - La réforme de 2023 a commencé à repousser l'âge légal de 62 à 64 ans, puis sa hausse a été suspendue fin 2025.
   - "Notre système fonctionne par répartition : les cotisations de ceux qui travaillent paient les pensions d'aujourd'hui."

@@ -55,6 +55,8 @@ export type Question = {
   options: Option[];
   positions: Record<string, Position>;
   video?: VideoExplicative;
+  /** Le sujet en quelques mots, sur la vignette de la vidéo : « L'installation des médecins ». */
+  titreCourt?: string;
   /** 2 à 3 liens vers les organismes qui documentent le sujet. */
   pourAllerPlusLoin?: Lien[];
   /** Les deux côtés de l'image 5 du carrousel, que l'auteur écrit dans la fiche (décision du 25 octobre). */

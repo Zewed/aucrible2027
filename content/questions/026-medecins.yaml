@@ -5,6 +5,7 @@ numero: 26
 date: 2026-10-25
 theme: sante
 question: Faut-il réguler l'installation des médecins ?
+titreCourt: "L'installation des médecins"
 contexte:
   - Aujourd'hui, un médecin libéral peut s'installer où il le souhaite.
   - Dans certains territoires, il faut attendre plusieurs mois pour un rendez-vous, et des patients n'ont plus de médecin traitant.

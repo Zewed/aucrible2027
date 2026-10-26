@@ -5,6 +5,7 @@ numero: 23
 date: 2026-10-22
 theme: logement
 question: Faut-il encadrer les loyers dans les grandes villes ?
+titreCourt: "L'encadrement des loyers"
 contexte:
   - Dans plusieurs grandes villes, un loyer de référence fixe le plafond qu'un propriétaire ne peut pas dépasser.
   - Ce dispositif est une expérimentation, et les villes choisissent de l'appliquer ou non.

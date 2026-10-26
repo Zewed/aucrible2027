@@ -1624,6 +1624,7 @@ test.describe("l'électeur ouvre « Mes résultats »", () => {
   test("depuis la fiche de la question n° 24, toucher « Mes résultats » ouvre la page « Mes résultats »", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
+    await voirLesPropositions(page);
     await page.getByRole("main").getByRole("link", { name: "Mes résultats" }).click();
     await expect(page).toHaveURL(/\/resultats$/);
     await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." })).toBeVisible();
@@ -3749,14 +3750,14 @@ test.describe("« Signaler une erreur » ouvre le formulaire depuis la fiche", (
   test("sur la question n° 24, « Signaler une erreur » en bas de la fiche ouvre la page « Signaler une erreur. » avec son introduction", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByText("Question n° 24", { exact: false }).filter({ visible: true }).first()).toBeVisible();
-    await page.locator("main footer").getByRole("link", { name: "Signaler une erreur" }).click();
+    await page.getByRole("main").getByRole("link", { name: "Signaler une erreur" }).filter({ visible: true }).click();
     await pageDeSignalement(page);
   });
 
   test("après une réponse validée, la révélation propose encore « Signaler une erreur », qui ouvre la même page", async ({ page }) => {
     await repondre(page, "62 ans");
     await page.waitForURL(/\/revelation$/);
-    const lien = page.locator("main footer").filter({ visible: true }).getByRole("link", { name: "Signaler une erreur" });
+    const lien = page.getByRole("main").getByRole("link", { name: "Signaler une erreur" }).filter({ visible: true });
     await expect(lien).toBeVisible();
     await lien.click();
     await pageDeSignalement(page);
@@ -3778,7 +3779,7 @@ test.describe("le formulaire sait de quelle fiche il vient", () => {
 
   test("depuis la question n° 24, « Sur quelle fiche ? » montre « Travail & retraites », la question n° 24 et « Rempli pour toi. »", async ({ page }) => {
     await page.goto("/");
-    await page.locator("main footer").getByRole("link", { name: "Signaler une erreur" }).click();
+    await page.getByRole("main").getByRole("link", { name: "Signaler une erreur" }).filter({ visible: true }).click();
     expect(await surQuelleFiche(page)).toEqual({
       theme: "Travail & retraites",
       question: "Question n° 24 — À quel âge devrait-on pouvoir partir à la retraite ?",
@@ -3790,7 +3791,7 @@ test.describe("le formulaire sait de quelle fiche il vient", () => {
     await page.goto("/rattrapage");
     await page.getByRole("link", { name: /Faut-il encadrer les loyers/ }).click();
     await page.waitForURL(/\/question\/23$/);
-    await page.locator("main footer").filter({ visible: true }).getByRole("link", { name: "Signaler une erreur" }).click();
+    await page.getByRole("main").getByRole("link", { name: "Signaler une erreur" }).filter({ visible: true }).click();
     expect(await surQuelleFiche(page)).toEqual({
       theme: "Logement",
       question: "Question n° 23 — Faut-il encadrer les loyers dans les grandes villes ?",
@@ -3801,7 +3802,7 @@ test.describe("le formulaire sait de quelle fiche il vient", () => {
   test("le lien de la révélation remplit aussi la fiche, et une adresse tapée à la main ne montre pas une question pas encore publiée", async ({ page }) => {
     await repondre(page, "62 ans");
     await page.waitForURL(/\/revelation$/);
-    await page.locator("main footer").filter({ visible: true }).getByRole("link", { name: "Signaler une erreur" }).click();
+    await page.getByRole("main").getByRole("link", { name: "Signaler une erreur" }).filter({ visible: true }).click();
     expect((await surQuelleFiche(page)).question).toBe("Question n° 24 — À quel âge devrait-on pouvoir partir à la retraite ?");
     await page.goto("/signaler?question=25");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Signaler une erreur.");
@@ -6737,7 +6738,7 @@ test.describe("le pied de page mène aux pages secondaires", () => {
   }
 
   test("chaque lien ouvre sa page, où il est marqué comme la page en cours", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/resultats");
     for (const [nom, adresse] of LIENS) {
       await pied(page).getByRole("link", { name: nom }).click();
       await page.waitForURL(new RegExp(`${adresse}$`));
@@ -6791,25 +6792,32 @@ test("au téléphone, « Voir les propositions » est visible dès l'ouverture, 
   expect(await page.evaluate(() => window.scrollY)).toBe(0);
 });
 
-test.describe("la première étape : trois cartes posées", () => {
+test.describe("la première étape : l'écran partagé", () => {
   for (const [largeur, hauteur] of [[1440, 900], [1920, 1080]]) {
     test.describe(`à ${largeur} × ${hauteur}`, () => {
       test.use({ viewport: { width: largeur, height: hauteur }, isMobile: false, hasTouch: false });
 
-      test("la question, le contexte et les chiffres sont côte à côte, et tout tient sans défiler", async ({ page }) => {
+      test("la question à gauche, le contexte et les chiffres à droite, et tout tient sans défiler", async ({ page }) => {
         await page.goto("/");
         const bouton = page.getByRole("button", { name: "Voir les propositions" });
         await expect(bouton).toBeInViewport({ ratio: 1 });
         const question = await page.getByRole("heading", { level: 1 }).boundingBox();
         const contexte = await page.getByRole("region", { name: "Le contexte" }).boundingBox();
         const chiffres = await page.getByRole("region", { name: /chiffres clés/ }).boundingBox();
-        expect(question!.x).toBeLessThan(contexte!.x);
-        expect(contexte!.x).toBeLessThan(chiffres!.x);
-        await expect(page.getByRole("article", { name: await page.getByRole("heading", { level: 1 }).innerText() })).toBeInViewport({ ratio: 1 });
-        expect(await page.evaluate(() => window.scrollY)).toBe(0);
+        expect(question!.x + question!.width).toBeLessThanOrEqual(contexte!.x);
+        expect(contexte!.y).toBeLessThan(chiffres!.y);
+        await expect(page.getByRole("region", { name: /chiffres clés/ })).toBeInViewport({ ratio: 1 });
+        expect(await page.evaluate(() => document.documentElement.scrollHeight <= window.innerHeight + 1)).toBe(true);
       });
     });
   }
+
+  test("ni pied de page ni « Mes résultats » en bas de cette étape ; « Signaler une erreur » est au coin des chiffres", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator(".site-foot")).toBeHidden();
+    const signaler = page.getByRole("region", { name: /chiffres clés/ }).getByRole("link", { name: "Signaler une erreur" });
+    await expect(signaler).toHaveAttribute("href", "/signaler?question=24");
+  });
 
   test("au téléphone, la barre du bouton ne recouvre jamais la fin des chiffres clés", async ({ page }) => {
     await page.goto("/");
@@ -6822,10 +6830,11 @@ test.describe("la première étape : trois cartes posées", () => {
     expect(source!.y + source!.height).toBeLessThanOrEqual(barre!.y);
   });
 
-  test("une fiche sans vidéo n'affiche aucun cadre vidéo ; une fiche qui en a une l'affiche sous la question", async ({ page }) => {
+  test("sans vidéo, la vignette du sujet dit « Bientôt » ; avec une vidéo, la toucher la lance", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator("video")).toHaveCount(0);
+    await expect(page.getByRole("img", { name: "Vidéo à venir : L'âge de la retraite" })).toContainText("Bientôt");
     await page.goto("/question/9");
-    await expect(page.getByLabel("Vidéo, 1 min")).toBeVisible();
+    await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+    await expect(page.locator("video")).toBeVisible();
   });
 });
