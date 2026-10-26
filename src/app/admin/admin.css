@@ -19,3 +19,7 @@
 .sg-email { margin-top: 6px; font: 600 14px/1.4 var(--text); color: var(--ink-soft); overflow-wrap: anywhere; }
 .sg-email a, .sg-source a { color: var(--ink); font-weight: 700; text-underline-offset: 3px; }
 .sg-vide { margin-top: 14px; color: var(--muted); }
+.vi-table { margin-top: 14px; width: 100%; max-width: 360px; border-collapse: collapse; font: 600 15px/1.3 var(--text); }
+.vi-table th, .vi-table td { padding: 9px 4px; border-bottom: 1px dashed var(--table-3); }
+.vi-table th { text-align: left; font-weight: 600; color: var(--muted); }
+.vi-table td { text-align: right; font: 800 18px/1 var(--display); font-variant-numeric: tabular-nums; color: var(--chalk); }

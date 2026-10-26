@@ -3,7 +3,7 @@ import postgres from "postgres";
 /**
  * La base Postgres d'Au crible 2027 (SPEC.md, « Décisions de l'auteur du 25/10/2026 ») : en ligne, celle du projet
  * Vercel (Neon) ; en local et pour les tests, le conteneur de scripts/base-locale.sh. Les réponses des électeurs n'y
- * entrent jamais : elle ne garde que ce qu'on lui envoie exprès, comme un signalement.
+ * entrent jamais : elle ne garde que ce qu'on lui envoie exprès, comme un signalement, et le nombre de visites par jour.
  */
 let connexion: postgres.Sql | undefined;
 let tablesPretes: Promise<unknown> | undefined;
@@ -24,6 +24,9 @@ export async function base() {
     )`.then(
     // La clé d'envoi (ticket 169) : un même signalement renvoyé après un échec n'arrive qu'une fois.
     () => connexion!`ALTER TABLE signalements ADD COLUMN IF NOT EXISTS cle text UNIQUE`,
+  ).then(
+    // Les visites (ticket 192) : un nombre par jour, rien d'autre ; ni appareil, ni adresse, ni réponse.
+    () => connexion!`CREATE TABLE IF NOT EXISTS visites (jour date PRIMARY KEY, nombre integer NOT NULL DEFAULT 0)`,
   );
   await tablesPretes;
   return connexion;

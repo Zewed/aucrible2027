@@ -6,5 +6,5 @@ import { execFileSync } from "node:child_process";
  */
 export default function demarrerLaBase() {
   execFileSync("sh", ["scripts/base-locale.sh"], { stdio: "inherit" });
-  execFileSync("docker", ["exec", "aucrible-db", "psql", "-U", "aucrible", "-d", "aucrible_test", "-qc", "DROP TABLE IF EXISTS signalements"], { stdio: "inherit" });
+  execFileSync("docker", ["exec", "aucrible-db", "psql", "-U", "aucrible", "-d", "aucrible_test", "-qc", "DROP TABLE IF EXISTS signalements, visites"], { stdio: "inherit" });
 }

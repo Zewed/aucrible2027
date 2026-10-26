@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import { EnTete } from "@/components/EnTete";
 import { PiedDePage } from "@/components/PiedDePage";
 import { SansReseau } from "@/components/SansReseau";
+import { Visite } from "@/components/Visite";
 import "./kit.css";
 import "./globals.css";
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <PiedDePage />
         <SansReseau />
+        <Visite />
       </body>
     </html>
   );

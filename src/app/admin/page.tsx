@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { lAuteur } from "@/lib/auteur";
+import { dateCourte } from "@/lib/date";
 import { lireLesSignalements, TYPES } from "@/lib/signalement";
+import { lireLesVisites } from "@/lib/visites";
 import { seDeconnecter } from "./actions";
 import "./admin.css";
 
@@ -77,7 +79,34 @@ async function Boite() {
   );
 }
 
-/** Qui est là : l'auteur voit sa boîte ; tout autre compte, ou personne, voit seulement la connexion. */
+/** Les visites par jour (SPEC.md, « Données » : anonymes), les plus récentes d'abord : un appareil compte une fois par jour. */
+async function Visites() {
+  const visites = await lireLesVisites();
+  return (
+    <section className="sec" aria-labelledby="h-vi">
+      <div className="sec-h">
+        <h2 id="h-vi">Visites</h2>
+        <p>appareils par jour</p>
+      </div>
+      {visites.length === 0 ? (
+        <p className="sg-vide">Aucune visite pour l&apos;instant.</p>
+      ) : (
+        <table className="vi-table">
+          <tbody>
+            {visites.map(({ jour, nombre }) => (
+              <tr key={jour}>
+                <th scope="row">{dateCourte(jour)}</th>
+                <td>{nombre}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </section>
+  );
+}
+
+/** Qui est là : l'auteur voit sa boîte et ses visites ; tout autre compte, ou personne, voit seulement la connexion. */
 async function Espace() {
   const auteur = await lAuteur();
   if (!auteur || auteur === "refuse") return <Connexion refuse={auteur === "refuse"} />;
@@ -88,6 +117,7 @@ async function Espace() {
         <button type="submit">Se déconnecter</button>
       </form>
       <Boite />
+      <Visites />
     </>
   );
 }
