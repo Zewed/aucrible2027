@@ -120,19 +120,21 @@ const fond = (locator: import("@playwright/test").Locator) =>
 
 test("la question n° 24 (Travail & retraites) s'affiche en orange", async ({ page }) => {
   await page.goto("/");
-  await voirLesPropositions(page);
   const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
-  expect(await fond(carte.locator(".qcard-top"))).toBe(ORANGE);
-  expect(await fond(page.getByRole("button", { name: "Valider ma réponse" }))).toBe(ORANGE);
+  await expect.poll(() => fond(carte.locator(".bloc"))).toBe(ORANGE);
+  expect(await fond(page.getByRole("button", { name: "Voir les propositions" }))).toBe(ORANGE);
+  await voirLesPropositions(page);
+  expect(await fond(page.locator(".mq-tete"))).toBe(ORANGE);
 });
 
 test("une question d'Écologie & énergie s'affiche en vert, et les 11 thèmes ont 11 couleurs", async ({ page }) => {
   await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
   await page.goto("/");
-  await voirLesPropositions(page);
   const carte = page.getByRole("article", { name: "Faut-il sortir du nucléaire ?" });
-  expect(await fond(carte.locator(".qcard-top"))).toBe(VERT);
-  expect(await fond(page.getByRole("button", { name: "Valider ma réponse" }))).toBe(VERT);
+  await expect.poll(() => fond(carte.locator(".bloc"))).toBe(VERT);
+  expect(await fond(page.getByRole("button", { name: "Voir les propositions" }))).toBe(VERT);
+  await voirLesPropositions(page);
+  expect(await fond(page.locator(".mq-tete"))).toBe(VERT);
 
   const couleurs = await page.evaluate(() =>
     ["eco", "trav", "ecol", "immi", "secu", "sante", "educ", "loge", "euro", "inst", "soc"].map((t) => {
@@ -317,7 +319,7 @@ async function lettresDesOptions(page: Page) {
   await expect(options.first()).toBeAttached();
   const lettres = [];
   for (const option of await options.all()) {
-    const lettre = option.locator("xpath=..").locator(".opt-letter");
+    const lettre = option.locator("xpath=..").locator(".mq-lettre");
     await expect(lettre).toBeVisible();
     lettres.push(await lettre.innerText());
   }
@@ -357,8 +359,8 @@ test("chaque option de la question n° 24 dit, sous son titre et sans la toucher
   };
   for (const [rang, option] of (await options.all()).entries()) {
     const carte = option.locator("xpath=..");
-    const titre = carte.locator(".opt-title");
-    const implication = carte.locator(".opt-impl");
+    const titre = carte.locator(".mq-titre");
+    const implication = carte.locator(".mq-implique");
     await expect(implication).toBeVisible();
     await expect(implication).not.toBeEmpty();
     if (attendues[rang]) await expect(implication).toHaveText(attendues[rang]);
@@ -397,7 +399,7 @@ test("chaque option de la question n° 24 dit ce qu'en disent ses défenseurs, l
   for (const [rang, option] of (await options.all()).entries()) {
     const bloc = option.locator("xpath=..").getByText("Ce qu'en disent ses défenseurs", { exact: true }).locator("xpath=..");
     await expect(bloc).toBeVisible();
-    const argument = (await bloc.innerText()).replace("Ce qu'en disent ses défenseurs", "").trim();
+    const argument = ((await bloc.textContent()) ?? "").replace("Ce qu'en disent ses défenseurs", "").trim();
     expect(argument.length).toBeGreaterThan(10);
     if (attendus[rang]) expect(argument).toBe(attendus[rang]);
     expect(nomsOuPartisDans(argument)).toEqual([]);
@@ -417,7 +419,7 @@ async function argumentsDesFiches(page: Page, titre: string) {
     for (const option of await options.all()) {
       const bloc = option.locator("xpath=..").getByText(titre, { exact: true }).locator("xpath=..");
       await expect(bloc).toBeVisible();
-      textes.push((await bloc.innerText()).replace(titre, "").trim());
+      textes.push(((await bloc.textContent()) ?? "").replace(titre, "").trim());
     }
   }
   return textes;
@@ -441,7 +443,7 @@ test("chaque option de la question n° 24 dit ce que lui reprochent ses critique
   for (const [rang, option] of (await options.all()).entries()) {
     const bloc = option.locator("xpath=..").getByText("Ce que lui reprochent ses critiques", { exact: true }).locator("xpath=..");
     await expect(bloc).toBeVisible();
-    const critique = (await bloc.innerText()).replace("Ce que lui reprochent ses critiques", "").trim();
+    const critique = ((await bloc.textContent()) ?? "").replace("Ce que lui reprochent ses critiques", "").trim();
     expect(critique.length).toBeGreaterThan(10);
     if (attendus[rang]) expect(critique).toBe(attendus[rang]);
   }
@@ -481,45 +483,38 @@ test("au-dessus des options, ni titre ni phrase d'explication : les options vien
   await expect(page.getByText("Tu passes.", { exact: true })).toHaveCount(0);
 });
 
-test.describe("sur ordinateur, la carte question se pose à côté des cartes réponse", () => {
-  test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
+test.describe("les propositions en mosaïque", () => {
+  for (const [largeur, hauteur] of [[1440, 900], [1920, 1080]]) {
+    test.describe(`à ${largeur} × ${hauteur}`, () => {
+      test.use({ viewport: { width: largeur, height: hauteur }, isMobile: false, hasTouch: false });
 
-  test("à 1280 px, la carte question est à gauche et les cartes réponse à droite, côte à côte", async ({ page }) => {
-    await page.goto("/");
-    await voirLesPropositions(page);
-    const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
-    const options = page.getByRole("radiogroup", { name: "Les options" });
-    const [c, o] = await Promise.all([carte.boundingBox(), options.boundingBox()]);
-    expect(c!.x + c!.width).toBeLessThanOrEqual(o!.x);
-    expect(c!.y).toBeLessThan(o!.y + o!.height);
-    expect(o!.y).toBeLessThan(c!.y + c!.height);
-  });
+      test("la question en bandeau, les cinq options et « Valider ma réponse » tiennent sans défiler", async ({ page }) => {
+        await page.goto("/");
+        await voirLesPropositions(page);
+        await expect(page.getByRole("heading", { level: 1 })).toBeInViewport({ ratio: 1 });
+        for (const libelle of ["60 ans", "62 ans", "64 ans", "65 ans ou plus", "À la carte, avec un système à points"]) {
+          await expect(carteReponse(page, libelle)).toBeInViewport({ ratio: 1 });
+        }
+        await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeInViewport({ ratio: 1 });
+        expect(await page.evaluate(() => document.documentElement.scrollHeight <= window.innerHeight + 1)).toBe(true);
+      });
+    });
+  }
 
-  test("en défilant les cinq options, la carte question reste visible à gauche", async ({ page }) => {
-    await page.goto("/");
-    await voirLesPropositions(page);
-    const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
-    for (const libelle of ["60 ans", "62 ans", "64 ans", "65 ans ou plus", "À la carte, avec un système à points"]) {
+  test.describe("sur un petit téléphone", () => {
+    test.use({ viewport: { width: 375, height: 812 } });
+
+    test("à 375 px, la question vient d'abord ; les options glissent de côté sans faire déborder la page, et le repère C mène à la carte C", async ({ page }) => {
+      await page.goto("/");
       await voirLesPropositions(page);
-      await page.getByRole("radiogroup", { name: "Les options" }).getByText(libelle, { exact: true }).scrollIntoViewIfNeeded();
-      await expect(carte).toBeInViewport({ ratio: 0.9 });
-    }
-    // Sans bandeau au-dessus, la page défile moins qu'avant : ce qui compte, c'est qu'elle ait défilé.
-    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
-  });
-});
-
-test.describe("sur un petit téléphone", () => {
-  test.use({ viewport: { width: 375, height: 812 } });
-
-  test("à 375 px, la carte question vient d'abord, puis les cartes réponse en dessous", async ({ page }) => {
-    await page.goto("/");
-    await voirLesPropositions(page);
-    const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
-    const options = page.getByRole("radiogroup", { name: "Les options" });
-    const [c, o] = await Promise.all([carte.boundingBox(), options.boundingBox()]);
-    expect(c!.y + c!.height).toBeLessThanOrEqual(o!.y);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
+      const question = await page.getByRole("heading", { level: 1 }).boundingBox();
+      const options = await page.getByRole("radiogroup", { name: "Les options" }).boundingBox();
+      expect(question!.y + question!.height).toBeLessThanOrEqual(options!.y);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
+      await page.getByRole("navigation", { name: "Aller à une option" }).getByRole("link", { name: "C", exact: true }).click();
+      await expect(carteReponse(page, "64 ans")).toBeInViewport({ ratio: 0.9 });
+      await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeInViewport();
+    });
   });
 });
 
@@ -527,18 +522,17 @@ test.describe("sur un petit téléphone", () => {
 const carteReponse = (page: Page, libelle: string) =>
   page.getByRole("radiogroup", { name: "Les options" }).locator("label").filter({ has: page.getByRole("radio", { name: libelle }) });
 
-test("toucher « 64 ans » colore la carte C, la soulève et la marque « Ta carte » ; les autres restent blanches", async ({ page }) => {
+test("toucher « 64 ans » colore la carte C et la marque « Ta carte » ; les autres restent blanches", async ({ page }) => {
   await page.goto("/");
   await choisir(page, "64 ans");
   const choisie = carteReponse(page, "64 ans");
   await expect(choisie.getByText("Ta carte", { exact: true })).toBeVisible();
-  const face = choisie.locator(".opt-face");
+  const face = choisie.locator(".mq-face");
   await expect.poll(() => fond(face)).toBe(ORANGE);
-  expect(await face.evaluate((el) => getComputedStyle(el).transform)).not.toBe("none");
 
   for (const libelle of ["60 ans", "62 ans", "65 ans ou plus", "À la carte, avec un système à points"]) {
     const autre = carteReponse(page, libelle);
-    expect(await fond(autre.locator(".opt-face"))).toBe("rgb(255, 255, 255)");
+    expect(await fond(autre.locator(".mq-face"))).toBe("rgb(255, 255, 255)");
     await expect(autre.getByText("Ta carte", { exact: true })).toBeHidden();
   }
 });
@@ -551,8 +545,8 @@ test("avec « réduire les animations », la carte choisie est marquée aussitô
   const choisie = carteReponse(page, "64 ans");
   const etat = await choisie.evaluate((el) => ({
     animations: document.getAnimations().length,
-    fond: getComputedStyle(el.querySelector(".opt-face")!).backgroundColor,
-    etiquette: getComputedStyle(el.querySelector(".picked")!).opacity,
+    fond: getComputedStyle(el.querySelector(".mq-face")!).backgroundColor,
+    etiquette: getComputedStyle(el.querySelector(".mq-mienne")!).opacity,
   }));
   expect(etat).toEqual({ animations: 0, fond: ORANGE, etiquette: "1" });
   await expect(choisie.getByText("Ta carte", { exact: true })).toBeVisible();
@@ -1148,7 +1142,7 @@ test("sous « Valider ma réponse », plus de phrase : la promesse sur les répo
   await page.goto("/");
   await voirLesPropositions(page);
   await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeVisible();
-  await expect(page.locator("form.answer .go-note")).toHaveCount(0);
+  await expect(page.locator("form.mosaique .go-note")).toHaveCount(0);
 });
 
 test("rien dans l'app ne demande de créer un compte ou de se connecter, ni avant ni après la réponse", async ({ page }) => {
@@ -1625,7 +1619,7 @@ test.describe("l'électeur ouvre « Mes résultats »", () => {
     await page.goto("/");
     await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
     await voirLesPropositions(page);
-    await page.getByRole("main").getByRole("link", { name: "Mes résultats" }).click();
+    await page.getByRole("banner").getByRole("link", { name: "Mes résultats" }).click();
     await expect(page).toHaveURL(/\/resultats$/);
     await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." })).toBeVisible();
   });
@@ -4561,11 +4555,10 @@ test.describe("l'en-tête reste en haut au défilement", () => {
   /** L'élément au point donné appartient-il à l'en-tête ? Si oui, rien de ce qui défile n'est passé par-dessus. */
   const devantAuPoint = (page: Page, x: number, y: number) => page.evaluate(([x, y]) => !!document.elementFromPoint(x, y)?.closest("header.topbar"), [x, y]);
 
-  test("sur la n° 24, défiler jusqu'à « Valider ma réponse » laisse le logo en haut, et le texte passe dessous", async ({ page }) => {
+  test("sur la n° 24, défiler jusqu'aux dernières sources laisse le logo en haut, et le texte passe dessous", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/");
-    await voirLesPropositions(page);
-    await page.getByRole("button", { name: "Valider ma réponse" }).scrollIntoViewIfNeeded();
+    await page.getByRole("region", { name: /chiffres clés/ }).getByText(/^Source/).last().scrollIntoViewIfNeeded();
     expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(300);
     const logo = page.getByRole("banner").getByRole("link", { name: "Au crible 2027" });
     await expect(logo).toBeInViewport();
@@ -6159,7 +6152,7 @@ test.describe("la question suivante s'ouvre vierge", () => {
     await expect(page).toHaveURL(/\/question\/24\/revelation$/);
     await page.getByRole("link", { name: "Question suivante" }).filter({ visible: true }).click();
     await expect(page.getByRole("heading", { level: 1, name: "Faut-il encadrer les loyers dans les grandes villes ?" }).filter({ visible: true })).toBeVisible();
-    const fiche = page.locator("form.answer").filter({ visible: true });
+    const fiche = page.locator("form.mosaique").filter({ visible: true });
     await voirLesPropositions(page);
     await expect(fiche.getByRole("radio", { checked: true })).toHaveCount(0);
     await expect(fiche.getByRole("button", { name: "Valider ma réponse" })).toBeDisabled();

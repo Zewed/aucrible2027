@@ -150,7 +150,7 @@
    à droite, le contexte numéroté, les chiffres clés en tuiles de poids différents, puis « Voir les propositions ».
    Étape « répondre » : la question seule, en haut, puis les cartes réponse. */
 :root { --barre-action: 96px; }
-body:has(.etape-lire) .site-foot { display: none; }
+body:has(.etape-lire, .etape-repondre) .site-foot { display: none; }
 .today.etape-lire { display: block; max-width: none; padding: 0 0 calc(var(--barre-action) + 18px); }
 .ecran-partage { --padX: 16px; --padY: 20px; }
 .ecran-partage .scene { display: flex; flex-direction: column; container-type: inline-size; }
@@ -250,12 +250,6 @@ video.affiche { background: var(--ink-deep); }
 }
 .actionbar .go { margin: 0 0 7px; display: flex; align-items: center; justify-content: center; gap: .5em; }
 .actionbar .go svg { width: 1.1em; height: 1.1em; }
-.etape-repondre .qcard-top { padding-bottom: 22px; }
-.retour-contexte { margin-top: 14px; }
-.retour-contexte svg { width: 18px; height: 18px; }
-@media (min-width: 900px) {
-  .etape-repondre .qcard h1 { font-size: 46px; }
-}
 /* Grand écran : deux moitiés pleine hauteur, rien ne défile. */
 @media (min-width: 1200px) {
   .today.etape-lire { padding: 0; }
@@ -282,3 +276,159 @@ video.affiche { background: var(--ink-deep); }
   .actionbar .go { font-size: clamp(20px, min(1.6vw, 2.8dvh), 30px); padding: clamp(16px, 2.3dvh, 27px) 18px; }
 }
 @media (prefers-reduced-motion: reduce) { button.affiche { transition: none; } }
+
+/* Étape « répondre » : la mosaïque. La question en bandeau, une tuile par option (toutes du même poids), et la
+   tuile pour décider : « Je ne sais pas », l'importance, « Valider ma réponse ». Au téléphone, les options forment un
+   paquet qui glisse, avec leurs repères A, B, C… au-dessus, et la décision reste en bas. */
+.today.etape-repondre { display: block; max-width: none; padding: 0; }
+.mosaique { --r: 8px; display: flex; flex-direction: column; min-width: 0; margin: 0; }
+.mq-tete { background: var(--theme); color: var(--on-theme); padding: 14px 16px 20px; display: grid; gap: 14px; grid-template-areas: "meta" "q"; }
+.mq-meta { grid-area: meta; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.mq-meta .theme-chip { margin: 0; }
+.mq-contexte {
+  display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 15px 0 11px; cursor: pointer;
+  background: none; border: 2px solid var(--ink); border-radius: var(--r); color: var(--ink); white-space: nowrap;
+  font: 700 15px/1 var(--text); transition: background .15s var(--ease-out), color .15s var(--ease-out);
+}
+.mq-contexte svg { width: 18px; height: 18px; }
+.mq-contexte:hover { background: var(--ink); color: var(--chalk); }
+.mq-question { grid-area: q; font: 800 36px/0.94 var(--display); font-variation-settings: "wdth" 80, "opsz" 96; letter-spacing: -0.025em; text-wrap: balance; color: var(--on-theme); }
+.mq-reperes { display: flex; gap: 8px; padding: 12px 16px 0; }
+.mq-reperes a {
+  flex: 1; min-height: 44px; display: grid; place-items: center; background: var(--table-2); color: var(--chalk);
+  border-radius: var(--r); text-decoration: none; font: 800 22px/1 var(--display);
+}
+.mq-reperes a.choisi { background: var(--theme); color: var(--on-theme); }
+.mq-pile {
+  flex: 1; display: flex; gap: 10px; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-padding-inline: 16px; padding: 12px 16px 14px; scrollbar-width: none;
+}
+.mq-pile::-webkit-scrollbar { display: none; }
+.mq-tuile, .mq-nsp { flex: 0 0 min(calc(100% - 26px), 440px); scroll-snap-align: start; display: flex; position: relative; cursor: pointer; container-type: inline-size; }
+.mq-tuile input, .mq-nsp input, .mq-niveau input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.mq-face {
+  flex: 1; min-width: 0; position: relative; overflow: hidden; isolation: isolate;
+  background: var(--card); color: var(--ink); border-radius: var(--r); padding: 18px 18px 20px;
+  display: flex; flex-direction: column; gap: 10px; transition: background .2s var(--ease-out), box-shadow .2s var(--ease-out);
+}
+/* La lettre géante, au trait, en fond de tuile. */
+.mq-lettre {
+  position: absolute; z-index: -1; right: 12px; bottom: 10px; pointer-events: none;
+  font: 800 70cqw/.74 var(--display); font-variation-settings: "wdth" 75, "opsz" 96; color: transparent;
+  -webkit-text-stroke: 2.5px color-mix(in srgb, var(--theme) 60%, var(--chalk));
+}
+.mq-tuile:hover .mq-face { box-shadow: inset 0 0 0 3px var(--theme); }
+.mq-tuile input:focus-visible + .mq-face, .mq-nsp input:focus-visible + span, .mq-niveau input:focus-visible + span { outline: 3px solid var(--eco); outline-offset: 2px; }
+.mq-haut { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.mq-titre { font: 800 30px/1 var(--display); font-variation-settings: "wdth" 82, "opsz" 96; letter-spacing: -0.02em; text-wrap: balance; }
+.mq-mienne {
+  display: none; flex: none; align-items: center; gap: 6px; background: var(--ink); color: var(--chalk);
+  font: 800 12.5px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; padding: 8px 11px 7px; border-radius: 999px; white-space: nowrap;
+}
+.mq-implique { display: block; font: 600 15.5px/1.35 var(--text); max-width: 58ch; }
+.mq-arguments { margin-top: 6px; display: grid; gap: 12px; }
+.mq-argument { display: block; font: 400 15px/1.4 var(--text); max-width: 60ch; }
+.mq-argument b {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 3px; color: var(--ink-soft);
+  font: 800 12.5px/1.2 var(--display); text-transform: uppercase; letter-spacing: .06em;
+}
+.mq-argument b::before { content: ""; flex: none; width: 9px; height: 9px; background: var(--theme); transform: rotate(45deg); }
+/* L'option choisie prend la couleur du thème. */
+.mq-tuile input:checked + .mq-face { background: var(--theme); color: var(--on-theme); box-shadow: inset 0 0 0 3px var(--ink); }
+.mq-tuile input:checked + .mq-face .mq-lettre { -webkit-text-stroke-color: color-mix(in srgb, var(--ink) 70%, var(--theme)); }
+.mq-tuile input:checked + .mq-face .mq-mienne { display: inline-flex; }
+.mq-tuile input:checked + .mq-face .mq-argument b { color: var(--ink); }
+.mq-tuile input:checked + .mq-face .mq-argument b::before { background: var(--ink); }
+.mq-nsp > span {
+  flex: 1; min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 12px;
+  background: var(--table-2); color: var(--chalk); border-radius: var(--r); font: 800 22px/1 var(--display);
+  transition: background .15s var(--ease-out);
+}
+.mq-nsp i { width: 38px; height: 38px; flex: none; display: grid; place-items: center; background: var(--table-3); border-radius: 6px; font: 800 24px/1 var(--display); font-style: normal; }
+.mq-nsp:hover > span { box-shadow: inset 0 0 0 2px var(--theme); }
+.mq-nsp input:checked + span { background: var(--theme); color: var(--on-theme); box-shadow: none; }
+.mq-nsp input:checked + span i { background: var(--ink); color: var(--theme-text); }
+.mq-decision {
+  position: sticky; bottom: 0; z-index: 5; background: var(--ink-deep); color: var(--chalk);
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); display: grid; gap: 10px;
+}
+.mq-importance { border: 0; margin: 0; padding: 0; min-width: 0; }
+.mq-importance legend { padding: 0; margin-bottom: 8px; font: 800 16px/1.1 var(--display); font-variation-settings: "wdth" 88; }
+.mq-niveaux { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.mq-niveau { position: relative; display: block; cursor: pointer; }
+.mq-niveau > span {
+  min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 6px;
+  background: var(--table-2); color: var(--chalk); border-radius: var(--r); transition: background .15s var(--ease-out);
+}
+.mq-niveau b { font: 800 19px/1 var(--display); }
+.mq-niveau em { font: 700 13px/1 var(--text); font-style: normal; white-space: nowrap; }
+.mq-niveau:hover > span { box-shadow: inset 0 0 0 2px var(--theme); }
+.mq-niveau input:checked + span { background: var(--theme); color: var(--on-theme); box-shadow: none; }
+.mq-valider {
+  width: 100%; min-height: 52px; border: 0; cursor: pointer; margin-bottom: 5px; padding: 0 10px; border-radius: var(--r);
+  background: var(--chalk); color: var(--ink); box-shadow: 0 5px 0 var(--theme);
+  font: 800 17px/1 var(--display); font-variation-settings: "wdth" 84;
+  display: flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap;
+  transition: transform .12s var(--ease-out), box-shadow .12s var(--ease-out), background .15s;
+}
+.mq-valider svg { width: 1.2em; height: 1.2em; flex: none; }
+.mq-valider:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--theme); }
+.mq-valider:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--theme); }
+.mq-valider[aria-disabled="true"] { background: var(--table-3); color: var(--muted); box-shadow: none; transform: none; cursor: not-allowed; }
+@media (min-width: 600px) and (max-width: 1099px) {
+  .mq-tete { padding: 18px 24px 26px; }
+  .mq-question { font-size: clamp(32px, 6vw, 56px); }
+  .mq-reperes, .mq-pile { padding-inline: 24px; }
+  .mq-pile { scroll-padding-inline: 24px; }
+  .mq-decision { padding-inline: 24px; }
+}
+/* Grand écran : la mosaïque plein écran, rien ne défile. */
+@media (min-width: 1100px) {
+  .mosaique {
+    --g: clamp(6px, .5vw, 10px); --px: clamp(18px, 1.6vw, 32px); --py: clamp(14px, 2.2dvh, 30px);
+    --L: min(52cqw, 30dvh); --k: 1; --nsp: clamp(48px, 6.2dvh, 68px);
+    height: 100dvh; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto 1fr 1fr;
+    gap: var(--g); padding: var(--g);
+  }
+  .mq-tete {
+    grid-column: 1 / -1; border-radius: var(--r);
+    padding: clamp(16px, 2.6dvh, 34px) clamp(24px, 2.4vw, 48px) clamp(18px, 3dvh, 40px);
+    grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "q meta"; column-gap: clamp(24px, 3vw, 64px); align-items: stretch;
+  }
+  .mq-meta { flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 12px; }
+  .mq-question { font-size: clamp(44px, min(9.4dvh, 6vw), 128px); font-variation-settings: "wdth" 78, "opsz" 96; align-self: center; }
+  .mq-reperes { display: none; }
+  .mq-pile { display: contents; }
+  .mq-tuile { flex: none; min-height: 0; }
+  .mq-arguments { margin-top: auto; padding-top: 4px; padding-right: calc(var(--L) * .45); }
+  /* « Ta carte » se pose en tampon sur la lettre : le titre ne bouge pas. */
+  .mq-mienne {
+    position: absolute; z-index: 1; right: calc(var(--px) * .6 + var(--L) * .23); bottom: calc(var(--py) * .6 + var(--L) * .56);
+    transform: translateX(50%) rotate(-7deg); box-shadow: 0 0 0 4px var(--theme); font-size: clamp(12.5px, 1.35dvh, 14px);
+  }
+  .mq-face { padding: var(--py) var(--px); gap: clamp(6px, 1dvh, 12px); }
+  .mq-lettre { font-size: var(--L); right: calc(var(--px) * .6); bottom: calc(var(--py) * .6); -webkit-text-stroke-width: 3px; }
+  .mq-titre { font-size: calc(var(--k) * clamp(26px, min(4dvh + 1vw - 14.4px, 2.6vw), 48px)); }
+  .mq-implique { font-size: calc(var(--k) * clamp(14.5px, 1.95dvh + .44vw - 6.3px, 21px)); }
+  .mq-arguments { gap: clamp(8px, 1.4dvh, 18px); }
+  .mq-argument { font-size: calc(var(--k) * clamp(14px, 1.8dvh + .44vw - 6.3px, 20px)); }
+  .mq-argument b { font-size: clamp(12px, 1.4dvh + .2vw - 2.9px, 15px); margin-bottom: clamp(2px, .45dvh, 6px); }
+  /* La tuile pour décider : « Je ne sais pas » en haut, puis l'importance, puis « Valider ma réponse ». */
+  .mq-decision, .mq-nsp { grid-area: 3 / 3; }
+  .mosaique:has(.mq-tuile:nth-child(4):nth-last-child(2)) :is(.mq-decision, .mq-nsp) { grid-area: 3 / 2 / 4 / 4; }
+  .mosaique:has(.mq-tuile:nth-child(3):nth-last-child(2)) { grid-template-columns: repeat(2, minmax(0, 1fr)); --k: 1.12; --L: min(52cqw, 32dvh); }
+  .mosaique:has(.mq-tuile:nth-child(3):nth-last-child(2)) :is(.mq-decision, .mq-nsp) { grid-area: 3 / 2; }
+  .mq-decision {
+    position: static; border-radius: var(--r); padding: calc(var(--py) * 2 + var(--nsp)) var(--px) var(--py);
+    grid-template-rows: 1fr auto; gap: clamp(10px, 1.6dvh, 20px);
+  }
+  .mq-nsp { z-index: 6; align-self: start; margin: var(--py) var(--px) 0; height: var(--nsp); }
+  .mq-nsp > span { font-size: clamp(18px, 2.4dvh, 26px); justify-content: flex-start; padding-left: 8px; }
+  .mq-nsp i { width: clamp(34px, 4.6dvh, 50px); height: clamp(34px, 4.6dvh, 50px); font-size: clamp(20px, 2.8dvh, 30px); }
+  .mq-importance { align-self: center; }
+  .mq-importance legend { font-size: clamp(16px, 2.1dvh, 23px); margin-bottom: clamp(8px, 1.1dvh, 12px); }
+  .mq-niveau > span { flex-direction: column; gap: 5px; min-height: clamp(56px, 8dvh, 88px); }
+  .mq-niveau b { font-size: clamp(22px, 3.1dvh, 34px); }
+  .mq-niveau em { font-size: clamp(13px, 1.45dvh, 15px); }
+  .mq-valider { min-height: clamp(56px, 8.4dvh, 92px); font-size: clamp(20px, min(2.9dvh, 1.8vw), 32px); box-shadow: 0 6px 0 var(--theme); margin-bottom: 6px; }
+}
