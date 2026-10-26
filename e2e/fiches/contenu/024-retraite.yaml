@@ -1,0 +1,83 @@
+# DONNÉES DE DÉMONSTRATION : les positions ci-dessous viennent des maquettes et sont
+# inventées. Elles ne sont pas vérifiées et doivent être remplacées par des positions
+# sourcées avant toute mise en ligne. Le contexte, les chiffres clés, le texte des
+# options et les sources des positions viennent aussi des maquettes et ne sont pas vérifiés.
+numero: 24
+date: 2026-10-23
+theme: travail-retraites
+question: À quel âge devrait-on pouvoir partir à la retraite ?
+titreCourt: "L'âge de la retraite"
+contexte:
+  - La réforme de 2023 a commencé à repousser l'âge légal de 62 à 64 ans, puis sa hausse a été suspendue fin 2025.
+  - "Notre système fonctionne par répartition : les cotisations de ceux qui travaillent paient les pensions d'aujourd'hui."
+  - Comme on vit plus longtemps, il y a de moins en moins d'actifs pour chaque retraité.
+chiffres:
+  - valeur: "1,7"
+    legende: cotisant pour 1 retraité
+    source: { organisme: COR, document: rapport, annee: 2025 }
+  - valeur: 14 %
+    legende: "du PIB : environ ce que représentent les retraites"
+    source: { organisme: COR, annee: 2025 }
+  - valeur: "62"
+    unite: ans
+    legende: "et 10 mois : l'âge moyen de départ"
+    source: { organisme: DREES, annee: 2025 }
+options:
+  - id: A
+    libelle: 60 ans
+    implique: Retour à l'âge légal d'avant 2010, financé par de nouvelles cotisations.
+    defenseurs: Deux ans de retraite en bonne santé en plus, d'abord pour ceux qui ont commencé tôt.
+    critiques: Un coût élevé, qui pèserait sur les salaires ou sur les entreprises.
+  - id: B
+    libelle: 62 ans
+    implique: On revient à l'âge fixé par la réforme de 2010.
+    defenseurs: Un repère connu, appliqué pendant dix ans, sans brutalité pour les carrières longues.
+    critiques: Sans recette nouvelle, le déficit des caisses de retraite se creuse.
+  - id: C
+    libelle: 64 ans
+    implique: On garde l'âge prévu par la réforme de 2023.
+    defenseurs: Le système se rapproche de l'équilibre sans baisser les pensions.
+    critiques: Les métiers pénibles et les carrières hachées en paient le prix.
+  - id: D
+    libelle: 65 ans ou plus
+    implique: Un âge proche de celui de plusieurs voisins européens.
+    defenseurs: "On vit plus longtemps : travailler un peu plus protège le niveau des pensions."
+    critiques: Beaucoup de seniors sont déjà sans emploi bien avant cet âge.
+  - id: E
+    libelle: À la carte, avec un système à points
+    implique: Chacun part quand il veut ; la pension dépend des points acquis.
+    defenseurs: Plus de liberté, et les mêmes règles pour tous les métiers.
+    critiques: "La valeur du point peut baisser : la pension devient moins prévisible."
+    # Ne se range pas entre les âges (maquettes/methode.html) : compte 1 si la carte est la même, 0 sinon.
+    horsEchelle: true
+pourAllerPlusLoin:
+  - titre: COR, rapport annuel 2025
+    url: https://www.cor-retraites.fr/
+  - titre: DREES, Les retraités et les retraites, 2025
+    url: https://drees.solidarites-sante.gouv.fr/
+  - titre: Cour des comptes, retraites, 2025
+    url: https://www.ccomptes.fr/
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour relever l'âge"
+    argument: "On vit plus longtemps : travailler un peu plus protège le niveau des pensions."
+  - titre: "Pour ne pas le relever"
+    argument: "Les métiers pénibles et les carrières hachées en paient le prix."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "62 ans"
+    precision: "ou moins"
+  - choix: "64 ans"
+    precision: "ou plus"
+positions:
+  melenchon: { option: A, source: "Programme 2022, p. 12", statut: deduite }
+  roussel: { option: A, source: "Interview franceinfo, 21/09/2026", statut: officielle }
+  arthaud: { option: A, source: "Programme 2022, p. 6", statut: deduite }
+  le-pen: { option: B, source: "Vote du groupe à l'Assemblée, 2023", statut: deduite }
+  tondelier: { option: B, source: "Interview France Inter, 14/09/2026", statut: officielle }
+  glucksmann: { option: B, source: "Vote du groupe à l'Assemblée, 2023", statut: deduite }
+  attal: { option: C, source: "Interview BFMTV, 28/09/2026", statut: officielle }
+  retailleau: { option: D, source: "Discours de rentrée, 12/09/2026", statut: officielle }
+  zemmour: { option: C, source: "Programme 2022, p. 31", statut: deduite }
+  dupont-aignan: { option: E, source: "Interview Sud Radio, 02/10/2026", statut: officielle }
+  philippe: { option: E, source: "Projet de loi retraites, 2020", statut: deduite }

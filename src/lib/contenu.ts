@@ -158,7 +158,9 @@ function lireFiche(chemin: string): Question[] {
 }
 
 /**
- * Les fiches de content/questions, plus, pour les tests de bout en bout seulement, celles du dossier de test.
+ * Les fiches de content/questions, plus, pour les tests de bout en bout seulement, celles du dossier de test. En test,
+ * les fiches de content/questions sont remplacées par leur copie figée (<dossier de test>/contenu/) : le contenu réel
+ * peut grandir sans changer ce que les tests attendent.
  * Un test peut aussi choisir un jeu de fiches à lui (un sous-dossier du dossier de test), qui remplace tout le reste,
  * et des surcharges (e2e/fiches/surcharges/<nom>/), des fiches partielles dont les positions s'ajoutent à celles de
  * la fiche du même numéro.
@@ -168,7 +170,9 @@ export function lireQuestions(jeuDeTest?: string, surchargesDeTest?: string): Qu
   const valide = (nom?: string): nom is string => !!test && !!nom && /^[a-z-]+$/.test(nom);
   const dossiers = valide(jeuDeTest)
     ? [path.join(process.cwd(), test!, jeuDeTest)]
-    : [path.join(RACINE, "questions"), ...(test ? [path.join(process.cwd(), test)] : [])];
+    : test
+      ? [path.join(process.cwd(), test, "contenu"), path.join(process.cwd(), test)]
+      : [path.join(RACINE, "questions")];
   const surcharges = valide(surchargesDeTest) ? lireDossier(path.join(process.cwd(), test!, "surcharges", surchargesDeTest)) : [];
   return dossiers
     .flatMap(lireDossier)
