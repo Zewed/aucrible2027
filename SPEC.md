@@ -195,6 +195,7 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 - **Navigation privée** : pas d'avertissement.
 - **Dates des fiches** : une fiche se joue à partir de sa date ; l'auteur la date du jour où il l'ajoute.
 - **Face-à-face** depuis une fiche ou « Moi contre » : ce candidat à gauche, l'autre au choix.
+- **E-mail d'un signalement** : gardé trois mois, le temps de répondre, puis effacé ; le signalement reste. Il n'apparaît que dans /admin.
 
 ## Écrans de la v1
 

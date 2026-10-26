@@ -16,5 +16,6 @@
 .sg-type { background: var(--slot); border-radius: 999px; padding: 5px 10px; color: var(--ink); }
 .sg-texte { margin-top: 10px; font-size: 16px; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; }
 .sg-source { margin-top: 8px; font: 600 14px/1.4 var(--text); color: var(--ink-soft); overflow-wrap: anywhere; }
-.sg-source a { color: var(--ink); font-weight: 700; text-underline-offset: 3px; }
+.sg-email { margin-top: 6px; font: 600 14px/1.4 var(--text); color: var(--ink-soft); overflow-wrap: anywhere; }
+.sg-email a, .sg-source a { color: var(--ink); font-weight: 700; text-underline-offset: 3px; }
 .sg-vide { margin-top: 14px; color: var(--muted); }
