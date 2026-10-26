@@ -144,3 +144,17 @@
 
 /* Le pied de page commun : le lien de la page en cours est marqué. */
 .site-foot a[aria-current] { color: var(--chalk); text-decoration: underline; text-decoration-thickness: 2px; }
+
+/* La fiche en deux étapes. Étape « lire » : la carte question (contexte, chiffres clés), puis « Voir les propositions ».
+   Étape « répondre » : la question seule, en haut, puis les cartes réponse. */
+.etape-lire > .go { margin-top: 22px; position: sticky; bottom: 16px; z-index: 5; }
+.etape-repondre .qcard-top { padding-bottom: 22px; }
+.retour-contexte { margin-top: 14px; }
+.retour-contexte svg { width: 18px; height: 18px; }
+@media (min-width: 900px) {
+  /* Lire : une seule colonne, la carte au centre et le bouton dessous. */
+  .today.etape-lire { display: block; max-width: 820px; }
+  .etape-lire .left { position: static; }
+  /* Répondre : la question à gauche, qui reste en vue, les cartes réponse à droite. */
+  .etape-repondre .qcard h1 { font-size: 46px; }
+}
