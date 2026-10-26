@@ -1,0 +1,69 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/003-voitures-thermiques.md
+numero: 3
+date: 2026-10-02
+theme: ecologie-energie
+question: Faut-il maintenir la fin de la vente des voitures thermiques neuves en 2035 ?
+titreCourt: "La fin du thermique en 2035"
+contexte:
+  - Le règlement européen de 2023 impose aux voitures neuves vendues en 2035 une réduction de 100 % de leurs émissions de CO2 par rapport à 2021, ce qui revient à mettre fin à la vente de voitures thermiques neuves.
+  - En décembre 2025, la Commission européenne a proposé de ramener l'objectif à 90 %, les 10 % restants pouvant être compensés par de l'acier bas carbone ou des carburants durables ; le texte est encore en discussion au Parlement européen et au Conseil.
+  - En France, les transports sont le premier secteur émetteur de gaz à effet de serre, avec 34 % des émissions en 2024, et 19,9 % des voitures neuves vendues en 2025 étaient électriques.
+chiffres:
+  - valeur: 34 %
+    legende: des émissions françaises de gaz à effet de serre viennent des transports, premier secteur émetteur
+    source: { organisme: SDES, document: chiffres clés des transports, annee: 2024 }
+  - valeur: 53 %
+    legende: des émissions des transports viennent des voitures particulières
+    source: { organisme: SDES, document: chiffres clés des transports, annee: 2024 }
+  - valeur: 19,9 %
+    legende: "des voitures neuves vendues en France en 2025 sont électriques, contre 42,5 % d'hybrides non rechargeables et 26,7 % de thermiques"
+    source: { organisme: SDES, document: immatriculations, annee: 2025 }
+  - valeur: 77 %
+    legende: des achats de voitures en France sont des voitures d'occasion
+    source: { organisme: SDES, document: immatriculations, annee: 2025 }
+options:
+  - id: A
+    libelle: Maintenir les 100 % en 2035
+    implique: Les voitures neuves vendues à partir de 2035 n'émettent aucun CO2 à l'échappement, comme le prévoit le règlement de 2023.
+    defenseurs: Une échéance claire donne de la visibilité aux constructeurs et aux ménages, et agit sur le premier secteur émetteur de gaz à effet de serre.
+    critiques: Elle impose une seule technologie, et des États de l'Union où les ventes d'électriques sont encore faibles demandent un objectif moins strict.
+    axes: { economie: -1 }
+  - id: B
+    libelle: L'assouplir à 90 %
+    implique: L'objectif passe à 90 % de réduction ; les 10 % restants sont compensés par de l'acier bas carbone ou des carburants durables, et 27 à 29 % des voitures neuves pourraient encore avoir un moteur thermique après 2035, selon les projets en discussion.
+    defenseurs: Garder la direction tout en laissant du temps à l'industrie et aux ménages, avec des hybrides, des carburants durables et des petites voitures électriques abordables.
+    critiques: Elle affaiblit la visibilité de l'échéance et laisse des voitures thermiques neuves vendues après 2035.
+  - id: C
+    libelle: Supprimer l'interdiction
+    implique: "Il n'y a plus d'échéance de fin de vente des voitures thermiques neuves : les consommateurs et le marché décident."
+    defenseurs: "Laisser les Français choisir : les problèmes écologiques seront résolus par le progrès technique, pas par la contrainte."
+    critiques: "Les voitures représentent 53 % des émissions des transports, premier secteur émetteur : sans échéance, la baisse de ces émissions serait moins sûre et les constructeurs perdraient en visibilité."
+    axes: { economie: 2 }
+pourAllerPlusLoin:
+  - titre: Commission européenne, paquet automobile, 16/12/2025
+    url: https://transport.ec.europa.eu/transport-themes/action-plan-future-automotive-sector/automotive-package_en
+  - titre: Parlement européen, normes de CO2 des voitures neuves, 2023
+    url: https://www.europarl.europa.eu/news/fr/press-room/20230210IPR74715/zero-emission-de-co2-pour-les-vehicules-et-les-camionnettes-neuves-en-2035
+  - titre: SDES, chiffres clés des transports, édition 2026
+    url: https://www.statistiques.developpement-durable.gouv.fr/chiffres-cles-des-transports-edition-2026
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour maintenir 2035"
+    argument: "Une échéance claire donne de la visibilité à tous et agit sur le premier secteur émetteur de gaz à effet de serre."
+  - titre: "Pour supprimer l'échéance"
+    argument: "Laisser les Français choisir : les problèmes écologiques seront résolus par le progrès technique, pas par la contrainte."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Maintenir"
+    precision: "la fin du thermique en 2035"
+  - choix: "Assouplir"
+    precision: "ou supprimer l'échéance"
+positions:
+  # https://x.com/MLP_officiel/status/1798260422597804199 (« Il faut revenir sur l'interdiction de la vente de véhicules thermiques en 2035 », 2024) ; https://frontpopulaire.fr/politique/contents/voitures-thermiques-le-triomphalisme-mauvais-de-marine-le-pen_tco_31079244 (vote RN du 17/02/2025)
+  le-pen: { option: C, source: "Marine Le Pen sur X, 2024, et vote du groupe RN, 17/02/2025", statut: deduite }
+  # https://assets.ericzemmour.fr/document/Programme%20Reconqu%C3%AAte%20Europ%C3%A9ennes%202024.pdf (« Supprimer l'interdiction de la vente de véhicules thermiques à l'horizon 2035 »)
+  zemmour: { option: C, source: "Reconquête, programme des européennes, 09/06/2024", statut: deduite }
+  # https://www.debout-la-france.fr/projet/automobilistes-et-motards/ (mesure 13 : « Supprimer l'interdiction des véhicules thermiques à l'horizon 2035 imposée par l'UE »)
+  dupont-aignan: { option: C, source: "Debout la France, Automobilistes et motards", statut: deduite }

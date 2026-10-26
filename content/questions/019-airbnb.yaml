@@ -1,0 +1,72 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/019-airbnb.md
+numero: 19
+date: 2026-10-18
+theme: logement
+question: "Faut-il limiter davantage les locations de courte durée type Airbnb ?"
+titreCourt: "Les locations type Airbnb"
+contexte:
+  - "Depuis la loi du 19 novembre 2024, les communes peuvent soumettre les nouveaux meublés de tourisme à autorisation, fixer des quotas et ramener de 120 à 90 jours par an la location d'une résidence principale."
+  - "L'abattement fiscal des meublés non classés est passé de 50 % à 30 % pour les revenus de 2025, et l'enregistrement de tous les meublés devient obligatoire à partir de mai 2026."
+  - "Ces locations offrent un revenu aux propriétaires et un hébergement aux touristes, mais peuvent concurrencer le logement des habitants là où il manque."
+chiffres:
+  - valeur: "213 millions"
+    legende: "de nuitées réservées via les plateformes chez des particuliers (472 millions en hébergements collectifs)"
+    source: { organisme: Insee, annee: 2025 }
+  - valeur: "48 000"
+    legende: "logements entiers disponibles sur Airbnb à Paris en octobre 2025"
+    source: { organisme: Apur, document: note n° 281, annee: 2025 }
+  - valeur: 41 %
+    legende: "des annonces parisiennes portées par un multi-loueur"
+    source: { organisme: Apur, document: note n° 281, annee: 2025 }
+  - valeur: 30 %
+    legende: "d'abattement fiscal pour un meublé non classé, au lieu de 50 % (plafond 15 000 €)"
+    source: { organisme: Ministère du Logement, document: guide pratique, annee: 2025 }
+options:
+  - id: A
+    libelle: "Oui, nettement"
+    implique: "La location est limitée à 60 jours par an, soumise à des quotas dans les zones tendues, interdite dans le centre des grandes métropoles, et l'avantage fiscal disparaît."
+    defenseurs: "Un logement loué aux touristes n'est plus loué aux habitants : limiter fortement ces locations rend des logements aux familles, aux étudiants et aux saisonniers."
+    critiques: "Cela prive les propriétaires d'un revenu et les touristes d'une offre, avec des règles très contraignantes qui touchent aussi les petits propriétaires."
+    axes: { economie: -2 }
+  - id: B
+    libelle: "Oui, en durcissant les règles actuelles"
+    implique: "Les outils de la loi de 2024 sont appliqués plus largement, avec des autorisations, des quotas et des contrôles plus systématiques là où le logement manque."
+    defenseurs: "Les règles ne valent que si elles sont appliquées : les durcir là où le logement manque protège les habitants sans tout interdire."
+    critiques: "Les outils sont déjà nombreux et varient d'une commune à l'autre, ce qui les rend complexes pour les propriétaires et les touristes."
+  - id: C
+    libelle: "Non, le cadre de 2024 suffit"
+    implique: "Les règles de 2024 sont conservées et les communes les appliquent ; on évalue leurs effets avant d'aller plus loin."
+    defenseurs: "Les communes connaissent leur terrain et leur population : laissons-leur le temps d'utiliser des règles qui viennent d'être complétées."
+    critiques: "Chaque commune décide de s'en servir ou non : là où elle ne le fait pas, rien ne change."
+  - id: D
+    libelle: "Non, alléger les règles"
+    implique: "Les contraintes et la fiscalité ajoutées en 2024 sont assouplies, pour laisser les propriétaires louer plus librement."
+    defenseurs: "Un propriétaire doit pouvoir louer son bien comme il l'entend : ces règles pénalisent surtout les petits propriétaires, qui complètent ainsi leurs revenus."
+    critiques: "Sans limites, ces locations peuvent évincer les habitants du logement dans les zones tendues et gêner le voisinage."
+    axes: { economie: 1 }
+pourAllerPlusLoin:
+  - titre: "Ministère du Logement, guide pratique 2025 de la réglementation des meublés de tourisme"
+    url: https://www.ecologie.gouv.fr/sites/default/files/documents/25113_GuidePratique2025MeubleTourisme.pdf
+  - titre: "Apur, locations meublées touristiques à Paris en 2025"
+    url: https://www.apur.org/sites/default/files/2026-01/16p281_locations_meublees_touristiques_Paris.pdf
+  - titre: "Insee, l'essentiel sur le tourisme"
+    url: https://www.insee.fr/fr/statistiques/7653005
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour limiter davantage"
+    argument: "Un logement loué aux touristes n'est plus loué aux habitants : limiter fortement ces locations rend des logements aux familles, aux étudiants et aux saisonniers."
+  - titre: "Pour ne pas limiter davantage"
+    argument: "Un propriétaire doit pouvoir louer son bien comme il l'entend : ces règles pénalisent surtout les petits propriétaires, qui complètent ainsi leurs revenus."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Limiter davantage"
+    precision: "ces locations"
+  - choix: "Ne pas"
+    precision: "limiter davantage"
+positions:
+  # https://melenchon2027.fr/programme/plans-investissement/btp-logement/
+  melenchon: { option: A, source: "Programme 2027, plan BTP et logement, présenté le 28/09/2026", statut: officielle }
+  # Vote du groupe RN : https://www.assemblee-nationale.fr/dyn/17/scrutins/289 (51 contre, 1 pour, 07/11/2024) et https://www.assemblee-nationale.fr/dyn/16/scrutins/3261 (20 contre, 1 pour, 29/01/2024)
+  le-pen: { option: D, source: "Vote du groupe RN à l'Assemblée, 07/11/2024", statut: deduite }

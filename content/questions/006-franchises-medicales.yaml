@@ -1,0 +1,79 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/006-franchises-medicales.md
+numero: 6
+date: 2026-10-05
+theme: sante
+question: Faut-il augmenter les franchises médicales ?
+titreCourt: "Les franchises médicales"
+contexte:
+  - Les franchises (1 euro par boîte de médicaments) et la participation forfaitaire (2 euros par consultation) restent à la charge du patient ; chacune est plafonnée à 70 euros par an depuis le 1er octobre 2026, soit 140 euros au total contre 100 auparavant.
+  - Le gouvernement avait annoncé en juillet 2026 un doublement des plafonds à 200 euros, pour 750 millions d'euros par an, avant d'y renoncer au profit de la hausse à 140 euros ; en novembre 2025, l'Assemblée avait déjà supprimé un article du budget de la Sécurité sociale qui étendait et alourdissait les franchises.
+  - Le reste à charge des ménages est l'un des plus faibles de l'Union européenne : 9,7 % de la dépense de santé en France en 2025, contre 14,8 % en moyenne dans l'Union.
+chiffres:
+  - valeur: "140"
+    unite: euros
+    legende: "par an : le plafond cumulé des franchises et des participations forfaitaires depuis le 1er octobre 2026, contre 100 auparavant"
+    source: { organisme: Journal officiel, document: décret n° 2026-858, annee: 2026 }
+  - valeur: 9,7 %
+    legende: de la dépense de santé reste à la charge des ménages en France, contre 14,8 % en moyenne dans l'Union européenne
+    source: { organisme: DREES, document: comptes de la santé, annee: 2025 }
+  - valeur: "2,5"
+    unite: milliards d'euros
+    legende: "de dépenses en moins pour les régimes de base grâce aux franchises et participations en 2025"
+    source: { organisme: Cour des comptes, document: cité par Caducée, annee: 2025 }
+  - valeur: "750"
+    unite: millions d'euros
+    legende: "par an : ce que rapporterait le doublement des plafonds annoncé en juillet 2026, selon le gouvernement"
+    source: { organisme: Gouvernement, document: cité par LCP et les Échos, annee: 2026 }
+options:
+  - id: A
+    libelle: Les supprimer
+    implique: "Les franchises et les participations forfaitaires disparaissent : les soins prescrits sont remboursés à 100 %."
+    defenseurs: "Faire payer chaque boîte ou chaque consultation revient à faire payer la maladie : c'est un impôt sur la maladie."
+    critiques: Il faudrait financer ce que rapportent ces sommes, environ 2,5 milliards d'euros par an de dépenses en moins pour les régimes de base, par d'autres recettes ou des économies.
+    axes: { economie: -2 }
+  - id: B
+    libelle: Ne pas les augmenter
+    implique: Les montants, 1 euro par boîte et 2 euros par consultation, restent inchangés et le plafond annuel reste à 100 euros, comme avant octobre 2026.
+    defenseurs: "Ceux qui en paient le plus sont les plus malades : une hausse pénalise davantage les ménages en mauvaise santé et peut conduire à renoncer à des soins."
+    critiques: Sans nouvelle recette, il faut trouver ailleurs les économies d'une dépense de santé qui progresse de 3,3 % par an.
+    axes: { economie: -1 }
+  - id: C
+    libelle: Les relever progressivement
+    implique: Le plafond passe à 140 euros par an, puis une nouvelle étape est prévue en 2028 et une revalorisation selon l'inflation.
+    defenseurs: Une hausse mesurée, qui laisse environ 18 millions de personnes exemptées, dont les mineurs et les bénéficiaires de la complémentaire santé solidaire.
+    critiques: "Les plus gros consommateurs de soins paient le plus : les patients en affection de longue durée paient en moyenne 78 euros par an, contre 41 pour les autres."
+    axes: { economie: 1 }
+  - id: D
+    libelle: Les doubler
+    implique: Les plafonds sont doublés, à 200 euros par an, et les franchises s'étendent aux soins dentaires et aux dispositifs médicaux, comme proposé en 2025 et en 2026.
+    defenseurs: "L'assurance maladie doit maîtriser ses dépenses : le doublement rapporterait 750 millions d'euros par an, pour continuer à investir dans l'hôpital."
+    critiques: C'est un impôt sur la maladie, dont le coût rapporté au revenu est environ deux fois plus élevé pour les ménages modestes que pour les aisés, et qui peut faire renoncer à des soins.
+    axes: { economie: 2 }
+pourAllerPlusLoin:
+  - titre: DREES, Déremboursement de soins, qui paie ?, 2026
+    url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/les-dossiers-de-la-drees/260218_DD_%C3%A9valuation-impact-m%C3%A9nages-d%C3%A9remboursement-partiel-soins
+  - titre: DREES, Les dépenses de santé en 2025, édition 2026
+    url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse-infographie-documents-de-reference/261001-les-d%C3%A9penses-de-sant%C3%A9-en-2025-edition-2026-panorama-de-la-drees
+  - titre: LCP, Franchises médicales, ce qui va changer, 24/07/2026
+    url: https://lcp.fr/actualites/franchises-medicales-ce-qui-va-changer-apres-les-annonces-du-gouvernement-439936
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour ne pas les augmenter"
+    argument: "Ceux qui en paient le plus sont les plus malades : une hausse peut conduire à renoncer à des soins."
+  - titre: "Pour les augmenter"
+    argument: "L'assurance maladie doit maîtriser ses dépenses, pour continuer à investir dans l'hôpital."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Ne pas les augmenter"
+    precision: "ou les supprimer"
+  - choix: "Les augmenter"
+    precision: "ou les relever"
+positions:
+  # https://www.pcf74.fr/2026/07/franchises-medicales-le-gouvernement-choisit-de-faire-payer-les-malades-fabien-roussel.html (« supprimer les franchises médicales et les participations forfaitaires », 23/07/2026)
+  roussel: { option: A, source: "Communiqué du PCF signé de Fabien Roussel, 23/07/2026", statut: officielle }
+  # https://votons-2027.fr/candidats/melenchon/programme/sante (reprend melenchon2027.fr/programme2025/livre/, mesures 3 et 5 ; page d'origine non lue)
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, mesures 3 et 5", statut: officielle }
+  # https://www.publicsenat.fr/actualites/sante/hausse-des-franchises-medicales-la-methode-bayrou-heurte-egalement-au-senat (« son refus de voir ces franchises médicales relevées », 05/09/2025) ; https://nosparlementaires.fr/actualites/franchises-medicales-decret-plafond-vote-assemblee (vote du groupe DR, 08/11/2025)
+  retailleau: { option: B, source: "Public Sénat, 05/09/2025, et vote du groupe, 08/11/2025", statut: deduite }

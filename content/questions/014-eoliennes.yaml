@@ -1,0 +1,84 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/014-eoliennes.md
+numero: 14
+date: 2026-10-13
+theme: ecologie-energie
+question: "Faut-il construire davantage d'éoliennes ?"
+titreCourt: "Les éoliennes"
+contexte:
+  - "En 2025, l'éolien a produit 9,1 % de l'électricité française, avec 23,9 GW installés à terre et 1,9 GW en mer."
+  - "La programmation de l'énergie de février 2026 vise 35 à 40 GW à terre et 15 GW en mer en 2035, en privilégiant le renouvellement des parcs existants."
+  - "Cette électricité est bas carbone mais varie avec le vent, et son soutien public comme l'implantation des parcs font débat."
+chiffres:
+  - valeur: "9,1 %"
+    legende: "de l'électricité produite en France en 2025 vient de l'éolien (49,6 TWh)"
+    source: { organisme: RTE, document: "Bilan électrique 2025", annee: 2025 }
+  - valeur: "23,9"
+    unite: GW
+    legende: "d'éolien à terre installés fin 2025, auxquels s'ajoutent 1,9 GW en mer"
+    source: { organisme: RTE, document: "Bilan électrique 2025", annee: 2025 }
+  - valeur: "35 à 40"
+    unite: GW
+    legende: "d'éolien à terre visés en 2035, contre environ 24 GW en 2025"
+    source: { organisme: Gouvernement, document: "Programmation pluriannuelle de l'énergie (décret n° 2026-76)", annee: 2026 }
+  - valeur: "15"
+    unite: GW
+    legende: "d'éolien en mer visés en 2035, contre 1,9 GW fin 2025"
+    source: { organisme: Gouvernement, document: "Programmation pluriannuelle de l'énergie (décret n° 2026-76)", annee: 2026 }
+options:
+  - id: A
+    libelle: "Développer davantage l'éolien, à terre et en mer"
+    implique: "Rattraper le retard de l'électrification en construisant plus que prévu, en mer comme à terre ; les plus ambitieux visent un mix 100 % renouvelable à terme."
+    defenseurs: "L'éolien est une électricité bas carbone, plus rapide à mettre en service (5 à 8 ans) que de nouveaux réacteurs (2037 au mieux), et il réduit la dépendance aux énergies fossiles importées (64 milliards d'euros en 2024)."
+    critiques: "Le vent est variable (facteur de charge de 21,4 % à terre en 2025), le soutien public et le réseau coûtent cher (10,9 milliards d'euros de soutien aux renouvelables en 2025) et les parcs suscitent des oppositions locales."
+  - id: B
+    libelle: "Poursuivre au rythme de la programmation de l'énergie"
+    implique: "35 à 40 GW à terre et 15 GW en mer en 2035, surtout par le renouvellement des parcs existants, en complément d'un nucléaire relancé (six EPR2)."
+    defenseurs: "Une trajectoire fixée après consultation, qui donne de la visibilité aux investisseurs et équilibre éolien, solaire et nucléaire sans bouleverser le mix."
+    critiques: "Pour les uns, ces objectifs, déjà revus à la baisse, sont insuffisants face au retard d'électrification ; pour les autres, ils engagent trop d'argent public (114 milliards d'euros d'engagements de soutien déjà pris, tous renouvelables confondus)."
+  - id: C
+    libelle: "Arrêter les aides publiques et ne plus lancer d'appels d'offres"
+    implique: "Fin des subventions à l'éolien et au solaire (12 milliards d'euros d'économies annoncées dans un plan), annulation des appels d'offres non attribués, priorité au nucléaire et à l'hydroélectricité."
+    defenseurs: "L'électricité éolienne est intermittente et subventionnée : l'argent public doit aller aux sources pilotables comme le nucléaire et l'hydroélectricité, ce qui doit faire baisser la facture."
+    critiques: "Arrêter les appels d'offres envoie un signal négatif aux investisseurs et, selon la filière, menacerait 80 000 emplois."
+  - id: D
+    libelle: "Ne plus construire d'éoliennes et démanteler les parcs en fin de vie"
+    implique: "Plus aucun nouveau projet, à terre comme en mer, et démantèlement progressif des parcs existants quand ils arrivent en fin de vie."
+    defenseurs: "Les éoliennes pèsent sur les paysages et la biodiversité, produisent par intermittence et coûtent cher : le nucléaire suffit à décarboner l'électricité."
+    critiques: "Il faudrait remplacer 9,1 % de l'électricité, alors que les objectifs de 2035 (moins 70 % de pétrole et moins 50 % de gaz) demandent plus d'électricité décarbonée que de nouveaux réacteurs ne pourraient fournir avant 2037 au mieux."
+pourAllerPlusLoin:
+  - titre: "RTE, bilan électrique 2025"
+    url: https://www.rte-france.com/
+  - titre: "Commission de régulation de l'énergie, charges de soutien aux renouvelables"
+    url: https://www.cre.fr/
+  - titre: "Ministère de la Transition écologique, programmation pluriannuelle de l'énergie"
+    url: https://www.ecologie.gouv.fr/
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour en construire davantage"
+    argument: "L'éolien est une électricité bas carbone, plus rapide à mettre en service (5 à 8 ans) que de nouveaux réacteurs (2037 au mieux), et il réduit la dépendance aux énergies fossiles importées (64 milliards d'euros en 2024)."
+  - titre: "Pour ne plus en construire"
+    argument: "Les éoliennes pèsent sur les paysages et la biodiversité, produisent par intermittence et coûtent cher : le nucléaire suffit à décarboner l'électricité."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Davantage"
+    precision: "d'éoliennes"
+  - choix: "Pas plus"
+    precision: "d'éoliennes"
+positions:
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  le-pen: { option: D, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  melenchon: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.france24.com/fr/info-en-continu/20260825-pr%C3%A9sidentielle-glucksmann-promet-la-r%C3%A9volution-%C3%A9cologique-d%C3%A8s-sa-victoire
+  glucksmann: { option: A, source: "Parc éolien d'Aunis, 25/08/2026", statut: officielle }
+  # https://www.parlons-politique.fr/elections/a-quel-prix-la-fin-des-subventions-renouvelables-pour-leolien-et-le-solaire-retailleau-relance-le-bras-de-fer-sur-lenergie_15456/
+  retailleau: { option: C, source: "Déclaration à Nogent-sur-Seine, 07/05/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  zemmour: { option: D, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  # https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
+  tondelier: { option: A, source: "Programme 2027 (iFRAP), colloque de l'UFE, 23/06/2026", statut: officielle }
+  # https://www.debout-la-france.fr/projet/economie-travail/
+  dupont-aignan: { option: C, source: "Projet économie et travail, 2026", statut: officielle }

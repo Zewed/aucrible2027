@@ -1,0 +1,79 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/007-uniforme.md (tout ce qui suit y est sourcé).
+numero: 7
+date: 2026-10-06
+theme: education-jeunesse
+question: Faut-il imposer l'uniforme à l'école ?
+titreCourt: "L'uniforme à l'école"
+contexte:
+  - Aucune loi n'impose l'uniforme : c'est le règlement intérieur de chaque école ou établissement qui peut rendre une tenue commune obligatoire.
+  - Une expérimentation de la tenue commune, lancée à la rentrée 2024 dans 115 établissements volontaires, n'a pas été reconduite à la rentrée 2026.
+  - "Dans l'évaluation de la DEPP, les directeurs d'école y voient plus d'appartenance, mais l'effet sur le comportement et les apprentissages reste limité."
+chiffres:
+  - valeur: "115"
+    unite: établissements
+    legende: volontaires pour l'expérimentation de la tenue commune, dès la rentrée 2024
+    source: { organisme: DEPP, document: évaluation des expérimentations du port de la tenue commune, annee: 2026 }
+  - valeur: 75 %
+    legende: des directeurs d'école constatent un effet positif sur le sentiment d'appartenance
+    source: { organisme: DEPP, document: évaluation des expérimentations du port de la tenue commune, annee: 2026 }
+  - valeur: 36 %
+    legende: des directeurs d'école constatent une amélioration du climat scolaire
+    source: { organisme: DEPP, document: évaluation des expérimentations du port de la tenue commune, annee: 2026 }
+  - valeur: "100"
+    unite: € par élève
+    legende: "au plus : la part de l'État, qui finance la moitié d'un trousseau d'environ 200 €"
+    source: { organisme: Ministère de l'Éducation nationale, document: réponse à la question écrite n° 1439, annee: 2025 }
+options:
+  - id: A
+    libelle: Non, la tenue reste libre
+    implique: L'expérimentation n'est pas relancée et aucune tenue commune n'est encouragée au niveau national.
+    defenseurs: Une égalité de façade, à l'effet limité sur les apprentissages, pendant que les inégalités se déplacent vers les coiffures, les chaussures et les sacs.
+    critiques: Selon les directeurs d'école, une tenue commune renforce le sentiment d'appartenance (75 %).
+    axes: { societe: -1 }
+  - id: B
+    libelle: Laisser chaque établissement décider
+    implique: Le règlement intérieur, voté avec la communauté éducative, peut inscrire une tenue commune ; l'État ne l'impose pas.
+    defenseurs: Chaque communauté éducative choisit ce qui lui convient, au rythme de ce que sa collectivité peut payer.
+    critiques: Sans l'État, une collectivité ne peut pas financer les tenues ; seule une règle nationale vaudrait pour tous.
+  - id: C
+    libelle: L'imposer à tous les élèves du public
+    implique: Une loi rend la tenue obligatoire dans les écoles et collèges publics (certains textes vont jusqu'au lycée) ; chaque établissement en fixe la coupe et la couleur.
+    defenseurs: Une tenue commune réduit les inégalités sociales, aide à lutter contre le harcèlement et donne un cadre clair sur les signes religieux.
+    critiques: Les effets sur les comportements et les apprentissages restent limités, et les élèves du second degré y adhèrent peu.
+    axes: { societe: 2 }
+pourAllerPlusLoin:
+  - titre: DEPP, évaluation des expérimentations du port de la tenue commune, 2026
+    url: https://www.education.gouv.fr/depp
+  - titre: Assemblée nationale, réponse du ministère à la question écrite n° 1439, 2025
+    url: https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE1439
+  - titre: Banque des Territoires, Uniforme à l'école, mention passable et avenir incertain, 2026
+    url: https://www.banquedesterritoires.fr/uniforme-lecole-mention-passable-et-avenir-incertain
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour imposer l'uniforme"
+    argument: "Une tenue commune réduit les inégalités sociales et aide à lutter contre le harcèlement."
+  - titre: "Pour laisser la tenue libre"
+    argument: "Une égalité de façade, à l'effet limité sur les apprentissages."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Imposer"
+    precision: "l'uniforme"
+  - choix: "Tenue libre"
+    precision: "ou choix local"
+positions:
+  # Programme 2022 : https://www.france24.com/fr/france/20220323-pr%C3%A9sidentielle-que-proposent-les-candidats-en-mati%C3%A8re-d-%C3%A9ducation ; proposition de loi RN : https://lcp.fr/actualites/uniforme-ecole-rassemblement-national-echoue-rendre-obligatoire-160476
+  le-pen: { option: C, source: "Programme 2022, 23/03/2022 ; proposition de loi RN, 12/01/2023", statut: deduite }
+  # Vote contre la proposition de loi RN : https://lcp.fr/actualites/uniforme-ecole-rassemblement-national-echoue-rendre-obligatoire-160476
+  melenchon: { option: A, source: "Groupe LFI contre la proposition de loi RN, 12/01/2023", statut: deduite }
+  # https://www.publicsenat.fr/actualites/politique/presidentielle-2027-que-proposent-les-candidats-pour-lecole
+  philippe: { option: B, source: "Public Sénat, 31/08/2026", statut: officielle }
+  # Proposition de loi cosignée au Sénat : https://www.publicsenat.fr/actualites/politique/uniformes-obligatoires-a-l-ecole-une-proposition-de-loi-deposee-au-senat-231733
+  retailleau: { option: C, source: "Proposition de loi LR au Sénat, 05/01/2023", statut: deduite }
+  # https://connexionfrance.com/French-news/Far-right-French-election-candidate-calls-for-state-school-uniforms
+  zemmour: { option: C, source: "Conférence de presse, 10/01/2022", statut: deduite }
+  # https://www.france24.com/fr/france/20220323-pr%C3%A9sidentielle-que-proposent-les-candidats-en-mati%C3%A8re-d-%C3%A9ducation
+  dupont-aignan: { option: B, source: "Programme 2022, 23/03/2022", statut: deduite }
+  # https://www.lutte-ouvriere.org/breves/uniforme-scolaire-cachez-ces-inegalites-que-je-ne-saurais-voir-468155.html
+  arthaud: { option: A, source: "Lutte ouvrière, 13/01/2023", statut: deduite }

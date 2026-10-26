@@ -1,0 +1,82 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/016-majorite-penale.md
+numero: 16
+date: 2026-10-15
+theme: securite-justice
+question: "Faut-il juger les mineurs de 16 ans comme des majeurs ?"
+titreCourt: "La majorité pénale"
+contexte:
+  - "En France, la majorité pénale est à 18 ans, et la responsabilité des mineurs est atténuée selon l'âge (code de la justice pénale des mineurs, en vigueur depuis 2021)."
+  - "En 2024, 48 040 mineurs ont été poursuivis et 2 680 peines d'emprisonnement ferme ou en partie ferme ont été prononcées contre des mineurs."
+  - "En juin 2025, le Conseil constitutionnel a censuré la comparution immédiate dès 16 ans et l'exclusion de l'atténuation de peine pour les récidivistes de plus de 16 ans, au nom d'un principe fondamental de la République."
+chiffres:
+  - valeur: "48 040"
+    legende: "mineurs poursuivis en 2024, sur 116 226 mineurs dans des affaires poursuivables"
+    source: { organisme: "Ministère de la Justice", document: "Les chiffres clés de la justice 2025", annee: 2024 }
+  - valeur: "86,4 %"
+    legende: "de taux de réponse pénale pour les mineurs poursuivables en 2024"
+    source: { organisme: "Ministère de la Justice", document: "Les chiffres clés de la justice 2025", annee: 2024 }
+  - valeur: "2 680"
+    legende: "peines d'emprisonnement ferme ou en partie ferme prononcées contre des mineurs en 2024, sur 46 884 peines et mesures"
+    source: { organisme: "Ministère de la Justice", document: "Les chiffres clés de la justice 2025", annee: 2024 }
+  - valeur: "810"
+    legende: "mineurs suivis en milieu fermé au 1er janvier 2025, dont 89 % âgés de 16 ou 17 ans"
+    source: { organisme: "Ministère de la Justice", document: "Les chiffres clés de la justice 2025", annee: 2025 }
+options:
+  - id: A
+    libelle: "Garder la majorité pénale à 18 ans et la priorité à l'éducatif"
+    implique: "Le droit actuel : la responsabilité des mineurs reste atténuée selon l'âge, avec des mesures éducatives d'abord (9 984 mesures éducatives judiciaires et 10 663 avertissements judiciaires en 2024) et une juridiction spécialisée."
+    defenseurs: "À 16 ans, on est encore en construction : le droit prévoit une réponse adaptée à l'âge et tournée vers le relèvement éducatif, un principe que le Conseil constitutionnel rattache aux lois fondamentales de la République."
+    critiques: "Pour ses détracteurs, la sanction intervient trop tard et envoie un message d'impunité."
+    axes: { societe: -2 }
+  - id: B
+    libelle: "Garder 18 ans, mais répondre plus vite et plus fermement"
+    implique: "Comparution immédiate, courtes peines dès le premier délit, excuse de minorité levée ou atténuée pour certains faits (récidive, narcotrafic)."
+    defenseurs: "Une sanction rapide et certaine est la meilleure prévention : on durcit la réponse pour les faits graves et les récidivistes, sans abandonner le droit des mineurs."
+    critiques: "Le Conseil constitutionnel a censuré en 2025 deux de ces mesures telles qu'elles étaient écrites ; ses opposants y voient surtout plus d'enfermement de mineurs."
+    axes: { societe: 1 }
+  - id: C
+    libelle: "Abaisser la majorité pénale à 16 ans"
+    implique: "Les 16 et 17 ans seraient jugés comme des majeurs. Le Conseil constitutionnel ayant jugé en 2025 que l'atténuation de la responsabilité selon l'âge est un principe fondamental de la République, une telle réforme poserait la question d'une révision de la Constitution."
+    defenseurs: "À 16 ans, on mesure la portée de ses actes : juger les 16-17 ans comme des adultes protège mieux les victimes et rend la sanction plus dissuasive."
+    critiques: "Cela supposerait de réviser la Constitution, et ses opposants craignent que des adolescents encourent des peines d'adultes sans accompagnement éducatif."
+    axes: { societe: 2 }
+  - id: D
+    libelle: "Abaisser la majorité pénale à 16 ans et faire de l'excuse de minorité l'exception dès 13 ans"
+    implique: "Majorité pénale à 16 ans ; dès 13 ans, la peine d'adulte devient la règle et l'excuse de minorité une exception accordée par le juge ; comparution immédiate dès 13 ans pour les cas graves."
+    defenseurs: "Un adolescent de 13 ans qui commet un fait grave doit répondre de ses actes : l'excuse de minorité devient une exception accordée au cas par cas."
+    critiques: "C'est la rupture la plus nette avec le droit des mineurs, qui fixe la majorité pénale à 18 ans depuis 1906 : des enfants de 13 ans encourraient des peines d'adultes."
+    axes: { societe: 2 }
+pourAllerPlusLoin:
+  - titre: "Conseil constitutionnel, décision n° 2025-886 DC du 19 juin 2025"
+    url: https://www.conseil-constitutionnel.fr/decision/2025/2025886DC.htm
+  - titre: "Ministère de la Justice, les chiffres clés de la justice 2025"
+    url: https://www.justice.gouv.fr/documentation/etudes-et-statistiques/chiffres-cles-justice-2025
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour juger les 16 ans comme des majeurs"
+    argument: "À 16 ans, on mesure la portée de ses actes : juger les 16-17 ans comme des adultes protège mieux les victimes et rend la sanction plus dissuasive."
+  - titre: "Pour garder l'âge de 18 ans"
+    argument: "À 16 ans, on est encore en construction : le droit prévoit une réponse adaptée à l'âge et tournée vers le relèvement éducatif, un principe que le Conseil constitutionnel rattache aux lois fondamentales de la République."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "À 16 ans"
+    precision: "comme des majeurs"
+  - choix: "À 18 ans"
+    precision: "comme aujourd'hui"
+positions:
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  melenchon: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  philippe: { option: B, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  retailleau: { option: B, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  lisnard: { option: D, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  attal: { option: B, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  tondelier: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.debout-la-france.fr/projet/justice/
+  dupont-aignan: { option: C, source: "Projet justice, DLF, mesure 8, 2026", statut: officielle }

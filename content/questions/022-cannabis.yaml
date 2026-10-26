@@ -1,0 +1,89 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/022-cannabis.md
+numero: 22
+date: 2026-10-21
+theme: societe
+question: "Faut-il légaliser le cannabis ?"
+titreCourt: "Le cannabis"
+contexte:
+  - "En France, l'usage de cannabis est un délit puni d'un an de prison et de 3 750 € d'amende au plus, et une amende forfaitaire de 200 € s'applique depuis 2020."
+  - "Environ un adulte sur dix en consomme chaque année, et la France compte parmi les premiers pays consommateurs d'Europe."
+  - "Le Canada, l'Uruguay, Malte, le Luxembourg et l'Allemagne ont légalisé tout ou partie de l'usage récréatif ; la France maintient l'interdiction."
+chiffres:
+  - valeur: 10,8 %
+    legende: "des adultes de 18 à 64 ans ont consommé du cannabis dans l'année"
+    source: { organisme: OFDT, document: enquête 2023, annee: 2023 }
+  - valeur: "124,7"
+    unite: "tonnes"
+    legende: "de cannabis saisies en France"
+    source: { organisme: OFDT, annee: 2023 }
+  - valeur: "568"
+    unite: "millions d'euros"
+    legende: "de dépense publique pour lutter contre le cannabis (estimation)"
+    source: { organisme: Conseil d'analyse économique, document: note n° 52, annee: 2019 }
+  - valeur: "2"
+    unite: "milliards d'euros"
+    legende: "de recettes fiscales par an estimées en cas de légalisation (scénario de 500 tonnes)"
+    source: { organisme: Conseil d'analyse économique, document: note n° 52, annee: 2019 }
+options:
+  - id: A
+    libelle: "Oui, légaliser et encadrer"
+    implique: "La production, la vente et la consommation de cannabis par les adultes deviennent légales et encadrées, sous contrôle de l'État."
+    defenseurs: "L'interdit n'empêche ni la consommation ni le trafic : un marché légal et contrôlé protège les mineurs, affaiblit les trafics, libère la police et la justice et rapporte des recettes."
+    critiques: "Un marché légal banalise l'usage, avec des risques pour la santé des jeunes, et un marché noir peut subsister."
+    axes: { societe: -2 }
+  - id: B
+    libelle: "Dépénaliser l'usage, sans légaliser la vente"
+    implique: "Consommer n'est plus un délit, mais la production et la vente restent interdites."
+    defenseurs: "On cesse de traiter les consommateurs comme des délinquants et on soigne plutôt que de punir, sans rendre le produit commercial."
+    critiques: "La dépénalisation laisse le marché aux trafiquants et ne rapporte aucune recette."
+    axes: { societe: -1 }
+  - id: C
+    libelle: "Non, maintenir l'interdiction"
+    implique: "L'usage et la vente restent interdits et sanctionnés, avec la prévention et la lutte contre les trafics en priorité."
+    defenseurs: "Le cannabis est dangereux, surtout pour les jeunes, et le légaliser enverrait le signal que sa consommation est acceptable : mieux vaut renforcer la prévention et combattre le trafic."
+    critiques: "L'interdit n'empêche ni la consommation ni le trafic, et coûte cher à la police et à la justice sans rapporter de recettes."
+    axes: { societe: 1 }
+pourAllerPlusLoin:
+  - titre: "OFDT, cannabis"
+    url: https://www.ofdt.fr/produits-et-addictions/de-z/cannabis/
+  - titre: "Conseil d'analyse économique, Cannabis, comment reprendre le contrôle ?, 2019"
+    url: https://www.cae-eco.fr/staticfiles/pdf/cae-note052.pdf
+  - titre: "Sénat, rapport de la commission d'enquête sur le narcotrafic, 2024"
+    url: https://www.senat.fr/rap/r23-588-1/r23-588-116.html
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour légaliser"
+    argument: "L'interdit n'empêche ni la consommation ni le trafic : un marché légal et contrôlé protège les mineurs, affaiblit les trafics, libère la police et la justice et rapporte des recettes."
+  - titre: "Pour maintenir l'interdit"
+    argument: "Le cannabis est dangereux, surtout pour les jeunes, et le légaliser enverrait le signal que sa consommation est acceptable : mieux vaut renforcer la prévention et combattre le trafic."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Légaliser"
+    precision: "le cannabis"
+  - choix: "Maintenir"
+    precision: "l'interdit"
+positions:
+  # Programme de juillet 2026, p. 184, cité par https://monvote2027.fr/candidat/tondelier
+  tondelier: { option: A, source: "Programme de juillet 2026, p. 184", statut: officielle }
+  # https://www.assemblee-nationale.fr/dyn/15/textes/l15b4746_proposition-loi.pdf
+  melenchon: { option: A, source: "Proposition de loi n° 4746, 30/11/2021", statut: deduite }
+  # https://www.assemblee-nationale.fr/dyn/15/textes/l15b4746_proposition-loi.pdf
+  ruffin: { option: A, source: "Proposition de loi n° 4746, 30/11/2021", statut: deduite }
+  # https://www.publicsenat.fr/actualites/non-classe/cannabis-70-personnalites-appellent-a-legaliser-au-nom-du-pragmatisme-142235
+  glucksmann: { option: A, source: "Tribune de L'Obs, 19/06/2019", statut: deduite }
+  # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
+  arthaud: { option: A, source: "Campagne 2022, Greenboyz", statut: deduite }
+  # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
+  roussel: { option: B, source: "Campagne 2022, Greenboyz", statut: deduite }
+  # https://rassemblementnational.fr/documents/projet/projet-la-securite.pdf
+  le-pen: { option: C, source: "Projet 2022 du RN, la sécurité", statut: deduite }
+  # https://www.europe1.fr/politique/legalisation-du-cannabis-ca-ne-marche-pas-estime-bruno-retailleau-396031
+  retailleau: { option: C, source: "TF1, 18/02/2025", statut: deduite }
+  # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
+  attal: { option: C, source: "Campagne 2022 d'Emmanuel Macron, Greenboyz", statut: deduite }
+  # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
+  zemmour: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite }
+  # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
+  dupont-aignan: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite }
