@@ -43,6 +43,8 @@ export type Lien = { titre: string; url: string };
 export type Cote = { titre: string; argument: string };
 /** Un choix de l'autocollant « Et toi ? » de la story : « 62 ans », et en plus petit « ou moins ». */
 export type ChoixDeStory = { choix: string; precision?: string };
+/** La vidéo explicative de la fiche, montrée à la première étape quand elle existe. */
+export type VideoExplicative = { url: string; duree: string };
 export type Question = {
   numero: number;
   date: string;
@@ -52,6 +54,7 @@ export type Question = {
   chiffres: Chiffre[];
   options: Option[];
   positions: Record<string, Position>;
+  video?: VideoExplicative;
   /** 2 à 3 liens vers les organismes qui documentent le sujet. */
   pourAllerPlusLoin?: Lien[];
   /** Les deux côtés de l'image 5 du carrousel, que l'auteur écrit dans la fiche (décision du 25 octobre). */

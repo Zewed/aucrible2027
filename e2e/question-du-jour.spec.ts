@@ -6790,3 +6790,42 @@ test("au téléphone, « Voir les propositions » est visible dès l'ouverture, 
   await expect(page.getByRole("button", { name: "Voir les propositions" })).toBeInViewport();
   expect(await page.evaluate(() => window.scrollY)).toBe(0);
 });
+
+test.describe("la première étape : trois cartes posées", () => {
+  for (const [largeur, hauteur] of [[1440, 900], [1920, 1080]]) {
+    test.describe(`à ${largeur} × ${hauteur}`, () => {
+      test.use({ viewport: { width: largeur, height: hauteur }, isMobile: false, hasTouch: false });
+
+      test("la question, le contexte et les chiffres sont côte à côte, et tout tient sans défiler", async ({ page }) => {
+        await page.goto("/");
+        const bouton = page.getByRole("button", { name: "Voir les propositions" });
+        await expect(bouton).toBeInViewport({ ratio: 1 });
+        const question = await page.getByRole("heading", { level: 1 }).boundingBox();
+        const contexte = await page.getByRole("region", { name: "Le contexte" }).boundingBox();
+        const chiffres = await page.getByRole("region", { name: /chiffres clés/ }).boundingBox();
+        expect(question!.x).toBeLessThan(contexte!.x);
+        expect(contexte!.x).toBeLessThan(chiffres!.x);
+        await expect(page.getByRole("article", { name: await page.getByRole("heading", { level: 1 }).innerText() })).toBeInViewport({ ratio: 1 });
+        expect(await page.evaluate(() => window.scrollY)).toBe(0);
+      });
+    });
+  }
+
+  test("au téléphone, la barre du bouton ne recouvre jamais la fin des chiffres clés", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.getByRole("button", { name: "Voir les propositions" })).toBeVisible();
+    await page.mouse.wheel(0, 5000);
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+    const derniereSource = page.getByRole("region", { name: /chiffres clés/ }).getByText(/^Source/).last();
+    const barre = await page.getByRole("button", { name: "Voir les propositions" }).boundingBox();
+    const source = await derniereSource.boundingBox();
+    expect(source!.y + source!.height).toBeLessThanOrEqual(barre!.y);
+  });
+
+  test("une fiche sans vidéo n'affiche aucun cadre vidéo ; une fiche qui en a une l'affiche sous la question", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator("video")).toHaveCount(0);
+    await page.goto("/question/9");
+    await expect(page.getByLabel("Vidéo, 1 min")).toBeVisible();
+  });
+});

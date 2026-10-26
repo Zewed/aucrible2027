@@ -145,16 +145,96 @@
 /* Le pied de page commun : le lien de la page en cours est marqué. */
 .site-foot a[aria-current] { color: var(--chalk); text-decoration: underline; text-decoration-thickness: 2px; }
 
-/* La fiche en deux étapes. Étape « lire » : la carte question (contexte, chiffres clés), puis « Voir les propositions ».
-   Étape « répondre » : la question seule, en haut, puis les cartes réponse. */
-.etape-lire > .go { margin-top: 22px; position: sticky; bottom: 16px; z-index: 5; }
+/* La fiche en deux étapes.
+   Étape « lire » : trois cartes posées sur la table (la question et sa vidéo, le contexte, les chiffres clés), puis
+   « Voir les propositions ». Étape « répondre » : la question seule, en haut, puis les cartes réponse. */
+:root { --barre-action: 92px; }
+.today.etape-lire { display: block; padding-bottom: calc(var(--barre-action) + 18px); }
+.cartes-posees { display: grid; gap: 16px; }
+.cartes-posees .qcard { display: flex; flex-direction: column; box-shadow: 0 6px 0 var(--ink-deep); }
+.cartes-posees .qcard::after {
+  content: ""; position: absolute; inset: 8px; z-index: 0;
+  border: 2px solid var(--slot); border-radius: 9px; pointer-events: none;
+}
+.cartes-posees .c1::after { border-color: rgba(29, 24, 56, .28); }
+.cartes-posees .c1 .qcard-top { flex: 1; display: flex; flex-direction: column; padding: 20px 20px 22px; z-index: 1; }
+.cartes-posees .c1 .theme-chip { align-self: flex-start; margin: 0; }
+.cartes-posees .c1 h1 { margin-top: 14px; font-size: clamp(34px, 9.4vw, 52px); }
+.cartes-posees .video {
+  display: block; width: 100%; margin-top: 16px; aspect-ratio: 16 / 9;
+  border: 3px solid var(--ink); border-radius: 12px; background: var(--ink-deep);
+}
+.cartes-posees .qcard-body { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; padding: 20px 20px 22px; }
+.cartes-posees .qcard-body .label { padding-bottom: 12px; border-bottom: 4px solid var(--theme); }
+.cartes-posees .ctx { flex: 1; display: flex; flex-direction: column; margin-top: 4px; }
+.cartes-posees .ctx p {
+  position: relative; flex: 1 1 auto; display: flex; align-items: center;
+  margin: 0; padding: 12px 0 12px 22px; font-size: 15.5px; line-height: 1.45;
+}
+.cartes-posees .ctx p + p { border-top: 2px dotted #CFC8E8; }
+.cartes-posees .ctx p::before {
+  content: ""; position: absolute; left: 1px; top: 50%; margin-top: -4.5px;
+  width: 9px; height: 9px; border-radius: 2px; background: var(--theme); transform: rotate(45deg);
+}
+.cartes-posees .figures { flex: 1; margin: 12px 0 0; display: flex; flex-direction: column; gap: 9px; }
+.cartes-posees .fig {
+  flex: 1 1 auto; grid-template-columns: 92px minmax(0, 1fr); column-gap: 12px;
+  align-content: center; align-items: center; padding: 6px; border: 0;
+}
+.cartes-posees .fig-num {
+  grid-row: 1 / span 2; align-self: stretch;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+  background: var(--theme); color: var(--on-theme); border-radius: 8px; padding: 8px 4px 7px; font-size: 30px;
+}
+.cartes-posees .fig-num small { display: block; margin-top: 3px; font: 700 13px/1 var(--text); letter-spacing: 0; }
+.cartes-posees .fig-txt { margin-top: 0; font-size: 14.5px; line-height: 1.28; }
+.cartes-posees .fig-src { grid-column: 2; margin-top: 4px; white-space: normal; overflow: visible; text-overflow: clip; font-size: 12.5px; line-height: 1.25; }
+.etape-lire .stake { margin-top: 18px; }
+/* Au téléphone, « Voir les propositions » est dans une barre collée en bas, qui garde sa place sous la page. */
+.actionbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  padding: 12px 16px max(14px, env(safe-area-inset-bottom));
+  background: var(--table); box-shadow: 0 -2px 0 var(--table-3);
+}
+.actionbar .go { margin: 0 0 7px; padding: 17px 18px 16px; font-size: 20px; }
 .etape-repondre .qcard-top { padding-bottom: 22px; }
 .retour-contexte { margin-top: 14px; }
 .retour-contexte svg { width: 18px; height: 18px; }
 @media (min-width: 900px) {
-  /* Lire : une seule colonne, la carte au centre et le bouton dessous. */
-  .today.etape-lire { display: block; max-width: 820px; }
-  .etape-lire .left { position: static; }
-  /* Répondre : la question à gauche, qui reste en vue, les cartes réponse à droite. */
+  .today.etape-lire {
+    --u: min(1vw, 1.75vh);
+    max-width: none; padding: calc(2.4 * var(--u)) clamp(28px, 3vw, 64px) 0;
+  }
+  .cartes-posees {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1.08fr);
+    gap: clamp(22px, 2vw, 42px); align-items: stretch; padding-bottom: 8px;
+  }
+  .cartes-posees .qcard { box-shadow: 0 9px 0 var(--ink-deep); }
+  .cartes-posees .qcard::after { inset: calc(.6 * var(--u)); border-radius: calc(.55 * var(--u)); }
+  .cartes-posees .c1 { rotate: -.7deg; }
+  .cartes-posees .c2 { rotate: .45deg; translate: 0 calc(.3 * var(--u)); }
+  .cartes-posees .c3 { rotate: -.4deg; }
+  .cartes-posees .c1 .qcard-top { padding: calc(2 * var(--u)) calc(2 * var(--u)) calc(1.8 * var(--u)); }
+  .cartes-posees .c1 h1 { margin: calc(1.6 * var(--u)) 0; font-size: calc(4.7 * var(--u)); line-height: .95; }
+  .cartes-posees .video { margin-top: auto; border-radius: calc(.9 * var(--u)); border-width: 4px; }
+  .cartes-posees .qcard-body { padding: calc(1.9 * var(--u)) calc(1.9 * var(--u)) calc(1.7 * var(--u)); }
+  .cartes-posees .qcard-body .label { font-size: max(14px, calc(.95 * var(--u))); padding-bottom: calc(.9 * var(--u)); }
+  .cartes-posees .ctx p { font-size: max(17px, calc(1.5 * var(--u))); line-height: 1.42; padding: calc(.9 * var(--u)) 0 calc(.9 * var(--u)) calc(1.6 * var(--u)); }
+  .cartes-posees .figures { margin-top: calc(1 * var(--u)); gap: calc(.7 * var(--u)); }
+  .cartes-posees .fig { grid-template-columns: calc(7.2 * var(--u)) minmax(0, 1fr); column-gap: calc(1.1 * var(--u)); padding: calc(.45 * var(--u)) calc(.9 * var(--u)) calc(.45 * var(--u)) calc(.45 * var(--u)); }
+  .cartes-posees .fig-num { font-size: calc(3.1 * var(--u)); padding: calc(.6 * var(--u)) calc(.3 * var(--u)); border-radius: calc(.6 * var(--u)); }
+  .cartes-posees .fig-num small { font-size: max(13px, calc(.9 * var(--u))); margin-top: calc(.2 * var(--u)); }
+  .cartes-posees .fig-txt { font-size: max(15px, calc(1.15 * var(--u))); }
+  .cartes-posees .fig-src { margin-top: calc(.35 * var(--u)); font-size: max(13px, calc(.8 * var(--u))); }
+  /* Sur ordinateur, le bouton est sous les cartes, au centre, dans le flux. */
+  .actionbar {
+    position: static; z-index: auto; background: none; box-shadow: none;
+    display: flex; justify-content: center; padding: calc(1.8 * var(--u)) 0 calc(2.2 * var(--u));
+  }
+  .actionbar .go {
+    width: auto; min-width: calc(24 * var(--u));
+    padding: calc(1.2 * var(--u)) calc(3.6 * var(--u)) calc(1.1 * var(--u)); font-size: max(22px, calc(1.5 * var(--u)));
+  }
   .etape-repondre .qcard h1 { font-size: 46px; }
 }
+@media (prefers-reduced-motion: reduce) { .cartes-posees .qcard { animation: none; } }

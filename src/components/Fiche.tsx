@@ -109,47 +109,52 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
     <main className={`today ${theme.classe} etape-${etape}`}>
       {etape === "lire" ? (
         <>
-        <div className="left">
-          <div className="deck">
-            <article className="qcard" aria-labelledby="q">
+          <article className="cartes-posees" aria-labelledby="q">
+            <div className="qcard c1">
               <div className="qcard-top">
                 <PuceTheme theme={theme} />
                 <h1 id="q">{question.question}</h1>
+                {question.video && (
+                  <video className="video" src={question.video.url} controls preload="metadata" aria-label={`Vidéo, ${question.video.duree}`} />
+                )}
               </div>
-              <div className="qcard-body">
-                <section aria-labelledby="contexte">
-                  <h2 id="contexte" className="label"><i></i>Le contexte</h2>
-                  <div className="context">
-                    {question.contexte.map((phrase) => (
-                      <p key={phrase}>{phrase}</p>
-                    ))}
-                  </div>
-                </section>
-                <section aria-labelledby="chiffres">
-                  <h2 id="chiffres" className="label" style={{ marginTop: 22 }}><i></i>{question.chiffres.length} chiffres clés</h2>
-                  <ul className="figures">
-                    {question.chiffres.map((chiffre) => (
-                      <li key={chiffre.legende} className="fig">
-                        <span className="fig-num">
-                          {chiffre.valeur}
-                          {chiffre.unite && <> <small>{chiffre.unite}</small></>}
-                        </span>
-                        <span className="fig-txt">{chiffre.legende}</span>
-                        <span className="fig-src">
-                          Source : <b>{chiffre.source.organisme}, {chiffre.source.document && `${chiffre.source.document} `}{chiffre.source.annee}</b>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              </div>
-            </article>
-          </div>
+            </div>
+            <div className="qcard c2">
+              <section className="qcard-body" aria-labelledby="contexte">
+                <h2 id="contexte" className="label"><i></i>Le contexte</h2>
+                <div className="context ctx">
+                  {question.contexte.map((phrase) => (
+                    <p key={phrase}>{phrase}</p>
+                  ))}
+                </div>
+              </section>
+            </div>
+            <div className="qcard c3">
+              <section className="qcard-body" aria-labelledby="chiffres">
+                <h2 id="chiffres" className="label"><i></i>{question.chiffres.length} chiffres clés</h2>
+                <ul className="figures">
+                  {question.chiffres.map((chiffre) => (
+                    <li key={chiffre.legende} className="fig">
+                      <span className="fig-num">
+                        {chiffre.valeur}
+                        {chiffre.unite && <> <small>{chiffre.unite}</small></>}
+                      </span>
+                      <span className="fig-txt">{chiffre.legende}</span>
+                      <span className="fig-src">
+                        Source : <b>{chiffre.source.organisme}, {chiffre.source.document && `${chiffre.source.document} `}{chiffre.source.annee}</b>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          </article>
           {enJeu && <EnJeu question={question} theme={theme} enJeu={enJeu} reponses={reponses} />}
-        </div>
-          <button type="button" className="go" onClick={() => allerA("repondre")}>
-            Voir les propositions
-          </button>
+          <div className="actionbar">
+            <button type="button" className="go" onClick={() => allerA("repondre")}>
+              Voir les propositions
+            </button>
+          </div>
         </>
       ) : (
         <>
