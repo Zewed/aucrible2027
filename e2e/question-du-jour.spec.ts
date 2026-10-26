@@ -555,9 +555,14 @@ test("après A puis B et validation, la révélation nomme les défenseurs de B,
   for (const nom of ["Jean-Luc Mélenchon", "Fabien Roussel", "Nathalie Arthaud"]) await expect(defenseurs.getByText(nom)).toHaveCount(0);
 });
 
-/** Ce que l'app a gardé de l'électeur, sans l'ordre des questions de l'appareil, qui n'est pas une réponse. */
+/**
+ * Ce que l'app a gardé de l'électeur, sans l'ordre des questions de l'appareil ni le jour où sa visite a été comptée
+ * (ticket 192) : ni l'un ni l'autre n'est une réponse.
+ */
 const reponsesEnregistrees = (page: Page) =>
-  page.evaluate(() => [...Object.keys(sessionStorage), ...Object.keys(localStorage)].filter((cle) => cle.startsWith("aucrible") && cle !== "aucrible:ordre"));
+  page.evaluate(() =>
+    [...Object.keys(sessionStorage), ...Object.keys(localStorage)].filter((cle) => cle.startsWith("aucrible") && cle !== "aucrible:ordre" && cle !== "aucrible:visite"),
+  );
 
 test("sans rien choisir, « Valider ma réponse » est inactif : le toucher n'ouvre pas la révélation et n'enregistre rien", async ({ page }) => {
   await page.goto("/");
@@ -4118,6 +4123,63 @@ test.describe("un envoi raté garde le texte et propose de réessayer", () => {
     await page.getByRole("button", { name: "Réessayer" }).click();
     await expect(page.getByRole("status")).toContainText("Merci ! Ton signalement est arrivé.");
     expect(await signalementArrive(texte)).toHaveLength(1);
+  });
+});
+
+test.describe("l'auteur voit le nombre de visites par jour", () => {
+  /** Les visites d'un jour (AAAA-MM-JJ) dans la base des tests, 0 s'il n'y en a pas. */
+  const visitesDu = async (jour: string) => {
+    const [ligne] = await baseDeTest`SELECT nombre FROM visites WHERE jour = ${jour}`.catch(() => []);
+    return ligne ? Number(ligne.nombre) : 0;
+  };
+
+  /** Ouvre l'app ce jour-là sur un appareil neuf (un contexte de navigateur à lui), puis le referme. */
+  async function ouvrirLAppSurUnAppareil(browser: import("@playwright/test").Browser, jour: string, fois = 1) {
+    const appareil = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    const page = await appareil.newPage();
+    await fixerLeJour(page, `${jour}T10:00:00+01:00`);
+    for (let i = 0; i < fois; i++) {
+      await page.goto("/");
+      await page.waitForLoadState("networkidle");
+    }
+    await appareil.close();
+  }
+
+  test("ouvrir l'app aujourd'hui depuis deux appareils fait 2 visites de plus, et rouvrir le même appareil n'en ajoute pas", async ({ browser, page }) => {
+    const jour = "2026-12-08";
+    const avant = await visitesDu(jour);
+    await ouvrirLAppSurUnAppareil(browser, jour, 3);
+    await ouvrirLAppSurUnAppareil(browser, jour);
+    await expect.poll(() => visitesDu(jour)).toBe(avant + 2);
+    await connecterAvecGitHub(page);
+    await fixerLeJour(page, `${jour}T18:00:00+01:00`);
+    await page.goto("/admin");
+    await expect(page.getByRole("region", { name: "Visites" }).getByRole("row", { name: /8 déc\. 2026/ })).toHaveText(new RegExp(`8 déc\\. 2026\\s*${avant + 2}`));
+  });
+
+  test("chaque jour a sa ligne : une visite le lendemain s'ajoute au lendemain, sans changer la veille", async ({ browser }) => {
+    const veille = "2026-12-15";
+    const lendemain = "2026-12-16";
+    await ouvrirLAppSurUnAppareil(browser, veille);
+    await expect.poll(() => visitesDu(veille)).toBeGreaterThan(0);
+    const [avantVeille, avantLendemain] = [await visitesDu(veille), await visitesDu(lendemain)];
+    await ouvrirLAppSurUnAppareil(browser, lendemain);
+    await expect.poll(() => visitesDu(lendemain)).toBe(avantLendemain + 1);
+    expect(await visitesDu(veille)).toBe(avantVeille);
+  });
+
+  test("le même appareil, revenu le lendemain, compte une visite ce jour-là", async ({ browser }) => {
+    const appareil = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    const page = await appareil.newPage();
+    const [premier, second] = ["2026-12-22", "2026-12-23"];
+    const avant = await visitesDu(second);
+    await fixerLeJour(page, `${premier}T10:00:00+01:00`);
+    await page.goto("/");
+    await expect.poll(() => visitesDu(premier)).toBeGreaterThan(0);
+    await fixerLeJour(page, `${second}T10:00:00+01:00`);
+    await page.goto("/");
+    await expect.poll(() => visitesDu(second)).toBe(avant + 1);
+    await appareil.close();
   });
 });
 
