@@ -1,0 +1,23 @@
+e2e/question-du-jour.spec.ts
+  s_613931134209e1::t_ea5d887eb5dc3d 33-40,42,61,123,132,315,329,339,351,390,414,434,462,476,489,500,503,517,549,594,641,654,1149,1162,1346,1358,1362,1413,1445,1484,1572,4533,4566,4662,5417,5419,5470,6145,6154,6162,6172,6174,6239,6353,6749-6792
+src/app/globals.css
+  s_613931134209e1::t_fb205212e91eab 147-160
+src/components/Fiche.tsx
+  s_613931134209e1::t_e36f9d47ac4f80 80,93-98,109-161,163-192,194-196,198,200-203,206-210,212-214,217-245
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3e1b24f3cebe49ae1f765066198a579a32818d65",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
