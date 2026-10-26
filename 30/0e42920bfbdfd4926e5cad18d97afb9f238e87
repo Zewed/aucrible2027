@@ -1,0 +1,29 @@
+e2e/question-du-jour.spec.ts
+  s_330ba31127fa8a::t_62eb842ee28754 4061-4123
+src/app/signaler/actions.ts
+  s_330ba31127fa8a::t_cdc2f6d1a09208 6-10,23-24,27
+src/components/FormulaireDeSignalement.tsx
+  s_330ba31127fa8a::t_cdc2f6d1a09208 4-36,68-69,72,74,85,87,143
+src/lib/base.ts
+  s_330ba31127fa8a::t_cdc2f6d1a09208 24-27
+src/lib/signalement.ts
+  s_330ba31127fa8a::t_cdc2f6d1a09208 18-20,45-49,51
+.veebee/tickets/169-un-envoi-rate-garde-le-texte-et-propose-de-reessayer.md
+  s_330ba31127fa8a::t_fd4399537c91be 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "300e42920bfbdfd4926e5cad18d97afb9f238e87",
+  "prompts": {},
+  "sessions": {
+    "s_330ba31127fa8a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "40dd6cc5-a07d-449f-9334-4974bfc44fe8",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
