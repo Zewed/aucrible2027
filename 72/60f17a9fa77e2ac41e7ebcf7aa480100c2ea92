@@ -1,0 +1,35 @@
+content/questions/023-loyers.yaml
+  s_613931134209e1::t_cbc7082c07c419 8
+content/questions/024-retraite.yaml
+  s_613931134209e1::t_444179a4201d9d 9
+content/questions/025-nucleaire.yaml
+  s_613931134209e1::t_9472c9bc959c2e 8
+content/questions/026-medecins.yaml
+  s_613931134209e1::t_3e667b2b3971af 8
+e2e/question-du-jour.spec.ts
+  s_613931134209e1::t_8fb63ac086032a 1627,3753,3760,3782,3794,3805,6741,6795,6800,6807-6810,6815-6821,6833,6835,6837-6838
+src/app/globals.css
+  s_613931134209e1::t_1ece6ab4616385 149-243,249,251-252,259-284
+src/components/Fiche.tsx
+  s_613931134209e1::t_2a612c7e27279e 10,112-116,118-119,121-163,166,259-271
+src/components/VignetteVideo.tsx
+  s_613931134209e1::t_22e08d9e2ce789 1-54
+src/lib/contenu.ts
+  s_613931134209e1::t_5e6d70b284edc2 58-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7260f17a9fa77e2ac41e7ebcf7aa480100c2ea92",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
