@@ -7,6 +7,7 @@ import { Camembert } from "@/components/Camembert";
 import { CompteARebours } from "@/components/CompteARebours";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
+import { VignetteVideo } from "@/components/VignetteVideo";
 import type { Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
 import { tirerGraine } from "@/lib/melange";
@@ -77,6 +78,7 @@ function EnJeu({ question, theme, enJeu, reponses }: { question: Question; theme
  */
 export function Fiche({ question, theme, revelation, enJeu }: { question: Question; theme: Theme; revelation: string; enJeu?: PartEnJeu }) {
   const router = useRouter();
+  const [etape, setEtape] = useState<"lire" | "repondre">("lire");
   const [choix, setChoix] = useState<string | null>(null);
   const [poids, setPoids] = useState<number | null>(null);
   const jour = useCoteClient(() => aujourdhuiAParis());
@@ -89,6 +91,12 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
 
   if (!jour || dejaRepondue) return null;
 
+  /** Passer d'une étape à l'autre en repartant du haut de la page. */
+  function allerA(suivante: "lire" | "repondre") {
+    setEtape(suivante);
+    window.scrollTo({ top: 0 });
+  }
+
   function valider(evenement: React.FormEvent) {
     evenement.preventDefault();
     if (!choix || !jour) return;
@@ -99,128 +107,161 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
   return (
     <>
     <Bandeau jour={jour} question={question} />
-    <main className={`today ${theme.classe}`}>
-      <div className="left">
-        <div className="deck">
-          <article className="qcard" aria-labelledby="q">
-            <div className="qcard-top">
+    <main className={`today ${theme.classe} etape-${etape}`}>
+      {etape === "lire" ? (
+        <article className="ecran-partage" aria-labelledby="q">
+          <div className="scene">
+            <div className="bloc">
               <PuceTheme theme={theme} />
               <h1 id="q">{question.question}</h1>
             </div>
-            <div className="qcard-body">
-              <section aria-labelledby="contexte">
-                <h2 id="contexte" className="label"><i></i>Le contexte</h2>
-                <div className="context">
-                  {question.contexte.map((phrase) => (
-                    <p key={phrase}>{phrase}</p>
-                  ))}
-                </div>
-              </section>
-              <section aria-labelledby="chiffres">
-                <h2 id="chiffres" className="label" style={{ marginTop: 22 }}><i></i>{question.chiffres.length} chiffres clés</h2>
-                <ul className="figures">
-                  {question.chiffres.map((chiffre) => (
-                    <li key={chiffre.legende} className="fig">
-                      <span className="fig-num">
-                        {chiffre.valeur}
-                        {chiffre.unite && <> <small>{chiffre.unite}</small></>}
-                      </span>
-                      <span className="fig-txt">{chiffre.legende}</span>
-                      <span className="fig-src">
-                        Source : <b>{chiffre.source.organisme}, {chiffre.source.document && `${chiffre.source.document} `}{chiffre.source.annee}</b>
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
+            <div className="bobine">
+              <VignetteVideo titre={question.titreCourt ?? theme.nom} video={question.video} />
             </div>
-          </article>
-        </div>
-        {enJeu && <EnJeu question={question} theme={theme} enJeu={enJeu} reponses={reponses} />}
-      </div>
-      <form className="answer" onSubmit={valider}>
-        <div className="opts" role="radiogroup" aria-label="Les options">
-          {question.options.map((option, rang) => (
-            <label key={option.id} className="opt">
-              <input
-                type="radio"
-                name="choix"
-                value={option.id}
-                checked={choix === option.id}
-                onChange={() => setChoix(option.id)}
-                aria-labelledby={`lettre-${option.id} titre-${option.id}`}
-                aria-describedby={`implique-${option.id} defenseurs-${option.id} critiques-${option.id}`}
-              />
-              <span className="opt-face">
-                <span className="opt-letter" id={`lettre-${option.id}`}>{lettreOption(rang)}</span>
-                <span className="opt-title" id={`titre-${option.id}`}>{option.libelle}</span>
-                <span className="opt-impl" id={`implique-${option.id}`}>{option.implique}</span>
-                <span className="opt-args">
-                  <span className="arg" id={`defenseurs-${option.id}`}>
-                    <b>Ce qu&apos;en disent ses défenseurs</b>
-                    {option.defenseurs}
-                  </span>
-                  <span className="arg" id={`critiques-${option.id}`}>
-                    <b>Ce que lui reprochent ses critiques</b>
-                    {option.critiques}
-                  </span>
-                </span>
-              </span>
-              <span className="picked">Ta carte</span>
-            </label>
-          ))}
-          <label className="opt idk">
-            <input
-              type="radio"
-              name="choix"
-              value={JE_NE_SAIS_PAS}
-              checked={choix === JE_NE_SAIS_PAS}
-              onChange={() => setChoix(JE_NE_SAIS_PAS)}
-              aria-labelledby="titre-nsp"
-            />
-            <span className="opt-face">
-              <span className="opt-letter" aria-hidden="true">?</span>
-              <span className="opt-title" id="titre-nsp">Je ne sais pas</span>
-            </span>
-          </label>
-        </div>
-        <fieldset className="imp">
-          <legend>Ce sujet compte pour toi&nbsp;?</legend>
-          <div className="imp-row">
-            {IMPORTANCES.map((importance) => (
-              <label key={importance.poids}>
+          </div>
+          <div className="faits">
+            <section aria-labelledby="contexte">
+              <h2 id="contexte" className="sr">Le contexte</h2>
+              <div className="context ctx">
+                {question.contexte.map((phrase) => (
+                  <p key={phrase}>{phrase}</p>
+                ))}
+              </div>
+            </section>
+            <section className="chiffres" aria-labelledby="chiffres">
+              <div className="chiffres-tete">
+                <h2 id="chiffres" className="sr">{question.chiffres.length} chiffres clés</h2>
+                <Link className="drapeau" href={`/signaler?question=${question.numero}`}>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 2a1 1 0 0 1 1 1v.6c1.6-.7 3.5-.9 5.6.1 2.3 1.1 4.3.9 6.6-.3a1 1 0 0 1 1.4.9v9.4a1 1 0 0 1-.5.9c-2.8 1.5-5.6 1.8-8.4.5-1.8-.8-3.3-.7-4.7.1V21a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1z" />
+                  </svg>
+                  Signaler une erreur
+                </Link>
+              </div>
+              <ul className="figures tuiles" data-n={question.chiffres.length}>
+                {question.chiffres.map((chiffre, rang) => (
+                  <li key={chiffre.legende} className={`fig t t${rang + 1}`}>
+                    <span className="fig-num">
+                      {chiffre.valeur}
+                      {chiffre.unite && <> <small>{chiffre.unite}</small></>}
+                    </span>
+                    <span className="fig-txt">{chiffre.legende}</span>
+                    <span className="fig-src">
+                      Source : <b>{chiffre.source.organisme}, {chiffre.source.document && `${chiffre.source.document} `}{chiffre.source.annee}</b>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+            {enJeu && <EnJeu question={question} theme={theme} enJeu={enJeu} reponses={reponses} />}
+            <div className="actionbar">
+              <button type="button" className="go" onClick={() => allerA("repondre")}>
+                Voir les propositions
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      ) : (
+        <form className="mosaique" onSubmit={valider}>
+          <header className="mq-tete">
+            <div className="mq-meta">
+              <PuceTheme theme={theme} />
+              <button type="button" className="mq-contexte" onClick={() => allerA("lire")}>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 12H5M11 5.5 4.5 12l6.5 6.5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Le contexte
+              </button>
+            </div>
+            <h1 id="q" className="mq-question">{question.question}</h1>
+          </header>
+          <nav className="mq-reperes" aria-label="Aller à une option">
+            {question.options.map((option, rang) => (
+              <a key={option.id} href={`#option-${option.id}`} className={choix === option.id ? "choisi" : undefined}>
+                {lettreOption(rang)}
+              </a>
+            ))}
+            <a href="#option-nsp" className={choix === JE_NE_SAIS_PAS ? "choisi" : undefined} aria-label="Je ne sais pas">?</a>
+          </nav>
+          <div className="mq-pile" role="radiogroup" aria-label="Les options">
+            {question.options.map((option, rang) => (
+              <label key={option.id} className="mq-tuile" id={`option-${option.id}`}>
                 <input
                   type="radio"
-                  name="poids"
-                  value={importance.poids}
-                  checked={poids === importance.poids}
-                  onChange={() => setPoids(importance.poids)}
+                  name="choix"
+                  value={option.id}
+                  checked={choix === option.id}
+                  onChange={() => setChoix(option.id)}
+                  aria-labelledby={`lettre-${option.id} titre-${option.id}`}
+                  aria-describedby={`implique-${option.id} defenseurs-${option.id} critiques-${option.id}`}
                 />
-                <span className="imp-face">
-                  <span className="chips">
-                    {Array.from({ length: importance.poids }, (_, i) => (
-                      <i key={i}></i>
-                    ))}
+                <span className="mq-face">
+                  <span className="mq-lettre" id={`lettre-${option.id}`} aria-hidden="true">{lettreOption(rang)}</span>
+                  <span className="mq-haut">
+                    <span className="mq-titre" id={`titre-${option.id}`}>{option.libelle}</span>
+                    <span className="mq-mienne">Ta carte</span>
                   </span>
-                  <b>×{importance.poids}</b> <span>{importance.libelle}</span>
+                  <span className="mq-implique" id={`implique-${option.id}`}>{option.implique}</span>
+                  <span className="mq-arguments">
+                    <span className="mq-argument" id={`defenseurs-${option.id}`}>
+                      <b>Ce qu&apos;en disent ses défenseurs</b>
+                      {option.defenseurs}
+                    </span>
+                    <span className="mq-argument" id={`critiques-${option.id}`}>
+                      <b>Ce que lui reprochent ses critiques</b>
+                      {option.critiques}
+                    </span>
+                  </span>
                 </span>
               </label>
             ))}
+            <label className="mq-nsp" id="option-nsp">
+              <input
+                type="radio"
+                name="choix"
+                value={JE_NE_SAIS_PAS}
+                checked={choix === JE_NE_SAIS_PAS}
+                onChange={() => setChoix(JE_NE_SAIS_PAS)}
+                aria-labelledby="titre-nsp"
+              />
+              <span>
+                <i aria-hidden="true">?</i>
+                <span id="titre-nsp">Je ne sais pas</span>
+              </span>
+            </label>
           </div>
-        </fieldset>
-        <button type="submit" className="go" aria-disabled={!choix}>Valider ma réponse</button>
-      </form>
-      <footer className="foot">
-        <Link className="small" href={`/signaler?question=${question.numero}`}>
-          Signaler une erreur
-        </Link>
-        <Link className="btn-link" href="/resultats" style={{ marginLeft: "auto" }}>
-          Mes résultats{" "}
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
-          </svg>
-        </Link>
-      </footer>
+          <div className="mq-decision">
+            <fieldset className="mq-importance">
+              <legend>Ce sujet compte pour toi&nbsp;?</legend>
+              <div className="mq-niveaux">
+                {IMPORTANCES.map((importance) => (
+                  <label key={importance.poids} className="mq-niveau">
+                    <input
+                      type="radio"
+                      name="poids"
+                      value={importance.poids}
+                      checked={poids === importance.poids}
+                      onChange={() => setPoids(importance.poids)}
+                    />
+                    <span>
+                      <b>×{importance.poids}</b> <em>{importance.libelle}</em>
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <button type="submit" className="mq-valider" aria-disabled={!choix}>
+              Valider ma réponse
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      )}
     </main>
     </>
   );

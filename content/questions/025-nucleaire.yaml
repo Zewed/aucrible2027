@@ -5,6 +5,7 @@ numero: 25
 date: 2026-10-24
 theme: ecologie-energie
 question: Faut-il sortir du nucléaire ?
+titreCourt: "Le nucléaire"
 contexte:
   - Le nucléaire produit environ les deux tiers de l'électricité consommée en France.
   - La plupart des réacteurs en service ont été construits dans les années 1980 et doivent être prolongés ou remplacés.
