@@ -251,6 +251,19 @@ async function chiffresEntiers(page: Page, question: string) {
   return chiffres;
 }
 
+test.describe("sur ordinateur, les chiffres clés restent au calme", () => {
+  test.use({ viewport: { width: 1440, height: 900 }, isMobile: false, hasTouch: false });
+
+  test("les chiffres clés de la fiche n'ont ni fond ni couleur : la question garde l'œil", async ({ page }) => {
+    await page.goto("/");
+    const chiffres = page.getByRole("region", { name: /chiffres clés/ }).getByRole("listitem");
+    await expect(chiffres).toHaveCount(3);
+    for (const chiffre of await chiffres.all()) {
+      expect(await chiffre.evaluate((li) => getComputedStyle(li).backgroundColor)).toBe("rgba(0, 0, 0, 0)");
+    }
+  });
+});
+
 test.describe("une fiche affiche autant de chiffres clés qu'elle en a", () => {
   test("le 24 octobre, la fiche à deux chiffres clés en affiche deux", async ({ page }) => {
     await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
@@ -1198,7 +1211,9 @@ test.describe("une question pas encore publiée reste inaccessible", () => {
       for (const morceau of FICHE_DU_24) expect(html.includes(morceau), `${adresse} contient « ${morceau} »`).toBe(false);
     }
     await repondre(page, "62 ans");
-    for (const morceau of [...FICHE_DU_24, "Écologie & énergie"]) await expect(page.getByText(morceau)).toHaveCount(0);
+    for (const morceau of FICHE_DU_24) await expect(page.getByText(morceau)).toHaveCount(0);
+    // Son thème a déjà des questions parues : il est dans le détail de la jauge, replié ; nulle part à l'écran.
+    await expect(page.getByText("Écologie & énergie").filter({ visible: true })).toHaveCount(0);
   });
 
   test("le 23, taper une adresse à la main ne montre pas la fiche du 24 ; le 24, elle est la question du jour", async ({ page }) => {
@@ -6104,42 +6119,81 @@ test.describe("toutes les 5 réponses, un palier", () => {
   });
 });
 
-test.describe("sur ordinateur, le menu montre la progression vers le prochain palier", () => {
-  test.use({ viewport: { width: 1000, height: 550 }, isMobile: false, hasTouch: false });
+/** Enregistrer sur l'appareil une réponse A à chacune des questions `numeros`. */
+async function repondreAux(page: Page, numeros: number[]) {
+  await page.goto("/");
+  await page.evaluate((numeros) => {
+    const reponses: Record<number, object> = {};
+    for (const numero of numeros) reponses[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22" };
+    localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
+  }, numeros);
+  await page.goto("/");
+}
 
-  test("avec 7 réponses, le menu affiche « 7 » et deux crans pleins sur cinq : le prochain palier est à 10", async ({ page }) => {
-    await page.goto("/");
-    await page.evaluate(() => {
-      const reponses: Record<number, object> = {};
-      for (let numero = 1; numero <= 7; numero++) reponses[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22" };
-      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
-    });
-    await page.goto("/");
-    const progression = page.getByRole("banner").getByRole("img", { name: "7 réponses, prochain palier à 10" });
-    await expect(progression).toBeVisible();
-    await expect(progression.locator(".rail-n")).toHaveText("7");
-    await expect(progression.locator("i")).toHaveCount(5);
-    await expect(progression.locator("i.on")).toHaveCount(2);
+const jauge = (page: Page) => page.getByRole("navigation", { name: "Questions" });
+const parTheme = (page: Page) => jauge(page).getByRole("list", { name: "Par thème" });
+
+test.describe("en haut de chaque page, la jauge des questions", () => {
+  test.use({ viewport: { width: 1440, height: 900 }, isMobile: false, hasTouch: false });
+
+  test("avec 7 réponses sur les 24 questions publiées, elle affiche « 7 sur 24 questions » et sa barre est remplie aux 7/24", async ({ page }) => {
+    await repondreAux(page, [1, 2, 3, 4, 5, 6, 7]);
+    await expect(jauge(page).getByRole("button", { name: "7 sur 24 questions" })).toBeVisible();
+    const remplie = await jauge(page)
+      .locator(".jauge-barre i")
+      .evaluate((i) => i.getBoundingClientRect().width / i.parentElement!.getBoundingClientRect().width);
+    expect(remplie).toBeCloseTo(7 / 24, 2);
   });
 
-  test("pile sur le palier de 10 réponses, les cinq crans sont pleins ; le prochain palier est à 15", async ({ page }) => {
+  test("sans réponse, elle affiche « 0 sur 24 questions », et le menu ne compte plus les réponses", async ({ page }) => {
     await page.goto("/");
-    await page.evaluate(() => {
-      const reponses: Record<number, object> = {};
-      for (let numero = 1; numero <= 10; numero++) reponses[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22" };
-      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
-    });
-    await page.goto("/");
-    const progression = page.getByRole("banner").getByRole("img", { name: "10 réponses, prochain palier à 15" });
-    await expect(progression.locator("i.on")).toHaveCount(5);
-  });
-
-  test("sans réponse, le menu n'affiche pas de progression", async ({ page }) => {
-    await page.goto("/");
-    await voirLesPropositions(page);
-    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
+    await expect(jauge(page).getByRole("button", { name: "0 sur 24 questions" })).toBeVisible();
     await expect(page.getByRole("banner").getByRole("img", { name: /prochain palier/ })).toHaveCount(0);
   });
+
+  test("le détail par thème n'apparaît qu'au survol : chaque thème qui a des questions, avec ses réponses sur ses questions", async ({ page }) => {
+    await repondreAux(page, [1, 2, 4, 9, 5]);
+    await expect(parTheme(page)).toBeHidden();
+    await jauge(page).getByRole("button", { name: "5 sur 24 questions" }).hover();
+    await expect(parTheme(page)).toBeVisible();
+    // Institutions & démocratie n'a encore aucune question publiée : elle n'est pas dans la liste.
+    await expect(parTheme(page).getByRole("listitem")).toHaveText([
+      "Économie & impôts4/4", "Travail & retraites1/3", "Écologie & énergie0/3", "Immigration0/3", "Sécurité & justice0/3",
+      "Santé0/3", "Éducation & jeunesse0/1", "Logement0/2", "Europe & international0/1", "Société0/1",
+    ]);
+  });
+
+  test("un thème qui a encore des questions mène à elles ; un thème fini n'est pas un lien", async ({ page }) => {
+    await repondreAux(page, [1, 2, 4, 9, 5]);
+    await jauge(page).getByRole("button", { name: "5 sur 24 questions" }).hover();
+    await expect(parTheme(page).getByRole("link", { name: /^Travail & retraites/ })).toHaveAttribute("href", "/?theme=travail-retraites");
+    await expect(parTheme(page).getByRole("link", { name: /^Économie & impôts/ })).toHaveCount(0);
+  });
+
+  test("choisir « Sécurité & justice » enchaîne ses questions, puis l'ordre de toutes reprend quand le thème est fini", async ({ page }) => {
+    // Sécurité & justice : les n° 11, 18 et 19 ; l'ordre de l'appareil va du plus grand numéro au plus petit.
+    await repondreAux(page, [19]);
+    await jauge(page).getByRole("button", { name: "1 sur 24 questions" }).hover();
+    await parTheme(page).getByRole("link", { name: /^Sécurité & justice/ }).click();
+    await expect(page).toHaveURL(/\/\?theme=securite-justice$/);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Fiche de test du samedi 17 octobre ?");
+    await choisir(page, "Oui, dans toutes les grandes villes");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/question\/18\/revelation\?theme=securite-justice$/);
+    await page.getByRole("link", { name: "Question suivante" }).click();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Fiche de test du samedi 10 octobre ?");
+    await choisir(page, "Oui, dans toutes les grandes villes");
+    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await expect(page).toHaveURL(/\/question\/11\/revelation\?theme=securite-justice$/);
+    await expect(page.getByRole("link", { name: "Question suivante" })).toHaveAttribute("href", "/");
+  });
+});
+
+test("au téléphone, toucher la jauge ouvre le détail par thème", async ({ page }) => {
+  await repondreAux(page, [1, 2, 4, 9, 5]);
+  await jauge(page).getByRole("button", { name: "5 sur 24 questions" }).tap();
+  await expect(parTheme(page)).toBeVisible();
+  await expect(parTheme(page).getByRole("listitem")).toHaveCount(10);
 });
 
 test.describe("la question suivante s'ouvre vierge", () => {

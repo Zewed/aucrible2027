@@ -25,9 +25,11 @@ Nom : **Au crible 2027** — domaine `aucrible2027.fr`, comptes `@aucrible2027` 
 - **Toutes les questions sont jouables d'un coup**, dès l'ouverture : plus de question du jour ni de parution au jour le jour dans l'app.
 - L'électeur enchaîne : **réponse, révélation, « Question suivante »**.
 - Les questions viennent dans un **ordre tiré au hasard pour chaque électeur**, gardé sur son appareil.
-- **Paliers** : toutes les 5 réponses, une étape « gagnée » (à 10, le classement se débloque) ; et chaque part du camembert gagnée (3 réponses dans un thème) est une petite victoire. Sur la révélation de la 5e, 10e, 15e… réponse : le nombre, une phrase courte (« Encore 5 pour ton classement. », « Ton classement est prêt. », « Ton classement s'affine. ») et des confettis aux couleurs des thèmes ; sur ordinateur, le bas du menu compte les réponses et ses crans vers le prochain palier.
+- **Paliers** : toutes les 5 réponses, une étape « gagnée » (à 10, le classement se débloque) ; et chaque part du camembert gagnée (3 réponses dans un thème) est une petite victoire. Sur la révélation de la 5e, 10e, 15e… réponse : le nombre, une phrase courte (« Encore 5 pour ton classement. », « Ton classement est prêt. », « Ton classement s'affine. ») et des confettis aux couleurs des thèmes. ~~Sur ordinateur, le bas du menu compte les réponses et ses crans vers le prochain palier.~~ Remplacé le 27/10/2026 par la jauge des questions.
 - **Plus de série de jours d'affilée**, nulle part.
 - La liste de toutes les questions reste là pour en choisir une.
+- **Jauge des questions (27/10/2026)** : en haut de chaque page, « X sur N questions » (N : les questions publiées) et une barre d'une seule couleur. Le détail par thème (réponses sur questions du thème) ne s'ouvre qu'au survol, ou d'une touche au téléphone.
+- **Répondre thème par thème (27/10/2026)** : depuis ce détail, un thème qui a encore des questions sans réponse les enchaîne, dans l'ordre de l'appareil ; le thème fini, l'ordre de toutes les questions reprend.
 
 Avant cette décision :
 
@@ -199,12 +201,12 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 
 ## Écrans de la v1
 
-**Navigation (25/10/2026)** : sur ordinateur, une colonne d'icônes à gauche (Répondre, Mes résultats, Toutes les questions, Méthode) avec le compte à rebours en bas, sans bandeau au-dessus des pages ; au téléphone, les mêmes icônes dans la barre du haut. Peu de mots : un écran qui a besoin d'être expliqué est à revoir. Ce n'est pas un jeu : ni « jouer », ni « partie », ni « le jeu » dans les textes.
+**Navigation (25/10/2026)** : sur ordinateur, une colonne d'icônes à gauche (Répondre, Mes résultats, Toutes les questions, Méthode) avec le compte à rebours en bas ; au-dessus des pages, seulement la jauge des questions (27/10/2026) ; au téléphone, les mêmes icônes dans la barre du haut. Peu de mots : un écran qui a besoin d'être expliqué est à revoir. Ce n'est pas un jeu : ni « jouer », ni « partie », ni « le jeu » dans les textes.
 
 Maquettes statiques de tous les écrans, dans la direction « Jeu de société » : `maquettes/` (ouvrir `maquettes/index.html`).
 
-1. **Accueil** : la prochaine question de l'électeur, compte à rebours avant le 1er tour, progression vers le prochain palier (avant le 25/10/2026 : question du jour et série).
-2. **Fiche** : question, contexte, chiffres, options (sans noms), réponse + importance.
+1. **Accueil** : la prochaine question de l'électeur, compte à rebours avant le 1er tour, jauge des questions (progression vers le prochain palier jusqu'au 27/10/2026 ; avant le 25/10/2026 : question du jour et série).
+2. **Fiche** : question, contexte, chiffres, options (sans noms), réponse + importance. Un seul point fort (27/10/2026) : la question et la vidéo ; à droite, le contexte et les chiffres clés restent au calme, en lignes, sans fond de couleur.
 3. **Révélation** : qui défend quoi, alignement, classement mis à jour.
 4. **Toutes les questions** : la liste, pour en choisir une (avant le 25/10/2026 : rattrapage, trié par pouvoir de départage).
 5. **Mes résultats** : classement en %, fiabilité, carte 2 axes, détail par thème.

@@ -25,3 +25,18 @@ export function lireOrdre(numeros: number[]): string {
 export function prochaineQuestion(ordre: string, numeros: number[], repondues: number[]): number | undefined {
   return (JSON.parse(ordre) as number[]).find((n) => numeros.includes(n) && !repondues.includes(n));
 }
+
+/**
+ * Répondre thème par thème (choisi dans la jauge des questions) : la prochaine question sans réponse du `theme`, et
+ * `dansLeTheme` ; quand le thème n'en a plus, ou sans thème, la prochaine de toutes.
+ */
+export function prochaineQuestionDuTheme(
+  ordre: string,
+  questions: { numero: number; theme: string }[],
+  repondues: number[],
+  theme: string | null,
+): { numero: number | undefined; dansLeTheme: boolean } {
+  const duTheme = theme ? prochaineQuestion(ordre, questions.filter((q) => q.theme === theme).map((q) => q.numero), repondues) : undefined;
+  if (duTheme !== undefined) return { numero: duTheme, dansLeTheme: true };
+  return { numero: prochaineQuestion(ordre, questions.map((q) => q.numero), repondues), dansLeTheme: false };
+}

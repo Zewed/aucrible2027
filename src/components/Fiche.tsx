@@ -138,9 +138,9 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
                   Signaler une erreur
                 </Link>
               </div>
-              <ul className="figures tuiles" data-n={question.chiffres.length}>
-                {question.chiffres.map((chiffre, rang) => (
-                  <li key={chiffre.legende} className={`fig t t${rang + 1}`}>
+              <ul className="figures">
+                {question.chiffres.map((chiffre) => (
+                  <li key={chiffre.legende} className="fig">
                     <span className="fig-num">
                       {chiffre.valeur}
                       {chiffre.unite && <> <small>{chiffre.unite}</small></>}
