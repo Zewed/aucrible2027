@@ -215,9 +215,11 @@
 .ropt.unknown .ropt-head { background: transparent; }
 .ropt.unknown .ropt-letter { background: var(--table-3); color: var(--chalk); }
 .ropt.unknown .ropt-meta { color: var(--muted); }
-.ropt.unknown .def + .def { border-top-color: var(--table-3); }
-.ropt.unknown .def-name { color: var(--chalk); }
-.ropt.unknown .def-doc { color: var(--muted); }
+.ropt.unknown .ropt-meta { gap: 4px 14px; }
+/* les candidats sans source : des pastilles, à la suite */
+.ropt.unknown .defs { display: flex; flex-wrap: wrap; gap: 8px; padding: 2px 14px 14px; }
+.ropt.unknown .def { display: inline-flex; align-items: center; gap: 8px; padding: 4px 14px 4px 4px; border: 0; border-radius: 999px; background: var(--table-3); }
+.ropt.unknown .def-name { color: var(--chalk); font-size: 15px; align-self: center; }
 .ropt.unknown .def:hover { background: var(--table-3); }
 .ropt.unknown .def:focus-within { outline-color: var(--eco); }
 .ropt.unknown .pawn { box-shadow: 0 3px 0 var(--pawn-edge); }
@@ -277,4 +279,78 @@ a.go { text-decoration: none; }
   .def-src { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 5px 10px; }
   .def .pawn { --size: 44px; font-size: 13px; }
   .who .pawn { --size: 32px; }
+}
+
+/* ==================== GRAND ÉCRAN, PLEIN ÉCRAN ====================
+   Tout tient dans la fenêtre : à gauche ta carte, l'alignement, la suite ; à droite qui défend quoi, une ligne par
+   candidat. Le texte se resserre (`--fit`, voir tenirALEcran) quand tout ne tient pas ; au pire la page défile. */
+@media (min-width: 1100px) {
+  /* comme sur la fiche, le pied de page commun s'efface : la colonne d'icônes mène aux autres pages */
+  body:has(.rev) .site-foot { display: none; }
+  .rev {
+    --f: var(--fit, 1); --gap: calc(var(--f) * clamp(10px, 1.8dvh, 18px));
+    min-height: 100dvh; padding-block: clamp(16px, 3dvh, 32px);
+    grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); column-gap: clamp(24px, 2.6vw, 44px); row-gap: var(--gap);
+    grid-template-rows: repeat(5, auto) 1fr;
+    grid-template-areas: "mine list" "align list" "reward list" "actions list" "more list" "foot list";
+  }
+  .rev > * { margin: 0; }
+  .rev-list { margin: 0; }
+
+  /* ta carte : l'importance à droite de « Ta réponse » */
+  .mine-card {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "k imp" "main main";
+    align-items: center; column-gap: 12px; padding: calc(var(--f) * 12px) 14px; margin-bottom: 6px;
+  }
+  .mine-k { grid-area: k; }
+  .mine-imp { grid-area: imp; margin: 0; padding: 6px 12px 5px 10px; font-size: calc(var(--f) * 13px); }
+  .mine-main { grid-area: main; margin-top: calc(var(--f) * 10px); grid-template-columns: calc(var(--f) * 40px) minmax(0, 1fr); }
+  .mine-letter { width: calc(var(--f) * 40px); height: calc(var(--f) * 40px); font-size: calc(var(--f) * 20px); }
+  .mine-title { font-size: calc(var(--f) * clamp(22px, 3.2dvh, 28px)); }
+
+  .align { padding: calc(var(--f) * 14px) 14px; gap: calc(var(--f) * 12px); }
+  .align-row + .align-row { border-top: 2px solid var(--table-3); padding-top: calc(var(--f) * 12px); }
+  .align-h { font-size: calc(var(--f) * clamp(18px, 2.5dvh, 22px)); }
+  .align-h--s { font-size: calc(var(--f) * clamp(15px, 2dvh, 18px)); }
+  .who { margin-top: calc(var(--f) * 8px); gap: 6px; }
+  .who a { min-height: calc(var(--f) * 34px); padding: 3px 11px 3px 3px; gap: 7px; font-size: calc(var(--f) * 14.5px); box-shadow: 0 3px 0 var(--pawn-edge); margin-bottom: 3px; }
+  .who .pawn { --size: calc(var(--f) * 28px); font-size: calc(var(--f) * 10.5px); }
+
+  .reward { gap: 8px; }
+  .reward .stake { padding: 10px 14px; grid-template-columns: 64px 1fr; }
+  .reward .stake svg { width: 64px; height: 64px; }
+  .reward .palier-n { font-size: 44px; min-width: 52px; }
+
+  /* la suite : les deux boutons côte à côte */
+  .rev-actions { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: start; }
+  .rev-actions:has(> :only-child) { grid-template-columns: minmax(0, 1fr); }
+  .rev-actions .go { margin: 0 0 7px; padding: calc(var(--f) * 16px) 16px; font-size: calc(var(--f) * clamp(18px, 2.6dvh, 22px)); }
+  .rev-actions .act { margin: 0; min-height: calc(var(--f) * 16px * 2 + 1.1em); padding: 0 18px; font-size: calc(var(--f) * 16px); }
+
+  .more ul { margin-top: 2px; }
+  .more a { min-height: calc(var(--f) * 36px); font-size: calc(var(--f) * 14px); border-bottom-style: solid; }
+  .rev .res-foot { grid-area: foot; align-self: end; margin: 0; padding: 0; border: 0; }
+  .rev .res-foot a { padding: 4px 0; }
+
+  /* qui défend quoi : une ligne par candidat, son nom, sa source et son badge à la suite */
+  .ropts { margin: 0; gap: var(--gap); }
+  .ropt { margin-bottom: 4px; box-shadow: 0 4px 0 var(--theme); }
+  .ropt.mine { box-shadow: 0 0 0 3px var(--chalk), 0 6px 0 var(--theme-edge); }
+  .ropt.unknown { box-shadow: none; border-style: solid; }
+  .ropt-head { grid-template-columns: calc(var(--f) * 30px) minmax(0, 1fr) auto; column-gap: 10px; padding: calc(var(--f) * 7px) 14px; }
+  .ropt-letter { grid-row: auto; width: calc(var(--f) * 30px); height: calc(var(--f) * 30px); border-radius: 8px; font-size: calc(var(--f) * 16px); }
+  .ropt-title { font-size: calc(var(--f) * clamp(17px, 2.4dvh, 21px)); }
+  .ropt-meta { justify-content: flex-end; font-size: calc(var(--f) * 12.5px); }
+  .ropt-tag { padding: 5px 8px 4px; font-size: calc(var(--f) * 11px); }
+  .def { grid-template-columns: calc(var(--f) * 28px) max-content minmax(0, 1fr); column-gap: 10px; padding: calc(var(--f) * 5px) 14px; }
+  .def + .def { border-top: 1px solid var(--slot); }
+  .def .pawn { --size: calc(var(--f) * 28px); font-size: calc(var(--f) * 10.5px); grid-row: auto; }
+  .def-name { font-size: calc(var(--f) * 15px); align-self: center; }
+  .def-src { grid-column: 3; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 3px 8px; }
+  .def-doc { font-size: calc(var(--f) * 12.5px); white-space: normal; overflow: visible; text-overflow: clip; }
+  .def .badge { font-size: calc(var(--f) * 11px); padding: 3px 7px 3px 5px; }
+  .def .badge--ded { padding: 1px 6px 1px 3px; }
+  .ropt.unknown .defs { gap: 6px; padding: 0 14px calc(var(--f) * 10px); }
+  .ropt.unknown .def { padding: 3px 11px 3px 3px; }
+  .ropt.unknown .def-name { font-size: calc(var(--f) * 14px); }
 }

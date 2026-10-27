@@ -9,11 +9,15 @@ export type StatutDeCandidature = { etat: string; suite?: string };
  * « retiré », que l'auteur du contenu écrit ; sans accord, la fiche écrit « retiré·e », comme SPEC.md.
  */
 export type Retrait = { date: string; soutien?: string; accord?: "feminin" | "masculin" };
+/** Le crédit d'une photo de Wikimedia Commons : son auteur, sa licence, et sa page sur Commons. */
+export type Photo = { auteur: string; licence: string; page: string };
 export type Candidat = {
   id: string;
   nom: string;
   parti: string;
   initiales: string;
+  /** Sa photo, public/candidats/<id>.jpg : une vignette de Wikimedia Commons, créditée sur la page Méthode. */
+  photo?: Photo;
   statut?: StatutDeCandidature;
   retrait?: Retrait;
   /** Le candidat qu'il remplace dans le même parti (SPEC.md, « Remplacement ») : il reprend ses positions. */

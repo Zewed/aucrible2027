@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
+import { Pion } from "@/components/Pion";
 import { PisteDuPlateau } from "@/components/PisteDuPlateau";
 import { DeDesRegles, RayuresDesThemes } from "@/components/Regles";
 import type { Candidat } from "@/lib/contenu";
@@ -499,6 +500,7 @@ const CRITERES = [
  */
 function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string }) {
   const nombre = `${candidats.length} candidat${candidats.length > 1 ? "s" : ""}`;
+  const melanges = melanger(candidats, Number(jour.replaceAll("-", "")));
   return (
     <article className="rule theme-loge" id="r7" aria-labelledby="r7-t">
       <header className="rule-head">
@@ -531,10 +533,10 @@ function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string
             <i></i>La liste au 23/10/2026 · {nombre}
           </p>
           <ul className="roster">
-            {melanger(candidats, Number(jour.replaceAll("-", ""))).map((c) => (
+            {melanges.map((c) => (
               <li key={c.id}>
                 <Link href={`/candidat/${c.id}`}>
-                  <span className="pawn pawn--paper">{c.initiales}</span>
+                  <Pion candidat={c} clair />
                   <span className="who">
                     <b>{c.nom}</b>
                     <small>{c.parti}</small>
@@ -547,6 +549,22 @@ function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string
             Ordre mélangé, sans rapport avec les intentions de vote. Même pion pour tous. <b>Jean Lassalle</b> entrerait
             automatiquement s&apos;il se déclarait. Les Écologistes décident de la candidature de Marine Tondelier par un vote des
             adhérents, du 10 au 13 décembre.
+          </p>
+          {/* Les crédits des photos des pions, que les licences de Wikimedia Commons demandent. */}
+          <p className="demo-cap credits">
+            Photos en noir et blanc pour tous, de Wikimedia Commons&nbsp;:{" "}
+            {melanges
+              .filter((c) => c.photo)
+              .map((c, i) => (
+                <span key={c.id}>
+                  {i > 0 && " · "}
+                  <a href={c.photo!.page} target="_blank" rel="noopener">
+                    {c.nom}
+                  </a>
+                  , {c.photo!.auteur} ({c.photo!.licence})
+                </span>
+              ))}
+            .
           </p>
         </div>
 

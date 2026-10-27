@@ -14,6 +14,10 @@ import { REPONSES_PAR_PART, reponsesParTheme } from "@/lib/proximite";
 import { lireOrdre, prochaineQuestion } from "@/lib/ordre";
 import { messageDuPalier } from "@/lib/paliers";
 import { JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
+import { tenirALEcran } from "@/lib/tenir-a-l-ecran";
+
+/** Sur grand écran, la révélation remplit la fenêtre sans la dépasser : son texte grandit ou se resserre pour tenir. */
+const tenirLaRevelation = tenirALEcran("(min-width: 1100px)", 1.4);
 
 /** Une ligne de l'alignement : un titre, puis les candidats concernés ; rien quand il n'y en a aucun. */
 function LigneAlignement({
@@ -126,10 +130,8 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
         {jour && <CompteARebours jour={jour} />}
         <NumeroQuestion numero={question.numero} />
       </div>
-      <main className={`res rev ${theme.classe}`}>
-        <header className="rev-hero">
-          <h1>La révélation</h1>
-        </header>
+      <main className={`res rev ${theme.classe}`} ref={tenirLaRevelation}>
+        <h1 className="sr">La révélation</h1>
         {choisie && (
           <section
             className="mine-card"
@@ -224,10 +226,7 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
           </section>
         )}
         <section className="rev-list" aria-labelledby="qui-defend-quoi">
-          <div className="sec-h">
-            <h2 id="qui-defend-quoi">Qui défend quoi</h2>
-            <p>ordre mélangé</p>
-          </div>
+          <h2 id="qui-defend-quoi" className="sr">Qui défend quoi</h2>
           <div className="ropts">
             {question.options.map((option, rang) => {
               const leurs = melanger(
@@ -281,8 +280,10 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
                   <h3 className="ropt-title" id="o-inconnue">Position inconnue</h3>
                   <p className="ropt-meta">
                     <span>{nombreDeCandidats(inconnus.length)}</span>
+                    <span>Pas de source à ce jour</span>
                   </p>
                 </header>
+                {/* Une pastille par candidat : « pas de source » est dit une fois, dans l'en-tête du bloc. */}
                 <ul className="defs">
                   {inconnus.map((c) => (
                     <li key={c.id} className="def">
@@ -290,10 +291,6 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
                       <Link className="def-name one" href={`/candidat/${c.id}`}>
                         {c.nom}
                       </Link>
-                      <span className="def-src">
-                        <span className="def-doc one">Pas de source à ce jour</span>
-                        <span className="badge badge--none">position inconnue</span>
-                      </span>
                     </li>
                   ))}
                 </ul>
