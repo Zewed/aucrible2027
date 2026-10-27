@@ -43,6 +43,31 @@ export type Lien = { titre: string; url: string };
 export type Cote = { titre: string; argument: string };
 /** Un choix de l'autocollant « Et toi ? » de la story : « 62 ans », et en plus petit « ou moins ». */
 export type ChoixDeStory = { choix: string; precision?: string };
+/** Quelques dates et leur valeur, en très grand, puis la phrase qui conclut. */
+export type DatesEnGrand = { etapes: { quand: string; valeur: string; projection?: boolean }[]; chute: string };
+/**
+ * La réponse d'un camp à une question du reportage : ce qu'il affirme, en clair, puis la preuve, un chiffre en très
+ * grand et la phrase qui le complète.
+ */
+export type Reponse = { affirmation: string; chiffre: string; texte: string; source: string };
+/**
+ * Le reportage vidéo de la fiche : un récit court, tiré de l'étude de la question (docs/etudes). Une accroche ;
+ * le mécanisme en une image ; les leviers possibles, dont celui de la question ; quelques questions, chacune avec la
+ * réponse des deux camps ; puis le retour aux leviers. Facultatif : sans lui, le reportage s'en tient à la question.
+ */
+export type Reportage = {
+  /** Où en est-on, en deux ou trois dates (« Aujourd'hui : 62 ans et 9 mois »), puis la chute. */
+  accroche?: DatesEnGrand;
+  /** Le mécanisme : une phrase, et combien de « ceux qui paient » pour un « qui reçoit », à deux dates. */
+  mecanisme?: { titre: string; texte: string; points: { annee: number; valeur: number; projection?: boolean }[]; chute: string; source: string };
+  /** La taille du problème, en deux dates, et ce qui la rend discutée. */
+  ecart?: DatesEnGrand & { titre: string; source: string };
+  /** Les leviers possibles, présentés à égalité. */
+  leviers?: { titre: string; choix: { texte: string; detail?: string }[]; chute: string; source: string };
+  /** Le nom des deux camps (« POUR », « CONTRE ») et ce sur quoi ils s'opposent (« le relèvement de l'âge »). */
+  camps?: { pour: string; contre: string; objet?: string };
+  questions?: { question: string; pour: Reponse; contre: Reponse }[];
+};
 /** La vidéo explicative de la fiche, montrée à la première étape quand elle existe. */
 export type VideoExplicative = { url: string; duree: string };
 export type Question = {
@@ -54,6 +79,7 @@ export type Question = {
   chiffres: Chiffre[];
   options: Option[];
   positions: Record<string, Position>;
+  reportage?: Reportage;
   video?: VideoExplicative;
   /** Le sujet en quelques mots, sur la vignette de la vidéo : « L'installation des médecins ». */
   titreCourt?: string;
@@ -145,6 +171,14 @@ export function lireCorrections(jeuDeTest?: string): Correction[] {
 
 export function lireThemes(): Theme[] {
   return parse(readFileSync(path.join(RACINE, "themes.yaml"), "utf8"));
+}
+
+/** La musique du reportage d'un thème : un morceau Pixabay, son tempo et la seconde de son premier temps fort. */
+export type Musique = { titre: string; auteur: string; page: string; mp3: string; tempo: number; premierTemps: number };
+
+/** La musique de chaque thème, par identifiant de thème (content/musiques.yaml). */
+export function lireMusiques(): Record<string, Musique> {
+  return parse(readFileSync(path.join(RACINE, "musiques.yaml"), "utf8"));
 }
 
 /** Une fiche, ou rien si elle a été retirée entre la lecture du dossier et la sienne. */
