@@ -1,0 +1,27 @@
+e2e/fiches-lisibles.spec.ts
+  s_613931134209e1::t_36bfc12a459368 1-11
+content/questions/005-peines-planchers.yaml
+  s_613931134209e1::t_64ec46e3a5ba13 11
+content/questions/006-franchises-medicales.yaml
+  s_613931134209e1::t_ee8fea4f92a6ed 12
+content/questions/007-uniforme.yaml
+  s_613931134209e1::t_7bce40986f0d22 10
+content/questions/010-ric.yaml
+  s_613931134209e1::t_7a164108ec77a0 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b307afca5266441ed08d53f52285e09b4fd1c9df",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
