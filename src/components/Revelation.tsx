@@ -11,7 +11,7 @@ import { melanger } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
 import { REPONSES_PAR_PART, reponsesParTheme } from "@/lib/proximite";
-import { lireOrdre, prochaineQuestion } from "@/lib/ordre";
+import { lireOrdre, prochaineQuestionDuTheme } from "@/lib/ordre";
 import { messageDuPalier } from "@/lib/paliers";
 import { JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
 import { tenirALEcran } from "@/lib/tenir-a-l-ecran";
@@ -76,9 +76,22 @@ const nombreDeCandidats = (n: number) => `${n} candidat${n > 1 ? "s" : ""}`;
 
 /**
  * La révélation de la question `numero`, puis la suite : « Question suivante », la prochaine sans réponse dans l'ordre
- * de l'appareil, tant qu'il en reste (SPEC.md, « Boucle principale », 25 octobre 2026).
+ * de l'appareil, tant qu'il en reste (SPEC.md, « Boucle principale », 25 octobre 2026). Venue d'un thème choisi dans la
+ * jauge (`filtre`), elle reste dans ce thème tant qu'il a des questions sans réponse.
  */
-export function Revelation({ questions, candidats, themes, numero }: { questions: Question[]; candidats: Candidat[]; themes: Theme[]; numero: number }) {
+export function Revelation({
+  questions,
+  candidats,
+  themes,
+  numero,
+  filtre = null,
+}: {
+  questions: Question[];
+  candidats: Candidat[];
+  themes: Theme[];
+  numero: number;
+  filtre?: string | null;
+}) {
   const jour = useCoteClient(() => aujourdhuiAParis());
   const reponses = lesReponses(useCoteClient(lireReponses));
   const numeros = questions.map((q) => q.numero);
@@ -87,7 +100,8 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
   const reponse = question && reponses[question.numero];
   const theme = question && themes.find((t) => t.id === question.theme);
   if (!reponse || !question || !theme) return null;
-  const suivante = ordre ? prochaineQuestion(ordre, numeros, Object.keys(reponses).map(Number)) : undefined;
+  const suite = ordre ? prochaineQuestionDuTheme(ordre, questions, Object.keys(reponses).map(Number), filtre) : undefined;
+  const suivante = suite?.numero;
   const palier = reponse.rang ? messageDuPalier(reponse.rang) : null;
 
   // Un candidat retiré au jour de la réponse ou avant n'est plus révélé. Rouvrir une révélation répondue avant
@@ -301,7 +315,7 @@ export function Revelation({ questions, candidats, themes, numero }: { questions
         <div className="rev-actions">
           {suivante !== undefined ? (
             <>
-              <Link className="go" href="/">
+              <Link className="go" href={suite?.dansLeTheme ? `/?theme=${filtre}` : "/"}>
                 Question suivante{" "}
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />

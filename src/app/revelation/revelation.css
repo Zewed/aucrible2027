@@ -282,14 +282,14 @@ a.go { text-decoration: none; }
 }
 
 /* ==================== GRAND ÉCRAN, PLEIN ÉCRAN ====================
-   Tout tient dans la fenêtre : à gauche ta carte, l'alignement, la suite ; à droite qui défend quoi, une ligne par
+   Tout tient sous la jauge (--u) : à gauche ta carte, l'alignement, la suite ; à droite qui défend quoi, une ligne par
    candidat. Le texte se resserre (`--fit`, voir tenirALEcran) quand tout ne tient pas ; au pire la page défile. */
 @media (min-width: 1100px) {
   /* comme sur la fiche, le pied de page commun s'efface : la colonne d'icônes mène aux autres pages */
   body:has(.rev) .site-foot { display: none; }
   .rev {
-    --f: var(--fit, 1); --gap: calc(var(--f) * clamp(10px, 1.8dvh, 18px));
-    min-height: 100dvh; padding-block: clamp(16px, 3dvh, 32px);
+    --f: var(--fit, 1); --gap: calc(var(--f) * clamp(10px, 1.8 * var(--u), 18px));
+    min-height: calc(100 * var(--u)); padding-block: clamp(16px, 3 * var(--u), 32px);
     grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); column-gap: clamp(24px, 2.6vw, 44px); row-gap: var(--gap);
     grid-template-rows: repeat(5, auto) 1fr;
     grid-template-areas: "mine list" "align list" "reward list" "actions list" "more list" "foot list";
@@ -306,12 +306,12 @@ a.go { text-decoration: none; }
   .mine-imp { grid-area: imp; margin: 0; padding: 6px 12px 5px 10px; font-size: calc(var(--f) * 13px); }
   .mine-main { grid-area: main; margin-top: calc(var(--f) * 10px); grid-template-columns: calc(var(--f) * 40px) minmax(0, 1fr); }
   .mine-letter { width: calc(var(--f) * 40px); height: calc(var(--f) * 40px); font-size: calc(var(--f) * 20px); }
-  .mine-title { font-size: calc(var(--f) * clamp(22px, 3.2dvh, 28px)); }
+  .mine-title { font-size: calc(var(--f) * clamp(22px, 3.2 * var(--u), 28px)); }
 
   .align { padding: calc(var(--f) * 14px) 14px; gap: calc(var(--f) * 12px); }
   .align-row + .align-row { border-top: 2px solid var(--table-3); padding-top: calc(var(--f) * 12px); }
-  .align-h { font-size: calc(var(--f) * clamp(18px, 2.5dvh, 22px)); }
-  .align-h--s { font-size: calc(var(--f) * clamp(15px, 2dvh, 18px)); }
+  .align-h { font-size: calc(var(--f) * clamp(18px, 2.5 * var(--u), 22px)); }
+  .align-h--s { font-size: calc(var(--f) * clamp(15px, 2 * var(--u), 18px)); }
   .who { margin-top: calc(var(--f) * 8px); gap: 6px; }
   .who a { min-height: calc(var(--f) * 34px); padding: 3px 11px 3px 3px; gap: 7px; font-size: calc(var(--f) * 14.5px); box-shadow: 0 3px 0 var(--pawn-edge); margin-bottom: 3px; }
   .who .pawn { --size: calc(var(--f) * 28px); font-size: calc(var(--f) * 10.5px); }
@@ -324,7 +324,7 @@ a.go { text-decoration: none; }
   /* la suite : les deux boutons côte à côte */
   .rev-actions { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: start; }
   .rev-actions:has(> :only-child) { grid-template-columns: minmax(0, 1fr); }
-  .rev-actions .go { margin: 0 0 7px; padding: calc(var(--f) * 16px) 16px; font-size: calc(var(--f) * clamp(18px, 2.6dvh, 22px)); }
+  .rev-actions .go { margin: 0 0 7px; padding: calc(var(--f) * 16px) 16px; font-size: calc(var(--f) * clamp(18px, 2.6 * var(--u), 22px)); }
   .rev-actions .act { margin: 0; min-height: calc(var(--f) * 16px * 2 + 1.1em); padding: 0 18px; font-size: calc(var(--f) * 16px); }
 
   .more ul { margin-top: 2px; }
@@ -339,7 +339,7 @@ a.go { text-decoration: none; }
   .ropt.unknown { box-shadow: none; border-style: solid; }
   .ropt-head { grid-template-columns: calc(var(--f) * 30px) minmax(0, 1fr) auto; column-gap: 10px; padding: calc(var(--f) * 7px) 14px; }
   .ropt-letter { grid-row: auto; width: calc(var(--f) * 30px); height: calc(var(--f) * 30px); border-radius: 8px; font-size: calc(var(--f) * 16px); }
-  .ropt-title { font-size: calc(var(--f) * clamp(17px, 2.4dvh, 21px)); }
+  .ropt-title { font-size: calc(var(--f) * clamp(17px, 2.4 * var(--u), 21px)); }
   .ropt-meta { justify-content: flex-end; font-size: calc(var(--f) * 12.5px); }
   .ropt-tag { padding: 5px 8px 4px; font-size: calc(var(--f) * 11px); }
   .def { grid-template-columns: calc(var(--f) * 28px) max-content minmax(0, 1fr); column-gap: 10px; padding: calc(var(--f) * 5px) 14px; }

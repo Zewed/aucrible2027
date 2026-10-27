@@ -143,23 +143,21 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
                   Signaler une erreur
                 </Link>
               </div>
-              <ul className="figures tuiles" data-n={question.chiffres.length}>
+              <ul className="figures">
                 {question.chiffres.map((chiffre, rang) => (
                   // La source s'ouvre d'un geste, dans une bulle accrochée à son bouton (`--ancre`).
-                  <li key={chiffre.legende} className={`fig t t${rang + 1}`} style={{ "--ancre": `--source-${rang}` } as React.CSSProperties}>
-                    <span className="fig-haut">
-                      <span className="fig-num">
-                        {chiffre.valeur}
-                        {chiffre.unite && <> <small>{chiffre.unite}</small></>}
-                      </span>
-                      <button type="button" className="fig-voir-source" popoverTarget={`source-${rang}`} aria-label="Source">
-                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-                          <path d="M14 3v5h5M9.5 13h6M9.5 17h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </button>
+                  <li key={chiffre.legende} className="fig" style={{ "--ancre": `--source-${rang}` } as React.CSSProperties}>
+                    <span className="fig-num">
+                      {chiffre.valeur}
+                      {chiffre.unite && <> <small>{chiffre.unite}</small></>}
                     </span>
                     <span className="fig-txt">{chiffre.legende}</span>
+                    <button type="button" className="fig-voir-source" popoverTarget={`source-${rang}`} aria-label="Source">
+                      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+                        <path d="M14 3v5h5M9.5 13h6M9.5 17h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
                     <span className="fig-src" id={`source-${rang}`} popover="auto">
                       Source : <b>{chiffre.source.organisme}, {chiffre.source.document && `${chiffre.source.document} `}{chiffre.source.annee}</b>
                     </span>

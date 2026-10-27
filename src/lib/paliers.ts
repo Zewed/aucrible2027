@@ -7,6 +7,3 @@ export function messageDuPalier(rang: number): string | null {
   if (rang < 10) return "Encore 5 pour ton classement.";
   return rang === 10 ? "Ton classement est prêt." : "Ton classement s'affine.";
 }
-
-/** Le prochain palier après `nombre` réponses. */
-export const prochainPalier = (nombre: number) => (Math.floor(nombre / REPONSES_PAR_PALIER) + 1) * REPONSES_PAR_PALIER;

@@ -5,7 +5,7 @@ import { Bandeau, Fiche } from "@/components/Fiche";
 import type { Question, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis, dateLisible } from "@/lib/date";
-import { lireOrdre, prochaineQuestion } from "@/lib/ordre";
+import { lireOrdre, prochaineQuestionDuTheme } from "@/lib/ordre";
 import { lesReponses, lireReponses } from "@/lib/reponses";
 
 /** Ce que montre l'accueil quand il n'y a pas de question à poser : une carte, un message. */
@@ -30,15 +30,18 @@ function Annonce({ message, children }: { message: string; children?: React.Reac
  * L'accueil : la prochaine question sans réponse, dans l'ordre tiré pour cet appareil (SPEC.md, « Boucle principale »,
  * 25 octobre 2026). Toutes les questions publiées sont jouables d'un coup. Les réponses sont lues une fois : la
  * question ne change pas sous les yeux de l'électeur pendant qu'il valide, la suivante vient au prochain accueil.
+ * Avec `filtre`, un thème choisi dans la jauge des questions, l'accueil enchaîne ses questions tant qu'il en reste.
  */
 export function ProchaineQuestion({
   questions,
   prochaineParution,
   themes,
+  filtre,
 }: {
   questions: Question[];
   prochaineParution: string | null;
   themes: Theme[];
+  filtre: string | null;
 }) {
   const jour = useCoteClient(() => aujourdhuiAParis());
   const numeros = questions.map((q) => q.numero);
@@ -47,7 +50,7 @@ export function ProchaineQuestion({
 
   if (!jour || !ordre) return null;
 
-  const numero = prochaineQuestion(ordre, numeros, Object.keys(reponses).map(Number));
+  const { numero, dansLeTheme } = prochaineQuestionDuTheme(ordre, questions, Object.keys(reponses).map(Number), filtre);
   const question = questions.find((q) => q.numero === numero) ?? null;
   const theme = question && themes.find((t) => t.id === question.theme);
   const bandeau = <Bandeau jour={jour} question={question} />;
@@ -76,5 +79,6 @@ export function ProchaineQuestion({
 
   const enJeu = { questions: questions.map(({ numero, theme }) => ({ numero, theme })), themes };
   // Next garde l'accueil quitté, avec son état : sans clé, la question suivante reprendrait le choix de la précédente.
-  return <Fiche key={question.numero} question={question} theme={theme} revelation={`/question/${question.numero}/revelation`} enJeu={enJeu} />;
+  const revelation = `/question/${question.numero}/revelation${dansLeTheme ? `?theme=${theme.id}` : ""}`;
+  return <Fiche key={question.numero} question={question} theme={theme} revelation={revelation} enJeu={enJeu} />;
 }
