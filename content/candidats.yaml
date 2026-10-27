@@ -1,56 +1,71 @@
 # Les candidats retenus au lancement (règle d'entrée : SPEC.md, « Candidats »), avec leur parti tel que l'écrit SPEC.md.
 # Les initiales marquent leur pion, le même pour tous : elles distinguent ceux qui se ressemblent (FRo, FRu).
+# La photo (public/candidats/<id>.jpg, une vignette de Wikimedia Commons) recouvre les initiales, en noir et blanc pour tous ;
+# son auteur, sa licence et sa page sur Commons sont crédités sur la page Méthode.
 # Le statut de la candidature n'est écrit que quand SPEC.md le donne (Tondelier) : sans statut, la fiche n'en dit rien.
 - id: le-pen
   nom: Marine Le Pen
   parti: RN
   initiales: MLP
+  photo: { auteur: "Vox España", licence: "CC0", page: "https://commons.wikimedia.org/wiki/File:Marine_Le_Pen_2025_(cropped).jpg" }
 - id: melenchon
   nom: Jean-Luc Mélenchon
   parti: LFI
   initiales: JLM
+  photo: { auteur: "jlm2017.fr", licence: "CC BY 4.0", page: "https://commons.wikimedia.org/wiki/File:Jean_Luc_M%C3%A9lenchon_en_mai_2026-_55261894422_(cropped).jpg" }
 - id: philippe
   nom: Édouard Philippe
   parti: Horizons
   initiales: ÉP
+  photo: { auteur: "Wasasaq8", licence: "CC0", page: "https://commons.wikimedia.org/wiki/File:Edouard_Philippe_3x4_crop.jpg" }
 - id: glucksmann
   nom: Raphaël Glucksmann
   parti: Place publique / PS
   initiales: RG
+  photo: { auteur: "Union européenne 2024, source : Parlement européen", licence: "Parlement européen", page: "https://commons.wikimedia.org/wiki/File:1720448398743_20240708_GLUCKSMANN_Raphael_FR_006.jpg" }
 - id: retailleau
   nom: Bruno Retailleau
   parti: LR
   initiales: BR
+  photo: { auteur: "Anthonymontardyfr", licence: "CC BY 4.0", page: "https://commons.wikimedia.org/wiki/File:Bruno_Retailleau_-_Ministre_de_l%27Int%C3%A9rieur_fran%C3%A7ais_(cropped).jpg" }
 - id: lisnard
   nom: David Lisnard
   parti: Nouvelle Énergie
   initiales: DL
+  photo: { auteur: "Grégor Sauvagère", licence: "CC BY-SA 4.0", page: "https://commons.wikimedia.org/wiki/File:David_Lisnard_en_2026.jpg" }
 - id: attal
   nom: Gabriel Attal
   parti: Renaissance
   initiales: GA
+  photo: { auteur: "Ismail Aissoub", licence: "CC BY 4.0", page: "https://commons.wikimedia.org/wiki/File:Gabriel_Attal_2025_(close_crop).jpg" }
 - id: zemmour
   nom: Éric Zemmour
   parti: Reconquête
   initiales: ÉZ
+  photo: { auteur: "Anh De France", licence: "CC0", page: "https://commons.wikimedia.org/wiki/File:Portrait_d%27%C3%89ric_Zemmour,_avril_2022.jpg" }
 - id: tondelier
   nom: Marine Tondelier
   parti: Les Écologistes
   initiales: MT
+  photo: { auteur: "Selbymay", licence: "CC BY 4.0", page: "https://commons.wikimedia.org/wiki/File:Huma2023MarineTondelier_(cropped).jpg" }
   statut: { etat: Candidature déclarée, suite: vote des adhérents prévu du 10 au 13 décembre 2026 }
 - id: roussel
   nom: Fabien Roussel
   parti: PCF
   initiales: FRo
+  photo: { auteur: "Zouhair NAKARA", licence: "CC BY-SA 4.0", page: "https://commons.wikimedia.org/wiki/File:Roussel_Fabien_1.jpg" }
 - id: dupont-aignan
   nom: Nicolas Dupont-Aignan
   parti: DLF
   initiales: NDA
+  photo: { auteur: "Debout la France", licence: "CC BY-SA 4.0", page: "https://commons.wikimedia.org/wiki/File:Nicolas_Dupont-Aignan,_homme_politique_fran%C3%A7ais.jpg" }
 - id: ruffin
   nom: François Ruffin
   parti: Debout !
   initiales: FRu
+  photo: { auteur: "Thinkerview", licence: "CC BY-SA 4.0", page: "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois_Ruffin_(cropped).jpg" }
 - id: arthaud
   nom: Nathalie Arthaud
   parti: LO
   initiales: NA
+  photo: { auteur: "Kokluts", licence: "CC BY-SA 4.0", page: "https://commons.wikimedia.org/wiki/File:Nathalie_Arthaud_(LO)_19-05-2024.jpg" }

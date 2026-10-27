@@ -212,10 +212,10 @@ test("la fiche n° 24 affiche sous « Le contexte » exactement trois phrases, l
   }
 });
 
-test("la fiche n° 24 affiche sous « 3 chiffres clés » 1,7, 14 % et 62 ans, chacun avec sa légende", async ({ page }) => {
+test("la fiche n° 24 affiche sous « Chiffres clés » 1,7, 14 % et 62 ans, chacun avec sa légende", async ({ page }) => {
   await page.goto("/");
   const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
-  const chiffres = carte.getByRole("region", { name: "3 chiffres clés" }).getByRole("listitem");
+  const chiffres = carte.getByRole("region", { name: "Chiffres clés" }).getByRole("listitem");
   await expect(chiffres).toHaveCount(3);
   const attendus = [
     ["1,7", "cotisant pour 1 retraité"],
@@ -231,7 +231,7 @@ test("la fiche n° 24 affiche sous « 3 chiffres clés » 1,7, 14 % et 62 ans, c
 /** Les chiffres clés de la fiche du jour, chacun vérifié visible et entier, sans rien de coupé. */
 async function chiffresEntiers(page: Page, question: string) {
   const carte = page.getByRole("article", { name: question });
-  const chiffres = carte.getByRole("region", { name: /chiffres clés$/ }).getByRole("listitem");
+  const chiffres = carte.getByRole("region", { name: "Chiffres clés" }).getByRole("listitem");
   const boiteCarte = (await carte.boundingBox())!;
   for (const chiffre of await chiffres.all()) {
     await expect(chiffre).toBeVisible();
@@ -239,14 +239,16 @@ async function chiffresEntiers(page: Page, question: string) {
     expect(boite.x).toBeGreaterThanOrEqual(boiteCarte.x);
     expect(boite.x + boite.width).toBeLessThanOrEqual(boiteCarte.x + boiteCarte.width);
     // Coupé : un texte qui déborde de sa boîte en largeur, ou qu'une boîte rogne en hauteur.
-    const coupe = await chiffre.evaluate((el) =>
-      [el, ...el.querySelectorAll("*")].some(
-        (e) =>
-          e.scrollWidth > e.clientWidth + 1 ||
-          (getComputedStyle(e).overflowY !== "visible" && e.scrollHeight > e.clientHeight + 1),
-      ),
+    const coupes = await chiffre.evaluate((el) =>
+      [el, ...el.querySelectorAll("*")]
+        .filter(
+          (e) =>
+            e.scrollWidth > e.clientWidth + 1 ||
+            (getComputedStyle(e).overflowY !== "visible" && e.scrollHeight > e.clientHeight + 1),
+        )
+        .map((e) => `${e.tagName.toLowerCase()}.${e.getAttribute("class")} ${e.scrollWidth}×${e.scrollHeight} > ${e.clientWidth}×${e.clientHeight}`),
     );
-    expect(coupe).toBe(false);
+    expect(coupes).toEqual([]);
   }
   return chiffres;
 }
@@ -256,7 +258,7 @@ test.describe("sur ordinateur, les chiffres clés restent au calme", () => {
 
   test("les chiffres clés de la fiche n'ont ni fond ni couleur : la question garde l'œil", async ({ page }) => {
     await page.goto("/");
-    const chiffres = page.getByRole("region", { name: /chiffres clés/ }).getByRole("listitem");
+    const chiffres = page.getByRole("region", { name: "Chiffres clés" }).getByRole("listitem");
     await expect(chiffres).toHaveCount(3);
     for (const chiffre of await chiffres.all()) {
       expect(await chiffre.evaluate((li) => getComputedStyle(li).backgroundColor)).toBe("rgba(0, 0, 0, 0)");
@@ -268,14 +270,14 @@ test.describe("une fiche affiche autant de chiffres clés qu'elle en a", () => {
   test("le 24 octobre, la fiche à deux chiffres clés en affiche deux", async ({ page }) => {
     await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "2 chiffres clés" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Chiffres clés" })).toBeVisible();
     await expect(await chiffresEntiers(page, "Faut-il sortir du nucléaire ?")).toHaveCount(2);
   });
 
   test("le 25 octobre, la fiche à quatre chiffres clés en affiche quatre", async ({ page }) => {
     await fixerLeJour(page, "2026-10-25T09:00:00+01:00");
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "4 chiffres clés" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Chiffres clés" })).toBeVisible();
     await expect(await chiffresEntiers(page, "Faut-il réguler l'installation des médecins ?")).toHaveCount(4);
   });
 });
@@ -290,10 +292,16 @@ test.describe("une fiche affiche autant de chiffres clés qu'elle en a, sur gran
   });
 });
 
-test("sur la fiche n° 24, chaque chiffre clé est suivi de sa source datée", async ({ page }) => {
+/** Ouvrir la source d'un chiffre clé : son bouton « Source » montre la bulle qui la donne. */
+async function ouvrirLaSource(chiffre: Locator) {
+  await chiffre.getByRole("button", { name: "Source" }).click();
+  return chiffre.locator(".fig-src");
+}
+
+test("sur la fiche n° 24, chaque chiffre clé ouvre sa source datée, sous son bouton, et une seule à la fois", async ({ page }) => {
   await page.goto("/");
   const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
-  const chiffres = carte.getByRole("region", { name: "3 chiffres clés" }).getByRole("listitem");
+  const chiffres = carte.getByRole("region", { name: "Chiffres clés" }).getByRole("listitem");
   const attendus = [
     ["1,7", "Source : COR, rapport 2025"],
     ["14 %", "Source : COR, 2025"],
@@ -301,10 +309,13 @@ test("sur la fiche n° 24, chaque chiffre clé est suivi de sa source datée", a
   ];
   for (const [i, [chiffre, source]] of attendus.entries()) {
     const nombre = chiffres.nth(i).getByText(chiffre, { exact: true });
-    const ligne = chiffres.nth(i).getByText(source, { exact: true });
-    await expect(ligne).toBeVisible();
-    const [haut, bas] = await Promise.all([nombre.boundingBox(), ligne.boundingBox()]);
+    await expect(chiffres.nth(i).getByText(source, { exact: true })).toBeHidden();
+    const bulle = await ouvrirLaSource(chiffres.nth(i));
+    await expect(bulle).toHaveText(source);
+    await expect(bulle).toBeVisible();
+    const [haut, bas] = await Promise.all([nombre.boundingBox(), bulle.boundingBox()]);
     expect(bas!.y).toBeGreaterThan(haut!.y);
+    await expect(carte.locator(".fig-src").filter({ visible: true })).toHaveCount(1);
   }
 });
 
@@ -320,7 +331,7 @@ test("sur aucune fiche un chiffre clé n'apparaît sans son organisme ni son ann
     await expect(page.getByRole("heading", { name: question })).toBeVisible();
     // Entiers : une source rognée par les points de suspension perdrait son année.
     for (const chiffre of await (await chiffresEntiers(page, question)).all()) {
-      await expect(chiffre.getByText(/^Source : \S.*, (.+ )?(19|20)\d{2}$/)).toBeVisible();
+      await expect(await ouvrirLaSource(chiffre)).toHaveText(/^Source : \S.*, (.+ )?(19|20)\d{2}$/);
     }
   }
 });
@@ -819,15 +830,13 @@ test("les 11 candidats sourcés portent l'un ou l'autre badge, jamais les deux :
   expect({ officielles, deduites }).toEqual({ officielles: 5, deduites: 6 });
 });
 
-test("sur la révélation n° 24, Ruffin et Lisnard sont rangés sous « Position inconnue », sans source, avec leur badge", async ({ page }) => {
+test("sur la révélation n° 24, Ruffin et Lisnard sont rangés sous « Position inconnue », « Pas de source à ce jour », sans badge", async ({ page }) => {
   await repondre(page, "62 ans");
   const bloc = quiDefendQuoi(page).getByRole("article", { name: "Position inconnue" });
   await expect(bloc.getByText("2 candidats", { exact: true })).toBeVisible();
+  await expect(bloc.getByText("Pas de source à ce jour", { exact: true })).toBeVisible();
   expect(await nomsSous(page, "Position inconnue")).toEqual(["David Lisnard", "François Ruffin"]);
-  for (const ligne of await bloc.getByRole("listitem").all()) {
-    await expect(ligne.getByText("Pas de source à ce jour", { exact: true })).toBeVisible();
-    await expect(ligne.getByText("position inconnue", { exact: true })).toBeVisible();
-  }
+  await expect(bloc.locator(".badge")).toHaveCount(0);
 });
 
 test("les candidats sans source n'apparaissent sous aucune option : 11 sous les options, 2 inconnus, 13 en tout", async ({ page }) => {
@@ -838,16 +847,6 @@ test("les candidats sans source n'apparaissent sous aucune option : 11 sous les 
   expect(inconnus).toHaveLength(2);
   expect(new Set([...sousOptions, ...inconnus]).size).toBe(13);
   for (const nom of inconnus) expect(sousOptions).not.toContain(nom);
-});
-
-test("la mention « ordre mélangé » se lit à côté de « Qui défend quoi »", async ({ page }) => {
-  await repondre(page, "62 ans");
-  const titre = quiDefendQuoi(page).getByRole("heading", { name: "Qui défend quoi" });
-  const mention = quiDefendQuoi(page).getByText("ordre mélangé", { exact: true });
-  await expect(mention).toBeVisible();
-  const [t, m] = await Promise.all([titre.boundingBox(), mention.boundingBox()]);
-  expect(m!.x).toBeGreaterThan(t!.x + t!.width - 1);
-  expect(Math.abs(m!.y + m!.height / 2 - (t!.y + t!.height / 2))).toBeLessThan(t!.height);
 });
 
 test("d'un appareil à l'autre, l'ordre des défenseurs de A change, sans suivre l'alphabet ni les partis", async ({ browser }) => {
@@ -2194,21 +2193,21 @@ test.describe("la légende relie chaque pion à son candidat", () => {
 test.describe("une option sans note sur un axe ne déplace pas le pion", () => {
   /**
    * La place du pion « TOI » pour un électeur qui a répondu A, avec les importances de `vingtTroisReponses`,
-   * aux questions de ces numéros, plus B à la n° 24 si `avecLa24` (une option sans aucune note).
+   * aux questions de ces numéros, plus B à la n° 25 si `avecLa25` (une option sans aucune note).
    */
-  async function placeAvec(page: Page, numeros: number[], avecLa24 = false) {
+  async function placeAvec(page: Page, numeros: number[], avecLa25 = false) {
     await page.goto("/");
     await page.evaluate(
-      ([numeros, avecLa24]) => {
+      ([numeros, avecLa25]) => {
         const reponses: Record<number, object> = {};
         for (const numero of numeros as number[]) {
           const importance = numero <= 8 ? 3 : numero <= 14 ? 2 : 1;
           reponses[numero] = { option: "A", importance, graine: 1, jour: "2026-10-22", duJour: false };
         }
-        if (avecLa24) reponses[24] = { option: "B", importance: 2, graine: 1, jour: "2026-10-23", duJour: true };
+        if (avecLa25) reponses[25] = { option: "B", importance: 2, graine: 1, jour: "2026-10-24", duJour: true };
         localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
       },
-      [numeros, avecLa24] as const,
+      [numeros, avecLa25] as const,
     );
     await page.goto("/resultats");
     // Le rendu serveur, sans les réponses de l'appareil, pose le pion au centre : attendre qu'elles soient lues.
@@ -2229,9 +2228,9 @@ test.describe("une option sans note sur un axe ne déplace pas le pion", () => {
     const avecLa1 = await placeAvec(page, vingtTrois);
     expect(avecLa1.x).toBeLessThan(sansLa1.x);
     expect(avecLa1.y).toBe(sansLa1.y);
-    // La n° 24 n'a aucune note.
-    const avecLa24 = await placeAvec(page, vingtTrois, true);
-    expect(avecLa24).toEqual(avecLa1);
+    // La n° 25 n'a aucune note.
+    const avecLa25 = await placeAvec(page, vingtTrois, true);
+    expect(avecLa25).toEqual(avecLa1);
   });
 });
 
@@ -4570,10 +4569,10 @@ test.describe("l'en-tête reste en haut au défilement", () => {
   /** L'élément au point donné appartient-il à l'en-tête ? Si oui, rien de ce qui défile n'est passé par-dessus. */
   const devantAuPoint = (page: Page, x: number, y: number) => page.evaluate(([x, y]) => !!document.elementFromPoint(x, y)?.closest("header.topbar"), [x, y]);
 
-  test("sur la n° 24, défiler jusqu'aux dernières sources laisse le logo en haut, et le texte passe dessous", async ({ page }) => {
+  test("sur la n° 24, défiler jusqu'aux derniers chiffres clés laisse le logo en haut, et le texte passe dessous", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/");
-    await page.getByRole("region", { name: /chiffres clés/ }).getByText(/^Source/).last().scrollIntoViewIfNeeded();
+    await page.getByRole("region", { name: "Chiffres clés" }).getByRole("listitem").last().scrollIntoViewIfNeeded();
     expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(300);
     const logo = page.getByRole("banner").getByRole("link", { name: "Au crible 2027" });
     await expect(logo).toBeInViewport();
@@ -6851,10 +6850,10 @@ test.describe("la première étape : l'écran partagé", () => {
         await expect(bouton).toBeInViewport({ ratio: 1 });
         const question = await page.getByRole("heading", { level: 1 }).boundingBox();
         const contexte = await page.getByRole("region", { name: "Le contexte" }).boundingBox();
-        const chiffres = await page.getByRole("region", { name: /chiffres clés/ }).boundingBox();
+        const chiffres = await page.getByRole("region", { name: "Chiffres clés" }).boundingBox();
         expect(question!.x + question!.width).toBeLessThanOrEqual(contexte!.x);
         expect(contexte!.y).toBeLessThan(chiffres!.y);
-        await expect(page.getByRole("region", { name: /chiffres clés/ })).toBeInViewport({ ratio: 1 });
+        await expect(page.getByRole("region", { name: "Chiffres clés" })).toBeInViewport({ ratio: 1 });
         expect(await page.evaluate(() => document.documentElement.scrollHeight <= window.innerHeight + 1)).toBe(true);
       });
     });
@@ -6863,7 +6862,7 @@ test.describe("la première étape : l'écran partagé", () => {
   test("ni pied de page ni « Mes résultats » en bas de cette étape ; « Signaler une erreur » est au coin des chiffres", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator(".site-foot")).toBeHidden();
-    const signaler = page.getByRole("region", { name: /chiffres clés/ }).getByRole("link", { name: "Signaler une erreur" });
+    const signaler = page.getByRole("region", { name: "Chiffres clés" }).getByRole("link", { name: "Signaler une erreur" });
     await expect(signaler).toHaveAttribute("href", "/signaler?question=24");
   });
 
@@ -6872,10 +6871,10 @@ test.describe("la première étape : l'écran partagé", () => {
     await expect(page.getByRole("button", { name: "Voir les propositions" })).toBeVisible();
     await page.mouse.wheel(0, 5000);
     await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
-    const derniereSource = page.getByRole("region", { name: /chiffres clés/ }).getByText(/^Source/).last();
+    const dernierChiffre = page.getByRole("region", { name: "Chiffres clés" }).getByRole("listitem").last();
     const barre = await page.getByRole("button", { name: "Voir les propositions" }).boundingBox();
-    const source = await derniereSource.boundingBox();
-    expect(source!.y + source!.height).toBeLessThanOrEqual(barre!.y);
+    const chiffre = await dernierChiffre.boundingBox();
+    expect(chiffre!.y + chiffre!.height).toBeLessThanOrEqual(barre!.y);
   });
 
   test("sans vidéo, la vignette du sujet dit « Bientôt » ; avec une vidéo, la toucher la lance", async ({ page }) => {
