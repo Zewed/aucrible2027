@@ -1,0 +1,85 @@
+src/app/methode/page.tsx
+  s_23dbc2ab230a75::t_7d143e04832eba 4,539,553-555,557-567
+  s_23dbc2ab230a75::t_107c5549888e6b 503,536,556
+  s_23dbc2ab230a75::t_532f231af4368d 568
+src/app/revelation/revelation.css
+  s_23dbc2ab230a75::t_c5d0eb764f8e92 306-308,316-317,328,340-341,343-345,347,351
+  s_23dbc2ab230a75::t_d3bea714992cc2 283-287,290-305,309-315,318-327,329-339,342,346,348-350,352-356
+  s_23dbc2ab230a75::t_bd018755cfdc26 221
+  s_23dbc2ab230a75::t_fec22d4f8ec363 288-289
+  s_23dbc2ab230a75::t_6d648ef954e3a6 218-220,222
+src/components/Revelation.tsx
+  s_23dbc2ab230a75::t_5604f8cd235bd1 17-18
+  s_23dbc2ab230a75::t_4895e0201773e8 283,286
+  s_23dbc2ab230a75::t_893e236c86100f 133-134
+  s_23dbc2ab230a75::t_41bdd38ab173ec 229
+  s_23dbc2ab230a75::t_4e6bc03a4552d1 19-20
+e2e/question-du-jour.spec.ts
+  s_23dbc2ab230a75::t_2d51ec3f0f3da0 215,218,234,260,267,282-288,291,299-303,305,321,820,824,826
+  s_23dbc2ab230a75::t_bd018755cfdc26 242-249,251,2183,2186,2192,2195,2216-2218,4557,4560,6799,6802,6811,6820,6822-6823
+  s_23dbc2ab230a75::t_9449a8b812add9 2181
+src/lib/tenir-a-l-ecran.ts
+  s_23dbc2ab230a75::t_ff568a199c6ce8 5-8,10,18-20
+  s_23dbc2ab230a75::t_63e7059300aae0 17
+  s_23dbc2ab230a75::t_f7bbf176e0d2c8 1-4,9,11-16,21-30
+src/app/globals.css
+  s_23dbc2ab230a75::t_78e5888b5cb083 411
+  s_23dbc2ab230a75::t_7516b6da52f500 225-227,230-231,233-234,236,240-243,245-260
+  s_23dbc2ab230a75::t_8ee31e9b96822f 421,427,430
+  s_23dbc2ab230a75::t_98b3965a3d041f 424-426,428
+  s_23dbc2ab230a75::t_c330a3d58138df 436
+  s_23dbc2ab230a75::t_4f773a3c9268e2 232
+  s_23dbc2ab230a75::t_c48d9fe68df86b 275,277
+  s_23dbc2ab230a75::t_9b53a8a5ad6029 212-217
+  s_23dbc2ab230a75::t_a9126f019e7adf 282-286,289-293
+  s_23dbc2ab230a75::t_39a5ecca92e8e9 332,338-344
+  s_23dbc2ab230a75::t_1218b65f621159 244,294
+  s_23dbc2ab230a75::t_784b0d7e029ce6 359
+  s_23dbc2ab230a75::t_824bbbb8a1220e 287,295-298
+  s_23dbc2ab230a75::t_9d4483b57e577f 406-407,412
+content/questions/024-retraite.yaml
+  s_23dbc2ab230a75::t_02e38e91519dbf 43
+  s_23dbc2ab230a75::t_05bd87acc4b621 31
+  s_23dbc2ab230a75::t_e65f362e655610 49
+  s_23dbc2ab230a75::t_d77d1641ed4b66 37
+src/components/Pion.tsx
+  s_23dbc2ab230a75::t_59ee5f6f169513 1,5-7,18
+content/questions/026-medecins.yaml
+  s_23dbc2ab230a75::t_dd98b68e8629ff 34
+  s_23dbc2ab230a75::t_4b2481a348c6c9 45
+content/candidats.yaml
+  s_23dbc2ab230a75::t_08511972c1764d 3-4,10,15,20,25,30,35,40,45,50,56,61,66,71
+content/questions/023-loyers.yaml
+  s_23dbc2ab230a75::t_7a697a480c7e4a 27
+  s_23dbc2ab230a75::t_5deaba9ac29e04 38
+src/components/Fiche.tsx
+  s_23dbc2ab230a75::t_dcd845690a7dcc 217
+  s_23dbc2ab230a75::t_61df1879c89fdd 18-19,22
+  s_23dbc2ab230a75::t_038ac75590bb9e 148-160,163
+  s_23dbc2ab230a75::t_358964c66d5673 138
+  s_23dbc2ab230a75::t_4b2e4186c9f000 117
+  s_23dbc2ab230a75::t_c417dbc2d51900 20-21
+  s_23dbc2ab230a75::t_3a956dd2d9bd1f 182
+src/app/kit.css
+  s_23dbc2ab230a75::t_4d4748b99be045 584-587,589-590
+  s_23dbc2ab230a75::t_bd018755cfdc26 588
+src/lib/contenu.ts
+  s_23dbc2ab230a75::t_e5adb10cf25c9e 12-13
+  s_23dbc2ab230a75::t_9798a2c877bd40 19-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1471d65e0dca7ed29b5fa114562cb9cc0444912a",
+  "prompts": {},
+  "sessions": {
+    "s_23dbc2ab230a75": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b4ad24bf-d8a1-441b-abc0-9be4a9817e5e",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
