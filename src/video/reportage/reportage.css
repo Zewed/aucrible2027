@@ -1,0 +1,106 @@
+/* Le reportage vidéo (1920 × 1080) : les couleurs, la typo et les formes de l'app, en grand. */
+.reportage { font-family: var(--text); color: var(--chalk); }
+.rp-plein { padding: 110px 120px 80px; }
+.rp-couleur { background: var(--theme); color: var(--on-theme); }
+.rp-table { background: var(--table); }
+
+.rp-marque { position: absolute; top: 44px; left: 120px; display: flex; align-items: center; gap: 14px; font: 800 30px/1 var(--display); }
+.rp-logo { width: 46px; height: 46px; }
+.rp-couleur .rp-marque { color: var(--on-theme); }
+.rp-marque b { color: var(--eco); }
+.rp-couleur .rp-marque b { color: inherit; }
+
+.rp-puce { align-self: flex-start; margin-top: 80px; font-size: 30px; padding: 12px 24px 12px 14px; }
+.rp-puce svg { width: 34px; height: 34px; }
+.rp-question {
+  margin-top: 40px; max-width: 1500px;
+  font: 800 150px/0.92 var(--display); font-variation-settings: "wdth" 80, "opsz" 96; letter-spacing: -0.03em;
+}
+.rp-question span { display: inline-block; margin-right: .22em; }
+/* La question d'un enjeu, seule à l'écran : centrée en hauteur. */
+.rp-question-enjeu { margin: auto 0; }
+
+.rp-titre { display: flex; align-items: center; gap: 18px; margin-top: 50px; font: 800 64px/1 var(--display); font-variation-settings: "wdth" 84, "opsz" 96; }
+.rp-titre i { width: 22px; height: 22px; background: var(--theme); transform: rotate(45deg); flex: none; }
+
+/* La phrase qui conclut un écran, en bas, comme un sous-titre. */
+.rp-chute {
+  position: absolute; left: 50%; bottom: 74px; width: max-content; max-width: 1600px; text-align: center;
+  background: var(--ink-deep); color: var(--chalk); border-radius: 16px; padding: 22px 40px 20px; box-shadow: 0 8px 0 rgba(0, 0, 0, .35);
+  font: 700 54px/1.15 var(--display); font-variation-settings: "wdth" 86, "opsz" 96;
+}
+.rp-meca-source { position: absolute; left: 120px; bottom: 30px; font: 600 22px/1 var(--text); color: var(--muted); }
+
+/* Où en sont les questions. */
+.rp-avancee { position: absolute; top: 56px; right: 124px; display: flex; gap: 18px; }
+.rp-avancee i { width: 20px; height: 20px; transform: rotate(45deg); border: 4px solid var(--table-3); }
+.rp-avancee i.fait { background: var(--table-3); }
+.rp-avancee i.en-cours { background: var(--theme); border-color: var(--theme); }
+.rp-couleur .rp-avancee i { border-color: color-mix(in srgb, var(--on-theme) 35%, transparent); }
+.rp-couleur .rp-avancee i.fait { background: color-mix(in srgb, var(--on-theme) 35%, transparent); }
+.rp-couleur .rp-avancee i.en-cours { background: var(--on-theme); border-color: var(--on-theme); }
+
+/* L'accroche : les dates qui comptent, en très grand. */
+.rp-accroche { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 40px; padding-bottom: 140px; }
+.rp-etape-accroche { display: grid; grid-template-columns: 380px 1fr; align-items: baseline; }
+.rp-etape-accroche span { font: 800 60px/1 var(--display); font-variation-settings: "wdth" 84, "opsz" 96; color: var(--muted); }
+.rp-etape-accroche small { display: block; margin-top: 10px; font: 600 26px/1 var(--text); }
+.rp-etape-accroche b { white-space: nowrap; color: var(--theme-text); font: 800 160px/0.95 var(--display); font-variation-settings: "wdth" 76, "opsz" 96; letter-spacing: -0.03em; }
+
+/* Le mécanisme : des personnages qui paient pour un retraité. */
+.rp-meca-texte { margin-top: 18px; font: 600 46px/1.2 var(--text); color: var(--muted); }
+.rp-ratios { display: flex; flex-direction: column; gap: 56px; margin-top: 64px; }
+.rp-ratio { display: grid; grid-template-columns: 250px 400px 150px 110px 1fr; align-items: center; gap: 34px; }
+.rp-ratio-annee { font: 800 96px/1 var(--display); font-variation-settings: "wdth" 80, "opsz" 96; }
+.rp-ratio-annee small { display: block; margin-top: 6px; font: 600 24px/1 var(--text); color: var(--muted); }
+.rp-actifs { display: flex; gap: 20px; }
+.rp-actifs span { display: block; }
+.rp-actif, .rp-retraite { display: block; width: 108px; height: 216px; fill: currentColor; }
+.rp-actif { color: var(--theme); }
+.rp-retraite { color: var(--chalk); }
+.rp-actif .contour, .rp-retraite .contour { fill: color-mix(in srgb, currentColor 18%, transparent); }
+.rp-paie { width: 150px; }
+.rp-paie path { fill: none; stroke: var(--muted); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+.rp-ratio-valeur { white-space: nowrap; color: var(--theme-text); font: 800 170px/1 var(--display); font-variation-settings: "wdth" 78, "opsz" 96; }
+.rp-ratio-valeur small { margin-left: 14px; font: 700 36px/1 var(--text); color: var(--muted); }
+
+/* Les leviers : trois cartes, puis la première ressort. */
+.rp-leviers { display: flex; align-items: stretch; gap: 26px; margin-top: 80px; height: 470px; }
+.rp-levier {
+  flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px 44px 46px;
+  background: var(--card); color: var(--ink); border-radius: 24px; box-shadow: 0 12px 0 var(--ink-deep); transform-origin: center bottom;
+}
+.rp-levier b { display: block; font: 800 84px/0.98 var(--display); font-variation-settings: "wdth" 80, "opsz" 96; letter-spacing: -0.02em; }
+.rp-levier small { display: block; margin-top: 18px; min-height: 2.4em; font: 600 32px/1.2 var(--text); color: var(--ink-soft); }
+.rp-ou { align-self: center; font: 800 40px/1 var(--display); color: var(--theme-text); }
+
+/* Le face-à-face : POUR à gauche, CONTRE à droite, chaque camp sous son nom en très grand. */
+.rp-face-a-face { position: absolute; left: 120px; right: 120px; top: 250px; bottom: 70px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+.rp-cote { display: flex; flex-direction: column; gap: 22px; min-height: 0; }
+.rp-cote-tete { display: flex; align-items: baseline; gap: 22px; padding-bottom: 14px; border-bottom: 8px solid var(--theme); }
+.rp-cote-tete b { font: 800 120px/0.9 var(--display); font-variation-settings: "wdth" 80, "opsz" 96; letter-spacing: 0.01em; }
+.rp-cote-tete span { font: 700 32px/1.1 var(--text); color: var(--muted); }
+.rp-cote-carte {
+  position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; padding: 36px 46px 84px;
+  background: var(--card); color: var(--ink); border-radius: 24px; box-shadow: 0 12px 0 var(--ink-deep);
+}
+.rp-cote-carte strong { font: 800 60px/1.04 var(--display); font-variation-settings: "wdth" 82, "opsz" 96; }
+.rp-cote-carte b { white-space: nowrap; color: var(--theme-edge); font: 800 200px/0.88 var(--display); font-variation-settings: "wdth" 76, "opsz" 96; letter-spacing: -0.01em; }
+.rp-cote-carte b.long { font-size: 130px; line-height: 0.95; white-space: normal; }
+.rp-cote-carte p { font: 600 46px/1.15 var(--text); font-variation-settings: "wdth" 86, "opsz" 96; }
+.rp-cote-carte small { position: absolute; left: 46px; bottom: 30px; font: 600 22px/1 var(--text); color: var(--ink-soft); }
+
+/* La fin : le retour aux leviers, puis « Et toi ? ». */
+.rp-fin { justify-content: center; }
+.rp-fin-leviers { display: flex; align-items: stretch; gap: 22px; }
+.rp-fin-levier { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 26px 32px; background: var(--card); color: var(--ink); border-radius: 20px; box-shadow: 0 10px 0 var(--theme-edge); }
+.rp-fin-levier b { font: 800 58px/1 var(--display); font-variation-settings: "wdth" 82, "opsz" 96; }
+.rp-fin-levier small { font: 600 28px/1.2 var(--text); color: var(--ink-soft); }
+.rp-fin .rp-ou { color: var(--on-theme); }
+.rp-fin h2 { margin-top: 50px; font: 800 220px/0.9 var(--display); font-variation-settings: "wdth" 78, "opsz" 96; letter-spacing: -0.04em; transform-origin: left center; }
+.rp-appel { margin-top: 50px; align-self: flex-start; background: var(--ink); color: var(--chalk); border-radius: 18px; padding: 24px 34px 20px; font: 700 44px/1 var(--text); }
+.rp-appel b { color: var(--theme-text); }
+.rp-ia { position: absolute; bottom: 50px; right: 120px; font: 600 24px/1 var(--text); }
+
+/* Le volet entre deux séquences. */
+.rp-volet { position: absolute; inset: 0; background: var(--ink-deep); z-index: 10; }

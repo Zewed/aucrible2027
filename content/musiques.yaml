@@ -1,0 +1,85 @@
+# La musique du reportage vidéo de chaque thème : un morceau Pixabay (licence Pixabay, gratuite, sans attribution),
+# choisi hors Content ID pour éviter les réclamations sur YouTube, Instagram et TikTok. Même énergie pour tous les
+# thèmes, posée et positive : la musique ne doit rien dire du sujet.
+#
+# Les fichiers ne sont pas dans le dépôt (la licence interdit de les redistribuer tels quels) :
+# `pnpm musiques` les télécharge dans videos/son/ et mesure leur tempo, que l'on recopie ici.
+# - tempo : battements par minute, pour couper sur le temps ;
+# - premierTemps : la seconde du premier temps fort, où le reportage commence le morceau.
+economie-impots:
+  titre: Minimal Techno Background Pulse
+  auteur: MKGomez
+  page: https://pixabay.com/music/electronic-minimal-techno-background-pulse-470970/
+  mp3: https://cdn.pixabay.com/download/audio/2026/01/22/audio_a2c13846fd.mp3?filename=mkgomez-minimal-techno-background-pulse-470970.mp3
+  tempo: 122
+  premierTemps: 0.273
+travail-retraites:
+  titre: Gentle
+  auteur: "37660440"
+  page: https://pixabay.com/music/beats-jazzy-soul-trap-x-chill-hip-hop-beat-quotgentlequot-158756/
+  mp3: https://cdn.pixabay.com/download/audio/2023/07/18/audio_e012efc435.mp3?filename=37660440-jazzy-soul-trap-x-chill-hip-hop-beat-quotgentlequot-158756.mp3
+  tempo: 96
+  premierTemps: 0.015
+ecologie-energie:
+  titre: Organic Electronica / Cinnamon
+  auteur: BerryDeep
+  page: https://pixabay.com/music/electronic-organic-electronicacinnamon-623561/
+  mp3: https://cdn.pixabay.com/download/audio/2026/10/20/audio_b2624ad6cc.mp3?filename=berrydeep-organic-electronicacinnamon-623561.mp3
+  tempo: 116
+  premierTemps: 0.012
+immigration:
+  titre: Chill Ambient Beat
+  auteur: 331music
+  page: https://pixabay.com/music/ambient-chill-ambient-beat-598366/
+  mp3: https://cdn.pixabay.com/download/audio/2026/09/06/audio_16f853cca2.mp3?filename=331music-chill-ambient-beat-598366.mp3
+  tempo: 114
+  premierTemps: 0.171
+securite-justice:
+  titre: Deep House Sunset
+  auteur: sunset-house-grooves
+  page: https://pixabay.com/music/soft-house-deep-house-sunset-538759/
+  mp3: https://cdn.pixabay.com/download/audio/2026/05/22/audio_29c6fef01d.mp3?filename=sunset-house-grooves-deep-house-sunset-538759.mp3
+  tempo: 122.52
+  premierTemps: 0.023
+sante:
+  titre: EONA
+  auteur: Rockot
+  page: https://pixabay.com/music/beats-eona-emotional-ambient-pop-351436/
+  mp3: https://cdn.pixabay.com/download/audio/2025/05/29/audio_b92a610839.mp3?filename=rockot-eona-emotional-ambient-pop-351436.mp3
+  tempo: 82
+  premierTemps: 0.012
+education-jeunesse:
+  titre: Lofi Beat Homework Focus
+  auteur: alex-morgan
+  page: https://pixabay.com/music/beats-lofi-beat-homework-focus-concentration-587404/
+  mp3: https://cdn.pixabay.com/download/audio/2026/08/17/audio_af8e8151f8.mp3?filename=alex-morgan-lofi-beat-homework-focus-concentration-587404.mp3
+  tempo: 86
+  premierTemps: 0.052
+logement:
+  titre: Happy Lofi
+  auteur: AtlasAudio
+  page: https://pixabay.com/music/beats-happy-lofi-593048/
+  mp3: https://cdn.pixabay.com/download/audio/2026/08/27/audio_287d530bef.mp3?filename=atlasaudio-happy-lofi-593048.mp3
+  tempo: 85
+  premierTemps: 0.102
+europe-international:
+  titre: Chimes
+  auteur: 808xri
+  page: https://pixabay.com/music/beats-jazzy-soul-x-boom-bap-x-hip-hop-instrumental-quotchimesquot-220606/
+  mp3: https://cdn.pixabay.com/download/audio/2024/06/28/audio_369e0616b9.mp3?filename=808xri-jazzy-soul-x-boom-bap-x-hip-hop-instrumental-quotchimesquot-220606.mp3
+  tempo: 86
+  premierTemps: 0.009
+institutions-democratie:
+  titre: Calm Ambient Dreamscape
+  auteur: morgan-ambient
+  page: https://pixabay.com/music/ambient-calm-ambient-dreamscape-529861/
+  mp3: https://cdn.pixabay.com/download/audio/2026/05/05/audio_bedae80d67.mp3?filename=morgan-ambient-calm-ambient-dreamscape-529861.mp3
+  tempo: 130
+  premierTemps: 0.084
+societe:
+  titre: Indie Pop
+  auteur: madstock
+  page: https://pixabay.com/music/indie-pop-indie-pop-335469/
+  mp3: https://cdn.pixabay.com/download/audio/2025/05/01/audio_170f4135b1.mp3?filename=madstock-indie-pop-335469.mp3
+  tempo: 71.5
+  premierTemps: 0.015

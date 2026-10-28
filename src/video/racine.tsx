@@ -5,9 +5,11 @@ import "@/app/kit.css";
 import "@/app/visuels.css";
 import "@/app/video/video.css";
 import "@/video/video.css";
+import "@/video/reportage/reportage.css";
 import type { ProprietesDeLaVideo } from "@/video/VideoDuJour";
 import { VideoDuJour } from "@/video/VideoDuJour";
 import { DUREE } from "@/video/images";
+import { dureeDu, Reportage, type ProprietesDuReportage } from "@/video/reportage/Reportage";
 
 const IMAGES_PAR_SECONDE = 30;
 
@@ -17,6 +19,7 @@ const IMAGES_PAR_SECONDE = 30;
  */
 function Racine() {
   return (
+    <>
     <Composition
       id="video-du-jour"
       component={VideoDuJour}
@@ -26,6 +29,17 @@ function Racine() {
       durationInFrames={DUREE * IMAGES_PAR_SECONDE}
       defaultProps={{} as ProprietesDeLaVideo}
     />
+    <Composition
+      id="reportage"
+      component={Reportage}
+      width={1920}
+      height={1080}
+      fps={IMAGES_PAR_SECONDE}
+      durationInFrames={IMAGES_PAR_SECONDE}
+      defaultProps={{} as ProprietesDuReportage}
+      calculateMetadata={({ props }) => ({ durationInFrames: Math.round(dureeDu(props.question, props.musique) * IMAGES_PAR_SECONDE) })}
+    />
+    </>
   );
 }
 
