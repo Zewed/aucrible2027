@@ -1292,11 +1292,12 @@ test.describe("quand toutes les questions ont une réponse, l'accueil le dit", (
     await toutRepondre(page);
     await expect(page.getByRole("heading", { name: "Tu as répondu à toutes les questions." })).toBeVisible();
 
-    // L'auteur publie une fiche datée du 11 mai, comme il le ferait : un fichier de plus dans content/questions.
-    const fiche = "content/questions/900-fiche-de-test.yaml";
+    // L'auteur publie une fiche datée du 11 mai, comme il le ferait : un fichier de plus dans content/questions
+    // (en test, sa copie figée e2e/fiches/contenu).
+    const fiche = "e2e/fiches/contenu/900-fiche-de-test.yaml";
     writeFileSync(
       fiche,
-      readFileSync("content/questions/023-loyers.yaml", "utf8")
+      readFileSync("e2e/fiches/contenu/023-loyers.yaml", "utf8")
         .replace(/^numero: 23$/m, "numero: 900")
         .replace(/^date: 2026-10-22$/m, "date: 2027-05-11")
         .replace(/^question: .*$/m, "question: Une fiche publiée après coup ?"),
@@ -4653,7 +4654,7 @@ test.describe("une fiche ajoutée par l'auteur paraît à sa date", () => {
     const ajouter = (numero: number, date: string, question: string) =>
       writeFileSync(
         `${dossier}/${numero}.yaml`,
-        readFileSync("content/questions/023-loyers.yaml", "utf8")
+        readFileSync("e2e/fiches/contenu/023-loyers.yaml", "utf8")
           .replace(/^numero: 23$/m, `numero: ${numero}`)
           .replace(/^date: 2026-10-22$/m, `date: ${date}`)
           .replace(/^question: .*$/m, `question: ${question}`),
@@ -4730,7 +4731,7 @@ test.describe("l'auteur génère le carrousel du jour depuis la fiche", () => {
     const dossier = "e2e/fiches/carrousel-corrige";
     mkdirSync(dossier, { recursive: true });
     try {
-      writeFileSync(`${dossier}/024.yaml`, readFileSync("content/questions/024-retraite.yaml", "utf8").replace('valeur: "1,7"', 'valeur: "1,6"'));
+      writeFileSync(`${dossier}/024.yaml`, readFileSync("e2e/fiches/contenu/024-retraite.yaml", "utf8").replace('valeur: "1,7"', 'valeur: "1,6"'));
       await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "carrousel-corrige", url: "http://localhost:3127" }]);
       await page.goto("/carrousel");
       await expect(images(page).nth(2).locator(".s-fig-num").first()).toHaveText("1,6");
@@ -5044,7 +5045,7 @@ test.describe("l'auteur génère la vidéo verticale du jour depuis la fiche", (
     const dossier = "e2e/fiches/video-corrige";
     mkdirSync(dossier, { recursive: true });
     try {
-      writeFileSync(`${dossier}/024.yaml`, readFileSync("content/questions/024-retraite.yaml", "utf8").replace('valeur: "1,7"', 'valeur: "1,6"'));
+      writeFileSync(`${dossier}/024.yaml`, readFileSync("e2e/fiches/contenu/024-retraite.yaml", "utf8").replace('valeur: "1,7"', 'valeur: "1,6"'));
       await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "video-corrige", url: "http://localhost:3127" }]);
       await page.goto("/video");
       await expect(storyboard(page).nth(2).locator(".v-fig-num").first()).toHaveText("1,6");

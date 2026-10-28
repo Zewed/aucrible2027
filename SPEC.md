@@ -133,6 +133,8 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 
 ## Production du contenu
 
+- **Chaque question part d'une étude des enjeux** (`docs/etudes/NNN-*.md`, sur le modèle de `docs/etudes/MODELE.md`). Elle couvre tous les angles du sujet, avec des chiffres officiels sourcés, le meilleur argument de chaque camp, et ce qui fait consensus ou débat. La fiche et son reportage vidéo ne disent rien qui ne soit dans l'étude.
+
 - L'IA rédige un premier jet à partir de sources officielles.
 - L'auteur vérifie chaque chiffre et chaque position de candidat.
 - **Contrôle automatique de neutralité par IA** avant publication, avec 3 points de vue (droite, centre, gauche) : formulations orientées, arguments manquants, chiffres sans source, options caricaturées. L'auteur tranche sur chaque remarque. Le même contrôle s'applique à la liste des sujets et aux notes de la carte.

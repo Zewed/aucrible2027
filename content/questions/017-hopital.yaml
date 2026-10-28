@@ -1,0 +1,74 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/017-hopital.md
+# Sujet choisi à la place de « obliger les jeunes médecins à exercer en zone sous-dotée », trop proche de la fiche n° 26 (installation des médecins).
+numero: 17
+date: 2026-10-16
+theme: sante
+question: "Faut-il en finir avec la tarification à l'activité à l'hôpital public ?"
+titreCourt: "Le financement de l'hôpital"
+contexte:
+  - "Depuis 2004, la plupart des soins de médecine, de chirurgie et d'obstétrique sont payés à l'hôpital à l'activité (T2A), selon le nombre et la nature des séjours, alors que les hôpitaux publics étaient financés auparavant par une dotation globale."
+  - "Depuis 2022, les urgences et la psychiatrie reçoivent des dotations selon la population, et une refonte de 2025 mêle T2A et dotations, avec pour cible la moitié des ressources hors T2A."
+  - "Les hôpitaux publics ont affiché un déficit de 2,9 milliards d'euros en 2024, le plus élevé depuis 2005, et d'environ 2,1 % de leurs recettes en 2025 selon une première estimation."
+chiffres:
+  - valeur: "124,1"
+    unite: "milliards d'euros"
+    legende: "de soins hospitaliers en 2025, financés à 94 % par les administrations publiques"
+    source: { organisme: DREES, document: "Comptes de la santé, édition 2026", annee: 2025 }
+  - valeur: "2,9"
+    unite: "milliards d'euros"
+    legende: "de déficit des hôpitaux publics en 2024, soit 2,7 % de leurs recettes"
+    source: { organisme: DREES, document: "Les établissements de santé en 2024", annee: 2024 }
+  - valeur: "2,1 %"
+    legende: "des recettes : le déficit estimé des hôpitaux publics en 2025, en baisse mais élevé"
+    source: { organisme: DREES, document: "Études et résultats, juillet 2026", annee: 2025 }
+  - valeur: "50 %"
+    legende: "des ressources des établissements visées hors T2A par la refonte du financement"
+    source: { organisme: DREES, document: "Les établissements de santé en 2024, annexe 2", annee: 2026 }
+options:
+  - id: A
+    libelle: "Garder la T2A et la simplifier"
+    implique: "On conserve le paiement à l'activité pour la médecine, la chirurgie et l'obstétrique, en allégeant ses tâches administratives."
+    defenseurs: "Payer à l'activité rémunère le travail réellement produit et rend les coûts visibles, à condition d'en simplifier les rouages."
+    critiques: "Elle est jugée mal adaptée aux établissements et aux activités indispensables mais peu rentables (urgences, psychiatrie, soins de suite), ce qui a conduit à lui substituer des dotations depuis 2022."
+    axes: { economie: 1 }
+  - id: B
+    libelle: "Poursuivre la réforme en cours : un mélange d'activité et de dotations"
+    implique: "T2A pour les actes courants et dotations pour les missions de service public et les besoins du territoire, avec pour cible la moitié des ressources hors T2A."
+    defenseurs: "Garder une incitation à l'activité tout en finançant ce qui ne se paie pas à l'acte (urgences, territoires isolés, missions de santé publique) : la réforme de 2025 ajoute deux dotations aux tarifs."
+    critiques: "Pour ses détracteurs, elle ne va pas assez loin (les tarifs restent la principale source de revenus) ou rend le système plus complexe, alors que le déficit persiste (2,9 milliards d'euros en 2024)."
+  - id: C
+    libelle: "En finir avec la tarification à l'acte : une dotation globale selon les besoins du territoire"
+    implique: "L'hôpital public reçoit un budget annuel global fixé selon la population et les besoins de son territoire, comme avant 2004, sans paiement à chaque acte (ou seulement pour certains actes techniques programmés)."
+    defenseurs: "Un budget global et pluriannuel, fixé selon les besoins du territoire, permet de planifier, de maintenir des services peu rentables et met fin à la course à l'acte."
+    critiques: "Sans lien direct avec l'activité, un budget global peut figer les inégalités entre hôpitaux et réduire l'incitation à soigner plus de patients."
+    axes: { economie: -1 }
+pourAllerPlusLoin:
+  - titre: "DREES, les dépenses de santé en 2025"
+    url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse-infographie-documents-de-reference/261001-les-d%C3%A9penses-de-sant%C3%A9-en-2025-edition-2026-panorama-de-la-drees
+  - titre: "DREES, les établissements de santé en 2024"
+    url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse-documents-de-reference/panoramas-de-la-drees/260520-Etablissements-de-sant%C3%A9-en-2024
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour garder la T2A"
+    argument: "Payer à l'activité rémunère le travail réellement produit et rend les coûts visibles, à condition d'en simplifier les rouages."
+  - titre: "Pour en finir avec la T2A"
+    argument: "Un budget global et pluriannuel, fixé selon les besoins du territoire, permet de planifier, de maintenir des services peu rentables et met fin à la course à l'acte."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Garder"
+    precision: "la T2A"
+  - choix: "En finir"
+    precision: "avec la T2A"
+positions:
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  le-pen: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  melenchon: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  glucksmann: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  lisnard: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.debout-la-france.fr/projet/sante/
+  dupont-aignan: { option: C, source: "Projet santé, DLF, mesure 10, 2026", statut: officielle }

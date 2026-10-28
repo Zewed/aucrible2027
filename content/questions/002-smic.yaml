@@ -1,0 +1,90 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/002-smic.md
+numero: 2
+date: 2026-10-01
+theme: travail-retraites
+question: De combien faut-il augmenter le SMIC, au-delà de sa revalorisation automatique ?
+titreCourt: "Le SMIC"
+contexte:
+  - Depuis le 1er juin 2026, le SMIC est de 1 867 euros bruts par mois, soit environ 1 478 euros nets, pour 35 heures par semaine.
+  - Il est relevé chaque 1er janvier, et en cours d'année si les prix montent d'au moins 2 %, selon une règle qui tient compte de l'inflation des ménages modestes et de la moitié du gain de pouvoir d'achat des ouvriers et employés ; il l'a été deux fois en 2026.
+  - Le gouvernement peut aussi lui donner un coup de pouce, et environ 2 millions de salariés, soit 12 % de l'emploi salarié en 2021, sont payés au SMIC.
+chiffres:
+  - valeur: "1 867"
+    unite: euros bruts
+    legende: "par mois : le SMIC depuis le 1er juin 2026, soit environ 1 478 euros nets"
+    source: { organisme: Service-Public, document: arrêté du 22 mai 2026, annee: 2026 }
+  - valeur: 12 %
+    legende: des salariés étaient payés au SMIC début 2021
+    source: { organisme: La finance pour tous, annee: 2021 }
+  - valeur: "19"
+    unite: milliards d'euros
+    legende: "par an : coût estimé en 2024 d'un SMIC à 1 600 euros nets pour les finances publiques"
+    source: { organisme: Institut Montaigne, annee: 2024 }
+  - valeur: "plus de 60 %"
+    legende: "du salaire brut médian : le niveau du salaire minimum français, dans le groupe le plus élevé de l'Union européenne"
+    source: { organisme: Eurostat, annee: 2024 }
+options:
+  - id: A
+    libelle: 2 200 euros nets
+    implique: Le SMIC passe d'environ 1 478 à 2 200 euros nets par mois, soit près de 50 % de plus.
+    defenseurs: 2 200 euros est un minimum pour vivre décemment.
+    critiques: Une hausse de cette ampleur pèserait lourd sur les petites entreprises, où travaille près d'un salarié au SMIC sur quatre, et menacerait des emplois peu qualifiés.
+    axes: { economie: -2 }
+  - id: B
+    libelle: 1 600 euros nets
+    implique: Le SMIC passe à 1 600 euros nets, près de 2 000 euros bruts, soit environ 8 % de plus qu'aujourd'hui.
+    defenseurs: "Ceux qui travaillent au minimum doivent pouvoir vivre de leur salaire : la hausse soutient leur pouvoir d'achat et la consommation."
+    critiques: En 2024, l'Institut Montaigne chiffrait la mesure à 19 milliards d'euros par an et à environ 300 000 emplois en moins, surtout au niveau du SMIC.
+    axes: { economie: -1 }
+  - id: C
+    libelle: Pas de coup de pouce
+    implique: Le SMIC continue d'être relevé automatiquement avec les prix et une part du gain de pouvoir d'achat des ouvriers et employés.
+    defenseurs: Une règle connue, qui suit le coût de la vie sans alourdir le coût du travail ni fragiliser l'emploi.
+    critiques: "La règle suit les prix : elle donne peu de pouvoir d'achat supplémentaire aux salariés les moins payés."
+    axes: { economie: 1 }
+  - id: D
+    libelle: Faire monter le net par les cotisations
+    implique: Le SMIC brut reste revalorisé comme aujourd'hui ; des baisses de cotisations font monter le salaire net, sans hausse du coût pour l'employeur.
+    defenseurs: "Les cotisations pèsent sur le salaire net et sur le coût du travail : le salarié gagne plus sans que l'employeur paie davantage, et l'emploi est préservé."
+    critiques: "Les cotisations financent la protection sociale : leur baisse réduit ses recettes et doit être compensée par des économies ou d'autres recettes."
+    # Ne se range pas entre les niveaux de SMIC : il change le levier (cotisations plutôt que SMIC).
+    horsEchelle: true
+    axes: { economie: 1 }
+pourAllerPlusLoin:
+  - titre: Service-Public, Salaire minimum de croissance (Smic)
+    url: https://www.service-public.gouv.fr/particuliers/vosdroits/F2300
+  - titre: Eurostat, statistiques sur les salaires minimaux, 2026
+    url: https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Minimum_wage_statistics
+  - titre: Institut Montaigne, Augmenter le SMIC à 1 600 euros net, 2024
+    url: https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/augmenter-le-smic-a-1600-e-net
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour relever le SMIC"
+    argument: "Ceux qui travaillent au minimum doivent pouvoir vivre de leur salaire : la hausse soutient leur pouvoir d'achat."
+  - titre: "Pour ne pas le relever"
+    argument: "Une règle connue, qui suit le coût de la vie sans alourdir le coût du travail ni fragiliser l'emploi."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Relever"
+    precision: "le SMIC"
+  - choix: "Pas de coup de pouce"
+    precision: "au SMIC"
+positions:
+  # https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html (« Nous défendrons le SMIC à 2 200 € nets »)
+  arthaud: { option: A, source: "Meeting de Paris, Lutte ouvrière, 26/09/2026", statut: officielle }
+  # https://votons-2027.fr/candidats/melenchon/programme/economie (reprend melenchon2027.fr/programme2025/livre/, mesure 5 ; page d'origine non lue)
+  melenchon: { option: B, source: "L'Avenir en commun, édition 2025, mesure 5", statut: officielle }
+  # https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing (« Augmenter le SMIC à 1600 euros net dans les deux ans qui suivent notre accession au pouvoir »)
+  glucksmann: { option: B, source: "Place publique, Notre vision pour la France, Acte I, 23/06/2025", statut: deduite }
+  # https://votons-2027.fr/candidats/tondelier/programme/economie (reprend le Projet 2027 des Écologistes, mesure 2 ; page d'origine non lue)
+  tondelier: { option: B, source: "Projet 2027, mesure 2", statut: officielle }
+  # https://rassemblementnational.fr/22-mesures (mesure 5 : « Permettre aux entreprises une hausse des salaires de 10% (jusqu'à 3 smic) »)
+  le-pen: { option: D, source: "22 mesures pour 2022, mesure 5, 2022", statut: deduite }
+  # https://attalpresident.fr/programme/travail-salaires (« réduisant les charges salariales pour faire monter le salaire net »)
+  attal: { option: D, source: "attalpresident.fr, Travail & salaires, 2026", statut: officielle }
+  # https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere (« augmenter le salaire net des actifs »)
+  philippe: { option: D, source: "edouardphilippe.fr, Pour une France plus prospère, 2026", statut: officielle }
+  # https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf (Le travail gagnant : 30 Md€ restitués aux salariés et aux entreprises)
+  retailleau: { option: D, source: "Les Républicains, Le travail gagnant, 01/2026", statut: deduite }

@@ -1,0 +1,85 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/018-parcoursup.md
+numero: 18
+date: 2026-10-17
+theme: education-jeunesse
+question: "Faut-il supprimer Parcoursup ?"
+titreCourt: "Parcoursup"
+contexte:
+  - "Depuis 2018, Parcoursup recueille les vœux des bacheliers et des étudiants en réorientation, puis les formations, qui examinent elles-mêmes les candidatures, leur envoient des propositions d'admission."
+  - "Ses critiques lui reprochent son opacité, l'attente et la sélection à l'entrée des études ; ses défenseurs soulignent que la plupart des lycéens reçoivent une proposition."
+  - "Après un mouvement lycéen en octobre 2026, l'exécutif a annoncé une réforme pour 2027, puis un nouvel outil à l'horizon 2028."
+chiffres:
+  - valeur: "980 000"
+    legende: "candidats inscrits sur la plateforme"
+    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2025, annee: 2025 }
+  - valeur: 91,9 %
+    legende: "des lycéens de Terminale ont reçu au moins une proposition"
+    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2025, annee: 2025 }
+  - valeur: 66 %
+    legende: "des lycéens ont reçu une proposition dès le premier jour"
+    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2025, annee: 2025 }
+  - valeur: 53 %
+    legende: "des lycéens jugent la procédure transparente"
+    source: { organisme: Ministère de l'Enseignement supérieur, document: baromètre CSA dans le bilan 2025, annee: 2025 }
+options:
+  - id: A
+    libelle: "Oui, et garantir à chaque bachelier sa place"
+    implique: "Parcoursup disparaît ; tout bachelier peut s'inscrire dans la formation de son choix, et l'État crée les places nécessaires."
+    defenseurs: "Le bac doit suffire pour entrer dans la formation de son choix : sans tri sur dossier, plus d'opacité ni d'attente, et chacun a sa chance quel que soit son lycée."
+    critiques: "Beaucoup de formations ont moins de places que de candidats : il faudrait en créer beaucoup, ce qui coûte et prend du temps, ou le tri se ferait autrement."
+    axes: { economie: -1, societe: -1 }
+  - id: B
+    libelle: "Oui, et le remplacer par un nouvel outil"
+    implique: "Parcoursup est abandonné pour une nouvelle procédure d'admission, dont les règles restent à définir."
+    defenseurs: "La confiance dans Parcoursup est entamée : un outil conçu avec les lycéens, les familles et les établissements peut offrir des règles plus claires et une attente plus courte."
+    critiques: "Un nouvel outil prendra des années et pourrait reproduire les mêmes défauts, au risque de désorganiser les admissions."
+  - id: C
+    libelle: "Non, mais le réformer"
+    implique: "La plateforme reste, avec des critères de sélection publics, un calendrier et un accompagnement revus."
+    defenseurs: "Parcoursup fonctionne pour la plupart des candidats : mieux vaut corriger ses défauts que repartir de zéro."
+    critiques: "Des corrections ne changent pas le fond : les formations restent maîtres du tri et le sentiment d'arbitraire demeure."
+  - id: D
+    libelle: "Non, le garder tel quel"
+    implique: "Le fonctionnement actuel est conservé."
+    defenseurs: "Il organise chaque année l'entrée de près d'un million de candidats, avec des millions de propositions envoyées dès le premier jour : un système éprouvé."
+    critiques: "Il laisse des candidats dans l'attente et sans comprendre les critères retenus."
+pourAllerPlusLoin:
+  - titre: "Ministère de l'Enseignement supérieur, bilan Parcoursup 2025"
+    url: https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2025-10/bilan-de-la-proc-dure-d-admission-2025-38034.pdf
+  - titre: "Cour des comptes, premier bilan de la loi orientation et réussite des étudiants, 2020"
+    url: https://www.ccomptes.fr/fr/publications/acces-lenseignement-superieur-premier-bilan-de-la-loi-orientation-et-reussite-des
+  - titre: "Public Sénat, faut-il supprimer Parcoursup ? (05/10/2026)"
+    url: https://www.publicsenat.fr/actualites/education/algorithmes-discriminatoires-systeme-opaque-et-hypocrite-faut-il-supprimer-parcoursup
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour le supprimer"
+    argument: "Le bac doit suffire pour entrer dans la formation de son choix : sans tri sur dossier, plus d'opacité ni d'attente, et chacun a sa chance quel que soit son lycée."
+  - titre: "Pour le garder"
+    argument: "Parcoursup fonctionne pour la plupart des candidats : mieux vaut corriger ses défauts que repartir de zéro."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Le supprimer"
+    precision: "Parcoursup"
+  - choix: "Le garder"
+    precision: "en le réformant"
+positions:
+  # https://www.sudradio.fr/societe/a-clermont-ferrand-melenchon-fait-salle-comble-pour-denoncer-lignominie-parcoursup
+  melenchon: { option: A, source: "Meeting à Cournon-d'Auvergne, 11/10/2026", statut: officielle }
+  # https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la
+  roussel: { option: A, source: "Propos rapportés par LCP, 26/10/2026", statut: officielle }
+  # https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la
+  tondelier: { option: A, source: "France 2, 26/10/2026", statut: officielle }
+  # https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la
+  glucksmann: { option: B, source: "TF1, 26/10/2026", statut: officielle }
+  # https://www.publicsenat.fr/actualites/politique/crise-lyceenne-bruno-retailleau-veut-une-selection-a-luniversite
+  retailleau: { option: B, source: "Public Sénat, 14/10/2026", statut: officielle }
+  # https://www.titrespresse.com/24959422603/parcoursup-david-lisnard
+  lisnard: { option: B, source: "BFMTV, 13/10/2026", statut: officielle }
+  # https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la
+  le-pen: { option: C, source: "CNews, 15/10/2026", statut: officielle }
+  # https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la
+  attal: { option: C, source: "Meeting à Lyon, 10/10/2026", statut: officielle }
+  # https://www.publicsenat.fr/actualites/politique/parcoursup-que-proposent-les-candidats-sur-l-affectation-postbac-200502
+  zemmour: { option: C, source: "Campagne 2022, Public Sénat, 29/03/2022", statut: deduite }

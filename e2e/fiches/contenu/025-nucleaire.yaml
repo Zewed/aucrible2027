@@ -1,0 +1,67 @@
+# DONNÉES DE DÉMONSTRATION : question, contexte, chiffres et positions inventés pour développer l'app.
+# Les positions n'ont pas de vraie source. Rien n'est vérifié : à remplacer par une
+# fiche sourcée avant toute mise en ligne.
+numero: 25
+date: 2026-10-24
+theme: ecologie-energie
+question: Faut-il sortir du nucléaire ?
+titreCourt: "Le nucléaire"
+contexte:
+  - Le nucléaire produit environ les deux tiers de l'électricité consommée en France.
+  - La plupart des réacteurs en service ont été construits dans les années 1980 et doivent être prolongés ou remplacés.
+  - En 2022, l'État a annoncé la construction de six nouveaux réacteurs.
+chiffres:
+  - valeur: 65 %
+    legende: de l'électricité produite en France vient du nucléaire
+    source: { organisme: RTE, document: bilan électrique, annee: 2024 }
+  - valeur: "57"
+    unite: réacteurs
+    legende: en service dans le pays
+    source: { organisme: EDF, annee: 2025 }
+options:
+  - id: A
+    libelle: Oui, d'ici 2045
+    implique: Les réacteurs ferment peu à peu, remplacés par les renouvelables et les économies d'énergie.
+    defenseurs: On écarte le risque d'accident et la question des déchets, avec des renouvelables de moins en moins chères.
+    critiques: Il faudrait remplacer vite une production pilotable, au risque de plus de gaz ou d'importations.
+  - id: B
+    libelle: Réduire sa part, sans en sortir
+    implique: Le parc diminue, et les renouvelables prennent une plus grande part de la production.
+    defenseurs: Ne pas dépendre d'une seule technologie, tout en gardant une base de production stable.
+    critiques: Fermer des réacteurs qui fonctionnent encore coûte cher sans réduire les émissions.
+  - id: C
+    libelle: Garder le parc actuel
+    implique: On prolonge les réacteurs existants, sans en construire de nouveaux.
+    defenseurs: Les réacteurs existants produisent une électricité bas carbone déjà payée.
+    critiques: "Prolonger ne fait que repousser le choix : les réacteurs finiront par fermer."
+  - id: D
+    libelle: Construire de nouveaux réacteurs
+    implique: De nouveaux réacteurs remplacent les plus anciens ou s'ajoutent au parc.
+    defenseurs: Une électricité bas carbone et pilotable pour électrifier les transports et l'industrie.
+    critiques: Les chantiers récents ont pris des années de retard et coûté bien plus que prévu.
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options,
+# le premier resserré pour tenir dans l'image).
+cotes:
+  - titre: "Pour sortir du nucléaire"
+    argument: "On écarte le risque d'accident et les déchets, avec des renouvelables moins chères."
+  - titre: "Pour ne pas en sortir"
+    argument: "Les réacteurs existants produisent une électricité bas carbone déjà payée."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "En sortir"
+    precision: "ou réduire"
+  - choix: "Le garder"
+    precision: "ou construire"
+positions:
+  arthaud: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
+  tondelier: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
+  melenchon: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
+  ruffin: { option: B, source: "Source de démonstration, à trouver", statut: deduite }
+  glucksmann: { option: B, source: "Source de démonstration, à trouver", statut: deduite }
+  attal: { option: C, source: "Source de démonstration, à trouver", statut: deduite }
+  philippe: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
+  le-pen: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
+  retailleau: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
+  zemmour: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
+  roussel: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
+  dupont-aignan: { option: D, source: "Source de démonstration, à trouver", statut: deduite }

@@ -1,0 +1,71 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/004-quotas-immigration.md
+numero: 4
+date: 2026-10-03
+theme: immigration
+question: Faut-il fixer des quotas d'immigration, votés par le Parlement ?
+titreCourt: "Les quotas d'immigration"
+contexte:
+  - La loi de janvier 2024 sur l'immigration prévoyait un débat annuel au Parlement et la fixation, pour trois ans, du nombre d'étrangers admis à s'installer durablement ; le Conseil constitutionnel a censuré ces dispositions le 25 janvier 2024.
+  - Il a jugé que la loi ne pouvait pas imposer au Parlement l'organisation d'un tel débat ni la fixation de certains objectifs chiffrés.
+  - En 2025, la France a délivré 377 462 premiers titres de séjour, soit 9,8 % du total de l'Union européenne, et l'Ofpra a enregistré 145 210 demandes de protection internationale.
+chiffres:
+  - valeur: "377 462"
+    legende: premiers titres de séjour délivrés en France en 2025, soit 9,8 % du total de l'Union européenne
+    source: { organisme: Eurostat, document: premiers titres de séjour, annee: 2025 }
+  - valeur: "145 210"
+    legende: demandes de protection internationale enregistrées par l'Ofpra en 2025
+    source: { organisme: Ofpra, document: rapport d'activité 2025, annee: 2025 }
+  - valeur: 33,6 %
+    legende: "des premiers titres délivrés dans l'Union en 2025 le sont pour un emploi, 28,1 % pour la famille et 15,5 % pour les études"
+    source: { organisme: Eurostat, document: premiers titres de séjour, annee: 2025 }
+options:
+  - id: A
+    libelle: Non, pas de plafond
+    implique: "Le nombre d'arrivées n'est pas plafonné : aucun quota annuel ne limite les titres de séjour."
+    defenseurs: Chaque être humain doit pouvoir circuler et s'installer librement, et les sans-papiers doivent être régularisés.
+    critiques: Sans plafond, l'État ne peut pas choisir le nombre ni les profils des arrivées pour répondre aux besoins du pays.
+    axes: { societe: -2 }
+  - id: B
+    libelle: Oui, pour l'immigration de travail
+    implique: Les besoins de main-d'œuvre sont évalués, par exemple tous les deux ans avec les partenaires sociaux, et le Parlement vote des quotas pour l'immigration de travail seulement.
+    defenseurs: Choisir notre immigration économique selon les besoins réels du marché du travail, évalués avec les partenaires sociaux.
+    critiques: "Les quotas de travail ne touchent qu'une partie des arrivées : dans l'Union, un premier titre sur trois est délivré pour un emploi."
+    axes: { societe: 1 }
+  - id: C
+    libelle: Oui, un plafond pour toutes les catégories
+    implique: Un plafond migratoire s'applique à toutes les catégories d'immigration.
+    defenseurs: C'est aux Français et à leurs représentants de décider combien d'étrangers sont accueillis, quitte à réviser la Constitution.
+    critiques: Le Conseil constitutionnel a déjà censuré en 2024 la fixation d'objectifs chiffrés imposée par la loi au Parlement, et un plafond global soulève la question des droits liés à l'asile et à la famille.
+    axes: { societe: 2 }
+pourAllerPlusLoin:
+  - titre: Conseil constitutionnel, décision n° 2023-863 DC du 25 janvier 2024
+    url: https://www.conseil-constitutionnel.fr/decision/2024/2023863DC.htm
+  - titre: Eurostat, premiers titres de séjour délivrés en 2025
+    url: https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Residence_permits_-_statistics_on_first_permits_issued_during_the_year
+  - titre: Ofpra, chiffres de la demande d'asile en 2025
+    url: https://www.ofpra.gouv.fr/
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour des quotas"
+    argument: "Choisir notre immigration selon les besoins réels du pays, évalués avec les partenaires sociaux."
+  - titre: "Pour ne pas en fixer"
+    argument: "Chaque être humain doit pouvoir circuler et s'installer librement, et les sans-papiers doivent être régularisés."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Des quotas"
+    precision: "votés par le Parlement"
+  - choix: "Pas de quotas"
+    precision: "pas de plafond"
+positions:
+  # https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure (« Mettre en place une politique de quotas migratoires » pour l'immigration économique)
+  philippe: { option: B, source: "edouardphilippe.fr, Pour une France plus sûre, 2026", statut: officielle }
+  # https://www.epochtimes.fr/travail-immigration-salaires-gabriel-attal-lance-son-offensive-pour-2027-3248765.html (partenaires sociaux, vote de quotas au Parlement, tous les deux ans)
+  attal: { option: B, source: "Entretien au Figaro, 30/04/2026", statut: officielle }
+  # https://www.unenouvelleenergie.fr/notre-programme/immigration/ (« Fixer des quotas de main-d'œuvre qualifiée »)
+  lisnard: { option: B, source: "Nouvelle Énergie, programme Immigration, 2026", statut: officielle }
+  # https://www.publicsenat.fr/actualites/politique/presidentielle-2027-bruno-retailleau-veut-renverser-la-table-avec-une-profonde-reforme-constitutionnelle (« instaurer des plafonds migratoires »)
+  retailleau: { option: C, source: "Public Sénat, 03/09/2026", statut: officielle }
+  # https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure_caravane_2026-01_-_couleur.pdf (« liberté de circulation et d'installation pour chaque être humain »)
+  arthaud: { option: A, source: "Lutte ouvrière, brochure, 06/2026", statut: officielle }

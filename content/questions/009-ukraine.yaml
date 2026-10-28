@@ -1,0 +1,81 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/009-ukraine.md (tout ce qui suit y est sourcé).
+numero: 9
+date: 2026-10-08
+theme: europe-international
+question: Faut-il continuer à livrer des armes à l'Ukraine ?
+titreCourt: "Les armes à l'Ukraine"
+contexte:
+  - Depuis 2022, la France livre à l'Ukraine des armes (canons Caesar, missiles SCALP, avions Mirage 2000) et forme ses soldats ; les quantités ne sont pas publiques.
+  - "Les montants dépendent de la méthode : le ministère des Armées compte 5,9 milliards d'euros de soutien militaire direct jusqu'à fin 2024, l'institut de Kiel 6,2 milliards jusqu'en juin 2026."
+  - La guerre continue, et des discussions entre la Russie, l'Ukraine et les États-Unis doivent reprendre en novembre.
+chiffres:
+  - valeur: "5,9"
+    unite: milliards d'euros
+    legende: "de soutien militaire direct à l'Ukraine, du 24 février 2022 au 31 décembre 2024"
+    source: { organisme: Ministère des Armées, document: rapport au Parlement sur les exportations d'armement, annee: 2025 }
+  - valeur: 0,3 %
+    legende: "du PIB : ce que la France consacre à l'Ukraine, au 13e rang européen"
+    source: { organisme: Institut de Kiel, document: Ukraine Support Tracker, annee: 2025 }
+  - valeur: "20 000"
+    unite: soldats
+    legende: ukrainiens formés par la France depuis 2022
+    source: { organisme: Ministère des Armées, annee: 2026 }
+options:
+  - id: A
+    libelle: Arrêter les livraisons d'armes
+    implique: La France cesse d'armer l'Ukraine et mise sur la négociation.
+    defenseurs: Les finances publiques ne le permettent plus, et la logique du « toujours plus d'armes » n'amène pas la paix.
+    critiques: Relâcher l'aide fragiliserait l'Ukraine dans d'éventuelles négociations.
+  - id: B
+    libelle: Les limiter au matériel de défense
+    implique: Formation et armes de défense seulement, sans nouveau financement et sans arme permettant de frapper en territoire russe.
+    defenseurs: On aide l'Ukraine à se défendre sans que la France devienne cobelligérante ni qu'elle s'endette davantage.
+    critiques: Une aide plafonnée laisse l'Ukraine en position de faiblesse dans d'éventuelles négociations.
+  - id: C
+    libelle: Les poursuivre au niveau actuel
+    implique: Les livraisons et la formation continuent, dans le cadre de l'accord de sécurité conclu en 2024 pour dix ans.
+    defenseurs: "Il faut continuer de former les soldats ukrainiens et de livrer des armes : l'Ukraine est la sentinelle de la sécurité de l'Europe."
+    critiques: Certains jugent l'effort trop lourd pour les finances publiques, d'autres insuffisant pour que l'Ukraine négocie en position de force.
+  - id: D
+    libelle: Les renforcer
+    implique: Plus de livraisons, notamment de défense aérienne, plus de financement et, pour certains, des armes de longue portée.
+    defenseurs: Relâcher le soutien fragiliserait l'Ukraine ; il faut l'aider à tenir et à négocier en position de force.
+    critiques: Le coût pèse sur des finances publiques tendues, et la France risque d'être entraînée dans une escalade face à une puissance nucléaire.
+pourAllerPlusLoin:
+  - titre: Ministère des Armées, Ukraine, la France poursuit son soutien, 2026
+    url: https://www.defense.gouv.fr/actualites/ukraine-france-poursuit-son-soutien
+  - titre: Assemblée nationale, rapport n° 1001 sur le renforcement du soutien à l'Ukraine, 2025
+    url: https://questions.assemblee-nationale.fr/dyn/17/rapports/cion_afetr/l17b1001_rapport-fond.pdf
+  - titre: Institut de Kiel, Ukraine Support Tracker, 2026
+    url: https://www.kielinstitut.de/media/news/ukraine-support-tracker-military-aid-holds-steady-as-focus-shifts-to-drones/
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour continuer ou renforcer l'aide"
+    argument: "Relâcher le soutien fragiliserait l'Ukraine dans d'éventuelles négociations."
+  - titre: "Pour limiter ou arrêter l'aide"
+    argument: "Les finances publiques ne le permettent plus, et le « toujours plus d'armes » n'amène pas la paix."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Continuer"
+    precision: "ou renforcer"
+  - choix: "Limiter"
+    precision: "ou arrêter"
+positions:
+  # Projet de Debout la France, mesure 22 : https://www.debout-la-france.fr/projet/economie-travail/
+  dupont-aignan: { option: A, source: "Projet de Debout la France, mesure 22", statut: officielle }
+  # LCI, 16/09/2026 : https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/face-a-l-etat-des-finances-publiques-marine-le-pen-estime-que-la-france-ne-peut-plus-aider-l-ukraine-autant-qu-actuellement_8197058.html ; franceinfo, 16/10/2026 : https://www.franceinfo.fr/replay-jt/franceinfo/21h-minuit/23-heures/presidentielle-2027-l-ukraine-un-enjeu-pour-la-campagne_8239765.html
+  le-pen: { option: B, source: "LCI, 16/09/2026", statut: officielle }
+  # Sud Radio, 07/03/2024 : https://www.sudradio.fr/linvite-politique/ukraine-je-ne-veux-pas-que-la-france-entre-en-guerre-contre-la-russie-declare-fabien-roussel
+  roussel: { option: B, source: "Sud Radio, 07/03/2024", statut: deduite }
+  # Vote du groupe Horizons, scrutin n° 988 du 12/03/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/988
+  philippe: { option: D, source: "Vote du groupe Horizons, 12/03/2025", statut: deduite }
+  # Vote du groupe socialiste, scrutin n° 988 du 12/03/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/988
+  glucksmann: { option: D, source: "Vote du groupe socialiste, 12/03/2025", statut: deduite }
+  # Vote du groupe Droite républicaine, scrutin n° 988 du 12/03/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/988
+  retailleau: { option: D, source: "Vote du groupe Droite républicaine, 12/03/2025", statut: deduite }
+  # Vote du groupe EPR, scrutin n° 988 du 12/03/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/988
+  attal: { option: D, source: "Vote du groupe EPR, 12/03/2025", statut: deduite }
+  # Programme de juillet 2026, p. 197 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+  tondelier: { option: D, source: "Programme 2027, juillet 2026, p. 197", statut: officielle }

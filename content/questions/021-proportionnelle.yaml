@@ -1,0 +1,82 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/021-proportionnelle.md
+numero: 21
+date: 2026-10-20
+theme: institutions-democratie
+question: "Faut-il élire les députés à la proportionnelle ?"
+titreCourt: "La proportionnelle"
+contexte:
+  - "Les 577 députés sont élus au scrutin majoritaire à deux tours, dans autant de circonscriptions ; seules les élections de 1986 se sont faites à la proportionnelle sous la Ve République."
+  - "En 2024, le bloc arrivé en tête avec 33,2 % des voix au premier tour n'a eu que 24,6 % des sièges, alors que les deux suivants en ont eu davantage que de voix, et aucun n'a atteint la majorité de 289 sièges."
+  - "En 2025, le Premier ministre a proposé une proportionnelle intégrale par département, comme en 1986 ; les partis restent divisés sur le sujet."
+chiffres:
+  - valeur: 33,2 %
+    legende: "des voix au premier tour pour le bloc arrivé en tête en 2024"
+    source: { organisme: Ministère de l'Intérieur, document: législatives 2024, annee: 2024 }
+  - valeur: 24,6 %
+    legende: "des sièges pour les mêmes candidats : 142 sur 577"
+    source: { organisme: Ministère de l'Intérieur, document: législatives 2024, annee: 2024 }
+  - valeur: "289"
+    unite: "sièges"
+    legende: "pour la majorité absolue : aucun bloc ne l'a atteinte en 2024"
+    source: { organisme: Ministère de l'Intérieur, document: législatives 2024, annee: 2024 }
+options:
+  - id: A
+    libelle: "Oui, la proportionnelle intégrale"
+    implique: "Tous les députés sont élus à la proportionnelle, sans prime majoritaire : chaque liste obtient des sièges à proportion de ses voix."
+    defenseurs: "Chaque voix pèse autant et toutes les sensibilités sont représentées : l'Assemblée reflète le pays, et les majorités se construisent par le compromis."
+    critiques: "Sans prime, il devient plus difficile de dégager une majorité, et le lien entre l'électeur et son député se distend."
+  - id: B
+    libelle: "Oui, avec une prime majoritaire"
+    implique: "Les députés sont élus à la proportionnelle, avec un bonus de sièges pour la liste arrivée en tête afin de lui donner une majorité."
+    defenseurs: "L'Assemblée est plus représentative qu'aujourd'hui et le pays garde une majorité claire pour gouverner."
+    critiques: "La prime donne à la liste arrivée en tête plus de sièges que de voix, ce qui réduit la représentation des autres."
+  - id: C
+    libelle: "Oui, mais seulement pour une partie des députés"
+    implique: "Une partie de l'Assemblée est élue à la proportionnelle (par exemple 15 % des sièges), le reste étant élu comme aujourd'hui."
+    defenseurs: "On corrige une partie de l'écart entre les voix et les sièges sans perdre le lien avec un député local ni la majorité."
+    critiques: "Une simple dose ne change l'équilibre qu'à la marge : les courants minoritaires restent sous-représentés."
+  - id: D
+    libelle: "Non, garder le scrutin actuel"
+    implique: "Les députés restent élus dans leur circonscription, au scrutin majoritaire à deux tours."
+    defenseurs: "Chaque territoire a son député et le vote tranche : le scrutin majoritaire favorise une majorité claire, que la proportionnelle risque d'empêcher."
+    critiques: "Il écarte de l'Assemblée des courants qui rassemblent des millions de voix et donne des sièges éloignés des voix, comme en 2024."
+pourAllerPlusLoin:
+  - titre: "Ministère de l'Intérieur, résultats définitifs des législatives 2024 (1er tour)"
+    url: https://www.data.gouv.fr/datasets/elections-legislatives-des-30-juin-et-7-juillet-2024-resultats-definitifs-du-1er-tour
+  - titre: "Assemblée nationale, proposition de loi sur la proportionnelle intégrale, 2024"
+    url: https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L16B2508.html
+  - titre: "LCP, Bayrou consulte les partis sur la proportionnelle, 30/04/2025"
+    url: https://lcp.fr/actualites/proportionnelle-aux-legislatives-francois-bayrou-consulte-les-avis-divergent-sur-le
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour la proportionnelle"
+    argument: "Chaque voix pèse autant et toutes les sensibilités sont représentées : l'Assemblée reflète le pays, et les majorités se construisent par le compromis."
+  - titre: "Pour le scrutin actuel"
+    argument: "Chaque territoire a son député et le vote tranche : le scrutin majoritaire favorise une majorité claire, que la proportionnelle risque d'empêcher."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Proportionnelle"
+    precision: "à l'Assemblée"
+  - choix: "Scrutin actuel"
+    precision: "à deux tours"
+positions:
+  # Programme de juillet 2026, p. 162, cité par https://monvote2027.fr/candidat/tondelier
+  tondelier: { option: A, source: "Programme de juillet 2026, p. 162", statut: officielle }
+  # https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/generaliser-la-representation-proportionnelle/
+  melenchon: { option: A, source: "Programme 2022, Institut Montaigne", statut: deduite }
+  # https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L16B2508.html
+  ruffin: { option: A, source: "Proposition de loi n° 2508, 11/04/2024", statut: deduite }
+  # CNews du 25/10/2026, cité par https://monvote2027.fr/candidat/le-pen
+  le-pen: { option: B, source: "Congrès du RN, 25/10/2026", statut: officielle }
+  # https://www.france24.com/fr/info-en-continu/20250522-edouard-philippe-d%C3%A9favorable-%C3%A0-la-proportionnelle-qui-conduirait-%C3%A0-une-absence-de-majorit%C3%A9
+  philippe: { option: D, source: "France 24, 22/05/2025", statut: deduite }
+  # https://lcp.fr/actualites/proportionnelle-aux-legislatives-francois-bayrou-consulte-les-avis-divergent-sur-le
+  retailleau: { option: D, source: "Europe 1, cité par LCP, 30/04/2025", statut: deduite }
+  # https://lcp.fr/actualites/proportionnelle-aux-legislatives-francois-bayrou-consulte-les-avis-divergent-sur-le
+  attal: { option: D, source: "Groupe Ensemble pour la République, LCP, 29/04/2025", statut: deduite }
+  # https://www.lefigaro.fr/vox/politique/eric-zemmour-la-proportionnelle-ce-masque-qui-cache-la-nudite-de-notre-democratie-20210129
+  zemmour: { option: D, source: "Le Figaro, 29/01/2021", statut: deduite }
+  # https://www.cnews.fr/france/2025-01-17/la-proportionnelle-serait-le-clou-sur-le-cercueil-de-la-france-estime-nicolas
+  dupont-aignan: { option: D, source: "CNews, 17/01/2025", statut: deduite }

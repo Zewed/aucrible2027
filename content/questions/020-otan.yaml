@@ -1,0 +1,75 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/020-otan.md
+numero: 20
+date: 2026-10-19
+theme: europe-international
+question: "La France doit-elle quitter le commandement intégré de l'OTAN ?"
+titreCourt: "Le commandement de l'OTAN"
+contexte:
+  - "La France a quitté en 1966 les commandements militaires communs de l'OTAN, sans quitter l'Alliance atlantique, puis y est revenue en 2009."
+  - "Elle n'a pas rejoint le groupe des plans nucléaires de l'Alliance, et elle y occupe des postes de commandement."
+  - "En juin 2025, les 32 alliés se sont engagés à consacrer 5 % de leur PIB à la défense d'ici 2035."
+chiffres:
+  - valeur: "1966"
+    legende: "année où la France quitte le commandement intégré, tout en restant dans l'Alliance"
+    source: { organisme: OTAN, document: la France et l'OTAN, annee: 1966 }
+  - valeur: "2009"
+    legende: "année où la France annonce qu'elle participera de nouveau pleinement aux structures"
+    source: { organisme: OTAN, document: la France et l'OTAN, annee: 2009 }
+  - valeur: 2,05 %
+    legende: "du PIB : l'effort de défense de la France (estimation)"
+    source: { organisme: OTAN, document: dépenses de défense 2014-2025, annee: 2025 }
+  - valeur: 5 %
+    legende: "du PIB à consacrer à la défense d'ici 2035 : l'engagement des 32 alliés"
+    source: { organisme: OTAN, document: déclaration du sommet de La Haye, annee: 2025 }
+options:
+  - id: A
+    libelle: "Oui, et sortir de l'Alliance"
+    implique: "La France quitte le commandement intégré, puis l'Alliance atlantique elle-même, et cherche un autre cadre de sécurité en Europe."
+    defenseurs: "L'OTAN met la France dans la dépendance des intérêts américains et nourrit les tensions : en sortir rend sa liberté de décision et permet un nouveau cadre de sécurité collective en Europe."
+    critiques: "Quitter l'Alliance priverait la France de la solidarité de ses alliés (article 5) alors que la menace russe persiste aux frontières de l'Europe."
+  - id: B
+    libelle: "Oui, mais rester dans l'Alliance"
+    implique: "Comme de 1966 à 2009, la France quitte les commandements communs mais reste membre de l'Alliance."
+    defenseurs: "La France retrouve la maîtrise de l'emploi de ses forces et une voix indépendante, tout en restant dans l'Alliance : elle l'a fait pendant 43 ans."
+    critiques: "Elle perdrait ses postes de commandement et son influence sur les décisions de l'Alliance, et fragiliserait sa crédibilité auprès de ses alliés."
+  - id: C
+    libelle: "Non, y rester"
+    implique: "La France garde sa place dans la structure militaire intégrée, où elle est revenue en 2009, et développe la défense européenne en lien avec l'OTAN."
+    defenseurs: "Elle y pèse plus qu'en dehors, avec des postes de commandement, sans rien céder de son indépendance : sa dissuasion nucléaire reste hors du groupe des plans nucléaires."
+    critiques: "L'influence tient aux moyens militaires plus qu'aux postes de commandement, et, pour ses critiques, la structure fait perdre à la France une part de son autonomie stratégique à l'égard des États-Unis."
+pourAllerPlusLoin:
+  - titre: "OTAN, la France et l'OTAN"
+    url: https://www.nato.int/cps/en/natohq/topics_52044.htm
+  - titre: "OTAN, déclaration du sommet de La Haye, 25 juin 2025"
+    url: https://www.nato.int/cps/en/natohq/official_texts_236705.htm
+  - titre: "OTAN, dépenses de défense des pays de l'OTAN 2014-2025"
+    url: https://www.nato.int/content/dam/nato/webready/documents/finance/def-exp-2025-en.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour quitter le commandement intégré"
+    argument: "La France retrouve la maîtrise de l'emploi de ses forces et une voix indépendante, tout en restant dans l'Alliance : elle l'a fait pendant 43 ans."
+  - titre: "Pour y rester"
+    argument: "Elle y pèse plus qu'en dehors, avec des postes de commandement, sans rien céder de son indépendance : sa dissuasion nucléaire reste hors du groupe des plans nucléaires."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Quitter"
+    precision: "le commandement intégré"
+  - choix: "Y rester"
+    precision: "dans l'OTAN"
+positions:
+  # https://melenchon2027.fr/programme2025/livre/
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025", statut: officielle }
+  # https://www.pcf.fr/rompre_avec_l_otan_pour_assurer_la_securit_collective
+  roussel: { option: A, source: "PCF, Rompre avec l'OTAN, 2022", statut: deduite }
+  # https://actu.orange.fr/videos/politique/marine-le-pen-je-pense-qu-il-faut-sortir-du-commandement-integre-de-l-otan-CNT000002pxmsf.html
+  le-pen: { option: B, source: "BFMTV, 22/05/2026", statut: officielle }
+  # https://www.europe1.fr/politique/otan-ce-que-proposent-les-principaux-candidats-a-la-presidentielle-4100861
+  zemmour: { option: B, source: "Programme 2022, Europe 1, 23/03/2022", statut: deduite }
+  # https://www.debout-la-france.fr/wp-content/uploads/2022/07/100-Decisions-pour-la-France_VFIN.pdf
+  dupont-aignan: { option: B, source: "100 décisions pour la France, décision 11, 2022", statut: deduite }
+  # https://www.europe1.fr/politique/otan-ce-que-proposent-les-principaux-candidats-a-la-presidentielle-4100861
+  retailleau: { option: C, source: "Programme 2022 de LR, Europe 1, 23/03/2022", statut: deduite }
+  # https://www.europe1.fr/politique/otan-ce-que-proposent-les-principaux-candidats-a-la-presidentielle-4100861
+  attal: { option: C, source: "Programme 2022 de la majorité, Europe 1, 23/03/2022", statut: deduite }

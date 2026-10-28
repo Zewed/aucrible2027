@@ -1,0 +1,93 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/011-fin-de-vie.md (tout ce qui suit y est sourcé).
+# La question n'est pas « Faut-il légaliser ? » : la loi a été promulguée le 18/08/2026 (voir l'étude, note de méthode).
+numero: 11
+date: 2026-10-10
+theme: societe
+question: Jusqu'où faut-il autoriser l'aide à mourir ?
+titreCourt: "L'aide à mourir"
+contexte:
+  - Depuis 2016, la loi Claeys-Leonetti ouvre le droit à la sédation profonde et continue, mais pas à l'aide à mourir.
+  - Une loi promulguée le 18 août 2026 et adoptée par 291 voix contre 241 ouvre l'aide à mourir aux majeurs atteints d'une maladie grave et incurable en phase avancée ou terminale.
+  - Le patient s'administre lui-même le produit ; un soignant n'agit que s'il ne le peut pas, et la loi ne s'applique qu'une fois ses décrets publiés.
+chiffres:
+  - valeur: "291"
+    unite: députés
+    legende: pour la loi, contre 241, au vote final du 15 juillet 2026
+    source: { organisme: Assemblée nationale, document: lecture définitive, annee: 2026 }
+  - valeur: "181"
+    unite: sénateurs
+    legende: "contre le texte, pour 122 : le Sénat l'avait rejeté le 28 janvier 2026"
+    source: { organisme: Sénat, document: vote du 28 janvier 2026, annee: 2026 }
+  - valeur: "2"
+    unite: jours
+    legende: de réflexion au minimum avant que le patient confirme sa demande
+    source: { organisme: Conseil constitutionnel, document: décision n° 2026-910 DC, annee: 2026 }
+  - valeur: "3"
+    unite: réserves
+    legende: "du Conseil constitutionnel : majeurs sous protection, pharmaciens, établissements privés"
+    source: { organisme: Conseil constitutionnel, document: décision n° 2026-910 DC, annee: 2026 }
+options:
+  - id: A
+    libelle: L'abroger
+    implique: La loi du 18 août 2026 est abrogée ; on s'en tient à la loi de 2016 (sédation profonde et continue) et au développement des soins palliatifs.
+    defenseurs: "La société a besoin de soins palliatifs, pas d'une légalisation de l'euthanasie : il deviendrait plus facile de demander la mort que d'être soigné."
+    critiques: Des malades peuvent vouloir arrêter de souffrir et demandent la liberté de choisir leur fin de vie.
+    axes: { societe: 2 }
+  - id: B
+    libelle: La garder telle quelle
+    implique: Aide à mourir pour les majeurs, français ou résidents, atteints d'une maladie grave et incurable en phase avancée ou terminale ; le patient s'administre le produit, un soignant n'agit que s'il ne le peut pas.
+    defenseurs: "Si nul ne souhaite mourir, certains peuvent vouloir arrêter de souffrir : la loi leur donne ce choix, avec des garde-fous (collège de soignants, délai de réflexion de deux jours)."
+    critiques: Les uns y voient un « basculement anthropologique majeur », les autres un texte affaibli par les amendements.
+    axes: { societe: -1 }
+  - id: C
+    libelle: L'étendre à l'euthanasie
+    implique: Le patient peut demander qu'un médecin ou un infirmier lui administre le produit, sans devoir d'abord être dans l'incapacité de le faire lui-même.
+    defenseurs: Une liberté supplémentaire donnée aux êtres humains pour choisir leur fin de vie.
+    critiques: "« L'euthanasie est une boîte de Pandore : une fois ouverte, vous n'arrivez plus à la refermer. »"
+    axes: { societe: -2 }
+pourAllerPlusLoin:
+  - titre: Légifrance, loi n° 2026-794 du 18 août 2026 relative au droit à l'aide à mourir
+    url: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054706877
+  - titre: Conseil constitutionnel, décision n° 2026-910 DC du 14 août 2026
+    url: https://www.conseil-constitutionnel.fr/decision/2026/2026910DC.htm
+  - titre: Assemblée nationale, texte adopté n° 122 en première lecture, 2025
+    url: https://www.assemblee-nationale.fr/dyn/17/textes/l17t0122_texte-adopte-provisoire
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour autoriser l'aide à mourir"
+    argument: "Si nul ne souhaite mourir, certains peuvent vouloir arrêter de souffrir."
+  - titre: "Pour ne pas l'autoriser"
+    argument: "La société a besoin de soins palliatifs, pas d'une légalisation de l'euthanasie."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Autoriser"
+    precision: "ou aller plus loin"
+  - choix: "Ne pas autoriser"
+    precision: "soins palliatifs d'abord"
+positions:
+  # Vote contre la loi, lecture définitive du 15/07/2026 : https://datan.fr/votes/legislature-17/vote_8280 ; programme 2022 : https://www.ici.fr/infos/societe/fin-de-vie-quelles-sont-les-propositions-des-candidats-a-la-presidentielle-1649101440
+  le-pen: { option: A, source: "Vote contre la loi, 15/07/2026", statut: deduite }
+  # JDD, 10/05/2025 (relayé par franceinfo, 11/05/2025) : https://www.franceinfo.fr/societe/euthanasie/aide-a-mourir-bruno-retailleau-s-oppose-au-texte-line-renaud-et-gabriel-attal-le-defendent_7240641.html
+  retailleau: { option: A, source: "JDD, 10/05/2025", statut: deduite }
+  # Déclaration vers le 12/01/2025 : https://video-streaming.orange.fr/actu-politique/david-lisnard-contre-un-droit-a-l-aide-active-a-mourir-CNT000002gYwMd.html
+  lisnard: { option: A, source: "Déclaration, janvier 2025", statut: deduite }
+  # Programme 2022 (France Bleu, 05/04/2022) : https://www.ici.fr/infos/societe/fin-de-vie-quelles-sont-les-propositions-des-candidats-a-la-presidentielle-1649101440
+  zemmour: { option: A, source: "Programme 2022, 05/04/2022", statut: deduite }
+  # Intervention à l'Assemblée, 27/05/2024 : https://www.debout-la-france.fr/actualite/euthanasie-et-suicide-assiste-pourquoi-je-vote-contre-%C2%B7-assemblee-nationale-27-05-24/
+  dupont-aignan: { option: A, source: "Assemblée nationale, 27/05/2024", statut: deduite }
+  # Vote du groupe socialiste, lecture définitive du 15/07/2026 : https://datan.fr/votes/legislature-17/vote_8280
+  glucksmann: { option: B, source: "Vote du groupe socialiste, 15/07/2026", statut: deduite }
+  # Vote pour la loi, 15/07/2026 : https://datan.fr/votes/legislature-17/vote_8280 ; tribune du 11/05/2025 : https://www.franceinfo.fr/societe/euthanasie/aide-a-mourir-bruno-retailleau-s-oppose-au-texte-line-renaud-et-gabriel-attal-le-defendent_7240641.html
+  attal: { option: B, source: "Vote pour la loi, 15/07/2026", statut: deduite }
+  # Programme de juillet 2026, p. 130 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+  tondelier: { option: B, source: "Programme 2027, juillet 2026, p. 130", statut: officielle }
+  # Programme 2022 (France Bleu, 05/04/2022) : https://www.ici.fr/infos/societe/fin-de-vie-quelles-sont-les-propositions-des-candidats-a-la-presidentielle-1649101440
+  roussel: { option: B, source: "Programme 2022, 05/04/2022", statut: deduite }
+  # Vote pour la loi, 15/07/2026 : https://datan.fr/votes/legislature-17/vote_8280
+  ruffin: { option: B, source: "Vote pour la loi, 15/07/2026", statut: deduite }
+  # Programme 2022 (France Bleu, 05/04/2022) : https://www.ici.fr/infos/societe/fin-de-vie-quelles-sont-les-propositions-des-candidats-a-la-presidentielle-1649101440
+  arthaud: { option: B, source: "Programme 2022, 05/04/2022", statut: deduite }
+  # Proposition de loi LFI, 01/02/2018 : https://melenchon.fr/2018/02/02/droit-a-leuthanasie-suicide-assiste/
+  melenchon: { option: C, source: "Proposition de loi LFI, 01/02/2018", statut: deduite }

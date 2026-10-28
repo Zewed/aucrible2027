@@ -1,0 +1,56 @@
+# DONNÉES DE DÉMONSTRATION : question, contexte et chiffres inventés pour développer l'app.
+# Aucune position de candidat n'est renseignée. Rien n'est vérifié : à remplacer par une
+# fiche sourcée avant toute mise en ligne.
+numero: 26
+date: 2026-10-25
+theme: sante
+question: Faut-il réguler l'installation des médecins ?
+titreCourt: "L'installation des médecins"
+contexte:
+  - Aujourd'hui, un médecin libéral peut s'installer où il le souhaite.
+  - Dans certains territoires, il faut attendre plusieurs mois pour un rendez-vous, et des patients n'ont plus de médecin traitant.
+  - L'idée d'encadrer les installations revient régulièrement au Parlement depuis des années.
+chiffres:
+  - valeur: "6"
+    unite: millions
+    legende: de patients sans médecin traitant
+    source: { organisme: Assurance maladie, annee: 2024 }
+  - valeur: 87 %
+    legende: du territoire classé en zone où l'accès aux médecins est difficile
+    source: { organisme: DREES, annee: 2023 }
+  - valeur: "85"
+    legende: généralistes pour 100 000 habitants
+    source: { organisme: DREES, annee: 2025 }
+  - valeur: "10"
+    unite: ans
+    legende: d'études pour devenir médecin généraliste
+    source: { organisme: Ministère de la Santé, annee: 2023 }
+options:
+  - id: A
+    libelle: Limiter les installations là où les médecins sont déjà nombreux
+    implique: Dans une zone bien dotée, un nouveau médecin ne s'installe qu'au départ d'un confrère.
+    defenseurs: Rééquilibrer l'offre de soins pour que chacun trouve un médecin près de chez lui.
+    critiques: La contrainte risque de détourner les jeunes médecins de l'exercice libéral.
+  - id: B
+    libelle: Inciter par des aides, sans obligation
+    implique: Primes, bourses et aides au cabinet pour attirer les médecins là où ils manquent.
+    defenseurs: Attirer sans contraindre, en respectant le choix des médecins.
+    critiques: Des aides existent depuis des années sans avoir comblé les manques.
+  - id: C
+    libelle: Garder la liberté d'installation
+    implique: Chaque médecin continue de choisir où il exerce.
+    defenseurs: La liberté d'installation rend le métier attractif ; il faut d'abord former plus de médecins.
+    critiques: Sans règle, les territoires qui manquent de médecins risquent d'attendre encore longtemps.
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour réguler l'installation"
+    argument: "Rééquilibrer l'offre de soins pour que chacun trouve un médecin près de chez lui."
+  - titre: "Pour ne pas la réguler"
+    argument: "La liberté d'installation rend le métier attractif ; il faut d'abord former plus de médecins."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Réguler"
+    precision: "l'installation"
+  - choix: "Garder"
+    precision: "la liberté"
+positions: {}

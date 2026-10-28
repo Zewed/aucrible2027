@@ -1,0 +1,91 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/001-isf.md
+numero: 1
+date: 2026-09-30
+theme: economie-impots
+question: Faut-il rétablir l'impôt sur la fortune (ISF) ?
+titreCourt: "L'impôt sur la fortune"
+contexte:
+  - L'ISF a été supprimé en 2018 et remplacé par l'impôt sur la fortune immobilière (IFI), qui ne taxe que le patrimoine immobilier net au-delà de 1,3 million d'euros.
+  - L'IFI rapporte 2,3 milliards d'euros en 2025, contre 4,4 milliards pour l'ISF en 2017.
+  - L'Assemblée nationale a rejeté en octobre 2025, puis en octobre 2026, un impôt plancher de 2 % sur les patrimoines de plus de 100 millions d'euros, dit taxe Zucman, et des projets de retour de l'ISF.
+chiffres:
+  - valeur: "358 000"
+    legende: foyers payaient l'ISF en 2017, dernière année avant sa suppression
+    source: { organisme: Cour des comptes, document: rapport sur l'IFI, annee: 2017 }
+  - valeur: "193 600"
+    legende: foyers payent l'IFI en 2025
+    source: { organisme: DGFiP, annee: 2025 }
+  - valeur: "2,3"
+    unite: milliards d'euros
+    legende: de recettes pour l'IFI en 2025, contre 4,4 pour l'ISF en 2017
+    source: { organisme: "DGFiP, Cour des comptes", annee: 2025 }
+  - valeur: "15 à 25"
+    unite: milliards d'euros
+    legende: "par an : ce qu'attendent les partisans de la taxe Zucman, une estimation contestée"
+    source: { organisme: Assemblée nationale, document: amendement n° 2359, annee: 2025 }
+options:
+  - id: A
+    libelle: Rétablir l'ISF
+    implique: L'impôt annuel sur le patrimoine net revient, avec un barème que ses partisans veulent renforcer.
+    defenseurs: Pourquoi ceux qui possèdent le plus contribueraient-ils proportionnellement le moins ? Les plus gros patrimoines doivent payer à proportion de ce qu'ils possèdent.
+    critiques: Il peut faire partir les plus fortunés, et un impôt sur le patrimoine est difficile à évaluer et à contrôler.
+    axes: { economie: -2 }
+  - id: B
+    libelle: Un impôt minimum sur les très hauts patrimoines
+    implique: Sans rétablir l'ISF, un impôt plancher vise les plus gros patrimoines, par exemple 2 % par an au-delà de 100 millions d'euros, parts d'entreprises comprises.
+    defenseurs: Les plus grandes fortunes ne doivent pas échapper aux règles communes, et un plancher rapporterait, selon ses partisans, 15 à 25 milliards d'euros par an.
+    critiques: Taxer des parts d'entreprises et des plus-values non réalisées pénaliserait l'innovation et poserait un risque constitutionnel ; les recettes annoncées sont contestées.
+    axes: { economie: -1 }
+  - id: C
+    libelle: Garder l'IFI
+    implique: Seul le patrimoine immobilier de plus de 1,3 million d'euros reste imposé ; aucun nouvel impôt sur le patrimoine n'est créé, et l'IFI peut être allégé.
+    defenseurs: Ne pas taxer les patrimoines professionnels ni créer de nouvel impôt, pour que l'activité et l'investissement restent en France.
+    critiques: L'IFI ne frappe que l'immobilier et son seuil n'a jamais été réévalué, alors que les placements financiers y échappent.
+    axes: { economie: 1 }
+  - id: D
+    libelle: Supprimer l'IFI
+    implique: Plus aucun impôt annuel sur le patrimoine ne subsiste.
+    defenseurs: Un impôt annuel sur le patrimoine n'a de sens qu'à l'échelle internationale, coûte cher à gérer et décourage l'investissement locatif.
+    critiques: Les plus gros patrimoines contribueraient moins, alors que l'IFI rapporte plus de 2 milliards d'euros par an.
+    axes: { economie: 2 }
+  - id: E
+    libelle: Taxer les placements plutôt que l'immobilier
+    implique: L'IFI est remplacé par un impôt sur la fortune financière, qui vise les placements et non l'immobilier.
+    defenseurs: L'impôt doit viser la spéculation financière, pas ceux qui sont attachés à leur territoire et à leur logement.
+    critiques: Évaluer et délimiter les placements et les biens professionnels est complexe, et les patrimoines professionnels risquent d'être pénalisés.
+    # Ne se range pas entre les autres : il change la nature de ce qui est taxé.
+    horsEchelle: true
+pourAllerPlusLoin:
+  - titre: Cour des comptes, L'impôt sur la fortune immobilière, 2024
+    url: https://www.ccomptes.fr/fr/publications/limpot-sur-la-fortune-immobiliere
+  - titre: LCP, la taxe Zucman rejetée par l'Assemblée, 31/10/2025
+    url: https://lcp.fr/actualites/budget-2026-la-taxe-zucman-rejetee-par-l-assemblee-nationale-413632
+  - titre: Public Sénat, le Sénat réforme l'IFI, 29/11/2025
+    url: https://www.publicsenat.fr/actualites/parlementaire/budget-2026-le-senat-reforme-limpot-sur-la-fortune-immobiliere-ifi-pour-un-manque-a-gagner-de-600-millions-deuros
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour taxer davantage"
+    argument: "Les plus gros patrimoines doivent payer à proportion de ce qu'ils possèdent."
+  - titre: "Pour ne pas le rétablir"
+    argument: "Ne pas taxer les patrimoines professionnels ni créer de nouvel impôt, pour que l'activité et l'investissement restent en France."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Taxer davantage"
+    precision: "les hauts patrimoines"
+  - choix: "Pas de nouvel impôt"
+    precision: "sur le patrimoine"
+positions:
+  # https://rassemblementnational.fr/22-mesures (mesure 16 : « Supprimer l'IFI qui taxe l'enracinement et créer un IFF »)
+  le-pen: { option: E, source: "22 mesures pour 2022, mesure 16, 2022", statut: deduite }
+  # https://votons-2027.fr/candidats/melenchon/programme/economie (reprend melenchon2027.fr/programme2025/livre/, mesure 45 ; page d'origine non lue)
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, mesure 45", statut: officielle }
+  # https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing (« Effort fiscal nouveau, ciblé sur les très hauts patrimoines et les grands groupes »)
+  glucksmann: { option: B, source: "Place publique, Notre vision pour la France, Acte I, 23/06/2025", statut: deduite }
+  # https://www.moneyvox.fr/actu/87996/impot-quel-candidat-a-la-presidentielle-veut-le-retour-de-isf (« retirer la totalité de la valeur de la résidence principale de l'assiette de l'IFI »)
+  zemmour: { option: C, source: "Programme 2022, MoneyVox, 08/04/2022", statut: deduite }
+  # https://votons-2027.fr/candidats/tondelier/programme/economie (reprend le Projet 2027 des Écologistes, mesure 5 ; page d'origine non lue)
+  tondelier: { option: A, source: "Projet 2027, mesure 5", statut: officielle }
+  # https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf (mesure 127)
+  roussel: { option: A, source: "La France des Jours heureux, mesure 127, 2022", statut: deduite }

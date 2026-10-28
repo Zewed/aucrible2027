@@ -1,0 +1,82 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/010-ric.md (tout ce qui suit y est sourcé).
+numero: 10
+date: 2026-10-09
+theme: institutions-democratie
+question: Faut-il créer un référendum d'initiative citoyenne (RIC) ?
+titreCourt: "Le référendum citoyen"
+contexte:
+  - Aujourd'hui, seul le référendum d'initiative partagée (RIP) permet aux citoyens de s'en saisir, avec le soutien d'un cinquième des parlementaires et de 10 % des électeurs.
+  - "Une seule tentative a été menée, sur Aéroports de Paris : 1,09 million de soutiens recueillis pour 4,72 millions requis."
+  - Le dernier référendum national date de 2005.
+chiffres:
+  - valeur: "4,7"
+    unite: millions
+    legende: de signatures d'électeurs, en plus de 185 parlementaires, pour déclencher un référendum d'initiative partagée
+    source: { organisme: Conseil constitutionnel, document: déclaration sur la proposition de loi Aéroports de Paris, annee: 2020 }
+  - valeur: "1,09"
+    unite: million
+    legende: de soutiens recueillis pour la seule tentative, sur Aéroports de Paris (2019-2020)
+    source: { organisme: Conseil constitutionnel, document: déclaration sur la proposition de loi Aéroports de Paris, annee: 2020 }
+  - valeur: 26 %
+    legende: des Français déclarent avoir confiance dans la politique
+    source: { organisme: CEVIPOF, document: enquête sur la confiance politique, annee: 2025 }
+options:
+  - id: A
+    libelle: Non, garder les règles actuelles
+    implique: Le référendum reste décidé par le Président ou le Parlement ; le RIP actuel est maintenu, avec les mêmes seuils.
+    defenseurs: "Le RIP et ses contrôles suffisent : un RIC irait trop loin dans la remise en cause de la démocratie représentative."
+    critiques: "Le RIP est inopérant : sa seule tentative n'a recueilli que le quart des signatures requises."
+  - id: B
+    libelle: Alléger le référendum d'initiative partagée
+    implique: Moins de signatures (2,5 millions au lieu de 5 millions dans l'un des projets) et des sujets élargis ; les parlementaires gardent un rôle.
+    defenseurs: Il faut alléger les contraintes du RIP et élargir ses sujets pour qu'il soit enfin praticable.
+    critiques: "Le RIP reste « partagé » : sans l'accord d'un cinquième des parlementaires, les citoyens ne peuvent pas déclencher un référendum."
+  - id: C
+    libelle: Créer un RIC
+    implique: À partir d'un seuil de signatures (de 500 000 à 1 million selon les projets), des citoyens peuvent faire voter une loi ou en abroger une ; certains projets y ajoutent la révision de la Constitution ou la révocation d'élus.
+    defenseurs: "« On ne veut pas participer, on veut décider » : le RIC complète le Parlement et rend la parole au peuple."
+    critiques: Un RIC pourrait servir à revenir systématiquement sur les décisions de la démocratie représentative.
+pourAllerPlusLoin:
+  - titre: Conseil constitutionnel, déclaration du 26 mars 2020 sur la proposition de loi Aéroports de Paris
+    url: https://www.conseil-constitutionnel.fr/decision/2020/201918RIP.htm
+  - titre: Assemblée nationale, proposition de loi constitutionnelle n° 2081 sur le RIC délibératif, 2025
+    url: https://www.assemblee-nationale.fr/dyn/17/textes/l17b2081_proposition-loi.pdf
+  - titre: Public Sénat, RIC, RIP, 50 nuances de référendums dans les programmes des candidats, 2022
+    url: https://www.publicsenat.fr/actualites/non-classe/presidentielle-ric-rip-50-nuances-de-referendums-dans-les-programmes-des-candidats
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour créer un RIC"
+    argument: "« On ne veut pas participer, on veut décider » : le RIC complète le Parlement."
+  - titre: "Pour ne pas en créer"
+    argument: "Un RIC irait trop loin dans la remise en cause de la démocratie représentative."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Un RIC"
+    precision: "pour les citoyens"
+  - choix: "Pas de RIC"
+    precision: "règles actuelles ou allégées"
+positions:
+  # Programme 2022 : https://www.publicsenat.fr/actualites/politique/marine-le-pen-detaille-sa-revolution-referendaire-202358 ; https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
+  le-pen: { option: C, source: "Programme 2022, 12/04/2022", statut: deduite }
+  # Programme 2027, « Le pouvoir au peuple » : https://avenir-en-commun.net/revolution-citoyenne
+  melenchon: { option: C, source: "Programme 2027, Le pouvoir au peuple", statut: officielle }
+  # France Inter, 30/01/2019 : https://www.franceinfo.fr/economie/transports/gilets-jaunes/gilets-jaunes-le-ric-semble-aller-trop-loin-dans-la-remise-en-cause-de-la-democratie-representative-estime-edouard-philippe_3168399.html
+  philippe: { option: A, source: "France Inter, 30/01/2019", statut: deduite }
+  # Public Sénat, 03/09/2026 : https://www.publicsenat.fr/actualites/politique/presidentielle-2027-bruno-retailleau-propose-une-revolution-copernicienne-dans-laquelle-la-constitution-ne-serait-plus-le-bouclier-qui-prote
+  retailleau: { option: B, source: "Public Sénat, 03/09/2026", statut: officielle }
+  # Discours de Bayeux, 17/06/2026 : https://nouvelle-energie-media-prod.s3.fr-par.scw.cloud/media/legacy/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf
+  lisnard: { option: C, source: "Discours de Bayeux, 17/06/2026", statut: officielle }
+  # Programme 2022 : https://www.publicsenat.fr/actualites/non-classe/presidentielle-ric-rip-50-nuances-de-referendums-dans-les-programmes-des-candidats
+  zemmour: { option: A, source: "Programme 2022, 15/02/2022", statut: deduite }
+  # Programme de juillet 2026, p. 161 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+  tondelier: { option: C, source: "Programme 2027, juillet 2026, p. 161", statut: officielle }
+  # Programme 2022 : https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
+  roussel: { option: C, source: "Programme 2022, 07/04/2022", statut: deduite }
+  # Programme 2022 : https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
+  dupont-aignan: { option: C, source: "Programme 2022, 07/04/2022", statut: deduite }
+  # Proposition de loi constitutionnelle n° 2081 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b2081_proposition-loi.pdf
+  ruffin: { option: C, source: "Proposition de loi constitutionnelle n° 2081, 18/11/2025", statut: officielle }
+  # Programme 2022 : https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
+  arthaud: { option: A, source: "Programme 2022, 07/04/2022", statut: deduite }

@@ -1,0 +1,91 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/012-deficit.md
+numero: 12
+date: 2026-10-11
+theme: economie-impots
+question: "Comment réduire le déficit public : baisser les dépenses, augmenter les impôts, ou ni l'un ni l'autre ?"
+titreCourt: "Le déficit public"
+contexte:
+  - "En 2025, le déficit public a atteint 5,1 % du PIB, au-dessus de la limite européenne de 3 %, et la dette publique 115,7 % du PIB."
+  - "Les dépenses publiques représentent 57,3 % du PIB et les prélèvements obligatoires 43,6 %."
+  - "Selon la Cour des comptes, la baisse du déficit en 2025 est due exclusivement à des hausses d'impôts et de cotisations, et il faudrait encore le réduire de 3 points de PIB pour stabiliser la dette."
+chiffres:
+  - valeur: "5,1 %"
+    legende: "du PIB : le déficit public en 2025, soit 152,5 milliards d'euros"
+    source: { organisme: Insee, document: "Comptes des administrations publiques", annee: 2025 }
+  - valeur: "115,7 %"
+    legende: "du PIB : la dette publique fin 2025"
+    source: { organisme: Insee, document: "Comptes des administrations publiques", annee: 2025 }
+  - valeur: "57,3 %"
+    legende: "du PIB : les dépenses publiques en 2025, pour 43,6 % de prélèvements obligatoires"
+    source: { organisme: Insee, document: "Comptes des administrations publiques", annee: 2025 }
+  - valeur: "89,6"
+    unite: "milliards d'euros"
+    legende: "d'effort encore nécessaire, soit 3 points de PIB, pour stabiliser la dette"
+    source: { organisme: "Cour des comptes", document: "La situation et les perspectives des finances publiques", annee: 2026 }
+options:
+  - id: A
+    libelle: "Baisser fortement les dépenses et alléger les impôts"
+    implique: "Des plans d'économies de 140 à 200 milliards d'euros d'ici 2032 (État, agences, fonction publique, protection sociale), dont une partie est rendue aux ménages et aux entreprises en baisses d'impôts."
+    defenseurs: "Les prélèvements sont déjà à 43,6 % du PIB : c'est la dépense, à 57,3 %, qu'il faut réduire, et chaque euro d'intérêts de la dette (77,4 milliards d'euros prévus en 2026) ne finance plus un service."
+    critiques: "Un effort de cette ampleur touche les services publics et la protection sociale, et pèse sur une croissance déjà faible."
+    axes: { economie: 2 }
+  - id: B
+    libelle: "Mêler économies ciblées et nouvelles recettes sur les plus aisés"
+    implique: "Revoir l'utilité des plus de 200 milliards d'euros d'aides aux entreprises, réduire certaines dépenses, et taxer davantage les plus hauts patrimoines, les héritages ou les multinationales."
+    defenseurs: "L'effort doit reposer sur ceux qui peuvent le plus : on n'équilibre pas les comptes en rognant les services publics, mais en triant les aides et en faisant contribuer les plus aisés."
+    critiques: "Le rendement des impôts sur les plus hauts patrimoines est incertain et ils peuvent inciter à l'exil fiscal ; trier plus de 200 milliards d'euros d'aides ne se fait pas d'un trait."
+    axes: { economie: -1 }
+  - id: C
+    libelle: "Augmenter les impôts des plus riches et des grandes entreprises, sans baisser les dépenses"
+    implique: "Un peu plus de 100 milliards d'euros de recettes en plus dès 2027 selon le plan le plus chiffré (impôt sur la fortune rétabli, flat tax supprimée, niches rabotées), dont une partie finance des dépenses nouvelles ; le reste réduit le déficit."
+    defenseurs: "Les baisses d'impôts des dernières années ont coûté plus de 60 milliards d'euros de recettes et ont surtout profité aux plus riches et aux grandes entreprises : les corriger réduit le déficit sans toucher aux services publics."
+    critiques: "Une hausse massive de la fiscalité sur le capital et les entreprises risque de freiner l'investissement, alors que les prélèvements sont déjà à 43,6 % du PIB."
+    axes: { economie: -2 }
+  - id: D
+    libelle: "Ni baisser les dépenses ni augmenter les impôts : miser sur la croissance"
+    implique: "Relancer l'activité et l'emploi pour que les recettes progressent d'elles-mêmes, sans plan d'économies ni hausse de taux."
+    defenseurs: "Une économie qui produit plus de richesses fait rentrer plus de recettes sans coupe ni hausse de taux, et évite l'austérité."
+    critiques: "La croissance prévue est faible (entre 0,5 % et 0,9 % en 2026) et la Cour des comptes juge qu'il faut encore 3 points de PIB d'effort : elle ne suffirait pas seule."
+    # Ne se range pas entre « baisser les dépenses » et « augmenter les impôts » : c'est un troisième levier.
+    horsEchelle: true
+pourAllerPlusLoin:
+  - titre: "Insee, comptes des administrations publiques 2025"
+    url: https://www.insee.fr/fr/statistiques/8997691
+  - titre: "Cour des comptes, finances publiques, juin 2026"
+    url: https://www.ccomptes.fr/
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour baisser d'abord les dépenses"
+    argument: "Les prélèvements sont déjà à 43,6 % du PIB : c'est la dépense, à 57,3 %, qu'il faut réduire, et chaque euro d'intérêts de la dette (77,4 milliards d'euros prévus en 2026) ne finance plus un service."
+  - titre: "Pour augmenter d'abord les impôts"
+    argument: "Les baisses d'impôts des dernières années ont coûté plus de 60 milliards d'euros de recettes et ont surtout profité aux plus riches et aux grandes entreprises : les corriger réduit le déficit sans toucher aux services publics."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Dépenses"
+    precision: "à baisser d'abord"
+  - choix: "Impôts"
+    precision: "à augmenter d'abord"
+positions:
+  # https://www.moneyvox.fr/impot/actualites/110673/140-milliards-economies-ce-quil-faut-retenir-de-intervention-de-marine-le-pen
+  le-pen: { option: A, source: "Contre-budget, 06/10/2026", statut: officielle }
+  # https://melenchon2027.fr/wp-content/uploads/2026/10/Comment-nous-allons-remettre-de-l-ordre-dans-les-comptes-publics.pdf
+  melenchon: { option: C, source: "Plan « comptes publics », LFI, 10/2026", statut: officielle }
+  # https://fr.euronews.com/2026/10/09/presidentielle-2027-edouard-philippe-mise-sur-le-travail-et-la-reduction-des-depenses-publ
+  philippe: { option: A, source: "Interview France 2, 09/10/2026", statut: officielle }
+  # https://www.publicsenat.fr/actualites/politique/dette-retraites-fiscalite-que-retenir-du-premier-debat-des-candidats-a-lelection-presidentielle
+  glucksmann: { option: B, source: "Débat du Medef, 27/08/2026", statut: officielle }
+  # https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de
+  retailleau: { option: A, source: "Plan d'économies, 12/10/2026", statut: officielle }
+  # https://fr.finance.yahoo.com/actualites/dimp%C3%B4t-tue-contribuable-david-lisnard-154004603.html
+  lisnard: { option: A, source: "BFMTV-RMC, 13/10/2026", statut: officielle }
+  # https://www.publicsenat.fr/actualites/politique/dette-retraites-fiscalite-que-retenir-du-premier-debat-des-candidats-a-lelection-presidentielle
+  attal: { option: A, source: "Débat du Medef, 27/08/2026", statut: officielle }
+  # https://www.franceinfo.fr/economie/budget/c-est-faire-les-poches-des-francais-et-continuer-d-exonerer-les-plus-riches-juge-fabien-roussel-concernant-le-budget-2027_8202554.html
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  roussel: { option: C, source: "France Inter, 21/09/2026", statut: officielle }
+  # https://www.debout-la-france.fr/projet/economie-travail/
+  dupont-aignan: { option: B, source: "Projet économie et travail, 2026", statut: officielle }
+  # https://www.ici.fr/emissions/l-invite-d-ici-matin-ici-picardie/francois-ruffin-depute-de-la-somme-et-candidat-a-l-election-presidentielle-3905071
+  ruffin: { option: B, source: "ICI Picardie, 30/09/2026", statut: officielle }

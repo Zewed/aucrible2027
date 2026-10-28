@@ -1,0 +1,77 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/005-peines-planchers.md
+numero: 5
+date: 2026-10-04
+theme: securite-justice
+question: Faut-il rétablir des peines planchers ?
+titreCourt: "Les peines planchers"
+contexte:
+  - Les peines planchers, créées par la loi du 10 août 2007, fixaient des seuils minimaux de prison pour les récidivistes ; la loi du 15 août 2014 les a abrogées.
+  - "Aujourd'hui, aucune peine minimale ne s'impose : le juge choisit la peine en tenant compte des circonstances de l'infraction et de la personnalité de l'auteur."
+  - Un texte visant à les rétablir pour certains crimes et délits a été examiné à l'Assemblée en octobre 2024 sans être adopté ; les prisons comptent aujourd'hui 90 020 détenus pour 63 348 places.
+chiffres:
+  - valeur: 142,1 %
+    legende: "densité carcérale au 1er septembre 2026 : 90 020 détenus pour 63 348 places"
+    source: { organisme: Ministère de la Justice, document: mesure de l'incarcération, annee: 2026 }
+  - valeur: "8 347"
+    legende: détenus dorment sur un matelas posé au sol au 1er septembre 2026
+    source: { organisme: Ministère de la Justice, document: mesure de l'incarcération, annee: 2026 }
+  - valeur: 69 %
+    legende: "des récidivistes majeurs étaient condamnés à de la prison ferme en 2016-2020, contre 54 % en 2001-2005"
+    source: { organisme: Ministère de la Justice, document: cité à l'Assemblée nationale le 31/10/2024, annee: 2020 }
+  - valeur: "9"
+    unite: mois
+    legende: "de prison ferme en moyenne après l'abrogation de 2014, contre 7,3 à 7,9 mois quand les peines planchers existaient"
+    source: { organisme: Ministère de la Justice, document: cité à l'Assemblée nationale le 31/10/2024, annee: 2014 }
+options:
+  - id: A
+    libelle: Non, le juge fixe la peine
+    implique: "Le droit actuel est maintenu : aucune peine minimale ne s'impose, et le juge adapte la peine aux faits et à la personne."
+    defenseurs: "Chaque situation est différente : le juge doit pouvoir adapter la peine, et le dispositif de 2007-2014 n'a pas réduit la récidive selon la conférence de consensus de 2013."
+    critiques: Sans seuil, le système devient imprévisible et inaudible pour les victimes, et la sanction n'est pas assez ferme.
+    axes: { societe: -2 }
+  - id: B
+    libelle: Oui, pour certaines infractions ciblées
+    implique: Des peines minimales visent les faits les plus graves, les récidivistes ou les agressions contre les policiers, gendarmes et autres personnes exposées.
+    defenseurs: "Un minimum clair pour les faits les plus graves et pour ceux qui récidivent envoie un signal : la société ne tolère pas la récidive."
+    critiques: Le dispositif de 2007-2014 n'a pas réduit la récidive selon la conférence de consensus de 2013, et il alourdirait des prisons déjà occupées à 142,1 %.
+    axes: { societe: 1 }
+  - id: C
+    libelle: Oui, pour tous les crimes et délits
+    implique: Une peine minimale s'applique à chaque crime et délit.
+    defenseurs: Chaque criminel et chaque délinquant doit avoir une sanction certaine, et les victimes doivent être replacées au centre du procès.
+    critiques: Un seuil général s'appliquerait aussi aux mineurs sauf précision contraire, un minimum pour les mineurs a déjà été censuré en 2011, et les prisons manqueraient de places.
+    axes: { societe: 2 }
+pourAllerPlusLoin:
+  - titre: Ministère de la Justice, la mesure de l'incarcération au 1er septembre 2026
+    url: https://www.justice.gouv.fr/sites/default/files/2026-10/mesure_mensuelle_01092026.pdf
+  - titre: Assemblée nationale, séance du 31 octobre 2024 sur les peines planchers
+    url: https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2024-2025/troisieme-seance-du-jeudi-31-octobre-2024.pdf
+  - titre: Ministère de la Justice, personnes détenues au 1er octobre 2026
+    url: https://www.justice.gouv.fr/documentation/etudes-et-statistiques/au-1er-octobre-2026-7-personnes-detenues
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour des peines minimales"
+    argument: "Un minimum clair pour les faits les plus graves et pour ceux qui récidivent envoie un signal : la société ne tolère pas la récidive."
+  - titre: "Pour que le juge décide"
+    argument: "Chaque situation est différente : le juge doit pouvoir adapter la peine aux faits et à la personne."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Peines planchers"
+    precision: "au moins pour les faits graves"
+  - choix: "Pas de minimum"
+    precision: "le juge décide"
+positions:
+  # https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure (« Mettre en place des peines planchers pour les infractions les plus graves »)
+  philippe: { option: B, source: "edouardphilippe.fr, Pour une France plus sûre, 2026", statut: officielle }
+  # https://www.publicsenat.fr/actualites/politique/presidentielle-2027-bruno-retailleau-veut-renverser-la-table-avec-une-profonde-reforme-constitutionnelle (« peines minimales pour certains crimes et délits graves »)
+  retailleau: { option: B, source: "Public Sénat, 03/09/2026", statut: officielle }
+  # https://www.unenouvelleenergie.fr/notre-programme/securite/ (« rétablir les peines planchers pour les récidivistes »)
+  lisnard: { option: B, source: "Nouvelle Énergie, programme Sécurité, 2026", statut: officielle }
+  # https://www.debout-la-france.fr/projet/justice/ (mesure 5 : « Réinstaurer et élargir les peines planchers pour toute agression contre policiers, gendarmes »)
+  dupont-aignan: { option: B, source: "Debout la France, Justice, livret de 06/2026", statut: deduite }
+  # https://rassemblementnational.fr/22-mesures (« Rétablir les peines planchers pour que tout criminel et délinquant aient une sanction »)
+  le-pen: { option: C, source: "22 mesures pour 2022, 2022", statut: deduite }
+  # https://www.lemondedudroit.fr/decryptages/79916-presidentielle-2022-quelles-sont-les-propositions-d-eric-zemmour-en-matiere-de-justice.html (« pour chaque crime et délit »)
+  zemmour: { option: C, source: "Programme 2022, Le Monde du Droit, 15/02/2022", statut: deduite }

@@ -1,0 +1,87 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/008-sru.md (tout ce qui suit y est sourcé).
+numero: 8
+date: 2026-10-07
+theme: logement
+question: Que faire de l'obligation de 25 % de logements sociaux par commune (loi SRU) ?
+titreCourt: "La loi SRU"
+contexte:
+  - Depuis la loi SRU de 2000, les communes d'au moins 3 500 habitants (1 500 en Île-de-France), dans les agglomérations importantes, doivent compter 25 % de logements sociaux, ou 20 % dans les territoires moins tendus.
+  - Une commune en retard doit rattraper une part de son déficit à chaque période de trois ans, sous peine d'un prélèvement sur ses recettes, majoré en cas de carence.
+  - En janvier 2026, le Sénat a voté un texte qui permettrait de compter des logements intermédiaires dans ce rattrapage ; il a été transmis à l'Assemblée nationale.
+chiffres:
+  - valeur: "1 000"
+    unite: communes
+    legende: sur 2 100 soumises à la loi n'atteignent pas leur taux légal
+    source: { organisme: Ministère du Logement, document: bilan 2020-2022 de la loi SRU, annee: 2024 }
+  - valeur: "186 000"
+    unite: logements sociaux
+    legende: produits en 2020-2022 dans les communes soumises à la loi
+    source: { organisme: Ministère du Logement, document: bilan 2020-2022 de la loi SRU, annee: 2024 }
+  - valeur: "5,4"
+    unite: millions
+    legende: "de logements locatifs sociaux, soit 15,9 % des résidences principales"
+    source: { organisme: SDES, document: répertoire du parc locatif social au 1er janvier 2025, annee: 2025 }
+  - valeur: "2,8"
+    unite: millions
+    legende: "de demandes de logement social en attente fin 2024, dont environ 1,9 million hors demandes de mutation"
+    source: { organisme: Cour des comptes, document: rapport annuel, annee: 2026 }
+options:
+  - id: A
+    libelle: La supprimer
+    implique: L'article 55 est abrogé ; chaque commune fixe librement sa part de logements sociaux.
+    defenseurs: La loi n'a manifestement pas fait ses preuves ; il faut redonner aux maires leur liberté d'action.
+    critiques: Les communes les plus aisées pourraient cesser d'accueillir des logements sociaux, qui se concentreraient ailleurs.
+    axes: { economie: 2 }
+  - id: B
+    libelle: L'assouplir
+    implique: Une partie des logements intermédiaires compte dans le rattrapage, et les objectifs tiennent compte des contraintes de chaque territoire.
+    defenseurs: Il faut soutenir les communes qui font des efforts et adapter l'objectif aux contraintes locales, comme les zones inondables ou les couloirs aériens.
+    critiques: Le logement intermédiaire est trop cher pour la plupart des demandeurs, et il permettrait de contourner la loi.
+    axes: { economie: 1 }
+  - id: C
+    libelle: La maintenir telle quelle
+    implique: Taux de 25 % ou 20 %, rattrapage de 33 % du déficit par période de trois ans, exemptions pour les communes qui ne peuvent pas construire.
+    defenseurs: La loi produit des logements sociaux et prévoit déjà des exemptions pour les communes qui ne peuvent pas construire.
+    critiques: Un millier de communes restent sous le seuil, et d'autres jugent un quota national uniforme trop rigide.
+  - id: D
+    libelle: La durcir
+    implique: Le taux passe à 30 % et les sanctions des communes en retard sont alourdies.
+    defenseurs: Sans sanction lourde, les communes qui ne jouent pas le jeu ne construisent pas ; l'État doit faire appliquer la loi.
+    critiques: "Beaucoup de communes manquent de foncier ou de moyens : relever le taux et les pénalités les frapperait sans les aider à construire."
+    axes: { economie: -2 }
+pourAllerPlusLoin:
+  - titre: Ministère de la Transition écologique, l'article 55 de la loi SRU
+    url: https://www.ecologie.gouv.fr/politiques-publiques/larticle-55-loi-solidarite-renouvellement-urbain-sru
+  - titre: Ministère du Logement, bilan 2020-2022 de la loi SRU, 2024
+    url: https://www.ecologie.gouv.fr/presse/ministre-delegue-logement-presente-bilan-2020-2022-loi-sru
+  - titre: Sénat, proposition de loi visant à conforter l'habitat, l'offre de logements et la construction, 2026
+    url: https://www.senat.fr/dossier-legislatif/ppl25-171.html
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour alléger la loi"
+    argument: "Il faut redonner aux maires leur liberté d'action et adapter l'objectif aux contraintes locales."
+  - titre: "Pour la maintenir ou la durcir"
+    argument: "Sans sanction lourde, les communes qui ne jouent pas le jeu ne construisent pas de logements sociaux."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Alléger"
+    precision: "ou supprimer"
+  - choix: "Maintenir"
+    precision: "ou durcir"
+positions:
+  # Discours de rentrée à Hénin-Beaumont, 13/09/2026 : https://lcp.fr/actualites/reserver-les-logements-hlm-aux-francais-la-proposition-de-marine-le-pen-provoque-une
+  le-pen: { option: A, source: "Discours de rentrée, 13/09/2026", statut: officielle }
+  # Programme 2022 : https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/supprimer-la-loi-solidarite-et-renouvellement-urbain-sru/
+  zemmour: { option: A, source: "Programme 2022", statut: deduite }
+  # https://www.boursorama.com/immobilier/actualites/logements-sociaux-ce-qu-il-faut-savoir-sur-la-loi-sru-menacee-d-abrogation-par-marine-le-pen-88aaff3e6991d39790eccbb454b7a3f4
+  retailleau: { option: B, source: "Boursorama, 18/09/2026", statut: officielle }
+  # Déclaration de politique générale, 30/01/2024 : https://www.publicsenat.fr/actualites/politique/logement-social-la-droite-salue-les-annonces-de-gabriel-attal-la-gauche-denonce-une-declaration-de-guerre-contre-la-loi-sru
+  attal: { option: B, source: "Déclaration de politique générale, 30/01/2024", statut: deduite }
+  # Programme 2027, BTP et logement : https://melenchon2027.fr/programme/plans-investissement/btp-logement/
+  melenchon: { option: D, source: "Programme 2027, BTP et logement", statut: officielle }
+  # Programme 2022 (Terra Nova, 14/03/2022) : https://www.lagrandeconversation.com/app/uploads/2022/03/terra-nova_la-grande-conversation-2022_le-logement-dans-la-campagne-presidentielle_140322.pdf
+  roussel: { option: D, source: "Programme 2022, 14/03/2022", statut: deduite }
+  # Programme 2022 du candidat d'EELV (Terra Nova, 14/03/2022) : https://www.lagrandeconversation.com/app/uploads/2022/03/terra-nova_la-grande-conversation-2022_le-logement-dans-la-campagne-presidentielle_140322.pdf
+  tondelier: { option: D, source: "Programme 2022 d'EELV, 14/03/2022", statut: deduite }

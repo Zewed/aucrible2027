@@ -1,0 +1,74 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 26/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/015-ame.md
+numero: 15
+date: 2026-10-14
+theme: immigration
+question: "Faut-il supprimer l'aide médicale d'État (AME) ?"
+titreCourt: "L'aide médicale d'État"
+contexte:
+  - "L'aide médicale d'État (AME) prend en charge les soins des étrangers en situation irrégulière présents en France depuis plus de trois mois, sous un plafond de ressources (10 421 euros par an pour une personne seule)."
+  - "Fin 2024, elle comptait 465 208 bénéficiaires, pour une dépense de l'ordre de 1,3 milliard d'euros par an, et certains soins non urgents ne sont accessibles qu'après neuf mois."
+  - "Les demandeurs d'asile n'y ont pas droit, et les personnes non éligibles peuvent recevoir des soins urgents à l'hôpital, financés par un dispositif distinct."
+chiffres:
+  - valeur: "465 208"
+    legende: "bénéficiaires de l'AME de droit commun fin 2024"
+    source: { organisme: Sénat, document: "Rapport sur le projet de loi de finances 2026, Santé", annee: 2025 }
+  - valeur: "1,3"
+    unite: "milliard d'euros"
+    legende: "de dépenses d'AME de droit commun en 2025 (estimation), hors 129 millions d'euros de soins urgents"
+    source: { organisme: Sénat, document: "Rapport sur le projet de loi de finances 2026, Santé", annee: 2025 }
+  - valeur: "2 699"
+    unite: euros
+    legende: "de dépense moyenne par bénéficiaire en 2024, contre 3 659 euros pour l'ensemble de la population en 2023"
+    source: { organisme: Sénat, document: "Rapport sur le projet de loi de finances 2026, Santé", annee: 2025 }
+  - valeur: "9"
+    unite: mois
+    legende: "de séjour requis avant certains soins non urgents programmés pour un nouveau bénéficiaire adulte"
+    source: { organisme: "Service-public.gouv.fr", document: "Aide médicale de l'État", annee: 2026 }
+options:
+  - id: A
+    libelle: "Garder l'AME et supprimer les délais de carence"
+    implique: "Le dispositif reste en place pour les soins courants et programmés, et le délai de neuf mois avant certains soins non urgents est supprimé."
+    defenseurs: "Soigner tôt coûte moins cher que d'attendre l'urgence, c'est la position des hôpitaux publics ; la dépense moyenne par bénéficiaire (2 699 euros) est inférieure à celle de la population générale (3 659 euros)."
+    critiques: "La dépense a augmenté de 68,5 % en dix ans et dépasse chaque année le budget voté ; le dispositif français est jugé plus généreux que ceux de nos voisins, ce que ses opposants lisent comme un facteur d'attractivité."
+    axes: { societe: -2 }
+  - id: B
+    libelle: "Garder l'AME en durcissant ses conditions"
+    implique: "Contrôles renforcés, accord préalable de l'Assurance maladie étendu à tous les soins non urgents, justificatifs plus stricts, comme le proposent le rapport Évin-Stefanini (2023) et le Sénat (2025)."
+    defenseurs: "Garder un filet de santé publique tout en maîtrisant la dépense : le Sénat chiffre à 200 millions d'euros l'économie d'un accord préalable généralisé, et de 138 à 275 millions celle d'un contrôle strict des justificatifs."
+    critiques: "Les contrôles sont déjà nombreux (15,5 % des dossiers en 2024, 2,3 % d'anomalies) ; des restrictions de plus peuvent retarder des soins, quand d'autres jugent qu'elles ne vont pas assez loin."
+  - id: C
+    libelle: "La remplacer par une aide médicale d'urgence limitée aux soins vitaux"
+    implique: "Seuls les soins urgents et vitaux seraient pris en charge pour les étrangers en situation irrégulière ; les soins programmés ne le seraient plus."
+    defenseurs: "L'argent public doit d'abord soigner les assurés : on garde les soins vitaux, mais plus de prise en charge complète des personnes en situation irrégulière, ce qui économise une partie des 1,3 milliard d'euros actuels."
+    critiques: "Les hôpitaux publics estiment que tout recul aggraverait la situation sanitaire des plus précaires et désorganiserait les services hospitaliers."
+    axes: { societe: 2 }
+pourAllerPlusLoin:
+  - titre: "Sénat, rapport sur le budget de la santé 2026 (AME)"
+    url: https://www.senat.fr/rap/l25-139-327/l25-139-3273.html
+  - titre: "Service-public.gouv.fr, aide médicale de l'État"
+    url: https://www.service-public.gouv.fr/particuliers/vosdroits/F3079
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour garder l'AME"
+    argument: "Soigner tôt coûte moins cher que d'attendre l'urgence, c'est la position des hôpitaux publics ; la dépense moyenne par bénéficiaire (2 699 euros) est inférieure à celle de la population générale (3 659 euros)."
+  - titre: "Pour la supprimer"
+    argument: "L'argent public doit d'abord soigner les assurés : on garde les soins vitaux, mais plus de prise en charge complète des personnes en situation irrégulière, ce qui économise une partie des 1,3 milliard d'euros actuels."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Garder"
+    precision: "l'AME"
+  - choix: "Supprimer"
+    precision: "l'AME"
+positions:
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  le-pen: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  lisnard: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  zemmour: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.ifrap.org/comparateurs/presidentielles-2027
+  tondelier: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # https://www.debout-la-france.fr/projet/immigration-et-assimilation/
+  dupont-aignan: { option: C, source: "Projet immigration, DLF, mesure 13, 2026", statut: officielle }
