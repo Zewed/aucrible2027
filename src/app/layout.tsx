@@ -17,6 +17,8 @@ const texte = Instrument_Sans({ subsets: ["latin"], variable: "--police-texte" }
 export const metadata: Metadata = {
   title: "Au crible 2027",
   description: "Des questions concrètes pour savoir de quels candidats tu es proche, chiffres et sources à l'appui.",
+  // Version alpha : le site se partage par lien, les moteurs de recherche ne le référencent pas.
+  robots: { index: false, follow: false },
 };
 
 /** La jauge en haut de chaque page, sur les questions publiées au jour de la requête. */

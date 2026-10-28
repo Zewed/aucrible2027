@@ -8,6 +8,7 @@ date: 2026-09-21
 theme: securite-justice
 question: "Faut-il généraliser la vidéosurveillance par intelligence artificielle ?"
 titreCourt: "Les caméras à intelligence artificielle"
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/037-videosurveillance-ia-UIQVZ1QwrZfNyeENEUT2VeHo7ykbZe.mp4", duree: "1 min 50" }
 contexte:
   - "La loi du 19 mai 2023 sur les Jeux olympiques a permis d'essayer des logiciels qui analysent en direct les images des caméras et signalent à un agent certaines situations, comme une intrusion ou un objet abandonné, sans reconnaître les visages."
   - "Un comité indépendant a jugé en 2025 leur intérêt « limité mais réel » ; la loi du 18 août 2026 prolonge l'essai jusqu'au 31 décembre 2030 et l'étend à des lieux exposés au terrorisme ou à des violences graves, comme des gares ou des monuments."

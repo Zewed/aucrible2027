@@ -6,6 +6,7 @@ date: 2026-10-24
 theme: ecologie-energie
 question: Faut-il sortir du nucléaire ?
 titreCourt: "Le nucléaire"
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/025-nucleaire-0V0xLTc4yOXVCgE3E9vYbiy8LZqP52.mp4", duree: "2 min 10" }
 contexte:
   - "En 2025, les 57 réacteurs du pays ont produit 68 % de l'électricité française ; les plus anciens tournent depuis 1978."
   - "La programmation de l'énergie de février 2026 prévoit de les faire durer 50 ou 60 ans et de construire six nouveaux réacteurs, appelés EPR2, le premier vers 2038."
