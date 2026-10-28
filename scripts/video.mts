@@ -6,11 +6,12 @@
  *   pnpm video --image 20            une seule image, à 20 s, en PNG, pour relire sans tout rendre
  *   pnpm video --sortie f.mp4        ailleurs que dans videos/
  *   pnpm video --reportage           le reportage 16:9 de la fiche, sur la musique de son thème (pnpm musiques)
+ *   pnpm video --reportage --ecrans  la dernière image de chaque séquence du reportage, dans videos/ecrans/<nom>/
  *
  * Les chiffres et les textes viennent de la fiche vérifiée (content/questions), jamais d'une IA : corriger la fiche
  * puis relancer corrige la vidéo. Chrome est celui de Playwright, déjà installé pour les tests.
  */
-import { existsSync, mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, rmSync } from "node:fs";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import { chromium } from "@playwright/test";
@@ -18,6 +19,7 @@ import { bundle } from "@remotion/bundler";
 import { renderMedia, renderStill, selectComposition } from "@remotion/renderer";
 import { lireMusiques, lireQuestions, lireThemes } from "../src/lib/contenu.ts";
 import { aujourdhuiAParis } from "../src/lib/date.ts";
+import { pasDe, rythmeDe, textesDesSequences } from "../src/video/reportage/rythme.ts";
 
 const racine = path.resolve(import.meta.dirname, "..");
 const { values: options } = parseArgs({
@@ -29,6 +31,8 @@ const { values: options } = parseArgs({
     sortie: { type: "string" },
     // Le reportage 16:9 (la vidéo de la fiche) au lieu de la vidéo verticale du jour.
     reportage: { type: "boolean", default: false },
+    // Avec --reportage : une image par séquence, la dernière, pour relire la vidéo sans la regarder.
+    ecrans: { type: "boolean", default: false },
   },
 });
 
@@ -63,7 +67,19 @@ const navigateur = { browserExecutable: chromium.executablePath(), chromeMode: "
 const composition = await selectComposition({ serveUrl, id: options.reportage ? "reportage" : "video-du-jour", inputProps, ...navigateur });
 
 const nom = `${options.jour}-${String(question.numero).padStart(3, "0")}${options.reportage ? "-reportage" : ""}`;
-if (options.image !== undefined) {
+if (options.reportage && options.ecrans) {
+  const dossier = path.join(racine, "videos", "ecrans", nom);
+  rmSync(dossier, { recursive: true, force: true });
+  mkdirSync(dossier, { recursive: true });
+  const pas = pasDe(musique);
+  let fin = 0;
+  for (const [k, sequence] of textesDesSequences(question).entries()) {
+    fin += rythmeDe(sequence, pas).duree;
+    const sortie = path.join(dossier, `${String(k + 1).padStart(2, "0")}-${sequence.nom}.png`);
+    await renderStill({ composition, serveUrl, inputProps, output: sortie, frame: Math.round((fin - 0.35) * composition.fps), ...navigateur });
+  }
+  console.log(dossier);
+} else if (options.image !== undefined) {
   // Une ou plusieurs images (« 3,14,28 »), rendues avec le même paquet.
   for (const seconde of options.image.split(",")) {
     const sortie = options.sortie ?? path.join(racine, "videos", `${nom}-${seconde}s.png`);

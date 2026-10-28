@@ -104,3 +104,29 @@
 
 /* Le volet entre deux séquences. */
 .rp-volet { position: absolute; inset: 0; background: var(--ink-deep); z-index: 10; }
+
+/* Les textes longs : une valeur d'accroche longue passe à la ligne, plus petite. */
+.rp-etape-accroche.longue b { font-size: 96px; line-height: 1; white-space: normal; }
+
+/* Quatre leviers : des cartes plus serrées, qui ne débordent pas. */
+.rp-levier, .rp-fin-levier { min-width: 0; }
+.rp-leviers[data-n="4"] { gap: 16px; }
+.rp-leviers[data-n="4"] .rp-levier { padding: 30px 30px 34px; }
+.rp-leviers[data-n="4"] .rp-levier b { font-size: 54px; }
+.rp-leviers[data-n="4"] .rp-levier small { font-size: 26px; }
+.rp-fin-leviers[data-n="4"] .rp-fin-levier { padding: 20px 22px; }
+.rp-fin-leviers[data-n="4"] .rp-fin-levier b { font-size: 44px; }
+.rp-fin-leviers[data-n="4"] .rp-fin-levier small { font-size: 22px; }
+
+/* Un face-à-face serré, quand une réponse est longue : les deux cartes ensemble. */
+.rp-cote-carte.serre { gap: 20px; }
+.rp-cote-carte.serre strong { font-size: 54px; }
+.rp-cote-carte.serre b { font-size: 176px; }
+.rp-cote-carte.serre b.long { font-size: 112px; }
+.rp-cote-carte.serre p { font-size: 42px; }
+.rp-cote-carte.tres-serre { gap: 16px; }
+.rp-cote-carte.tres-serre strong { font-size: 50px; }
+.rp-cote-carte.tres-serre b { font-size: 150px; }
+.rp-cote-carte.tres-serre b.long { font-size: 96px; }
+.rp-cote-carte.tres-serre p { font-size: 38px; }
+
