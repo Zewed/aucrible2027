@@ -1,0 +1,25 @@
+src/video/reportage/rythme.ts
+  s_613931134209e1::t_a578c33fec398f 1-76
+scripts/video.mts
+  s_613931134209e1::t_688675a66f81eb 9,14,22,34-35,70-82
+src/video/reportage/Reportage.tsx
+  s_613931134209e1::t_c9fa4c622f7d91 5-6,8,54,59,75-86,122-123,132-136,141,182,234,246,269-300,316-319,339-342,362,374,391-393,398-407,410-412,446,453
+src/video/reportage/reportage.css
+  s_613931134209e1::t_a19e4df1b05cfd 107-132
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "14699cfea99977974e8e039679ff6abfc7b85170",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
