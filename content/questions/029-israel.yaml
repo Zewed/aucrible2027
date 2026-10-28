@@ -1,0 +1,121 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/029-israel.md (tout ce qui suit y est sourcé).
+# La question porte sur un choix de politique étrangère de la France envers un gouvernement, jamais sur un peuple ou
+# une religion. Aucune note de plateau : aucune option ne se range clairement sur l'axe économique ou sociétal.
+numero: 29
+date: 2026-09-24
+theme: europe-international
+question: "La France doit-elle prendre des sanctions contre le gouvernement israélien ?"
+titreCourt: "Les sanctions contre le gouvernement israélien"
+contexte:
+  - "Après l'attaque du Hamas du 7 octobre 2023 et deux ans de guerre à Gaza, un cessez-le-feu est en vigueur depuis le 10 octobre 2025 : selon l'ONU, des frappes israéliennes continuent, et le désarmement du Hamas n'est pas confirmé."
+  - "La France a reconnu l'État de Palestine en septembre 2025 ; en 2026, elle a interdit d'entrée deux ministres israéliens et annoncé l'interdiction des produits des colonies de Cisjordanie."
+  - "Selon le gouvernement, la France livre à Israël des composants militaires, pas des armes ; l'Union européenne n'a pas trouvé de majorité pour retirer à Israël ses avantages commerciaux."
+chiffres:
+  - valeur: "19,8"
+    unite: millions d'euros
+    legende: "de matériel militaire livré par la France à Israël en 2025 : des composants, selon le gouvernement"
+    source: { organisme: Ministère des Armées, document: rapport au Parlement sur les exportations d'armement, annee: 2026 }
+  - valeur: 31,7 %
+    legende: "du commerce de biens d'Israël se fait avec l'Union européenne, son premier partenaire"
+    source: { organisme: Commission européenne, document: relations commerciales UE-Israël, annee: 2025 }
+  - valeur: "27 941"
+    unite: logements
+    legende: "de colonies en Cisjordanie ont avancé en 2025 dans les procédures d'urbanisme : plus du double du précédent record"
+    source: { organisme: Union européenne, document: rapport 2025 sur les colonies, annee: 2026 }
+options:
+  - id: A
+    libelle: "Non, et renforcer le soutien à Israël"
+    implique: "Aucune sanction : la France revient sur les mesures déjà prises, comme l'interdiction d'entrée de deux ministres et celle des produits des colonies, et resserre sa coopération de sécurité avec Israël."
+    defenseurs: "Israël a été attaqué le 7 octobre 2023 et reste menacé sur plusieurs fronts : le sanctionner affaiblit un allié et encourage ceux qui le combattent."
+    critiques: "Revenir sur ces mesures irait contre l'avis de la Cour internationale de justice sur la colonisation et éloignerait la France de nombreux partenaires européens."
+  - id: B
+    libelle: "Non, s'en tenir à la diplomatie"
+    implique: "La France revient sur les mesures déjà prises, comme l'interdiction d'entrée de deux ministres et celle des produits des colonies, sans limiter le commerce ni les ventes militaires : elle condamne ce qu'elle désapprouve et négocie."
+    defenseurs: "Les sanctions braquent un pays en guerre sans changer sa politique ; c'est la négociation qui a obtenu le cessez-le-feu et le retour des otages."
+    critiques: "En 2025, la colonisation a battu des records et la situation reste grave à Gaza : pour eux, les condamnations seules n'ont rien arrêté."
+  - id: C
+    libelle: "Oui, des sanctions ciblées"
+    implique: "La France garde les mesures déjà prises et peut les étendre : interdire d'entrée les ministres qui poussent à l'annexion et les colons violents, ou bloquer leurs avoirs en Europe, et interdire les produits des colonies ; le reste du commerce et les composants militaires continuent."
+    defenseurs: "On vise ceux qui violent le droit international, pas la population ni la sécurité d'Israël ; d'autres pays, dont le Royaume-Uni et le Canada, vont dans ce sens."
+    critiques: "Pour certains, ces mesures restent symboliques et ne changeront pas la politique israélienne ; pour d'autres, viser des ministres d'un pays allié abîme une relation utile à la France."
+  - id: D
+    libelle: "Oui, et viser aussi le commerce ou les armes"
+    implique: "En plus des sanctions ciblées, des mesures qui touchent l'État israélien : suspendre l'accord d'association qui donne à Israël des avantages commerciaux en Europe, arrêter toute vente militaire, ou les deux."
+    defenseurs: "L'Europe est le premier partenaire commercial d'Israël : c'est le levier le plus fort pour faire respecter le droit international à Gaza et en Cisjordanie."
+    critiques: "Cela frapperait toute l'économie israélienne, au-delà de son gouvernement ; et pour le commerce, la majorité manque en Europe."
+pourAllerPlusLoin:
+  - titre: "Ministère des Armées, rapport au Parlement sur les exportations d'armement, 2026"
+    url: https://www.vie-publique.fr/files/rapport/pdf/304339_0.pdf
+  - titre: "ONU, bureau des affaires humanitaires : la situation à Gaza au 21 octobre 2026"
+    url: https://www.ochaopt.org/content/reported-impact-snapshot-gaza-strip-21-october-2026
+  - titre: "Union européenne, rapport 2025 sur les colonies en Cisjordanie"
+    url: https://www.eeas.europa.eu/delegations/palestine-occupied-palestinian-territory-west-bank-and-gaza-strip/2025-report-israeli-settlements-occupied-west-bank-including-east-jerusalem-reporting-period-january_en
+  - titre: "SIPRI (institut de recherche sur la paix de Stockholm), les livraisons d'armes dans le monde en 2025, mars 2026"
+    url: https://www.sipri.org/sites/default/files/2026-03/fs_2603_at_2025.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour des sanctions"
+    argument: "On vise ceux qui violent le droit international, pas la population ni la sécurité d'Israël."
+  - titre: "Contre des sanctions"
+    argument: "Les sanctions braquent un pays en guerre sans changer sa politique ; c'est la négociation qui a obtenu le retour des otages."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Sanctionner"
+    precision: "des ministres ou plus"
+  - choix: "Ne pas sanctionner"
+    precision: "ou soutenir Israël"
+positions:
+  # La France insoumise, 13/01/2026 : https://lafranceinsoumise.fr/2026/01/13/pour-la-suspension-de-laccord-dassociation-ue-israel-et-la-fin-de-la-complicite-de-leurope-dans-le-genocide-en-palestine/ ; groupe LFI, 02/04/2024 : https://lafranceinsoumise.fr/2024/04/02/israel-gaza-les-paroles-ne-suffisent-pas-il-faut-passer-aux-actes/
+  # L'Avenir en commun, édition 2025, chap. 16 : https://melenchon2027.fr/programme2025/livre/chapitre16/s4/
+  melenchon: { option: D, source: "L'Avenir en commun, édition 2025, chap. 16", statut: officielle }
+  # Place publique, 21/08/2026 : https://place-publique.eu/posts/2i0gWFYaKIzY29qXbIwzpP/l-europe-doit-s-elever-contre-la-colonisation-israelienne
+  glucksmann: { option: D, source: "Place publique, 21/08/2026", statut: deduite }
+  # Discours, université d'été du PCF, 26/08/2025 : https://www.pcf.fr/ue_25_discours_fr
+  roussel: { option: D, source: "Discours, université d'été du PCF, 26/08/2025", statut: officielle }
+  # francoisruffin.fr, 05/12/2024 : https://francoisruffin.fr/gaza-est-ce-un-genocide/
+  ruffin: { option: D, source: "francoisruffin.fr, 05/12/2024", statut: deduite }
+  # Lettre à Emmanuel Macron cosignée, 27/07/2025 : https://www.pcf.fr/lettre-au-president-palestine-2025
+  tondelier: { option: D, source: "Lettre à Emmanuel Macron cosignée, 27/07/2025", statut: officielle }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/029-israel.md (chaque chiffre y a sa source
+# numérotée, voir l'annexe de l'étude). Le fil : depuis le cessez-le-feu, la France a déjà pris des mesures ; faut-il
+# aller plus loin ou revenir en arrière ? Pas de « mécanisme » (aucun rapport « X pour 1 ») ni d'« écart » ; aucun
+# bilan de morts à l'écran.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1, [1] [5].
+    etapes:
+      - { quand: 7 octobre 2023, valeur: Attaque du Hamas en Israël }
+      - { quand: 10 octobre 2025, valeur: Cessez-le-feu }
+    chute: … après deux ans de guerre à Gaza.
+  leviers:
+    # § 1.3, 1.4 et 2h, [17] [23]. Les quatre choix de la fiche, présentés à égalité.
+    titre: Ce que la France peut faire
+    choix:
+      - { texte: Soutenir davantage Israël, detail: revenir sur les mesures déjà prises et coopérer davantage }
+      - { texte: Ne pas sanctionner, detail: "revenir sur les mesures déjà prises, condamner et négocier" }
+      - { texte: Garder des sanctions ciblées, detail: "des ministres, des colons violents, les produits des colonies" }
+      - { texte: Viser le commerce ou les armes, detail: "retirer à Israël ses avantages en Europe, arrêter les ventes militaires" }
+    chute: "Certaines mesures se décident à Paris, d'autres à vingt-sept."
+    source: "Ministère des Affaires étrangères ; Conseil de l'Union européenne, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: des sanctions }
+  # Chaque réponse compare ce qui se compare ; aucun mot disputé n'est employé sans être attribué.
+  questions:
+    # § 2d, [12] [25].
+    - question: "Des sanctions peuvent-elles peser sur Israël ?"
+      pour: { affirmation: "Oui, si elles viennent de l'Europe.", chiffre: "31,7 %", texte: "En 2025, près d'un tiers du commerce de biens d'Israël s'est fait avec l'Union européenne, son premier partenaire.", source: "Commission européenne, 2025" }
+      contre: { affirmation: Pas sans les États-Unis., chiffre: 68 %, texte: "De 2021 à 2025, 68 % des principales armes importées par Israël venaient des États-Unis.", source: "SIPRI (institut de Stockholm), 2026" }
+    # § 2h, [18] [23].
+    - question: "La France serait-elle seule ?"
+      pour: { affirmation: "Non, d'autres pays agissent aussi.", chiffre: 11 pays, texte: "En septembre 2026, la France et onze pays, dont le Royaume-Uni et le Canada, disent vouloir limiter le commerce avec les colonies.", source: "Déclaration commune, 8 septembre 2026" }
+      contre: { affirmation: "En Europe, la majorité manque.", chiffre: 15 pays sur 27, texte: "Retirer à Israël ses avantages commerciaux en Europe exige 15 pays sur 27. En avril 2026, le compte n'y était pas.", source: "Conseil de l'Union européenne, avril 2026" }
+    # § 2e, [11].
+    - question: "Faut-il arrêter les ventes militaires à Israël ?"
+      pour: { affirmation: "Oui, les livraisons continuent.", chiffre: "19,8 millions €", texte: "En 2025, année de guerre à Gaza, la France a livré à Israël pour 19,8 millions d'euros de pièces militaires.", source: "Ministère des Armées, 2026" }
+      contre: { affirmation: "Pas pour attaquer, dit le gouvernement.", chiffre: 1 sur 3, texte: "Selon le gouvernement, un tiers de ces pièces sert à la défense d'Israël, et les deux autres tiers repartent vers d'autres pays.", source: "Ministère des Armées, 2026" }
+    # § 1.1, 2b et 2c, [1] [5]. Chaque camp cite les personnes dont il défend la sécurité : aucun des deux sans l'autre.
+    - question: "Le cessez-le-feu suffit-il ?"
+      pour: { affirmation: "Non, l'urgence demeure à Gaza.", chiffre: 2 sur 3, texte: "De juillet à décembre 2026, deux habitants de Gaza sur trois devraient connaître une crise alimentaire, ou pire.", source: "ONU et ONG (classification IPC de la faim), juillet 2026" }
+      contre: { affirmation: "Oui, plus aucun otage n'est retenu.", chiffre: "251", texte: "Sur les 251 personnes enlevées le 7 octobre 2023, plus aucune n'est retenue à Gaza depuis janvier 2026.", source: "AFP, janvier 2026" }

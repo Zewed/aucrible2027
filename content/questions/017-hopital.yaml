@@ -31,7 +31,7 @@ options:
     libelle: "Garder la T2A et la simplifier"
     implique: "On conserve le paiement à l'activité pour la médecine, la chirurgie et l'obstétrique, en allégeant ses tâches administratives."
     defenseurs: "Payer à l'activité rémunère le travail réellement produit et rend les coûts visibles, à condition d'en simplifier les rouages."
-    critiques: "Elle est jugée mal adaptée aux établissements et aux activités indispensables mais peu rentables (urgences, psychiatrie, soins de suite), ce qui a conduit à lui substituer des dotations depuis 2022."
+    critiques: "Elle est jugée mal adaptée aux établissements et aux activités indispensables mais peu rentables , comme les urgences, qui reçoivent depuis 2022 une dotation selon la population."
     axes: { economie: 1 }
   - id: B
     libelle: "Poursuivre la réforme en cours : un mélange d'activité et de dotations"
@@ -39,8 +39,8 @@ options:
     defenseurs: "Garder une incitation à l'activité tout en finançant ce qui ne se paie pas à l'acte (urgences, territoires isolés, missions de santé publique) : la réforme de 2025 ajoute deux dotations aux tarifs."
     critiques: "Pour ses détracteurs, elle ne va pas assez loin (les tarifs restent la principale source de revenus) ou rend le système plus complexe, alors que le déficit persiste (2,9 milliards d'euros en 2024)."
   - id: C
-    libelle: "En finir avec la tarification à l'acte : une dotation globale selon les besoins du territoire"
-    implique: "L'hôpital public reçoit un budget annuel global fixé selon la population et les besoins de son territoire, comme avant 2004, sans paiement à chaque acte (ou seulement pour certains actes techniques programmés)."
+    libelle: "En finir avec la tarification à l'activité : une dotation globale selon les besoins du territoire"
+    implique: "L'hôpital public reçoit un budget annuel global fixé selon la population et les besoins de son territoire, comme avant 2004, sans paiement à chaque séjour (ou seulement pour certains actes techniques programmés)."
     defenseurs: "Un budget global et pluriannuel, fixé selon les besoins du territoire, permet de planifier, de maintenir des services peu rentables et met fin à la course à l'acte."
     critiques: "Sans lien direct avec l'activité, un budget global peut figer les inégalités entre hôpitaux et réduire l'incitation à soigner plus de patients."
     axes: { economie: -1 }
@@ -72,3 +72,81 @@ positions:
   lisnard: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
   # https://www.debout-la-france.fr/projet/sante/
   dupont-aignan: { option: C, source: "Projet santé, DLF, mesure 10, 2026", statut: officielle }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  # « Tarification à l'activité » s'y dit « paiement au séjour » : l'hôpital reçoit un prix fixé d'avance pour chaque
+  # type de séjour (la Cour des comptes parle elle-même de « tarification au séjour »).
+  accroche:
+    # § 1 [1] et compléments C1, [12] : une seule mesure à deux dates, la part de ce que l'Assurance maladie verse aux
+    # hôpitaux publics qui vient des tarifs de séjour. Avant 2004, aucun tarif de séjour (une dotation globale, budget
+    # de l'année d'avant plus un taux de hausse) : 0 %, déduction de l'étude. En 2019, dernière année de pleine
+    # application, 54 % (le reste venant de budgets). Le nombre de tarifs (3 698 en 2022) n'est pas repris : il ne se
+    # compare pas à un budget et plaide pour un camp.
+    etapes:
+      - { quand: "Avant 2004", valeur: "0 %" }
+      - { quand: "En 2019", valeur: "54 %" }
+    chute: "… de ce que l'Assurance maladie versait aux hôpitaux publics : un tarif par type de séjour, la « tarification à l'activité »."
+  # Pas de « mécanisme » : son dessin est propre aux retraites.
+  ecart:
+    # § 2.2, [2] : la même mesure (la part des hôpitaux publics en déficit), la même source, la dernière année avant la
+    # crise sanitaire et la dernière connue (75 % en 2023). Les causes sont l'objet de la question 4.
+    titre: "Combien d'hôpitaux publics perdent de l'argent ?"
+    etapes:
+      - { quand: "En 2019", valeur: "58 %" }
+      - { quand: "En 2024", valeur: "72 %" }
+    chute: "Sept hôpitaux publics sur dix dépensent plus qu'ils ne reçoivent. Les causes se discutent."
+    source: "Drees, 2026"
+  leviers:
+    # Options A, B et C de la fiche, à égalité. Aucune ne change qui paie : la chute dit l'enjeu commun, en 130
+    # caractères au plus (§ 2.1, [4] [5] : les soins hospitaliers comptent l'hôpital public et les cliniques).
+    titre: "Payer l'hôpital public : trois choix"
+    choix:
+      - { texte: "Garder le paiement au séjour", detail: "en simplifiant ses règles" }
+      - { texte: "Mélanger séjours et budgets", detail: "la réforme en cours, qui vise la moitié de l'argent hors tarifs" }
+      - { texte: "Un budget global par hôpital", detail: "fixé selon la population et les besoins du territoire" }
+    chute: "Les soins à l'hôpital et en clinique ont coûté 124 milliards d'euros en 2025, payés à 94 % par l'argent public."
+    source: "Drees, 2026"
+  # POUR = l'option C (un budget global), celle qui change le plus la règle ; CONTRE = les options A et B, qui gardent
+  # le paiement au séjour en tout ou en partie : chaque réponse CONTRE vaut pour les deux. L'objet reprend le nom du
+  # troisième levier et des questions 2 et 3, en 26 caractères au plus.
+  camps: { pour: POUR, contre: CONTRE, objet: "un budget global" }
+  # Chaque question oppose deux faits du même rapport, et chaque texte dit ce qu'il mesure. Aucune ne reprend un
+  # face-à-face des fiches 006 (franchises) et 044 (dépassements d'honoraires) ; la fiche 026 (installation des
+  # médecins) n'a pas encore de reportage, et aucune question ne touche à l'installation des médecins.
+  questions:
+    # Compléments C2, [12] : le même rapport de la Cour des comptes, la même décennie. Le pour donne le prix (tarifs
+    # en baisse chaque année de 2009 à 2018 dans le secteur public, pendant que les volumes montaient), le contre le
+    # nombre de séjours (+5,6 % de 2014 à 2019, hôpitaux et cliniques ; « environ 1 % par an » est un calcul de
+    # l'étude, 5,6 % sur cinq ans). Un prix d'un côté, un volume de l'autre : chaque texte dit lequel. Le contre compte
+    # les cliniques, payées elles aussi au séjour depuis 2005 [1] : la question porte sur ce mode de paiement, et
+    # l'étude n'a pas de chiffre propre à l'hôpital public après 2013 ; le texte dit son périmètre.
+    - question: "Le paiement au séjour pousse-t-il à faire plus de séjours ?"
+      pour: { affirmation: "Oui, pour compenser la baisse des prix.", chiffre: "10 ans", texte: "De 2009 à 2018, le prix des séjours à l'hôpital public a baissé tous les ans, pendant que leur nombre montait.", source: "Cour des comptes, 2023" }
+      contre: { affirmation: "Non, l'activité monte lentement.", chiffre: "+5,6 %", texte: "De 2014 à 2019, les séjours à l'hôpital et en clinique ont augmenté de 5,6 % en tout, environ 1 % par an.", source: "Cour des comptes, 2023" }
+    # Compléments C1 et C3, [12] : le même rapport, deux mesures de l'argent mal réparti. Le contre donne l'écart de 1
+    # à 3,6 entre les « prix implicites » des séjours d'un hôpital à l'autre sous le budget global (fin des années
+    # 1990) ; le pour, les écarts entre prix et coûts des soins sous le paiement au séjour (plus de 1,5 milliard
+    # d'euros à l'hôpital public en 2019, d'après les « tarifs issus des coûts » de l'agence des tarifs, un calcul
+    # dont la Cour dit la complexité et le manque de transparence). Chaque texte dit sa faiblesse, à égalité : l'âge
+    # pour le contre, la méthode pour le pour. Les écarts vont dans les deux sens (+10 % pour les séjours favorisés,
+    # −9,5 % pour les pénalisés) : l'affirmation le dit. Le contre parle en premier et ne renvoie pas à l'autre carte.
+    - question: "Le paiement au séjour est-il plus juste qu'un budget global ?"
+      pour: { affirmation: "Non, des soins surpayés, d'autres sous-payés.", chiffre: "1,5 milliard €", texte: "En 2019, à l'hôpital public, les écarts entre prix et coûts dépassaient 1,5 milliard d'euros, selon un calcul jugé peu transparent.", source: "Cour des comptes, 2023" }
+      contre: { affirmation: "Oui, l'ancien budget était inégal.", chiffre: "×3,6", texte: "Fin des années 1990, sous le budget global, un hôpital pouvait recevoir 3,6 fois plus qu'un autre pour un séjour comparable.", source: "Cour des comptes, 2023" }
+    # Compléments C4, [12] : le même rapport, deux durées. Le pour donne le calendrier (budget arrêté à la fin de
+    # l'année d'avant, tarifs fixés en mars : deux mois, calcul de l'étude) ; le contre, l'accord de 2020 à 2022 qui
+    # garantissait au moins 2,4 % de hausse par an à l'enveloppe nationale des hôpitaux et cliniques (pas à chaque
+    # hôpital : le texte dit « ensemble »). Le contre parle en premier et ne renvoie pas à l'autre carte.
+    - question: "Un budget global aiderait-il les hôpitaux à prévoir ?"
+      pour: { affirmation: "Oui, les prix arrivent trop tard.", chiffre: "2 mois", texte: "Chaque hôpital doit établir son budget avant janvier ; le prix de ses séjours est fixé en mars, deux mois plus tard.", source: "Cour des comptes, 2023" }
+      contre: { affirmation: "Non, on peut garantir plusieurs années.", chiffre: "3 ans", texte: "De 2020 à 2022, un accord garantissait aux hôpitaux et cliniques, ensemble, au moins 2,4 % de moyens en plus par an.", source: "Cour des comptes, 2023" }
+    # Compléments C5, [2] : deux des causes du déficit de 2024 que la Drees cite dans le même paragraphe, en milliards
+    # d'euros toutes deux. Le pour donne la baisse de l'aide qui compensait les baisses d'activité depuis la crise
+    # sanitaire, remplacée peu à peu par le paiement au séjour (1,8 milliard en 2022, 0,6 en 2024 : −1,2, calcul de
+    # l'étude) ; son affirmation dit ce que le chiffre montre (moins de recettes garanties), le lien avec le paiement
+    # au séjour est la lecture du camp. Le contre, l'estimation de l'inspection des affaires sociales (0,6 + 1,1 = 1,7
+    # milliard, calcul de l'étude, lu dans la Drees, sans savoir s'il s'agit d'un montant par an ou cumulé : le texte
+    # le dit). Une baisse mesurée d'un côté, une estimation de l'autre : chaque texte dit laquelle.
+    - question: "Le déficit vient-il de la façon de payer ?"
+      pour: { affirmation: "En partie : moins de recettes garanties.", chiffre: "−1,2 milliard €", texte: "L'aide qui compensait les baisses d'activité des hôpitaux publics est passée de 1,8 milliard d'euros en 2022 à 0,6 en 2024.", source: "Drees, 2026" }
+      contre: { affirmation: "Non, des salaires mal compensés.", chiffre: "1,7 milliard €", texte: "Selon une estimation officielle, 1,7 milliard d'euros de hausses de salaire n'ont pas été compensés aux hôpitaux, sur une durée non précisée.", source: "Igas, citée par la Drees, 2026" }

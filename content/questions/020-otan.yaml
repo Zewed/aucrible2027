@@ -8,8 +8,8 @@ question: "La France doit-elle quitter le commandement intégré de l'OTAN ?"
 titreCourt: "Le commandement de l'OTAN"
 contexte:
   - "La France a quitté en 1966 les commandements militaires communs de l'OTAN, sans quitter l'Alliance atlantique, puis y est revenue en 2009."
-  - "Elle n'a pas rejoint le groupe des plans nucléaires de l'Alliance, et elle y occupe des postes de commandement."
-  - "En juin 2025, les 32 alliés se sont engagés à consacrer 5 % de leur PIB à la défense d'ici 2035."
+  - "Elle occupe des postes de commandement dans l'OTAN, mais n'a pas rejoint le groupe des plans nucléaires de l'Alliance."
+  - "En juin 2025, les 32 alliés se sont engagés à consacrer 5 % de leur PIB à leur défense et à leur sécurité d'ici 2035, dont au moins 3,5 % à la défense elle-même."
 chiffres:
   - valeur: "1966"
     legende: "année où la France quitte le commandement intégré, tout en restant dans l'Alliance"
@@ -17,11 +17,11 @@ chiffres:
   - valeur: "2009"
     legende: "année où la France annonce qu'elle participera de nouveau pleinement aux structures"
     source: { organisme: OTAN, document: la France et l'OTAN, annee: 2009 }
-  - valeur: 2,05 %
-    legende: "du PIB : l'effort de défense de la France (estimation)"
-    source: { organisme: OTAN, document: dépenses de défense 2014-2025, annee: 2025 }
+  - valeur: 2,22 %
+    legende: "du PIB : l'effort de défense de la France en 2026 (estimation)"
+    source: { organisme: OTAN, document: dépenses de défense 2014-2026, annee: 2026 }
   - valeur: 5 %
-    legende: "du PIB à consacrer à la défense d'ici 2035 : l'engagement des 32 alliés"
+    legende: "du PIB à consacrer à la défense et à la sécurité d'ici 2035, dont 3,5 % à la défense : l'engagement des 32 alliés"
     source: { organisme: OTAN, document: déclaration du sommet de La Haye, annee: 2025 }
 options:
   - id: A
@@ -44,8 +44,8 @@ pourAllerPlusLoin:
     url: https://www.nato.int/cps/en/natohq/topics_52044.htm
   - titre: "OTAN, déclaration du sommet de La Haye, 25 juin 2025"
     url: https://www.nato.int/cps/en/natohq/official_texts_236705.htm
-  - titre: "OTAN, dépenses de défense des pays de l'OTAN 2014-2025"
-    url: https://www.nato.int/content/dam/nato/webready/documents/finance/def-exp-2025-en.pdf
+  - titre: "OTAN, dépenses de défense des pays de l'OTAN 2014-2026"
+    url: https://www.nato.int/content/dam/nato/webready/documents/finance/def-exp-2026-en.pdf
 # Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
 cotes:
   - titre: "Pour quitter le commandement intégré"
@@ -73,3 +73,78 @@ positions:
   retailleau: { option: C, source: "Programme 2022 de LR, Europe 1, 23/03/2022", statut: deduite }
   # https://www.europe1.fr/politique/otan-ce-que-proposent-les-principaux-candidats-a-la-presidentielle-4100861
   attal: { option: C, source: "Programme 2022 de la majorité, Europe 1, 23/03/2022", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/020-otan.md (chaque chiffre y a sa source numérotée,
+# et l'annexe de l'étude dit d'où vient chacun). Le fil : 43 ans hors du commandement, 17 ans dedans ; ce que l'Alliance
+# demande désormais à ses membres ; trois choix ; puis qui commande, qui dépense, qui protège l'Europe, et la parole
+# des États-Unis.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1 et C5, [1] [5] : 43 ans hors du commandement intégré (1966-2009), 17 ans dedans (avril 2009 – octobre 2026,
+    # calcul de l'étude). « Son retour » rappelle que la France y était avant 1966 : les 17 ans ne sont pas tout le
+    # temps passé dedans. La chute redit le consensus du § 3 : la France n'a jamais quitté l'Alliance.
+    etapes:
+      - { quand: "De 1966 à 2009", valeur: "43 ans dehors" }
+      - { quand: "Depuis son retour en 2009", valeur: "17 ans dedans" }
+    chute: "… du commandement militaire commun de l'OTAN, sans jamais quitter l'Alliance."
+  # Pas de « mécanisme » : aucun rapport « X pour 1 » ne résume le sujet.
+  ecart:
+    # C1, [2] [20] [22] : les deux valeurs viennent du même article de la loi de 2026 (2 % en 2025, 3,5 % visés en 2035).
+    # Les 3,5 % sont la part « de base » promise à La Haye en 2025 ; le 1,5 % de plus (article 9 de la loi) n'y est pas
+    # compté, et la chute le dit. L'OTAN estime l'effort de la France à 2,04 % en 2025 et 2,22 % en 2026.
+    titre: "Quelle part de sa richesse pour sa défense ?"
+    etapes:
+      - { quand: "En 2025", valeur: "2 %" }
+      - { quand: "En 2035", valeur: "3,5 %", projection: true }
+    chute: "C'est l'objectif de la loi de 2026, comme promis aux alliés en 2025. Elle y ajoute 1,5 % pour la sécurité au sens large."
+    source: "Loi de programmation militaire, 2026 ; OTAN, 2025"
+  leviers:
+    # Les trois options de la fiche, à égalité. § 1, 2 (enjeu D) et C1, [1] [2] [22]. La chute dit ce que le choix du
+    # commandement ne change pas : la promesse de La Haye lie tout membre de l'Alliance, qu'il soit ou non dans le
+    # commandement (options B et C). Elle dit, comme l'écart, que les 5 % couvrent la défense (3,5 %) et la sécurité au
+    # sens large (1,5 %). Sans « payés par l'impôt ou l'emprunt » : ce rappel du coût, sans rien en face, servait la
+    # seule option A, et l'écart a déjà dit que la loi fixe cet effort.
+    titre: "Le commandement de l'OTAN : trois choix"
+    choix:
+      - { texte: "Sortir de l'OTAN", detail: "le commandement puis l'Alliance, pour un autre cadre de sécurité en Europe" }
+      - { texte: "Quitter le commandement", detail: "mais rester dans l'Alliance, comme de 1966 à 2009" }
+      - { texte: "Rester dans le commandement", detail: "et bâtir la défense européenne en lien avec l'OTAN" }
+    chute: "Dans l'Alliance, commandement ou non, la France a promis 5 % de sa richesse pour sa défense et sa sécurité d'ici 2035."
+    source: "OTAN, 2025 ; loi de programmation militaire, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: "la sortie du commandement" }
+  # Le camp POUR réunit l'option A (quitter aussi l'Alliance) et l'option B (quitter le seul commandement) : chacune de
+  # ses réponses vaut pour les deux, et aucune ne suppose que la France reste dans l'Alliance. Le camp CONTRE, l'option C.
+  # Aucun face-à-face des fiches 009, 030 et 031 n'est repris : ni les armes livrées, ni l'escalade nucléaire, ni
+  # l'opinion des Français, ni les soldats américains en Ukraine, ni les sanctions. Rédigé par IA le 28/10/2026, relu
+  # pour chaque camp ; à vérifier par l'auteur.
+  questions:
+    # C2, [23] [25] : les deux commandements suprêmes de l'OTAN, même périmètre. Le camp POUR dit qui a toujours tenu
+    # celui des opérations (un Américain depuis sa création en 1951, soit 75 ans) ; le camp CONTRE, second à parler,
+    # dit que la France tient l'autre, la transformation, depuis 2009. Le nombre de titulaires (21, liste de
+    # Wikipédia) n'est pas repris : il n'est pas dans une source primaire.
+    - question: "Dans le commandement, la France a-t-elle du poids ?"
+      pour: { affirmation: "Pas aux commandes des opérations.", chiffre: "75 ans", texte: "Depuis 1951, le chef militaire de l'OTAN en Europe, qui dirige ses opérations, a toujours été un Américain.", source: "OTAN, 2025 ; Ifri, 2025" }
+      contre: { affirmation: "Oui, elle a l'autre grand poste.", chiffre: "1 sur 2", texte: "Depuis 2009, un Français dirige l'autre grand commandement de l'OTAN : celui qui prépare ses armées de demain.", source: "Ifri, 2025" }
+    # C1, [20] : le même rapport de l'OTAN (juillet 2026), la même année (2025, estimations) et la même mesure (les
+    # dépenses de défense au sens de l'OTAN). Le camp CONTRE cite leur hausse chez les Européens et le Canada, inflation
+    # déduite ; le camp POUR, la part des États-Unis dans le total des 32 alliés (calcul de l'étude sur le tableau 2, en
+    # dollars courants : 59,9 %), et renvoie à « la même estimation ». Les dépenses américaines couvrent toutes leurs
+    # missions dans le monde (C1) : la carte le dit, pour ne pas laisser croire que ces 60 % vont à l'Europe.
+    - question: "Les États-Unis dominent-ils l'OTAN ?"
+      pour: { affirmation: "Oui, plus que les 31 autres réunis.", chiffre: "60 %", texte: "Selon la même estimation, en 2025, les États-Unis ont fait 60 % des dépenses de défense des alliés, missions hors d'Europe comprises.", source: "OTAN, 2026" }
+      contre: { affirmation: "De moins en moins.", chiffre: "+19 %", texte: "En 2025, Européens et Canadiens ont augmenté de 19 % leurs dépenses de défense, inflation déduite, selon une estimation.", source: "OTAN, 2026" }
+    # C3, [25] [26] : les deux alinéas du même article du traité sur l'Union européenne (42, paragraphe 7). Le camp CONTRE
+    # cite le second (l'OTAN, fondement de la défense de ses membres), le camp POUR le premier (l'aide due par les 27) ; le
+    # nombre de pays de l'Union membres de l'OTAN (23) vient de l'Ifri. « Le même traité » va sur la seconde carte.
+    # « Pas forcément » plutôt que « Non » : la clause de l'Union montre qu'il existe une autre promesse d'aide, et la
+    # réponse vaut aussi pour l'option B, qui garde l'Alliance.
+    - question: "La défense de l'Europe passe-t-elle par l'OTAN ?"
+      pour: { affirmation: "Pas forcément : l'Union promet aussi son aide.", chiffre: "27 pays", texte: "Le même traité oblige les 27 pays de l'Union à aider, par tous les moyens en leur pouvoir, celui qui serait attaqué.", source: "Traité sur l'Union européenne, article 42 (2009)" }
+      contre: { affirmation: "Oui, pour 23 pays de l'Union.", chiffre: "23 sur 27", texte: "Selon le traité européen, l'OTAN reste le fondement de la défense collective des 23 pays de l'Union qui en sont membres.", source: "Traité sur l'Union européenne, article 42 (2009) ; Ifri, 2025" }
+    # C4, [21] [28] [29] : deux actes des États-Unis envers leurs alliés en 2026, chacun daté (janvier ; « six mois plus
+    # tard », juillet). Chaque carte dit ce qu'elle montre : un acte retiré (le camp POUR dit que la menace a été
+    # abandonnée), une déclaration commune (le camp CONTRE, second à parler, renvoie à la carte d'en face). La force de
+    # garantie en Ukraine et les soldats américains au sol (fiche 030) ne sont pas évoqués.
+    - question: "Les États-Unis restent-ils un allié sûr ?"
+      pour: { affirmation: "Pas toujours.", chiffre: "8 alliés", texte: "En janvier 2026, pour obtenir le Groenland, ils ont menacé de taxer huit alliés, dont la France, avant d'y renoncer.", source: "Universalis ; La Libre Belgique, 2026" }
+      contre: { affirmation: "Oui, ils l'ont redit depuis.", chiffre: "32 sur 32", texte: "Six mois plus tard, dans une déclaration commune, les 32 alliés, États-Unis compris, ont redit qu'attaquer l'un d'eux, c'est les attaquer tous.", source: "OTAN, déclaration d'Ankara, 2026" }

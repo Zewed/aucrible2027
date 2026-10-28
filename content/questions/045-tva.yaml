@@ -1,0 +1,151 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/045-tva.md (tout ce qui suit y est sourcé, l'annexe dit d'où vient chaque chiffre).
+# Le déficit a sa fiche (012) ; l'ISF (001), les héritages (033) et la taxe Zucman (039) aussi : celle-ci porte sur la TVA.
+numero: 45
+date: 2026-09-13
+theme: economie-impots
+question: "Faut-il baisser la TVA sur l'essentiel, ou l'augmenter pour baisser les cotisations ?"
+titreCourt: "La TVA"
+contexte:
+  - "La TVA est la taxe payée sur ce que l'on achète : 20 % sur la plupart des produits, dont l'électricité, le gaz et les carburants, 10 % au restaurant et 5,5 % sur l'alimentation de base."
+  - "Certains veulent la baisser sur les produits de première nécessité, comme les députés qui ont voté en novembre 2025 une TVA à 0 % sur une liste de ces produits ; le gouvernement préfère des aides réservées à ceux qui en ont besoin."
+  - "D'autres veulent l'augmenter pour baisser les cotisations prélevées sur les salaires : c'est la « TVA sociale », votée en mars 2012 puis abrogée en août 2012, avant d'entrer en vigueur."
+chiffres:
+  - valeur: "212"
+    unite: milliards d'euros
+    legende: "de TVA en 2025 : c'est le premier impôt, et 27 % de cette somme va à la Sécurité sociale, 25 % aux collectivités"
+    source: { organisme: DGFiP, document: "DGFiP Statistiques n° 43", annee: 2026 }
+  - valeur: "13 %"
+    legende: "de leur revenu : ce que versent en TVA les 10 % les plus modestes, contre 7 % pour les 10 % les plus aisés (données 2016)"
+    source: { organisme: Insee, document: "Économie et Statistique n° 522-523", annee: 2021 }
+  - valeur: "12 à 15"
+    unite: milliards d'euros
+    legende: "par an : ce que coûterait la TVA à 5,5 % sur l'énergie et les carburants que propose le RN, selon le gouvernement"
+    source: { organisme: Gouvernement, document: "chiffrage cité par l'AFP", annee: 2026 }
+options:
+  - id: A
+    libelle: "Baisser la TVA sur l'essentiel"
+    implique: "La TVA baisse, ou disparaît, sur des produits de première nécessité : l'alimentation et l'hygiène de base, l'électricité et le gaz, et pour certains les carburants, que le droit européen interdit aujourd'hui de taxer à taux réduit. La recette perdue doit être compensée par d'autres impôts, des économies ou de la dette."
+    defenseurs: "La TVA pèse plus lourd sur les ménages modestes : 13 % de leur revenu pour les 10 % les plus modestes, contre 7 % pour les 10 % les plus aisés. Les taxes font la moitié du prix de l'essence sans plomb, et en Espagne, en 2023, la suppression de la TVA sur le pain, le lait ou les fruits est arrivée presque entièrement dans les prix, comme la loi l'imposait."
+    critiques: "Une baisse coûte cher, 12 à 15 milliards d'euros par an pour l'énergie et les carburants selon le gouvernement, et profite d'abord, en euros, aux 20 % les plus aisés, qui paient 32 % de la TVA. Après la baisse de 2009 dans les restaurants, sans obligation de baisser les prix d'autant, les propriétaires en ont gardé plus de la moitié, selon une étude."
+    # Économie : les trois options déplacent la charge entre les mêmes ménages. A allège un impôt que l'Insee juge
+    # plus lourd, en part du revenu, pour les modestes, au nom de leur pouvoir d'achat : −1. B garde les taux et
+    # cible les aides : 0, comme les options de statu quo des fiches 039 (B et C). C fait passer une part du
+    # financement des salaires vers la consommation pour baisser le coût du travail ou augmenter le salaire net,
+    # ce que défend le Medef : +1. Aucune option à ±2 : ni la suppression de la TVA (N. Arthaud, rangée en A) ni
+    # la TVA sociale ne sont jugées plus redistributives ou plus libérales que cela par les sources de l'étude.
+    axes: { economie: -1 }
+  - id: B
+    libelle: "Ne pas y toucher, aider de façon ciblée"
+    implique: "Les taux restent les mêmes. Pour le pouvoir d'achat, l'État verse des aides réservées à ceux qui en ont besoin, comme le chèque énergie ou l'aide carburant de 100 euros versée en 2026 à des travailleurs modestes."
+    defenseurs: "Le chèque énergie protège mieux les ménages vulnérables qu'une baisse de TVA, pour un coût moindre, selon le Conseil des prélèvements obligatoires. La TVA, premier impôt avec 212 milliards d'euros en 2025, finance aussi la Sécurité sociale et les collectivités."
+    critiques: "Une aide réservée n'atteint pas tous ceux qui y ont droit : à une semaine de la date limite, un travailleur sur deux qui y avait droit n'avait pas demandé l'aide carburant. Et la TVA reste plus lourde, en part du revenu, pour les ménages modestes."
+    axes: { economie: 0 }
+  - id: C
+    libelle: "L'augmenter pour baisser les cotisations"
+    implique: "Le taux de la TVA augmente de quelques points, et la recette sert à baisser les cotisations prélevées sur les salaires, pour augmenter le salaire net ou baisser le coût du travail. C'est la « TVA sociale », votée en 2012 puis abrogée avant d'entrer en vigueur."
+    defenseurs: "La protection sociale repose surtout sur les salaires ; la financer aussi par la consommation fait contribuer les produits importés. Une note du ministère de l'Économie attendait en 2007 jusqu'à 300 000 emplois si la baisse vise les bas salaires, et la France taxe moins la consommation que ses voisins."
+    critiques: "Une hausse de TVA passe vite dans les prix, à 70 ou 80 % en France. Selon une simulation de l'Insee, qui ne compte pas la baisse des cotisations, trois points de plus ôteraient 1,4 % de pouvoir d'achat aux 10 % les plus modestes, même après la hausse du Smic et des aides, et en Allemagne la consommation a baissé de 1,8 % au trimestre de la hausse de 2007."
+    axes: { economie: 1 }
+pourAllerPlusLoin:
+  - titre: "Conseil des prélèvements obligatoires, La TVA, un impôt à recentrer sur son objectif de rendement, 2023"
+    url: https://www.vie-publique.fr/files/rapport/pdf/288177.pdf
+  - titre: "Insee, Hausses et baisses de la TVA : quels effets sur la redistribution et les inégalités ?, 2021"
+    url: https://blog.insee.fr/hausses-et-baisses-de-la-tva-quels-effets-sur-la-redistribution-et-les-inegalites-de-niveau-de-vie
+  - titre: "DGFiP Statistiques n° 43, les recettes fiscales collectées en 2025, mars 2026"
+    url: https://www.impots.gouv.fr/node/28174
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour baisser la TVA sur l'essentiel"
+    argument: "La TVA pèse plus lourd sur les modestes : 13 % de leur revenu, contre 7 % pour les plus aisés."
+  - titre: "Pour ne pas la baisser"
+    argument: "Une baisse coûte cher et profite d'abord, en euros, aux 20 % les plus aisés, qui paient 32 % de la TVA."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "La baisser"
+    precision: "sur l'essentiel"
+  - choix: "Ne pas la baisser"
+    precision: "voire l'augmenter"
+positions:
+  # AFP, 22/09/2026 (« Marine Le Pen (RN) défend une baisse de la TVA sur les carburants de 20 % à 5,5 % ») : https://www.connaissancedesenergies.org/afp/la-campagne-dattal-et-de-philippe-percutee-par-la-crise-des-carburants-260922 ;
+  # vote pour l'abonnement d'électricité à 5,5 %, scrutin n° 4041 du 20/11/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/4041
+  # L'Avenir en commun, édition 2025 (programme sur melenchon2027.fr), chap. 6 « Faire la révolution fiscale » : https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025 (programme sur melenchon2027.fr), chap. 6 « Faire la révolution fiscale »", statut: officielle }
+  # Les Écologistes, « Pour une prospérité écologique », nouveau programme, juillet 2026, ch. 17 « Refonder le pacte fiscal », mesure 6 (p. 67 du PDF) : https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
+  tondelier: { option: A, source: "Les Écologistes, « Pour une prospérité écologique », nouveau programme, juillet 2026, ch. 17 « Refonder le pacte fiscal », mesure 6 (p. 67 du PDF)", statut: officielle }
+  # AFP via Connaissance des énergies, 22/09/2026 (BFMTV, 21/09/2026) ; votes personnels contre l'abonnement d'électricité à 5,5 %, scrutin n° 4041, 20/11/2025 : https://www.connaissancedesenergies.org/afp/la-campagne-dattal-et-de-philippe-percutee-par-la-crise-des-carburants-260922
+  attal: { option: B, source: "AFP via Connaissance des énergies, 22/09/2026 (BFMTV, 21/09/2026) ; votes personnels contre l'abonnement d'électricité à 5,5 %, scrutin n° 4041, 20/11/2025", statut: deduite }
+  # AFP via Connaissance des énergies, 22/09/2026 ; vote personnel pour l'abonnement d'électricité à 5,5 %, scrutin n° 4041, 20/11/2025 : https://www.connaissancedesenergies.org/afp/la-campagne-dattal-et-de-philippe-percutee-par-la-crise-des-carburants-260922
+  le-pen: { option: A, source: "AFP via Connaissance des énergies, 22/09/2026 ; vote personnel pour l'abonnement d'électricité à 5,5 %, scrutin n° 4041, 20/11/2025", statut: officielle }
+  # AFP via Connaissance des énergies, 11/09/2026 (déclaration du 11/09/2026) : https://www.connaissancedesenergies.org/afp/prix-de-lenergie-roussel-pcf-appelle-a-se-mobiliser-sur-les-ronds-points-260911
+  roussel: { option: A, source: "AFP via Connaissance des énergies, 11/09/2026 (déclaration du 11/09/2026)", statut: officielle }
+  # Debout la France, projet « Économie et travail », « 10 mesures pour relancer le pouvoir d'achat » : https://www.debout-la-france.fr/projet/economie-travail/
+  dupont-aignan: { option: A, source: "Debout la France, projet « Économie et travail », « 10 mesures pour relancer le pouvoir d'achat »", statut: officielle }
+  # Éditorial de Nathalie Arthaud, Lutte ouvrière, 30/03/2026 : https://www.lutte-ouvriere.org/portail/editoriaux/essence-bas-profiteurs-guerre-augmentation-salaires-193163.html
+  arthaud: { option: A, source: "Éditorial de Nathalie Arthaud, Lutte ouvrière, 30/03/2026", statut: officielle }
+# Inconnues (étude § 4) : Philippe (« rééquilibrer le financement du modèle social », sans nommer la TVA :
+# https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere), Glucksmann, Retailleau (« pas d'impôt nouveau »,
+# sans rien dire d'une baisse), Lisnard (simplifier les taux : https://www.unenouvelleenergie.fr/changer-de-logiciel-fiscal/),
+# Zemmour, Ruffin (aucune mesure de TVA dans son plan : https://nouspresident.fr/plan-de-redressement/).
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/045-tva.md (chaque chiffre y a sa source numérotée,
+# et l'annexe de l'étude dit d'où vient chacun). Le fil : une TVA sociale votée puis abrogée en 2012 ; trois choix ;
+# les camps s'opposent sur une baisse de la TVA, le débat de la campagne de 2026 (« l'essentiel » est le mot des
+# partisans d'une baisse, étude « Règles de lecture » : il reste dans leur levier, pas dans le nom des camps).
+# Pas de « mécanisme » ni d'« écart » : aucun rapport « X pour 1 » ni aucune grandeur à deux dates n'éclaire le débat
+# sans le pencher (le prix du gazole sur deux semaines de septembre 2026 a été écarté pour cette raison).
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.3 et 2f, [28] [29] : loi du 14 mars 2012, abrogée par la loi du 16 août 2012 avant d'entrer en vigueur (le
+    # dire évite de laisser croire qu'elle a été essayée puis a échoué). La chute nomme les trois choix d'aujourd'hui.
+    etapes:
+      - { quand: "Mars 2012", valeur: "Votée" }
+      - { quand: "Août 2012", valeur: "Abrogée" }
+    chute: "… avant d'entrer en vigueur : la « TVA sociale », plus de TVA pour moins de cotisations. Aujourd'hui, certains veulent la relancer, d'autres baisser la TVA sur l'essentiel, d'autres ne pas y toucher."
+  leviers:
+    # § 2a, 2d, 2e et 2f, [6] [25] [28]. Les trois options de la fiche, dans son ordre. Le premier et le troisième
+    # disent qui paierait : la chute nomme la compensation d'une baisse et ceux qui paient une hausse.
+    titre: "Pour la TVA, trois choix"
+    choix:
+      - { texte: "La baisser sur l'essentiel", detail: "l'alimentation de base, l'énergie, voire les carburants" }
+      - { texte: "Ne pas y toucher", detail: "et aider ceux qui en ont besoin" }
+      - { texte: "L'augmenter", detail: "pour baisser les cotisations sur les salaires" }
+    chute: "Une baisse doit être compensée par d'autres impôts, des économies ou de la dette. Une hausse est payée par tous ceux qui achètent."
+    source: "Conseil des prélèvements obligatoires, 2023 ; Sénat, 2012"
+  camps: { pour: POUR, contre: CONTRE, objet: une baisse de la TVA }
+  # Chaque réponse est le meilleur argument de son camp ; les estimations sont dites comme telles. Le camp CONTRE
+  # réunit ceux qui veulent garder les taux et ceux qui veulent les augmenter : ses réponses valent pour les deux.
+  questions:
+    # § 2b, [7] [8] : même organisme, mêmes données de 2016 (André et Biotteau). L'un mesure la TVA en part du
+    # revenu de chaque groupe (13,1 % et 7,4 %, arrondis), l'autre la part de toute la TVA payée par chaque groupe.
+    - question: "Qui paie le plus de TVA ?"
+      pour: { affirmation: "Les modestes, en part du revenu.", chiffre: "13 %", texte: "Les 10 % les plus modestes versent 13 % de leur revenu en TVA, les 10 % les plus aisés 7 %.", source: "Insee, 2021" }
+      contre: { affirmation: "Les plus aisés, en euros.", chiffre: "32 %", texte: "Les 20 % les plus aisés paient 32 % de toute la TVA, les 20 % les plus modestes 12 %.", source: "Insee, 2021" }
+    # § 2c, [12] [13] [9] [10]. Pour : la part de la baisse arrivée dans les prix, « presque complète » (Banque
+    # d'Espagne), d'où « presque 100 % » (l'ancien « 0 % », le nouveau taux, ne prouvait rien et se lisait « 0 % de
+    # baisse »). Contre : la part gardée par les propriétaires (plus de 55 %). Chaque texte dit, à égalité, ce qui rend
+    # son cas particulier : l'Espagne obligeait à baisser les prix d'autant ; la France de 2009 ne l'imposait pas
+    # (contrat d'avenir, étude § 2c). Les deux viennent d'études, nommées en source.
+    - question: "Une baisse ferait-elle baisser les prix ?"
+      pour: { affirmation: "Oui, en Espagne.", chiffre: "presque 100 %", texte: "En 2023, l'Espagne a supprimé la TVA des aliments de base, avec obligation de baisser les prix : ils ont baissé presque d'autant.", source: "Banque d'Espagne, 2024" }
+      contre: { affirmation: "Pas toujours.", chiffre: "55 %", texte: "En 2009, sans obligation de baisser leurs prix d'autant, les restaurateurs ont gardé plus de 55 % de leur baisse de TVA.", source: "Benzarti et Carloni, 2019" }
+    # § 2d, [18] [17] : le non-recours à l'aide carburant (1,5 million de demandes manquantes sur près de 3 millions
+    # d'ayants droit, à une semaine de la date limite) et le coût annuel de la baisse proposée par le RN (l'AFP la décrit
+    # sur « toutes les énergies » dans une dépêche, sur les carburants dans une autre, pour le même chiffre). Les deux
+    # chiffres viennent du gouvernement, par l'AFP (étude [source secondaire]), d'où « cité par l'AFP » dans les deux
+    # sources. Chacun dit sa limite : l'un est un relevé à une semaine de la date limite, l'autre une estimation du
+    # gouvernement (au conditionnel, « selon le gouvernement ») ; « les carburants » et non « l'essence », comme
+    # l'étude et le chiffre 3 de la fiche. L'un est une part de personnes, l'autre un coût : ils ne se comparent pas,
+    # chacun répond à la question.
+    - question: "Vaut-il mieux aider tout le monde ?"
+      pour: { affirmation: "Oui, une aide ciblée en oublie.", chiffre: "1 sur 2", texte: "À une semaine de la date limite, un travailleur sur deux qui y avait droit n'avait pas demandé l'aide carburant.", source: "Gouvernement, cité par l'AFP, 2026" }
+      contre: { affirmation: "Non, cela coûte des milliards.", chiffre: "12 à 15 milliards €", texte: "Une TVA à 5,5 % sur l'énergie et les carburants coûterait 12 à 15 milliards d'euros par an, selon le gouvernement.", source: "Gouvernement, cité par l'AFP, 2026" }
+    # § 2d et 2a, [17] [6] : la part des taxes dans le prix du sans-plomb (50,1 % au 24/08/2026) et la part des
+    # achats soumis à la TVA qui paient le taux normal (65 % en France, 71 % en moyenne dans l'Union). Les deux
+    # cartes répondent à la même question à deux échelles, chacune la sienne dite : un achat, toutes taxes
+    # (l'autre taxe est l'accise), et tous les achats soumis à la TVA. Ni « surtout » (l'essence n'est pas le
+    # produit le plus taxé), ni « nos voisins » (la preuve est une moyenne de l'Union).
+    - question: "Taxe-t-on trop ce que l'on achète ?"
+      pour: { affirmation: "Oui, à la pompe.", chiffre: "50 %", texte: "Les taxes font la moitié du prix de l'essence sans plomb, et la TVA se calcule aussi sur l'autre taxe.", source: "AFP, 2026" }
+      contre: { affirmation: "Non, moins que la moyenne européenne.", chiffre: "65 %", texte: "En France, 65 % des achats soumis à la TVA paient le taux normal, contre 71 % en moyenne dans l'Union européenne.", source: "Conseil des prélèvements obligatoires, 2023" }

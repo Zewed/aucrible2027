@@ -1,67 +1,175 @@
-# DONNÉES DE DÉMONSTRATION : question, contexte, chiffres et positions inventés pour développer l'app.
-# Les positions n'ont pas de vraie source. Rien n'est vérifié : à remplacer par une
-# fiche sourcée avant toute mise en ligne.
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/025-nucleaire.md (tout ce qui suit y est sourcé).
 numero: 25
 date: 2026-10-24
 theme: ecologie-energie
 question: Faut-il sortir du nucléaire ?
 titreCourt: "Le nucléaire"
 contexte:
-  - Le nucléaire produit environ les deux tiers de l'électricité consommée en France.
-  - La plupart des réacteurs en service ont été construits dans les années 1980 et doivent être prolongés ou remplacés.
-  - En 2022, l'État a annoncé la construction de six nouveaux réacteurs.
+  - "En 2025, les 57 réacteurs du pays ont produit 68 % de l'électricité française ; les plus anciens tournent depuis 1978."
+  - "La programmation de l'énergie de février 2026 prévoit de les faire durer 50 ou 60 ans et de construire six nouveaux réacteurs, appelés EPR2, le premier vers 2038."
+  - "Leur devis atteint 72,8 milliards d'euros aux prix de 2020 et EDF doit décider fin 2026 de les construire ; le stockage profond des déchets les plus radioactifs a reçu en août 2026 un avis favorable, avec réserves, de l'enquête publique et attend son autorisation."
 chiffres:
-  - valeur: 65 %
-    legende: de l'électricité produite en France vient du nucléaire
-    source: { organisme: RTE, document: bilan électrique, annee: 2024 }
+  - valeur: "68 %"
+    legende: "de l'électricité produite en France en 2025 vient du nucléaire ; en dix ans, cette part a varié entre 63 et 77 %"
+    source: { organisme: RTE, document: "Bilan électrique 2025", annee: 2025 }
   - valeur: "57"
     unite: réacteurs
-    legende: en service dans le pays
-    source: { organisme: EDF, annee: 2025 }
+    legende: "en service fin 2025 ; les 32 plus anciens réacteurs ont démarré entre 1978 et 1987"
+    source: { organisme: "Cour des comptes, ASNR", document: "La filière EPR ; réexamens périodiques", annee: 2025 }
+# Pas de note d'axe : ni « plus de redistribution / plus de marché » ni « progressiste / conservateur » ne range ces
+# options (la sortie comme la relance passent par l'État), et une note forcée ajouterait des blocs au plateau.
 options:
   - id: A
-    libelle: Oui, d'ici 2045
-    implique: Les réacteurs ferment peu à peu, remplacés par les renouvelables et les économies d'énergie.
-    defenseurs: On écarte le risque d'accident et la question des déchets, avec des renouvelables de moins en moins chères.
-    critiques: Il faudrait remplacer vite une production pilotable, au risque de plus de gaz ou d'importations.
+    libelle: "En sortir progressivement"
+    implique: "Plus de nouveaux réacteurs (ni EPR2 ni petits réacteurs) et fermeture des réacteurs actuels au fil des années, sur une vingtaine d'années pour les uns, jusqu'à une électricité 100 % renouvelable en 2050 pour les autres."
+    defenseurs: "On supprime le risque d'accident et les nouveaux déchets, dangereux des centaines de milliers d'années ; en 2021, le gestionnaire du réseau a jugé possible une électricité 100 % renouvelable en 2050, et le devis des six réacteurs prévus a augmenté de 41 % depuis 2022, à prix constants."
+    critiques: "Selon la même étude de 2021, que le gestionnaire du réseau met à jour fin 2026, se passer de nouveaux réacteurs coûterait environ 10 milliards d'euros de plus par an vers 2060 et demanderait de construire les renouvelables plus vite que les pays européens les plus rapides ; l'Allemagne, sortie en 2023, a tiré 38 % de son électricité du charbon et du gaz en 2025."
   - id: B
-    libelle: Réduire sa part, sans en sortir
-    implique: Le parc diminue, et les renouvelables prennent une plus grande part de la production.
-    defenseurs: Ne pas dépendre d'une seule technologie, tout en gardant une base de production stable.
-    critiques: Fermer des réacteurs qui fonctionnent encore coûte cher sans réduire les émissions.
+    libelle: "Réduire sa part, sans en sortir"
+    implique: "On garde tout ou partie des réacteurs actuels, tant que l'autorité de sûreté l'autorise, mais on construit moins que les six réacteurs prévus, voire aucun ; les renouvelables prennent une part croissante. C'était l'objectif de la loi de 2015 à 2023 : 50 % de nucléaire."
+    defenseurs: "Ne pas dépendre d'une seule technologie, comme en 2022 quand jusqu'à près de 65 % du parc était à l'arrêt, tout en gardant une production stable et sans engager des dizaines de milliards dans des réacteurs attendus vers 2038 au lieu de 2035."
+    critiques: "Près de la moitié de la puissance nucléaire aura 60 ans d'ici 2045 : sans assez de réacteurs neufs, il faudra la remplacer vite ; pour les partisans de la sortie, c'est garder le risque et les déchets."
   - id: C
-    libelle: Garder le parc actuel
-    implique: On prolonge les réacteurs existants, sans en construire de nouveaux.
-    defenseurs: Les réacteurs existants produisent une électricité bas carbone déjà payée.
-    critiques: "Prolonger ne fait que repousser le choix : les réacteurs finiront par fermer."
+    libelle: "Le relancer avec les renouvelables"
+    implique: "C'est le plan de l'État : faire durer les réacteurs 50 ou 60 ans, construire six EPR2 (le premier vers 2038) et peut-être huit de plus, tout en continuant à développer l'éolien et le solaire."
+    defenseurs: "Selon une étude de 2021 du gestionnaire du réseau, construire de nouveaux réacteurs « est pertinent du point de vue économique » et coûte moins cher à long terme qu'une électricité 100 % renouvelable ; le parc actuel produit pour environ 60 euros le mégawattheure une électricité bas carbone qu'on règle selon les besoins."
+    critiques: "Le devis des six réacteurs est passé de 51,7 à 72,8 milliards d'euros aux prix de 2020, le premier est attendu vers 2038 au lieu de 2035, et le stockage des déchets les plus radioactifs n'est pas encore autorisé ; d'autres jugent l'aide aux renouvelables trop coûteuse."
   - id: D
-    libelle: Construire de nouveaux réacteurs
-    implique: De nouveaux réacteurs remplacent les plus anciens ou s'ajoutent au parc.
-    defenseurs: Une électricité bas carbone et pilotable pour électrifier les transports et l'industrie.
-    critiques: Les chantiers récents ont pris des années de retard et coûté bien plus que prévu.
+    libelle: "Miser d'abord sur le nucléaire"
+    implique: "Faire durer les réacteurs le plus longtemps possible, en construire de nouveaux, souvent plus que les six prévus, et arrêter l'aide publique à l'éolien et au solaire."
+    defenseurs: "Une électricité bas carbone, produite en France et qu'on règle selon les besoins, sans payer d'aides à des énergies qui dépendent du vent et du soleil ; la France a déjà mis en service 32 réacteurs entre 1978 et 1987."
+    critiques: "Le premier nouveau réacteur est attendu vers 2038 et le dernier chantier a pris douze ans de retard ; d'ici 2030, le gestionnaire du réseau recommande de développer les renouvelables « le plus rapidement possible », et miser sur une seule technologie expose à un défaut commun, comme les fissures de 2022."
+pourAllerPlusLoin:
+  - titre: "RTE, bilan électrique 2025 : la production nucléaire"
+    url: https://analysesetdonnees.rte-france.com/bilan-electrique-2025/production
+  - titre: "Cour des comptes, La filière EPR : une dynamique nouvelle, des risques persistants, janvier 2025"
+    url: https://www.vie-publique.fr/files/rapport/pdf/296839.pdf
+  - titre: "RTE, Futurs énergétiques 2050 : les scénarios avec et sans nouveaux réacteurs"
+    url: https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-previsionnel-2050-futurs-energetiques
 # Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options,
-# le premier resserré pour tenir dans l'image).
+# resserrés pour tenir dans l'image).
 cotes:
   - titre: "Pour sortir du nucléaire"
-    argument: "On écarte le risque d'accident et les déchets, avec des renouvelables moins chères."
+    argument: "On supprime le risque d'accident et les nouveaux déchets, et le gestionnaire du réseau a jugé possible en 2021 une électricité 100 % renouvelable en 2050."
   - titre: "Pour ne pas en sortir"
-    argument: "Les réacteurs existants produisent une électricité bas carbone déjà payée."
+    argument: "Le nucléaire produit une électricité bas carbone qu'on règle selon les besoins, et s'en passer coûterait plus cher, selon le gestionnaire du réseau en 2021."
 # Les deux choix de l'autocollant « Et toi ? » de la story.
 story:
   - choix: "En sortir"
     precision: "ou réduire"
   - choix: "Le garder"
-    precision: "ou construire"
+    precision: "ou le relancer"
 positions:
-  arthaud: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
-  tondelier: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
-  melenchon: { option: A, source: "Source de démonstration, à trouver", statut: deduite }
-  ruffin: { option: B, source: "Source de démonstration, à trouver", statut: deduite }
-  glucksmann: { option: B, source: "Source de démonstration, à trouver", statut: deduite }
-  attal: { option: C, source: "Source de démonstration, à trouver", statut: deduite }
-  philippe: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
-  le-pen: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
-  retailleau: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
-  zemmour: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
-  roussel: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
-  dupont-aignan: { option: D, source: "Source de démonstration, à trouver", statut: deduite }
+  # Programme 2022 (Institut Montaigne) : https://www.institutmontaigne.org/presidentielle-2022/marine-le-pen/construire-6-epr-rouvrir-fessenheim-et-demanteler-toutes-les-eoliennes
+  # RN au colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
+  le-pen: { option: D, source: "Programme 2022 (20 EPR, fin des éoliennes) ; RN, colloque de l'UFE, 23/06/2026", statut: deduite }
+  # Livret programme LFI : https://programme.lafranceinsoumise.fr/livrets/energie/ ; https://melenchon2027.fr/construction-programme/
+  # LFI au colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
+  # Amendement de sortie voté par tout le groupe LFI, 18/06/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/2549
+  melenchon: { option: A, source: "Programme LFI (sortie du nucléaire, 100 % renouvelables) ; scrutin du 18/06/2025", statut: officielle }
+  # Horizons au colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
+  philippe: { option: C, source: "Horizons (C. Béchu), colloque de l'UFE, 23/06/2026", statut: deduite }
+  # Programme climat relevé par votons-2027.fr : https://votons-2027.fr/candidats/glucksmann/programme/climat
+  # LCP, 25/08/2026 : https://lcp.fr/actualites/presidentielle-2027-s-il-gagne-raphael-glucksmann-engagera-les-100-jours-de-la
+  glucksmann: { option: C, source: "Programme (« conforter le rôle du nucléaire ») ; LCP, 25/08/2026", statut: deduite }
+  # Colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
+  # Nogent-sur-Seine, 07/05/2026 : https://www.parlons-politique.fr/elections/a-quel-prix-la-fin-des-subventions-renouvelables-pour-leolien-et-le-solaire-retailleau-relance-le-bras-de-fer-sur-lenergie_15456/
+  retailleau: { option: D, source: "Colloque de l'UFE, 23/06/2026 ; Nogent-sur-Seine, 07/05/2026", statut: officielle }
+  # LCP, 23/06/2025 : https://lcp.fr/actualites/gabriel-attal-denonce-un-axe-anti-ecologie-lr-rn-a-l-assemblee-nationale-384529
+  # Renaissance au colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
+  attal: { option: C, source: "Message du 23/06/2025 ; Renaissance, colloque de l'UFE, 23/06/2026", statut: deduite }
+  # Programme 2022 (Institut Montaigne) : https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/investir-dans-le-nucleaire-en-construisant-14-nouveaux-epr-a-lhorizon-2050/
+  # Programme 2027 relevé par l'iFRAP : https://www.ifrap.org/comparateurs/presidentielles-2027
+  zemmour: { option: D, source: "Programme 2022 (14 EPR, plus d'éoliennes) ; programme 2027 relevé par l'iFRAP", statut: deduite }
+  # Colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
+  # Programme des Écologistes relevé par l'iFRAP : https://www.ifrap.org/comparateurs/presidentielles-2027
+  tondelier: { option: A, source: "Colloque de l'UFE, 23/06/2026 ; programme des Écologistes (arrêt sur 20 ans)", statut: officielle }
+  # Colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
+  # Programme 2022 (Effy, 10/03/2022) : https://www.effy.fr/magazine/presidentielle-2022-le-projet-fabien-roussel-en-matiere-de-politique-energetique
+  roussel: { option: C, source: "Colloque de l'UFE, 23/06/2026 ; programme 2022 (6 EPR minimum et renouvelables)", statut: deduite }
+  # Projet « Économie et travail », mesures 1b et 25 : https://www.debout-la-france.fr/projet/economie-travail/
+  dupont-aignan: { option: D, source: "Projet de Debout la France, mesures 1b et 25, 2026", statut: officielle }
+  # Cahier « Travaillisme écologique », septembre 2026 : https://nouspresident.fr/travaillisme-ecologique/
+  ruffin: { option: C, source: "Cahier « Travaillisme écologique », septembre 2026", statut: officielle }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/025-nucleaire.md (chaque chiffre y a sa source
+# numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : un parc qui vieillit (les plus vieux réacteurs
+# auront 60 ans en 2038, quand le premier neuf est attendu), un devis qui monte, quatre choix, puis quatre questions où
+# chaque camp avance son meilleur fait. Aucun face-à-face de la fiche 014 (éoliennes) n'est repris.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1, 1.2 et 1.3, [4] [6] [10] [12] : les plus vieux réacteurs (900 MWe) ont été mis en service en 1978, d'où
+    # 48 ans en 2026 (2026 − 1978) et 60 ans en 2038 (1978 + 60 = 2038, calcul de l'étude) ; le premier EPR2 est attendu
+    # « d'ici 2038 » ; le plan de l'État (PPE 3) vise « 50 ou 60 ans ». Deux âges, la même mesure. La chute dit l'enjeu
+    # commun aux quatre choix (remplacer ou prolonger un parc qui vieillit), sans en trancher aucun.
+    etapes:
+      - { quand: "En 2026", valeur: "48 ans" }
+      - { quand: "En 2038", valeur: "60 ans" }
+    chute: "… pour les plus vieux réacteurs. L'État prévoit de les faire durer 50 ou 60 ans ; le premier réacteur neuf est attendu en 2038."
+  # Pas de « mécanisme » : aucun rapport « X pour 1 » ne résume le sujet.
+  ecart:
+    # § 1.3, [2] [4] [5] [7] : même périmètre (les six EPR2), même unité (euros de 2020, hors coûts de financement),
+    # deux devis : 51,7 Md€ (gouvernement, février 2022) et 72,8 Md€ (EDF, 18/12/2025), arrondis. La hausse sert le
+    # camp POUR ; la chute la remet en perspective sans trancher : ce qui se compare (mêmes prix, hors intérêts), ce qui
+    # reste à décider (décision finale d'EDF attendue fin 2026, [7]) et qui paie (prêt de l'État pour 60 % du total,
+    # conseil du 12/03/2026, [7]). « Coûteraient » : rien n'est encore décidé.
+    titre: "Combien coûteraient les six nouveaux réacteurs ?"
+    etapes:
+      - { quand: "En 2022", valeur: "52 milliards €" }
+      - { quand: "Fin 2025", valeur: "73 milliards €" }
+    chute: "Les devis sont aux prix de 2020, hors intérêts. EDF doit décider fin 2026 de les construire, avec un prêt de l'État pour 60 %."
+    source: "Cour des comptes, 2025 ; EDF, 2025 ; Élysée, 2026"
+  leviers:
+    # § 1.2 et 4, [2] [10] [28]. Les quatre options de la fiche, à égalité, chaque détail suivant l'« implique » de son
+    # option (six EPR2 et huit à décider : « peut-être quatorze »). La chute dit la règle en vigueur depuis la loi du
+    # 22/06/2023 : ni plafond (63,2 GW) ni objectif de baisse (50 %) ; elle ne favorise aucun choix. « Les économies
+    # d'énergie » (choix A) ne sont pas dans l'étude : retirées. « Plus d'aide » (choix D) se lisait aussi « davantage ».
+    titre: "Le nucléaire : quatre choix"
+    choix:
+      - { texte: "En sortir", detail: "fermer peu à peu les réacteurs, remplacés par les renouvelables" }
+      - { texte: "Réduire sa part", detail: "garder une partie des réacteurs, en construire moins que prévu" }
+      - { texte: "Nucléaire et renouvelables", detail: "faire durer les réacteurs, en construire six, peut-être quatorze, et développer éolien et solaire" }
+      - { texte: "Le nucléaire d'abord", detail: "de nouveaux réacteurs, et la fin de l'aide publique à l'éolien et au solaire" }
+    chute: "Depuis 2023, la loi ne fixe plus ni plafond ni objectif de baisse pour le nucléaire."
+    source: "Journal officiel, 2023 ; Gouvernement, 2026"
+  # Les mots de la question, sans ceux d'un camp (ni « relance » ni « sortie ») : POUR veut moins de nucléaire (options
+  # A et B), CONTRE veut le garder ou le relancer (options C et D).
+  camps: { pour: POUR, contre: CONTRE, objet: "moins de nucléaire" }
+  # Chaque réponse POUR vaut pour A et B, chaque réponse CONTRE pour C et D. Chaque question oppose deux faits de la
+  # même source, ou deux faits que chaque texte nomme. L'ordre d'apparition des camps suit ABBA (POUR ouvre les
+  # questions 1 et 4, CONTRE les questions 2 et 3).
+  questions:
+    # § 2d, [2] [16] [17] : la même étude de RTE (Futurs énergétiques 2050, 2021). POUR : le scénario M0, 100 %
+    # renouvelable en 2050, « chemin possible mais sûrement pas facile », à des rythmes plus rapides que les pays
+    # européens les plus dynamiques, d'où « sous de fortes conditions ». CONTRE : l'écart « de l'ordre de 10 milliards
+    # d'euros par an » entre M23 (sans nouveaux réacteurs) et N2 (avec), coûts annualisés vers 2060 ; une estimation,
+    # que le texte dit. Les deux textes disent « en 2021 » : l'étude précède la hausse du devis des EPR2 (§ 2d) et RTE la
+    # met à jour fin 2026 [18] ; « a jugé », « a estimé » des deux côtés, pour que l'âge pèse autant sur chacun.
+    - question: "Peut-on se passer du nucléaire ?"
+      pour: { affirmation: "Oui, d'ici 2050, selon une étude.", chiffre: "100 %", texte: "En 2021, le gestionnaire du réseau a jugé possible une électricité 100 % renouvelable en 2050, sous de fortes conditions.", source: "RTE, 2021" }
+      contre: { affirmation: "Pas sans payer plus cher.", chiffre: "10 milliards €", texte: "La même étude de 2021 a estimé que s'en passer coûterait environ 10 milliards € de plus par an, vers 2060.", source: "RTE, 2021" }
+    # § 1.4 et 2c, [2] [3] [12] : deux faits que chaque texte nomme, un cas concret de chaque côté. POUR : Flamanville 3,
+    # raccordé le 21/12/2024, « 12 ans après la date prévue » (mi-2012). CONTRE : les 32 réacteurs de 900 MWe mis en
+    # service entre 1978 et 1987, toujours en fonctionnement.
+    - question: "Peut-on construire des réacteurs à temps ?"
+      pour: { affirmation: "Pas d'après le dernier chantier.", chiffre: "12 ans", texte: "Le réacteur de Flamanville a été raccordé au réseau fin 2024, douze ans après la date prévue au départ.", source: "Cour des comptes, 2025" }
+      contre: { affirmation: "La France l'a déjà fait.", chiffre: "32", texte: "Entre 1978 et 1987, la France a mis en service 32 réacteurs de même puissance. Ils fonctionnent toujours.", source: "ASNR, 2025" }
+    # § 1.5 et 2e, [20] : la même dépêche, d'après l'Andra. POUR : « environ 83 000 m³ de déchets radioactifs issus des
+    # centrales nucléaires », danger « sur plusieurs centaines de milliers d'années », stockage pas encore autorisé (le
+    # volume prouve ce qui attend, « 30 ans » ne faisait que redire l'affirmation ; « pour les plus radioactifs » : les
+    # autres déchets sont stockés en surface, § 1.5). CONTRE : stockage « à environ 500 mètres sous terre », à Bure, avis
+    # favorable de la commission d'enquête en août 2026, avec deux réserves (contrôle du Parlement sur la phase pilote,
+    # réversibilité) que le texte signale.
+    - question: "Sait-on quoi faire des déchets ?"
+      pour: { affirmation: "Pas encore pour les plus radioactifs.", chiffre: "83 000 m³", texte: "Le stockage prévu pour 83 000 m³ de déchets, dangereux des centaines de milliers d'années, n'est pas encore autorisé.", source: "AFP, 2026" }
+      contre: { affirmation: "Oui, les stocker très profond.", chiffre: "500 m", texte: "Les plus radioactifs iraient à 500 mètres sous terre, à Bure. L'enquête publique a donné un avis favorable, avec réserves.", source: "AFP, 2026" }
+    # § 2i, [23] [24] : le même communiqué de l'office allemand de la statistique, la même année, la même mesure (la part
+    # de l'électricité injectée dans le réseau). POUR : renouvelables 58,6 %, deux ans après l'arrêt des derniers
+    # réacteurs (15/04/2023). CONTRE : charbon 22,1 % et gaz 16,1 %, soit 38,2 % (calcul de l'étude). Chaque affirmation
+    # ne dit que ce que prouve son chiffre : « Qu'on peut s'en passer » allait plus loin que 59 % (l'Allemagne importe
+    # de l'électricité, § 2i), et aucune des deux ne prête au charbon et au gaz une cause que l'étude ne chiffre pas.
+    - question: "Que montre l'exemple allemand ?"
+      pour: { affirmation: "Que les renouvelables peuvent fournir la majorité.", chiffre: "59 %", texte: "Deux ans après l'arrêt de ses réacteurs, l'Allemagne a tiré 59 % de son électricité des renouvelables en 2025.", source: "Destatis, 2026" }
+      contre: { affirmation: "Que charbon et gaz restent.", chiffre: "38 %", texte: "Selon le même office de statistique, 38 % de l'électricité allemande venait du charbon et du gaz en 2025.", source: "Destatis, 2026" }

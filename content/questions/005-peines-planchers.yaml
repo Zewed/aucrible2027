@@ -28,14 +28,14 @@ options:
   - id: A
     libelle: Non, le juge fixe la peine
     implique: "Le droit actuel est maintenu : aucune peine minimale ne s'impose, et le juge adapte la peine aux faits et à la personne."
-    defenseurs: "Chaque situation est différente : le juge doit pouvoir adapter la peine, et le dispositif de 2007-2014 n'a pas réduit la récidive selon la conférence de consensus de 2013."
+    defenseurs: "Chaque situation est différente : le juge doit pouvoir adapter la peine, et le dispositif de 2007-2014 n'a pas fait reculer la récidive à court terme, selon une étude de 2024 ; la baisse qu'elle trouve vient à moyen terme, sur des récidives répétées."
     critiques: Sans seuil, le système devient imprévisible et inaudible pour les victimes, et la sanction n'est pas assez ferme.
     axes: { societe: -2 }
   - id: B
     libelle: Oui, pour certaines infractions ciblées
     implique: Des peines minimales visent les faits les plus graves, les récidivistes ou les agressions contre les policiers, gendarmes et autres personnes exposées.
     defenseurs: "Un minimum clair pour les faits les plus graves et pour ceux qui récidivent envoie un signal : la société ne tolère pas la récidive."
-    critiques: Le dispositif de 2007-2014 n'a pas réduit la récidive selon la conférence de consensus de 2013, et il alourdirait des prisons déjà occupées à 142,1 %.
+    critiques: "Selon une étude de 2024, le dispositif de 2007-2014 n'a pas fait reculer la récidive à court terme, et il alourdirait des prisons déjà occupées à 142,1 %."
     axes: { societe: 1 }
   - id: C
     libelle: Oui, pour tous les crimes et délits
@@ -75,3 +75,72 @@ positions:
   le-pen: { option: C, source: "22 mesures pour 2022, 2022", statut: deduite }
   # https://www.lemondedudroit.fr/decryptages/79916-presidentielle-2022-quelles-sont-les-propositions-d-eric-zemmour-en-matiere-de-justice.html (« pour chaque crime et délit »)
   zemmour: { option: C, source: "Programme 2022, Le Monde du Droit, 15/02/2022", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/005-peines-planchers.md (chaque chiffre y a sa source
+# numérotée ; l'annexe de l'étude dit d'où vient chacun). Le fil : un minimum de prison a existé de 2007 à 2014 ; a-t-il
+# fait reculer la récidive, rendu les juges plus sévères, rempli les prisons, laissé le juge adapter la peine ?
+# Relu par deux relecteurs, l'un pour une peine minimale, l'autre contre (28/10/2026).
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1 et compléments a et e, [1] [14] [16] : le vol simple est puni de 3 ans (code pénal, article 311-3) ; de 2007 à
+    # 2014, en récidive, le minimum d'un délit puni de 3 ans était d'un an de prison (avec ou sans sursis), sauf décision
+    # spécialement motivée du juge. La chute dit « délit » : pour les crimes, l'étude ne tranche pas (compléments f,
+    # article 132-18 non relu). « Avec ou sans sursis » : le minimum pouvait être atteint en partie avec du sursis [15].
+    etapes:
+      - { quand: "De 2007 à 2014", valeur: "1 an minimum" }
+      - { quand: "Depuis 2014", valeur: "Aucun minimum" }
+    chute: "… de prison, avec ou sans sursis, pour le délit de vol en récidive. Le juge pouvait descendre plus bas en s'expliquant."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : la seule grandeur à deux dates, le
+  # nombre de détenus depuis 2016, ne dit rien à elle seule de l'effet des peines planchers (compléments d).
+  leviers:
+    # § 1 et compléments a, [1] [14] : les trois options de la fiche, à égalité. La chute dit la règle actuelle, que les
+    # deux camps invoquent (la récidive double la peine maximale ; aucun minimum pour un délit). Aucun levier ne fait
+    # payer directement ; le coût en détenus est dans la question 3.
+    titre: "Les peines planchers : trois choix"
+    choix:
+      - { texte: "Pas de minimum", detail: "le juge fixe la peine selon les faits et la personne" }
+      - { texte: "Un minimum ciblé", detail: "pour les faits graves, la récidive ou les policiers agressés" }
+      - { texte: "Un minimum partout", detail: "pour chaque crime et chaque délit" }
+    chute: "Aujourd'hui, un récidiviste risque le double de la peine maximale, sans peine minimale pour un délit."
+    source: "Ministère de la Justice, 2012 et 2024"
+  camps: { pour: POUR, contre: CONTRE, objet: "une peine minimale" }
+  # Q1, Q3 et Q4 opposent deux chiffres du même calcul ; Q2, deux mesures différentes (combien de récidivistes vont en
+  # prison ferme ; la durée de leur peine), sur des années différentes : chaque texte dit les siennes.
+  questions:
+    # Compléments b, [15] : les deux chiffres viennent de la même étude (A. Ouss et A. Philippe, Institut des politiques
+    # publiques, 2024), qui compare sur le casier judiciaire les récidivistes jugés pour des délits commis juste avant et
+    # juste après le 10 août 2007 à ceux déjà condamnés pour d'autres faits. −11 % : nouveaux délits du même type que les
+    # précédents (ceux que la loi visait), dans les quatre ans après la sortie (« à moyen terme »), une fois tenu compte
+    # de l'âge, du sexe et de l'infraction (le résumé arrondit à « 10 % »). 1,75 % : part des condamnations, avant la loi,
+    # des deuxièmes ou troisièmes récidives sur lesquelles porte cette baisse. « À court terme » : « on n'observe aucune
+    # diminution du nombre d'infractions commises en état de récidive après la réforme » (les auteurs). Le CONTRE répond
+    # ainsi sur la récidive, pas sur la délinquance en général.
+    - question: "Les peines planchers ont-elles fait reculer la récidive ?"
+      pour: { affirmation: "Oui, chez ceux qui les ont reçues.", chiffre: "−11 %", texte: "Selon une étude, à moyen terme, les récidivistes punis après 2007 ont commis 11 % de délits du même type en moins.", source: "Institut des politiques publiques, 2024" }
+      contre: { affirmation: "Non, pas dans l'ensemble.", chiffre: "1,75 %", texte: "Selon la même étude, la baisse porte sur des récidives répétées, 1,75 % des condamnations. À court terme, la récidive n'a pas reculé.", source: "Institut des politiques publiques, 2024" }
+    # Compléments b et c, [1] [15]. CONTRE : le garde des sceaux (Assemblée, 31/10/2024), part des majeurs en récidive
+    # condamnés à de la prison ferme, sur deux périodes sans peines planchers, toutes deux avant ou après 2007-2014.
+    # POUR : la durée moyenne de la peine des récidivistes (prison ferme et sursis avec mise à l'épreuve) passe de 230 à
+    # 430 jours entre juillet et août 2007, celle des autres condamnés ne bouge pas. Deux mesures (une part, une durée),
+    # deux périodes : chaque texte les nomme. Les « 7,3 à 7,9 mois, puis 9 mois » de la fiche ne sont pas repris : leur
+    # périmètre n'est pas clair.
+    - question: "Sans minimum, les juges punissent-ils moins ?"
+      pour: { affirmation: "Oui, moins qu'avec un minimum.", chiffre: "×2", texte: "En 2007, les peines planchers ont doublé la durée moyenne des peines des récidivistes : de 230 à 430 jours, sursis compris.", source: "Institut des politiques publiques, 2024" }
+      contre: { affirmation: "Non, plus qu'avant 2007.", chiffre: "69 %", texte: "Sans peine minimale, 69 % des récidivistes adultes ont été condamnés à la prison ferme en 2016-2020, contre 54 % en 2001-2005.", source: "Ministère de la Justice, 2024" }
+    # Compléments a, b et d, [2] [14] [15] : un seul calcul, lu par chaque camp. CONTRE : environ 4 000 détenus de plus,
+    # estimation de l'Institut des politiques publiques tirée des 4 000 années de prison ferme prononcées en plus chaque
+    # année selon le ministère (2012) ; « surpeuplées » : 142,1 % au 1er septembre 2026 (§ 2, enjeu 3), sans second chiffre.
+    # POUR : le même bilan du ministère, environ 12 000 années de prison ferme de plus sur 2008-2010, « soit environ 4 %
+    # du total des années prononcées » (une « projection » qui suppose les mêmes condamnations sans la loi). La hausse de
+    # 21 767 détenus de 2016 à 2026 n'est pas reprise : l'étude note qu'elle ne dit rien, à elle seule, de l'effet de la loi.
+    - question: "Un minimum remplirait-il les prisons ?"
+      pour: { affirmation: "Peu, sur l'ensemble des peines.", chiffre: "+4 %", texte: "Selon une estimation du ministère, les peines planchers ont ajouté environ 4 % au total des années de prison ferme prononcées en 2008-2010.", source: "Ministère de la Justice, 2012" }
+      contre: { affirmation: "Oui, comme après 2007.", chiffre: "+4 000", texte: "Selon une estimation, les peines planchers ont ajouté environ 4 000 détenus. Les prisons sont déjà surpeuplées.", source: "Institut des politiques publiques, 2024" }
+    # Compléments a, [14] : le même bilan du ministère (Infostat Justice n° 118, 2012) pour les deux camps. 6 sur 10 : en
+    # 2010, 10 122 peines au moins égales au minimum sur 26 335 condamnations qui y étaient soumises (38 %) ; la loi
+    # permettait de descendre en dessous par une décision spécialement motivée. ×3 : pour un délit puni de 5 ans, minimum
+    # de 2 ans contre une peine de prison moyenne (sursis compris) de 8,1 mois en 2004-2006 dans les mêmes affaires, des
+    # délits commis en récidive (rapport de 1,9 pour un délit puni de 3 ans, de 3 à partir de 5 ans).
+    - question: "Avec un minimum, le juge peut-il adapter la peine ?"
+      pour: { affirmation: "Oui, il peut l'écarter.", chiffre: "6 sur 10", texte: "En 2010, les juges ont écarté la peine minimale dans six cas sur dix, en motivant leur décision.", source: "Ministère de la Justice, 2012" }
+      contre: { affirmation: "Moins, la barre est haute.", chiffre: "×3", texte: "En récidive, pour un délit puni de 5 ans, le minimum était de 2 ans : trois fois la peine moyenne d'avant 2007.", source: "Ministère de la Justice, 2012" }

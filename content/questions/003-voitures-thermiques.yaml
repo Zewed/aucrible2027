@@ -67,3 +67,65 @@ positions:
   zemmour: { option: C, source: "Reconquête, programme des européennes, 09/06/2024", statut: deduite }
   # https://www.debout-la-france.fr/projet/automobilistes-et-motards/ (mesure 13 : « Supprimer l'interdiction des véhicules thermiques à l'horizon 2035 imposée par l'UE »)
   dupont-aignan: { option: C, source: "Debout la France, Automobilistes et motards", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/003-voitures-thermiques.md (chaque chiffre y a sa
+# source numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : une voiture neuve sur cinq est électrique,
+# la règle en veut cinq sur cinq en 2035, et l'Europe la révise ; puis les ventes, le prix, l'emploi et le climat.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1 et 2 (enjeu 3), [1] [5]. L'année 2025 entière, pas le record d'un mois (41 % en septembre 2026, que montre
+    # la question 1). La chute donne le vote de 2023 (340 voix pour, 279 contre, 21 abstentions), utile aux deux camps :
+    # une majorité pour les uns, un vote disputé pour les autres. La révision en cours est dite une seule fois, par la
+    # chute des leviers, plus précise.
+    etapes:
+      - { quand: "En 2025", valeur: "1 sur 5" }
+      - { quand: "Prévu en 2035", valeur: "5 sur 5" }
+    chute: "… des voitures neuves vendues en France sont électriques. Cet objectif a été voté en 2023 par 340 députés européens contre 279."
+  # Pas de « mécanisme » (propre aux retraites). Pas d'« écart » : l'objectif à deux dates (100 % voté en 2023, 90 %
+  # proposé en 2025) est dans les leviers, et les ventes à deux dates dans l'accroche et la question 1.
+  leviers:
+    # § 1 et Compléments a, [1] [2] [13] [15]. Les trois options de la fiche, à égalité : chaque détail suit
+    # l'« implique » de son option, ce qu'elle est puis ce qu'elle change (« sans CO2 en roulant » : à l'échappement,
+    # [1] ; « moins émetteurs » plutôt que « plus propres », mot disputé). Aucune ne fait payer directement, et la
+    # chute dit où en est la révision (Compléments a).
+    titre: "La fin du thermique : trois choix"
+    choix:
+      - { texte: "Maintenir 2035", detail: "des voitures neuves sans CO2 en roulant : plus aucune à essence ou diesel, même hybride" }
+      - { texte: "Assouplir à 90 %", detail: "des thermiques et des hybrides encore vendues, leur CO2 compensé par de l'acier ou des carburants moins émetteurs" }
+      - { texte: "Supprimer l'interdiction", detail: "pas de date : les acheteurs et le marché décident" }
+    chute: "En octobre 2026, des députés européens ont voté en commission pour assouplir. Le Parlement et les États doivent encore trancher."
+    source: "Parlement européen, 2026 ; electrive, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: "la fin du thermique en 2035" }
+  # POUR : maintenir les 100 % (option A) ; CONTRE : assouplir ou supprimer (options B et C), et chaque réponse CONTRE
+  # vaut pour les deux. Chaque question oppose deux faits de la même source, ou deux mesures que chaque texte nomme ;
+  # l'ordre d'apparition des camps suit ABBA (POUR ouvre les questions 1 et 4, CONTRE les questions 2 et 3).
+  questions:
+    # Compléments b, [5] [16] [17] : deux mesures du même service statistique, à quelques mois d'écart, que chaque
+    # texte nomme : les ventes de voitures neuves (le flux) et les voitures qui roulent (le parc). Le 41 % est un record
+    # d'un mois, que le texte dit, face à la moyenne de toute l'année 2025, pour ne pas gonfler la tendance (§ 2,
+    # enjeu 3 : « les parts de marché varient fortement d'un mois [à l'autre] »).
+    - question: "Les Français passent-ils à l'électrique ?"
+      pour: { affirmation: "Oui, de plus en plus.", chiffre: "41 %", texte: "En septembre 2026, 41 % des voitures neuves vendues étaient électriques, un record mensuel. Sur toute l'année 2025, c'était 20 %.", source: "SDES, 2026" }
+      contre: { affirmation: "Pas encore sur les routes.", chiffre: "3,5 %", texte: "Début 2026, 3,5 % des voitures qui roulent étaient électriques. Une voiture part à la casse à 20 ans en moyenne.", source: "SDES, 2026" }
+    # Compléments c, [18] [19] [20] : le même avis de l'ADEME, pour le même type de voiture, l'achat d'un côté,
+    # l'usage de l'autre. L'écart d'achat est celui d'une citadine (le milieu des trois gammes : moins de 3 000 € pour
+    # une compacte, plus de 7 000 € pour une petite urbaine), avant les aides, ce que le texte dit. L'affirmation POUR
+    # s'en tient à la recharge et à l'entretien : l'assurance coûte 11 % de plus [20]. L'avis n'a été lu que dans la
+    # presse [19] [20] (source secondaire), ce que dit la source affichée, ici et à la question 4.
+    - question: "Une voiture électrique coûte-t-elle plus cher ?"
+      pour: { affirmation: "Moins chère à recharger et à entretenir.", chiffre: "3 fois moins", texte: "Selon la même source, recharger coûte jusqu'à trois fois moins cher que faire le plein, et l'entretien 40 % de moins.", source: "ADEME, cité par la presse, 2026" }
+      contre: { affirmation: "Oui, à l'achat.", chiffre: "+5 200 €", texte: "Avant les aides, une citadine électrique neuve coûtait 5 200 € de plus qu'une thermique en 2025, selon une estimation de l'ADEME.", source: "ADEME, cité par la presse, 2026" }
+    # Compléments d, [21] [22] : deux mesures de la même industrie française, que chaque texte nomme : l'emploi prévu
+    # si la règle ne change pas (une estimation, commandée par la filière et l'État, nette des créations dans les
+    # batteries, que la source affichée nomme), et la production passée, un fait. L'affirmation POUR répond à la
+    # question de l'emploi (« Non ») par sa cause : le recul a commencé bien avant la règle de 2023 ; le texte dit aussi
+    # qu'il s'accélère depuis la crise du covid, comme le même rapport.
+    - question: "La fin du thermique menace-t-elle l'emploi ?"
+      pour: { affirmation: "Non, le recul a commencé avant elle.", chiffre: "÷ 3", texte: "En France, on fabrique trois fois moins de voitures qu'au début des années 2000. Le recul s'accélère depuis le covid.", source: "Assemblée nationale, 2025" }
+      contre: { affirmation: "Oui, des dizaines de milliers.", chiffre: "−56 000", texte: "Selon une estimation, si la règle ne change pas, l'industrie automobile française aurait 56 000 emplois de moins en 2035 qu'en 2024.", source: "Xerfi pour la filière et l'État, 2025" }
+    # Compléments c, [18] [19] [20] : le même calcul de l'ADEME pour une électrique roulant en France, sur toute sa vie
+    # d'un côté, à la fabrication et jusqu'au point où elle rattrape une hybride de l'autre. Les deux cartes comparent
+    # à la même voiture : « deux fois moins » vaut aussi face à une hybride [19] (2,25 fois à 240 000 km).
+    - question: "Rouler en électrique, est-ce mieux pour le climat ?"
+      pour: { affirmation: "Oui, sur la vie de la voiture.", chiffre: "2 fois moins", texte: "Selon un calcul de l'ADEME, en France, une électrique émet deux fois moins de CO2 qu'une thermique, même hybride, batterie comprise.", source: "ADEME, cité par la presse, 2026" }
+      contre: { affirmation: "Pas tout de suite.", chiffre: "70 000 km", texte: "Selon le même calcul, fabriquer une électrique émet deux fois plus qu'une hybride : elle rattrape son retard vers 70 000 km.", source: "ADEME, cité par la presse, 2026" }

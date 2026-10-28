@@ -1,0 +1,129 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/028-etat-civil.md (tout ce qui suit y est sourcé).
+# Le libellé dit « la mention du sexe à l'état civil », comme la loi : il s'agit du document, pas du corps.
+numero: 28
+date: 2026-10-27
+theme: societe
+question: "Faut-il pouvoir changer la mention du sexe à l'état civil par une simple déclaration ?"
+titreCourt: "Le sexe à l'état civil"
+contexte:
+  - "Depuis une loi de 2016, un adulte peut faire modifier la mention de son sexe à l'état civil par un juge, sans traitement médical ni opération."
+  - "Il doit montrer qu'il vit et qu'il est connu sous ce sexe, par des témoignages ou des documents ; les mineurs non émancipés ne le peuvent pas."
+  - "La Défenseure des droits et des députés de gauche demandent une simple déclaration en mairie ; le ministère de la Justice propose d'« engager une réflexion » sur ce choix, qu'il juge « hautement politique »."
+chiffres:
+  - valeur: "2 883"
+    unite: demandes
+    legende: "de changement de la mention du sexe en 2024, contre 426 en 2018"
+    source: { organisme: "Ministère de la Justice", document: "rapport d'évaluation de la loi de 2016", annee: 2025 }
+  - valeur: "99,1 %"
+    legende: "des demandes acceptées par le juge de 2018 à 2024 : 81 refus en sept ans"
+    source: { organisme: "Ministère de la Justice", document: "rapport d'évaluation de la loi de 2016", annee: 2025 }
+  - valeur: "4,9"
+    unite: mois
+    legende: "de procédure en moyenne, entre la demande et la décision du juge"
+    source: { organisme: "Ministère de la Justice", document: "rapport d'évaluation de la loi de 2016", annee: 2025 }
+options:
+  - id: A
+    libelle: "Rétablir une condition médicale"
+    implique: "Le juge exige de nouveau un diagnostic médical, comme avant 2016, mais sans opération ni stérilisation, que la Cour européenne interdit ; les mineurs restent exclus."
+    defenseurs: "Un diagnostic évite que des personnes changent d'état civil à la légère : la Cour européenne a jugé en 2017 qu'un pays pouvait l'exiger."
+    critiques: "Exiger des pièces médicales porte atteinte à la vie privée, selon la Défenseure des droits, et traite comme un trouble mental ce que l'OMS et la Haute autorité de santé ne considèrent plus comme tel."
+    axes: { societe: 2 }
+  - id: B
+    libelle: "Garder le juge, sans condition médicale"
+    implique: "On garde la loi de 2016 : le juge vérifie, sur témoignages et documents, que la personne vit et est connue sous ce sexe ; les mineurs non émancipés restent exclus."
+    defenseurs: "Le juge, impartial, protège la stabilité de l'état civil et accepte 99 % des demandes, gratuitement et sans avocat obligatoire."
+    critiques: "Il faut se justifier devant un tribunal et attendre près de cinq mois ; des juges demandent encore des pièces médicales ou s'attachent à l'apparence."
+    axes: { societe: 1 }
+  - id: C
+    libelle: "Une simple déclaration, pour les adultes"
+    implique: "Un adulte déclare le changement en mairie, sans témoins ni pièces médicales ; les mineurs ne peuvent pas le faire par simple déclaration."
+    defenseurs: "Personne ne connaît mieux son identité que soi-même : une déclaration évite d'avoir à prouver sa vie intime, comme en Espagne, en Allemagne ou en Belgique."
+    critiques: "Sans juge pour vérifier, l'état civil, qui sert à identifier chacun, devient moins stable, et des changements faits à la légère ou détournés deviennent possibles."
+    axes: { societe: -1 }
+  - id: D
+    libelle: "Une simple déclaration, aussi pour les mineurs"
+    implique: "Comme pour les adultes, et aussi pour les mineurs : seuls dès 15 ans, et avant par l'un de leurs parents, comme le propose un texte déposé en 2024."
+    defenseurs: "Les jeunes trans subissent souvent harcèlement et discriminations à l'école : reconnaître leur identité les protège, comme le permet l'Espagne dès 16 ans."
+    critiques: "Un mineur est en développement et les médecins n'ont pas de consensus sur son accompagnement ; la Défenseure des droits préfère pour eux un juge saisi par les parents."
+    axes: { societe: -2 }
+pourAllerPlusLoin:
+  - titre: "Ministère de la Justice, évaluation de la loi de 2016 sur la mention du sexe à l'état civil, 2025"
+    url: https://www.justice.gouv.fr/sites/default/files/2026-09/rapport_dacs_evaluation_j21.pdf
+  - titre: "Défenseure des droits, décision-cadre n° 2025-112 sur l'identité de genre, 2025"
+    url: https://juridique.defenseurdesdroits.fr/doc_num.php?explnum_id=22780
+  - titre: "Cour européenne des droits de l'homme, A.P., Garçon et Nicot c. France, 2017"
+    url: https://hudoc.echr.coe.int/fre?i=001-172913
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour une simple déclaration"
+    argument: "Personne ne connaît mieux son identité que soi-même ; une déclaration évite d'avoir à prouver sa vie intime."
+  - titre: "Pour garder un contrôle"
+    argument: "Le juge, impartial, protège la stabilité de l'état civil et accepte 99 % des demandes."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Une déclaration"
+    precision: "en mairie"
+  - choix: "Un contrôle"
+    precision: "par un juge ou un médecin"
+positions:
+  # Proposition de loi n° 656 du groupe LFI (première signataire Danièle Obono, cosignée par Mathilde Panot), 03/12/2024 : https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0656_proposition-loi.pdf
+  # L'Avenir en commun, édition 2025, chap. 4 : https://melenchon2027.fr/programme2025/livre/chapitre4/s1/
+  melenchon: { option: D, source: "L'Avenir en commun, édition 2025, chap. 4", statut: officielle }
+  # Projet 2027, p. 141 ; proposition de loi cosignée par le groupe écologiste, 03/12/2024 : https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0656_proposition-loi.pdf
+  tondelier: { option: D, source: "Projet 2027, p. 141 ; proposition de loi cosignée par le groupe écologiste, 03/12/2024", statut: deduite }
+  # Proposition de loi n° 656 cosignée, 03/12/2024 : https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0656_proposition-loi.pdf
+  ruffin: { option: D, source: "Proposition de loi n° 656 cosignée, 03/12/2024", statut: officielle }
+  # Programme 2022, mesure 90, p. 79 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: C, source: "Programme 2022, mesure 90, p. 79", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/028-etat-civil.md (chaque chiffre y a sa source
+# numérotée, annexe « Chiffres du reportage »). Le fil : trois façons de décider d'un changement (un médecin et un juge,
+# un juge seul, une simple déclaration) ; la question porte sur la troisième. Pas de mécanisme « X pour 1 » ni d'écart
+# à deux dates qui éclaire le débat : les blocs mecanisme et ecart sont omis.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.2, [1] [3]. De 1992 à 2016, la Cour de cassation exigeait un « traitement médico-chirurgical » (hormones
+    # suffisantes après 2010), pas seulement des preuves : d'où « un traitement médical ».
+    etapes:
+      - { quand: "De 1992 à 2016", valeur: "Un juge et un traitement médical" }
+      - { quand: "Depuis 2016", valeur: "Un juge, sans condition médicale" }
+    chute: "Certains veulent maintenant une simple déclaration en mairie."
+  leviers:
+    # § 2d et 2g, [1]. La France d'avant 2016 n'est plus citée ici : elle exigeait un traitement, pas un simple avis.
+    # Trois pays de chaque côté, pour que la déclaration ne paraisse pas seule à suivre « les voisins ».
+    titre: "Pour changer la mention du sexe, trois façons de faire"
+    choix:
+      - { texte: "Un avis médical", detail: "comme en Italie, en Autriche ou au Royaume-Uni" }
+      - { texte: "Un juge, sans condition médicale", detail: "comme en France aujourd'hui" }
+      - { texte: "Une simple déclaration", detail: "comme en Espagne, en Allemagne ou en Belgique" }
+    chute: "Pour les mineurs, chaque pays fixe son propre âge."
+    source: "Ministère de la Justice, 2025"
+  camps: { pour: POUR, contre: CONTRE, objet: "une simple déclaration" }
+  questions:
+    # § 2b, [1] : même rapport, même période (2018-2024).
+    - question: "Le passage devant le juge est-il un obstacle ?"
+      pour: { affirmation: "Oui, il faut se justifier.", chiffre: "4,9 mois", texte: "Il faut réunir témoignages et documents, puis attendre en moyenne près de cinq mois la décision du juge.", source: "Ministère de la Justice, 2025" }
+      contre: { affirmation: "Non, presque tous l'obtiennent.", chiffre: "99 %", texte: "Le juge accepte 99 % des demandes. La démarche est gratuite et l'avocat n'est pas obligatoire.", source: "Ministère de la Justice, 2025" }
+    # § 2c et 2d, [1] [5]. Le même arrêt de 2017 a condamné la France (6 voix contre 1) pour l'exigence d'une
+    # transformation irréversible ; aucune option ne la défend, et l'accroche ne présente plus l'avant-2016 comme un
+    # simple avis médical : l'argument CONTRE porte sur le seul diagnostic, que la Cour a admis à l'unanimité.
+    - question: "Une simple déclaration, est-ce trop facile ?"
+      pour: { affirmation: "Non, des garde-fous existent.", chiffre: "3 mois", texte: "En Allemagne, il faut annoncer sa demande trois mois à l'avance, puis attendre un an avant tout nouveau changement.", source: "Ministère de la Justice, 2025" }
+      contre: { affirmation: "Oui, un contrôle reste utile.", chiffre: "7 juges sur 7", texte: "En 2017, la Cour européenne a admis, à l'unanimité, qu'un pays exige un diagnostic, pour qu'on ne s'engage pas à la légère.", source: "Cour européenne des droits de l'homme, 2017" }
+    # § 2e, [1] [11] [12] [13]. CONTRE donne une date et pas un âge : « 18 ans » (périmètre des recommandations médicales)
+    # face à « 16 ans » (âge légal espagnol pour l'état civil) faisait croire à un âge fixé par la HAS.
+    - question: "Faut-il l'ouvrir aux mineurs ?"
+      pour: { affirmation: "Oui, comme en Espagne.", chiffre: "16 ans", texte: "En Espagne, on peut changer seul la mention de son sexe dès 16 ans, et dès 12 ans avec un juge.", source: "Ministère de la Justice, 2025" }
+      contre: { affirmation: "Non, le recul médical manque.", chiffre: "Fin 2027", texte: "En 2025, faute de consensus, la Haute autorité de santé a reporté ses recommandations sur la transition des mineurs, attendues fin 2027.", source: "Haute autorité de santé, 2025 et 2026" }
+    # § 2h et 2b, [1] : même source, même période.
+    - question: "Combien de personnes sont concernées ?"
+      pour: { affirmation: "Peu de personnes.", chiffre: "1 sur 20 000", texte: "En 2024, environ un adulte sur 20 000 a demandé à changer la mention de son sexe.", source: "Ministère de la Justice, 2025" }
+      contre: { affirmation: "Rare, mais en forte hausse.", chiffre: "× 7", texte: "Le nombre de demandes a été multiplié par près de sept entre 2018 et 2024.", source: "Ministère de la Justice, 2025" }
+    # § a et § f, [4] [16]. Ajoutée à la demande de l'auteur : l'argument de chaque camp que la vidéo laissait de côté.
+    # POUR : l'enquête de la FRA est faite en ligne auprès de volontaires, d'où « enquête en ligne » dans le texte.
+    # CONTRE : une décision britannique sur la loi sur l'égalité, pas une règle française ; le texte nomme le pays.
+    - question: "Qui une simple déclaration toucherait-elle ?"
+      pour: { affirmation: "Les personnes trans, souvent discriminées.", chiffre: "7 sur 10", texte: "Dans une enquête européenne en ligne, 7 personnes trans sur 10 en France disent avoir été discriminées dans l'année.", source: "Agence des droits fondamentaux de l'UE, 2023" }
+      contre: { affirmation: "Aussi les espaces réservés aux femmes.", chiffre: "5 juges sur 5", texte: "Au Royaume-Uni, la Cour suprême a jugé à l'unanimité que la loi sur l'égalité vise le sexe biologique.", source: "Cour suprême du Royaume-Uni, 2025" }

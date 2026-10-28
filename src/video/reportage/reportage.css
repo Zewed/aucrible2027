@@ -29,6 +29,7 @@
   background: var(--ink-deep); color: var(--chalk); border-radius: 16px; padding: 22px 40px 20px; box-shadow: 0 8px 0 rgba(0, 0, 0, .35);
   font: 700 54px/1.15 var(--display); font-variation-settings: "wdth" 86, "opsz" 96;
 }
+.rp-chute.longue { font-size: 42px; padding: 18px 36px 16px; max-width: 1680px; }
 .rp-meca-source { position: absolute; left: 120px; bottom: 30px; font: 600 22px/1 var(--text); color: var(--muted); }
 
 /* Où en sont les questions. */
@@ -79,7 +80,7 @@
 .rp-cote { display: flex; flex-direction: column; gap: 22px; min-height: 0; }
 .rp-cote-tete { display: flex; align-items: baseline; gap: 22px; padding-bottom: 14px; border-bottom: 8px solid var(--theme); }
 .rp-cote-tete b { font: 800 120px/0.9 var(--display); font-variation-settings: "wdth" 80, "opsz" 96; letter-spacing: 0.01em; }
-.rp-cote-tete span { font: 700 32px/1.1 var(--text); color: var(--muted); }
+.rp-cote-tete span { font: 700 28px/1.1 var(--text); color: var(--muted); }
 .rp-cote-carte {
   position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 24px; padding: 36px 46px 84px;
   background: var(--card); color: var(--ink); border-radius: 24px; box-shadow: 0 12px 0 var(--ink-deep);
@@ -104,3 +105,42 @@
 
 /* Le volet entre deux séquences. */
 .rp-volet { position: absolute; inset: 0; background: var(--ink-deep); z-index: 10; }
+
+/* Les textes longs : une valeur d'accroche longue passe à la ligne, plus petite. */
+.rp-etape-accroche.longue b { font-size: 96px; line-height: 1; white-space: normal; }
+
+/* Quatre leviers : des cartes plus serrées, qui ne débordent pas. */
+.rp-levier, .rp-fin-levier { min-width: 0; }
+.rp-leviers[data-n="4"] { gap: 16px; }
+.rp-leviers[data-n="4"] .rp-levier { padding: 30px 30px 34px; }
+.rp-leviers[data-n="4"] .rp-levier b { font-size: 54px; }
+.rp-leviers[data-n="4"] .rp-levier small { font-size: 26px; }
+.rp-fin-leviers[data-n="4"] .rp-fin-levier { padding: 20px 22px; }
+.rp-fin-leviers[data-n="4"] .rp-fin-levier b { font-size: 44px; }
+.rp-fin-leviers[data-n="4"] .rp-fin-levier small { font-size: 22px; }
+.rp-leviers[data-mot-long] .rp-levier b { font-size: 64px; }
+.rp-leviers[data-n="4"][data-mot-long] .rp-levier b { font-size: 46px; }
+.rp-fin-leviers[data-mot-long] .rp-fin-levier b { font-size: 46px; }
+.rp-fin-leviers[data-n="4"][data-mot-long] .rp-fin-levier b { font-size: 36px; }
+.rp-leviers[data-n="5"] { gap: 10px; }
+.rp-leviers[data-n="5"] .rp-ou, .rp-fin-leviers[data-n="5"] .rp-ou { font-size: 28px; }
+.rp-leviers[data-n="5"] .rp-levier { padding: 24px 22px 28px; }
+.rp-leviers[data-n="5"] .rp-levier b { font-size: 42px; }
+.rp-leviers[data-n="5"] .rp-levier small { font-size: 22px; margin-top: 12px; }
+.rp-fin-leviers[data-n="5"] { gap: 12px; }
+.rp-fin-leviers[data-n="5"] .rp-fin-levier { padding: 16px 16px; gap: 6px; }
+.rp-fin-leviers[data-n="5"] .rp-fin-levier b { font-size: 32px; }
+.rp-fin-leviers[data-n="5"] .rp-fin-levier small { font-size: 17px; }
+
+/* Un face-à-face serré, quand une réponse est longue : les deux cartes ensemble. */
+.rp-cote-carte.serre { gap: 20px; }
+.rp-cote-carte.serre strong { font-size: 54px; }
+.rp-cote-carte.serre b { font-size: 176px; }
+.rp-cote-carte.serre b.long { font-size: 112px; }
+.rp-cote-carte.serre p { font-size: 42px; }
+.rp-cote-carte.tres-serre { gap: 16px; }
+.rp-cote-carte.tres-serre strong { font-size: 50px; }
+.rp-cote-carte.tres-serre b { font-size: 150px; }
+.rp-cote-carte.tres-serre b.long { font-size: 96px; }
+.rp-cote-carte.tres-serre p { font-size: 38px; }
+

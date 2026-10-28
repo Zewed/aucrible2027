@@ -7,14 +7,14 @@ theme: logement
 question: Que faire de l'obligation de 25 % de logements sociaux par commune (loi SRU) ?
 titreCourt: "La loi SRU"
 contexte:
-  - Depuis la loi SRU de 2000, les communes d'au moins 3 500 habitants (1 500 en Île-de-France), dans les agglomérations importantes, doivent compter 25 % de logements sociaux, ou 20 % dans les territoires moins tendus.
-  - Une commune en retard doit rattraper une part de son déficit à chaque période de trois ans, sous peine d'un prélèvement sur ses recettes, majoré en cas de carence.
+  - "Depuis la loi SRU de 2000, les communes d'au moins 3 500 habitants (1 500 en Île-de-France), dans les agglomérations importantes, doivent compter des logements sociaux : 20 % à l'origine, 25 % depuis 2013, 20 % restant la règle dans les territoires moins tendus."
+  - "Une commune en dessous du taux paie chaque année un prélèvement sur ses recettes, proportionnel à son retard ; si elle ne rattrape pas la part fixée pour trois ans, le préfet peut la déclarer « en carence » et majorer ce prélèvement."
   - En janvier 2026, le Sénat a voté un texte qui permettrait de compter des logements intermédiaires dans ce rattrapage ; il a été transmis à l'Assemblée nationale.
 chiffres:
-  - valeur: "1 000"
+  - valeur: "1 276"
     unite: communes
-    legende: sur 2 100 soumises à la loi n'atteignent pas leur taux légal
-    source: { organisme: Ministère du Logement, document: bilan 2020-2022 de la loi SRU, annee: 2024 }
+    legende: sur 2 196 soumises à la loi n'atteignaient pas leur taux légal en 2024
+    source: { organisme: Ministère du Logement, document: page sur la loi SRU mise à jour le 2 septembre 2024, annee: 2024 }
   - valeur: "186 000"
     unite: logements sociaux
     legende: produits en 2020-2022 dans les communes soumises à la loi
@@ -85,3 +85,85 @@ positions:
   roussel: { option: D, source: "Programme 2022, 14/03/2022", statut: deduite }
   # Programme 2022 du candidat d'EELV (Terra Nova, 14/03/2022) : https://www.lagrandeconversation.com/app/uploads/2022/03/terra-nova_la-grande-conversation-2022_le-logement-dans-la-campagne-presidentielle_140322.pdf
   tondelier: { option: D, source: "Programme 2022 d'EELV, 14/03/2022", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/008-sru.md (chaque chiffre y a sa source numérotée,
+# compléments du 28/10/2026 et annexe). Le fil : une obligation fixée en 2000, relevée en 2013, qu'un millier de
+# communes n'atteignent pas ; puis ce qu'elle produit, ce qu'elle coûte et qui elle loge.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1 et compléments C1, [2] [24] : 20 % depuis la loi de 2000, 25 % depuis la loi du 18/01/2013 (20 % gardé là où
+    # le logement manque moins). « Plus de 1 000 » : 1 276 communes sur 2 196 en dessous en 2024 (ministère, [2]) ; juste
+    # aussi avec les autres décomptes (1 022 communes tenues de rattraper en 2020-2022 [19], 1 065 en 2021 [20], « un
+    # millier » dans la fiche). Pas de pourcentage : la fiche dit 1 000 sur 2 100, le ministère 58 % en 2024. « Visées » :
+    # toutes les communes ne sont pas concernées. Chute de 126 caractères (130 au plus).
+    etapes:
+      - { quand: "En 2000", valeur: "20 %" }
+      - { quand: "Depuis 2013", valeur: "25 %" }
+    chute: "… de logements sociaux exigés, 20 % là où le logement manque moins. En 2024, plus de 1 000 communes visées étaient en dessous."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : la seule grandeur à deux dates qui
+  # éclaire le débat, la demande de logement social, n'a pas de point de départ vérifié (le « 1,8 million dix ans plus
+  # tôt » du § 2 n'est pas dans sa source [13], compléments C5) ; la demande est traitée dans la question 2.
+  leviers:
+    # § 1, enjeu 4 et compléments C3, [2] : les quatre options de la fiche, à égalité. La chute dit qui paie les
+    # pénalités (les communes en retard, sur leurs recettes) et à quoi l'argent doit servir : utile aux deux camps.
+    # 141 M€ : le prélèvement de 2024 après déduction de ce que les communes ont dépensé pour le logement social
+    # (240 M€ avant), dont 68 M€ de majorations pour les communes sanctionnées.
+    titre: "L'obligation de logements sociaux : quatre choix"
+    choix:
+      - { texte: "La supprimer", detail: "chaque commune choisit sa part de logements sociaux" }
+      - { texte: "L'assouplir", detail: "compter des logements à loyer intermédiaire, adapter les objectifs" }
+      - { texte: "La maintenir", detail: "25 % ou 20 %, rattraper un tiers du retard tous les trois ans" }
+      - { texte: "La durcir", detail: "30 %, et des pénalités plus lourdes pour les communes en retard" }
+    chute: "En 2024, 141 millions d'euros ont été prélevés sur les recettes des communes en retard, pour financer le logement social."
+    source: "Ministère du Logement, 2024"
+  # Les mots des options de la fiche, pas ceux d'un camp (ni « ghettos de riches » ni « liberté des maires », ni
+  # « alléger » ni « détricoter »). POUR porte les changements à l'ordre du jour (abrogation proposée le 13/09/2026, texte
+  # voté par le Sénat), comme « un départ plus tard » en 024 ; chaque camp nomme d'abord son option modérée
+  # (« Alléger ou supprimer », « Maintenir ou durcir » dans la story). La place des camps est fixe et l'ordre de parole
+  # suit ABBA : aucun n'a toujours le premier ou le dernier mot.
+  camps: { pour: POUR, contre: CONTRE, objet: "assouplir ou supprimer la loi" }
+  # POUR = les options A et B (les « cotes » de la fiche : « Pour alléger la loi ») ; CONTRE = les options C et D
+  # (« Pour la maintenir ou la durcir »). Chaque réponse vaut pour les deux options de son camp. Chaque question oppose
+  # deux faits de la même source, ou de même unité, et chaque texte dit ce qu'il mesure ; ordre d'apparition ABBA.
+  # Rien n'est repris des fiches 051 (logements vides) et 052 (terres prises pour bâtir).
+  questions:
+    # Enjeu 1 et compléments C2, [1] [19] : le même bilan du ministère (2020-2022), les mêmes communes (les 1 022 en
+    # retard qui avaient un objectif à tenir). POUR compte les communes : 711 n'ont pas tenu tous leurs objectifs, en
+    # nombre ou en type de logements (69,6 %, « sept sur dix »). CONTRE compte les logements : 185 651 (« 186 000 »,
+    # 62 000 par an). Pas le taux de 67 % de l'objectif atteint : ce serait l'autre face du 186 000. Les 711 n'ont pas
+    # tenu leur objectif en nombre OU en type (357 l'ont tenu en type seulement) : l'affirmation dit « pas comme prévu »,
+    # pas « pas autant », qui ne vaudrait que pour une partie d'entre elles.
+    - question: "La loi fait-elle construire des logements sociaux ?"
+      pour: { affirmation: "Pas comme prévu.", chiffre: "7 sur 10", texte: "De 2020 à 2022, sept communes en retard sur dix n'ont pas tenu tous les objectifs fixés par l'État.", source: "Ministère du Logement, 2024" }
+      contre: { affirmation: "Oui, plus de 60 000 par an.", chiffre: "186 000", texte: "Sur la même période, ces communes ont produit 186 000 logements sociaux.", source: "Ministère du Logement, 2024" }
+    # Enjeu 3 et compléments C5, [13] [23] : le même rapport de la Cour des comptes (mars 2026), le même fichier
+    # national des demandes, la même date (fin 2024). CONTRE cite le total ; POUR, la part de ce total qui vient de
+    # ménages déjà logés dans le parc social (2,8 millions moins 1,9 million de demandes d'un premier logement, soit
+    # 900 000 : un tiers). « Oui, mais » : la Cour juge que 2,8 millions surévalue la demande (1,9 million hors
+    # mutations), sans dire qu'elle est faible ; POUR ne dit pas plus. CONTRE parle en premier : seule la carte POUR
+    # renvoie à l'autre (« la même source »).
+    - question: "Manque-t-il des logements sociaux ?"
+      pour: { affirmation: "Oui, mais moins qu'il n'y paraît.", chiffre: "1 sur 3", texte: "Selon la même source, un tiers de ces demandes viennent de ménages déjà en logement social, qui veulent en changer.", source: "Cour des comptes, 2026" }
+      contre: { affirmation: "Oui, la file d'attente est longue.", chiffre: "2,8 millions", texte: "Fin 2024, 2,8 millions de demandes de logement social étaient en attente, selon la Cour des comptes.", source: "Cour des comptes, 2026" }
+    # Enjeu 5 et compléments C4, [21] : un seul rapport, celui du Sénat sur le texte « CHOC » (06/01/2026), un seul
+    # chiffre par carte. CONTRE cite le loyer : 10 à 15 % sous le marché, là où l'intermédiaire existe (zone tendue).
+    # POUR cite les locataires : la moitié ont des revenus sous les plafonds du logement social, d'où « le même public »
+    # et pas « modestes » (le logement social est ouvert à 70 % des Français, Sénat 2021 [20]). Le rapport ne source ni
+    # l'un ni l'autre. Pas le « environ 40 % » sous le privé du logement social (études citées par [22]) : une moyenne
+    # sur tout le parc, qui ne se compare pas au 10-15 % mesuré en zone tendue. Pas le « près de 80 % des ménages
+    # éligibles » (à comparer aux 70 % du logement social, d'une autre source), ni le « moins de 5 % des demandeurs » du
+    # § 2 [18] : une déclaration sans calcul publié. CONTRE parle en premier : seule la carte POUR renvoie à l'autre.
+    - question: "Faut-il compter les logements à loyer intermédiaire ?"
+      pour: { affirmation: "Oui, ils logent en partie le même public.", chiffre: "1 sur 2", texte: "Selon le même rapport du Sénat, la moitié de leurs locataires ont des revenus sous le plafond du logement social.", source: "Sénat, 2026" }
+      contre: { affirmation: "Non, leur loyer est proche du privé.", chiffre: "−10 à −15 %", texte: "Selon le Sénat, leur loyer est 10 à 15 % sous celui du privé, dans les villes où le logement manque.", source: "Sénat, 2026" }
+    # Enjeu 2 et compléments C6, [22] [20] : la même étude, la même période (2000-2008), les mêmes communes (en dessous
+    # de 20 % en 2000, comparées à des communes proches du seuil de population que la loi ne visait pas), la même unité
+    # (hausse en % due à la loi) : +5,8 % de ménages parmi les 20 % les plus modestes, +15,0 % de logements sociaux.
+    # Selon l'étude, les logements sociaux sont mieux répartis entre les quartiers, mais la concentration des ménages
+    # modestes a « à peine » baissé. Le Sénat (2021) dit les deux : logements mieux répartis, mixité qui n'a pas progressé.
+    # L'étude ne permet pas un « Oui » : CONTRE dit « en partie » (des ménages modestes en plus, des logements mieux
+    # répartis), POUR dit « peu » ; chacun s'en tient à ce qu'elle mesure. Les deux cartes datent les données (2000-2008,
+    # avant le passage à 25 % de 2013).
+    - question: "La loi a-t-elle mélangé les habitants ?"
+      pour: { affirmation: "Peu de ménages modestes en plus.", chiffre: "+6 %", texte: "Selon une étude, de 2000 à 2008, la loi a fait gagner 6 % de ménages très modestes aux communes visées.", source: "G. Chapelle et al., étude, 2025" }
+      contre: { affirmation: "En partie, avec des logements sociaux mieux répartis.", chiffre: "+15 %", texte: "Selon la même étude, de 2000 à 2008, la loi a fait gagner 15 % de logements sociaux à ces communes.", source: "G. Chapelle et al., étude, 2025" }

@@ -7,22 +7,22 @@ theme: education-jeunesse
 question: "Faut-il supprimer Parcoursup ?"
 titreCourt: "Parcoursup"
 contexte:
-  - "Depuis 2018, Parcoursup recueille les vœux des bacheliers et des étudiants en réorientation, puis les formations, qui examinent elles-mêmes les candidatures, leur envoient des propositions d'admission."
+  - "Depuis 2018, Parcoursup recueille les vœux des lycéens, des étudiants en réorientation et des personnes qui reprennent des études, puis les formations, qui examinent elles-mêmes les candidatures, leur envoient des propositions d'admission."
   - "Ses critiques lui reprochent son opacité, l'attente et la sélection à l'entrée des études ; ses défenseurs soulignent que la plupart des lycéens reçoivent une proposition."
-  - "Après un mouvement lycéen en octobre 2026, l'exécutif a annoncé une réforme pour 2027, puis un nouvel outil à l'horizon 2028."
+  - "Après un mouvement lycéen en octobre 2026, l'exécutif a annoncé, selon la presse, une réforme pour 2027, puis un nouvel outil à l'horizon 2028."
 chiffres:
-  - valeur: "980 000"
-    legende: "candidats inscrits sur la plateforme"
-    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2025, annee: 2025 }
-  - valeur: 91,9 %
+  - valeur: "1 046 000"
+    legende: "candidats ont confirmé au moins un vœu sur la plateforme en 2026"
+    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2026, annee: 2026 }
+  - valeur: 91,4 %
     legende: "des lycéens de Terminale ont reçu au moins une proposition"
-    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2025, annee: 2025 }
-  - valeur: 66 %
+    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2026, annee: 2026 }
+  - valeur: 66,5 %
     legende: "des lycéens ont reçu une proposition dès le premier jour"
-    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2025, annee: 2025 }
-  - valeur: 53 %
-    legende: "des lycéens jugent la procédure transparente"
-    source: { organisme: Ministère de l'Enseignement supérieur, document: baromètre CSA dans le bilan 2025, annee: 2025 }
+    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2026, annee: 2026 }
+  - valeur: 49 %
+    legende: "des nouveaux bacheliers jugent la procédure transparente (53 % en 2025)"
+    source: { organisme: Institut CSA, document: baromètre Parcoursup 2026 pour le ministère, annee: 2026 }
 options:
   - id: A
     libelle: "Oui, et garantir à chaque bachelier sa place"
@@ -83,3 +83,85 @@ positions:
   attal: { option: C, source: "Meeting à Lyon, 10/10/2026", statut: officielle }
   # https://www.publicsenat.fr/actualites/politique/parcoursup-que-proposent-les-candidats-sur-l-affectation-postbac-200502
   zemmour: { option: C, source: "Campagne 2022, Public Sénat, 29/03/2022", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/018-parcoursup.md (chaque chiffre y a sa source
+# numérotée ; compléments C1 à C3 et annexe). Chiffres de la session 2026, publiés en octobre 2026 [19] [20], plus
+# récents que ceux de la fiche (2025). Le fil : un outil qui reçoit toujours plus de candidats, que le gouvernement
+# promet de changer ; ce qu'il réussit et ce qu'on lui reproche.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # Compléments C1, [19] [21] [22] : la même mesure aux deux dates, les candidats qui ont confirmé au moins un vœu,
+    # tous profils (lycéens, étudiants qui se réorientent, reprises d'études) : 812 053 au 18/06/2018, 1 046 000 en
+    # 2026. La première et la dernière session : l'enjeu sur toute la vie de l'outil. L'annonce du 26/10/2026 : § 1,
+    # [4] [5], comme le contexte de la fiche ; rien n'est voté. Elle n'est connue que par la presse [4] [5] : la chute
+    # le dit (« selon la presse »), pour qu'on ne la lise pas comme une décision prise. 129 caractères (130 au plus).
+    etapes:
+      - { quand: "En 2018", valeur: "812 000" }
+      - { quand: "En 2026", valeur: "1 046 000" }
+    chute: "… candidats. Après un mouvement lycéen, le gouvernement a annoncé, selon la presse, une réforme en 2027, un nouvel outil en 2028."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : la seule grandeur à deux dates qui
+  # éclaire le débat sans prendre parti, le nombre de candidats, est dans l'accroche ; les autres (candidats sans
+  # proposition, avis des lycéens) sont les arguments d'un camp et vont dans les questions.
+  leviers:
+    # Les quatre options de la fiche, à égalité et dans l'ordre. Compléments C3, [23] : la dépense moyenne par étudiant
+    # du supérieur en 2025 (apprentis compris) et la part de l'État dans cette dépense (55,5 %). C'est une moyenne, pas
+    # le coût d'une place en plus ; elle dit qui paierait les places de la première option (« l'État crée les places »).
+    # « Aux règles à définir » reprend l'option B (« dont les règles restent à définir ») sans « encore », qui en ferait
+    # le reproche de ses contradicteurs (étude, enjeu E).
+    titre: "Parcoursup : quatre choix"
+    choix:
+      - { texte: "Le supprimer, le bac suffit", detail: "chacun entre dans la formation de son choix ; l'État crée les places" }
+      - { texte: "Le remplacer", detail: "par un nouvel outil d'admission, aux règles à définir" }
+      - { texte: "Le réformer", detail: "des critères de tri publics, un calendrier et un accompagnement revus" }
+      - { texte: "Le garder tel quel", detail: "les règles actuelles, sans changement" }
+    chute: "Une année d'études supérieures coûte en moyenne 13 350 € par étudiant, payés pour plus de moitié par l'État."
+    source: "DEPP, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: "la suppression de Parcoursup" }
+  # POUR rassemble les options A et B (le supprimer), CONTRE les options C et D (le garder) : chaque réponse vaut pour
+  # les deux options de son camp. Tous les chiffres sont de la session 2026 : le bilan du ministère [19] (des mesures,
+  # et une estimation que le texte nomme) et le baromètre de l'Institut CSA pour le ministère [20] (1 008 nouveaux
+  # bacheliers interrogés en ligne du 28/08 au 07/09/2026, avant le mouvement lycéen). Les reproches faits à l'outil
+  # (injustice, stress, perte de confiance) se mesurent par des avis : POUR cite le sondage aux questions 2 à 4, et
+  # CONTRE le cite aussi à la question 4 ; chaque texte qui cite le sondage le dit. Aucun candidat n'est nommé.
+  questions:
+    # Compléments C1, [19] : le même indicateur (lycéens de Terminale qui ont reçu au moins une proposition), la même
+    # session, pour un groupe et pour tous. 79,1 % en bac professionnel, soit 20,9 % sans proposition (« plus d'un sur
+    # cinq ») ; 91,4 % tous bacs confondus (96,3 % en général, 88,9 % en technologique). Ce ne sont pas les deux faces
+    # d'un même chiffre. « Surtout en bac pro » : le taux le plus bas, et le plus grand nombre de lycéens sans
+    # proposition (environ 26 000 sur 57 000, calcul de l'étude, C1) ; l'affirmation le dit pour qu'on ne lise pas
+    # « 1 sur 5 » comme valant pour tous les lycéens.
+    - question: "Tous les lycéens reçoivent-ils une proposition d'admission ?"
+      pour: { affirmation: "Pas tous, surtout en bac pro.", chiffre: "1 sur 5", texte: "En 2026, plus d'un lycéen de bac professionnel sur cinq n'a reçu aucune proposition d'admission.", source: "Ministère de l'Enseignement supérieur, 2026" }
+      contre: { affirmation: "Plus de neuf sur dix.", chiffre: "91,4 %", texte: "Dans le même bilan, 91,4 % des lycéens de Terminale, tous bacs confondus, ont reçu au moins une proposition.", source: "Ministère de l'Enseignement supérieur, 2026" }
+    # Compléments C1 et C2, [19] [20] : la même session et la même question, la justice du tri, vue par une mesure et
+    # par un avis ; chaque texte dit ce qu'il est (« selon une estimation du ministère », « dans un sondage »). 19 400 :
+    # les lycéens boursiers pour qui le minimum de boursiers imposé aux formations a été décisif, une estimation du
+    # ministère (17 041 en 2025) ; « quota » dit le « taux minimum de boursiers » de la loi de 2018. 29 % : « juste,
+    # qui traite tous les candidats de manière équitable » s'applique bien à la procédure (69 % mal, 2 % ne se
+    # prononcent pas ; 34 % en 2025) : « la plupart » (69 %) jugent que le mot s'applique mal, sans compter les 2 % sans
+    # avis. « Nouveaux bacheliers » et non « lycéens » : ce sont les sondés, interrogés avant le mouvement lycéen, et non
+    # les lycéens d'aujourd'hui. CONTRE parle en premier.
+    - question: "Le tri des candidats est-il juste ?"
+      pour: { affirmation: "Non, selon la plupart des nouveaux bacheliers.", chiffre: "29 %", texte: "Dans un sondage, 29 % des nouveaux bacheliers trouvent que Parcoursup traite tous les candidats de façon juste.", source: "Institut CSA pour le ministère, 2026" }
+      contre: { affirmation: "Oui, il aide les élèves modestes.", chiffre: "19 400", texte: "En 2026, le quota d'élèves boursiers fixé aux formations a permis d'en admettre près de 19 400, selon une estimation du ministère.", source: "Ministère de l'Enseignement supérieur, 2026" }
+    # Compléments C1 et C2, [19] [20] : deux mesures différentes de la même session, que chaque texte nomme. 66,5 % des
+    # lycéens (438 843) avaient au moins une proposition le premier jour de la phase d'admission, + 0,3 point en un an,
+    # d'où « deux sur trois » ; 82 % des nouveaux bacheliers jugent la procédure stressante (83 %, 83 % et 84 % de 2023
+    # à 2025, d'où « stable »). « Une proposition », comme le chiffre, et non « une réponse », plus large ; ni « leur
+    # place » : une proposition n'est pas toujours le vœu préféré, qui peut rester en attente. « Nouveaux bacheliers » :
+    # les sondés, comme à la question 2. Le POUR ne cite pas les 31 % d'admis mécontents du délai : à côté du « deux sur trois »,
+    # on les lirait comme le tiers restant, ce qu'aucun chiffre ne dit. CONTRE parle en premier.
+    - question: "Parcoursup est-il trop stressant ?"
+      pour: { affirmation: "Il stresse huit nouveaux bacheliers sur dix.", chiffre: "82 %", texte: "Dans un sondage, 82 % des nouveaux bacheliers trouvent la procédure stressante, un chiffre stable depuis 2023.", source: "Institut CSA pour le ministère, 2026" }
+      contre: { affirmation: "Non, la plupart ont vite une proposition.", chiffre: "2 sur 3", texte: "En 2026, deux lycéens sur trois avaient au moins une proposition dès le premier jour où les formations répondent.", source: "Ministère de l'Enseignement supérieur, 2026" }
+    # Compléments C2, [20] : le même sondage, deux questions que chaque texte nomme. La question ne reprend plus « repartir
+    # de zéro », la formule du camp CONTRE (option C) : « changer de système » couvre les options A et B sans les mots
+    # d'un camp. « A facilité votre entrée dans l'enseignement supérieur » : 81 % en 2020 (première vague), 67 % en 2026 ;
+    # la série (81, 73, 68, 74, 76, 74, 67) ne baisse pas chaque année, d'où « moins qu'avant » (67 % est son plus bas)
+    # et non « de moins en moins ». « Satisfait des réponses des formations obtenues » : 72 % des admis (n = 945) ; la
+    # question porte sur les réponses, pas sur la procédure, d'où « des réponses reçues ». Sa série (79, 70, 72, 76, 78,
+    # 73, 72) a aussi son plus haut en 2020 ; la carte n'en dit pas l'évolution, et la carte POUR montre déjà une baisse
+    # plus forte depuis 2020 (−14 points, contre −7). La carte CONTRE parle en second et renvoie au « même sondage ».
+    - question: "Faut-il changer de système ?"
+      pour: { affirmation: "Oui, il aide moins qu'avant.", chiffre: "−14 points", texte: "En 2020, 81 % des nouveaux bacheliers sondés disaient que Parcoursup avait facilité leur entrée dans le supérieur. En 2026, 67 %.", source: "Institut CSA pour le ministère, 2026" }
+      contre: { affirmation: "Non, la plupart sont satisfaits des réponses reçues.", chiffre: "72 %", texte: "Dans le même sondage, 72 % des admis se disent satisfaits des réponses des formations obtenues sur Parcoursup.", source: "Institut CSA pour le ministère, 2026" }

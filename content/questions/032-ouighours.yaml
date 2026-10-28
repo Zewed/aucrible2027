@@ -1,0 +1,134 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/032-ouighours.md (tout ce qui suit y est sourcé).
+numero: 32
+date: 2026-09-27
+theme: europe-international
+question: "Que doit faire la France face à la Chine pour les Ouïghours ?"
+titreCourt: "La Chine et les Ouïghours"
+contexte:
+  - "En 2022, le Haut-Commissariat des Nations unies aux droits de l'homme a jugé que la détention de nombreux Ouïghours au Xinjiang « peut constituer » des crimes contre l'humanité ; Pékin dénonce des « mensonges » et parle de « centres de formation »."
+  - "La même année, l'Assemblée nationale a parlé de « génocide » ; le gouvernement a répondu que ce mot relevait des juges, et l'évaluation des Nations unies ne l'emploie pas."
+  - "Depuis 2021, l'Union européenne sanctionne quatre responsables chinois, et la Chine a riposté. Une loi européenne interdira à partir de décembre 2027 les produits fabriqués avec du travail forcé, quel que soit le pays."
+chiffres:
+  - valeur: "48,7 %"
+    legende: "de baisse de la natalité au Xinjiang entre 2017 et 2019, selon les statistiques chinoises"
+    source: { organisme: Nations unies (HCDH), document: évaluation sur le Xinjiang, annee: 2022 }
+  - valeur: "4"
+    unite: responsables
+    legende: "chinois et un service de police du Xinjiang sanctionnés par l'Union européenne depuis 2021"
+    source: { organisme: Conseil de l'Union européenne, annee: 2021 }
+  - valeur: "47"
+    unite: milliards d'euros
+    legende: "de déficit commercial de la France avec la Chine en 2024, selon les douanes françaises"
+    source: { organisme: Douanes (DGDDI), document: note du service économique de Pékin, annee: 2025 }
+# Pas de note d'axe : aucune option ne se range clairement sur l'axe économie ou sur l'axe société.
+options:
+  - id: A
+    libelle: "Aucune nouvelle mesure : le dialogue d'abord"
+    implique: "La France porte le sujet auprès de Pékin et aux Nations unies, sans nouvelle sanction ni mesure qui vise la Chine."
+    defenseurs: "Les sanctions de 2021 ont valu des représailles le jour même, alors que le dialogue a obtenu que la Chine ratifie les deux traités internationaux contre le travail forcé."
+    # La 38e session du dialogue date du 17/02/2023 (§ 1.4) : après l'évaluation de 2022, d'où « des années de dialogue » (§ 2e).
+    critiques: "Après des années de dialogue entre l'Europe et la Chine, les Nations unies jugeaient en 2022 que les lois à l'origine des détentions restaient en vigueur."
+  - id: B
+    libelle: "Appliquer l'interdiction européenne des produits du travail forcé"
+    implique: "Dès décembre 2027, les produits fabriqués avec du travail forcé sont interdits en Europe, enquête par enquête et quel que soit le pays ; pas de nouvelle sanction."
+    defenseurs: "La loi vise le travail forcé partout, sans cibler un pays, et permet d'interdire un produit sans preuve absolue, sans rupture avec Pékin."
+    critiques: "Elle ne s'appliquera pas avant décembre 2027, et ce sera aux autorités de réunir les preuves, alors que les contrôles sont entravés au Xinjiang."
+  - id: C
+    libelle: "Sanctions ciblées et produits du Xinjiang bloqués"
+    implique: "En plus de la loi européenne, la France pousse l'Union à sanctionner d'autres responsables et des entreprises, et à bloquer les produits du Xinjiang sauf preuve qu'ils sont sans travail forcé, comme les États-Unis depuis 2022."
+    defenseurs: "On vise les auteurs et ceux qui profitent du travail forcé, pas le peuple chinois ; c'est aux entreprises de prouver que leurs produits sont sans travail forcé."
+    critiques: "Prouver qu'aucun travail forcé n'entre dans un produit serait presque impossible pour les petites entreprises, et Pékin a riposté aux sanctions de 2021 en sanctionnant dix Européens."
+  - id: D
+    libelle: "Des sanctions commerciales plus larges"
+    implique: "En plus, la France pousse l'Union à restreindre le commerce ou les investissements avec la Chine, par exemple par des droits de douane, tant que la situation ne change pas."
+    defenseurs: "Les sanctions ciblées n'ont pas fait changer les lois du Xinjiang ; l'Europe achète à la Chine 305 milliards d'euros de plus qu'elle ne lui vend, un moyen de pression."
+    critiques: "En 2024, la France a vendu 24 milliards d'euros à la Chine, qui a visé le cognac français ; une rupture pèserait sur ces ventes, sans garantie pour les Ouïghours."
+pourAllerPlusLoin:
+  - titre: "Nations unies (HCDH), évaluation sur le Xinjiang, 2022"
+    url: https://www.ohchr.org/en/documents/country-reports/ohchr-assessment-human-rights-concerns-xinjiang-uyghur-autonomous-region
+  - titre: "Assemblée nationale, résolution du 20 janvier 2022"
+    url: https://www.assemblee-nationale.fr/dyn/15/textes/l15t0758_texte-adopte-seance.pdf
+  - titre: "Union européenne, règlement 2024/3015 sur les produits du travail forcé"
+    url: https://eur-lex.europa.eu/eli/reg/2024/3015/oj
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour de nouvelles mesures"
+    argument: "On vise les auteurs et ceux qui profitent du travail forcé, pas le peuple chinois ; c'est aux entreprises de prouver que leurs produits sont sans travail forcé."
+  - titre: "Pour s'en tenir au dialogue ou à la loi européenne"
+    argument: "La loi vise le travail forcé partout, sans cibler un pays, et permet d'interdire un produit sans preuve absolue, sans rupture avec Pékin."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Plus de mesures"
+    precision: "contre la Chine"
+  - choix: "Pas plus"
+    precision: "dialogue ou loi européenne"
+positions:
+  # franceinfo, 23/03/2021 : https://www.franceinfo.fr/monde/chine/video-repression-des-ouighours-par-pekin-raphael-glucksmann-appelle-les-occidentaux-a-frapper-au-portefeuille_4343913.html ; RTBF, 17/08/2020 : https://www.rtbf.be/article/travail-force-des-ouighours-les-marques-devraient-etre-penalement-responsables-en-europe-estime-raphael-glucksmann-10563392
+  # franceinfo, 23/03/2021 : https://www.franceinfo.fr/monde/chine/video-repression-des-ouighours-par-pekin-raphael-glucksmann-appelle-les-occidentaux-a-frapper-au-portefeuille_4343913.html
+  glucksmann: { option: C, source: "franceinfo, 23/03/2021", statut: deduite }
+  # Résolution des sénateurs écologistes, 01/06/2023 : https://www.senat.fr/leg/tas22-124.html
+  tondelier: { option: C, source: "Résolution des sénateurs écologistes, 01/06/2023", statut: deduite }
+  # Vote du groupe RDPI au Sénat, 01/06/2023 : https://www.senat.fr/scrutin-public/2022/scr2022-294.html
+  attal: { option: C, source: "Vote du groupe RDPI au Sénat, 01/06/2023", statut: deduite }
+  # Abstention du groupe LR au Sénat, 01/06/2023 : https://www.senat.fr/cra/s20230601/s20230601_6.html
+  retailleau: { option: B, source: "Abstention du groupe LR au Sénat, 01/06/2023", statut: deduite }
+  # Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote des eurodéputés RN) : https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1791968
+  le-pen: { option: C, source: "Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote des eurodéputés RN)", statut: deduite }
+  # Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote des eurodéputés LFI) : https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1791968
+  melenchon: { option: C, source: "Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote des eurodéputés LFI)", statut: deduite }
+  # Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote de l'eurodéputé Horizons) : https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1791968
+  philippe: { option: C, source: "Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote de l'eurodéputé Horizons)", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/032-ouighours.md (chaque chiffre y a sa source
+# numérotée ; l'annexe de l'étude relie chaque écran à ses sources). Le fil : ce qu'on sait du Xinjiang, ce que la France
+# y engage, les quatre voies possibles, puis quatre questions où chaque camp donne sa meilleure preuve.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1, [1] : 15,88 ‰ en 2017 et 8,14 ‰ en 2019 (statistiques chinoises reprises par le HCDH), arrondis.
+    # Explication disputée : modernisation selon Pékin, application coercitive des règles selon le HCDH (§ 1.1, 1.3) ;
+    # le HCDH parle d'« indications sérieuses » (§ 146), d'où « de sérieux indices ». Chiffre admis de tous (§ 3).
+    etapes:
+      - { quand: En 2017, valeur: "16 naissances pour 1 000 habitants" }
+      - { quand: En 2019, valeur: "8 pour 1 000" }
+    chute: "Au Xinjiang, la région des Ouïghours, selon les chiffres chinois. Pékin y voit la modernisation ; les Nations unies, de sérieux indices d'un contrôle des naissances imposé."
+  ecart:
+    # § 1.7 et 2d, [18] : selon les douanes françaises ; les douanes chinoises comptent environ 10 milliards en 2024.
+    titre: "Combien la France achète-t-elle de plus à la Chine qu'elle ne lui vend ?"
+    etapes:
+      - { quand: En 2014, valeur: "27 milliards €" }
+      - { quand: En 2024, valeur: "47 milliards €" }
+    chute: "C'est près de la moitié du déficit commercial de la France : une dépendance pour les uns, un moyen de pression pour les autres."
+    source: "Douanes françaises, 2025"
+  leviers:
+    # § 1.4 à 1.6, [5] [6] [15] [19] : les quatre options de la fiche, à égalité.
+    titre: Ce que la France peut faire
+    choix:
+      - { texte: Dialoguer, detail: "en parler à Pékin et aux Nations unies, sans nouvelle sanction" }
+      - { texte: Interdire les produits du travail forcé, detail: "la loi européenne, produit par produit, dès fin 2027" }
+      - { texte: Sanctionner des responsables, detail: "et des entreprises, et bloquer les produits du Xinjiang" }
+      - { texte: Freiner le commerce avec la Chine, detail: droits de douane ou accords suspendus }
+    chute: "Ces quatre voies vont du dialogue à la pression sur le commerce, et peuvent se combiner."
+    source: "Sénat, 2023 ; Union européenne, 2024"
+  camps: { pour: POUR, contre: CONTRE, objet: de nouvelles mesures }
+  questions:
+    # § 1.5 et 2c, [5] [7] [10] [13] : sanctions et contre-sanctions du même jour, 22/03/2021.
+    - question: Faut-il sanctionner des responsables chinois ?
+      pour: { affirmation: "Oui, sans punir toute la population.", chiffre: 4 responsables, texte: "Depuis 2021, quatre responsables du Xinjiang sont interdits d'entrée dans l'Union européenne, et leurs biens y sont gelés.", source: "Union européenne, 2021" }
+      contre: { affirmation: "Non, Pékin riposte aussitôt.", chiffre: 10 Européens, texte: "Le jour même, la Chine a sanctionné dix Européens, dont cinq députés européens, et quatre institutions.", source: "Parlement européen, 2025" }
+    # § 1.5, 1.6, 2b et 2f, [15] [19] [20].
+    - question: L'interdiction européenne suffira-t-elle ?
+      pour: { affirmation: "Non, elle arrive tard.", chiffre: "5 ans", texte: "Elle s'appliquera en 2027, cinq ans après le blocage américain des produits du Xinjiang, sauf preuve qu'ils sont sans travail forcé.", source: "Union européenne, 2024 ; douanes américaines, 2022" }
+      # L'estimation de l'OIT vaut pour 2021 (§ 1.6) et compte des personnes, pas des produits : d'où « le vise » et non « vise leurs produits ».
+      contre: { affirmation: "Oui, elle vise tout le travail forcé.", chiffre: 28 millions, texte: "Dans le monde, le travail forcé touchait 28 millions de personnes en 2021. La loi européenne le vise sans cibler un pays.", source: "Organisation internationale du travail, 2022" }
+    # § 1.7 et 2d, [18] : mêmes douanes, même année ; 71 / 24 ≈ 3 (calcul de l'étude).
+    - question: Des mesures coûteraient-elles cher à la France ?
+      pour: { affirmation: "Elles coûteraient aussi à la Chine.", chiffre: 71 milliards €, texte: "En 2024, la France a acheté 71 milliards d'euros de produits chinois, trois fois ce qu'elle a vendu à la Chine.", source: "Douanes françaises, 2025" }
+      contre: { affirmation: "Oui, les ventes françaises seraient menacées.", chiffre: 24 milliards €, texte: "En 2024, la France a vendu 24 milliards d'euros à la Chine, dont 5 en avions et 5 en luxe.", source: "Douanes françaises, 2025" }
+    # § 1.1, 1.4, 2c et 2e, [1] [5] [7] : 38e session du dialogue UE-Chine le 17/02/2023 ; lois toujours en vigueur selon le HCDH
+    # (§ 144). « Suffit-il » obligeait le camp CONTRE, qui tient aussi pour la loi européenne, à défendre le dialogue seul.
+    # Conventions 29 et 105 de l'OIT : condition posée par le président le 19/01/2022 [5], ratifiées selon O. Becht en 2023 [7].
+    - question: Le dialogue donne-t-il des résultats ?
+      pour: { affirmation: "Non, les lois en cause sont restées.", chiffre: 38 dialogues, texte: "L'Europe et la Chine ont tenu 38 dialogues sur les droits humains. En 2022, les lois à l'origine des détentions demeuraient.", source: "Gouvernement, 2023 ; Nations unies, 2022" }
+      contre: { affirmation: "Oui, Pékin a ratifié deux traités.", chiffre: 2 traités, texte: "La Chine a ratifié les deux traités internationaux contre le travail forcé, que Paris exigeait avant un accord d'investissement avec l'Europe.", source: "Gouvernement, 2022 et 2023" }

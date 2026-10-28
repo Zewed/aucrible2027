@@ -1,58 +1,164 @@
-# DONNÉES DE DÉMONSTRATION : question, contexte et chiffres inventés pour développer l'app.
-# Aucune position de candidat n'est renseignée. Rien n'est vérifié : à remplacer par une
-# fiche sourcée avant toute mise en ligne.
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/026-medecins.md
+# Ancienne fiche de démonstration refaite : la question, le titre court et les quatre chiffres clés sont gardés ; les
+# chiffres corrigés sont listés dans l'annexe de l'étude.
 numero: 26
 date: 2026-10-25
 theme: sante
 question: Faut-il réguler l'installation des médecins ?
 titreCourt: "L'installation des médecins"
 contexte:
-  - Aujourd'hui, un médecin libéral peut s'installer où il le souhaite.
-  - Dans certains territoires, il faut attendre plusieurs mois pour un rendez-vous, et des patients n'ont plus de médecin traitant.
-  - L'idée d'encadrer les installations revient régulièrement au Parlement depuis des années.
+  - "Un médecin libéral peut s'installer où il veut, une liberté inscrite dans la loi depuis 1971, alors que les infirmiers, les kinésithérapeutes, les sages-femmes et les dentistes ont des règles d'installation."
+  - "En 2025, 6,4 millions d'assurés n'avaient pas de médecin traitant ; aujourd'hui, trois Français sur quatre vivent dans une zone où l'accès aux médecins est jugé insuffisant, et les écarts entre territoires se creusent."
+  - "Les députés ont voté en 2025 une loi qui limite l'installation hors des zones qui manquent de médecins ; en juin 2026, le Sénat a préféré que ceux qui s'installent là où ils sont très nombreux exercent aussi en partie là où ils manquent, sans finir l'examen : rien n'est en vigueur."
 chiffres:
   - valeur: "6"
     unite: millions
-    legende: de patients sans médecin traitant
-    source: { organisme: Assurance maladie, annee: 2024 }
+    legende: et 400 000 assurés sans médecin traitant en 2025
+    source: { organisme: Sénat, document: rapport n° 668, annee: 2026 }
   - valeur: 87 %
-    legende: du territoire classé en zone où l'accès aux médecins est difficile
-    source: { organisme: DREES, annee: 2023 }
-  - valeur: "85"
-    legende: généralistes pour 100 000 habitants
-    source: { organisme: DREES, annee: 2025 }
+    legende: "des communes classées en zone où l'accès aux médecins est difficile, en 2023"
+    source: { organisme: Cour des comptes, document: "Les aides à l'installation des médecins libéraux", annee: 2025 }
+  - valeur: "83"
+    legende: "généralistes libéraux pour 100 000 habitants en 2023, en métropole, après une baisse de 7 % de leur nombre depuis 2016"
+    source: { organisme: Insee, document: données Drees, annee: 2026 }
   - valeur: "10"
     unite: ans
-    legende: d'études pour devenir médecin généraliste
-    source: { organisme: Ministère de la Santé, annee: 2023 }
+    legende: "d'études pour devenir médecin généraliste, avec la quatrième année d'internat qui commence le 2 novembre 2026"
+    source: { organisme: Ministère de la Santé, document: instruction sur la quatrième année, annee: 2026 }
 options:
   - id: A
-    libelle: Limiter les installations là où les médecins sont déjà nombreux
-    implique: Dans une zone bien dotée, un nouveau médecin ne s'installe qu'au départ d'un confrère.
-    defenseurs: Rééquilibrer l'offre de soins pour que chacun trouve un médecin près de chez lui.
-    critiques: La contrainte risque de détourner les jeunes médecins de l'exercice libéral.
-    axes: { economie: -1 }
+    libelle: Affecter les nouveaux médecins là où ils manquent
+    implique: "Pendant quelques années après leur diplôme, les nouveaux médecins exercent dans une zone qui manque de médecins, comme le prévoyait une proposition de loi de 2021 ; ensuite, ils s'installent où ils veulent."
+    defenseurs: "La formation des médecins est payée par la collectivité : quelques années là où les patients attendent en sont la contrepartie, et cela agit plus vite que les médecins formés en plus, attendus dans dix ans."
+    critiques: "Selon une synthèse de la Drees citée par le Sénat, les médecins installés en contrepartie d'un engagement restent moins longtemps que ceux qui choisissent la campagne, et les syndicats d'internes et d'étudiants jugent que « la coercition n'est pas une solution »."
+    axes: { economie: -2 }
   - id: B
-    libelle: Inciter par des aides, sans obligation
-    implique: Primes, bourses et aides au cabinet pour attirer les médecins là où ils manquent.
-    defenseurs: Attirer sans contraindre, en respectant le choix des médecins.
-    critiques: Des aides existent depuis des années sans avoir comblé les manques.
+    libelle: Limiter les installations là où les médecins sont nombreux
+    implique: "Hors des zones qui manquent de médecins, un médecin s'installe avec l'accord de l'agence régionale de santé, à la place d'un médecin de même spécialité qui cesse son activité : c'est la loi votée par les députés en 2025."
+    defenseurs: "Les infirmiers, les kinésithérapeutes, les sages-femmes et les dentistes ont déjà des règles d'installation ; chez les infirmières, l'écart de densité entre territoires a diminué de moitié de 2006 à 2016, et chez les sages-femmes, la Cour des comptes note une « nette réduction des inégalités territoriales » de 2016 à 2022."
+    critiques: "La règle toucherait les nouvelles installations, pas les médecins déjà installés ; chez les infirmières, l'écart s'est réduit pendant que leur nombre augmentait de 55 %, alors que les généralistes libéraux diminuent ; chez les kinésithérapeutes, régulés depuis 2018, les nouveaux sont surtout allés dans les zones voisines bien pourvues."
+    axes: { economie: -1 }
   - id: C
-    libelle: Garder la liberté d'installation
-    implique: Chaque médecin continue de choisir où il exerce.
-    defenseurs: La liberté d'installation rend le métier attractif ; il faut d'abord former plus de médecins.
-    critiques: Sans règle, les territoires qui manquent de médecins risquent d'attendre encore longtemps.
+    libelle: S'installer librement, mais donner du temps aux zones qui manquent de médecins
+    implique: "Dans une zone très bien pourvue, un généraliste s'installe à condition d'exercer aussi à temps partiel là où les médecins manquent, comme dans la version votée par le Sénat en 2026 ; tous peuvent être appelés en renfort jusqu'à deux jours par mois, comme le proposait le gouvernement en 2025."
+    defenseurs: "Aucune zone n'est fermée aux jeunes médecins, et l'effort est partagé entre tous pour aider vite les territoires les plus en difficulté, où vivent plus de 2,5 millions d'habitants."
+    critiques: "Pour l'association de patients France Assos Santé, la mesure est « vidée de sa substance » ; pour le syndicat de médecins CSMF, elle garde « une logique de contrainte », et la mission volontaire lancée en 2025 réunissait 250 généralistes fin 2025."
+    axes: { economie: 0 }
+  - id: D
+    libelle: Garder la liberté d'installation et attirer les médecins
+    implique: "Chaque médecin choisit où il s'installe ; on l'attire avec des maisons de santé, des assistants médicaux et des aides, et on forme plus de médecins, dont les futurs généralistes de quatrième année, incités à commencer là où les médecins manquent."
+    defenseurs: "Le problème est le nombre de médecins, pas leur répartition : trois Français sur quatre vivent dans une zone jugée sous-dotée, et en 2025, deux fois plus de généralistes qu'en 2012 se sont installés en libéral pour la première fois."
+    critiques: "La Cour des comptes juge « non démontrée » l'efficacité des aides, 205 millions d'euros en 2023, et la Drees compte dix ans avant que former plus de médecins produise ses effets."
     axes: { economie: 1 }
+pourAllerPlusLoin:
+  - titre: "Cour des comptes, Les aides à l'installation des médecins libéraux, novembre 2025"
+    url: https://www.ccomptes.fr/fr/publications/les-aides-linstallation-des-medecins-liberaux
+  - titre: "Sénat, rapport n° 668 sur la proposition de loi visant à lutter contre les déserts médicaux, mai 2026"
+    url: https://www.senat.fr/rap/l25-668/l25-668.html
+  - titre: "Assemblée nationale, scrutin n° 1214 sur la régulation de l'installation, 02/04/2025"
+    url: https://www.assemblee-nationale.fr/dyn/17/scrutins/1214
 # Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
 cotes:
   - titre: "Pour réguler l'installation"
-    argument: "Rééquilibrer l'offre de soins pour que chacun trouve un médecin près de chez lui."
+    argument: "D'autres soignants ont déjà des règles d'installation : chez les infirmières, l'écart entre territoires a diminué de moitié de 2006 à 2016."
   - titre: "Pour ne pas la réguler"
-    argument: "La liberté d'installation rend le métier attractif ; il faut d'abord former plus de médecins."
+    argument: "Le problème est le nombre de médecins : trois Français sur quatre vivent dans une zone où l'État juge qu'ils manquent."
 # Les deux choix de l'autocollant « Et toi ? » de la story.
 story:
   - choix: "Réguler"
     precision: "l'installation"
   - choix: "Garder"
     precision: "la liberté"
-positions: {}
+# Seuls les candidats sourcés ; les six autres sont « inconnue » (voir l'étude, § 4, avec les raisons). Personne n'a
+# été trouvé en A. Les votes retenus portent sur l'article de régulation lui-même, pas sur la loi entière.
+positions:
+  # Scrutin n° 1214 du 02/04/2025, article 1er de la loi Garot, groupe RN : 50 contre, 0 pour : https://www.assemblee-nationale.fr/dyn/17/scrutins/1214 ; programme 2022 (tarif des consultations modulé selon le lieu d'installation) : https://www.institutmontaigne.org/presidentielle-2022/marine-le-pen/moduler-la-remuneration-des-medecins-selon-leur-lieu-dinstallation-pour-lutter-contre-les-deserts-medicaux
+  le-pen: { option: D, source: "Vote du groupe RN contre l'article 1er de la loi Garot, 02/04/2025 ; programme 2022", statut: deduite }
+  # Scrutin n° 1214 du 02/04/2025, groupe LFI : 40 pour, 0 contre : https://datan.fr/votes/legislature-17/vote_1214 ; amendement de régulation du 14/06/2023, LFI 47 pour : https://datan.fr/votes/legislature-16/vote_1812
+  melenchon: { option: B, source: "Vote du groupe LFI pour l'article 1er de la loi Garot, 02/04/2025", statut: deduite }
+  # Sénat, scrutin n° 305 (retour à la version de l'Assemblée, vote contre) : https://www.senat.fr/scrutin-public/2025/scr2025-305.html ; scrutin n° 307 (article 1er réécrit, exercice partiel, vote pour) : https://www.senat.fr/scrutin-public/2025/scr2025-307.html
+  retailleau: { option: C, source: "Sénat, scrutins n° 305 et 307 sur l'article 1er, 11/06/2026", statut: deduite }
+  # Question au gouvernement n° 1791, réponse du Premier ministre, 10/04/2024 (« Le problème est donc le nombre de médecins. Il faut en former davantage ») : https://www.assemblee-nationale.fr/dyn/16/questions/QANR5L16QG1791
+  attal: { option: D, source: "Réponse à une question au gouvernement, Assemblée nationale, 10/04/2024", statut: deduite }
+  # Scrutin n° 1214 du 02/04/2025, groupe Écologiste et Social : 19 pour, 0 contre : https://datan.fr/votes/legislature-17/vote_1214
+  tondelier: { option: B, source: "Vote du groupe Écologiste et Social pour l'article 1er de la loi Garot, 02/04/2025", statut: deduite }
+  # Programme 2022, proposition 13 (« dans les zones denses, un·e médecin ne devra s'installer que si un·e autre part à la retraite ») : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: B, source: "La France des jours heureux, proposition 13, 2022", statut: deduite }
+  # Cosignataire de la proposition de loi n° 966 : https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B0966.html ; vote pour l'amendement de régulation du 14/06/2023 : https://datan.fr/votes/legislature-16/vote_1812
+  ruffin: { option: B, source: "Cosignataire de la proposition de loi n° 966, 13/02/2025 ; vote du 14/06/2023", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/026-medecins.md (chaque chiffre y a sa source
+# numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : depuis 1971, un médecin s'installe où il veut ; les
+# députés ont voté une limite, le Sénat l'a adoucie ; quatre choix, et quatre questions où chaque camp avance son meilleur
+# fait. Les face-à-face des fiches voisines (006 franchises, 017 hôpital, 044 dépassements) ne sont pas repris.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1 à 1.3, [1] [4] [6] [7] : l'article L162-2 du code de la sécurité sociale renvoie à la loi du 3 juillet 1971 ;
+    # au 28/10/2026, aucune règle d'installation des médecins n'est en vigueur. La limite votée par les députés (scrutin du
+    # 02/04/2025) a été réécrite par le Sénat le 11/06/2026, qui n'a pas fini l'examen.
+    etapes:
+      - { quand: "En 1971", valeur: "Libre" }
+      - { quand: "En 2026", valeur: "Toujours libre" }
+    # Chute de 130 caractères au plus (au-delà, elle passe en petit) : les années du vote sont dans le contexte.
+    chute: "… de s'installer où il veut, pour un médecin. Les députés ont voté une limite, le Sénat l'a adoucie : rien n'est en vigueur."
+  # Pas de « mécanisme » : aucun rapport « X pour 1 » ne résume le sujet, et son dessin est propre aux retraites.
+  # Pas d'« écart » : la série des généralistes libéraux (−7 % de 2016 à 2023) est dans les chiffres clés, et aucune
+  # grandeur sur longue période n'a été trouvée avec une source primaire.
+  leviers:
+    # § 4 de l'étude, [2] [3] [12] [37]. Les quatre options de la fiche, à égalité et dans son ordre ; la chute ne
+    # désigne aucun choix (l'accroche dit déjà que l'installation est libre) et donne le montant des aides de l'État et
+    # de l'Assurance maladie en 2023, hors collectivités locales (§ 1.1 et 2c, [2]).
+    titre: "L'installation des médecins : quatre choix"
+    choix:
+      - { texte: "Affecter les nouveaux médecins", detail: "quelques années là où ils manquent, puis libres" }
+      - { texte: "Limiter les installations", detail: "là où les médecins sont nombreux, à la place d'un départ" }
+      - { texte: "Demander du temps", detail: "s'installer partout, mais exercer aussi en partie là où ils manquent" }
+      - { texte: "Garder la liberté", detail: "attirer par des maisons de santé, des aides et plus d'étudiants" }
+    chute: "En 2023, l'État et l'Assurance maladie ont versé 205 millions d'euros d'aides pour attirer les médecins là où ils manquent."
+    source: "Cour des comptes, 2025"
+  # POUR : affecter ou limiter (options A et B, notées −2 et −1) ; CONTRE : garder la liberté (D, +1). C (0), qui ne
+  # ferme aucune zone mais impose du temps, n'est dans aucun camp, comme l'option E des fiches 001 et 024. Chaque réponse
+  # POUR vaut pour A et B. L'objet (22 caractères) dit l'enjeu sans le mot d'un camp (« réguler » est le choix POUR de la
+  # story, « coercition » le mot des syndicats).
+  camps: { pour: POUR, contre: CONTRE, objet: "limiter l'installation" }
+  # Chaque texte dit ce qu'il mesure ; quand les deux cartes ne mesurent pas la même chose, chacune le nomme. L'ordre
+  # d'apparition des camps suit ABBA : POUR d'abord aux questions 1 et 4, CONTRE d'abord aux questions 2 et 3.
+  questions:
+    # § 1.1 et 2d, [19] [3] : deux professions déjà régulées, chacune nommée avec l'année de sa règle et ce que mesure
+    # son chiffre. Le POUR : chez les infirmières (règle depuis 2008), l'écart de densité entre territoires très
+    # sous-dotés et sur-dotés a diminué de moitié de 2006 à 2016 (Irdes, analyse qui attribue au zonage un effet
+    # positif). Le CONTRE : chez les kinés (règle de 2018), dans les deux ans qui ont suivi, plus de 1 000
+    # conventionnements en plus en zones très dotées, moins de 400 en zones sous-dotées et très sous-dotées (Sénat,
+    # d'après l'Assurance maladie).
+    - question: "Les soignants déjà régulés sont-ils mieux répartis ?"
+      pour: { affirmation: "Oui, les infirmières.", chiffre: "÷2", texte: "Depuis 2008, s'installer où elles abondent exige un départ. De 2006 à 2016, l'écart de densité entre territoires a diminué de moitié.", source: "Irdes, 2022" }
+      contre: { affirmation: "Pas les kinés.", chiffre: "1 000", texte: "Deux ans après leur règle de 2018, plus de 1 000 s'étaient installés en zone bien pourvue, moins de 400 où ils manquent.", source: "Sénat, 2026" }
+    # § 2c, [2] : deux résultats de la même étude (Irdes et EHESP, communes de 2005 à 2022, citée par la Cour des
+    # comptes), dans la même unité : les généralistes de moins de 40 ans pour 100 000 habitants. Le CONTRE : +16,2 là où
+    # une maison de santé a ouvert. Le POUR : aucun effet des baisses d'impôts liées à certaines zones, sans maison de
+    # santé (« aucun effet positif » : la carte dit qu'elles n'ont pas augmenté leur nombre, pas qu'aucun n'est venu).
+    # Le CONTRE parle en premier et ne renvoie pas à l'autre carte. La question ne dit pas « contraindre », proche de la
+    # « coercition » des syndicats de médecins.
+    - question: "Peut-on attirer les médecins là où ils manquent ?"
+      pour: { affirmation: "Pas avec l'argent seul.", chiffre: "0", texte: "Selon la même étude, sans maison de santé, les baisses d'impôts dans certaines zones n'ont pas augmenté le nombre de jeunes généralistes.", source: "Cour des comptes, 2025" }
+      contre: { affirmation: "Oui, avec des maisons de santé.", chiffre: "+16", texte: "Selon une étude, une maison de santé a attiré en moyenne 16 jeunes généralistes de plus pour 100 000 habitants.", source: "Cour des comptes, 2025" }
+    # § 2a et 2b, [3] [16] : deux mesures différentes, chacune nommée. Le CONTRE : 75,7 % de la population vit en zone
+    # d'intervention prioritaire ou d'action complémentaire (zonage en vigueur en 2026) ; l'affirmation dit « la plupart
+    # des Français », ce que mesure ce zonage, pas « presque partout ». Le POUR : généralistes, tous modes d'exercice
+    # (salariés compris), au 1er janvier 2025, Paris 240 et Eure-et-Loir 84 pour 100 000 habitants (le plus bas de
+    # métropole) : 2,86, arrondi à ×2,9 ; l'affirmation ne nie pas le manque global, sur lequel les experts s'accordent
+    # (§ 2b et 3).
+    - question: "Manque-t-on de médecins partout ?"
+      pour: { affirmation: "Pas autant partout : ils sont mal répartis.", chiffre: "×2,9", texte: "En 2025, Paris compte 240 généralistes, salariés compris, pour 100 000 habitants, l'Eure-et-Loir 84 : près de trois fois moins.", source: "Insee, 2025" }
+      contre: { affirmation: "Oui, pour la plupart des Français.", chiffre: "76 %", texte: "En 2026, trois Français sur quatre vivent dans une zone où l'État juge l'accès aux médecins insuffisant.", source: "Sénat, 2026" }
+    # § 2b, [20] [15] : une estimation et un constat, chacun nommé. Le POUR : selon la Drees (2021), il faut compter
+    # « cinq à dix ans » (sages-femmes et médecins) pour qu'une hausse des places en formation produise ses effets, dix
+    # pour les médecins (« ses effets », le mot de la source). Le CONTRE : selon l'Assurance maladie, les premières
+    # installations de généralistes en libéral en 2025 (2 810) sont « plus de deux fois » celles de 2012, grâce aux
+    # places ouvertes au cours de la décennie précédente : un nombre d'arrivées dans l'année, pas le nombre de
+    # généralistes en exercice (en baisse de 7 % de 2016 à 2023, chiffres clés).
+    - question: "Former plus de médecins, est-ce assez rapide ?"
+      pour: { affirmation: "Non, il faut dix ans.", chiffre: "10 ans", texte: "Selon le ministère de la Santé, former plus de médecins met dix ans à produire ses effets.", source: "Drees, 2021" }
+      contre: { affirmation: "Les effets se voient déjà.", chiffre: "×2", texte: "Avec plus d'étudiants formés, deux fois plus de généralistes se sont installés pour la première fois en libéral en 2025 qu'en 2012.", source: "Assurance maladie, 2026" }

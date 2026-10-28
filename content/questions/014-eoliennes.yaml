@@ -31,7 +31,7 @@ options:
     libelle: "Développer davantage l'éolien, à terre et en mer"
     implique: "Rattraper le retard de l'électrification en construisant plus que prévu, en mer comme à terre ; les plus ambitieux visent un mix 100 % renouvelable à terme."
     defenseurs: "L'éolien est une électricité bas carbone, plus rapide à mettre en service (5 à 8 ans) que de nouveaux réacteurs (2037 au mieux), et il réduit la dépendance aux énergies fossiles importées (64 milliards d'euros en 2024)."
-    critiques: "Le vent est variable (facteur de charge de 21,4 % à terre en 2025), le soutien public et le réseau coûtent cher (10,9 milliards d'euros de soutien aux renouvelables en 2025) et les parcs suscitent des oppositions locales."
+    critiques: "Le vent est variable (facteur de charge de 21,4 % à terre en 2025), le soutien public et le réseau coûtent cher (6,2 milliards d'euros de soutien aux renouvelables en métropole en 2025) et les parcs suscitent des oppositions locales."
   - id: B
     libelle: "Poursuivre au rythme de la programmation de l'énergie"
     implique: "35 à 40 GW à terre et 15 GW en mer en 2035, surtout par le renouvellement des parcs existants, en complément d'un nucléaire relancé (six EPR2)."
@@ -82,3 +82,76 @@ positions:
   tondelier: { option: A, source: "Programme 2027 (iFRAP), colloque de l'UFE, 23/06/2026", statut: officielle }
   # https://www.debout-la-france.fr/projet/economie-travail/
   dupont-aignan: { option: C, source: "Projet économie et travail, 2026", statut: officielle }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # Compléments a et b, [21] [22] [23] : la même mesure (la part de l'éolien dans l'électricité produite) à quinze ans
+    # d'écart, pour une production totale presque égale (550,3 TWh en 2010, 547,5 TWh en 2025). 2010 est lu dans la
+    # presse, d'après le bilan de RTE [source secondaire]. La chute donne la part du nucléaire (373,0 TWh, 68 %), utile
+    # aux deux camps : une montée pour les uns, une petite part à côté du nucléaire pour les autres.
+    etapes:
+      - { quand: "En 2010", valeur: "1,7 %" }
+      - { quand: "En 2025", valeur: "9,1 %" }
+    chute: "… de l'électricité produite en France vient des éoliennes. Le nucléaire en produit plus des deux tiers."
+  # Pas de « mécanisme » (propre aux retraites). Pas d'« écart » : le plan de l'État pour 2035 est dans le détail du
+  # deuxième levier, et le coût de l'aide à deux dates dans la question 2.
+  leviers:
+    # § 1 et Compléments c et d, [25] [27]. Les quatre options de la fiche, à égalité, chaque détail suivant l'« implique »
+    # de son option. Le deuxième dit le plan en vigueur au 28/10/2026 (décret n° 2026-76) : à terre, 35 à 40 GW en 2035
+    # contre environ 24 (×1,5 à ×1,7, « environ une fois et demie ») ; en mer, 15 GW contre 1,9 (×7,9). Le quatrième dit
+    # « sans les remplacer » : un parc en fin de vie est déjà démonté par son exploitant, la nouveauté est de ne plus le
+    # renouveler. La chute dit qui paie l'aide (le budget de l'État) et la part de l'éolien (1 557 M€ sur 6 181 M€,
+    # « un quart » : calcul de l'étude, Compléments c). Elle dit « en métropole » : les 6 181 M€ ne comptent pas
+    # l'outre-mer, payé en 2026 par une part de l'accise sur l'électricité, et le quart se calcule sur ce total.
+    titre: "Les éoliennes : quatre choix"
+    choix:
+      - { texte: "Construire plus que prévu", detail: "à terre et en mer ; certains visent une électricité 100 % renouvelable" }
+      - { texte: "Suivre le plan de l'État", detail: "en 2035, environ une fois et demie plus de puissance à terre, huit fois plus en mer" }
+      - { texte: "Arrêter les aides", detail: "l'État ne soutient plus de nouveaux parcs, éoliens comme solaires" }
+      - { texte: "Ne plus en construire", detail: "et démonter, sans les remplacer, celles qui arrivent en fin de vie" }
+    chute: "Le budget de l'État paie l'aide à l'électricité renouvelable en métropole : 6,2 milliards € en 2025, dont un quart pour l'éolien."
+    source: "Gouvernement, 2026 ; CRE, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: "de nouvelles éoliennes" }
+  # POUR : en construire de nouvelles, plus que prévu ou au rythme du plan (options A et B) ; CONTRE : arrêter les aides
+  # ou ne plus en construire (options C et D). Chaque réponse POUR vaut pour A et B, chaque réponse CONTRE pour C et D.
+  # Chaque question oppose deux faits de la même source, ou deux mesures que chaque texte nomme ; l'ordre d'apparition
+  # des camps suit ABBA (POUR ouvre les questions 1 et 4, CONTRE les questions 2 et 3).
+  questions:
+    # § 2.4 et Compléments a et d, [21] [25] : deux mesures que chaque texte nomme, et c'est le cœur du débat. D'un côté
+    # toute l'énergie consommée (carburants, chauffage, électricité), 58 % fossile en 2023, dernier chiffre du plan de
+    # l'État ; de l'autre l'électricité seule, 95,2 % bas carbone en 2025. Les éoliennes réduisent le CO2 si l'électricité
+    # remplace le pétrole et le gaz : l'affirmation POUR le dit (« pour remplacer »), la CONTRE répond que l'électricité
+    # en rejette déjà peu, et son texte nomme la première source, le nucléaire.
+    - question: "Les éoliennes aident-elles à réduire le CO2 ?"
+      pour: { affirmation: "Oui, pour remplacer pétrole et gaz.", chiffre: "58 %", texte: "En 2023, 58 % de l'énergie consommée en France venait du pétrole, du gaz ou du charbon.", source: "Gouvernement, 2026" }
+      contre: { affirmation: "Peu : l'électricité en rejette déjà peu.", chiffre: "95 %", texte: "En 2025, 95 % de l'électricité produite en France venait de sources qui rejettent peu de CO2, surtout du nucléaire.", source: "RTE, 2026" }
+    # Compléments c, [27] [29] : le même régulateur, le même périmètre (l'aide aux éoliennes à terre et en mer, en euros
+    # par an), deux années que chaque texte nomme. CONTRE : 2 711 M€ en 2027, une prévision, que le texte dit, contre
+    # 1 557 M€ constatés en 2025. POUR : en 2023, − 3 459 M€ constatés, une recette pour l'État pendant la crise des prix,
+    # une année hors norme que le texte dit (« pendant la crise des prix »), comme le CONTRE dit « prévision » : chaque
+    # carte nomme ce qu'a de particulier son année. Cette recette est pour moitié, toutes renouvelables confondues, due
+    # au déplafonnement des contrats « à compter de 2022 » prévu par la loi de finances pour 2024 (Compléments c) : la
+    # règle vaut pour la suite, l'argent a bien été reversé, et la nommer en 22 mots demanderait du jargon ; le
+    # commentaire la garde.
+    - question: "L'aide aux éoliennes coûte-t-elle cher ?"
+      pour: { affirmation: "Pas quand l'électricité est chère.", chiffre: "3,5 milliards €", texte: "Selon le même régulateur, en 2023, pendant la crise des prix, les éoliennes aidées ont rapporté 3,5 milliards € à l'État.", source: "CRE, 2024" }
+      contre: { affirmation: "Oui, et de plus en plus.", chiffre: "2,7 milliards €", texte: "Selon une prévision du régulateur de l'énergie, l'aide aux éoliennes coûtera 2,7 milliards € en 2027, contre 1,6 milliard en 2025.", source: "CRE, 2026" }
+    # Compléments a, [22] : le même bilan, la même année, la même mesure (le facteur de charge : ce qu'une éolienne a
+    # produit, rapporté à ce qu'elle aurait produit à pleine puissance toute l'année). À terre 21,4 %, « un niveau
+    # exceptionnellement faible » selon RTE [22], le plus bas depuis dix ans (§ 2.1, [1]) : le texte CONTRE le dit, comme
+    # le POUR de la question 2 dit la crise des prix ; l'étude n'a pas de moyenne sur plusieurs années. En mer 38,8 %,
+    # pour les trois parcs en service avant 2025 (×1,8, « près de deux fois ») ; le rapport tient hors de cette année
+    # faible, le plan de l'État retenant 25 à 26 % à terre et 45 % en mer (×1,7 à ×1,8, Compléments d). Le plan compte
+    # sur la mer : 15 GW en 2035 contre 1,9 GW fin 2025.
+    - question: "Peut-on compter sur le vent ?"
+      pour: { affirmation: "Oui, surtout en mer.", chiffre: "39 %", texte: "Selon le même bilan, les éoliennes en mer ont produit 39 % de leur maximum, près de deux fois plus qu'à terre.", source: "RTE, 2026" }
+      contre: { affirmation: "Pas toujours.", chiffre: "21 %", texte: "En 2025, les éoliennes à terre ont produit 21 % de leur maximum possible, le plus bas niveau depuis dix ans.", source: "RTE, 2026" }
+    # Compléments a et d, [21] [25] : un objectif pour 2035 face à un fait de 2025, et chaque texte dit lequel. POUR : le
+    # plan de l'État vise 120 TWh de plus par an d'électricité bas carbone qu'en 2025, « soit l'équivalent de la
+    # production de 12,5 tranches EPR2 », comparaison du plan lui-même. CONTRE : un solde exportateur record de 92,3 TWh
+    # pour 547,5 TWh produits, soit 16,9 % (« un sixième » : le rapport de deux chiffres du même bilan, pas une estimation).
+    # Les deux répondent à la question : oui d'après l'objectif, non d'après le surplus de 2025 (§ 2.7). Le « non » porte
+    # sur « beaucoup plus », ce qui laisse sa place au nucléaire relancé que veulent les options C et D.
+    - question: "Faudra-t-il produire beaucoup plus d'électricité ?"
+      pour: { affirmation: "Oui, selon le plan de l'État.", chiffre: "12,5 réacteurs", texte: "D'ici 2035, le plan de l'État vise à ajouter autant d'électricité rejetant peu de CO2 que 12,5 nouveaux réacteurs.", source: "Gouvernement, 2026" }
+      contre: { affirmation: "Non, on en vend déjà aux voisins.", chiffre: "1 sur 6", texte: "En 2025, la France a vendu à ses voisins un sixième de l'électricité qu'elle a produite, achats déduits. Un record.", source: "RTE, 2026" }

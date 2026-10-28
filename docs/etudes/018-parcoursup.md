@@ -212,3 +212,124 @@ Option C : le garder en le réformant. Option D : le garder tel quel.
     https://www.titrespresse.com/24959422603/parcoursup-david-lisnard
 18. MonVote2027 (agrégateur citoyen, positions et sources par candidat, état au 16/10/2026) : https://monvote2027.fr/candidat/tondelier ,
     https://monvote2027.fr/candidat/roussel , https://monvote2027.fr/candidat/dupont-aignan , https://monvote2027.fr/candidat/arthaud
+19. Ministères de l'Éducation nationale et de l'Enseignement supérieur, *Parcoursup : bilan de la procédure d'admission
+    2026* (document signé « MENESR / Delcom / Octobre 2026 »), lu le 28/10/2026 (texte extrait du PDF) :
+    https://www.education.gouv.fr/sites/default/files/document/parcoursup-bilan-de-la-procedure-d-admission-2026-521649.pdf
+20. Institut CSA, *Baromètre Parcoursup 2026*, vague 7, septembre 2026 (étude n° 2600520 pour le ministère ; questionnaire
+    en ligne du 28/08 au 07/09/2026 auprès de 1 008 néo-bacheliers inscrits sur Parcoursup en 2026, admis ou non), lu le
+    28/10/2026 (texte extrait du PDF, séries lues sur les graphiques) :
+    https://www.education.gouv.fr/sites/default/files/document/barometre-parcoursup-2026-521652.pdf
+21. Ministère de l'Enseignement supérieur, *Tableau de bord, phase principale d'admission de Parcoursup*, chiffres du
+    18/06/2018 :
+    https://www.enseignementsup-recherche.gouv.fr/sites/default/files/content_migration/document/Indicateurs18juin_969543.pdf
+22. Parcoursup (ministère), diaporama de présentation de la phase d'admission 2026 (mai 2026) :
+    https://www.parcoursup.gouv.fr/sites/default/files/database/documents/2026-05/diaporama-pr-sentation-phase-d-admission-2026-pdf-1152_0.pdf
+23. DEPP, *Note d'information* n° 26.42, « En 2025, 199,2 milliards d'euros consacrés à l'éducation, soit 6,7 % du PIB »,
+    septembre 2026 :
+    https://www.education.gouv.fr/sites/default/files/document/educationnationaledepp-ni-2026-42pdf-520993.pdf
+24. L'Étudiant, « Bilan Parcoursup : en 2026, moins de la moitié des lycéens ont trouvé la plateforme transparente »,
+    M. Ilario, 20/10/2026 : https://www.letudiant.fr/etudes/parcoursup/bilan-parcoursup-en-2026-moins-de-la-moitie-des-lyceens-ont-trouve-la-plateforme-transparente.html
+
+## Compléments pour le reportage (28/10/2026)
+
+> Chiffres ajoutés pour le reportage vidéo de la fiche, sources [19] à [24] à la suite de la liste du § 5. Le bilan de la
+> session 2026 et le baromètre de l'Institut CSA, publiés le 19/10/2026 selon L'Étudiant [24] **[source secondaire]**,
+> ont été lus en entier (texte extrait des PDF). Ils remplacent, pour le reportage, les chiffres 2025 du § 2 [1] ; la
+> fiche garde les siens (bilan 2025). Le baromètre recueille des avis, pas des mesures : chaque chiffre qui en vient
+> est présenté comme un sondage.
+
+### C1. La session 2026 (bilan du ministère [19])
+- **Candidats** : 1 046 000 candidats ont confirmé au moins un vœu (+ 66 000 en un an, soit + 6,7 % ; + 129 000 depuis
+  2023), dont 660 000 lycéens préparant le baccalauréat français, 206 000 étudiants en réorientation (+ 23 000), 122 000
+  candidats non scolarisés ayant un projet de reprise d'études (118 000 dans le diaporama de mai [22]) et 58 000 lycéens
+  et étudiants avec une scolarité étrangère, hors lycées français de l'étranger [19][22]. 14 millions de vœux et sous-vœux (+ 9,2 %) ; plus
+  de 25 000 formations, dont 11 000 en apprentissage [19].
+- **En 2018, pour comparer** : 812 053 candidats avaient confirmé au moins un vœu, au tableau de bord du 18/06/2018
+  (6,3 millions de vœux) [21]. C'est la même mesure que le chiffre de 2026, que le diaporama de mai 2026 définit
+  ainsi : « 1 046 000 candidats ont confirmé au moins 1 vœu » [22]. Hausse de 2018 à 2026 : environ 234 000 candidats,
+  soit + 29 % (calcul de l'étude). Réserve : le chiffre de 2018 date de juin ; des confirmations tardives étaient
+  acceptées par certaines formations depuis le 5 avril 2018 [21].
+- **Propositions** : 603 910 lycéens préparant le bac français ont reçu au moins une proposition, soit 91,4 % (6 891 de
+  plus qu'en 2025 ; 91,9 % en 2025 [1]). Par bac : général 377 936 (96,3 %), technologique 126 450 (88,9 %),
+  professionnel 99 524 (**79,1 %** ; 79,6 % en 2025 [1]). Étudiants en réorientation : 163 290 (79,2 %) [19]. La presse
+  écrit parfois 91,5 % (603 910 sur 660 000) ; le texte du bilan dit 91,4 % [19].
+- **Lycéens sans proposition, par bac (calcul de l'étude d'après [19])** : environ 14 500 en général, 15 800 en
+  technologique et 26 300 en professionnel, soit environ 57 000 en tout. Le bac professionnel a donc le taux le plus bas
+  et le plus grand nombre de lycéens sans proposition. Le bilan l'explique en partie par le recul de l'apprentissage :
+  36 018 candidats ont reçu une proposition en apprentissage, contre 39 600 en 2025, une baisse qui touche d'abord les
+  bacheliers professionnels [19].
+- **Délais** : 4,3 millions de propositions envoyées (+ 2,8 %), dont 2,9 millions dès le premier jour de la phase
+  d'admission (2,7 millions en 2025) ; **438 843 lycéens, soit 66,5 %, avaient au moins une proposition dès le premier
+  jour** (+ 0,3 point) ; plus de 80 % une semaine après le début de la phase principale [19].
+- **Fin de procédure** : plus de 80 000 candidats ont reçu une proposition en phase complémentaire ; près de 73 000 places
+  restaient vacantes à la fin, « un chiffre bien inférieur à celui des années antérieures » selon le ministère ; 84 % des
+  lycéens et 61,3 % des étudiants en réorientation ont accepté une proposition [19].
+- **Candidats sans proposition aidés par le rectorat (CAES)** : 32 202 candidats sans proposition ont saisi l'été la
+  commission d'accès à l'enseignement supérieur de leur académie (22 235 en 2025 [1]) ; 60 bacheliers étaient encore
+  accompagnés à la fin de la procédure ; ceux qui ne l'ont pas saisie, ou ont refusé sa solution, ont quitté la
+  plateforme, et près de 212 000 candidats avaient déclaré d'autres projets en confirmant leurs vœux [19].
+- **Boursiers** : 125 501 lycéens boursiers ont reçu au moins une proposition (88,9 %). Le ministère **estime à près de
+  19 400** (17 041 en 2025 [1]) le nombre de lycéens boursiers pour qui les taux minimaux de boursiers « ont été
+  décisifs dans leur admission » : sans eux, ils n'auraient « vraisemblablement » pas eu de proposition en phase
+  principale. 12 773 formations appliquent ces taux [19].
+- **Contrôle des formations** : 31 rappels à la charte, concernant 43 établissements ; 164 formations fermées en cours de
+  campagne ; 33 établissements déréférencés pour difficultés économiques [19].
+- **Calendrier 2027** : carte des formations le 17/12/2026, vœux du 18/01 au 11/03/2027, confirmation jusqu'au 01/04,
+  phase d'admission à partir du 01/06/2027 [19].
+
+### C2. Le baromètre de l'Institut CSA pour le ministère, 2026 [20]
+- **Méthode** : 1 008 néo-bacheliers inscrits sur Parcoursup en 2026, admis ou non, interrogés en ligne du 28 août au
+  7 septembre 2026 à partir d'adresses fournies par le ministère, donc avant le mouvement lycéen d'octobre. Septième
+  vague depuis 2020 [20].
+- **Adjectifs qui « s'appliquent bien » à la procédure (Q23)** : stressante **82 %** (83 % en 2023 et 2024, 84 % en 2025) ;
+  claire 70 % (76 % en 2025) ; complète 67 % (nouvelle question) ; fiable 58 % (62 %, 67 %, 66 % de 2023 à 2025) ;
+  personnalisée 50 % ; transparente 49 % (49 %, 59 %, 53 %) ; rapide 48 % ; « juste, qui traite tous les candidats de
+  manière équitable » **29 %** (31 %, 37 %, 34 % de 2023 à 2025 ; 69 % jugent qu'il s'applique mal, 2 % ne se prononcent
+  pas) [20].
+- **« Parcoursup a facilité votre entrée dans l'enseignement supérieur » (Q26)** : 67 % en 2026 ; série de 2020 à 2026 :
+  **81 %**, 73 %, 68 %, 74 %, 76 %, 74 %, **67 %**. Pour l'élaboration du projet d'orientation : 61 % (75 % en 2020) [20].
+- **Satisfaits des réponses des formations obtenues (Q18, admis, n = 945)** : **72 %** ; série de 2020 à 2026 : 79 %, 70 %,
+  72 %, 76 %, 78 %, 73 %, 72 % [20]. Le bilan le résume en « 72 % des lycéens expriment leur satisfaction à l'égard des
+  formations dans lesquelles ils ont été acceptés » [19].
+- **Satisfaits du délai de réponse (Q19, admis)** : 67 % (− 5 points), pas satisfaits 31 % (+ 5) [20].
+- **Autres** : 93 % ont accepté une proposition (98 % en 2020), 6 % les ont toutes refusées ; 82 % ont aimé pouvoir
+  consulter les chiffres clés pour estimer leurs chances ; 72 % ont aimé les « indications claires et homogènes pour
+  chaque formation » (− 11) ; 45 % ont été accompagnés par leur lycée au moment des réponses (53 % non) ; première
+  attente : connaître son classement et ses chances sur liste d'attente (40 %) [20].
+
+### C3. Ce que coûte une année d'études supérieures [23]
+- En 2025, la dépense moyenne par étudiant (apprentis compris) est de **13 350 € par an** pour l'ensemble du supérieur :
+  12 460 € à l'université, 17 270 € en section de technicien supérieur, 19 170 € en classe préparatoire [23].
+- L'État paie **55,5 %** de la dépense d'éducation du supérieur ; les entreprises 22,1 % (dont l'apprentissage), les
+  ménages 11,1 %, les collectivités 7,3 %, les autres administrations 3,9 % (figure 4, lue sur le graphique) [23].
+- C'est un coût moyen, pas le coût d'une place créée en plus ; aucun chiffrage officiel des 150 000 ou 250 000 places
+  demandées (§ 2, enjeu A ; § 4) n'a été trouvé.
+
+### C4. Non vérifié, non repris
+- Un syndicat d'enseignants du supérieur (Snesup-FSU, 15/07/2026) affirmerait que les formations offraient 10 000 places
+  de moins qu'en 2025 ; le chiffre n'a été lu que dans un résumé de recherche, le document n'a pas été ouvert. Aucun
+  chiffre du ministère sur les places offertes en 2026 n'a été trouvé.
+- Aucune donnée récente sur le poids du lycée d'origine dans le tri n'a été trouvée. Un compte rendu du Sénat de 2024,
+  lu dans un résumé de recherche seulement, citerait la Cour des comptes (2020) : 20 % des commissions des filières non
+  sélectives tiendraient compte du lycée d'origine. Non vérifié, et trop ancien pour être comparé à la session 2026.
+
+## Annexe — d'où vient chaque chiffre du reportage
+
+| Écran | Chiffre | Source |
+|---|---|---|
+| Accroche | 812 053 candidats ayant confirmé au moins un vœu en 2018 (arrondi à 812 000), 1 046 000 en 2026, même mesure ; l'annonce du 26/10/2026 (réforme pour 2027, nouvel outil pour 2028) | [21] [22] [19], C1 ; § 1, [4] [5] |
+| Écart | pas d'écart : le nombre de candidats est dans l'accroche | — |
+| Leviers | les quatre options de la fiche ; 13 350 € par étudiant et par an en 2025, l'État payant 55,5 % de la dépense du supérieur | [23], C3 |
+| Q1 pour | 79,1 % des lycéens de bac professionnel ont reçu une proposition, soit plus d'un sur cinq sans proposition | [19], C1 |
+| Q1 contre | 91,4 % des lycéens de Terminale (603 910), tous bacs confondus, ont reçu au moins une proposition | [19], C1 |
+| Q2 contre | près de 19 400 lycéens boursiers admis grâce aux taux minimaux de boursiers, estimation du ministère | [19], C1 |
+| Q2 pour | 29 % des néo-bacheliers sondés jugent que Parcoursup « traite tous les candidats de manière équitable » | [20] (Q23), C2 |
+| Q3 contre | 66,5 % des lycéens (438 843) avaient au moins une proposition dès le premier jour de la phase d'admission | [19], C1 |
+| Q3 pour | 82 % des néo-bacheliers sondés trouvent la procédure stressante (83 %, 83 %, 84 % de 2023 à 2025) | [20] (Q23), C2 |
+| Q4 pour | « Parcoursup a facilité votre entrée dans l'enseignement supérieur » : 81 % en 2020, 67 % en 2026, soit − 14 points | [20] (Q26), C2 |
+| Q4 contre | 72 % des admis satisfaits des réponses des formations obtenues sur Parcoursup | [20] (Q18), C2 |
+
+Les deux camps de Q1 citent le même indicateur du même bilan, pour un groupe (le bac professionnel) et pour tous ; ceux
+de Q2, la même session vue par une estimation du ministère et par un sondage, chaque texte disant ce qu'il est ; ceux de
+Q3, deux mesures différentes de la même session (un délai mesuré, un avis), nommées dans chaque texte ; ceux de Q4, deux
+questions du même sondage.

@@ -1,0 +1,124 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/036-droit-du-sol.md (tout ce qui suit y est sourcé).
+numero: 36
+date: 2026-09-22
+theme: immigration
+question: "Faut-il restreindre le droit du sol ?"
+titreCourt: "Le droit du sol"
+contexte:
+  - "Un enfant né en France de parents étrangers devient français à 18 ans s'il y a vécu au moins cinq ans depuis ses 11 ans, ou plus tôt, dès 13 ans, sur demande."
+  - "À Mayotte, une loi de 2025 exige en plus que les deux parents de l'enfant aient séjourné régulièrement en France depuis plus d'un an à sa naissance ; le Conseil constitutionnel l'a validée en raison de la situation propre à l'île."
+  - "Le Conseil constitutionnel a aussi jugé que la Constitution ne garantit pas un droit du sol sans condition ; plusieurs candidats veulent le restreindre ou le supprimer, d'autres le garder ou l'élargir."
+chiffres:
+  - valeur: "34 904"
+    legende: "jeunes nés en France devenus français par le droit du sol en 2025, sur 98 139 nouveaux Français"
+    source: { organisme: "Ministères de l'Intérieur et de la Justice", document: "L'accès à la nationalité française en 2025", annee: 2025 }
+  - valeur: "46 %"
+    legende: "des bébés nés à Mayotte en 2024 ont deux parents étrangers, contre 28 % en 2014"
+    source: { organisme: Insee, document: "Bilan démographique 2024 à Mayotte", annee: 2025 }
+  - valeur: "50 %"
+    legende: "des personnes interrogées en février 2024 voulaient supprimer le droit du sol, 39 % le garder et 10 % l'élargir (sondage en ligne)"
+    source: { organisme: Elabe, document: "sondage pour BFMTV", annee: 2024 }
+options:
+  - id: A
+    libelle: "L'élargir, français dès la naissance"
+    implique: "Tout enfant né en France, Mayotte comprise, est français dès sa naissance, quelle que soit la situation de ses parents, sans attendre 13 ou 18 ans."
+    defenseurs: "Un enfant né en France est un enfant de la République : le faire français dès la naissance, comme aux États-Unis, l'aide à s'intégrer et met fin aux règles à part de Mayotte."
+    critiques: "La nationalité serait donnée sans exiger d'avoir vécu en France, y compris à des enfants qui partiront ensuite ; ses opposants y voient un facteur d'attraction pour l'immigration irrégulière, en particulier à Mayotte."
+    axes: { societe: -2 }
+  - id: B
+    libelle: "Le garder tel qu'il est"
+    implique: "Les règles actuelles restent : un enfant né en France de parents étrangers devient français à 18 ans s'il y a vécu au moins cinq ans depuis ses 11 ans, ou dès 13 ans sur demande."
+    defenseurs: "La règle, en place depuis 1998, demande déjà cinq ans de vie en France, et 94 % des enfants de deux parents immigrés se sentent français : rien ne justifie de la durcir."
+    critiques: "La nationalité reste acquise sans démarche à 18 ans et, hors Mayotte, sans condition sur la situation des parents, ce que ses opposants jugent trop large face à l'immigration irrégulière."
+    axes: { societe: -1 }
+  - id: C
+    libelle: "Le restreindre"
+    implique: "Le droit du sol reste, avec des conditions plus strictes : une démarche obligatoire du jeune, comme de 1993 à 1998, ou un séjour régulier des parents à la naissance, comme à Mayotte."
+    defenseurs: "On ne devient pas français par hasard : la nationalité doit être un choix exprimé et ne pas profiter d'un séjour irrégulier des parents ; le Conseil constitutionnel a admis la démarche en 1993 et la condition sur les parents à Mayotte."
+    critiques: "De 1993 à 1998, la démarche obligatoire a laissé de côté des jeunes mal informés, et les filles la demandaient moins souvent ; hors de Mayotte, une condition sur les parents n'a jamais été jugée et ses opposants y voient une atteinte à l'égalité."
+    axes: { societe: 1 }
+  - id: D
+    libelle: "Le supprimer"
+    implique: "Naître et grandir en France ne donne plus droit à la nationalité : il faut un parent français ou une naturalisation ; ses partisans proposent de le décider par référendum."
+    defenseurs: "La nationalité se demande et se mérite : elle doit couronner une assimilation vérifiée, par la naturalisation, et non découler du lieu de naissance ; la plupart des pays européens appliquent le droit du sang."
+    critiques: "Des enfants nés et élevés en France resteraient étrangers s'ils ne sont pas naturalisés, ce qui rompt avec une règle appliquée depuis 1889 ; ses opposants y voient une inégalité entre enfants nés au même endroit."
+    axes: { societe: 2 }
+pourAllerPlusLoin:
+  - titre: "Conseil constitutionnel, décision n° 2025-881 DC du 7 mai 2025 (Mayotte)"
+    url: https://www.conseil-constitutionnel.fr/decision/2025/2025881DC.htm
+  - titre: "Ministère de l'Intérieur, l'accès à la nationalité française en 2025"
+    url: https://www.immigration.interieur.gouv.fr/chiffres-de-limmigration-en-france/lacces-a-nationalite-francaise-pour-lannee-2025-moins-dacquisitions-de-nationalite-francaise-par
+  - titre: "Service-public.gouv.fr, nationalité d'un enfant né en France de parents étrangers"
+    url: https://www.service-public.gouv.fr/particuliers/vosdroits/F295
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour le restreindre"
+    argument: "On ne devient pas français par hasard : la nationalité doit être un choix exprimé et ne pas profiter d'un séjour irrégulier des parents."
+  - titre: "Pour le garder"
+    argument: "La règle demande déjà cinq ans de vie en France, et 94 % des enfants de deux parents immigrés se sentent français."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Le restreindre"
+    precision: "ou le supprimer"
+  - choix: "Le garder"
+    precision: "ou l'élargir"
+positions:
+  # Programme 2025 (L'Avenir en commun), mesure 1 immigration, repris par https://votons-2027.fr/candidats/melenchon/programme/immigration (page d'origine https://melenchon2027.fr/programme2025/livre/ bloquée à la lecture)
+  # L'Avenir en commun, édition 2025, chap. 10 : https://melenchon2027.fr/programme2025/livre/chapitre10/s2/
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, chap. 10", statut: officielle }
+  # Projet 2027 des Écologistes, p. 178, juillet 2026 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+  tondelier: { option: B, source: "Projet 2027 des Écologistes, p. 178, juillet 2026", statut: officielle }
+  # La Nouvelle Revue Politique, 16/04/2026 : https://www.unenouvelleenergie.fr/ce-que-je-veux-construire-cest-une-alternative-et-non-pas-une-simple-alternance/
+  lisnard: { option: C, source: "La Nouvelle Revue Politique, 16/04/2026", statut: officielle }
+  # Le Figaro, 02/09/2026 : https://www.lefigaro.fr/elections/presidentielles/programmes/bruno-retailleau-au-figaro-en-france-la-seule-cour-supreme-c-est-le-peuple-je-lui-donnerai-le-dernier-mot-20260902
+  retailleau: { option: D, source: "Le Figaro, 02/09/2026", statut: officielle }
+  # Debout la France, projet Immigration, mesure 17, 2026 : https://www.debout-la-france.fr/projet/immigration-et-assimilation/
+  dupont-aignan: { option: D, source: "Debout la France, projet Immigration, mesure 17, 2026", statut: officielle }
+  # Programme du RN, 2024 ; « 22 mesures » 2022 : https://rassemblementnational.fr/documents/202406-programme.pdf
+  le-pen: { option: D, source: "Programme du RN, 2024 ; « 22 mesures » 2022", statut: deduite }
+  # France 2, 12/02/2024 : https://presseagence.fr/paris-eric-zemmour-sur-france-2-il-faut-supprimer-le-droit-du-sol-partout-en-france/
+  zemmour: { option: D, source: "France 2, 12/02/2024", statut: deduite }
+  # Journal Lutte ouvrière, 12/02/2025 : https://www.lutte-ouvriere.org/portail/journal/droit-sol-remise-cause-scandaleuse-181872.html
+  arthaud: { option: A, source: "Journal Lutte ouvrière, 12/02/2025", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/036-droit-du-sol.md (chaque chiffre y a sa source
+# numérotée, voir son annexe). Le fil : la règle a déjà changé plusieurs fois ; quatre choix sont sur la table.
+# Pas de mécanisme : aucun ratio « X pour 1 » ne résume le sujet. Pas d'écart : le chiffre de Mayotte sert à une question.
+reportage:
+  accroche:
+    # § 1.1, [1] [2].
+    etapes:
+      - { quand: "À 13 ans", valeur: "Sur demande" }
+      - { quand: "À 18 ans", valeur: "Automatiquement" }
+    chute: "… un enfant né en France de parents étrangers devient français, s'il y a vécu au moins cinq ans."
+  leviers:
+    # § 1.3 et § 4 : les quatre options de la fiche, à égalité.
+    titre: "Quatre choix possibles"
+    choix:
+      - { texte: "L'élargir", detail: "français dès la naissance, pour tout enfant né en France" }
+      - { texte: "Le garder", detail: "français à 18 ans, ou dès 13 ans sur demande" }
+      - { texte: "Le restreindre", detail: "une démarche obligatoire, ou des parents en séjour légal" }
+      - { texte: "Le supprimer", detail: "la nationalité par un parent français ou par naturalisation" }
+    chute: "Ces règles ont changé en 1993, en 1998, puis à Mayotte en 2018 et en 2025."
+    source: "Code civil, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: "un droit du sol plus strict" }
+  # Relu le 28/10/2026 par deux relecteurs, l'un pour restreindre, l'autre contre ; chaque réponse compare ce qui se compare.
+  questions:
+    # § 2c, [9] [30] : même territoire (Mayotte), années voisines. Le CONTRE compare 2024 à 2017, dernière mesure
+    # avant la règle de 2018 (de 2014 à 2017, la part montait déjà de 28 à 42 %). Aucune étude causale trouvée.
+    - question: "Le droit du sol fait-il venir des migrants ?"
+      pour: { affirmation: "Oui, il permet aux parents de rester.", chiffre: "1 637", texte: "À Mayotte, 1 637 enfants sont devenus français par le droit du sol en 2023. Leurs parents peuvent alors obtenir des papiers.", source: "Assemblée nationale, 2025" }
+      contre: { affirmation: "Non, la hausse a continué après 2018.", chiffre: "46 %", texte: "En 2024, 46 % des bébés nés à Mayotte avaient deux parents étrangers, contre 42 % en 2017, avant la règle de 2018.", source: "Insee et Assemblée nationale, 2025" }
+    # § 2a et 2b, [3] [4] [27] : 32 923 déclarations sur 34 904 en 2025 (calcul de l'étude), même périmètre que la question.
+    - question: "Faut-il demander à devenir français ?"
+      pour: { affirmation: "Oui, comme de 1993 à 1998.", chiffre: "16 à 21 ans", texte: "De 1993 à 1998, il fallait demander la nationalité entre 16 et 21 ans. Le Conseil constitutionnel l'avait accepté.", source: "Conseil constitutionnel, 1993" }
+      contre: { affirmation: "Non, presque tous le demandent déjà.", chiffre: "94 %", texte: "En 2025, 94 % des jeunes devenus français par le droit du sol l'avaient demandé, eux ou leurs parents, avant 18 ans.", source: "Ministères de l'Intérieur et de la Justice, 2026" }
+    # § 2f, [40] [41] : six juges contre le décret, dont cinq sur le fondement de la Constitution.
+    - question: "Que font les autres pays ?"
+      pour: { affirmation: "Plusieurs exigent un séjour légal des parents.", chiffre: "3 ans sur 4", texte: "En Irlande, un enfant né sur place est irlandais si un parent y a vécu légalement trois des quatre années précédentes.", source: "Loi irlandaise, 2004" }
+      contre: { affirmation: "Les États-Unis l'accordent dès la naissance.", chiffre: "6 juges sur 9", texte: "La Cour suprême a annulé, à six juges sur neuf, un décret refusant la nationalité aux enfants de parents en situation irrégulière.", source: "Cour suprême des États-Unis, 2026" }
+    # § 2h, [43] : le même sondage pour les deux camps ; la question portait sur la France hors Mayotte.
+    - question: "Que veulent les Français ?"
+      pour: { affirmation: "La moitié veut le supprimer.", chiffre: "50 %", texte: "Dans un sondage de février 2024, la moitié des personnes interrogées voulaient supprimer le droit du sol.", source: "Elabe pour BFMTV, 2024" }
+      contre: { affirmation: "L'autre moitié veut le garder ou l'élargir.", chiffre: "49 %", texte: "Dans le même sondage, 39 % voulaient le garder tel quel et 10 % l'élargir à tout enfant né en France.", source: "Elabe pour BFMTV, 2024" }

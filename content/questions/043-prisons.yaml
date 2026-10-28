@@ -1,0 +1,162 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/043-prisons.md (tout ce qui suit y est sourcé).
+# Vocabulaire : « régulation carcérale » (associations, juges de l'application des peines, gauche) et « numerus clausus »
+# (Écologistes ; version graduée du garde des Sceaux en 2026) sont des termes attribués ; la fiche dit « interdire de
+# dépasser les places ». Ne contredit pas la fiche 005 (peines planchers) : mêmes chiffres au 1er septembre 2026.
+numero: 43
+date: 2026-09-15
+theme: securite-justice
+question: Que faire face à des prisons pleines ?
+titreCourt: "Les prisons pleines"
+contexte:
+  - "Au 1er septembre 2026, les prisons comptent 90 020 détenus pour 63 348 places, et 8 347 personnes dorment sur un matelas posé au sol."
+  - "Le plan de 15 000 places lancé en 2018 en avait livré 35 % en 2025, et la Cour européenne des droits de l'homme a condamné la France en 2020 pour ses prisons surpeuplées."
+  - "Les candidats s'opposent sur la réponse : construire davantage, punir plus souvent hors de la prison, ou interdire par la loi de dépasser le nombre de places."
+chiffres:
+  - valeur: "28 241"
+    unite: détenus
+    legende: "de plus que de places, prison par prison, au 1er septembre 2026 : deux fois plus qu'en 2016 (14 035)"
+    source: { organisme: Ministère de la Justice, document: mesure de l'incarcération, annee: 2026 }
+  - valeur: 35 %
+    legende: "des places du plan lancé en 2018 étaient livrées en septembre 2025 ; sa fin est repoussée à 2031-2032"
+    source: { organisme: Cour des comptes, document: "Le plan 15 000 places de prison", annee: 2025 }
+  # § 1.1, [2] : le chiffre de ceux qui veulent faire purger les peines en prison, face aux 35 % et aux 127 €.
+  - valeur: "17 400"
+    unite: condamnés
+    legende: "à de la prison ferme font leur peine hors d'une prison au 1er octobre 2026, le plus souvent sous bracelet"
+    source: { organisme: Ministère de la Justice, document: personnes détenues au 1er octobre 2026, annee: 2026 }
+  - valeur: "127"
+    unite: €
+    legende: "par jour pour un détenu en prison, contre 13 € pour une personne sous bracelet électronique"
+    source: { organisme: Cour des comptes, document: "chiffres de l'administration pénitentiaire", annee: 2022 }
+options:
+  - id: A
+    libelle: Interdire de dépasser les places
+    implique: "La loi fixe un plafond par prison : quand elle est pleine, chaque nouvelle entrée oblige à faire sortir, sous bracelet ou avec un suivi, un condamné proche de la fin de sa peine."
+    defenseurs: "Condamnée en 2020 par la Cour européenne des droits de l'homme, la France laisse 8 347 détenus dormir au sol : seule une règle obligatoire garantit un lit à chacun, car les places ne rattrapent pas le nombre de détenus."
+    critiques: "La peine dépendrait des places libres et non de la décision du juge, des condamnés sortiraient avant la fin de leur peine, et deux condamnés à la même peine ne la feraient pas de la même façon."
+    axes: { societe: -2 }
+  - id: B
+    libelle: Punir davantage hors de la prison
+    implique: "Les courtes peines se font d'abord hors de la prison : bracelet, travail d'intérêt général, sursis avec obligations et suivi. On rénove les prisons et on finit les places déjà lancées, sans plafond obligatoire."
+    defenseurs: "Une journée sous bracelet coûte dix fois moins qu'une journée en prison, et ceux qui finissent leur peine sous bracelet récidivent moins, même à profil égal, selon la Cour des comptes."
+    critiques: "Depuis vingt ans, ces peines ont augmenté en même temps que le nombre de détenus sans le faire baisser, et le travail d'intérêt général ne réduit pas plus la récidive que la prison."
+    axes: { societe: -1 }
+  - id: C
+    libelle: Construire et punir aussi hors de la prison
+    implique: "On construit plus vite, y compris en modules préfabriqués, et les courtes peines continuent de se faire souvent sous bracelet ou en travail d'intérêt général, sans changer leurs règles ni fixer de plafond."
+    defenseurs: "Aucun levier ne suffit seul : les places manquent et se construisent lentement, et les peines hors de la prison coûtent moins cher pour ceux qui n'ont pas besoin d'être enfermés."
+    critiques: "Pour les uns, construire coûte cher et n'a jamais suivi la hausse du nombre de détenus ; pour les autres, des condamnés à la prison ferme continuent de faire leur peine chez eux."
+    axes: { societe: 1 }
+  - id: D
+    libelle: Construire et faire purger les peines en prison
+    implique: "On construit bien au-delà du plan actuel, et les peines de prison ferme se font en prison : fin de l'aménagement automatique des courtes peines et des réductions de peine automatiques."
+    defenseurs: "Une peine prononcée doit être exécutée : 17 400 condamnés à de la prison ferme font aujourd'hui leur peine hors de la prison, et la sanction perd son sens si elle dépend des places."
+    critiques: "Le plan lancé en 2018 avait livré 35 % de ses places en 2025, pour un coût passé de 3,9 à 5,7 milliards d'euros, et enfermer plus de courtes peines remplirait encore des prisons pleines."
+    axes: { societe: 2 }
+pourAllerPlusLoin:
+  - titre: "Ministère de la Justice, la mesure de l'incarcération au 1er septembre 2026"
+    url: https://www.justice.gouv.fr/sites/default/files/2026-10/mesure_mensuelle_01092026.pdf
+  - titre: "Cour des comptes, le plan 15 000 places de prison, décembre 2025"
+    url: https://www.ccomptes.fr/sites/default/files/2025-12/20251217-Plan-15000-places-de-prison.pdf
+  - titre: "Cour des comptes, évaluation de deux peines alternatives à l'incarcération, mars 2025"
+    url: https://www.ccomptes.fr/sites/default/files/2025-03/20250304-Evaluation-2-peines-alternatives-a-l-incarceration.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour construire davantage"
+    argument: "Une peine prononcée doit être exécutée : sans places, des condamnés à la prison ferme font leur peine chez eux."
+  - titre: "Pour avoir moins de détenus"
+    argument: "Une journée sous bracelet coûte dix fois moins qu'une journée en prison, et ceux qui finissent leur peine sous bracelet récidivent moins."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Construire"
+    precision: "plus de places de prison"
+  - choix: "Moins de détenus"
+    precision: "autres peines ou plafond"
+positions:
+  # L'Avenir en commun, édition 2025, mesure 4 « Sécurité » (« mécanisme contraignant de régulation carcérale ») : https://votons-2027.fr/candidats/melenchon/programme/securite ; vote LFI pour, 06/07/2023 : https://datan.fr/votes/legislature-16/vote_2164
+  melenchon: { option: A, source: "L'Avenir en commun, 2025, mesure 4 Sécurité", statut: officielle }
+  # Projet 2027 des Écologistes, mesure 3 « Sécurité » (« Limiter la surpopulation carcérale par un numerus clausus ») : https://votons-2027.fr/candidats/tondelier/programme/securite
+  tondelier: { option: A, source: "Projet 2027 des Écologistes, mesure 3 Sécurité", statut: officielle }
+  # https://rassemblementnational.fr/22-mesures (« Atteindre 85 000 places de prison en 2027 », « Supprimer toute possibilité de réduction et d'aménagements de peine ») ; vote contre, 06/07/2023 : https://www.assemblee-nationale.fr/dyn/16/scrutins/2164
+  le-pen: { option: D, source: "22 mesures pour 2022 ; vote du 06/07/2023", statut: deduite }
+  # https://www.lemondedudroit.fr/decryptages/79916-presidentielle-2022-quelles-sont-les-propositions-d-eric-zemmour-en-matiere-de-justice.html (« Construire 10.000 places de prison supplémentaires », « Réduire drastiquement les remises de peine »)
+  zemmour: { option: D, source: "Programme 2022, Le Monde du Droit, 15/02/2022", statut: deduite }
+  # https://www.unenouvelleenergie.fr/notre-programme/securite/ (« supprimer les réductions de peine automatiques, mettre fin aux aménagements dès l'audience ») ; 20 000 places, source secondaire : https://www.elyseescope.com/candidat/david-lisnard/justice-q05-
+  lisnard: { option: D, source: "Nouvelle Énergie, programme Sécurité, 2026", statut: deduite }
+  # https://www.debout-la-france.fr/projet/justice/ (abroger la règle « qui exonère de passage en prison toute peine de prison ferme inférieure à 1 an », mandat de dépôt à l'audience)
+  dupont-aignan: { option: D, source: "Debout la France, Justice, livret de 06/2026", statut: deduite }
+  # Europe 1, meeting d'Édouard Philippe à Marseille, 17/05/2025 ; « Pour une France plus sûre », edouardphilippe.fr, 2026 ; PPL Horizons « faire exécuter les peines d'emprisonnement ferme », scrutin n° 1262, 03/04/2025 (Horizons 29 pour sur 29) : https://www.europe1.fr/politique/justice-peines-planchers-suppression-du-juge-dapplication-des-peines-edouard-philippe-formule-des-propositions-en-meeting-a-marseille-752761
+  philippe: { option: D, source: "Europe 1, meeting d'Édouard Philippe à Marseille, 17/05/2025 ; « Pour une France plus sûre », edouardphilippe.fr, 2026 ; PPL Horizons « faire exécuter les peines d'emprisonnement ferme », scrutin n° 1262, 03/04/2025 (Horizons 29 pour sur 29)", statut: deduite }
+  # Public Sénat, 10/10/2024 (entretien au Parisien : courtes peines exécutées, loi Belloubet « Je l'ai toujours combattue », établissements différenciés pour les courtes peines) ; votes des députés LR contre la régulation (scrutin n° 2164, 06/07/2023, 6 contre) et pour la PPL Horizons (scrutin n° 1262, 03/04/2025, DR 4 pour) : https://www.publicsenat.fr/actualites/politique/bruno-retailleau-favorable-aux-courtes-peines-de-prison-ce-nest-pas-une-solution-magique
+  retailleau: { option: D, source: "Public Sénat, 10/10/2024 (entretien au Parisien : courtes peines exécutées, loi Belloubet « Je l'ai toujours combattue », établissements différenciés pour les courtes peines) ; votes des députés LR contre la régulation (scrutin n° 2164, 06/07/2023, 6 contre) et pour la PPL Horizons (scrutin n° 1262, 03/04/2025, DR 4 pour)", statut: deduite }
+  # Sénat, proposition de loi n° 873 « visant à mettre fin à la surpopulation carcérale », sénateurs communistes du groupe CRCE (É. Assassi, C. Cukierman, P. Laurent…), 05/09/2022 ; amendement GDR n° 594, scrutin n° 2164, 06/07/2023 (GDR 4 pour sur 4) : https://www.senat.fr/leg/ppl21-873.pdf
+  roussel: { option: A, source: "Sénat, proposition de loi n° 873 « visant à mettre fin à la surpopulation carcérale », sénateurs communistes du groupe CRCE (É. Assassi, C. Cukierman, P. Laurent…), 05/09/2022 ; amendement GDR n° 594, scrutin n° 2164, 06/07/2023 (GDR 4 pour sur 4)", statut: deduite }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier « Rendre la justice plus proche des citoyens et plus efficace », p. 61 : https://place-publique.eu/pages/6mRSwq5tuSrSi68Cw1IADX/l-acte-i
+  glucksmann: { option: B, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier « Rendre la justice plus proche des citoyens et plus efficace », p. 61", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/043-prisons.md (chaque chiffre y a sa source
+# numérotée). Le fil : les détenus augmentent plus vite que les places ; faut-il construire, punir hors de la prison,
+# faire les deux, ou plafonner ?
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1, [1] : même source et même date (1er septembre) pour les deux valeurs.
+    etapes:
+      - { quand: "En septembre 2016", valeur: "68 253 détenus" }
+      - { quand: "En septembre 2026", valeur: "90 020 détenus" }
+    chute: "… pour 63 348 places, et 8 347 matelas posés au sol."
+  # Pas de mécanisme : le rapport détenus pour une place (1,4 pour 1) existe, mais l'image du mécanisme montre
+  # des payeurs et des retraités.
+  ecart:
+    # § 1.1 et 2a, [1] : « détenus en surnombre », compté établissement par établissement par le ministère (d'où
+    # « prison par prison » : 28 241 dépasse 90 020 − 63 348, car 1 569 places sont libres ailleurs) ;
+    # 27 329 des 28 241 sont en maison d'arrêt (prévenus et peines courtes).
+    titre: "Combien de détenus de plus que de places, prison par prison ?"
+    etapes:
+      - { quand: "En septembre 2016", valeur: "14 035" }
+      - { quand: "En septembre 2026", valeur: "28 241" }
+    chute: "Ce nombre a doublé en dix ans. Presque tous sont dans les prisons des courtes peines et des personnes pas encore jugées."
+    source: "Ministère de la Justice, 2026"
+  leviers:
+    # § 2b, 2c et 2f, [3] [4] [5] : les quatre options de la fiche, à égalité ; la chute dit ce que coûte chacune.
+    titre: "Quatre réponses possibles"
+    choix:
+      - { texte: Plafonner, detail: "interdire de dépasser le nombre de places" }
+      - { texte: "Punir hors de la prison", detail: "bracelet, travail d'intérêt général, sursis avec suivi" }
+      - { texte: "Faire les deux", detail: "construire plus vite et punir aussi hors de la prison" }
+      - { texte: "Construire davantage", detail: "et faire purger en prison les peines de prison" }
+    chute: "Chaque réponse a un coût : des places à bâtir, des agents pour suivre les peines dehors, ou des sorties avant la fin de la peine."
+    source: "Cour des comptes, 2023 et 2025"
+  camps: { pour: POUR, contre: CONTRE, objet: "plus de places de prison" }
+  questions:
+    # § 1.3 et 2b, [5] [7] : la vitesse de construction des deux côtés. Les 18 mois sont une prévision du ministère
+    # (le texte le dit), contre « près de sept ans » pour une prison classique [7] ; les 35 % sont un bilan de la Cour
+    # (5 411 places nettes sur 15 471 en septembre 2025).
+    - question: "Peut-on construire assez vite ?"
+      pour: { affirmation: "Oui, en préfabriqué.", chiffre: 18 mois, texte: "Le ministère prévoit 3 000 places en modules préfabriqués, prêtes en dix-huit mois contre près de sept ans.", source: "Ministère de la Justice, 2026" }
+      contre: { affirmation: "Le plan de 2018 est en retard.", chiffre: 35 %, texte: "En 2025, le plan lancé en 2018 avait livré 35 % de ses 15 000 places. Sa fin est repoussée à 2031 ou 2032.", source: "Cour des comptes, 2025" }
+    # § 2d, [4] : deux taux du même rapport, chacun avec sa comparaison à profil égal, seule à comparer des condamnés
+    # semblables. Travail d'intérêt général 58,5 % en cinq ans contre 64,5 % pour une prison de moins de six mois
+    # (cohorte 2010) ; à profil égal, −0,1 point (« ne semble pas plus efficace que l'emprisonnement ferme »). Bracelet
+    # à la place de la prison 37,6 % en trois ans contre 56,1 % après une sortie sans aménagement (cohorte 2016-2017) ;
+    # à profil égal, −13,5 points (et non les 18,5 points bruts). Les durées diffèrent et l'étude n'a pas d'autre
+    # mesure : chaque texte dit la sienne en tête. Chaque camp cite la peine qui l'appuie : le texte dit laquelle.
+    - question: "Punir hors de la prison, est-ce moins de récidive ?"
+      pour: { affirmation: "Pas le travail d'intérêt général.", chiffre: 6 sur 10, texte: "En cinq ans, près de six sur dix récidivent après un travail d'intérêt général : à profil égal, comme après la prison.", source: "Cour des comptes, 2025" }
+      contre: { affirmation: "Oui, avec le bracelet.", chiffre: 38 %, texte: "En trois ans, 38 % récidivent si un bracelet remplace la prison : à profil égal, 13,5 points de moins qu'en prison.", source: "Cour des comptes, 2025" }
+    # § 1.1, 1.4 et 2f, [2] [3] [14] [16]. 17 400 : condamnés à de la prison ferme hors d'un établissement au 1er
+    # octobre 2026 ; 16 729 personnes sous bracelet au 1er septembre. La condamnation de 2020 vient de la Cour européenne
+    # des droits de l'homme ; l'invitation, du Comité des ministres du Conseil de l'Europe (pas de l'Union européenne) :
+    # en mars 2024, « examiner sérieusement et rapidement l'idée » d'un mécanisme contraignant, redit en juin 2026 ; elle
+    # ne contraint pas et n'est connue que par des sources secondaires, d'où « y invite » et « étudier ».
+    - question: "Faut-il interdire de dépasser le nombre de places ?"
+      pour: { affirmation: "Non, une peine doit être purgée.", chiffre: "17 400", texte: "17 400 condamnés à de la prison ferme font leur peine hors de la prison, le plus souvent sous bracelet.", source: "Ministère de la Justice, 2026" }
+      contre: { affirmation: "Oui, le Conseil de l'Europe y invite.", chiffre: "32 détenus", texte: "Condamnée en 2020 pour 32 détenus en prisons surpeuplées, la France est invitée depuis 2024 à étudier un plafond obligatoire.", source: "Cour européenne des droits de l'homme, 2020 ; Conseil de l'Europe, 2024" }
+    # § 2i, [17] : le même sondage pour les deux camps (1 171 personnes en ligne, juin 2018) ; le plus récent qui pose
+    # les deux questions. Le sondage CSA de 2022 (86 % pour construire) n'a pas de question en face. Les deux textes
+    # sont au passé pour dater le sondage. Les questions diffèrent (tous les délits ; les plus jeunes condamnés à moins
+    # de cinq ans) : chaque affirmation dit son champ.
+    - question: "Les Français veulent-ils plus de prison ?"
+      pour: { affirmation: "Oui, même pour les délits.", chiffre: 59 %, texte: "Dans un sondage de 2018, 59 % des Français jugeaient la prison ferme pas assez fréquente pour les délits.", source: "Harris Interactive, 2018" }
+      contre: { affirmation: "Pas pour les plus jeunes.", chiffre: 63 %, texte: "Dans ce sondage, 63 % voulaient un travail d'intérêt général pour les plus jeunes condamnés à moins de 5 ans.", source: "Harris Interactive, 2018" }

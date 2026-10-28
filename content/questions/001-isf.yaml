@@ -7,7 +7,7 @@ theme: economie-impots
 question: Faut-il rétablir l'impôt sur la fortune (ISF) ?
 titreCourt: "L'impôt sur la fortune"
 contexte:
-  - L'ISF a été supprimé en 2018 et remplacé par l'impôt sur la fortune immobilière (IFI), qui ne taxe que le patrimoine immobilier net au-delà de 1,3 million d'euros.
+  - L'ISF a été supprimé en 2018 et remplacé par l'impôt sur la fortune immobilière (IFI), qui taxe le patrimoine immobilier net au-delà de 1,3 million d'euros, sans les placements.
   - L'IFI rapporte 2,3 milliards d'euros en 2025, contre 4,4 milliards pour l'ISF en 2017.
   - L'Assemblée nationale a rejeté en octobre 2025, puis en octobre 2026, un impôt plancher de 2 % sur les patrimoines de plus de 100 millions d'euros, dit taxe Zucman, et des projets de retour de l'ISF.
 chiffres:
@@ -29,7 +29,7 @@ options:
   - id: A
     libelle: Rétablir l'ISF
     implique: L'impôt annuel sur le patrimoine net revient, avec un barème que ses partisans veulent renforcer.
-    defenseurs: Pourquoi ceux qui possèdent le plus contribueraient-ils proportionnellement le moins ? Les plus gros patrimoines doivent payer à proportion de ce qu'ils possèdent.
+    defenseurs: "Selon l'Institut des politiques publiques, les milliardaires paient 26 % d'impôts sur leur revenu économique, contre 46 % pour les 0,1 % les plus aisés : les plus gros patrimoines doivent payer à proportion de ce qu'ils possèdent."
     critiques: Il peut faire partir les plus fortunés, et un impôt sur le patrimoine est difficile à évaluer et à contrôler.
     axes: { economie: -2 }
   - id: B
@@ -89,3 +89,73 @@ positions:
   tondelier: { option: A, source: "Projet 2027, mesure 5", statut: officielle }
   # https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf (mesure 127)
   roussel: { option: A, source: "La France des Jours heureux, mesure 127, 2022", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/001-isf.md (chaque chiffre y a sa source numérotée,
+# et l'annexe de l'étude dit d'où vient chacun). Le fil : un impôt sur la fortune créé, supprimé, recréé, puis remplacé
+# par un impôt sur l'immobilier ; les cinq choix de la fiche ; les camps s'opposent sur une hausse de l'impôt sur la
+# fortune. Les face-à-face des fiches voisines (039, la taxe Zucman ; 033, l'héritage) ne sont pas repris.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # Compléments § a, [18] [20] [1] : quarante ans d'allers et retours, du premier impôt sur la fortune à l'IFI.
+    etapes:
+      - { quand: "En 1981", valeur: "Créé" }
+      - { quand: "En 2018", valeur: "Remplacé" }
+    chute: "… l'impôt sur la fortune, par un impôt sur l'immobilier seul. Il avait déjà été supprimé en 1987, puis recréé en 1989."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : la recette (4,4 milliards en 2017, 2,3 en
+  # 2025) est dans le contexte de la fiche, et la placer à côté de l'estimation de la question 1 (4,5 milliards perdus en
+  # 2022, par rapport à ce qu'aurait rapporté l'ISF) ferait croire à une contradiction.
+  leviers:
+    # § 1 et 4, compléments § d, [1] [2] [5] [8]. Les cinq options de la fiche, à égalité et dans son ordre ; chaque détail
+    # dit ce qui serait taxé, et au-delà de quel patrimoine ; la chute dit combien de foyers payaient et paient.
+    # Titres courts, chacun un verbe : « ISF » est défini par la question ; « IFI » ne l'est nulle part, d'où « l'impôt sur
+    # l'immobilier » en entier pour C et D (« l'impôt actuel » obligerait à deviner, « l'impôt immobilier » ferait penser à
+    # la taxe foncière).
+    titre: "L'impôt sur la fortune : cinq choix"
+    choix:
+      - { texte: "Rétablir l'ISF", detail: "l'immobilier et les placements, au-delà de 1,3 million d'euros" }
+      - { texte: "Créer un impôt minimum", detail: "par exemple 2 % par an au-delà de 100 millions d'euros, entreprises comprises" }
+      - { texte: "Garder l'impôt sur l'immobilier", detail: "l'immobilier seul, au-delà de 1,3 million d'euros" }
+      - { texte: "Supprimer l'impôt sur l'immobilier", detail: "plus aucun impôt annuel sur la fortune" }
+      - { texte: "Taxer les placements", detail: "un impôt sur l'argent placé, à la place de celui sur l'immobilier" }
+    chute: "En 2017, 358 000 foyers payaient l'impôt sur la fortune. En 2025, 193 600 paient celui sur l'immobilier."
+    source: "Cour des comptes, 2024 ; DGFiP, 2026"
+  # POUR : rétablir l'ISF ou créer un impôt minimum (options A et B, notées −2 et −1) ; CONTRE : garder ou supprimer
+  # l'impôt sur l'immobilier (C et D, +1 et +2). E, hors échelle, n'est dans aucun camp, comme l'option E de la fiche 024.
+  # Chaque réponse POUR vaut pour A et B, chaque réponse CONTRE pour C et D. L'objet, écrit à côté des deux camps, dit
+  # l'enjeu sans reprendre le mot d'un camp (« Taxer davantage » est le choix POUR de la story), comme « une hausse des
+  # impôts sur l'héritage » (033) ; 27 caractères, une ligne.
+  camps: { pour: POUR, contre: CONTRE, objet: "plus d'impôt sur la fortune" }
+  # Les deux camps d'une même question citent la même source, et chaque texte dit ce qu'il mesure. L'ordre
+  # d'apparition des camps suit ABBA : POUR d'abord aux questions 1 et 4, CONTRE d'abord aux questions 2 et 3.
+  questions:
+    # Compléments § b, [18] : le même rapport. Le POUR donne une estimation de la perte par rapport à ce qu'aurait
+    # rapporté l'ISF ; le CONTRE, le niveau constaté de tous les impôts sur le capital, dont la part n'a pas baissé parce
+    # que les sommes taxées ont augmenté. Deux mesures différentes, chacune nommée dans son texte : des recettes perdues
+    # par l'État (estimation), une part de la richesse produite, entreprises comprises. Les deux répondent par oui ou non au
+    # coût ; la comparaison avec l'Union européenne (8,5 %) répond à une autre question et n'est pas reprise.
+    - question: "Supprimer l'impôt sur la fortune a-t-il coûté cher ?"
+      pour: { affirmation: "Oui, des milliards chaque année.", chiffre: "4,5 milliards €", texte: "Selon une estimation, remplacer l'impôt sur la fortune a fait perdre à l'État 4,5 milliards d'euros de recettes en 2022.", source: "France Stratégie, 2023" }
+      contre: { affirmation: "Non, le capital reste autant taxé.", chiffre: "10,5 %", texte: "Les impôts sur le capital, entreprises comprises, faisaient 10,5 % de la richesse produite en 2021, comme en moyenne de 2012 à 2017.", source: "France Stratégie, 2023" }
+    # Compléments § c, [19] : le même rapport de l'OCDE, sur les pays riches. Le CONTRE compte ceux qui ont supprimé
+    # l'impôt de 1990 à 2017 ; le POUR compare ce qu'il rapporte là où il existe (2016, part de toutes les recettes
+    # fiscales). Chaque carte nomme des pays : l'Allemagne et la Suède d'un côté, la Suisse de l'autre. La Suisse est le
+    # haut de l'éventail (0,5 % en France, 3,7 % en Suisse) : le texte le dit, pour qu'elle ne passe pas pour un cas courant.
+    # Les deux cartes datent leurs chiffres (2016 ; 1990 et 2017) : l'OCDE n'a rien publié de plus récent dans l'étude.
+    - question: "Les autres pays taxent-ils encore la fortune ?"
+      pour: { affirmation: "Certains, comme la Suisse.", chiffre: "3,7 %", texte: "En 2016, l'impôt sur la fortune rapportait le plus en Suisse : 3,7 % de tous les impôts, contre 0,5 % en France.", source: "OCDE, 2018" }
+      contre: { affirmation: "La plupart y ont renoncé.", chiffre: "8 sur 12", texte: "Des 12 pays riches qui taxaient la fortune en 1990, 8 avaient supprimé cet impôt en 2017, dont l'Allemagne et la Suède.", source: "OCDE, 2018" }
+    # Compléments § d, [18] : le même tableau, les mêmes foyers (ceux qui payaient l'ISF en 2017) et la même mesure, le
+    # revenu déclaré. Le CONTRE cite le premier dixième, le POUR la moyenne, comparée à celle de l'ensemble des foyers.
+    - question: "Qui payait l'impôt sur la fortune ?"
+      pour: { affirmation: "En moyenne, de hauts revenus.", chiffre: "181 000 €", texte: "En 2017, les foyers qui le payaient déclaraient en moyenne 181 000 € de revenus par an, contre 28 000 € pour l'ensemble des foyers.", source: "France Stratégie, 2023" }
+      contre: { affirmation: "Pas toujours de hauts revenus.", chiffre: "1 sur 10", texte: "En 2017, un foyer sur dix qui payait l'impôt sur la fortune déclarait moins de 30 000 € de revenus par an.", source: "France Stratégie, 2023" }
+    # Compléments § e, [18] (note de la DGFiP) : les mêmes foyers, ceux que l'impôt sur l'immobilier taxe. Le POUR dit ce
+    # que pèsent les retours dans l'impôt ; le CONTRE compare retours et départs. « Avant, c'était l'inverse » compare des
+    # rapports entre retours et départs (370 contre 950 par an de 2011 à 2016), pas des effectifs, car les foyers taxés
+    # sont trois fois moins nombreux depuis 2018. Le CONTRE nomme donc ceux qu'il compte, les foyers qui paient l'impôt sur
+    # l'immobilier, et non « taxés sur leur fortune », qui ferait croire aux mêmes foyers avant et après. Aucun des deux
+    # textes ne dit que la réforme a causé les retours : ni la Cour des comptes ni la DGFiP ne l'établissent. Les années
+    # se tiennent : retours de 2021 (impôt payé en 2022) d'un côté, moyenne de 2018 à 2021 de l'autre.
+    - question: "Depuis 2018, les plus aisés reviennent-ils en France ?"
+      pour: { affirmation: "Des retours qui pèsent peu.", chiffre: "0,3 %", texte: "Quelques centaines de foyers sont revenus en 2021. Ensemble, ils ont payé 0,3 % de l'impôt sur l'immobilier en 2022.", source: "DGFiP, 2023" }
+      contre: { affirmation: "Oui, plus de retours que de départs.", chiffre: "380 contre 260", texte: "De 2018 à 2021, en moyenne, 380 foyers payant l'impôt sur l'immobilier revenaient chaque année et 260 partaient. Avant 2018, c'était l'inverse.", source: "DGFiP, 2023" }

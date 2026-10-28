@@ -1,0 +1,133 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/035-vols-interieurs.md (tout ce qui suit y est sourcé).
+# À vérifier en priorité : le sort du décret n° 2023-385, pris pour trois ans et arrivé à échéance le 24/05/2026
+# (aucun texte de prolongation ni évaluation publiée trouvés ; voir l'étude, § 1.1).
+numero: 35
+date: 2026-09-23
+theme: ecologie-energie
+question: Faut-il interdire les vols intérieurs quand le train met moins de 4 heures ?
+titreCourt: "Les vols intérieurs"
+contexte:
+  - "La loi Climat et résilience de 2021 prévoit d'interdire un vol intérieur régulier quand le train relie les deux villes sans changement, plusieurs fois par jour, en moins de 2 h 30."
+  - "Appliquée par un décret à partir de mai 2023, elle a interdit trois lignes de Paris-Orly vers Bordeaux, Nantes et Lyon, déjà suspendues par Air France ; les vols depuis Roissy, utilisés pour les correspondances, sont restés permis."
+  - "Ce décret était prévu pour trois ans, jusqu'en mai 2026, et aucune prolongation n'est connue ; la Convention citoyenne pour le climat proposait un seuil de 4 heures."
+chiffres:
+  - valeur: "3"
+    unite: lignes
+    legende: "aériennes interdites par le décret de mai 2023, toutes depuis Paris-Orly, vers Bordeaux, Nantes et Lyon"
+    source: { organisme: Ministère de la Transition écologique, document: notre-environnement.gouv.fr, annee: 2023 }
+  - valeur: "18 à 23"
+    unite: lignes
+    legende: "seraient concernées par un seuil de 4 heures, selon deux associations qui le défendent, avec le trafic d'avant le Covid"
+    source: { organisme: "UFC-Que Choisir, Réseau Action Climat", annee: 2021 }
+  - valeur: "1,5"
+    unite: million de tonnes
+    legende: "de CO2 émises par les vols intérieurs en métropole en 2024, contre 2,1 en 2019"
+    source: { organisme: DGAC, document: bilan des émissions du trafic aérien, annee: 2024 }
+options:
+  - id: A
+    libelle: "Supprimer l'interdiction"
+    implique: "Les compagnies peuvent de nouveau ouvrir toutes les lignes intérieures, y compris là où le train met moins de 2 h 30 ; la taxe sur les billets d'avion reste due."
+    defenseurs: "Laisser chacun choisir entre l'avion et le train : pour les aéroports, la mesure entrave la liberté d'entreprendre pour un gain climatique limité, et le trafic intérieur a déjà baissé de 27 % depuis 2019."
+    critiques: "Des compagnies, notamment à bas prix, pourraient rouvrir des lignes où l'avion émet près de 80 fois plus de CO2 par passager que le train."
+    # Moins de règles, plus de place au marché ; note modérée, car la mesure actuelle vise trois lignes.
+    axes: { economie: 1 }
+  - id: B
+    libelle: "La garder à 2 h 30"
+    implique: "Le décret est reconduit : les vols sont interdits quand le train relie les deux villes sans changement en moins de 2 h 30, et les vols depuis Roissy restent permis pour les correspondances."
+    defenseurs: "Une « interdiction raisonnable », selon le rapporteur de la loi au Sénat, qui laisse faire l'aller-retour dans la journée et ne coupe pas les correspondances vers l'étranger depuis Roissy."
+    critiques: "Pour les uns, un « coup d'épée dans l'eau » qui vise trois lignes déjà suspendues ; pour les autres, une entrave à la liberté d'entreprendre."
+  - id: C
+    libelle: "L'étendre à moins de 4 heures de train"
+    implique: "Comme le proposait la Convention citoyenne pour le climat : 18 à 23 lignes seraient concernées, et environ 30 % des passagers des vols intérieurs en métropole selon l'UFC-Que Choisir ; ces estimations d'associations favorables à ce seuil reposent sur le trafic d'avant le Covid."
+    defenseurs: "Sur ces trajets, le train fait perdre environ 40 minutes et émet près de 80 fois moins de CO2 par passager ; l'effet sur les émissions serait trois fois celui du seuil de 2 h 30, selon deux associations."
+    critiques: "Les TGV sont déjà remplis à 77 % en moyenne, des voyageurs en correspondance pourraient passer par des aéroports étrangers, et l'aérien régional a déjà perdu des emplois."
+    axes: { economie: -1 }
+  - id: D
+    libelle: "Aller au-delà de 4 heures"
+    implique: "Interdire aussi les vols quand le train met jusqu'à 6 heures, comme le demande Greenpeace, avec plus de trains de nuit ou très tôt le matin."
+    defenseurs: "Remplacer l'avion partout où un train direct existe : les trois lignes intérieures qui émettaient le plus en 2019 échappent au seuil de 2 h 30, et 58 % des sondés approuvaient un seuil de 6 heures en 2020, selon un sondage commandé par Greenpeace."
+    critiques: "Plus le seuil monte, plus le train fait perdre de temps face à l'avion, et des régions éloignées de Paris, dont l'État finance des lignes aériennes, pourraient perdre leur liaison rapide."
+    # Même sens que C, plus loin ; laissé à −1 pour ne pas pousser le plateau vers les bords (à −2 si l'auteur veut les distinguer).
+    axes: { economie: -1 }
+pourAllerPlusLoin:
+  - titre: "Légifrance, décret n° 2023-385 du 22 mai 2023"
+    url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000047571222/
+  - titre: "Conseil d'État, décision n° 476191 du 2 février 2024"
+    url: https://www.conseil-etat.fr/fr/arianeweb/CE/decision/2024-02-02/476191
+  - titre: "DGAC, bulletin statistique du trafic aérien commercial 2025"
+    url: https://www.ecologie.gouv.fr/sites/default/files/documents/Bulletin_Statistiques_transport_aerien_2025.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour l'étendre à 4 heures"
+    argument: "Sur ces trajets, le train fait perdre environ 40 minutes et émet près de 80 fois moins de CO2 par passager."
+  - titre: "Pour ne pas l'étendre"
+    argument: "Laisser chacun choisir : le trafic intérieur a déjà baissé de 27 % depuis 2019, et la règle de 2 h 30 préserve les correspondances."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "4 heures"
+    precision: "ou plus"
+  - choix: "2 h 30"
+    precision: "ou pas d'interdiction"
+positions:
+  # https://votons-2027.fr/candidats/melenchon/programme/climat (mesure 47 : « Supprimer les lignes aériennes quand l'alternative en train est inférieure à quatre heures », reprend melenchon2027.fr/programme2025/livre/ ; page d'origine non lue) ; même mesure relevée par https://www.ifrap.org/comparateurs/presidentielles-2027
+  # L'Avenir en commun, édition 2025, chap. 13 : https://melenchon2027.fr/programme2025/livre/chapitre13/s2/
+  melenchon: { option: C, source: "L'Avenir en commun, édition 2025, chap. 13", statut: officielle }
+  # Cahier « Travaillisme écologique », 09/09/2026 : https://nouspresident.fr/travaillisme-ecologique/
+  ruffin: { option: C, source: "Cahier « Travaillisme écologique », 09/09/2026", statut: officielle }
+  # Vote du groupe LREM, 10/04/2021 : https://datan.fr/votes/legislature-15/vote_3615
+  attal: { option: B, source: "Vote du groupe LREM, 10/04/2021", statut: deduite }
+  # L'Opinion, chronique, 25/05/2023 : https://www.unenouvelleenergie.fr/lignes-aeriennes-le-train-train-demago-technocratique/
+  lisnard: { option: A, source: "L'Opinion, chronique, 25/05/2023", statut: deduite }
+  # Projet 2027 des Écologistes, p. 25, juillet 2026 : https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
+  tondelier: { option: D, source: "Projet 2027 des Écologistes, p. 25, juillet 2026", statut: officielle }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/035-vols-interieurs.md (chaque chiffre y a sa source
+# numérotée ; tableau des renvois en annexe de l'étude). Le fil : la loi a retenu 2 h 30 au lieu de 4 heures ; faut-il aller plus loin ?
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1, 1.2 et 1.5, [1] [6] [7].
+    etapes:
+      - { quand: Proposé en 2020, valeur: 4 heures }
+      - { quand: Voté en 2021, valeur: 2 h 30 }
+    chute: "Résultat en 2023 : trois lignes interdites, toutes depuis Paris-Orly."
+  # Pas de mécanisme : aucun rapport « X pour 1 » suivi à deux dates ne résume le sujet.
+  ecart:
+    # § 2a, [13] [14] : même périmètre (vols intérieurs en métropole), même unité, même organisme.
+    titre: Combien de CO2 pour les vols intérieurs en métropole ?
+    etapes:
+      - { quand: En 2019, valeur: "2,1 millions de tonnes" }
+      - { quand: En 2024, valeur: "1,5 million de tonnes" }
+    chute: "Moins de passagers et des avions plus sobres : près de 30 % de baisse."
+    source: "DGAC, 2024"
+  leviers:
+    # § 1.2, 2c et 4, [2] [7] [17] [18] [19].
+    titre: "Pour les vols intérieurs, quatre choix"
+    choix:
+      - { texte: Supprimer, detail: "l'interdiction, et laisser chacun choisir entre l'avion et le train" }
+      - { texte: "Garder 2 h 30", detail: "trois lignes interdites, les vols depuis Roissy permis" }
+      - { texte: Passer à 4 heures, detail: "18 à 23 lignes concernées, selon deux associations favorables" }
+      - { texte: Aller plus loin, detail: "jusqu'à 6 heures de train, comme le demande Greenpeace" }
+    chute: "Le décret de 2023 était prévu pour trois ans, jusqu'en mai 2026 : aucune prolongation n'est connue."
+    source: "Légifrance, 2023 ; UFC-Que Choisir, Réseau Action Climat et Greenpeace, 2021"
+  camps: { pour: POUR, contre: CONTRE, objet: "étendre l'interdiction" }
+  # Relu une fois par deux relecteurs, l'un pour étendre l'interdiction, l'autre contre (notes 8,5 et 8,5) ;
+  # chaque réponse compare ce qui se compare, et l'ordre d'apparition des camps suit ABBA.
+  questions:
+    # § 2d, [17] [21].
+    - question: "Sous 4 heures, le train peut-il remplacer l'avion ?"
+      pour: { affirmation: "Oui, en perdant peu de temps.", chiffre: 40 minutes, texte: "Attente à l'aéroport comprise, l'avion fait gagner 40 minutes en moyenne, selon une association de consommateurs favorable à ce seuil.", source: "UFC-Que Choisir, 2021" }
+      contre: { affirmation: Les TGV sont déjà très remplis., chiffre: 77 %, texte: "En 2025, les TGV étaient remplis à 77 % en moyenne, un record, sans hausse du nombre de places.", source: "Autorité de régulation des transports, 2026" }
+    # § 2a, [7] [16].
+    - question: Le gain pour le climat en vaut-il la peine ?
+      pour: { affirmation: "Oui, pour chaque voyageur.", chiffre: 80 fois moins, texte: "Pour 100 km, un passager émet 22,5 kg de CO2 en avion, et près de 80 fois moins en TGV.", source: "ADEME, 2026" }
+      contre: { affirmation: Pas à l'échelle du pays., chiffre: "0,5 %", texte: "Les vols intérieurs pèsent 0,5 % des émissions de gaz à effet de serre de la France.", source: "Ministère de la Transition écologique, 2023" }
+    # § 1.5 et 2h, [26] : les fermetures de bases de Hop! viennent du plan d'Air France aidée par l'État en 2020, pas de la loi.
+    - question: Les emplois de l'aérien en souffriraient-ils ?
+      pour: { affirmation: Ces vols perdaient déjà de l'argent., chiffre: "200 millions €", texte: "Air France perdait de l'argent sur ses vols intérieurs depuis plusieurs années : près de 200 millions d'euros en 2019.", source: "Gouvernement, 2021" }
+      contre: { affirmation: "Oui, l'aérien régional a déjà reculé.", chiffre: 12 sur 14, texte: "En échange de l'aide publique, Air France a réduit ses vols intérieurs : 12 des 14 bases de sa filiale Hop! devaient fermer.", source: "Gouvernement, 2021" }
+    # § 2e et 2i, [20] [22] [25].
+    - question: Une taxe sur les billets suffirait-elle ?
+      pour: { affirmation: "Non, elle change peu le prix.", chiffre: 7 %, texte: "Là où un train direct existe, le billet d'avion le moins cher coûte 106 € en moyenne, dont 7,40 € de taxe.", source: "UFC-Que Choisir, 2025 ; Ministère de la Transition écologique, 2026" }
+      contre: { affirmation: "Oui, elle a déjà presque triplé.", chiffre: "7,40 €", texte: "Depuis mars 2025, la taxe sur un billet d'avion en France ou en Europe est passée de 2,63 € à 7,40 €.", source: "Ministère de la Transition écologique, 2026" }

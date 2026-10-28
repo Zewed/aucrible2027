@@ -1,0 +1,149 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/033-heritage.md
+numero: 33
+date: 2026-09-28
+theme: economie-impots
+question: Faut-il taxer davantage les héritages ?
+titreCourt: "L'impôt sur l'héritage"
+contexte:
+  - "Un enfant ne paie rien sur les 100 000 premiers euros reçus de chacun de ses parents ; au-delà, l'impôt monte par tranches de 5 % à 45 %, taux appliqué au-delà de 1,8 million d'euros. Le conjoint ne paie rien ; frères, sœurs, neveux et beaux-enfants paient de 35 % à 60 %."
+  - "Des régimes à part réduisent la note, comme l'assurance-vie ou le pacte Dutreil, qui exonère 75 % de la valeur d'une entreprise transmise si les héritiers s'engagent à la garder."
+  - "Les candidats s'opposent : les uns veulent taxer davantage les plus gros héritages, les autres alléger les droits, notamment en facilitant les dons aux enfants et petits-enfants."
+chiffres:
+  - valeur: "16,6"
+    unite: milliards d'euros
+    legende: "de droits de succession en 2023, plus du double de 2011"
+    source: { organisme: Cour des comptes, document: Les droits de succession, annee: 2024 }
+  - valeur: "0,74 %"
+    legende: "de la richesse produite en 2021 : la France taxe les héritages et les dons plus que les 38 autres pays comparés"
+    source: { organisme: Conseil des prélèvements obligatoires, document: comparaisons internationales, annee: 2023 }
+  - valeur: "10 %"
+    legende: "environ : ce que paient, selon une estimation, les 0,1 % qui héritent le plus, pour un taux affiché de 45 %"
+    source: { organisme: Conseil d'analyse économique, document: note n° 69, annee: 2021 }
+options:
+  - id: A
+    libelle: Fixer un héritage maximal
+    implique: "Au-delà d'un plafond, par exemple 12 millions d'euros reçus par une même personne sur toute sa vie, l'État prend tout ; les droits augmentent aussi sur les plus hauts patrimoines."
+    defenseurs: "Douze millions d'euros, c'est cent fois le patrimoine médian selon ses partisans : au-delà, l'héritage décide de la place de chacun dès la naissance."
+    critiques: "Prendre tout au-delà d'un seuil risque d'être jugé confiscatoire, et les plus fortunés peuvent répartir leurs dons dans le temps et entre héritiers, ou s'installer ailleurs."
+    axes: { economie: -2 }
+  - id: B
+    libelle: Taxer davantage les gros héritages
+    implique: "Les droits augmentent sur les plus gros héritages, par exemple au-delà de 4 millions d'euros, et des avantages comme l'assurance-vie ou le pacte Dutreil sont réduits ; les petits héritages ne paient pas plus."
+    defenseurs: "Selon une estimation, les plus gros héritiers, un sur mille, paient environ 10 % d'impôt, loin du taux affiché de 45 % ; ses partisans annoncent 15 milliards d'euros de recettes en plus par an."
+    critiques: "Les entreprises familiales coûteraient plus cher à transmettre, au risque d'être vendues, et les recettes annoncées, qu'aucune administration n'a chiffrées, dépendent de patrimoines peu nombreux qui peuvent s'organiser."
+    axes: { economie: -1 }
+  - id: C
+    libelle: Garder le même total
+    implique: "Les héritiers ne paient ni plus ni moins au total ; on garde les règles, ou l'on baisse les taux en réduisant les avantages, comme le propose la Cour des comptes."
+    defenseurs: "Les finances publiques interdisent une baisse non financée, et la France est déjà le pays qui taxe le plus les héritages parmi 39 pays comparés : mieux vaut un impôt plus juste à recette égale."
+    critiques: "Les uns y voient un impôt toujours trop lourd pour les familles ; les autres, des milliards que les plus gros héritages pourraient apporter et qu'on laisse de côté."
+    axes: { economie: 0 }
+  - id: D
+    libelle: Alléger les droits
+    implique: "La part reçue sans impôt augmente, par exemple 300 000 euros de logement exonérés ou des dons de 100 000 euros tous les dix ans au lieu de quinze ; les dons aux jeunes sont facilités."
+    defenseurs: "On hérite en moyenne vers 50 ans : il faut aider les parents à transmettre plus tôt aux jeunes, sans obliger des familles à vendre la maison pour payer l'impôt."
+    critiques: "Cela coûterait plusieurs milliards d'euros par an, 3,8 milliards pour exonérer 300 000 euros de logement selon l'Institut Montaigne, et profiterait d'abord à ceux qui reçoivent plus que la part aujourd'hui sans impôt."
+    axes: { economie: 1 }
+  - id: E
+    libelle: Les supprimer entre parents et enfants
+    implique: "Plus aucun impôt n'est dû quand des parents transmettent à leurs enfants, de leur vivant ou au décès ; les autres héritiers continuent de payer."
+    defenseurs: "Cet argent a déjà été taxé quand il a été gagné, et douze pays riches, dont la Norvège, ont supprimé l'impôt sur les successions."
+    critiques: "L'État perdrait une grande partie des 16,6 milliards d'euros de droits de succession, les plus gros héritiers y gagneraient le plus, et une part des biens transmis n'a jamais été taxée, comme les gains des placements gardés jusqu'au décès."
+    axes: { economie: 2 }
+pourAllerPlusLoin:
+  - titre: "Cour des comptes, Les droits de succession, 25/09/2024"
+    url: https://www.ccomptes.fr/fr/publications/les-droits-de-succession
+  - titre: "Conseil d'analyse économique, Repenser l'héritage, note n° 69, 21/12/2021"
+    url: https://cae-eco.fr/static/pdf/cae-note069.pdf
+  - titre: "Cour des comptes, Le pacte Dutreil, 18/11/2025"
+    url: https://www.ccomptes.fr/fr/publications/le-pacte-dutreil-un-dispositif-fiscal-en-forte-croissance-mieux-cibler
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour taxer davantage"
+    argument: "Les plus gros héritiers, un sur mille, paient environ 10 % d'impôt, loin du taux affiché de 45 %."
+  - titre: "Pour ne pas taxer davantage"
+    argument: "Rapporté à la richesse produite, l'impôt sur les héritages et les dons est plus lourd en France que dans 38 autres pays."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Taxer davantage"
+    precision: "les gros héritages"
+  - choix: "Alléger"
+    precision: "les droits de succession"
+positions:
+  # https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election (programme du RN, 27/08/2026) ; https://www.institutmontaigne.org/presidentielle-2022/marine-le-pen/sortir-les-biens-immobiliers-de-lassiette-de-calcul-des-droits-de-succession-a-hauteur-de-300-000-euros (2022) ; vote RN pour l'amendement n° 665 : https://datan.fr/votes/legislature-17/vote_8854
+  # Programme du RN, 2024 ; vote du groupe RN, 16/10/2026 : https://rassemblementnational.fr/documents/202406-programme.pdf
+  le-pen: { option: D, source: "Programme du RN, 2024 ; vote du groupe RN, 16/10/2026", statut: deduite }
+  # L'Avenir en commun, édition 2025, chap. 6 : https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, chap. 6", statut: officielle }
+  # Programme, edouardphilippe.fr, 2026 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
+  philippe: { option: D, source: "Programme, edouardphilippe.fr, 2026", statut: officielle }
+  # Public Sénat, 24/08/2026 : https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann
+  glucksmann: { option: B, source: "Public Sénat, 24/08/2026", statut: officielle }
+  # L'Opinion, 26/08/2026 : https://www.lopinion.fr/politique/bruno-retailleau-je-serai-le-president-qui-baissera-les-impots-de-succession
+  retailleau: { option: D, source: "L'Opinion, 26/08/2026", statut: officielle }
+  # BFMTV, 27/08/2026 : https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election
+  attal: { option: D, source: "BFMTV, 27/08/2026", statut: officielle }
+  # Programme présidentiel 2022 : https://web.archive.org/web/20220527160820/https://programme.ericzemmour.fr/famille
+  zemmour: { option: D, source: "Programme présidentiel 2022", statut: deduite }
+  # Conférence de presse des Écologistes, rapportée par LCP, 27/08/2026 : https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election
+  tondelier: { option: B, source: "Conférence de presse des Écologistes, rapportée par LCP, 27/08/2026", statut: officielle }
+  # Proposition de loi n° 5095, 22/02/2022 : https://www.assemblee-nationale.fr/dyn/15/textes/l15b5095_proposition-loi.pdf
+  roussel: { option: B, source: "Proposition de loi n° 5095, 22/02/2022", statut: deduite }
+  # Projet Économie de Debout la France, mesure 17, 2026 : https://www.debout-la-france.fr/projet/economie-travail/
+  dupont-aignan: { option: D, source: "Projet Économie de Debout la France, mesure 17, 2026", statut: officielle }
+  # Atlantico, tribune, 13/04/2026 : https://www.unenouvelleenergie.fr/changer-de-logiciel-fiscal/
+  lisnard: { option: E, source: "Atlantico, tribune, 13/04/2026", statut: officielle }
+  # Plan de redressement, nouspresident.fr, 21/10/2026 : https://nouspresident.fr/plan-de-redressement/
+  ruffin: { option: B, source: "Plan de redressement, nouspresident.fr, 21/10/2026", statut: officielle }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/033-heritage.md (chaque chiffre y a sa source
+# numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : l'impôt rapporte plus, l'héritage pèse plus,
+# et trois leviers permettent de le changer ; les camps s'opposent sur le niveau.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.2, [2].
+    etapes:
+      - { quand: En 2011, valeur: "7 milliards €" }
+      - { quand: En 2023, valeur: "16,6 milliards €" }
+    chute: "… de droits de succession, surtout parce que les biens transmis valent plus cher, et aussi parce que l'impôt a été relevé en 2011 et 2012."
+  ecart:
+    # § 1.4 et 2a, [3] [11] : une estimation discutée, d'où la chute. Les deux calculs portent sur la même année (2021) ;
+    # le désaccord des experts porte sur l'ampleur de la hausse (§ 2a et 3), pas sur son sens.
+    titre: "Quelle part du patrimoine vient d'un héritage ?"
+    etapes:
+      - { quand: "Début des années 1970", valeur: "35 %" }
+      - { quand: En 2021, valeur: "60 %" }
+    chute: "C'est une estimation discutée : un autre calcul trouve environ 52 % la même année."
+    source: "Conseil d'analyse économique, 2021 ; OFCE, 2026"
+  leviers:
+    # § 1.1, [1] [2]. Les trois leviers sur lesquels jouent toutes les propositions, dans un sens ou dans l'autre.
+    titre: "Pour changer ce que paient les héritiers, trois leviers"
+    choix:
+      - { texte: Changer les taux, detail: "de 5 % à 45 % aujourd'hui entre parents et enfants" }
+      - { texte: Changer la part sans impôt, detail: "100 000 € par parent et par enfant, tous les quinze ans" }
+      - { texte: Changer les régimes à part, detail: "assurance-vie, entreprises familiales, dons en gardant l'usage du bien" }
+    chute: Chaque proposition des candidats joue sur un ou plusieurs de ces leviers.
+    source: "Cour des comptes, 2024"
+  camps: { pour: POUR, contre: CONTRE, objet: "taxer plus l'héritage" }
+  questions:
+    # § 1.3, 1.5 et 2b, [2] [3]. Deux mesures différentes, chacune le meilleur fait de son camp et nommée dans son texte :
+    # le taux réel payé par les plus gros héritiers (le CAE l'oppose lui-même au taux de 45 % au-delà de 1,8 M€),
+    # et le poids de l'impôt rapporté à la richesse produite. Aucune n'est présentée comme réfutant l'autre.
+    - question: "Les héritiers paient-ils beaucoup d'impôt ?"
+      pour: { affirmation: "Pas les plus gros héritiers.", chiffre: "10 %", texte: "Selon une estimation, les plus gros héritiers, un sur mille, paient environ 10 % d'impôt. Le taux affiché monte à 45 %.", source: "Conseil d'analyse économique, 2021" }
+      contre: { affirmation: "Oui, plus que dans 38 autres pays.", chiffre: "1er sur 39", texte: "Rapportés à la richesse produite, les impôts sur l'héritage et les dons sont plus lourds en France que dans 38 autres pays.", source: "Conseil des prélèvements obligatoires, 2023" }
+    # § 1.4 et 2a, [3] [8].
+    - question: "Les héritages sont-ils réservés à quelques-uns ?"
+      pour: { affirmation: "Les gros héritages, oui.", chiffre: "Moins d'1 sur 10", texte: "Selon une estimation, moins d'une personne sur dix héritera de plus de 500 000 € dans sa vie.", source: "Conseil d'analyse économique, 2021" }
+      contre: { affirmation: "Non, beaucoup de familles héritent.", chiffre: "4 sur 10", texte: "Début 2021, quatre ménages sur dix avaient déjà reçu un héritage, et près d'un sur cinq une donation.", source: "Insee, 2024" }
+    # § 2c, [4] : les deux réponses viennent du même rapport.
+    - question: "L'allègement pour les entreprises familiales est-il utile ?"
+      pour: { affirmation: "Pas pour l'emploi ni l'investissement.", chiffre: "5,5 milliards €", texte: "En 2024, cet allègement a coûté 5,5 milliards d'euros à l'État, sans effet mesuré sur l'investissement ni sur l'emploi.", source: "Cour des comptes, 2025" }
+      contre: { affirmation: "Oui, il garde les entreprises en famille.", chiffre: "40 % contre 48 %", texte: "Dix ans après, 40 % des entreprises transmises avec l'allègement ont changé de mains, contre 48 % des autres.", source: "Cour des comptes, 2025" }
+    # § 2h, [10] : les deux réponses viennent du même sondage (1 000 personnes, en ligne, 2-3 décembre 2025), à deux
+    # questions différentes ; chaque texte dit la question posée. C'est la « lecture » de l'étude : la réponse dépend de la question.
+    - question: "Les Français veulent-ils baisser l'impôt sur l'héritage ?"
+      pour: { affirmation: "Pas sur les très gros patrimoines.", chiffre: "73 %", texte: "Dans un sondage de décembre 2025, 73 % approuvent une contribution à part sur les très hauts patrimoines quand ils sont transmis.", source: "Elabe pour Les Echos, 2025" }
+      contre: { affirmation: "Oui, ils le jugent trop élevé.", chiffre: "71 %", texte: "Dans un sondage de décembre 2025, 71 % jugent l'impôt sur l'héritage trop élevé.", source: "Elabe pour Les Echos, 2025" }

@@ -36,7 +36,7 @@ options:
     libelle: 1 600 euros nets
     implique: Le SMIC passe à 1 600 euros nets, près de 2 000 euros bruts, soit environ 8 % de plus qu'aujourd'hui.
     defenseurs: "Ceux qui travaillent au minimum doivent pouvoir vivre de leur salaire : la hausse soutient leur pouvoir d'achat et la consommation."
-    critiques: En 2024, l'Institut Montaigne chiffrait la mesure à 19 milliards d'euros par an et à environ 300 000 emplois en moins, surtout au niveau du SMIC.
+    critiques: "En 2024, quand cette mesure faisait 14 % de hausse, l'Institut Montaigne la chiffrait à 19 milliards d'euros par an et à environ 300 000 emplois en moins."
     axes: { economie: -1 }
   - id: C
     libelle: Pas de coup de pouce
@@ -61,9 +61,9 @@ pourAllerPlusLoin:
     url: https://www.institutmontaigne.org/legislatives-2024/nouveau-front-populaire/augmenter-le-smic-a-1600-e-net
 # Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
 cotes:
-  - titre: "Pour relever le SMIC"
+  - titre: "Pour un coup de pouce"
     argument: "Ceux qui travaillent au minimum doivent pouvoir vivre de leur salaire : la hausse soutient leur pouvoir d'achat."
-  - titre: "Pour ne pas le relever"
+  - titre: "Pour s'en tenir à la règle"
     argument: "Une règle connue, qui suit le coût de la vie sans alourdir le coût du travail ni fragiliser l'emploi."
 # Les deux choix de l'autocollant « Et toi ? » de la story.
 story:
@@ -88,3 +88,89 @@ positions:
   philippe: { option: D, source: "edouardphilippe.fr, Pour une France plus prospère, 2026", statut: officielle }
   # https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf (Le travail gagnant : 30 Md€ restitués aux salariés et aux entreprises)
   retailleau: { option: D, source: "Les Républicains, Le travail gagnant, 01/2026", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/002-smic.md (chaque chiffre y a sa source
+# numérotée ; voir « Compléments pour le reportage » et l'annexe). Le fil : depuis 2012, le SMIC monte par sa règle
+# automatique ; l'État a fait baisser son coût pour l'employeur ; faut-il aller plus loin, et par quel levier ?
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # Compléments C1, [1] [2] [13] [16] : le SMIC horaire brut juste après le dernier coup de pouce (juillet 2012) et
+    # aujourd'hui, à l'heure comme à la question 1. Toutes les hausses de 2013 à juin 2026 sont automatiques ; la
+    # chute résume la règle (§ 1 : prix des ménages modestes, moitié du gain de pouvoir d'achat des ouvriers et
+    # employés) en 130 caractères au plus.
+    etapes:
+      - { quand: "Juillet 2012", valeur: "9,40 €" }
+      - { quand: "Juin 2026", valeur: "12,31 €" }
+    chute: "… bruts de l'heure. Aucun coup de pouce depuis 2012 : le SMIC suit sa règle automatique, liée aux prix et aux salaires."
+  # Pas de « mécanisme » : son dessin est propre aux retraites.
+  ecart:
+    # Compléments C5, [13] : le même indicateur (cotisations à la charge de l'employeur au niveau du SMIC, en part du
+    # salaire brut, non-cadre d'une entreprise de plus de 50 salariés) à deux dates. La chute dit pourquoi on les a
+    # baissées (« favoriser l'emploi peu qualifié ») et qui paie la différence, sans juger : la question 4 en débat.
+    # « L'argent public », comme « les finances publiques » de la question 4 : l'étude chiffre un coût pour les
+    # finances publiques, pas une prise en charge par l'État seul.
+    titre: "Ce que l'employeur paie en cotisations sur un SMIC"
+    etapes:
+      - { quand: "En 1993", valeur: "45 %" }
+      - { quand: "En 2025", valeur: "7,2 %" }
+    chute: "… du salaire brut. Pour l'emploi peu qualifié, l'argent public paie la différence : un SMIC coûte près d'un tiers de moins."
+    source: "Groupe d'experts sur le SMIC, 2025"
+  leviers:
+    # § 2 (enjeux 1, 2 et 4), [2] [8] [14]. Les quatre options de la fiche, dans son ordre et à égalité. La chute dit
+    # qui paierait, en 130 caractères au plus : une hausse, les employeurs et en partie l'argent public (les baisses
+    # de cotisations suivent le SMIC : 19 Md€ par an selon l'Institut Montaigne, 0,3 point de PIB selon l'OFCE) ;
+    # une baisse des cotisations, la protection sociale, dont elle réduit les recettes (critique de l'option D).
+    titre: "Le SMIC : quatre choix"
+    choix:
+      - { texte: "2 200 euros nets", detail: "près de 50 % de plus qu'aujourd'hui" }
+      - { texte: "1 600 euros nets", detail: "environ 8 % de plus, près de 2 000 euros bruts" }
+      - { texte: "Pas de coup de pouce", detail: "la règle automatique, sans hausse en plus" }
+      - { texte: "Baisser les cotisations", detail: "le salaire net monte, sans coût en plus pour l'employeur" }
+    chute: "Une hausse est payée par les employeurs et en partie par l'argent public, une baisse des cotisations par la protection sociale."
+    source: "Institut Montaigne et OFCE, 2024"
+  # POUR : les options A et B ; CONTRE : C et D. Chaque réponse CONTRE vaut pour les deux : garder la règle, ou
+  # passer par les cotisations.
+  camps: { pour: POUR, contre: CONTRE, objet: un coup de pouce au SMIC }
+  # Chaque réponse est le meilleur argument de son camp ; les estimations et la simulation sont dites comme telles.
+  # L'origine des estimations (question 2) est dite de la même façon des deux côtés : par le nom, dans la source.
+  questions:
+    # Compléments C2, [1] [13] [15]. Deux mesures du niveau du SMIC, chacune dite dans son texte, chacune comparant à
+    # la même année : pour, en euros de l'heure face à l'Allemagne en 2026 (à l'heure, la durée du travail ne fausse
+    # pas la comparaison ; « 11 % » est un calcul de l'étude, 12,31 / 13,90). L'étude n'a pas de comparaison corrigée
+    # du coût de la vie : le texte dit qu'il n'en tient pas compte, pour ne pas laisser croire à un pouvoir d'achat.
+    # Contre, par rapport au salaire médian des salariés à temps plein (OCDE, 2024), face au seuil indicatif de 60 %
+    # de la directive européenne sur les salaires minimaux « adéquats » : un repère de suffisance, pas un plafond.
+    # Pas « le plus haut d'Europe » : Eurostat, sur une autre mesure, classe le Portugal devant (§ 2, enjeu 6).
+    - question: "Le SMIC est-il trop bas ?"
+      pour: { affirmation: "Oui, plus bas qu'en Allemagne.", chiffre: "−11 %", texte: "En 2026, le SMIC vaut 12,31 € bruts de l'heure, contre 13,90 € en Allemagne : 11 % de moins, sans compter le coût de la vie.", source: "Service-Public, 2026 ; gouvernement allemand, 2025" }
+      contre: { affirmation: "Non, comparé aux autres salaires.", chiffre: "62,5 %", texte: "En 2024, le SMIC valait 62,5 % du salaire que la moitié des salariés dépasse. Le repère européen d'un minimum suffisant est 60 %.", source: "OCDE, cité par le groupe d'experts sur le SMIC, 2025" }
+    # Compléments C3, [8] [14] : deux estimations faites en juin 2024 pour la même mesure (un SMIC à 1 600 € nets,
+    # 14,4 % de plus alors), au même horizon (la première année), sans compter le financement de son coût. « Au moins
+    # 200 000 » est le chiffre de première année de l'Institut Montaigne (300 000 à moyen terme, comme dans l'option B) ;
+    # 29 000 est le chiffre à un an de l'OFCE, qui compte les emplois créés par la consommation et par les baisses de
+    # cotisations qui suivent le SMIC (près de 50 000 selon le financement). Même cible (1 600 € nets), mais l'OFCE
+    # compte un coup de pouce de 12,4 %, hors la revalorisation automatique de 2 % qu'il attendait en août 2024 ; « 14 % de plus » reste au contre, pour qu'on ne lise pas ces chiffres comme ceux des 8 % d'aujourd'hui.
+    # « Peu » et « Beaucoup » sont la réponse de chaque camp, attribuée (« selon une estimation »), à égalité.
+    # Le camp CONTRE parle en premier.
+    - question: "Une hausse ferait-elle perdre des emplois ?"
+      pour: { affirmation: "Peu, selon une autre estimation.", chiffre: "29 000", texte: "Pour la même mesure, une autre estimation de 2024 chiffrait la perte à 29 000 emplois en un an.", source: "OFCE, 2024" }
+      contre: { affirmation: "Beaucoup, selon une estimation.", chiffre: "200 000", texte: "En 2024, une estimation prévoyait au moins 200 000 emplois perdus en un an pour un SMIC à 1 600 € nets, 14 % de plus.", source: "Institut Montaigne, 2024" }
+    # Compléments C4, [13] : le même indicateur de la Dares (part des salariés dont le salaire est relevé avec le SMIC,
+    # enquêtes Acemo) à deux dates : le « point haut historique » du 1er janvier 2023, après les trois hausses de 2022,
+    # et le 1er novembre 2024, « proche de sa moyenne ». Le groupe d'experts attribue la baisse, entre autres, à la
+    # diffusion de la hausse aux autres salaires (le pour le dit, « en partie » : une hausse plus modérée en 2023
+    # y a aussi joué, et la compression des salaires « demeure forte », C1) ; le contre résume ce dernier point par
+    # « quand il monte vite ». Le camp CONTRE parle en premier.
+    - question: "Le SMIC rattrape-t-il les salaires juste au-dessus ?"
+      pour: { affirmation: "Pas durablement.", chiffre: "12,4 %", texte: "Fin 2024, 12,4 % des salariés ont eu la hausse du SMIC, près de la moyenne : les salaires au-dessus avaient en partie suivi.", source: "Dares, 2025" }
+      contre: { affirmation: "Oui, quand il monte vite.", chiffre: "17,3 %", texte: "Après les hausses de 2022, 17,3 % des salariés ont eu la hausse du SMIC début 2023, un record.", source: "Dares, 2025" }
+    # Compléments C5, [13] : le même dispositif (les baisses générales de cotisations des employeurs) dans le même
+    # rapport : son coût constaté en 2024 (Commission des comptes de la Sécurité sociale, octobre 2025) et la
+    # simulation de sa suppression (salaires de 2023), dite comme telle. Le pour donne le coût brut, tel que le
+    # rapport le nomme ; le contre, qui parle en second, donne l'économie nette de la même simulation (40 à 50 Md€,
+    # chiffre de la synthèse du rapport ; son chapitre IV dit 33 à 47 Md€), pour que 75 milliards ne se lise pas comme
+    # ce que rapporterait leur suppression. Le contre vaut pour C (garder ces baisses) comme pour D (passer par les
+    # cotisations).
+    - question: "Les baisses de cotisations valent-elles leur coût ?"
+      pour: { affirmation: "Non, elles coûtent des milliards.", chiffre: "75 milliards €", texte: "En 2024, les baisses de cotisations des employeurs ont coûté 75 milliards d'euros aux finances publiques.", source: "Groupe d'experts sur le SMIC, 2025" }
+      contre: { affirmation: "Oui, elles protègent l'emploi.", chiffre: "1,3 million", texte: "Selon une simulation, supprimer ces baisses détruirait 1,3 à 1,9 million d'emplois, surtout près du SMIC, pour 40 à 50 milliards d'économie.", source: "Groupe d'experts sur le SMIC, 2025" }

@@ -7,8 +7,8 @@ theme: immigration
 question: "Faut-il supprimer l'aide médicale d'État (AME) ?"
 titreCourt: "L'aide médicale d'État"
 contexte:
-  - "L'aide médicale d'État (AME) prend en charge les soins des étrangers en situation irrégulière présents en France depuis plus de trois mois, sous un plafond de ressources (10 421 euros par an pour une personne seule)."
-  - "Fin 2024, elle comptait 465 208 bénéficiaires, pour une dépense de l'ordre de 1,3 milliard d'euros par an, et certains soins non urgents ne sont accessibles qu'après neuf mois."
+  - "L'aide médicale d'État (AME) prend en charge les soins des étrangers en situation irrégulière présents en France depuis plus de trois mois, sous un plafond de ressources (10 421 euros par an pour une personne seule en métropole)."
+  - "Fin 2024, elle comptait 465 208 bénéficiaires, pour une dépense de l'ordre de 1,3 milliard d'euros par an, et certains soins non urgents ne sont accessibles que neuf mois après l'entrée dans l'aide."
   - "Les demandeurs d'asile n'y ont pas droit, et les personnes non éligibles peuvent recevoir des soins urgents à l'hôpital, financés par un dispositif distinct."
 chiffres:
   - valeur: "465 208"
@@ -24,13 +24,13 @@ chiffres:
     source: { organisme: Sénat, document: "Rapport sur le projet de loi de finances 2026, Santé", annee: 2025 }
   - valeur: "9"
     unite: mois
-    legende: "de séjour requis avant certains soins non urgents programmés pour un nouveau bénéficiaire adulte"
+    legende: "d'attente après l'entrée dans l'aide, avant certains soins non urgents programmés pour un nouveau bénéficiaire adulte"
     source: { organisme: "Service-public.gouv.fr", document: "Aide médicale de l'État", annee: 2026 }
 options:
   - id: A
     libelle: "Garder l'AME et supprimer les délais de carence"
     implique: "Le dispositif reste en place pour les soins courants et programmés, et le délai de neuf mois avant certains soins non urgents est supprimé."
-    defenseurs: "Soigner tôt coûte moins cher que d'attendre l'urgence, c'est la position des hôpitaux publics ; la dépense moyenne par bénéficiaire (2 699 euros) est inférieure à celle de la population générale (3 659 euros)."
+    defenseurs: "Soigner tôt éviterait des dépenses d'hôpital, selon un rapport d'inspection de l'État (2019), et les hôpitaux publics défendent l'aide ; la dépense moyenne par bénéficiaire (2 699 euros) est inférieure à celle de la population générale (3 659 euros)."
     critiques: "La dépense a augmenté de 68,5 % en dix ans et dépasse chaque année le budget voté ; le dispositif français est jugé plus généreux que ceux de nos voisins, ce que ses opposants lisent comme un facteur d'attractivité."
     axes: { societe: -2 }
   - id: B
@@ -41,7 +41,7 @@ options:
   - id: C
     libelle: "La remplacer par une aide médicale d'urgence limitée aux soins vitaux"
     implique: "Seuls les soins urgents et vitaux seraient pris en charge pour les étrangers en situation irrégulière ; les soins programmés ne le seraient plus."
-    defenseurs: "L'argent public doit d'abord soigner les assurés : on garde les soins vitaux, mais plus de prise en charge complète des personnes en situation irrégulière, ce qui économise une partie des 1,3 milliard d'euros actuels."
+    defenseurs: "L'argent public doit d'abord soigner les assurés : on garde les soins vitaux, mais plus de prise en charge complète des personnes en situation irrégulière, ce qui, selon eux, économiserait une partie des 1,3 milliard d'euros actuels."
     critiques: "Les hôpitaux publics estiment que tout recul aggraverait la situation sanitaire des plus précaires et désorganiserait les services hospitaliers."
     axes: { societe: 2 }
 pourAllerPlusLoin:
@@ -52,9 +52,9 @@ pourAllerPlusLoin:
 # Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
 cotes:
   - titre: "Pour garder l'AME"
-    argument: "Soigner tôt coûte moins cher que d'attendre l'urgence, c'est la position des hôpitaux publics ; la dépense moyenne par bénéficiaire (2 699 euros) est inférieure à celle de la population générale (3 659 euros)."
+    argument: "Soigner tôt éviterait des dépenses d'hôpital, selon un rapport d'inspection de l'État (2019), et les hôpitaux publics défendent l'aide ; la dépense moyenne par bénéficiaire (2 699 euros) est inférieure à celle de la population générale (3 659 euros)."
   - titre: "Pour la supprimer"
-    argument: "L'argent public doit d'abord soigner les assurés : on garde les soins vitaux, mais plus de prise en charge complète des personnes en situation irrégulière, ce qui économise une partie des 1,3 milliard d'euros actuels."
+    argument: "L'argent public doit d'abord soigner les assurés : on garde les soins vitaux, mais plus de prise en charge complète des personnes en situation irrégulière, ce qui, selon eux, économiserait une partie des 1,3 milliard d'euros actuels."
 # Les deux choix de l'autocollant « Et toi ? » de la story.
 story:
   - choix: "Garder"
@@ -72,3 +72,76 @@ positions:
   tondelier: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
   # https://www.debout-la-france.fr/projet/immigration-et-assimilation/
   dupont-aignan: { option: C, source: "Projet immigration, DLF, mesure 13, 2026", statut: officielle }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  # « Sans-papiers » et « clandestins » sont des mots disputés : le reportage ne les emploie pas et dit « étrangers sans
+  # titre de séjour », comme les fiches 042 et 046. Aucune question ne reprend un face-à-face de ces deux fiches.
+  accroche:
+    # Compléments § C1, [10] [2] : le même indicateur (bénéficiaires de l'AME de droit commun, ouvrants droit et ayants
+    # droit, au 31 décembre), du premier point lu (fin 2008, rapport IGAS-IGF) au dernier (fin 2024, Sénat) ; ×2,3 (calcul).
+    # Près d'un quart des bénéficiaires sont des mineurs étrangers (mi-2023, [11]), qui ne sont pas juridiquement en
+    # situation irrégulière : la chute dit « personnes » et « étrangers sans titre de séjour ».
+    etapes:
+      - { quand: "Fin 2008", valeur: "202 503" }
+      - { quand: "Fin 2024", valeur: "465 208" }
+    chute: "… personnes couvertes par l'aide médicale d'État, qui paie les soins d'étrangers sans titre de séjour aux revenus modestes."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : la dépense, seule autre grandeur à deux
+  # dates qui éclaire le débat, est dans la question 1.
+  leviers:
+    # § 4 et 2.5 : les trois options de la fiche, à égalité ; l'AME est payée par le budget de l'État (§ 1, [1]), et A en
+    # étend la dépense. Compléments § C5, [2] pour la chute : utile aux deux camps (les urgences partout ; le reste varie,
+    # de l'Allemagne, plus restrictive, à l'Espagne et la Belgique, qui paient presque tout). Le troisième choix dit, comme
+    # l'option C (« seuls les soins urgents et vitaux »), que tout le reste cesse d'être payé, consultations en ville
+    # comprises, et pas les seuls soins programmés.
+    titre: "Trois choix possibles"
+    choix:
+      - { texte: "La garder, sans attente", detail: "certains soins programmés payés par l'État dès l'entrée dans l'aide, sans attendre neuf mois" }
+      - { texte: "La garder, mieux contrôlée", detail: "l'accord de l'Assurance maladie avant tout soin non urgent, des justificatifs plus stricts" }
+      - { texte: "La limiter aux urgences", detail: "les soins urgents et vitaux restent payés, les autres ne le sont plus" }
+    chute: "Tous les pays européens étudiés par le Sénat paient les urgences des étrangers sans titre. Le reste varie d'un pays à l'autre."
+    source: "Sénat, 2025"
+  # POUR : l'option C, qui change le plus la règle ; CONTRE : les options A et B, qui gardent l'AME. Chaque réponse
+  # CONTRE vaut pour les deux, et chaque texte dit ce qu'il mesure.
+  camps: { pour: POUR, contre: CONTRE, objet: "une aide limitée aux urgences" }
+  questions:
+    # § 2.1 et compléments § C1, [2] [3] : la même année (2024). Le POUR : +68,5 % de 2014 à 2024 (564 millions de plus),
+    # soins urgents compris, 1 387 millions en 2024, en euros courants (le Sénat dit « bien supérieure à l'inflation »). Le
+    # CONTRE : 1 387 millions sur 255 milliards de consommation de soins, soit 0,54 % (calcul de l'étude).
+    - question: "L'aide médicale d'État coûte-t-elle trop cher ?"
+      pour: { affirmation: "Oui, elle coûte de plus en plus.", chiffre: "+68,5 %", texte: "De 2014 à 2024, la dépense de l'aide a augmenté de 68,5 %, jusqu'à près de 1,4 milliard d'euros par an.", source: "Sénat, 2025" }
+      contre: { affirmation: "Non, rapportée à toute la santé.", chiffre: "0,5 %", texte: "En 2024, elle pesait environ 0,5 % de ce que le pays dépense pour se soigner, selon un calcul.", source: "Sénat, 2025 ; Drees, 2025 (calcul)" }
+    # Compléments § C3, [13] [9] : deux arguments de nature différente, chacun dit ce qu'il est. Le CONTRE : une étude
+    # publiée (Allemagne, 1994-2013, données nationales agrégées), +375,80 euros par personne et par an, rapport de 1,39,
+    # pour les demandeurs d'asile et réfugiés aux soins restreints (maladies aiguës et douleur) face à ceux qui avaient
+    # l'accès ordinaire ; l'écart « n'est pas entièrement expliqué » par les besoins. Le POUR : l'estimation de l'Institut
+    # Montaigne (2022) pour la suppression de l'AME « sauf pour les cas d'urgence », méthode non publiée sur sa page.
+    # À égalité, chaque affirmation dit ce qu'est sa preuve (une estimation pour la France, une étude sur l'Allemagne)
+    # et chaque texte sa limite (C3 et limites des compléments) : une méthode non détaillée ; des demandeurs d'asile, pas
+    # des étrangers sans titre. « Soins réduits », pas « urgences » : la restriction allemande couvrait les maladies
+    # aiguës et la douleur.
+    - question: "Limiter l'aide aux urgences ferait-il économiser ?"
+      pour: { affirmation: "Oui, selon une estimation pour la France.", chiffre: "0,7 milliard €", texte: "En 2022, l'Institut Montaigne, un groupe de réflexion, chiffrait l'économie à 0,7 milliard d'euros par an, sans détailler sa méthode.", source: "Institut Montaigne, 2022" }
+      contre: { affirmation: "Non, selon une étude sur l'Allemagne.", chiffre: "+39 %", texte: "L'étude concerne des demandeurs d'asile, pas des étrangers sans titre. Aux soins réduits, ils coûtaient 39 % de plus que les autres.", source: "PLOS ONE, 2015" }
+    # Compléments § C2, [1] [16] [15] [2] : le CONTRE compare aux assurés les plus modestes (même plafond de 10 421 euros
+    # par an pour une personne seule que la complémentaire santé solidaire sans participation, sans franchise ni
+    # dépassement), le POUR à l'habitant moyen (495 euros de reste à charge en 2025, Drees, édition 2026, celle de la
+    # fiche 006) ; le reste à charge des bénéficiaires de l'AME est nul (Sénat). Chaque texte dit à qui il compare.
+    # 10 421 euros est un plafond de revenus, pas une somme payée : il prouve « aussi modeste » (le même plafond), et le
+    # texte dit ce que cet assuré ne paie pas (C2, [16] : ni franchise, ni participation forfaitaire, ni dépassement).
+    # L'étude ne chiffre pas le reste à charge de ces assurés : aucun « 0 € » n'est avancé pour eux.
+    - question: "Ses bénéficiaires paient-ils moins que les assurés ?"
+      pour: { affirmation: "Oui, les assurés paient une part.", chiffre: "495 €", texte: "En 2025, un habitant a payé en moyenne 495 euros de sa poche pour se soigner. Avec l'aide, on ne paie rien.", source: "Drees, 2026 ; Sénat, 2025" }
+      contre: { affirmation: "Non, pas moins qu'un assuré aussi modeste.", chiffre: "10 421 €", texte: "Un assuré qui gagne moins de 10 421 euros par an, le plafond de l'aide, a une complémentaire santé gratuite, sans franchise.", source: "Service-public.gouv.fr, 2026" }
+    # Compléments § C4, [10] [12] [11] : le POUR, l'échantillon de 99 dossiers de dialyse lus par la mission IGAS-IGF
+    # (43 patients déjà dialysés dans leur pays, venus pour se soigner ; les bénéficiaires de l'AME font environ 1 % des
+    # dialysés de ces hôpitaux). Le CONTRE, l'enquête Premiers pas (Paris et Bordeaux, février-avril 2019, 1 083 adultes
+    # présents depuis plus de trois mois, rencontrés dans des lieux d'aide) : 51 % des éligibles ont l'AME, chiffre repris
+    # par le rapport Évin-Stefanini, qui juge que l'AME « n'apparaît pas comme un facteur d'attractivité ». La part qui
+    # cite la santé parmi ses raisons de venir n'est pas utilisée : 10 % selon l'Irdes, 25,8 % selon une note du rapport
+    # IGAS-IGF tirée de la même enquête (C4). Chaque texte dit son champ, qui est sa limite : « dans certains hôpitaux »
+    # (l'échantillon n'est pas représentatif, limites des compléments), « dans des lieux d'aide de Paris et Bordeaux »
+    # (l'enquête ne représente que les adultes qui les fréquentent). Le CONTRE répond par le raisonnement de l'Irdes et
+    # du rapport Évin-Stefanini : une aide que la moitié des ayants droit n'a pas n'est pas ce qui fait venir.
+    - question: "L'aide attire-t-elle des malades en France ?"
+      pour: { affirmation: "Oui, pour des soins lourds.", chiffre: "43 sur 99", texte: "Dans certains hôpitaux, sur 99 malades en dialyse couverts par l'aide, 43 étaient venus en France pour poursuivre leur dialyse.", source: "IGAS et IGF, 2019" }
+      contre: { affirmation: "Non, la moitié ne l'a pas.", chiffre: "1 sur 2", texte: "En 2019, dans des lieux d'aide de Paris et Bordeaux, la moitié des personnes interrogées qui y avaient droit n'avaient pas l'aide.", source: "Irdes, 2019" }

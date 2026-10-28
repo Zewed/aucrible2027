@@ -18,7 +18,7 @@
   le bilan est favorable [2][3].
 - **Rentrée 2024 : elle démarre** « au titre des années scolaires 2024-2025 et 2025-2026 », sur « l'engagement
   volontaire » d'« une centaine d'établissements » et de leurs collectivités [1]. D'après la DEPP, 115 établissements
-  volontaires la première année : 97 écoles primaires, 14 collèges et 4 lycées [2][4].
+  volontaires la première année : 97 écoles primaires, 14 collèges et 4 lycées [2][4] ; l'évaluation de la DEPP en compte 119 (97 écoles, 14 collèges et 8 lycées), voir C1 [16].
 - **Financement.** Les collectivités passent leur propre marché et paient les trousseaux ; l'État cofinance à 50 %,
   dans la limite de 100 € par élève, au titre du Conseil national de la refondation. Près de 2 millions d'euros avaient
   été alloués aux académies à la mi-octobre 2024 [1] (d'autres sources parlent de 1,6 million d'euros pour 2024-2025
@@ -210,3 +210,121 @@ officiel sur le harcèlement ni sur les atteintes à la laïcité ; pas de sonda
 13. L'Infodurable, « Uniforme à l'école : l'Éducation nationale s'engage à financer l'expérimentation en 2025-26 », 07/03/2025 : https://www.linfodurable.fr/uniforme-lecole-leducation-nationale-sengage-financer-lexperimentation-en-2025-26-49799
 14. Connexion France, « Far right French election candidate calls for state school uniforms », 11/02/2022 : https://connexionfrance.com/French-news/Far-right-French-election-candidate-calls-for-state-school-uniforms
 15. DEPP, « Évaluation des expérimentations du port de la tenue commune à l'École » (rapport du 12/05/2026, non ouvert) : https://www.education.gouv.fr/depp
+16. DEPP, « Évaluation des expérimentations du port de la tenue commune à l'École. Résultats d'une enquête statistique et d'une étude monographique », Document de travail n° 2026-E10, série études, mai 2026 (A. Charpentier, J. Louis, DEPP ; C. Andreotti, F. Brunet, M. Kerdodé, J. Van Hille, FORS-Recherche sociale), lu le 28/10/2026 : https://www.education.gouv.fr/depp/evaluation-des-experimentations-du-port-de-la-tenue-commune-l-ecole-504773 (PDF : https://www.education.gouv.fr/sites/default/files/document/-valuation-des-exp-rimentations-du-port-de-la-tenue-commune-l-cole-516155.pdf)
+
+## Compléments pour le reportage (28/10/2026)
+
+> Chiffres ajoutés pour le reportage vidéo de la fiche, source [16] à la suite de la liste du § 5. Le rapport de la DEPP,
+> que l'étude n'avait pas pu ouvrir, a été lu en entier (texte extrait du PDF ; les graphiques de FORS-Recherche sociale,
+> qui sont des images, ont été lus sur l'image). Pour les chiffres qu'il contient, il remplace les reprises de presse
+> [2][3][4]. Les chiffres de la DEPP et de FORS sont des avis (des directions, des élèves, des parents), pas des effets
+> mesurés : le rapport le dit lui-même (pas de comparaison « avec » et « sans » tenue).
+
+### C1. Le bilan publié au 28/10/2026, et ce qu'il couvre
+- **Un seul bilan publié** : le document de travail de la DEPP n° 2026-E10 (mai 2026) [16], rendu public le 12/05/2026
+  [2]. Il porte sur la **première année** (2024-2025) : une enquête en ligne de la DEPP du 4 au 18 juin 2025 auprès de
+  toutes les directions (87 directeurs d'école, soit près de 90 % ; 16 chefs d'établissement, 10 de collège et 6 de
+  lycée) ; des monographies de FORS-Recherche sociale dans 8 écoles et 4 collèges (visites, entretiens, questionnaires à
+  environ 1 050 écoliers, 900 collégiens et leurs parents), en mai et juin 2025, et en septembre 2025 pour quelques sites
+  [16].
+- **Aucune évaluation de la deuxième année (2025-2026) n'a été trouvée** au 28/10/2026, ni sur le site du ministère ni
+  dans la presse consultée. Le 12/05/2026, le ministre renvoyait la décision aux résultats de la deuxième année [2] ;
+  fin août 2026, il a confirmé l'arrêt de l'essai sans citer de nouveau bilan [3]. Le comité d'évaluation s'est réuni
+  cinq fois, d'avril 2024 à novembre 2025 [16].
+- **Le périmètre** : 97 écoles (20 maternelles, 44 élémentaires, 33 primaires) et 22 établissements du second degré
+  (14 collèges, 8 lycées) [16]. Le chiffre de 115 (§ 1 et fiche) est l'échantillon de l'enquête de la DEPP : 97 écoles
+  et 18 établissements, quatre établissements de Mayotte ayant été retirés après le cyclone Chido [16]. Le § 1 parle de
+  « 14 collèges et 4 lycées » d'après [2][4] : le rapport compte 8 lycées. Le reportage dit « une centaine », le mot du
+  rapport.
+- **Des écoles différentes de la moyenne** : 27 % en éducation prioritaire (16 % des écoles publiques), 91 % en ville
+  (53 %), un indice de position sociale de 99 (103) ; en novembre 2024, 3,9 % des écoliers du CE2 au CM2 de ces écoles
+  décrivaient des situations proches du harcèlement, autant qu'au niveau national (4 %) [16]. Selon le rapport, les
+  résultats ne peuvent pas être étendus à des écoles aux tensions plus marquées [16].
+- **Financement** : 1,6 million d'euros versés par l'État pour 2024-2025 ; en février 2025, 31 écoles et 12
+  établissements du second degré figuraient parmi les bénéficiaires d'une aide du ministère, soit un tiers des écoles et
+  la moitié des établissements de l'essai [16].
+
+### C2. Ce que voient les directions (enquête de la DEPP, juin 2025)
+- **Directeurs d'école (87)**, évolution « plutôt » ou « très » positive depuis la tenue : sentiment d'appartenance à
+  l'école **75 %** (44 + 31) ; cohésion entre élèves 43 % ; climat scolaire 36 % ; collaboration entre élèves 33 % ;
+  ambiance de travail en classe 23 % ; acquis des élèves 7 %. « Pas d'évolution notable » est la réponse majoritaire pour
+  les 13 autres éléments, dont les problèmes de comportement (76 % ; 18 % positive) et les **problèmes de harcèlement
+  (71 % ; 18 % positive ; 10 % ne savent pas)** [16, figure 8].
+- **Chefs d'établissement (16)**, évolution positive : sentiment d'appartenance **13 sur 16** ; climat scolaire et
+  ambiance dans la cour 11 ; cohésion entre élèves, lien avec les familles, confiance en soi et **harcèlement 10** (pour
+  le harcèlement, 1 évolution négative et 5 sans évolution) ; problèmes de comportement 9 (2 négatives, 5 sans évolution,
+  lu sur la figure 17) ; ambiance de travail 7 ; acquis 5 ; investissement dans le travail 4 [16].
+- **Avis sur l'essai** : 71 % des directeurs d'école en avaient une perception favorable à l'annonce, 60 % à la fin de
+  l'année (le rapport invite à la prudence sur cet écart, l'échantillon étant petit). **Sept directeurs sur dix sont
+  favorables à la poursuite**, huit sur dix continuent en 2025-2026 ; 13 chefs d'établissement sur 16 y sont favorables,
+  14 continuent [16].
+- **Pourquoi les écoles sont entrées dans l'essai** : rapprocher les élèves 91 % ; climat scolaire 62 % ; inégalités
+  sociales 59 % ; éviter les tenues inappropriées 39 % ; apprentissages 34 % ; harcèlement 9 % [16].
+- **Respect de la règle** : non-respect constaté chaque semaine ou presque, ou tous les jours, dans 44 % des écoles et 9
+  établissements sur 16 ; il touche moins de 10 % des élèves dans deux écoles concernées sur trois ; motif le plus cité,
+  l'oubli (69 %) [16].
+- **Freins** : le coût éventuel pour les familles l'est « dans une grande mesure » pour 44 % des directeurs d'école (61 %
+  avec « dans une certaine mesure ») ; la logistique pour 63 % ; l'opposition des familles 57 %, celle des équipes 43 %
+  [16].
+
+### C3. Ce que disent les élèves et les parents (monographies de FORS-Recherche sociale, 8 écoles et 4 collèges)
+- **Aimer la tenue** : écoliers (1 050) : « oui, j'adore » 17 %, « oui, j'aime assez » 20 %, « non, je n'aime pas trop »
+  27 %, « non, je déteste » 30 %, ne la portent pas 6 % ; **57 % ne l'aiment pas** (33 % en CP, 69 % en CM2).
+  Collégiens (911) : « je me sens bien dans la tenue commune » 32 % d'accord, 63 % pas d'accord (50 % en 6e, 71 % en 3e) ;
+  62 % la jugent pas adaptée à leur vie de collégien [16, figure 26].
+- **Se sentir du groupe** : collégiens (876) : « j'ai l'impression d'être plus "dans le groupe" des élèves du collège »
+  **20 % d'accord** (7 + 13), 57 % pas d'accord (15 + 42), 23 % ne savent pas [16, figure 35] ; 10 % se sentent plus à
+  l'écart avec la tenue, 5 % davantage à leur place, 60 % comme avant [16, figure 28]. Écoliers : « les élèves sont plus
+  unis » 32 % oui, 34 % non (47 % en CP, 22 % en CM2) ; « ça n'a rien changé » 45 % oui, 28 % non [16, figure 27].
+- **Moqueries et jugements** : écoliers (environ 1 050) : « les élèves critiquent moins les vêtements des autres » **43 %
+  oui, 32 % non**, 25 % ne savent pas [16, figure 27]. Parents : environ 60 % voient toujours des clans ; la tenue
+  n'empêche pas les jugements entre élèves, qui se comparent autrement, pour 58 % des parents de collégiens et **64 % des
+  parents d'écoliers** ; moins de pression sur la façon de s'habiller pour 50 % des parents de collégiens et 31 % des
+  parents d'écoliers [16].
+- **Harcèlement et autorité** : 14 % des collégiens pensent que la tenue fait reculer le harcèlement ; adultes et enfants
+  sont « relativement unanimes » pour dire qu'elle ne le limite pas ; 62 % des collégiens trouvent les adultes plus
+  stricts depuis la tenue (36 + 26), 27 % non [16, figure 29].
+- **À l'annonce** (plusieurs réponses possibles) : parents de collégiens (908) « d'accord avec l'idée » 65 %, parents
+  d'écoliers (265) 43 % ; collégiens (507) « j'étais contre » 61 % en 4e-3e, 50 % en 6e-5e [16, figure 25].
+- **Image de l'école** : effets positifs pour 50 % des parents de collégiens (2 % négatifs), 37 % des parents d'écoliers
+  (9 % négatifs) [16, figure 34].
+- **Conclusion du rapport** : effets limités sur le comportement et les apprentissages ; la tenue ne transforme pas les
+  relations entre élèves ; au collège, la faible adhésion des élèves peut nuire au climat scolaire ; un décalage entre
+  les adultes, qui y voient un symbole de cohésion, et les élèves, qui la vivent plutôt comme une contrainte [16].
+
+### C4. Le coût
+- **Par élève** : 180 € selon les directeurs d'école, 190 € selon les chefs d'établissement (le § 2 retenait « ≈ 200 € »
+  d'après [4]) ; les familles ont acheté des pièces en plus dans 17 % des écoles (35 € environ par élève) et 6
+  établissements sur 16 (50 € environ) [16]. Le trousseau est payé par la collectivité, qui peut demander à l'État la
+  moitié, jusqu'à 100 € par élève [1][16] (pour qui a reçu cette aide, voir C1). Selon FORS, la gratuité du premier
+  trousseau a compté dans l'adhésion des familles ; le remplacement des pièces était gratuit ou payant selon les
+  territoires [16].
+
+### C5. Ce que dit la recherche, selon la revue de la DEPP (non repris dans le reportage)
+- La synthèse de Hattie (2008) juge le lien entre uniforme et résultats scolaires négligeable ; Yeung (2009), sur des
+  échantillons nationaux américains, ne trouve pas d'effet sur les résultats ; Gentile et Imberman (2012), dans un
+  district américain, trouvent une demi-journée à une journée de présence en plus par an dans le secondaire, et un taux
+  de départ des enseignants du primaire en baisse de 5 points (pour une moyenne de 25 %). Aux États-Unis, 16 % des écoles
+  publiques imposaient l'uniforme en 2021-2022 [16].
+
+## Annexe — d'où vient chaque chiffre du reportage
+
+| Écran | Chiffre | Source |
+|---|---|---|
+| Accroche | Essai annoncé en 2023, non reconduit par l'État à la rentrée 2026 après les deux années prévues (2024-2025, 2025-2026) dans « une centaine » d'écoles, collèges et lycées volontaires (97 écoles, 22 collèges et lycées) ; les collectivités restent libres de poursuivre ; aucune loi n'impose l'uniforme | § 1, [1] [2] [3] [16], C1 |
+| Leviers | Les trois options de la fiche ; une tenue à environ 180 € par élève selon les directeurs d'école, payée par la commune, qui pouvait demander la moitié à l'État (100 € au plus) ; un tiers des écoles aidées en février 2025 | [1] [16], C1 et C4 |
+| Q1 pour | 13 chefs d'établissement sur 16 voient une évolution positive du sentiment d'appartenance à l'établissement | [16] (DEPP, figure 17), C2 |
+| Q1 contre | 57 % des collégiens de 4 collèges (876 répondants) ne se sentent pas plus « dans le groupe » depuis la tenue (15 % plutôt pas, 42 % pas du tout d'accord ; 20 % d'accord, 23 % ne savent pas) | [16] (FORS, figure 35), C3 |
+| Q2 contre | 71 % des directeurs d'école : pas d'évolution notable des problèmes de harcèlement | [16] (DEPP, figure 8), C2 |
+| Q2 pour | 10 chefs d'établissement sur 16 : évolution positive des problèmes de harcèlement | [16] (DEPP, figure 17), C2 |
+| Q3 contre | 64 % des parents d'écoliers : la tenue n'empêche pas les jugements entre élèves, qui se comparent autrement | [16] (FORS), C3 |
+| Q3 pour | 43 % des écoliers : les élèves critiquent moins les vêtements des autres ; 32 % non | [16] (FORS, figure 27), C3 |
+| Q4 pour | 7 directeurs d'école sur 10 favorables à la poursuite de l'essai | [16] (DEPP), C2 |
+| Q4 contre | 57 % des écoliers n'aiment pas porter la tenue | [16] (FORS, figure 26), C3 |
+
+Tous les chiffres du face-à-face viennent du même rapport, sur la même année scolaire (2024-2025). Les deux camps de Q2
+citent la même question de la même enquête, posée aux directeurs d'école et aux chefs d'établissement ; ceux de Q3, la
+même enquête dans les mêmes écoles (des parents, des écoliers) ; ceux de Q1 et de Q4, les deux volets du rapport : l'avis
+des directions (DEPP) face à celui des élèves (FORS), le décalage que le rapport place au centre de ses conclusions. En
+Q1, les chefs d'établissement dirigent aussi des lycées, les élèves interrogés sont tous au collège : le texte POUR dit
+« collège ou lycée ».

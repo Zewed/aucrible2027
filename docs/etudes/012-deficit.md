@@ -145,3 +145,110 @@ Options de la fiche : A = baisser fortement la dépense et alléger les impôts 
 - Les positions « officielles » reposent en partie sur le comparateur iFRAP (think tank libéral) ; à recouper avec les programmes des candidats.
 - Les chiffres de Marine Le Pen divergent entre sources (retour sous 3 % en 2030 selon MoneyVox, d'ici 2032 selon iFRAP).
 - Les sources 2, 3, 5, 6 et 15 sont des relais de presse ou d'analyse des documents officiels ; les rapports originaux (Cour des comptes, HCFP) n'ont pas été consultés directement.
+
+---
+
+## Compléments pour le reportage (28/10/2026)
+
+> Ajoutés le 28/10/2026 pour donner à chaque camp du reportage vidéo son meilleur argument chiffré. Sources primaires
+> d'abord : séries d'Eurostat (extraites par l'API officielle, mise à jour du 21/10/2026), Insee, Cour des comptes, OFCE,
+> et une étude publiée. Les sources [20] à [28] suivent la liste du § 5. Le reportage ne reprend pas les face-à-face des
+> fiches voisines : l'impôt sur la fortune (001), la taxe Zucman (039) et la TVA (045) ; il en garde les chiffres communs
+> (45,3 % de prélèvements en 2024, 2e de l'Union ; déficit de 2025).
+>
+> **Camps du reportage.** Les quatre options ne se rangent pas en deux camps évidents (B mêle économies et recettes, D
+> refuse les deux). Selon la règle du cahier, POUR = l'option qui change le plus la conduite actuelle : A, car la baisse du
+> déficit de 2025 est venue « exclusivement » de hausses d'impôts et de cotisations, et la dépense a progressé plus vite
+> que l'activité (§ 1, [5] [6]) ; A inverse les deux, sur les plus gros montants (140 à 200 Md€ d'économies, § 2.2 et 4).
+> CONTRE = B et C, qui refusent de commencer par baisser les dépenses et veulent des recettes nouvelles sur les plus aisés.
+> D, hors échelle, n'est dans aucun camp (comme l'option E des fiches 001 et 024). Objet : « baisser d'abord les
+> dépenses », les mots des côtés et de la story de la fiche.
+
+### a. La dette et le déficit sur trente ans
+| Chiffre | Valeur | Année | Organisme | Source |
+|---|---|---|---|---|
+| Dette publique au sens de Maastricht, en part du PIB | **57,8 %** (1995), 59,7 % (2000), 65,5 % (2007), 98,2 % (2019), 112,6 % (2024), **115,7 %** (2025) | 1995–2025 | Eurostat | [21] |
+| Dette publique fin 2025 | 115,7 % du PIB (fin du 4e trimestre, avec le PIB annuel) ; 119,0 % fin juin 2026 | 2025–2026 | Insee | [28] |
+| Solde public, en part du PIB | négatif **chaque année de 1995 à 2025** : –5,1 % (1995), –1,3 % (2000, le plus petit déficit), –7,4 % (2009), –8,9 % (2020), –5,8 % (2024), –5,1 % (2025) | 1995–2025 | Eurostat | [20] |
+
+- 1995 est la première année des séries européennes ; l'Insee publie une dette depuis 1978 (tableau 3.101), non relue ici. Les publications trimestrielles de l'Insee donnent 115,6 % fin 2025, les séries annuelles et Eurostat 115,7 %, le chiffre de la fiche.
+
+### b. Les dépenses publiques en Europe, et ce qui fait l'écart
+| Chiffre | Valeur | Année | Organisme | Source |
+|---|---|---|---|---|
+| Dépenses publiques, en part du PIB | **France 57,3 %** ; Finlande 57,5 % ; Autriche 54,6 % ; Belgique 54,4 % (provisoire) ; Italie 51,1 % ; Allemagne 50,1 % ; zone euro 49,8 % ; **Union européenne 49,4 %** — la France est 2e de l'Union | 2025 | Eurostat | [20] |
+| Même série, autres années | France 57,7 % (2017), 57,0 % (2024) ; Union 46,9 % (2017), 48,9 % (2024) | 2017, 2024 | Eurostat | [20] |
+| Dépenses par fonction, en part du PIB (France / Union) | total **57,3 / 48,8** ; protection sociale **23,7 / 19,5**, dont vieillesse (retraites) **13,4 / 10,6** ; santé **8,9 / 7,3** ; enseignement 5,1 / 4,7 ; services généraux (intérêts compris) 6,2 / 6,0 ; affaires économiques 5,7 / 5,3 ; défense 1,9 / 1,5 ; logement et équipements collectifs 1,4 / 0,7 ; loisirs, culture et culte 1,5 / 1,2 ; environnement 1,0 / 0,8 ; ordre et sécurité 1,8 / 1,7 | 2024 (France : provisoire) | Eurostat | [22] |
+
+- **Calcul de l'étude** : l'écart de 2024 est de 8,5 points de PIB ; la protection sociale en fait 4,2 (dont retraites 2,8, autres aides sociales 1,4) et la santé 1,6, soit **5,8 points sur 8,5, 68 %, « les deux tiers »**. Retraites et santé seules : 4,4 points, 52 %.
+- **Prudence** : la série par fonction (2024, provisoire pour la France) n'est pas du même millésime que la série d'ensemble (57,0 % en 2024) ; le calcul n'utilise que la première, cohérente avec elle-même. Le détail par fonction de 2025 n'est pas encore publié.
+- **Ceux qui veulent baisser d'abord les dépenses** retiennent le niveau, 8 points au-dessus de la moyenne de l'Union ; **ceux qui s'y opposent**, que les deux tiers de l'écart vont aux retraites, à la santé et aux aides sociales.
+
+### c. Les impôts : leur niveau, et ce qu'ont coûté les baisses depuis 2018
+| Chiffre | Valeur | Année | Organisme | Source |
+|---|---|---|---|---|
+| Impôts et cotisations sociales (cotisations imputées comprises), en part du PIB | Danemark 45,5 % ; **France 45,3 %** (2e de l'Union) ; Belgique 45,2 % ; Union européenne 40,2 % | 2024 | Eurostat (mise à jour du 21/10/2026) | [23] |
+| Même série, France | 48,5 % en 2017 | 2017 | Eurostat | [23] |
+| Coût des baisses d'impôts et de cotisations décidées de 2018 à 2023, **estimation** | « d'importantes baisses d'impôts, dont l'impact est estimé à **62 Md€ en 2023**, soit 2,2 pts de PIB » (baisse de l'impôt sur les sociétés et de la CVAE, suppression de la taxe d'habitation, allègements de cotisations…) ; « non compensées par des économies en dépenses, [elles] ont creusé le déficit de l'État et accru sa dette » | 2023 | Cour des comptes | [24] (p. 35–36) |
+| Taux de prélèvements obligatoires (sens français) | 45,3 % (2017), 45,0 % (2022), 43,2 % (2023) ; en 2023, –1,8 point, dont –1,6 par l'évolution spontanée des recettes et –0,2 par de nouvelles baisses | 2017–2023 | Cour des comptes | [24] |
+
+- **Cohérence avec les études 024, 039 et 045** : elles citent 45,3 % et le 2e rang (extraction d'octobre 2025, Union à 40,4 %). L'extraction du 21/10/2026 donne toujours 45,3 % et le 2e rang, mais 40,2 % pour l'Union : le reportage ne cite que le chiffre français et le rang, identiques dans les deux.
+- **Pourquoi pas l'évolution du taux depuis 2017** (48,5 % → 45,3 % au sens européen) : selon la Cour, ce taux dépend aussi de l'évolution « spontanée » des recettes (en 2022, il était revenu près de 2017 malgré les baisses) ; le coût estimé des mesures (62 Md€) est la mesure que la Cour donne de leur effet [24].
+- **Ceux qui s'opposent à baisser d'abord les dépenses** retiennent les 62 Md€ de baisses non compensées ; **ceux qui veulent baisser d'abord les dépenses**, le 2e taux d'impôts et de cotisations de l'Union.
+
+### d. L'effet sur la croissance : économies ou impôts
+| Chiffre | Valeur | Année | Organisme | Source |
+|---|---|---|---|---|
+| Effet des économies sur la croissance, la première année (**modèle**) | « les économies structurelles sur l'État, les collectivités locales et la sécurité sociale ont des multiplicateurs à court terme relativement élevés (compris entre **0,7 et 0,8**) » : un euro économisé retire 70 à 80 centimes de PIB dans l'année ; la réduction de la dépense retirerait 0,4 point de croissance en 2026 | 2026 | OFCE (prévision d'avril 2026) | [25] |
+| Effet des impôts nouveaux de 2026, la première année (**modèle**) | « La plupart des nouvelles mesures fiscales de la loi de finances ont des multiplicateurs budgétaires faibles à court terme (mais plus élevés à long terme) » : +0,3 point de PIB de prélèvements (surtout la contribution des grandes entreprises, 7,3 Md€, et les revenus financiers) → **–0,1 point** de croissance | 2026 | OFCE | [25] |
+| Effet total du budget sur la croissance | –0,5 point en 2026 ; –0,6 point en 2027 si l'effort est partagé à parts égales entre dépenses et impôts | 2026–2027 | OFCE | [25] |
+| Même constat en 2025 | effort surtout par des impôts (grandes entreprises, hauts revenus) : multiplicateur « à moins de 0,5 », –0,4 point de croissance | 2025 | OFCE (prévision d'octobre 2025) | [26] |
+| Effet des plans de réduction du déficit dans 14 pays riches (Australie, Autriche, Belgique, Canada, Danemark, **France**, Allemagne, Irlande, Italie, Japon, Portugal, Espagne, Royaume-Uni, États-Unis), **étude** | « the average tax-based adjustment plan with an initial size of one per cent of GDP results in a cumulative contraction in GDP of **two per cent in the following three years** » ; les plans fondés sur les économies : « very small recessions with an impact on output growth not significantly different from zero » | 1978–2007 | Alesina, Barbiero, Favero, Giavazzi, Paradisi (*Economic Policy*) | [27] |
+
+- **Lecture** : les deux chiffres du reportage (question 2) mesurent la même chose, ce que coûte un euro économisé, mais pas de la même façon : un modèle appliqué au budget français de 2026, effet dans l'année (70 à 80 centimes) ; une estimation statistique sur 14 pays de 1978 à 2007, effet cumulé sur trois ans (presque rien, contre deux euros pour un euro d'impôts). L'OFCE précise que les multiplicateurs des impôts sont « plus élevés à long terme » ; l'étude d'Alesina et autres cite d'autres travaux (Guajardo et al., 2014) qui trouvent aussi les plans fondés sur les impôts plus coûteux [27]. Cette littérature reste discutée : le reportage présente chaque chiffre comme « un modèle » ou « une étude », pas comme un consensus.
+- **Ceux qui s'opposent à baisser d'abord les dépenses** retiennent le modèle de l'OFCE ; **ceux qui veulent baisser d'abord les dépenses**, l'étude sur 14 pays.
+
+### e. Ce que coûtent les intérêts de la dette
+| Chiffre | Valeur | Année | Organisme | Source |
+|---|---|---|---|---|
+| Intérêts payés par l'ensemble des administrations publiques | **45,5 Md€, 3,6 % du PIB (1996)** et 3,6 % (1997), le plus haut de la série ; 3,0 % (2000) ; 41,0 Md€, 1,8 % (2017) ; **29,7 Md€, 1,3 % (2020)** ; 60,1 Md€, 2,0 % (2024) ; **65,7 Md€, 2,2 % (2025)** | 1995–2025 | Eurostat | [20] |
+| Charge d'intérêts prévue | **77,4 Md€** en 2026 (+12 Md€) ; « pourrait atteindre **100 milliards d'euros en 2029, soit 3 % du PIB** » | 2026–2029 (prévision) | Cour des comptes, juin 2026, lu dans une dépêche AFP **[source secondaire]** | [5] |
+| Prévision de l'OFCE | 2,2 % du PIB (2025), 2,4 % (2026), 2,6 % (2027) | 2025–2027 (prévision) | OFCE | [25] |
+
+- Les 77,4 Md€ prévus pour 2026, en hausse de 12 Md€, recoupent les 65,7 Md€ constatés par Eurostat en 2025 : même périmètre (toutes les administrations publiques).
+- **Ceux qui veulent baisser d'abord les dépenses** retiennent la hausse, de 66 Md€ (2025) à 100 Md€ (2029) ; **ceux qui s'y opposent**, qu'en part de la richesse produite la charge reste sous le niveau de 1996 (3,6 %), y compris en 2029 (3 %).
+
+### Limites de ces compléments
+- La prévision de 100 Md€ d'intérêts en 2029 est lue dans une dépêche (AFP, Banque des Territoires [5]) ; le rapport de la Cour des comptes de juin 2026 n'a pas été ouvert.
+- Le calcul des « deux tiers » repose sur des données de 2024 provisoires pour la France.
+- Les deux mesures de la question 2 ne viennent ni du même pays, ni de la même période, ni de la même méthode ; aucune évaluation indépendante des plans des candidats n'a été collectée.
+
+### Sources (suite du § 5)
+20. Eurostat, *Government revenue, expenditure and main aggregates* (gov_10a_main) : dépenses totales (TE), solde (B9), intérêts (D41PAY), en % du PIB et en M€, mise à jour du 21/10/2026, extraction par l'API le 28/10/2026 — https://ec.europa.eu/eurostat/databrowser/view/gov_10a_main/default/table?lang=fr
+21. Eurostat, *Government deficit/surplus, debt and associated data* (gov_10dd_edpt1) : dette brute consolidée, % du PIB, mise à jour du 21/10/2026 — https://ec.europa.eu/eurostat/databrowser/view/gov_10dd_edpt1/default/table?lang=fr
+22. Eurostat, *General government expenditure by function (COFOG)* (gov_10a_exp), % du PIB, mise à jour du 21/10/2026 (France 2024 provisoire) — https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=fr
+23. Eurostat, *Main national accounts tax aggregates* (gov_10a_taxag) : impôts et cotisations sociales, cotisations imputées comprises, % du PIB, mise à jour du 21/10/2026 — https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table?lang=fr
+24. Cour des comptes, *La situation et les perspectives des finances publiques*, 15/07/2024, chap. 1, partie C « Des baisses d'impôts et de cotisations depuis six ans qui ont contribué à la dégradation du déficit public », p. 35–36 — https://www.ccomptes.fr/sites/default/files/2024-07/20240715-RSPFP-2024_0.pdf
+25. OFCE (R. Sampognaro), « Le déficit public devrait diminuer en 2026 et 2027 », *Revue de l'OFCE*, n° 194 (2026/3), prévision d'avril 2026, § 10.2 et 10.3, tableau 10.1 — https://www.ofce.fr/pdf/revue/2026/10-194OFCE_2026.pdf
+26. OFCE (R. Sampognaro), « La difficile baisse du déficit », prévisions d'octobre 2025 (15/10/2025, modifié le 20/03/2026) — https://www.ofce.fr/prev/prev2509/france/fipu.html
+27. A. Alesina, O. Barbiero, C. Favero, F. Giavazzi et M. Paradisi, « Austerity in 2009-2013 », *Economic Policy*, vol. 30, n° 83, juillet 2015 (texte lu : NBER Working Paper 20827, janvier 2015, p. 1-2 et § 4.2.1) — https://www.nber.org/papers/w20827
+28. Insee, « Dette des administrations publiques au sens de Maastricht », données trimestrielles du T4 1995 au T2 2026, 29/09/2026 — https://www.insee.fr/fr/statistiques/2830301
+
+---
+
+## Annexe — d'où vient chaque chiffre du reportage
+
+| Écran | Chiffre | Source |
+|---|---|---|
+| Accroche | dette de 57,8 % du PIB en 1995, 115,7 % en 2025 ; solde négatif chaque année de 1995 à 2025 | [21] [28] [20], compléments § a |
+| Leviers | les quatre options de la fiche (§ 4) ; chute : 89,6 Md€ (3 points de PIB) de déficit à réduire encore pour stabiliser la dette, « environ 90 milliards » | [6], § 1 |
+| Q1 pour | dépenses publiques : 57,3 % du PIB en France, 49,4 % dans l'Union (2025) | [20], compléments § b |
+| Q1 contre | 5,8 points sur 8,5 d'écart avec l'Union en 2024 (protection sociale 4,2, santé 1,6), soit 68 %, « les deux tiers » (calcul) | [22], compléments § b |
+| Q2 contre | économies du budget 2026 : multiplicateur de 0,7 à 0,8 à court terme (modèle) ; impôts nouveaux : 0,3 point de prélèvements, 0,1 point de croissance en moins | [25], compléments § d |
+| Q2 pour | 14 pays riches, 1978-2007 : plans d'économies, effet « pas significativement différent de zéro » ; plans d'impôts de 1 % du PIB, –2 % de PIB en trois ans | [27], compléments § d |
+| Q3 contre | baisses d'impôts et de cotisations décidées de 2018 à 2023 : 62 Md€ en 2023, non compensées par des économies (estimation) | [24], compléments § c |
+| Q3 pour | impôts et cotisations : 45,3 % du PIB en 2024, 2e de l'Union après le Danemark (45,5 %) | [23], compléments § c |
+| Q4 pour | intérêts : 100 Md€ prévus en 2029 ; 65,7 Md€ constatés en 2025 | [5] [20], compléments § e |
+| Q4 contre | intérêts : 3,6 % du PIB en 1996, 2,2 % en 2025, 3 % prévus en 2029 | [20] [5], compléments § e |
+
+Les deux camps d'une même question comparent la même grandeur : la dépense en part du PIB (Q1, Eurostat des deux côtés), le coût d'un euro économisé (Q2), les impôts (Q3 : un coût en euros et un niveau en part du PIB, chacun nommé), les intérêts (Q4 : en euros et en part du PIB, aux mêmes dates). Chaque texte dit quand son chiffre est un calcul (Q1), un modèle ou une étude (Q2), une estimation (Q3) ou une prévision (Q4).

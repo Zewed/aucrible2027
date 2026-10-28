@@ -1,0 +1,152 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/039-taxe-zucman.md (tout ce qui suit y est sourcé).
+# L'ISF et l'IFI ont leur propre fiche (001) : celle-ci porte sur l'impôt minimum de 2 % au-delà de 100 M€ et ses variantes.
+numero: 39
+date: 2026-09-19
+theme: economie-impots
+question: "Faut-il créer un impôt minimum sur les très grandes fortunes ?"
+titreCourt: "La taxe Zucman"
+contexte:
+  - "La taxe Zucman, du nom de l'économiste qui l'a conçue, obligerait les foyers qui possèdent plus de 100 millions d'euros, parts d'entreprises comprises, à payer chaque année en impôts au moins 2 % de ce patrimoine : s'ils paient moins, ils versent la différence."
+  - "Les députés l'ont adoptée en février 2025, puis le Sénat l'a rejetée ; l'Assemblée l'a ensuite repoussée dans les budgets pour 2026 et pour 2027, en octobre 2025 et en octobre 2026."
+  - "Il existe déjà un impôt minimum de 20 % sur les revenus de plus de 250 000 euros par personne, créé en 2025, et, depuis 2026, une taxe sur les biens de luxe gardés dans des sociétés de détention, appelées holdings."
+chiffres:
+  - valeur: "1 800"
+    unite: foyers
+    legende: "environ possèdent plus de 100 millions d'euros, selon l'estimation de Gabriel Zucman, que l'administration fiscale n'a pas pu retracer"
+    source: { organisme: Sénat, document: "rapport n° 689", annee: 2025 }
+  - valeur: "26 %"
+    legende: "de leur revenu : ce que paient en impôts les 75 foyers les plus riches, contre 46 % pour le 0,1 % le plus aisé, selon une estimation sur 2016 dont le Sénat juge la méthode contestable"
+    source: { organisme: Institut des politiques publiques, document: "note n° 92", annee: 2023 }
+  - valeur: "5 à 20"
+    unite: milliards d'euros
+    legende: "par an : ce que rapporterait la taxe selon les estimations, environ 20 pour Gabriel Zucman, environ 5 pour d'autres économistes"
+    source: { organisme: OFCE, document: "document de travail n° 2026-6", annee: 2026 }
+options:
+  - id: A
+    libelle: "Créer la taxe Zucman"
+    implique: "Chaque foyer qui possède plus de 100 millions d'euros, parts d'entreprises comprises, paie chaque année en impôts au moins 2 % de ce patrimoine, ou verse la différence ; partir à l'étranger ne permet pas d'y échapper aussitôt."
+    defenseurs: "Selon une estimation, les 75 foyers les plus riches paient 26 % de leur revenu en impôts, contre 46 % pour le 0,1 % le plus aisé : un plancher corrigerait cet écart et rapporterait environ 20 milliards d'euros par an, selon Gabriel Zucman."
+    critiques: "Sept économistes estiment qu'elle réduirait le déficit de 5 milliards d'euros par an, pas de 20 ; taxer chaque année des parts d'entreprises peut obliger à vendre, et le rapporteur du Sénat juge le texte probablement contraire à la Constitution."
+    # Même note que l'option B de la fiche 001, qui décrit le même impôt ; B et C à 0, comme les deux scénarios
+    # du Conseil des prélèvements obligatoires qui les rapprochent (étude § 2g) ; D, le statu quo, à +1 comme dans 001.
+    axes: { economie: -1 }
+  - id: B
+    libelle: "Taxer la fortune, pas les entreprises"
+    implique: "Pas de taxe Zucman, mais un impôt sur le patrimoine des plus riches dont sont exclues les parts des entreprises qu'ils détiennent ou dirigent, par exemple 0,5 % par an comme le propose la Cour des comptes, ou un impôt sur la fortune qui épargne les entreprises et la résidence principale."
+    defenseurs: "Les plus riches contribuent davantage sans que l'on taxe l'activité des entreprises ni que leurs propriétaires doivent vendre des parts pour payer ; la Cour des comptes chiffre sa version à 1,4 milliard d'euros par an."
+    critiques: "Les très grandes fortunes sont surtout faites de parts d'entreprises : le rapporteur du Sénat juge que les exclure dénaturerait l'impôt, et la recette attendue serait plus faible que celle de la taxe Zucman."
+    axes: { economie: 0 }
+  - id: C
+    libelle: "Viser les façons d'éviter l'impôt"
+    implique: "Pas d'impôt sur le patrimoine. On resserre les règles qui permettent aux plus riches de garder leurs bénéfices dans des sociétés de détention, les holdings, sans payer d'impôt sur le revenu, et l'on corrige l'impôt minimum de 20 % sur les très hauts revenus."
+    defenseurs: "Le problème vient de ces sociétés, pas du patrimoine : un dividende versé à une personne est taxé à 31,4 %, contre 1,25 % s'il reste dans une holding. C'est la voie retenue en 2026 par la commission d'enquête de l'Assemblée."
+    critiques: "Ces outils rapportent peu : l'impôt minimum sur les hauts revenus devait rapporter 2 milliards d'euros, 388 millions sont attendus pour 2025, et la taxe sur les holdings rapporte environ 100 millions."
+    axes: { economie: 0 }
+  - id: D
+    libelle: "Ne rien ajouter"
+    implique: "Aucun nouvel impôt ni hausse pour les plus riches ; l'effort passe par la baisse des dépenses, et certains veulent même alléger la fiscalité du patrimoine."
+    defenseurs: "La France est le deuxième pays de l'Union où l'on prélève le plus d'impôts et de cotisations, 45,3 % de la richesse produite en 2024 ; un nouvel impôt reposant sur quelques familles perdrait la moitié de sa recette avec trois départs, selon le Sénat."
+    critiques: "Les plus grandes fortunes continueraient de payer, selon une estimation, une part de leur revenu plus faible que d'autres foyers très aisés, et l'État renoncerait à des recettes alors que le déficit atteignait 5,1 % de la richesse produite en 2025."
+    axes: { economie: 1 }
+pourAllerPlusLoin:
+  - titre: "Sénat, rapport sur l'impôt plancher de 2 % sur le patrimoine, n° 689, juin 2025"
+    url: https://www.senat.fr/rap/l24-689/l24-689_mono.html
+  - titre: "Conseil d'analyse économique, les effets de l'exil fiscal sur l'économie, Focus n° 118, juillet 2025"
+    url: https://cae-eco.fr/static/pdf/Focus_118_emigration_fiscale_250725_v2.pdf
+  - titre: "OFCE, Pourquoi et comment taxer les plus riches ?, document de travail n° 2026-6"
+    url: https://www.ofce.fr/wp/2026/6/v0/
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour la taxe Zucman"
+    argument: "Selon une estimation, les 75 foyers les plus riches paient 26 % de leur revenu en impôts, contre 46 % pour le 0,1 % le plus aisé."
+  - titre: "Contre la taxe Zucman"
+    argument: "Si des parts d'entreprises rapportent 3 % par an, l'impôt de 2 % en prendrait chaque année les deux tiers."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Taxer plus"
+    precision: "les très grandes fortunes"
+  - choix: "Ne pas taxer"
+    precision: "plus qu'aujourd'hui"
+positions:
+  # Amendement RN n° I-666 (impôt sur la fortune financière, biens professionnels exclus), 16/10/2026 : https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/666 ;
+  # « Zucman non, ni hard, ni light » (Brut, 17/11/2025) : https://www.brut.media/fr/articles/france/politique/budget-le-rassemblement-national-sopposera-a-la-version-allegee-de-la-taxe-zucman-proposee-par-le-parti-socialiste
+  # https://melenchon2027.fr/wp-content/uploads/2026/10/Comment-nous-allons-remettre-de-l-ordre-dans-les-comptes-publics.pdf (p. 13 : « l'instauration de la taxe Zucman pour les personnes possédant plus de 100 millions d'euros de patrimoine »)
+  melenchon: { option: A, source: "LFI, Comment nous allons remettre de l'ordre dans les comptes publics, octobre 2026", statut: officielle }
+  # https://nouspresident.fr/plan-de-redressement/ (« Proposition 1 : Taxe Zucman (18,5 Md€) ») ; vote pour le 20/02/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/881
+  ruffin: { option: A, source: "Plan de redressement, nouspresident.fr, octobre 2026", statut: officielle }
+  # Assemblée nationale, PLF 2027, amendement n° I-666 de J.-P. Tanguy « et les membres du groupe Rassemblement National », 08/10/2026 (rejeté) : https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/666.pdf
+  le-pen: { option: B, source: "Assemblée nationale, PLF 2027, amendement n° I-666 de J.-P. Tanguy « et les membres du groupe Rassemblement National », 08/10/2026 (rejeté)", statut: deduite }
+  # Votes personnels de G. Attal, PLF 2026, 31/10/2025 : contre l'amendement Zucman n° 2359 (scrutin n° 3300) ; pour l'article 3, taxe sur les holdings patrimoniales (scrutin n° 3294) : https://datan.fr/votes/legislature-17/vote_3300
+  attal: { option: C, source: "Votes personnels de G. Attal, PLF 2026, 31/10/2025 : contre l'amendement Zucman n° 2359 (scrutin n° 3300) ; pour l'article 3, taxe sur les holdings patrimoniales (scrutin n° 3294)", statut: deduite }
+  # LCP, conférence de presse de B. Retailleau sur son plan d'économies, 12/10/2026 : https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de
+  retailleau: { option: D, source: "LCP, conférence de presse de B. Retailleau sur son plan d'économies, 12/10/2026", statut: deduite }
+  # D. Lisnard, tribune « Changer de logiciel fiscal », Atlantico, reprise par Nouvelle Énergie, 16/04/2026 : https://www.unenouvelleenergie.fr/changer-de-logiciel-fiscal/
+  lisnard: { option: D, source: "D. Lisnard, tribune « Changer de logiciel fiscal », Atlantico, reprise par Nouvelle Énergie, 16/04/2026", statut: deduite }
+  # É. Philippe, « Pour une France plus prospère », edouardphilippe.fr, 2026 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+  philippe: { option: D, source: "É. Philippe, « Pour une France plus prospère », edouardphilippe.fr, 2026", statut: deduite }
+  # Les Écologistes, « Pour une prospérité écologique », nouveau programme, juillet 2026, ch. 17 « Refonder le pacte fiscal », mesure 1 (p. 66 du PDF) : https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
+  tondelier: { option: A, source: "Les Écologistes, « Pour une prospérité écologique », nouveau programme, juillet 2026, ch. 17 « Refonder le pacte fiscal », mesure 1 (p. 66 du PDF)", statut: officielle }
+  # Assemblée nationale, PLF 2027, amendement n° I-3931 de N. Sansu et des députés GDR (dont les communistes Bourouaha, Brugerolles, Faucillon, Monnet, Peu), 10/10/2026 (rejeté) : https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/3931.pdf
+  roussel: { option: A, source: "Assemblée nationale, PLF 2027, amendement n° I-3931 de N. Sansu et des députés GDR (dont les communistes Bourouaha, Brugerolles, Faucillon, Monnet, Peu), 10/10/2026 (rejeté)", statut: deduite }
+# Zemmour, Dupont-Aignan : aucune source trouvée. Arthaud : éditorial du 07/11/2025 jugeant la taxe insuffisante sans dire
+# si elle la voterait (https://journal.lutte-ouvriere.org/medias/journalnumero/fichiers/2025/11/2988-web.pdf) : non classée.
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/039-taxe-zucman.md (chaque chiffre y a sa source
+# numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : une taxe votée une fois puis repoussée ; des
+# fortunes qui ont beaucoup grossi ; les quatre choix de la fiche ; les camps s'opposent sur la taxe.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.3, [1] [2] [4] [8].
+    etapes:
+      - { quand: "Février 2025", valeur: "Adoptée" }
+      - { quand: "Octobre 2026", valeur: "Rejetée" }
+    chute: "… par les députés. Entre les deux, le Sénat puis l'Assemblée l'avaient déjà repoussée : elle n'existe pas dans la loi."
+  ecart:
+    # § 2i, [35] : estimations d'un magazine (source secondaire), d'où la chute ; même série, deux dates. L'année de
+    # départ n'est connue qu'à peu près (« il y a 20 ans », écrit l'Observatoire en 2025) : « Vers 2005 ».
+    titre: "Ce que possèdent les 500 plus grandes fortunes, en milliards d'euros"
+    etapes:
+      - { quand: "Vers 2005", valeur: "170" }
+      - { quand: "En 2025", valeur: "1 128" }
+    chute: "Ce sont des estimations d'un magazine, en euros de chaque année : elles suivent la Bourse et ont baissé en 2025 et 2026."
+    source: "Challenges, 2025"
+  leviers:
+    # § 1.2, 2f, 2g et 4, [3] [11] [12] [14] [23]. Les quatre options de la fiche, dans son ordre, pour que « ne rien
+    # ajouter » ait sa carte comme les autres, ici et sur l'écran final. La chute dit ce qui existe déjà (impôt minimum
+    # de 2025, taxe sur les holdings de 2026) : ce que D garde et ce que C veut resserrer.
+    titre: "Pour l'impôt des plus grandes fortunes, quatre choix"
+    choix:
+      - { texte: "Créer la taxe Zucman", detail: "au moins 2 % par an au-delà de 100 millions d'euros, entreprises comprises" }
+      - { texte: "Taxer la fortune, pas les entreprises", detail: "par exemple 0,5 % par an, comme le propose la Cour des comptes" }
+      - { texte: "Viser les façons d'éviter l'impôt", detail: "les bénéfices gardés dans des sociétés, l'impôt minimum sur les hauts revenus" }
+      - { texte: "Ne rien ajouter", detail: "aucun nouvel impôt, l'effort passe par la baisse des dépenses" }
+    chute: "Il existe déjà un impôt minimum sur les très hauts revenus, et une taxe sur les biens de luxe gardés dans des sociétés."
+    source: "Sénat, 2025 et 2026 ; Cour des comptes, 2026 ; Assemblée nationale, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: la taxe Zucman }
+  # Chaque réponse est le meilleur argument de son camp ; les estimations sont dites comme telles. L'origine des
+  # chiffres est dite de la même façon des deux côtés : par le nom de l'organisme, dans la source.
+  questions:
+    # § 2a, [15] [17] : même mesure de base (impôts rapportés au revenu, bénéfices gardés dans les sociétés compris),
+    # même taux de 26 % pour les milliardaires (26,2 %). L'Institut de l'entreprise recalcule le foyer à l'entrée des
+    # 10 % les plus aisés en comptant aussi le loyer qu'il n'a pas à payer et l'épargne sans impôt : 24,5 % au lieu de
+    # 29,9 %, d'où « selon un autre calcul ». Les deux camps ne comparent pas au même groupe : chacun le nomme.
+    - question: "Les plus riches paient-ils moins d'impôts, en proportion ?"
+      pour: { affirmation: "Moins que d'autres très riches.", chiffre: "26 %", texte: "Selon une estimation, l'impôt prend 26 % du revenu des milliardaires, contre 46 % pour le 0,1 % le plus aisé.", source: "Institut des politiques publiques, 2023" }
+      contre: { affirmation: "Plus qu'un foyer aisé.", chiffre: "24,5 %", texte: "Selon un autre calcul, un foyer à l'entrée des 10 % les plus aisés paie 24,5 %, moins que les milliardaires.", source: "Institut de l'entreprise, 2026" }
+    # § 2b et 2i, [3] [16] [21] : deux estimations faites en 2025, pour le même impôt, par an ; l'une est une
+    # recette, l'autre une baisse du déficit (les sept économistes ne disent pas, dans l'étude, ce qu'ils ont compté).
+    # Le chiffre les rapporte au même déficit public de 2025, 152,5 milliards (calcul de l'étude, § 2i) : l'affirmation
+    # donne la somme, le chiffre ce qu'elle pèse, sans sigle.
+    - question: "Combien rapporterait-elle chaque année ?"
+      pour: { affirmation: "Environ 20 milliards d'euros.", chiffre: "13 %", texte: "Gabriel Zucman, qui l'a conçue, l'estime à 20 milliards, à 5 près, soit 13 % du déficit public de 2025.", source: "Sénat, 2025 ; Insee, 2026" }
+      contre: { affirmation: "Environ 5 milliards d'euros.", chiffre: "3 %", texte: "Sept économistes estiment qu'elle réduirait le déficit de 5 milliards, soit 3 % de celui de 2025.", source: "OFCE, 2026 ; Insee, 2026" }
+    # § 2d, [18] [3]. Le camp CONTRE parle en premier ici : son affirmation se comprend seule.
+    - question: "Les plus riches quitteraient-ils la France ?"
+      pour: { affirmation: "Peu partent.", chiffre: "0,2 %", texte: "Chaque année, 0,2 % des 1 % les plus aisés partent à l'étranger, deux fois moins que l'ensemble des Français.", source: "Conseil d'analyse économique, 2025" }
+      contre: { affirmation: "Quelques départs coûteraient cher.", chiffre: "3 foyers", texte: "Selon le Sénat, si les trois plus grandes fortunes partaient, la recette attendue baisserait de moitié.", source: "Sénat, 2025" }
+    # § 2a et 2c, [12] [3].
+    - question: "Faut-il compter les entreprises qu'ils possèdent ?"
+      pour: { affirmation: "Oui, l'argent y est moins taxé.", chiffre: "1,25 %", texte: "Un dividende versé à une personne est taxé à 31,4 %, et à 1,25 % s'il va dans sa société de détention.", source: "Assemblée nationale, 2026" }
+      contre: { affirmation: "Non, ce serait trop lourd.", chiffre: "2 sur 3", texte: "Si une entreprise rapporte 3 % par an à son propriétaire, l'impôt de 2 % en prendrait les deux tiers.", source: "Sénat, 2025" }

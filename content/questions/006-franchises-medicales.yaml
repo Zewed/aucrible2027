@@ -35,7 +35,7 @@ options:
     axes: { economie: -2 }
   - id: B
     libelle: Ne pas les augmenter
-    implique: Les montants, 1 euro par boîte et 2 euros par consultation, restent inchangés et le plafond annuel reste à 100 euros, comme avant octobre 2026.
+    implique: Les montants, 1 euro par boîte et 2 euros par consultation, restent inchangés et le plafond annuel revient à 100 euros, comme avant octobre 2026.
     defenseurs: "Ceux qui en paient le plus sont les plus malades : une hausse pénalise davantage les ménages en mauvaise santé et peut conduire à renoncer à des soins."
     critiques: Sans nouvelle recette, il faut trouver ailleurs les économies d'une dépense de santé qui progresse de 3,3 % par an.
     axes: { economie: -1 }
@@ -77,3 +77,69 @@ positions:
   melenchon: { option: A, source: "L'Avenir en commun, édition 2025, mesures 3 et 5", statut: officielle }
   # https://www.publicsenat.fr/actualites/sante/hausse-des-franchises-medicales-la-methode-bayrou-heurte-egalement-au-senat (« son refus de voir ces franchises médicales relevées », 05/09/2025) ; https://nosparlementaires.fr/actualites/franchises-medicales-decret-plafond-vote-assemblee (vote du groupe DR, 08/11/2025)
   retailleau: { option: B, source: "Public Sénat, 05/09/2025, et vote du groupe, 08/11/2025", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/006-franchises-medicales.md (chaque chiffre y a sa
+# source numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : le plafond de ce qu'un patient paie de sa
+# poche n'avait pas bougé de 2008 à 2026 ; il monte ; quatre choix répartissent la note entre les patients qui se
+# soignent et la Sécurité sociale, donc les impôts et les cotisations. Comme le titre de la fiche, le reportage appelle
+# « franchises » les franchises et les participations forfaitaires ensemble.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1 et compléments C1, [10] [16] [17] : le plafond cumulé, 50 € de franchises + 50 € de participations de 2008 à
+    # septembre 2026, 70 + 70 € depuis le 1er octobre 2026. Pas les montants par boîte (doublés en 2024) : ils vont à
+    # la question 1. La chute dit « les franchises » : le plafond ne couvre pas tout ce qu'un patient paie de sa poche
+    # (le reste à charge de la question 1 est plus large).
+    etapes:
+      - { quand: En 2008, valeur: "100 €" }
+      - { quand: "Aujourd'hui", valeur: "140 €" }
+    chute: "… par an au plus : les franchises qu'un patient paie de sa poche sur ses boîtes de médicaments et ses consultations."
+  # Pas de « mécanisme » : aucun rapport « X pour 1 » ne résume le sujet. Pas d'« écart » : l'étude n'a pas de grandeur
+  # mesurée à deux dates qui éclaire mieux le débat que le plafond de l'accroche, et ce que rapportent les franchises
+  # est dit par la chute des leviers.
+  leviers:
+    # Options de la fiche, § 1 et enjeu 1, [9] [10]. Les quatre options, à égalité ; la chute dit qui paie aujourd'hui
+    # (les patients) et qui paierait si on les baissait (les impôts, les cotisations ou des économies), en 130
+    # caractères au plus pour tenir sur deux lignes sans recouvrir les cartes.
+    titre: "Les franchises : quatre choix"
+    choix:
+      - { texte: Les supprimer, detail: plus rien à payer par boîte ni par consultation }
+      - { texte: Ne pas les augmenter, detail: "un plafond à 100 € par an, comme avant octobre 2026" }
+      - { texte: Les relever peu à peu, detail: "140 € par an, une autre hausse en 2028, puis selon les prix" }
+      - { texte: Les doubler, detail: "un plafond à 200 €, étendu au dentiste et au matériel médical" }
+    chute: "Les patients ont payé 2,5 milliards d'euros de franchises en 2025. Les baisser exige plus d'impôts, de cotisations ou d'économies."
+    source: "Cour des comptes, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: une hausse des franchises }
+  # Chaque question oppose deux faits qui répondent à la même question, et chaque texte dit ce qu'il mesure. Aucune ne
+  # reprend le face-à-face de la fiche 044 (dépassements d'honoraires : modestes contre aisés, en euros et en part).
+  questions:
+    # Enjeu 5 et compléments C1 et C2, [2] [16] : deux mesures de ce que paient les patients, chacune avec son point de
+    # comparaison dit dans le texte. Le pour compare à l'Union européenne la même année (2024, la dernière commune à
+    # tous les pays : d'où 9,8 % et non les 9,7 % de 2025 de la fiche) ; le contre compare à la France d'avant 2024.
+    - question: "Les patients paient-ils peu en France ?"
+      pour: { affirmation: "Moins que presque partout en Europe.", chiffre: "9,8 %", texte: "En 2024, les ménages ont payé eux-mêmes 9,8 % des dépenses de santé, le 3e taux le plus bas de l'Union européenne.", source: "DREES, 2026" }
+      contre: { affirmation: "Plus qu'avant : le double par boîte.", chiffre: "×2", texte: "Depuis 2024, on paie 1 € par boîte de médicaments et 2 € par consultation : deux fois plus qu'avant.", source: "DREES, 2026" }
+    # Enjeu 2 et compléments C3, [9] [18] : les mêmes malades (en affection de longue durée), la même unité (euros par
+    # an), deux moyennes : ce qu'ils paient en tout avant le plafond à 140 € (Cour des comptes, données postérieures au
+    # doublement de 2024 et antérieures au plafond à 140 €) et ce que ce plafond leur ajoute (estimation du
+    # gouvernement, « environ 2 € par mois », soit 24 € par an, calcul de l'étude). Un total d'un côté, une hausse de
+    # l'autre : chaque texte dit lequel. Les deux sont lus dans la presse spécialisée. Le contre parle en premier.
+    - question: "Une hausse pèse-t-elle lourd sur les malades ?"
+      pour: { affirmation: "Non, environ 2 € de plus par mois.", chiffre: "+24 €", texte: "Selon une estimation du gouvernement, passer à 140 € coûte aux malades de longue durée environ 24 € de plus par an, en moyenne.", source: "Gouvernement, 2026" }
+      contre: { affirmation: "Oui, ils paient déjà le plus.", chiffre: "78 €", texte: "Avant le plafond à 140 €, les malades de longue durée payaient en moyenne 78 € par an de franchises, les autres 41 €.", source: "Cour des comptes, 2026" }
+    # Enjeu 3 et compléments C4, [16] [17] : la même enquête (Irdes, 2008, quand la franchise valait 50 centimes par
+    # boîte), la même question (avez-vous changé vos achats de médicaments à cause des franchises ?). Le contre donne
+    # l'écart selon le revenu, le pour la part de tous ceux qui n'ont rien changé : ce ne sont pas les deux faces d'une
+    # même réponse (14 % des plus modestes d'un côté, 88 % de l'ensemble de l'autre). Le contre parle en premier et ne
+    # renvoie pas à l'autre carte ; les deux cartes disent l'année et les 50 centimes d'alors, avec le même verbe.
+    - question: "Les franchises font-elles renoncer à des médicaments ?"
+      pour: { affirmation: "Non, pour la grande majorité.", chiffre: "88 %", texte: "Dans la même enquête de 2008, la franchise de 50 centimes n'a rien changé aux achats de 88 % des patients.", source: "Irdes, 2010" }
+      contre: { affirmation: "Oui, d'abord les plus modestes.", chiffre: "14 %", texte: "Selon une enquête de 2008, la franchise de 50 centimes a changé les achats de 14 % des plus modestes, 8 % des plus aisés.", source: "Irdes, 2010" }
+    # Enjeu 6 et compléments C5, [16] [19] : la question reste large (impôts, cotisations ou économies, comme la chute
+    # des leviers) ; chaque camp y répond par oui ou non, et les deux chiffres portent sur la voie des impôts et des
+    # cotisations. Le pour donne leur niveau en France, comparé aux autres pays la même année (Eurostat, 2024, chiffres
+    # lus dans un résumé) ; le contre, le poids d'une hausse sur les plus modestes, comparé à une hausse des franchises
+    # qui rapporte autant (simulation de la DREES, 1 milliard d'euros chacune). Ce ne sont pas les mêmes mesures, et
+    # chaque texte dit la sienne. Aucun chiffre de l'étude ne mesure la voie des économies.
+    - question: "Peut-on trouver l'argent autrement ?"
+      pour: { affirmation: "Non, impôts et cotisations sont déjà hauts.", chiffre: "45,3 %", texte: "En 2024, impôts et cotisations représentaient 45,3 % de la richesse produite en France, le 2e taux de l'Union européenne.", source: "Eurostat, 2025" }
+      contre: { affirmation: "Oui, plus léger pour les modestes.", chiffre: "2 fois moins", texte: "Selon une simulation, pour la même somme, impôts et cotisations coûteraient deux fois moins aux plus modestes que les franchises.", source: "DREES, 2026" }

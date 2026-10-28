@@ -1,0 +1,146 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/046-delit-de-sejour.md (tout ce qui suit y est sourcé).
+# Vocabulaire : « clandestins » et « sans-papiers » sont des mots disputés, attribués dans l'étude ; la fiche dit
+# « étranger sans titre de séjour », comme le droit (« en situation irrégulière »). L'OQTF est expliquée dans le contexte.
+# Options : A et B rétablissent le délit (prison ou amende) ; C et D ne le rétablissent pas (renvoyer plus, ou
+# régulariser plutôt qu'expulser). Le scrutin du 30/10/2025 écarte A et B sans trancher entre C et D.
+numero: 46
+date: 2026-09-12
+theme: immigration
+question: "Faut-il rétablir le délit de séjour irrégulier ?"
+titreCourt: "Le délit de séjour irrégulier"
+contexte:
+  - "Jusqu'à la fin de 2012, un étranger resté en France sans titre de séjour commettait un délit, puni d'un an de prison et de 3 750 euros d'amende ; la loi l'a supprimé après deux arrêts de la Cour de justice de l'Union européenne."
+  - "Aujourd'hui, il peut recevoir une obligation de quitter le territoire français (OQTF), l'ordre écrit du préfet de partir, en général sous 30 jours ; s'il reste, il peut être placé dans un centre fermé, dit de rétention, puis renvoyé de force."
+  - "Le Parlement a rétabli le délit en 2023, puni d'une amende, mais le Conseil constitutionnel l'a censuré pour une raison de procédure ; le 30 octobre 2025, l'Assemblée nationale a rejeté par 209 voix contre 169 un texte du RN qui reprenait celui de 2023."
+chiffres:
+  - valeur: "8,3 %"
+    legende: "des obligations de quitter le territoire ont été exécutées en 2024 ; 10,9 % estimés sur neuf mois en 2025"
+    source: { organisme: "Sénat", document: "avis sur le budget 2026, Immigration, asile et intégration", annee: 2025 }
+  - valeur: "137 550"
+    unite: étrangers
+    legende: "ont reçu l'ordre de quitter la France en 2025, le plus grand nombre de l'Union européenne (28 % du total)"
+    source: { organisme: "Eurostat", annee: 2026 }
+  - valeur: "209"
+    unite: députés
+    legende: "ont refusé le retour du délit, puni d'une amende, contre 169, le 30 octobre 2025"
+    source: { organisme: "Assemblée nationale", document: "scrutin n° 3261", annee: 2025 }
+options:
+  - id: A
+    libelle: "Le rétablir, avec de la prison"
+    implique: "Rester en France sans titre de séjour redevient un délit puni de prison et d'amende, comme jusqu'en 2012 ; le droit européen autorise aujourd'hui la prison une fois la procédure de renvoi menée à son terme, pas avant."
+    defenseurs: "Seule une peine de prison permet la garde à vue, qui donnait à la police le temps d'identifier les étrangers à renvoyer ; la retenue actuelle, 24 heures sans accès à leur téléphone, n'y suffit pas, et la prison ferme dissuade de rester."
+    critiques: "En 2011, la Cour de justice de l'Union a jugé la prison contraire au droit européen tant que la procédure de renvoi n'est pas allée à son terme, et en 2012, la Cour de cassation a exclu la garde à vue pour ce motif ; avant 2012, 500 à 600 étrangers par an étaient condamnés pour ce seul délit."
+    axes: { societe: 2 }
+  - id: B
+    libelle: "Le rétablir, avec une amende"
+    implique: "Rester en France sans titre de séjour redevient un délit puni de 3 750 euros d'amende, et le juge peut interdire le territoire pendant trois ans, comme l'avait voté le Parlement en 2023 ; la garde à vue reste impossible."
+    defenseurs: "Une règle sans sanction n'est pas respectée : moins de 1,5 % des étrangers qui reçoivent l'ordre de partir le font d'eux-mêmes. Le droit européen permet l'amende, et la plupart des pays de l'Union sanctionnaient ce séjour en 2013."
+    critiques: "Ses opposants, dont le ministre de l'Intérieur en 2025, y voient un symbole : sans prison, la police n'a aucun pouvoir de plus, l'amende viserait des personnes souvent sans ressources et des milliers de dossiers encombreraient les tribunaux."
+    axes: { societe: 1 }
+  - id: C
+    libelle: "Renvoyer plus, sans délit"
+    implique: "Pas de délit : l'État mise sur plus de places en centre de rétention (de moins de 2 000 à 3 000 en 2029), sur la pression envers les pays qui refusent de reprendre leurs ressortissants et sur de nouveaux moyens d'identifier les étrangers."
+    defenseurs: "Ce qui bloque les départs, ce sont les pays d'origine, l'identification et le manque de places : la rétention est le moyen le plus sûr de renvoyer, selon le Sénat, alors qu'un délit puni d'une amende ne donnerait aucun pouvoir de plus à la police."
+    critiques: "Pour les uns, sans sanction l'ordre de partir reste ignoré, et en 2024, six étrangers sur dix sont sortis de rétention sans être renvoyés ; pour les autres, enfermer coûte cher (16 200 euros par séjour en 2022) et la pression sur les visas a eu une efficacité « en demi-teinte »."
+    axes: { societe: 0 }
+  - id: D
+    libelle: "Régulariser plutôt qu'expulser"
+    implique: "Pas de délit et moins d'enfermement : les étrangers installés ou qui travaillent obtiennent un titre de séjour, et ceux qui doivent partir sont aidés à rentrer chez eux plutôt que placés en rétention."
+    defenseurs: "Être sans titre est une situation administrative, pas une faute, parfois créée par l'attente en préfecture ; un titre sort ces personnes de l'exploitation, et un départ aidé coûte quatre fois moins qu'un renvoi forcé."
+    critiques: "Des étrangers sous ordre de partir resteraient sans sanction et pourraient espérer un titre, ce qui attirerait d'autres arrivées selon ses opposants ; en 2024, 6 909 personnes sont parties avec une aide au retour, en dessous de l'objectif de 8 000."
+    axes: { societe: -2 }
+pourAllerPlusLoin:
+  - titre: "Cour des comptes, La politique de lutte contre l'immigration irrégulière, 2024"
+    url: https://www.ccomptes.fr/fr/publications/la-politique-de-lutte-contre-limmigration-irreguliere
+  - titre: "Assemblée nationale, rapport sur le rétablissement du délit de séjour irrégulier, 2025"
+    url: https://www.assemblee-nationale.fr/dyn/17/rapports/cion_lois/l17b1987_rapport-fond.pdf
+  - titre: "Conseil constitutionnel, décision n° 2023-863 DC du 25 janvier 2024"
+    url: https://www.conseil-constitutionnel.fr/decision/2024/2023863DC.htm
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour rétablir le délit"
+    argument: "Une règle sans sanction n'est pas respectée : sans peine, l'ordre de quitter la France reste ignoré."
+  - titre: "Pour ne pas le rétablir"
+    argument: "Un délit puni d'une amende serait un symbole : il ne donnerait aucun pouvoir de plus à la police, et les départs bloquent ailleurs."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Le rétablir"
+    precision: "avec une amende ou de la prison"
+  - choix: "Ne pas le rétablir"
+    precision: "et faire autrement"
+positions:
+  # Debout la France, « Immigration et assimilation », mesure 2 (« Rétablir le délit de séjour irrégulier puni d'emprisonnement ferme »), document du 03/03/2026 : https://www.debout-la-france.fr/projet/immigration-et-assimilation/
+  # Proposition de loi n° 1839 de S. Josserand et des membres du groupe RN (dont M. Le Pen), article unique, 16/09/2025 : https://questions.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B1839.html
+  le-pen: { option: B, source: "Proposition de loi n° 1839 de S. Josserand et des membres du groupe RN (dont M. Le Pen), article unique, 16/09/2025", statut: deduite }
+  # Communiqué signé Bruno Retailleau, président des Républicains, 31/10/2025 ; Sénat, amendement n° 342 rect. bis cosigné, 06/11/2023 : https://republicains.fr/actualites/2025/10/31/face-a-lalgerie-un-vote-de-fermete/
+  retailleau: { option: B, source: "Communiqué signé Bruno Retailleau, président des Républicains, 31/10/2025 ; Sénat, amendement n° 342 rect. bis cosigné, 06/11/2023", statut: officielle }
+  # X. Albertini pour le groupe Horizons, commission des lois, 22/10/2025 (rapport n° 1987) ; vote Horizons contre la suppression (4 contre, 1 pour), scrutin n° 3261, 30/10/2025 : https://www.assemblee-nationale.fr/dyn/17/rapports/cion_lois/l17b1987_rapport-fond.pdf
+  philippe: { option: B, source: "X. Albertini pour le groupe Horizons, commission des lois, 22/10/2025 (rapport n° 1987) ; vote Horizons contre la suppression (4 contre, 1 pour), scrutin n° 3261, 30/10/2025", statut: deduite }
+  # T. Cazenave pour le groupe EPR (qu'il préside), commission des lois, 22/10/2025 (rapport n° 1987) ; vote personnel pour la suppression, scrutin n° 3261, 30/10/2025 : https://www.assemblee-nationale.fr/dyn/17/rapports/cion_lois/l17b1987_rapport-fond.pdf
+  attal: { option: C, source: "T. Cazenave pour le groupe EPR (qu'il préside), commission des lois, 22/10/2025 (rapport n° 1987) ; vote personnel pour la suppression, scrutin n° 3261, 30/10/2025", statut: deduite }
+  # Livret « Migrations » de la campagne 2022 de J.-L. Mélenchon ; L'Avenir en commun, édition 2025, chap. 16 : https://web.archive.org/web/20220401000000/https://melenchon2022.fr/livrets-thematiques/migrations/
+  melenchon: { option: D, source: "Livret « Migrations » de la campagne 2022 de J.-L. Mélenchon ; L'Avenir en commun, édition 2025, chap. 16", statut: deduite }
+  # Discours de Nathalie Arthaud à la fête de Lutte ouvrière (mai 2026), brochure « Présidentielle 2027 », juin 2026 : https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure_caravane_2026-01_-_couleur.pdf
+  arthaud: { option: D, source: "Discours de Nathalie Arthaud à la fête de Lutte ouvrière (mai 2026), brochure « Présidentielle 2027 », juin 2026", statut: officielle }
+  # Debout la France, livret « Immigration et assimilation », mesure 2, 03/03/2026 : https://www.debout-la-france.fr/projet/immigration-et-assimilation/
+  dupont-aignan: { option: A, source: "Debout la France, livret « Immigration et assimilation », mesure 2, 03/03/2026", statut: officielle }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/046-delit-de-sejour.md (chaque chiffre y a sa source
+# numérotée, voir son annexe). Le fil : le délit a disparu en 2013 ; environ un ordre de partir sur dix est exécuté ;
+# quatre choix sont sur la table. Pas de mécanisme : aucun ratio « X pour 1 » ne résume le sujet (et l'écran est dessiné
+# pour les retraites).
+reportage:
+  accroche:
+    # § 1.1 et 1.3, [1] [8] : la peine encourue avant 2012 (un an au plus, et 3 750 euros) ; depuis le 01/01/2013,
+    # aucune peine pour le seul séjour (l'entrée irrégulière et le maintien après une rétention restent punis).
+    etapes:
+      - { quand: "Jusqu'en 2012", valeur: "1 an de prison" }
+      - { quand: "Depuis 2013", valeur: "Aucune peine" }
+    chute: "… pour un étranger resté en France sans titre de séjour. Depuis, l'État peut lui ordonner de partir, sans le punir pour ce seul fait."
+  ecart:
+    # § 1.2, [10] : le même indicateur de la DGEF, repris par le Sénat ; 2025 porte sur les neuf premiers mois.
+    titre: "Combien d'ordres de quitter la France sont exécutés ?"
+    etapes:
+      - { quand: "En 2024", valeur: "8,3 %" }
+      - { quand: "En 2025", valeur: "10,9 %" }
+    chute: "Une OQTF est l'ordre écrit du préfet de quitter la France. Ces taux sont des estimations, sur neuf mois pour 2025."
+    source: "Sénat, 2025"
+  leviers:
+    # § 4 : les quatre options de la fiche, à égalité ; § 2c, [1] [8] pour la chute : ce que le droit européen permet à
+    # B (amende, arrêt Sagor de 2012) et à A (prison après la procédure de renvoi, arrêts El Dridi et Achughbabian de 2011).
+    titre: "Quatre choix possibles"
+    choix:
+      - { texte: "Le rétablir, avec prison", detail: "comme avant 2012, pour tout étranger resté sans titre de séjour" }
+      - { texte: "Le rétablir, avec amende", detail: "3 750 euros et une interdiction du territoire, comme voté en 2023" }
+      - { texte: "Renvoyer plus, sans délit", detail: "plus de places en rétention et de pression sur les pays d'origine" }
+      - { texte: "Régulariser plutôt qu'expulser", detail: "un titre pour qui travaille, une aide pour rentrer plutôt que l'enfermement" }
+    chute: "Le droit européen permet une amende, si elle n'empêche pas le renvoi, et la prison une fois la procédure de renvoi menée à son terme."
+    source: "Cour de justice de l'Union européenne, 2011 et 2012"
+  camps: { pour: POUR, contre: CONTRE, objet: "le retour du délit" }
+  questions:
+    # § 1.1, [1] : deux règles du code des étrangers, même peine (un an de prison) ; le POUR montre l'entrée punie et le
+    # séjour non, le CONTRE montre que le maintien en France après une rétention l'est déjà (214 condamnations en 2024) ; son
+    # affirmation dit « après une rétention », pas « s'il refuse de partir » : le seul refus d'une OQTF n'est pas puni.
+    - question: "Rester sans titre doit-il être puni ?"
+      pour: { affirmation: "Oui, comme l'entrée irrégulière.", chiffre: "1 an", texte: "Entrer en France sans autorisation est puni d'un an de prison. Y rester sans titre ne l'est plus.", source: "Assemblée nationale, 2025" }
+      contre: { affirmation: "Déjà, s'il reste après une rétention.", chiffre: "214", texte: "Rester après une rétention sans renvoi est puni d'un an de prison : 214 étrangers condamnés en 2024.", source: "Assemblée nationale, 2025" }
+    # § 2a, 1.2 et 2b, [9] [1] [4] : le 1,5 % est un comptage incomplet, mais la Cour des comptes juge le nombre réel
+    # « probablement pas significativement supérieur » (§ 1.2) ; les deux sont dits. Le CONTRE donne le meilleur argument
+    # de l'étude sur l'effet d'une amende, le seul sur lequel tous s'accordent (§ 2b, 3) : sans prison, pas de garde à vue,
+    # donc « aucun pouvoir coercitif supplémentaire » (L. Nuñez) pour identifier et renvoyer ; la retenue reste à 24 heures.
+    - question: "Une amende ferait-elle partir davantage ?"
+      pour: { affirmation: "Oui, l'ordre seul ne suffit pas.", chiffre: "1,5 %", texte: "Moins de 1,5 % des étrangers sommés de partir quittent la France d'eux-mêmes : un compte incomplet, mais sans doute proche du réel.", source: "Cour des comptes, 2024" }
+      contre: { affirmation: "Non, la police n'y gagne rien.", chiffre: "24 h", texte: "Sans prison, pas de garde à vue : pour identifier un étranger à renvoyer, la police le garde 24 heures au plus.", source: "Assemblée nationale, 2025" }
+    # § 2a, [9] [10] : deux obstacles relevés par les rapports officiels, chacun avec son chiffre ; 44 641 personnes de
+    # 2019 à février 2023 ; 40 % des retenus des centres de rétention de métropole (pas d'outre-mer) en 2025, coopération
+    # algérienne arrêtée en mars 2025. Aucune source ne mesure la part de chaque obstacle (§ 2a).
+    - question: "Qu'est-ce qui bloque les départs ?"
+      pour: { affirmation: "Ils restent, ordre après ordre.", chiffre: "44 641", texte: "De 2019 à début 2023, 44 641 étrangers ont reçu plusieurs ordres de quitter la France.", source: "Cour des comptes, 2024" }
+      contre: { affirmation: "Des pays refusent leur retour.", chiffre: "40 %", texte: "En 2025, en métropole, 40 % des étrangers en rétention étaient Algériens. L'Algérie bloquait leur retour depuis mars.", source: "Sénat, 2025" }
+    # § 2g, [10] [9] : six sur dix = 100 - 38,8 = 61,2 % (calcul de l'étude, à partir du taux de renvoi à l'issue de la
+    # rétention en métropole, 2024) ; le CONTRE : 34 % des départs avec une aide, moyenne 2017-2022, dite dans le texte
+    # comme l'année du POUR ; 1 120 euros contre 4 414 pour un renvoi forcé.
+    - question: "Peut-on les faire partir sans les punir ?"
+      pour: { affirmation: "Non, la rétention ne suffit pas.", chiffre: "6 sur 10", texte: "En 2024, en métropole, six étrangers placés en rétention sur dix en sont sortis sans être renvoyés.", source: "Sénat, 2025" }
+      contre: { affirmation: "Oui, avec l'aide au retour.", chiffre: "1 sur 3", texte: "De 2017 à 2022, un départ sur trois s'est fait avec une aide pour rentrer, quatre fois moins chère qu'un renvoi forcé.", source: "Cour des comptes, 2024" }

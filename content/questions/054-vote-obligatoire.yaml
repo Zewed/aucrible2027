@@ -1,0 +1,138 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/054-vote-obligatoire.md (tout ce qui suit y est sourcé).
+# La reconnaissance du vote blanc a sa propre fiche (055) : celle-ci n'en parle que pour le lien (étude, § 2j).
+# Aucune note d'axe : le vote obligatoire est défendu par LFI, le groupe LIOT et des sénateurs de droite et de gauche,
+# combattu par le RN, Renaissance, Horizons et les écologistes ; le clivage ne suit ni l'axe économique ni l'axe
+# progressiste/conservateur (étude, § 4).
+numero: 54
+date: 2026-09-04
+theme: institutions-democratie
+question: "Faut-il rendre le vote obligatoire ?"
+titreCourt: "Le vote obligatoire"
+contexte:
+  - "En France, voter est un droit et non une obligation : seuls les grands électeurs qui élisent les sénateurs risquent une amende, de 100 euros, s'ils ne votent pas."
+  - "Au premier tour de la présidentielle, 26 % des inscrits n'ont pas voté en 2022, contre 19 % en 1981 ; aux municipales de mars 2026, 43 % se sont abstenus."
+  - "Une vingtaine de pays obligent à voter, dont la Belgique, le Luxembourg et l'Australie ; en France, aucune des propositions de loi déposées en ce sens n'a été adoptée."
+chiffres:
+  - valeur: "26,3 %"
+    legende: "des inscrits n'ont pas voté au premier tour de la présidentielle de 2022, contre 18,9 % en 1981"
+    source: { organisme: Conseil constitutionnel, document: "décision n° 2022-195 PDR", annee: 2022 }
+  - valeur: "1 sur 4"
+    legende: "parmi les inscrits les plus modestes n'a voté à aucun tour en 2022, trois fois plus que chez les plus aisés"
+    source: { organisme: Insee, document: "Insee Première n° 1928", annee: 2022 }
+  - valeur: "90 %"
+    legende: "des inscrits environ votent aux élections nationales en Belgique, au Luxembourg et en Australie, où voter est obligatoire"
+    source: { organisme: Assemblée nationale, document: "rapport n° 1291", annee: 2023 }
+options:
+  - id: A
+    libelle: "Non, garder le vote libre"
+    implique: "Voter reste un droit que chacun est libre de ne pas exercer ; la participation passe par d'autres moyens : inscription automatique, procurations plus simples, éducation civique."
+    defenseurs: "Ne pas voter est aussi une liberté, et parfois un message : une obligation ne répond pas à la défiance envers la politique, et une amende pèserait d'abord sur les plus modestes, qui s'abstiennent le plus."
+    critiques: "Sans obligation, les jeunes et les plus modestes votent beaucoup moins : en 2022, un inscrit modeste sur quatre n'a voté à aucun tour, et les élus sont choisis par ceux qui votent, plus âgés et plus aisés."
+  - id: B
+    libelle: "Oui, mais sans amende"
+    implique: "La loi fait du vote un devoir : qui s'abstient sans motif valable reçoit d'abord un rappel à la loi, puis doit suivre un stage de citoyenneté, comme le prévoyaient des propositions de loi de 2021 et 2023."
+    defenseurs: "Affirmer que voter est un devoir civique, comme l'écrit déjà la carte électorale, sans faire payer ceux qui ont le moins : en Belgique, personne n'est sanctionné depuis 2003, et environ neuf inscrits sur dix votent."
+    critiques: "Pour les partisans de l'amende, une obligation sans sanction financière change peu la participation ; pour ses opposants, c'est une contrainte de plus, qu'il faudra bien faire respecter."
+  - id: C
+    libelle: "Oui, avec une amende"
+    implique: "Qui s'abstient sans motif valable paie une amende, comme le prévoit la loi en Belgique, au Luxembourg ou en Australie ; une proposition de loi de 2023 prévoyait 11 euros, et jusqu'à 38 euros en cas de retard."
+    defenseurs: "Là où l'amende existe, environ neuf inscrits sur dix votent : presque tout le monde, jeunes et modestes compris, participe au choix, et les candidats doivent s'adresser à tous."
+    critiques: "L'amende frapperait d'abord ceux qui votent le moins, souvent les plus modestes ; elle est difficile à appliquer (la Belgique n'a sanctionné personne depuis 2003) et fait voter des électeurs peu intéressés."
+pourAllerPlusLoin:
+  - titre: "Assemblée nationale, rapport de la mission d'information sur les ressorts de l'abstention, 2021"
+    url: https://www.assemblee-nationale.fr/dyn/15/rapports/micpelec/l15b4790_rapport-information.pdf
+  - titre: "Sénat, Le vote obligatoire, étude de législation comparée n° 301, 2022"
+    url: https://www.senat.fr/lc/lc301/lc301.html
+  - titre: "Insee, Élections présidentielle et législatives de 2022 : seul un tiers des électeurs a voté à tous les tours, 2022"
+    url: https://www.insee.fr/fr/statistiques/6658145
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour le vote obligatoire"
+    argument: "Là où il existe, environ neuf inscrits sur dix votent : presque tout le monde participe au choix, jeunes et modestes compris."
+  - titre: "Pour garder le vote libre"
+    argument: "Ne pas voter est aussi une liberté : une obligation ne répond pas à la défiance, et une amende pèserait d'abord sur les plus modestes."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Obligatoire"
+    precision: "avec ou sans amende"
+  - choix: "Libre"
+    precision: "comme aujourd'hui"
+positions:
+  # Groupe RN, présidé par Marine Le Pen : amendements de suppression CL5 (P. Bordes) et CL28 (G. Lelouis) de l'article 2 (vote obligatoire), commission des lois, 31/05/2023 : https://www.assemblee-nationale.fr/dyn/16/rapports/cion_lois/l16b1291_rapport-fond.pdf
+  # Groupe RN (présidé par M. Le Pen), amendements de suppression CL5 et CL28 de l'article 2, commission des lois, 31/05/2023 (rapport n° 1291) : https://www.assemblee-nationale.fr/dyn/16/rapports/cion_lois/l16b1291_rapport-fond.pdf
+  le-pen: { option: A, source: "Groupe RN (présidé par M. Le Pen), amendements de suppression CL5 et CL28 de l'article 2, commission des lois, 31/05/2023 (rapport n° 1291)", statut: deduite }
+  # Groupe Horizons (D. Lemaire), commission des lois, 31/05/2023 (rapport n° 1291) : https://www.assemblee-nationale.fr/dyn/16/rapports/cion_lois/l16b1291_rapport-fond.pdf
+  philippe: { option: A, source: "Groupe Horizons (D. Lemaire), commission des lois, 31/05/2023 (rapport n° 1291)", statut: deduite }
+  # Groupe écologiste, amendement de suppression CL15 de l'article 2, 26/05/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/1157/CION_LOIS/CL15.pdf
+  tondelier: { option: A, source: "Groupe écologiste, amendement de suppression CL15 de l'article 2, 26/05/2023", statut: deduite }
+  # Brut, 22/02/2022 ; amendement LFI n° 9 sur l'article 2 de la PPL n° 1291, 05/06/2023 ; programme 2027 : https://www.brut.media/fr/videos/droit-de-vote-a-16-ans-l-avis-de-jean-luc-melenchon
+  melenchon: { option: B, source: "Brut, 22/02/2022 ; amendement LFI n° 9 sur l'article 2 de la PPL n° 1291, 05/06/2023 ; programme 2027", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/054-vote-obligatoire.md (chaque chiffre y a sa source
+# numérotée). Le fil : de moins en moins d'inscrits votent ; l'obligation ferait voter presque tout le monde, mais à quel
+# prix et sous quelle contrainte ? Pas de mécanisme : aucun rapport « X pour 1 » ne résume le sujet.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.2, [1] [3] [8] : 18,9 % en 1981, 26,3 % en 2022 (12 824 169 abstentions sur 48 747 876 inscrits) ; municipales
+    # 2026 : participation de 57,17 % au premier tour, soit 42,8 % d'abstention.
+    etapes:
+      - { quand: "En 1981", valeur: "19 %" }
+      - { quand: "En 2022", valeur: "26 %" }
+    chute: "C'est la part des inscrits qui n'ont pas voté au premier tour de la présidentielle. Aux municipales de mars 2026, ils étaient 43 %."
+  ecart:
+    # § 2c, [29] : la même mesure (part des inscrits qui ont voté), deux scrutins nationaux successifs ; l'inscription était
+    # déjà automatique depuis 2012, seule l'obligation change. La chute nomme les deux scrutins, aux enjeux différents, puis
+    # donne le scrutin suivant (85 % en mai 2023, même tableau) : le niveau de 2022 n'était pas propre au référendum.
+    # Le contrepoids du camp CONTRE vient juste après, de la même enquête : la question 2 (43 %).
+    titre: "Au Chili, l'obligation est revenue"
+    etapes:
+      - { quand: "Fin 2021, vote libre", valeur: "56 %" }
+      - { quand: "En 2022, vote obligatoire", valeur: "86 %" }
+    chute: "C'est la part des inscrits qui ont voté, à une présidentielle puis à un référendum sur la Constitution. En mai 2023, ils étaient 85 %."
+    source: "Centre d'études publiques, Chili, 2023"
+  leviers:
+    # Les trois options de la fiche, à égalité et dans l'ordre. § 1.1, 2d et 2h, [9] [12] [14] [19]. La chute : la seule
+    # obligation de vote existante en France (article L. 318 du code électoral), payée par le grand électeur qui s'abstient.
+    titre: "Faut-il obliger à voter ? Trois réponses"
+    choix:
+      - { texte: "Laisser le vote libre", detail: "et rendre le vote plus simple : inscription automatique, procurations" }
+      - { texte: "Obliger, sans amende", detail: "un devoir inscrit dans la loi, avec un rappel puis un stage de citoyenneté" }
+      # L'Australie seule : la Belgique prévoit une amende mais ne sanctionne plus depuis 2003 (§ 2d, question 3).
+      - { texte: "Obliger, avec une amende", detail: "payée par qui s'abstient sans excuse, comme en Australie" }
+    chute: "Aujourd'hui en France, seuls les grands électeurs qui élisent les sénateurs doivent voter, sous peine d'une amende de 100 euros."
+    source: "Code électoral, article L. 318"
+  camps: { pour: POUR, contre: CONTRE, objet: "un vote obligatoire" }
+  # POUR rassemble les options B et C, CONTRE l'option A. Relu par IA le 28/10/2026 du point de vue de chaque camp, à
+  # vérifier par l'auteur.
+  questions:
+    # § 2b et 2e, [5] [30]. Les deux réponses parlent des mêmes personnes (les moins diplômés ou les plus modestes, ceux qui
+    # s'abstiennent le plus). POUR : l'écart mesuré en Flandre une fois l'obligation levée (élections locales de 2024),
+    # par un sondage, ce que dit « sondés ». CONTRE : l'étude note l'accord des experts sur la réduction des écarts (§ 2e),
+    # donc ce camp n'y répond pas « non » mais par le prix (« pèse sur ceux qui ont le moins ») ; son chiffre vient de
+    # l'Insee, relevé sur les listes d'émargement (24,9 % contre 8,2 %), ce que dit le texte.
+    - question: "L'obligation rend-elle le vote plus égal ?"
+      pour: { affirmation: "Oui : sans elle, les peu diplômés votent moins.", chiffre: "46 %", texte: "Aux élections locales flamandes de 2024, sans obligation, 46 % des peu diplômés sondés n'ont pas voté, contre 25 % des plus diplômés.", source: "Indiville pour la VRT, 2024" }
+      contre: { affirmation: "Au prix de sanctions pour les modestes.", chiffre: "1 sur 4", texte: "En 2022, selon l'Insee, un inscrit modeste sur quatre n'a voté à aucun tour, trois fois plus que les plus aisés.", source: "Insee, 2022" }
+    # § 2f, [29] : la même enquête, la même question (la raison principale du vote au référendum de 2022), lue sur tous
+    # les votants interrogés (17 %) puis sur ceux qui ne votaient jamais (43 %) ; chaque carte dit qui elle compte. La
+    # question demande ce que mesure l'enquête, sans juger ce vote (« un vrai choix ») ; chaque affirmation dit ce que
+    # son chiffre montre.
+    - question: "Avec l'obligation, vote-t-on surtout pour éviter l'amende ?"
+      pour: { affirmation: "Non, pas la plupart des votants.", chiffre: "17 %", texte: "Dans la même enquête, 17 % des votants interrogés disaient être venus surtout pour éviter l'amende.", source: "Centre d'études publiques, Chili, 2023" }
+      contre: { affirmation: "Souvent, chez ceux qui ne votaient jamais.", chiffre: "43 %", texte: "Au Chili en 2022, 43 % de ceux qui ne votaient jamais disaient être venus surtout pour éviter l'amende.", source: "Centre d'études publiques, Chili, 2023" }
+    # § 2d, [12] [13] : deux pays qui ont tous deux une amende dans la loi ; l'un l'envoie à chaque abstentionniste sans
+    # excuse (20 dollars australiens, 12,88 euros selon le Sénat, arrondis à 13), l'autre ne poursuit plus. La carte CONTRE
+    # dit « ne sanctionne plus », non que l'obligation n'y sert à rien : la Belgique garde environ 90 % de participation
+    # (§ 2c), ce que montrent les chiffres de la fiche.
+    - question: "Peut-on faire respecter l'obligation ?"
+      pour: { affirmation: "Oui, l'Australie fait payer les abstentionnistes.", chiffre: "13 €", texte: "En Australie, chaque électeur qui s'abstient sans excuse reçoit une amende de 20 dollars australiens, environ 13 euros.", source: "Sénat, 2022" }
+      contre: { affirmation: "Pas partout : la Belgique ne sanctionne plus.", chiffre: "0", texte: "En Belgique, aucun abstentionniste n'a été sanctionné depuis 2003 : la justice en a fait sa plus basse priorité.", source: "Ministère de l'Intérieur, 2020" }
+    # § 2k, [21] : le même sondage et la même question (« pour lutter contre l'abstention, diriez-vous qu'il faut… »), mais
+    # deux mesures distinctes : tous les sondés (44 %, vote obligatoire seul ou avec le vote blanc) et les foyers sous
+    # 900 euros par personne (35 %, contre 53 % au-dessus de 2 500 euros ; sous-échantillons). L'étude lit ce soutien plus
+    # faible « chez ceux qui s'abstiennent le plus ».
+    - question: "Les Français veulent-ils le vote obligatoire ?"
+      pour: { affirmation: "Plus de quatre sur dix, oui.", chiffre: "44 %", texte: "En 2023, 44 % des sondés le choisissaient pour lutter contre l'abstention, seul ou avec le vote blanc.", source: "Ifop pour Sud Radio, 2023" }
+      contre: { affirmation: "Non, et encore moins les plus modestes.", chiffre: "35 %", texte: "Dans le même sondage, 35 % des sondés les plus modestes le choisissaient, contre 53 % des plus aisés.", source: "Ifop pour Sud Radio, 2023" }

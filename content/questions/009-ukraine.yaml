@@ -9,7 +9,7 @@ titreCourt: "Les armes à l'Ukraine"
 contexte:
   - Depuis 2022, la France livre à l'Ukraine des armes (canons Caesar, missiles SCALP, avions Mirage 2000) et forme ses soldats ; les quantités ne sont pas publiques.
   - "Les montants dépendent de la méthode : le ministère des Armées compte 5,9 milliards d'euros de soutien militaire direct jusqu'à fin 2024, l'institut de Kiel 6,2 milliards jusqu'en juin 2026."
-  - La guerre continue, et des discussions entre la Russie, l'Ukraine et les États-Unis doivent reprendre en novembre.
+  - La guerre continue, et la Russie annonce des discussions avec l'Ukraine et les États-Unis en novembre.
 chiffres:
   - valeur: "5,9"
     unite: milliards d'euros
@@ -79,3 +79,55 @@ positions:
   attal: { option: D, source: "Vote du groupe EPR, 12/03/2025", statut: deduite }
   # Programme de juillet 2026, p. 197 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
   tondelier: { option: D, source: "Programme 2027, juillet 2026, p. 197", statut: officielle }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # Compléments C1, [16] [17] [18] : la même mesure (la part de l'Ukraine sous contrôle russe) avant l'invasion et
+    # aujourd'hui. 7 % : l'AFP (données de l'ISW), contrôle avant février 2022. 19 % : DeepState, 19,4 % au 25/08/2026,
+    # contrôle seul. Le 19 % de l'AFP (fin septembre 2025) compte aussi les zones que la Russie revendique : il n'est
+    # pas repris. Les discussions de novembre ne sont annoncées que par la Russie (23/10/2026) : la chute le dit.
+    etapes:
+      - { quand: "Avant l'invasion de 2022", valeur: "7 %" }
+      - { quand: "Aujourd'hui", valeur: "19 %" }
+    chute: "… de l'Ukraine est sous contrôle russe. La Russie annonce des discussions avec l'Ukraine et les États-Unis en novembre."
+  # Pas de « mécanisme » : aucun rapport « X pour 1 » ne résume le sujet. Pas d'« écart » : le montant de l'aide n'a pas
+  # de série à deux dates qui se compare (chaque total dépend de ce que l'on compte, § 2, enjeu 1).
+  leviers:
+    # Les quatre options de la fiche, à égalité. § 1, 2 (enjeu 1) et C6, [1] [3] [19] ; la chute dit qui paierait.
+    titre: "Les armes à l'Ukraine : quatre choix"
+    choix:
+      - { texte: "Arrêter", detail: "plus aucune livraison, et miser sur la négociation" }
+      - { texte: "Limiter", detail: "former, et livrer des armes pour se défendre, sans nouveau financement" }
+      - { texte: "Poursuivre", detail: "au niveau actuel, dans l'accord signé en 2024 pour dix ans" }
+      - { texte: "Renforcer", detail: "plus d'armes et d'argent, notamment pour la défense aérienne" }
+    chute: "Les quantités livrées ne sont pas publiées. L'aide est payée par le budget de l'État : par l'impôt ou par l'emprunt."
+    source: "Ministère des Armées, 2026 ; Insee, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: "l'aide militaire actuelle" }
+  # Le camp POUR réunit ceux qui veulent poursuivre et ceux qui veulent renforcer ; le camp CONTRE, ceux qui veulent
+  # limiter et ceux qui veulent arrêter : chacune de ses réponses vaut pour les deux. Aucun face-à-face des fiches 030
+  # (soldats) et 031 (sanctions) n'est repris : ni l'escalade nucléaire, ni l'opinion des Français, ni le prêt européen.
+  # Relu par IA le 28/10/2026, une lecture pour chaque camp puis un arbitrage ; à vérifier par l'auteur.
+  questions:
+    # § 2 (enjeu 1) et C2, [4] [19]. Les deux camps citent le même calcul de presse, sur le total le plus large (part
+    # européenne et prêts compris, moyenne 2022-2025) : le camp POUR le rapporte aux dépenses de l'État (1,34 %), le
+    # camp CONTRE en donne le montant par an (environ 6 milliards d'euros) et le met face à la dette publique (Insee,
+    # fin du 2e trimestre 2026). La dette seule ne mesurait pas ce que coûte l'aide.
+    - question: "La France a-t-elle les moyens de continuer ?"
+      pour: { affirmation: "Oui, l'aide pèse peu.", chiffre: "1,3 %", texte: "Selon un calcul de presse, l'aide de la France, part européenne comprise, fait 1,3 % des dépenses annuelles de l'État.", source: "Institut de Kiel ; franceinfo, 2026" }
+      contre: { affirmation: "Non, pas avec sa dette.", chiffre: "6 milliards €", texte: "Le même calcul donne 6 milliards par an, quand la dette publique atteint 119 % de la richesse produite en un an.", source: "Institut de Kiel ; franceinfo ; Insee, 2026" }
+    # C3, [20] [21] : le même canon, à deux dates, chacune écrite sur sa carte (2022 ; fin 2024). Le camp CONTRE dit ce
+    # que l'armée a donné et le temps qu'il fallait alors pour le remplacer, le camp POUR ce que l'industrie a changé en
+    # deux ans. L'état actuel des stocks n'est pas publié (§ 2, enjeu 2) : chacun répond avec le dernier chiffre connu.
+    - question: "Livrer nos armes affaiblit-il notre armée ?"
+      pour: { affirmation: "Non, l'industrie en produit plus.", chiffre: "×3", texte: "Fin 2024, en deux ans, le fabricant du Caesar avait triplé sa production et réduit de moitié le temps de fabrication.", source: "Ministère des Armées, 2025" }
+      contre: { affirmation: "Oui, elle a donné ses propres canons.", chiffre: "18 sur 76", texte: "En 2022, l'armée a donné à l'Ukraine 18 de ses 76 canons Caesar. En fabriquer un prenait alors plus de 18 mois.", source: "Agence Belga, 2022" }
+    # C4, [22] [23] : deux sondages d'Ukrainiens de 2026 qui ne posent pas la même question (le moment de négocier, une
+    # concession précise). Les deux textes donnent le mois, au même temps, et laissent le nom de l'institut à la source ;
+    # le second à parler, le camp POUR, dit que la question diffère. Le sondage du KIIS est lu dans la presse [23].
+    - question: "Les Ukrainiens veulent-ils négocier ?"
+      pour: { affirmation: "Pas à n'importe quel prix.", chiffre: "61 %", texte: "Autre sondage, autre question : en octobre 2026, 61 % refusaient de céder tout le Donbass, même contre des garanties de sécurité occidentales.", source: "Institut de sociologie de Kiev, cité par la presse, 2026" }
+      contre: { affirmation: "Oui, et au plus vite.", chiffre: "66 %", texte: "Dans un sondage d'avril 2026, 66 % des Ukrainiens voulaient négocier la fin de la guerre au plus vite.", source: "Gallup, 2026" }
+    # C5, [24] : deux articles du même accord de 2024, sa durée et sa sortie.
+    - question: "La France s'est-elle engagée à continuer ?"
+      pour: { affirmation: "Oui, pour dix ans.", chiffre: "10 ans", texte: "En 2024, la France a signé avec l'Ukraine un accord qui prévoit son soutien militaire pendant dix ans.", source: "Élysée, 2024" }
+      contre: { affirmation: "Elle peut en sortir.", chiffre: "6 mois", texte: "Le même accord permet à chaque pays d'en sortir, avec un préavis écrit de six mois.", source: "Élysée, 2024" }

@@ -185,3 +185,148 @@ Option A : quitter le commandement intégré, puis l'Alliance. Option B : quitte
     https://monvote2027.fr/candidat/tondelier , https://monvote2027.fr/candidat/lisnard , https://monvote2027.fr/candidat/philippe
 19. France Diplomatie, page « Nos alliances et coopérations » (Revue nationale stratégique 2025) :
     https://www.diplomatie.gouv.fr/fr/politique-etrangere-de-la-france/securite-desarmement-et-non-proliferation/l-otan/
+
+## Compléments pour le reportage (28/10/2026)
+
+> Ajoutés le 28/10/2026 pour donner à chaque camp son meilleur argument chiffré dans le reportage vidéo, et pour dire où
+> en est, à cette date, l'engagement de dépenses pris au sommet de La Haye. Les sources [20] à [29] suivent la liste du
+> § 5. Les face-à-face des fiches 009 (armes à l'Ukraine), 030 (soldats en Ukraine) et 031 (sanctions contre la Russie)
+> ne sont pas repris : ni les armes livrées, ni l'escalade entre puissances nucléaires, ni l'opinion des Français, ni les
+> soldats américains en Ukraine, ni les sanctions.
+
+### C1. L'engagement de La Haye (2025) et sa suite
+- **Le texte de 2025** : les alliés s'engagent à investir 5 % du PIB par an d'ici 2035, en deux catégories : « au moins
+  3,5 % » selon la définition commune des dépenses de défense de l'OTAN, et « jusqu'à 1,5 % » pour, entre autres, protéger
+  les infrastructures critiques, défendre les réseaux, assurer la préparation civile et la résilience, soutenir
+  l'innovation et la base industrielle de défense. Chaque allié remet des plans annuels montrant une trajectoire
+  « crédible et progressive » ; la trajectoire et la répartition des dépenses seront revues en 2029 [2].
+- **La France, mesurée par l'OTAN** (rapport publié le 7 juillet 2026, données arrêtées au 3 juillet 2026 ; les chiffres
+  de 2025 et de 2026 sont des estimations) [20] : dépenses de défense au sens de l'OTAN de 1,82 % du PIB en 2014,
+  2,04 % en 2024, **2,04 % en 2025** et **2,22 % en 2026** ; en euros courants, 59 454 millions (2024), 61 002 millions
+  (2025) et 67 632 millions (2026). Le rapport de 2025 [3], repris par la fiche (2,05 % et 61 780 millions d'euros pour
+  2025), a donc été révisé. Le rapport prévient que ses chiffres peuvent s'écarter des données nationales [20].
+- **Les alliés** [20] : en 2025, les alliés européens et le Canada ont augmenté leurs dépenses de défense de base de
+  **plus de 19 %** par rapport à 2024, inflation déduite (plus de 90 milliards de dollars aux prix de 2021, environ 139
+  milliards en dollars courants). En 2026, cinq alliés devraient dépasser 3,5 % et cinq atteindre déjà l'objectif global
+  de 5 % ; d'après le tableau 3, tous les alliés sauf la Slovénie (1,61 %) sont à 2 % ou plus.
+- **La part des États-Unis** (calcul de cette étude sur les tableaux du rapport [20]) : en dollars courants, 975 824
+  millions sur 1 629 630 millions pour les 32 alliés en 2025, soit **59,9 %** (60 % arrondi), et 1 032 849 sur
+  1 809 915 millions en 2026, soit 57,1 %. Aux prix de 2021 (graphique 2), 747 milliards de dollars contre 279 pour
+  l'Europe et le Canada en 2014, soit 72,8 %. Les dépenses américaines couvrent toutes les missions des États-Unis dans
+  le monde, pas la seule défense de l'Europe.
+- **Le sommet d'Ankara (7-8 juillet 2026)** [21] : la déclaration, en six paragraphes, dit que « les Alliés honorent les
+  engagements en matière de défense pris à La Haye », rappelle la hausse de « plus de 139 milliards de dollars » des
+  dépenses des alliés européens et du Canada en 2025, réaffirme l'article 5 (« Une attaque contre un Allié est une
+  attaque contre tous ») et constate que les alliés européens, « en collaboration avec les États-Unis, prennent une part
+  de plus en plus grande dans la défense de l'Alliance ». Elle ne redit pas le chiffre de 5 %.
+- **La loi française** [22] : la loi n° 2026-791 du 16 août 2026 actualisant la programmation militaire pour 2024-2030
+  (JO du 18 août 2026 ; texte définitif adopté par l'Assemblée le 1er juillet 2026, validé par le Conseil
+  constitutionnel le 6 août 2026) fixe l'objectif « de porter l'effort national de défense de 2 % du produit intérieur
+  brut en 2025 à 2,5 % au minimum en 2030 », « avec l'objectif d'atteindre 3,5 % à l'horizon 2035 » (article 1) ; et
+  « conformément aux engagements pris auprès de ses alliés, la France vise à consacrer 1,5 % de son produit intérieur
+  brut à l'horizon 2035 » (article 9). Crédits de paiement de la mission Défense : 50,5 milliards d'euros en 2025, 57,1
+  en 2026, 63,3 en 2027, 69,5 en 2028, 72,6 en 2029 et 75,7 en 2030 ; 435,7 milliards sur 2024-2030, dont 36 milliards
+  de ressources nouvelles sur 2026-2030 [22]. Les 3,5 % de 2035 correspondent à la part « de base » promise à La Haye
+  [2] (rapprochement de cette étude : l'article 1 ne cite pas l'OTAN).
+- **Un regard extérieur** : le centre de recherche estonien ICDS range la France parmi les alliés « sous contrainte »
+  financière, qu'il juge peu susceptibles d'atteindre 5 %, et l'Espagne parmi ceux qui refusent de viser cet objectif
+  (14/09/2026) [27] **[groupe de réflexion]**.
+- **Qui paie** : ces dépenses sont des dépenses de l'État, financées par l'impôt et, tant que les comptes sont en
+  déficit, par l'emprunt (déduction de cette étude). L'engagement de La Haye est pris par les alliés, donc par tout
+  membre de l'Alliance : quitter le seul commandement ne le change pas (§ 2, enjeu D).
+
+### C2. Qui tient les deux grands commandements de l'OTAN
+- L'OTAN a deux commandements « stratégiques » : celui des opérations, dirigé par le commandant suprême des forces
+  alliées en Europe (SACEUR), et celui de la transformation (SACT), chargé de « prioriser les futurs besoins capacitaires
+  et les exigences en matière d'interopérabilité », de nourrir la planification de défense, et des programmes
+  d'entraînement et de formation [25].
+- **Les opérations** : premier titulaire, le général Eisenhower, le 2 avril 1951 ; « Traditionally, the position is held
+  by a US commander, who is dual-hatted as Commander of the US European Command » ; titulaire actuel, le général américain
+  Alexus G. Grynkewich, depuis le 4 juillet 2025 (page de l'OTAN mise à jour à cette date) [23]. Selon l'Ifri, « des
+  officiers américains occupent ainsi le poste de SACEUR depuis sa création en 1951 », et la fonction « dirige les
+  opérations de l'OTAN en cas de conflit » [25]. De 1951 à 2026 : **75 ans** (calcul de cette étude). La liste de
+  Wikipédia compte 21 titulaires, tous américains [24] **[source secondaire]** : ce nombre n'est pas repris dans le
+  reportage.
+- **La transformation** : « le poste de SACT était également dévolu à un Américain à sa création en 2002, mais fut
+  octroyé à la France en 2009 lors de son retour dans le commandement militaire intégré » ; « attribué à la France
+  depuis 2009 » [25]. Six officiers français l'ont occupé depuis septembre 2009, dont l'amiral Pierre Vandier depuis le
+  23/09/2024 [24] **[source secondaire]** ([6] au § 1).
+- L'Ifri relève aussi que les commandements interarmées de Norfolk et de Naples reviennent « traditionnellement aux
+  États-Unis », et propose de réaffecter le poste de SACT si un Européen obtenait un jour celui de SACEUR [25]
+  **[groupe de réflexion]**.
+
+### C3. La clause d'aide de l'Union européenne et l'OTAN
+- Article 42, paragraphe 7, du traité sur l'Union européenne (issu du traité de Lisbonne, en vigueur depuis 2009),
+  premier alinéa : « Au cas où un État membre serait l'objet d'une agression armée sur son territoire, les autres États
+  membres lui doivent aide et assistance par tous les moyens en leur pouvoir, conformément à l'article 51 de la charte
+  des Nations unies. Cela n'affecte pas le caractère spécifique de la politique de sécurité et de défense de certains
+  États membres. » Second alinéa : les engagements et la coopération dans ce domaine « demeurent conformes aux
+  engagements souscrits au sein de l'Organisation du traité de l'Atlantique Nord, qui reste, pour les États qui en sont
+  membres, le fondement de leur défense collective et l'instance de sa mise en œuvre » [26].
+- **23 États** sont à la fois membres de l'Union et de l'OTAN [25] ; les quatre autres pays de l'Union (Autriche,
+  Chypre, Irlande, Malte) ne sont pas membres de l'OTAN (déduction de cette étude à partir de [1] et [25]).
+
+### C4. Le Groenland (janvier 2026), puis la déclaration d'Ankara (juillet 2026)
+- **4/01/2026** : le président américain déclare que les États-Unis ont « besoin du Groenland pour la sécurité
+  nationale » ; **6/01** : la porte-parole de la Maison Blanche dit qu'il étudie plusieurs options pour l'acquérir, dont
+  « le recours à l'armée » ; **15/01** : le président français annonce l'envoi de « moyens terrestres, aériens et
+  maritimes » au Groenland ; **17/01** : droits de douane supplémentaires de 10 % au 1er février sur les exportations de
+  huit pays vers les États-Unis, faute d'accord sur l'achat du Groenland ; **21/01** : il dit avoir établi avec le
+  secrétaire général de l'OTAN le « cadre d'un futur accord » et renonce à la hausse (Encyclopædia Universalis) [28].
+- **Les huit pays** : Allemagne, Danemark, Finlande, France, Pays-Bas, Suède, Royaume-Uni et Norvège, qui avaient mené
+  une mission militaire au Groenland ; la taxe devait passer à 25 % en juin (La Libre Belgique, 22/01/2026) [29]
+  **[presse]**. Tous les huit sont membres de l'OTAN [1].
+- **Six mois plus tard**, la déclaration d'Ankara, adoptée par les 32 alliés, États-Unis compris, réaffirme
+  l'article 5 [21] (C1).
+
+### C5. Les durées de l'accroche
+- **43 ans** hors du commandement intégré, de 1966 à 2009, sans quitter l'Alliance [1] (§ 2, enjeu A) ; **17 ans**
+  dedans, d'avril 2009 à octobre 2026 (calcul de cette étude à partir de [1]).
+
+### Sources (suite du § 5)
+20. OTAN, *Defence Investment of NATO Countries (2014-2026)*, communiqué du 7 juillet 2026 (données arrêtées au 3 juillet
+    2026 ; document scanné, lu page par page) : https://www.nato.int/content/dam/nato/webready/documents/finance/def-exp-2026-en.pdf
+21. OTAN, déclaration du sommet d'Ankara, 8 juillet 2026 :
+    https://www.nato.int/fr/about-us/official-texts-and-resources/official-texts/2026/07/08/the-ankara-summit-declaration?selectedLocale=fr ;
+    page du sommet (7-8 juillet 2026) : https://nato.int/fr/news-and-events/events/2026/07/overview---2026-nato-summit-in-ankara-
+22. Loi n° 2026-791 du 16 août 2026 actualisant la programmation militaire pour les années 2024 à 2030 et portant
+    diverses dispositions intéressant la défense, JORF n° 0191 du 18 août 2026 : https://www.legifrance.gouv.fr/jorf/id/JORFSCTA000054694833 ;
+    texte définitif adopté le 1er juillet 2026 (TA n° 325) : https://www.assemblee-nationale.fr/dyn/opendata/PRJLANR5L17BTA0325.html
+23. OTAN, « Supreme Allied Commander Europe (SACEUR) », page mise à jour le 4 juillet 2025 :
+    https://www.nato.int/cps/en/natohq/topics_50110.htm
+24. Wikipédia (en anglais), « Supreme Allied Commander Europe » et « Allied Command Transformation » (listes des
+    titulaires) [source secondaire] : https://en.wikipedia.org/wiki/Supreme_Allied_Commander_Europe ,
+    https://en.wikipedia.org/wiki/Allied_Command_Transformation
+25. Ifri, Amélie Zima, « Réformer les commandements de l'OTAN. Entre européanisation, émergence de nouveaux leaders et
+    rôle des États-Unis », juin 2025 : https://www.ifri.org/sites/default/files/2025-06/ifri_zima_otan_2025_2.pdf
+26. Traité sur l'Union européenne, article 42 (texte lu sur Doctrine.fr) :
+    https://www.doctrine.fr/l/traite-union-europeenne/article-42/UE_TUE_42
+27. ICDS (Centre international pour la défense et la sécurité, Tallinn), Felix Gasper, « NATO's new defence spending
+    target: who's planning what in 2026 », 14/09/2026 [groupe de réflexion] :
+    https://icds.ee/en/natos-new-defence-spending-target-whos-planning-what-in-2026/
+28. Encyclopædia Universalis, « 4-21 janvier 2026 : menaces d'une prise de contrôle du Groenland par les États-Unis » :
+    https://www.universalis.fr/evenement/4-21-janvier-2026-menaces-d-une-prise-de-controle-du-groenland-par-les-etats-unis/
+29. La Libre Belgique, « Donald Trump n'imposera pas de droits de douane pour avoir le Groenland, mais les Européens
+    restent sur leurs gardes », 22/01/2026 [presse] :
+    https://www.lalibre.be/international/europe/2026/01/22/donald-trump-nimposera-pas-de-droits-de-douane-pour-avoir-le-groenland-mais-les-europeens-restent-sur-leur-garde-FHCG4RTN2FAIHEJ6K6UXPIUANQ/
+
+## Annexe — d'où vient chaque chiffre du reportage
+
+| Écran | Chiffre | Source |
+|---|---|---|
+| Accroche | 43 ans hors du commandement intégré (1966-2009) ; 17 ans dedans (avril 2009 – octobre 2026, calcul) ; la France n'a jamais quitté l'Alliance | OTAN [1] ; Wikipédia [5], § 1, § 3 et C5 |
+| Écart | effort de défense : 2 % du PIB en 2025, objectif de 3,5 % en 2035 (article 1 de la loi), plus 1,5 % (article 9) ; 3,5 % = part de base promise à La Haye | Loi de 2026 [22] ; La Haye [2], C1 |
+| Leviers | trois choix ; la promesse de 5 % d'ici 2035 (3,5 % pour la défense, 1,5 % pour la sécurité au sens large) lie tout membre de l'Alliance, dans le commandement ou non | La Haye [2] ; loi de 2026 [22], § 2 (enjeu D) et C1 |
+| Q1 POUR | le chef des opérations de l'OTAN (SACEUR) a toujours été américain depuis sa création en 1951 : 75 ans (calcul) | OTAN [23] ; Ifri [25], C2 |
+| Q1 CONTRE | la France dirige l'un des deux commandements stratégiques, la transformation (SACT), depuis 2009 | Ifri [25], C2 |
+| Q2 CONTRE | dépenses de défense de base des alliés européens et du Canada : plus de 19 % en 2025, inflation déduite (estimation) | OTAN [20], C1 |
+| Q2 POUR | part des États-Unis dans les dépenses de défense des 32 alliés en 2025 : 59,9 %, arrondi à 60 % (estimation ; calcul sur le tableau 2) ; ces dépenses couvrent toutes les missions des États-Unis, hors d'Europe comprises | OTAN [20], C1 |
+| Q3 CONTRE | pour les 23 pays de l'Union membres de l'OTAN, celle-ci reste le fondement de leur défense collective | Traité sur l'Union européenne, art. 42.7 [26] ; Ifri [25], C3 |
+| Q3 POUR | les 27 pays de l'Union se doivent aide et assistance « par tous les moyens en leur pouvoir » en cas d'agression armée | Traité sur l'Union européenne, art. 42.7 [26], C3 |
+| Q4 POUR | janvier 2026 : menace de droits de douane sur huit pays alliés, dont la France, pour obtenir le Groenland, retirée le 21 janvier | Universalis [28] ; La Libre Belgique [29], C4 |
+| Q4 CONTRE | juillet 2026 : les 32 alliés, États-Unis compris, réaffirment l'article 5 | OTAN, déclaration d'Ankara [21], C1 et C4 |
+
+Les deux camps de Q1 parlent des deux commandements suprêmes de l'OTAN ; ceux de Q2 citent le même rapport, la même
+année et la même mesure, l'un en évolution, l'autre en part du total, et chacun dit que c'est une estimation ; ceux de
+Q3 citent les deux alinéas du même article du traité ; ceux de Q4 citent deux actes de 2026, chacun daté sur sa carte,
+et la carte POUR dit que la menace a été retirée.
