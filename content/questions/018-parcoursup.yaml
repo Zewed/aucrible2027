@@ -11,18 +11,18 @@ contexte:
   - "Ses critiques lui reprochent son opacité, l'attente et la sélection à l'entrée des études ; ses défenseurs soulignent que la plupart des lycéens reçoivent une proposition."
   - "Après un mouvement lycéen en octobre 2026, l'exécutif a annoncé, selon la presse, une réforme pour 2027, puis un nouvel outil à l'horizon 2028."
 chiffres:
-  - valeur: "980 000"
-    legende: "candidats ont confirmé au moins un vœu sur la plateforme"
-    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2025, annee: 2025 }
-  - valeur: 91,9 %
+  - valeur: "1 046 000"
+    legende: "candidats ont confirmé au moins un vœu sur la plateforme en 2026"
+    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2026, annee: 2026 }
+  - valeur: 91,4 %
     legende: "des lycéens de Terminale ont reçu au moins une proposition"
-    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2025, annee: 2025 }
-  - valeur: 66 %
+    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2026, annee: 2026 }
+  - valeur: 66,5 %
     legende: "des lycéens ont reçu une proposition dès le premier jour"
-    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2025, annee: 2025 }
-  - valeur: 53 %
-    legende: "des lycéens jugent la procédure transparente"
-    source: { organisme: Ministère de l'Enseignement supérieur, document: baromètre CSA dans le bilan 2025, annee: 2025 }
+    source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2026, annee: 2026 }
+  - valeur: 49 %
+    legende: "des nouveaux bacheliers jugent la procédure transparente (53 % en 2025)"
+    source: { organisme: Institut CSA, document: baromètre Parcoursup 2026 pour le ministère, annee: 2026 }
 options:
   - id: A
     libelle: "Oui, et garantir à chaque bachelier sa place"

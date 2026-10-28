@@ -34,12 +34,13 @@ options:
     critiques: "Le coût s'ajoute à une dette de 61,5 milliards d'euros, et des travaux d'économie du travail montrent qu'une durée plus longue peut retarder un peu la reprise d'emploi."
     axes: { economie: -2 }
   - id: B
-    libelle: "Garder la durée actuelle : 18 mois avant 55 ans"
-    implique: "Aucune nouvelle réforme : 18 mois avant 55 ans, 22,5 mois de 55 à 56 ans, 27 mois ensuite, avec un complément de fin de droits si la conjoncture se dégrade."
-    defenseurs: "Les règles viennent de changer en 2023 puis en 2026 : un régime stable est plus lisible, et la durée peut s'allonger si la conjoncture se dégrade."
-    critiques: "Pour ses détracteurs, 18 mois restent trop longs pour inciter à reprendre un emploi, et trop coûteux pour un régime endetté de 61,5 milliards d'euros."
+    libelle: "Garder 18 mois, sans baisse pour les départs négociés"
+    implique: "18 mois avant 55 ans, 22,5 mois de 55 à 56 ans, 27 mois ensuite, pour tous : on revient sur la baisse de septembre 2026 après une rupture conventionnelle, avec un complément de fin de droits si la conjoncture se dégrade."
+    defenseurs: "Un salarié qui signe une rupture conventionnelle perd son emploi comme un autre : il doit avoir les mêmes droits, et la durée peut s'allonger si la conjoncture se dégrade."
+    critiques: "Pour ses détracteurs, beaucoup de ruptures conventionnelles remplacent des démissions, et revenir sur la baisse coûterait jusqu'à 1 milliard d'euros par an à un régime endetté de 61,5 milliards."
+    axes: { economie: -1 }
   - id: C
-    libelle: "La réduire dans certains cas : les ruptures conventionnelles"
+    libelle: "Garder les règles actuelles, dont la baisse pour les départs négociés"
     implique: "Depuis le 1er septembre 2026 : 15 mois avant 55 ans et 20,5 mois ensuite après une rupture conventionnelle ; le gouvernement attend jusqu'à 1 milliard d'euros d'économies par an et jusqu'à 15 000 retours à l'emploi."
     defenseurs: "Beaucoup de ruptures conventionnelles remplacent des démissions, qui n'ouvrent aucun droit : réduire leur indemnisation limite l'effet d'aubaine, dans un accord signé par six organisations patronales et syndicales."
     critiques: "Les salariés de 55 ans et plus risquent d'arriver en fin de droits sans emploi, et la CGT et la CFE-CGC n'ont pas signé l'accord."
@@ -103,8 +104,8 @@ reportage:
     titre: "Combien de mois d'allocation ?"
     choix:
       - { texte: "Allonger à nouveau", detail: "annuler les réformes : jusqu'à 24 mois, comme avant 2023" }
-      - { texte: "Garder 18 mois", detail: "avant 55 ans, puis jusqu'à 27 mois selon l'âge" }
-      - { texte: "Réduire en cas de départ négocié", detail: "une rupture conventionnelle : 15 mois avant 55 ans, depuis septembre 2026" }
+      - { texte: "Garder 18 mois pour tous", detail: "sans la baisse de 2026 pour les ruptures conventionnelles" }
+      - { texte: "Garder les règles actuelles", detail: "dont 15 mois avant 55 ans après une rupture conventionnelle" }
       - { texte: "Réduire pour tous", detail: "12 mois au plus avant 50 ans, contre 18 aujourd'hui" }
     chute: "L'assurance chômage est payée par les cotisations des employeurs et par une contribution prélevée sur les revenus du travail."
     source: "Unédic, 2026"
