@@ -28,21 +28,25 @@ options:
     implique: Retour à l'âge légal d'avant 2010, financé par de nouvelles cotisations.
     defenseurs: Deux ans de retraite en bonne santé en plus, d'abord pour ceux qui ont commencé tôt.
     critiques: Un coût élevé, qui pèserait sur les salaires ou sur les entreprises.
+    axes: { economie: -2 }
   - id: B
     libelle: 62 ans
     implique: On revient à l'âge fixé par la réforme de 2010.
     defenseurs: Un repère connu, appliqué pendant dix ans, sans brutalité pour les carrières longues.
     critiques: Sans recette nouvelle, le déficit des caisses de retraite se creuse.
+    axes: { economie: -1 }
   - id: C
     libelle: 64 ans
     implique: On garde l'âge prévu par la réforme de 2023.
     defenseurs: Le système se rapproche de l'équilibre sans baisser les pensions.
     critiques: Les métiers pénibles et les carrières hachées en paient le prix.
+    axes: { economie: 1 }
   - id: D
     libelle: 65 ans ou plus
     implique: Un âge proche de celui de plusieurs voisins européens.
     defenseurs: "On vit plus longtemps : travailler un peu plus protège le niveau des pensions."
     critiques: Beaucoup de seniors sont déjà sans emploi bien avant cet âge.
+    axes: { economie: 2 }
   - id: E
     libelle: À la carte, avec un système à points
     implique: Chacun part quand il veut ; la pension dépend des points acquis.

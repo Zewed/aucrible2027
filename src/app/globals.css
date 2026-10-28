@@ -112,22 +112,55 @@
   .today, .res, .fiche, .lost, main { padding-top: 28px; }
 }
 
-/* Les paliers (toutes les 5 réponses) : sur la révélation, un bloc gagné, avec des confettis aux couleurs des thèmes ;
-   au bas du menu, sur ordinateur, le nombre de réponses et ses crans vers le prochain palier. */
+/* Les paliers (toutes les 5 réponses) : sur la révélation, un bloc gagné, avec des confettis aux couleurs des thèmes. */
 .palier { position: relative; overflow: hidden; grid-template-columns: auto minmax(0, 1fr); }
 .palier-n { font: 800 56px/0.9 var(--display); font-variation-settings: "wdth" 80; letter-spacing: -0.03em; color: var(--chalk); min-width: 64px; text-align: center; }
 .palier .confetti { inset: 0 0 auto 0; }
 @media (prefers-reduced-motion: reduce) {
   .palier .confetti { display: none; }
 }
-.rail-prog { display: none; }
+
+/* La jauge des questions (27 octobre 2026) : en haut de chaque page, « 11 sur 26 questions » et une barre d'une seule
+   couleur. Au survol, ou d'une touche, le détail par thème, la couleur du thème en petit. Sur ordinateur, sa hauteur
+   (--jauge-h) se retire de l'écran : --u vaut 1 % de ce qui reste, et la fiche s'y règle pour tenir sans défiler. */
+:root { --jauge-h: 0px; --u: calc((100dvh - var(--jauge-h)) / 100); }
+/* Au téléphone, la jauge reste basse : la page garde sa hauteur pour la fiche et sa barre de décision collée en bas. */
+.jauge { position: relative; z-index: 25; min-height: 32px; padding: 0 16px; display: flex; align-items: center; }
+.jauge-g { position: relative; flex: 1; min-width: 0; }
+.jauge-tete {
+  appearance: none; width: 100%; min-height: 32px; padding: 0; border: 0; background: none; color: inherit; cursor: pointer;
+  display: flex; align-items: center; gap: 16px; text-align: left; border-radius: 6px;
+}
+.jauge-tete:focus-visible { outline: 3px solid var(--eco); outline-offset: 4px; }
+.jauge-t { font: 500 14px/1 var(--text); color: var(--muted); white-space: nowrap; }
+.jauge-t b { font: 800 17px/1 var(--display); color: var(--chalk); margin-right: 2px; }
+.jauge-barre { flex: 1; height: 6px; border-radius: 3px; background: var(--table-3); overflow: hidden; }
+.jauge-barre i, .jauge-mini i { display: block; height: 100%; border-radius: inherit; }
+.jauge-barre i { background: var(--chalk); }
+.jauge-themes {
+  position: absolute; top: calc(100% + 8px); left: -12px; z-index: 50; display: none;
+  width: min(360px, calc(100vw - 8px)); list-style: none; margin: 0; padding: 8px;
+  background: var(--table-2); border-radius: 14px; box-shadow: 0 0 0 1px var(--table-3), 0 22px 44px -14px rgba(11, 9, 25, .85);
+}
+/* Le pont entre la jauge et le détail : la souris passe de l'un à l'autre sans le fermer. */
+.jauge-themes::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 10px; }
+.jauge-g:hover .jauge-themes, .jauge-g.ouvert .jauge-themes { display: grid; }
+.jauge-themes a, .jauge-themes .fini {
+  display: grid; grid-template-columns: minmax(0, 1fr) 76px 30px; align-items: center; gap: 12px;
+  min-height: 40px; padding: 0 10px; border-radius: 8px; font: 600 14px/1.15 var(--text); color: var(--chalk); text-decoration: none;
+}
+.jauge-themes a:hover { background: var(--table-3); }
+.jauge-themes a:focus-visible { outline: 3px solid var(--eco); outline-offset: -3px; }
+.jauge-nom { display: flex; align-items: center; gap: 9px; }
+.jauge-nom::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--theme); flex: none; }
+.jauge-mini { height: 4px; border-radius: 2px; background: var(--table-3); overflow: hidden; }
+.jauge-themes a:hover .jauge-mini { background: var(--table-2); }
+.jauge-mini i { background: var(--theme); }
+.jauge-c { font: 700 13px/1 var(--text); color: var(--muted); text-align: right; }
+.jauge-themes .fini .jauge-c { color: var(--chalk); }
 @media (min-width: 900px) {
-  .rail-cd { display: grid; justify-items: center; gap: 14px; }
-  .rail-prog { display: grid; justify-items: center; gap: 6px; }
-  .rail-n { font: 800 24px/1 var(--display); }
-  .rail-crans { display: grid; gap: 3px; }
-  .rail-crans i { width: 22px; height: 5px; border-radius: 3px; background: var(--table-3); }
-  .rail-crans i.on { background: var(--chalk); }
+  :root { --jauge-h: 46px; }
+  .jauge { height: var(--jauge-h); min-height: 0; padding: 0 clamp(32px, 3.2vw, 64px); }
 }
 
 /* Le camembert complet (11/11) de « Mes résultats » : ses confettis tombent sur le trophée. */
@@ -147,7 +180,7 @@
 
 /* La fiche en deux étapes.
    Étape « lire » : l'écran partagé. À gauche, la couleur du thème porte la question et la vignette de la vidéo ;
-   à droite, le contexte numéroté, les chiffres clés en tuiles de poids différents, puis « Voir les propositions ».
+   à droite, au calme, le contexte numéroté, les chiffres clés en lignes, puis « Voir les propositions ».
    Étape « répondre » : la question seule, en haut, puis les cartes réponse. */
 :root { --barre-action: 96px; }
 body:has(.etape-lire, .etape-repondre) .site-foot { display: none; }
@@ -156,8 +189,8 @@ body:has(.etape-lire, .etape-repondre) .site-foot { display: none; }
 .ecran-partage .scene { display: flex; flex-direction: column; container-type: inline-size; }
 .ecran-partage .bloc {
   background: var(--theme); color: var(--on-theme);
-  padding: var(--padY) var(--padX) clamp(18px, 3.2dvh, 40px);
-  display: flex; flex-direction: column; gap: clamp(18px, 3dvh, 40px);
+  padding: var(--padY) var(--padX) clamp(18px, 3.2 * var(--u), 40px);
+  display: flex; flex-direction: column; gap: clamp(18px, 3 * var(--u), 40px);
 }
 .ecran-partage .bloc .theme-chip { align-self: flex-start; margin: 0; }
 .ecran-partage .bloc h1 {
@@ -197,7 +230,7 @@ video.affiche { background: var(--ink-deep); }
   position: absolute; right: 3.6cqw; bottom: 3.6cqw; background: var(--ink); color: var(--chalk);
   font: 700 clamp(12px, 2.5cqw, 21px)/1 var(--text); padding: .5em .7em .45em; border-radius: .5em;
 }
-.ecran-partage .faits { padding: clamp(26px, 4dvh, 48px) var(--padX) 0; display: flex; flex-direction: column; --ctx: 17px; }
+.ecran-partage .faits { padding: clamp(26px, 4 * var(--u), 48px) var(--padX) 0; display: flex; flex-direction: column; --ctx: 17px; }
 .ecran-partage .ctx { counter-reset: phrase; display: grid; gap: calc(var(--ctx) * .8); }
 .ecran-partage .ctx p {
   counter-increment: phrase; margin: 0;
@@ -209,7 +242,12 @@ video.affiche { background: var(--ink-deep); }
   font-variation-settings: "wdth" 80, "opsz" 96; color: var(--theme-text); padding-top: .04em;
 }
 .ecran-partage .chiffres { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
-.chiffres-tete { display: flex; justify-content: flex-end; margin-top: clamp(14px, 2.4dvh, 30px); }
+.chiffres-tete { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: clamp(14px, 2.4 * var(--u), 30px); }
+.chiffres-tete h2 {
+  display: flex; align-items: center; gap: 9px; color: var(--theme-text);
+  font: 800 13px/1 var(--display); text-transform: uppercase; letter-spacing: .08em;
+}
+.chiffres-tete h2::before { content: ""; flex: none; width: 9px; height: 9px; background: var(--theme); transform: rotate(45deg); }
 .drapeau {
   display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 2px 0 8px;
   font: 600 13px/1 var(--text); color: var(--muted); text-decoration: none; border-radius: 8px;
@@ -217,30 +255,35 @@ video.affiche { background: var(--ink-deep); }
 .drapeau svg { width: 16px; height: 16px; }
 .drapeau path { fill: var(--theme-text); }
 .drapeau:hover { color: var(--chalk); }
-.tuiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 10px; --tp: 14px; }
-.tuiles[data-n="2"] { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
-.tuiles[data-n="3"] .t1 { grid-row: span 2; }
-.tuiles .t { border: 0; border-radius: 14px; padding: var(--tp); display: flex; flex-direction: column; min-width: 0; }
-.tuiles .fig-num {
-  font: 800 clamp(40px, 11vw, 96px)/0.86 var(--display); font-variation-settings: "wdth" 78, "opsz" 96;
-  letter-spacing: -0.03em; white-space: nowrap;
+/* Les chiffres clés en lignes sobres (27 octobre 2026 : l'œil va d'abord à la question et à la vidéo) : le chiffre, sa
+   légende à côté, ni fond ni couleur, un filet plein entre deux. Toutes les lignes partagent la colonne du chiffre, celle
+   du plus large. La source s'ouvre d'un geste, dans une bulle accrochée à sa petite icône, au bout de la ligne. */
+.ecran-partage .figures { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr) auto; column-gap: clamp(14px, 1.4vw, 24px); }
+.ecran-partage .fig {
+  grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center;
+  background: none; border: 0; border-top: 2px solid var(--table-2); border-radius: 0; padding: 14px 0; color: var(--chalk);
 }
-.tuiles .fig-num small { font-size: .4em; letter-spacing: -0.01em; margin-left: .08em; }
-.tuiles .fig-txt { margin-top: .7em; font: 600 14px/1.3 var(--text); text-wrap: pretty; }
-.tuiles .fig-src { margin-top: auto; padding-top: 10px; font: 600 12px/1.25 var(--text); white-space: normal; overflow: visible; text-overflow: clip; }
-.tuiles .t1 { background: var(--theme); color: var(--on-theme); }
-.tuiles .t1 .fig-num { font-size: clamp(64px, 18vw, 170px); }
-.tuiles .t1 .fig-num small { font-size: .3em; }
-.tuiles .t1 .fig-txt { font-size: 15px; }
-.tuiles .t1 .fig-src { color: var(--on-theme); }
-.tuiles .t2 { background: var(--card); color: var(--ink); }
-.tuiles .t2 .fig-num { color: var(--theme-edge); }
-.tuiles .t2 .fig-src { color: var(--ink-soft); }
-.tuiles .t3 { background: var(--table-2); color: var(--chalk); }
-.tuiles .t4 { background: transparent; box-shadow: inset 0 0 0 2px var(--table-3); color: var(--chalk); }
-.tuiles .t1 .fig-src b { color: var(--on-theme); }
-.tuiles .t3 .fig-src b, .tuiles .t4 .fig-src b { color: var(--chalk); }
-.tuiles .t3 .fig-src, .tuiles .t4 .fig-src { color: var(--muted); }
+.ecran-partage .fig:last-child { border-bottom: 2px solid var(--table-2); }
+.ecran-partage .fig-num { grid-column: 1; font-size: 34px; font-variation-settings: "wdth" 78, "opsz" 96; letter-spacing: -0.03em; }
+.ecran-partage .fig-num small { font-size: .42em; letter-spacing: 0; margin-left: .08em; color: var(--muted); }
+.ecran-partage .fig-txt { grid-column: 2; margin: 0; font: 500 15px/1.35 var(--text); text-wrap: pretty; }
+.fig-voir-source {
+  grid-column: 3; width: 40px; height: 40px; display: grid; place-items: center; cursor: pointer; anchor-name: var(--ancre);
+  border: 0; border-radius: 10px; background: none; color: var(--muted); transition: color .15s, background .15s;
+}
+.fig-voir-source svg { width: 18px; height: 18px; }
+.fig-voir-source:hover, .fig-voir-source:focus-visible { color: var(--chalk); background: var(--table-2); }
+.fig-voir-source:focus-visible { outline: 3px solid var(--eco); outline-offset: 0; }
+/* La bulle de la source : accrochée sous son bouton là où le navigateur sait le faire, au centre de l'écran sinon. */
+.ecran-partage .fig-src {
+  margin: auto; padding: 10px 13px 11px; border: 0; border-radius: 10px; max-width: min(300px, calc(100vw - 32px));
+  background: var(--chalk); color: var(--ink-soft); box-shadow: 0 14px 30px -12px rgba(11, 9, 25, .85);
+  font: 600 13px/1.3 var(--text); white-space: normal; overflow: visible; text-overflow: clip;
+}
+.ecran-partage .fig-src b { color: var(--ink); }
+@supports (position-area: bottom) {
+  .ecran-partage .fig-src { inset: auto; margin: 6px 0; position-anchor: var(--ancre); position-area: bottom span-left; position-try-fallbacks: flip-block, flip-inline; }
+}
 .etape-lire .stake { margin-top: 18px; }
 /* Au téléphone, « Voir les propositions » est dans une barre collée en bas, qui garde sa place sous la page. */
 .actionbar {
@@ -254,26 +297,29 @@ video.affiche { background: var(--ink-deep); }
 @media (min-width: 1200px) {
   .today.etape-lire { padding: 0; }
   .ecran-partage {
-    --padX: clamp(32px, 3.2vw, 64px); --padY: clamp(24px, 4dvh, 52px);
-    display: grid; grid-template-columns: minmax(0, 55fr) minmax(0, 45fr); height: 100dvh;
+    --padX: clamp(32px, 3.2vw, 64px); --padY: clamp(24px, 4 * var(--u), 52px);
+    display: grid; grid-template-columns: minmax(0, 55fr) minmax(0, 45fr); min-height: calc(100 * var(--u));
   }
-  .ecran-partage .scene { height: 100dvh; min-height: 0; }
+  .ecran-partage .scene { min-height: calc(100 * var(--u)); }
   .ecran-partage .bloc { flex: 1 1 auto; justify-content: space-between; }
-  .ecran-partage .bloc h1 { font-size: clamp(44px, min(13.5cqw, 10.6dvh), 138px); }
+  .ecran-partage .bloc h1 { font-size: clamp(44px, min(13.5cqw, 10.6 * var(--u)), 138px); }
   .ecran-partage .bobine { padding-bottom: var(--padY); background: linear-gradient(to bottom, var(--theme) 0 calc((100% - var(--padY)) * .56), transparent 0); }
-  .ecran-partage .affiche { width: min(100%, calc(46dvh * 16 / 9)); }
-  .ecran-partage .faits { height: 100dvh; min-height: 0; padding: var(--padY) clamp(28px, 2.9vw, 60px); --ctx: clamp(16px, min(1.32vw, 2.15dvh), 25px); }
-  .chiffres-tete { margin-top: clamp(10px, 2dvh, 28px); }
-  .drapeau { min-height: 36px; font-size: clamp(13px, 1.4dvh, 15px); }
-  .tuiles { flex: 1 1 auto; min-height: 0; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1.22fr) minmax(0, 1fr); gap: clamp(10px, 1.3dvh, 16px); --tp: clamp(16px, min(1.35vw, 2.4dvh), 28px); }
-  .tuiles[data-n="2"] { grid-template-rows: minmax(0, 1fr); }
-  .tuiles .fig-num { font-size: clamp(40px, 7.4dvh, 96px); }
-  .tuiles .fig-txt { font-size: clamp(14px, min(1.05vw, 2.05dvh), 20px); }
-  .tuiles .fig-src { font-size: clamp(12px, 1.35dvh, 14px); }
-  .tuiles .t1 .fig-num { font-size: clamp(64px, 13dvh, 170px); }
-  .tuiles .t1 .fig-txt { font-size: clamp(15px, min(1.2vw, 2dvh), 22px); }
-  .actionbar { position: static; padding: 0; background: none; box-shadow: none; margin-top: clamp(16px, 2.6dvh, 32px); }
-  .actionbar .go { font-size: clamp(20px, min(1.6vw, 2.8dvh), 30px); padding: clamp(16px, 2.3dvh, 27px) 18px; }
+  .ecran-partage .affiche { width: min(100%, calc(46 * var(--u) * 16 / 9)); }
+  /* Le contexte en haut, « Voir les propositions » en bas, les chiffres au milieu de ce qui reste ; le texte se resserre
+     (`--fit`, voir tenirALEcran) quand tout ne tient pas. */
+  .ecran-partage .faits { min-height: calc(100 * var(--u)); padding: var(--padY) clamp(28px, 2.9vw, 60px); --ctx: calc(var(--fit, 1) * clamp(16px, min(1.32vw, 2.15 * var(--u)), 25px)); }
+  .ecran-partage .chiffres { flex: none; margin-block: auto; }
+  .chiffres-tete { margin-top: clamp(18px, 3 * var(--u), 36px); }
+  .chiffres-tete h2 { font-size: clamp(13px, 1.5 * var(--u), 16px); }
+  .drapeau { min-height: 36px; font-size: clamp(13px, 1.4 * var(--u), 15px); }
+  .ecran-partage .fig { padding: calc(var(--fit, 1) * clamp(12px, 1.9 * var(--u), 22px)) 0; }
+  .ecran-partage .fig-num { font-size: calc(var(--fit, 1) * clamp(30px, 4.6 * var(--u), 52px)); }
+  .ecran-partage .fig-txt { font-size: calc(var(--fit, 1) * clamp(14px, min(1.15vw, 1.8 * var(--u)), 18px)); }
+  .fig-voir-source { width: 36px; height: 36px; }
+  .fig-voir-source svg { width: clamp(17px, 2 * var(--u), 21px); height: clamp(17px, 2 * var(--u), 21px); }
+  .ecran-partage .fig-src { font-size: clamp(13px, 1.45 * var(--u), 15px); }
+  .actionbar { position: static; padding: 0; background: none; box-shadow: none; margin-top: clamp(18px, 3 * var(--u), 36px); }
+  .actionbar .go { font-size: clamp(22px, min(1.8vw, 3.2 * var(--u)), 34px); padding: clamp(18px, 2.9 * var(--u), 34px) 18px; box-shadow: 0 8px 0 var(--theme-edge); }
 }
 @media (prefers-reduced-motion: reduce) { button.affiche { transition: none; } }
 
@@ -307,20 +353,19 @@ video.affiche { background: var(--ink-deep); }
 .mq-tuile, .mq-nsp { flex: 0 0 min(calc(100% - 26px), 440px); scroll-snap-align: start; display: flex; position: relative; cursor: pointer; container-type: inline-size; }
 .mq-tuile input, .mq-nsp input, .mq-niveau input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
 .mq-face {
-  flex: 1; min-width: 0; position: relative; overflow: hidden; isolation: isolate;
+  flex: 1; min-width: 0; position: relative;
   background: var(--card); color: var(--ink); border-radius: var(--r); padding: 18px 18px 20px;
   display: flex; flex-direction: column; gap: 10px; transition: background .2s var(--ease-out), box-shadow .2s var(--ease-out);
 }
-/* La lettre géante, au trait, en fond de tuile. */
-.mq-lettre {
-  position: absolute; z-index: -1; right: 12px; bottom: 10px; pointer-events: none;
-  font: 800 70cqw/.74 var(--display); font-variation-settings: "wdth" 75, "opsz" 96; color: transparent;
-  -webkit-text-stroke: 2.5px color-mix(in srgb, var(--theme) 60%, var(--chalk));
-}
 .mq-tuile:hover .mq-face { box-shadow: inset 0 0 0 3px var(--theme); }
 .mq-tuile input:focus-visible + .mq-face, .mq-nsp input:focus-visible + span, .mq-niveau input:focus-visible + span { outline: 3px solid var(--eco); outline-offset: 2px; }
-.mq-haut { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
-.mq-titre { font: 800 30px/1 var(--display); font-variation-settings: "wdth" 82, "opsz" 96; letter-spacing: -0.02em; text-wrap: balance; }
+/* Le titre et, devant, sa lettre : une petite pastille pleine, à la taille du titre. */
+.mq-haut { display: flex; align-items: flex-start; gap: .36em; font-size: 28px; }
+.mq-lettre {
+  flex: none; width: 1.42em; height: 1.42em; margin-top: -.06em; display: grid; place-items: center; border-radius: .3em;
+  background: var(--theme); color: var(--on-theme); font: 800 .68em/1 var(--display);
+}
+.mq-titre { flex: 1; min-width: 0; align-self: center; font: 800 1em/1 var(--display); font-variation-settings: "wdth" 82, "opsz" 96; letter-spacing: -0.02em; text-wrap: balance; }
 .mq-mienne {
   display: none; flex: none; align-items: center; gap: 6px; background: var(--ink); color: var(--chalk);
   font: 800 12.5px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; padding: 8px 11px 7px; border-radius: 999px; white-space: nowrap;
@@ -335,7 +380,7 @@ video.affiche { background: var(--ink-deep); }
 .mq-argument b::before { content: ""; flex: none; width: 9px; height: 9px; background: var(--theme); transform: rotate(45deg); }
 /* L'option choisie prend la couleur du thème. */
 .mq-tuile input:checked + .mq-face { background: var(--theme); color: var(--on-theme); box-shadow: inset 0 0 0 3px var(--ink); }
-.mq-tuile input:checked + .mq-face .mq-lettre { -webkit-text-stroke-color: color-mix(in srgb, var(--ink) 70%, var(--theme)); }
+.mq-tuile input:checked + .mq-face .mq-lettre { background: var(--ink); color: var(--theme-text); }
 .mq-tuile input:checked + .mq-face .mq-mienne { display: inline-flex; }
 .mq-tuile input:checked + .mq-face .mq-argument b { color: var(--ink); }
 .mq-tuile input:checked + .mq-face .mq-argument b::before { background: var(--ink); }
@@ -382,53 +427,49 @@ video.affiche { background: var(--ink-deep); }
   .mq-pile { scroll-padding-inline: 24px; }
   .mq-decision { padding-inline: 24px; }
 }
-/* Grand écran : la mosaïque plein écran, rien ne défile. */
+/* Grand écran : la mosaïque plein écran, rien ne défile. Le texte se resserre (`--fit`, voir tenirALEcran) pour tenir ;
+   une tuile ne coupe jamais son texte : si elle ne tient toujours pas, sa rangée grandit et la page défile. */
 @media (min-width: 1100px) {
   .mosaique {
-    --g: clamp(6px, .5vw, 10px); --px: clamp(18px, 1.6vw, 32px); --py: clamp(14px, 2.2dvh, 30px);
-    --L: min(52cqw, 30dvh); --k: 1; --nsp: clamp(48px, 6.2dvh, 68px);
-    height: 100dvh; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto 1fr 1fr;
+    --g: clamp(6px, .5vw, 10px); --px: clamp(18px, 1.6vw, 32px); --py: clamp(14px, 2.2 * var(--u), 30px);
+    --k: var(--fit, 1); --nsp: clamp(48px, 6.2 * var(--u), 68px);
+    min-height: calc(100 * var(--u)); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: auto 1fr 1fr;
     gap: var(--g); padding: var(--g);
   }
   .mq-tete {
     grid-column: 1 / -1; border-radius: var(--r);
-    padding: clamp(16px, 2.6dvh, 34px) clamp(24px, 2.4vw, 48px) clamp(18px, 3dvh, 40px);
+    padding: clamp(16px, 2.6 * var(--u), 34px) clamp(24px, 2.4vw, 48px) clamp(18px, 3 * var(--u), 40px);
     grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "q meta"; column-gap: clamp(24px, 3vw, 64px); align-items: stretch;
   }
   .mq-meta { flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 12px; }
-  .mq-question { font-size: clamp(44px, min(9.4dvh, 6vw), 128px); font-variation-settings: "wdth" 78, "opsz" 96; align-self: center; }
+  .mq-question { font-size: calc(var(--fit, 1) * clamp(44px, min(9.4 * var(--u), 6vw), 128px)); font-variation-settings: "wdth" 78, "opsz" 96; align-self: center; }
   .mq-reperes { display: none; }
   .mq-pile { display: contents; }
-  .mq-tuile { flex: none; min-height: 0; }
-  .mq-arguments { margin-top: auto; padding-top: 4px; padding-right: calc(var(--L) * .45); }
-  /* « Ta carte » se pose en tampon sur la lettre : le titre ne bouge pas. */
-  .mq-mienne {
-    position: absolute; z-index: 1; right: calc(var(--px) * .6 + var(--L) * .23); bottom: calc(var(--py) * .6 + var(--L) * .56);
-    transform: translateX(50%) rotate(-7deg); box-shadow: 0 0 0 4px var(--theme); font-size: clamp(12.5px, 1.35dvh, 14px);
-  }
-  .mq-face { padding: var(--py) var(--px); gap: clamp(6px, 1dvh, 12px); }
-  .mq-lettre { font-size: var(--L); right: calc(var(--px) * .6); bottom: calc(var(--py) * .6); -webkit-text-stroke-width: 3px; }
-  .mq-titre { font-size: calc(var(--k) * clamp(26px, min(4dvh + 1vw - 14.4px, 2.6vw), 48px)); }
-  .mq-implique { font-size: calc(var(--k) * clamp(14.5px, 1.95dvh + .44vw - 6.3px, 21px)); }
-  .mq-arguments { gap: clamp(8px, 1.4dvh, 18px); }
-  .mq-argument { font-size: calc(var(--k) * clamp(14px, 1.8dvh + .44vw - 6.3px, 20px)); }
-  .mq-argument b { font-size: clamp(12px, 1.4dvh + .2vw - 2.9px, 15px); margin-bottom: clamp(2px, .45dvh, 6px); }
+  .mq-tuile { flex: none; }
+  .mq-arguments { margin-top: auto; padding-top: 4px; }
+  .mq-mienne { font-size: clamp(12.5px, 1.35 * var(--u), 14px); }
+  .mq-face { padding: calc(var(--fit, 1) * var(--py)) var(--px); gap: calc(var(--fit, 1) * clamp(6px, 1 * var(--u), 12px)); }
+  .mq-haut { font-size: calc(var(--k) * clamp(24px, min(3.6 * var(--u) + 1vw - 14.4px, 2.4vw), 44px)); }
+  .mq-implique { font-size: calc(var(--k) * clamp(14.5px, 1.95 * var(--u) + .44vw - 6.3px, 21px)); }
+  .mq-arguments { gap: calc(var(--fit, 1) * clamp(8px, 1.4 * var(--u), 18px)); }
+  .mq-argument { font-size: calc(var(--k) * clamp(14px, 1.8 * var(--u) + .44vw - 6.3px, 20px)); }
+  .mq-argument b { font-size: clamp(12px, 1.4 * var(--u) + .2vw - 2.9px, 15px); margin-bottom: clamp(2px, .45 * var(--u), 6px); }
   /* La tuile pour décider : « Je ne sais pas » en haut, puis l'importance, puis « Valider ma réponse ». */
   .mq-decision, .mq-nsp { grid-area: 3 / 3; }
   .mosaique:has(.mq-tuile:nth-child(4):nth-last-child(2)) :is(.mq-decision, .mq-nsp) { grid-area: 3 / 2 / 4 / 4; }
-  .mosaique:has(.mq-tuile:nth-child(3):nth-last-child(2)) { grid-template-columns: repeat(2, minmax(0, 1fr)); --k: 1.12; --L: min(52cqw, 32dvh); }
+  .mosaique:has(.mq-tuile:nth-child(3):nth-last-child(2)) { grid-template-columns: repeat(2, minmax(0, 1fr)); --k: calc(var(--fit, 1) * 1.12); }
   .mosaique:has(.mq-tuile:nth-child(3):nth-last-child(2)) :is(.mq-decision, .mq-nsp) { grid-area: 3 / 2; }
   .mq-decision {
     position: static; border-radius: var(--r); padding: calc(var(--py) * 2 + var(--nsp)) var(--px) var(--py);
-    grid-template-rows: 1fr auto; gap: clamp(10px, 1.6dvh, 20px);
+    grid-template-rows: 1fr auto; gap: clamp(10px, 1.6 * var(--u), 20px);
   }
   .mq-nsp { z-index: 6; align-self: start; margin: var(--py) var(--px) 0; height: var(--nsp); }
-  .mq-nsp > span { font-size: clamp(18px, 2.4dvh, 26px); justify-content: flex-start; padding-left: 8px; }
-  .mq-nsp i { width: clamp(34px, 4.6dvh, 50px); height: clamp(34px, 4.6dvh, 50px); font-size: clamp(20px, 2.8dvh, 30px); }
+  .mq-nsp > span { font-size: clamp(18px, 2.4 * var(--u), 26px); justify-content: flex-start; padding-left: 8px; }
+  .mq-nsp i { width: clamp(34px, 4.6 * var(--u), 50px); height: clamp(34px, 4.6 * var(--u), 50px); font-size: clamp(20px, 2.8 * var(--u), 30px); }
   .mq-importance { align-self: center; }
-  .mq-importance legend { font-size: clamp(16px, 2.1dvh, 23px); margin-bottom: clamp(8px, 1.1dvh, 12px); }
-  .mq-niveau > span { flex-direction: column; gap: 5px; min-height: clamp(56px, 8dvh, 88px); }
-  .mq-niveau b { font-size: clamp(22px, 3.1dvh, 34px); }
-  .mq-niveau em { font-size: clamp(13px, 1.45dvh, 15px); }
-  .mq-valider { min-height: clamp(56px, 8.4dvh, 92px); font-size: clamp(20px, min(2.9dvh, 1.8vw), 32px); box-shadow: 0 6px 0 var(--theme); margin-bottom: 6px; }
+  .mq-importance legend { font-size: clamp(16px, 2.1 * var(--u), 23px); margin-bottom: clamp(8px, 1.1 * var(--u), 12px); }
+  .mq-niveau > span { flex-direction: column; gap: 5px; min-height: clamp(56px, 8 * var(--u), 88px); }
+  .mq-niveau b { font-size: clamp(22px, 3.1 * var(--u), 34px); }
+  .mq-niveau em { font-size: clamp(13px, 1.45 * var(--u), 15px); }
+  .mq-valider { min-height: clamp(56px, 8.4 * var(--u), 92px); font-size: clamp(20px, min(2.9 * var(--u), 1.8vw), 32px); box-shadow: 0 6px 0 var(--theme); margin-bottom: 6px; }
 }

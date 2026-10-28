@@ -581,6 +581,13 @@ h1, h2, h3, p { margin: 0; }
   white-space: nowrap;
 }
 .pawn--paper { background: var(--pawn); color: var(--ink); box-shadow: 0 3px 0 var(--pawn-edge); }
+/* La photo du candidat, sur ses initiales : en noir et blanc pour tous, le visage cadré dans le rond. */
+.pawn { position: relative; }
+.pawn-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%;
+  object-fit: cover; object-position: 50% 18%; filter: grayscale(1) contrast(1.05); pointer-events: none;
+}
+.pawn--paper .pawn-photo { opacity: .6; }
 .pawn--you { background: var(--trav); color: var(--ink); }
 .field .pawn {
   position: absolute; z-index: 1;
