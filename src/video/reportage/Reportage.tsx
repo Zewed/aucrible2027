@@ -45,7 +45,7 @@ function Titre({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="rp-titre" style={{ opacity: p, transform: `translateX(${(1 - p) * -80}px)` }}>
       <i></i>
-      {children}
+      {typeof children === "string" ? insecable(children) : children}
     </h2>
   );
 }
@@ -55,7 +55,8 @@ function Chute({ children, debut }: { children: string; debut: number }) {
   const image = useCurrentFrame();
   const p = progres(image, debut - 2, 12);
   return (
-    <p className="rp-chute" style={{ opacity: p, transform: `translate(-50%, ${(1 - p) * 30}px)` }}>
+    // Une phrase longue passe en plus petit, pour rester sur deux lignes sans recouvrir l'écran.
+    <p className={children.length > 130 ? "rp-chute longue" : "rp-chute"} style={{ opacity: p, transform: `translate(-50%, ${(1 - p) * 30}px)` }}>
       {insecable(children)}
     </p>
   );
@@ -81,6 +82,9 @@ const insecable = (texte: string) =>
     .replace(/ ([?!:;»%€])/g, "\u00a0$1")
     .replace(/« /g, "«\u00a0")
     .replace(/(\d) (?=\d{3}\b)/g, "$1\u00a0");
+
+/** Un titre de levier contient-il un mot trop long pour tenir en grand sur la largeur d'une carte (« commandement ») ? */
+const aUnMotLong = (choix: { texte: string }[]) => choix.some((c) => c.texte.split(/\s+/).some((mot) => mot.length > 11));
 
 /** Les mots d'une phrase, pour les faire apparaître un à un, chacun gardant ce qui ne s'en sépare pas. */
 const motsDe = (texte: string) => insecable(texte).split(" ");
@@ -231,7 +235,7 @@ function LeviersEnImages({ leviers, instants }: { leviers: NonNullable<DonneesDu
     <AbsoluteFill className="rp-plein rp-table">
       <Marque />
       <Titre>{leviers.titre}</Titre>
-      <div className="rp-leviers" data-n={leviers.choix.length}>
+      <div className="rp-leviers" data-n={leviers.choix.length} data-mot-long={aUnMotLong(leviers.choix) || undefined}>
         {leviers.choix.map((levier, k) => {
           const p = progres(image, choix.debut + k * pas - 2, 12);
           return (
@@ -242,7 +246,7 @@ function LeviersEnImages({ leviers, instants }: { leviers: NonNullable<DonneesDu
                 </span>
               )}
               <div className="rp-levier" style={{ opacity: p, transform: `translateY(${(1 - p) * 40}px)` }}>
-                <b>{levier.texte}</b>
+                <b>{insecable(levier.texte)}</b>
                 {levier.detail && <small>{insecable(levier.detail)}</small>}
               </div>
             </Fragment>
@@ -359,7 +363,7 @@ function Fin({ leviers, instants }: { leviers?: DonneesDuReportage["leviers"]; i
     <AbsoluteFill className="rp-plein rp-couleur rp-fin">
       <Marque />
       {leviers && (
-        <div className="rp-fin-leviers" data-n={leviers.choix.length}>
+        <div className="rp-fin-leviers" data-n={leviers.choix.length} data-mot-long={aUnMotLong(leviers.choix) || undefined}>
           {leviers.choix.map((levier, k) => {
             const q = progres(image, instants[0].debut - 2 + k * 5, 12);
             return (
@@ -370,7 +374,7 @@ function Fin({ leviers, instants }: { leviers?: DonneesDuReportage["leviers"]; i
                   </span>
                 )}
                 <div className="rp-fin-levier" style={{ opacity: q, transform: `translateY(${(1 - q) * 30}px)` }}>
-                  <b>{levier.texte}</b>
+                  <b>{insecable(levier.texte)}</b>
                   {levier.detail && <small>{insecable(levier.detail)}</small>}
                 </div>
               </Fragment>
