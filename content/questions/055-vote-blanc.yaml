@@ -62,11 +62,10 @@ story:
     precision: "comme aujourd'hui"
 positions:
   # L'Avenir en commun, chap. 1 « Le pouvoir au peuple » (« Reconnaître le vote blanc […] et instaurer un seuil de votes exprimés pour valider une élection ») : https://avenir-en-commun.net/revolution-citoyenne ; amendements cosignés n° 198 (21/07/2017) : https://www.assemblee-nationale.fr/15/amendements/0106/AN/198.pdf et CL640 (22/06/2018) : https://www.assemblee-nationale.fr/15/amendements/0911/CION_LOIS/CL640.pdf
-  melenchon: { option: C, source: "L'Avenir en commun, chap. 1 « Le pouvoir au peuple » ; amendements n° 198 (2017) et CL640 (2018)", statut: officielle }
-  # Debout la France, « Refonder et moraliser notre démocratie », mesure 5 : https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/ ; programme 2022, décision 4 : https://www.debout-la-france.fr/wp-content/uploads/2022/07/100-Decisions-pour-la-France_VFIN.pdf
-  dupont-aignan: { option: C, source: "Debout la France, projet « Refonder et moraliser notre démocratie », mesure 5, 2026", statut: officielle }
-  # Cosignataire, alors député LFI, des amendements n° 198 (21/07/2017) : https://www.assemblee-nationale.fr/15/amendements/0106/AN/198.pdf et CL640 (22/06/2018) : https://www.assemblee-nationale.fr/15/amendements/0911/CION_LOIS/CL640.pdf ; rien trouvé depuis son départ de LFI (à vérifier).
-  ruffin: { option: C, source: "Cosignataire des amendements n° 198 (21/07/2017) et CL640 (22/06/2018)", statut: deduite }
+  # Amendement LFI n° 313 au projet de loi constitutionnelle n° 2529, 25/03/2026 ; L'Avenir en commun 2027 : https://www.assemblee-nationale.fr/dyn/17/amendements/2529/AN/313.pdf
+  melenchon: { option: C, source: "Amendement LFI n° 313 au projet de loi constitutionnelle n° 2529, 25/03/2026 ; L'Avenir en commun 2027", statut: officielle }
+  # Debout la France, projet 2027, « Refonder et moraliser notre démocratie » : https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/
+  dupont-aignan: { option: C, source: "Debout la France, projet 2027, « Refonder et moraliser notre démocratie »", statut: officielle }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/055-vote-blanc.md (chaque chiffre y a sa source
 # numérotée). Le fil : depuis 2014, les blancs sont comptés à part mais ne pèsent pas ; faut-il qu'ils pèsent, et
 # jusqu'à pouvoir faire refaire l'élection ? Pas de mécanisme : aucun rapport « X pour 1 » ne résume le sujet. Pas

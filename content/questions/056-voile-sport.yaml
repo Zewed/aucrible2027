@@ -86,18 +86,16 @@ story:
 positions:
   # LCI, 16/09/2026, rapporté par La Gazette France : https://www.lagazettefrance.fr/article/interdiction-du-voile-le-pen-veut-le-faire-de-maniere-progressive
   # et par Dakaractu : https://www.dakaractu.com/Marine-Le-Pen-veut-interdire-le-voile-de-maniere-progressive-en-cas-de-victoire_a276105.amp.html
-  le-pen: { option: A, source: "LCI, 16/09/2026", statut: deduite }
-  # Déclaration radio du 25/03/2025 (dépêche AFP) : https://www.bluewin.ch/fr/infos/le-tacle-ose-du-ministre-de-linterieur-teddy-riner-il-ma-fait-vibrer-on-aime-le-sportif-mais-la-li.2622494
-  # Sud Radio, 19/03/2025 (« favorable à une loi interdisant le port du voile dans les compétitions sportives ») : https://www.sudradio.fr/emission/dites-le-franchement-366
-  retailleau: { option: A, source: "Déclaration radio, 25/03/2025", statut: officielle }
-  # CNews, vers le 18/03/2025, rapporté par Sud Radio le 19/03/2025 (transcription automatique) : https://www.sudradio.fr/emission/dites-le-franchement-366
-  philippe: { option: A, source: "CNews, mars 2025 (Sud Radio, 19/03/2025)", statut: deduite }
-  # Programme présidentiel 2022 (« Interdire le port du voile islamique dans l'espace public ») : https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/interdire-le-voile-dans-lespace-public/
-  zemmour: { option: A, source: "Programme présidentiel 2022", statut: deduite }
-  # Question écrite n° 15698, 15/01/2013 : https://questions.assemblee-nationale.fr/q14/14-15698QE.htm
-  dupont-aignan: { option: A, source: "Question écrite n° 15698, 15/01/2013", statut: deduite }
-  # Point presse du 19/03/2025, rapporté par Hespress (« la décision revient aux fédérations sportives », paraphrase) : https://fr.hespress.com/416209-france-le-port-du-voile-dans-le-sport-divise-la-scene-politique.html
-  melenchon: { option: B, source: "Point presse, 19/03/2025 (Hespress)", statut: deduite }
+  # Europe 1 (dépêche), point presse du mercredi 19/03/2025 : https://www.europe1.fr/node/668697
+  melenchon: { option: B, source: "Europe 1 (dépêche), point presse du mercredi 19/03/2025", statut: deduite }
+  # CNews, 18/03/2025, rapporté par Sud Radio le 19/03/2025 (transcription) : https://www.sudradio.fr/emission/dites-le-franchement-366
+  philippe: { option: A, source: "CNews, 18/03/2025, rapporté par Sud Radio le 19/03/2025 (transcription)", statut: deduite }
+  # LCI, 16/09/2026 (dépêche AFP reprise par La Gazette France) : https://www.lagazettefrance.fr/article/interdiction-du-voile-le-pen-veut-le-faire-de-maniere-progressive
+  le-pen: { option: A, source: "LCI, 16/09/2026 (dépêche AFP reprise par La Gazette France)", statut: deduite }
+  # Message d'Éric Zemmour du 27/06/2023, republié sur son blog (Goodreads) : https://www.goodreads.com/author/show/243305._ric_Zemmour/blog?page=1
+  zemmour: { option: A, source: "Message d'Éric Zemmour du 27/06/2023, republié sur son blog (Goodreads)", statut: officielle }
+  # Déclaration radio du 25/03/2025 (dépêche AFP, Bluewin) : https://www.bluewin.ch/fr/infos/le-tacle-ose-du-ministre-de-linterieur-teddy-riner-il-ma-fait-vibrer-on-aime-le-sportif-mais-la-li.2622494
+  retailleau: { option: A, source: "Déclaration radio du 25/03/2025 (dépêche AFP, Bluewin)", statut: officielle }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/056-voile-sport.md (chaque chiffre y a sa source
 # numérotée, voir son annexe). Le fil : le Sénat veut une loi, l'Assemblée ne l'a jamais votée ; quatre choix possibles,
 # la France applique le deuxième.

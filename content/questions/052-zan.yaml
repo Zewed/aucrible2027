@@ -72,17 +72,16 @@ story:
     precision: "ou renforcer"
 positions:
   # Discours de rentrée à Hénin-Beaumont, 13/09/2026 (AFP) : https://www.sudradio.fr/societe/le-pen-veut-mettre-la-priorite-nationale-au-centre-dun-grand-chantier-sur-le-logement ; amendement n° 953 rect. cosigné (suppression du ZAN, rejeté le 28/05/2025) : https://www.assemblee-nationale.fr/dyn/17/amendements/1191/AN/953.pdf
-  le-pen: { option: A, source: "Discours de rentrée, Hénin-Beaumont, 13/09/2026", statut: officielle }
-  # Conférence de presse du 15/09/2026 (Public Sénat) : https://www.publicsenat.fr/actualites/politique/essence-energie-logement-travail-bruno-retailleau-promet-daugmenter-le-pouvoir-dachat-des-francais-sans-un-euro-de-dette-en-plus
-  retailleau: { option: A, source: "Conférence de presse, 15/09/2026", statut: officielle }
-  # Amendement n° 345 cosigné (exemption des communes rurales de 2 000 habitants ou moins qui perdent des habitants), 16/06/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/1359/AN/345.pdf
-  roussel: { option: B, source: "Amendement n° 345 cosigné, Assemblée nationale, 16/06/2023", statut: deduite }
-  # L'Avenir en commun, édition 2025, mesures 28 et 152, relevées par votons-2027.fr (page d'origine inaccessible, erreur 403) : https://votons-2027.fr/candidats/melenchon/programme/climat ; original : https://melenchon2027.fr/programme2025/livre/
-  melenchon: { option: D, source: "L'Avenir en commun, édition 2025, mesures 28 et 152", statut: deduite }
-  # Projet 2027 des Écologistes, mesure 13, relevée par votons-2027.fr (page d'origine inaccessible, erreur 403) : https://votons-2027.fr/candidats/tondelier/programme/climat ; original : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
-  tondelier: { option: D, source: "Projet 2027 des Écologistes, mesure 13", statut: officielle }
-  # Amendements cosignés n° 477 (ZAN avancé à 2040), 16/06/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/1359/AN/477.pdf ; et n° 844 (maintien de l'étape de 2031), 03/04/2025 : https://www.assemblee-nationale.fr/dyn/17/amendements/1191/AN/844.pdf
-  ruffin: { option: D, source: "Amendements n° 477 (16/06/2023) et n° 844 (03/04/2025) cosignés", statut: deduite }
+  # Vote du groupe communiste (CRCE-K) du Sénat pour la PPL Trace, 18/03/2025 (Banque des Territoires, 19/03/2025) ; amendement n° 345 cosigné par F. Roussel, 16/06/2023 : https://www.banquedesterritoires.fr/trajectoire-de-reduction-de-lartificialisation-feu-vert-du-senat-pour-un-nouveau-round
+  roussel: { option: B, source: "Vote du groupe communiste (CRCE-K) du Sénat pour la PPL Trace, 18/03/2025 (Banque des Territoires, 19/03/2025) ; amendement n° 345 cosigné par F. Roussel, 16/06/2023", statut: deduite }
+  # Amendement n° 477 du groupe LFI-NUPES (ZAN avancé à 2040), 16/06/2023 ; L'Avenir en commun (mesure « Lutter contre l'artificialisation des sols ») : https://www.assemblee-nationale.fr/dyn/16/amendements/1359/AN/477.pdf
+  melenchon: { option: D, source: "Amendement n° 477 du groupe LFI-NUPES (ZAN avancé à 2040), 16/06/2023 ; L'Avenir en commun (mesure « Lutter contre l'artificialisation des sols »)", statut: deduite }
+  # Discours de rentrée à Hénin-Beaumont, 13/09/2026 (AFP, Sud Radio) ; amendement n° 953 rect. cosigné, rejeté le 28/05/2025 : https://www.sudradio.fr/societe/le-pen-veut-mettre-la-priorite-nationale-au-centre-dun-grand-chantier-sur-le-logement
+  le-pen: { option: A, source: "Discours de rentrée à Hénin-Beaumont, 13/09/2026 (AFP, Sud Radio) ; amendement n° 953 rect. cosigné, rejeté le 28/05/2025", statut: officielle }
+  # Conférence de presse du 15/09/2026 (Public Sénat) ; plan logement 2027 (Europe 1, dépêche AFP) : https://www.publicsenat.fr/actualites/politique/essence-energie-logement-travail-bruno-retailleau-promet-daugmenter-le-pouvoir-dachat-des-francais-sans-un-euro-de-dette-en-plus
+  retailleau: { option: A, source: "Conférence de presse du 15/09/2026 (Public Sénat) ; plan logement 2027 (Europe 1, dépêche AFP)", statut: officielle }
+  # Projet des Écologistes, juillet 2026, p. 44 : https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
+  tondelier: { option: D, source: "Projet des Écologistes, juillet 2026, p. 44", statut: officielle }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/052-zan.md (chaque chiffre y a sa source numérotée ;
 # tableau des renvois en annexe de l'étude). Le fil : une loi qui divise par deux les terres prises pour bâtir ;
 # faut-il la garder, l'assouplir ou la supprimer ? Quatre angles : logement, campagnes, faisabilité, opinion.

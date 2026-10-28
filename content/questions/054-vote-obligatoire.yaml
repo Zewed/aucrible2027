@@ -61,17 +61,14 @@ story:
     precision: "comme aujourd'hui"
 positions:
   # Groupe RN, présidé par Marine Le Pen : amendements de suppression CL5 (P. Bordes) et CL28 (G. Lelouis) de l'article 2 (vote obligatoire), commission des lois, 31/05/2023 : https://www.assemblee-nationale.fr/dyn/16/rapports/cion_lois/l16b1291_rapport-fond.pdf
-  le-pen: { option: A, source: "Groupe RN, amendements de suppression du vote obligatoire, commission des lois, 31/05/2023", statut: deduite }
-  # Programme 2027, « Le pouvoir au peuple » : https://avenir-en-commun.net/revolution-citoyenne ; amendement n° 199 signé par J.-L. Mélenchon, 21/07/2017 (amende de 3e classe) : https://www.assemblee-nationale.fr/dyn/15/amendements/0106/AN/199.pdf ; amendement LFI n° 312, 25/03/2026 : https://www.assemblee-nationale.fr/dyn/17/amendements/2529/AN/312.pdf
-  melenchon: { option: C, source: "Programme 2027, Le pouvoir au peuple ; amendement n° 199 du 21/07/2017", statut: officielle }
-  # Groupe Horizons (D. Lemaire), commission des lois, 31/05/2023 : https://www.assemblee-nationale.fr/dyn/16/rapports/cion_lois/l16b1291_rapport-fond.pdf
-  philippe: { option: A, source: "Groupe Horizons, commission des lois, 31/05/2023", statut: deduite }
-  # Groupe écologiste, amendement de suppression CL15, 26/05/2023 (« farouchement opposé au vote obligatoire ») : https://www.assemblee-nationale.fr/dyn/16/amendements/1157/CION_LOIS/CL15.pdf
-  tondelier: { option: A, source: "Groupe écologiste, amendement CL15, 26/05/2023", statut: deduite }
-  # Groupe GDR (N. Sansu), commission des lois, 31/05/2023 : https://www.assemblee-nationale.fr/dyn/16/rapports/cion_lois/l16b1291_rapport-fond.pdf ; position de 2022 rapportée par https://lepetitjournal.com/expat-politique/actualites/vote-obligatoire-france-336244 (source secondaire, à vérifier)
-  roussel: { option: A, source: "Groupe GDR, commission des lois, 31/05/2023", statut: deduite }
-  # Cosignataire de l'amendement n° 199, 21/07/2017 : https://www.assemblee-nationale.fr/dyn/15/amendements/0106/AN/199.pdf ; et de l'amendement n° 68, 10/05/2024 : https://www.assemblee-nationale.fr/dyn/16/amendements/2424/AN/68.pdf
-  ruffin: { option: C, source: "Amendements n° 199 du 21/07/2017 et n° 68 du 10/05/2024", statut: deduite }
+  # Groupe RN (présidé par M. Le Pen), amendements de suppression CL5 et CL28 de l'article 2, commission des lois, 31/05/2023 (rapport n° 1291) : https://www.assemblee-nationale.fr/dyn/16/rapports/cion_lois/l16b1291_rapport-fond.pdf
+  le-pen: { option: A, source: "Groupe RN (présidé par M. Le Pen), amendements de suppression CL5 et CL28 de l'article 2, commission des lois, 31/05/2023 (rapport n° 1291)", statut: deduite }
+  # Groupe Horizons (D. Lemaire), commission des lois, 31/05/2023 (rapport n° 1291) : https://www.assemblee-nationale.fr/dyn/16/rapports/cion_lois/l16b1291_rapport-fond.pdf
+  philippe: { option: A, source: "Groupe Horizons (D. Lemaire), commission des lois, 31/05/2023 (rapport n° 1291)", statut: deduite }
+  # Groupe écologiste, amendement de suppression CL15 de l'article 2, 26/05/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/1157/CION_LOIS/CL15.pdf
+  tondelier: { option: A, source: "Groupe écologiste, amendement de suppression CL15 de l'article 2, 26/05/2023", statut: deduite }
+  # Brut, 22/02/2022 ; amendement LFI n° 9 sur l'article 2 de la PPL n° 1291, 05/06/2023 ; programme 2027 : https://www.brut.media/fr/videos/droit-de-vote-a-16-ans-l-avis-de-jean-luc-melenchon
+  melenchon: { option: B, source: "Brut, 22/02/2022 ; amendement LFI n° 9 sur l'article 2 de la PPL n° 1291, 05/06/2023 ; programme 2027", statut: deduite }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/054-vote-obligatoire.md (chaque chiffre y a sa source
 # numérotée). Le fil : de moins en moins d'inscrits votent ; l'obligation ferait voter presque tout le monde, mais à quel
 # prix et sous quelle contrainte ? Pas de mécanisme : aucun rapport « X pour 1 » ne résume le sujet.

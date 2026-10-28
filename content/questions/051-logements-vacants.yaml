@@ -66,21 +66,22 @@ story:
     precision: "ou alléger les règles"
 positions:
   # Programme 2027 : LFI, « Comment nous allons remettre de l'ordre dans les comptes publics », octobre 2026, p. 8 (« la réquisition de logements vacants ») : https://melenchon2027.fr/wp-content/uploads/2026/10/Comment-nous-allons-remettre-de-l-ordre-dans-les-comptes-publics.pdf ; plan BTP et logement du 28/09/2026 (réquisition et taxe progressive), relayé par SeLoger le 09/10/2026 : https://edito.seloger.com/node/23842
-  melenchon: { option: A, source: "LFI, programme 2027, octobre 2026, p. 8", statut: officielle }
-  # Les Écologistes, Pour une prospérité écologique, juillet 2026, mesure 6, p. 20 (« Utiliser le droit de réquisition pour lutter contre les logements vacants ») : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
-  tondelier: { option: A, source: "Programme des Écologistes, juillet 2026, p. 20", statut: officielle }
-  # Cosignataire de la proposition de loi n° 2303 (réquisition par les maires), 23/12/2025 : https://questions.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B2303.html ; intervention en commission, 04/02/2026 : https://www.assemblee-nationale.fr/dyn/17/rapports/cion-eco/l17b2426_rapport-fond.pdf
-  ruffin: { option: A, source: "Proposition de loi n° 2303, 23/12/2025", statut: deduite }
-  # Éditorial de N. Arthaud, Lutte ouvrière, 16/09/2026 (Le Pen ne propose pas « de réquisitionner les logements vides ») : https://lutte-ouvriere.org/journal/article/non-guerre-entre-travailleurs-197106.html
-  arthaud: { option: A, source: "Éditorial de Lutte ouvrière, 16/09/2026", statut: deduite }
-  # Place publique, Notre vision pour la France, Acte I, 23/06/2025, p. 64 (« renforcer la fiscalité sur la vacance longue avec des barèmes progressifs et dissuasifs ») : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view
-  glucksmann: { option: B, source: "Place publique, Acte I, 23/06/2025, p. 64", statut: deduite }
-  # Debout la France, projet Famille, mesure 20 (avantage fiscal aux propriétaires qui louent, réhabilitation simplifiée) : https://www.debout-la-france.fr/projet/famille/
-  dupont-aignan: { option: C, source: "Debout la France, projet Famille, mesure 20", statut: officielle }
-  # Cosignataire de la proposition de loi RN n° 278 sur les « contraintes énergétiques » de la location : https://www.assemblee-nationale.fr/dyn/17/textes/l17b0278_proposition-loi.pdf ; vote contre sa suppression, scrutin n° 219 du 31/10/2024 : https://datan.fr/votes/legislature-17/vote_219 ; amendement n° 1 contre la réquisition, 05/02/2026 : https://www.assemblee-nationale.fr/dyn/17/amendements/2303/AN/1.pdf
-  le-pen: { option: D, source: "Vote sur la proposition de loi RN n° 278, 31/10/2024", statut: deduite }
-  # Entretien sur le site de Nouvelle Énergie, 05/12/2025 (« je supprimerais le DPE », « je baisserais la fiscalité sur le revenu du locatif ») : https://www.unenouvelleenergie.fr/david-lisnard-face-a-la-crise-du-logement-il-est-temps-de-briser-cette-spirale-infernale/
-  lisnard: { option: D, source: "Entretien, Nouvelle Énergie, 05/12/2025", statut: deduite }
+  # Cosignataire de la PPL n° 2303 (réquisition par les maires), 23/12/2025 ; commission des affaires économiques, 04/02/2026 (rapport n° 2426) : https://questions.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B2303.html
+  ruffin: { option: A, source: "Cosignataire de la PPL n° 2303 (réquisition par les maires), 23/12/2025 ; commission des affaires économiques, 04/02/2026 (rapport n° 2426)", statut: deduite }
+  # Éditorial de N. Arthaud, Lutte ouvrière, 16/09/2026 : https://lutte-ouvriere.org/journal/article/non-guerre-entre-travailleurs-197106.html
+  arthaud: { option: A, source: "Éditorial de N. Arthaud, Lutte ouvrière, 16/09/2026", statut: deduite }
+  # Place publique, Notre vision pour la France, Acte I, 23/06/2025, p. 64 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view
+  glucksmann: { option: B, source: "Place publique, Notre vision pour la France, Acte I, 23/06/2025, p. 64", statut: deduite }
+  # Amendement RN n° 1 à la PPL n° 2303 sur les logements vacants, cosigné par M. Le Pen, 05/02/2026 ; PPL RN n° 278 et scrutin n° 219, 31/10/2024 : https://www.assemblee-nationale.fr/dyn/17/amendements/2303/AN/1.pdf
+  le-pen: { option: D, source: "Amendement RN n° 1 à la PPL n° 2303 sur les logements vacants, cosigné par M. Le Pen, 05/02/2026 ; PPL RN n° 278 et scrutin n° 219, 31/10/2024", statut: deduite }
+  # Entretien au Figaro repris par Nouvelle Énergie, 05/12/2025 : https://www.unenouvelleenergie.fr/david-lisnard-face-a-la-crise-du-logement-il-est-temps-de-briser-cette-spirale-infernale/
+  lisnard: { option: D, source: "Entretien au Figaro repris par Nouvelle Énergie, 05/12/2025", statut: deduite }
+  # LFI, « Comment nous allons remettre de l'ordre dans les comptes publics », octobre 2026, p. 8 : https://melenchon2027.fr/wp-content/uploads/2026/10/Comment-nous-allons-remettre-de-l-ordre-dans-les-comptes-publics.pdf
+  melenchon: { option: A, source: "LFI, « Comment nous allons remettre de l'ordre dans les comptes publics », octobre 2026, p. 8", statut: officielle }
+  # Les Écologistes, Pour une prospérité écologique, juillet 2026, mesure 6, p. 20 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+  tondelier: { option: A, source: "Les Écologistes, Pour une prospérité écologique, juillet 2026, mesure 6, p. 20", statut: officielle }
+  # Debout la France, projet 2027, « Économie et travail » (et « Famille », mesure 20) : https://www.debout-la-france.fr/projet/economie-travail/
+  dupont-aignan: { option: D, source: "Debout la France, projet 2027, « Économie et travail » (et « Famille », mesure 20)", statut: officielle }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/051-logements-vacants.md (chaque chiffre y a sa source
 # numérotée, voir l'annexe de l'étude). Le fil : il y a beaucoup de logements vides, mais tous ne sont pas utiles ni
 # disponibles ; quatre façons de les remettre en usage.

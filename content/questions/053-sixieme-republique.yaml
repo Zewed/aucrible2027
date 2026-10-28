@@ -71,27 +71,28 @@ story:
     precision: "celle de 1958, révisée ou non"
 positions:
   # L'Avenir en commun 2027, « Faire la révolution citoyenne » : https://avenir-en-commun.net/revolution-citoyenne ; proposition de résolution n° 788, 21/01/2025 : https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0788_proposition-resolution.pdf
-  melenchon: { option: A, source: "L'Avenir en commun 2027, Faire la révolution citoyenne", statut: officielle }
-  # Programme des Écologistes du 13/07/2026 (AFP) : https://www.lagazettefrance.fr/article/2027-les-ecologistes-veulent-instaurer-la-premiere-republique-ecologique-et-citoyenne ; Ouest-France, 08/02/2025 (reproduit, non ouvert) : https://yvelines.eelv.fr/files/2025/02/250210-Marine-Tondelier-_-Nous-Écologistes-demandons-à-Emmanuel-Macron-un-référendum-.pdf
-  tondelier: { option: A, source: "Programme des Écologistes, 13/07/2026 (AFP) ; Ouest-France, 08/02/2025", statut: officielle }
-  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 20 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view
-  glucksmann: { option: A, source: "Place publique, Acte I, chantier 20, 23/06/2025", statut: deduite }
-  # La France des Jours heureux, propositions 132 à 134 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
-  roussel: { option: A, source: "La France des Jours heureux, propositions 132 à 134, 2022", statut: deduite }
-  # Cahier de campagne n° 02, « Pour séparer l'argent de l'État » : https://nouspresident.fr/separation-argent-etat/
-  ruffin: { option: B, source: "Cahier de campagne n° 02, Pour séparer l'argent de l'État, 2026", statut: officielle }
-  # Programme 2022 (Public Sénat, 13/04/2022) : https://www.publicsenat.fr/actualites/politique/la-reforme-des-institutions-au-coeur-du-duel-macron-le-pen-202480 ; plan du RN (AFP, 05/09/2026) : https://www.sudradio.fr/societe/en-revisant-la-constitution-par-referendum-le-rn-au-pouvoir-ouvrirait-une-crise-majeure
-  le-pen: { option: C, source: "Programme 2022, Public Sénat, 13/04/2022 ; plan du RN, AFP, 05/09/2026", statut: deduite }
-  # Public Sénat, 03/09/2026 : https://www.publicsenat.fr/actualites/politique/presidentielle-2027-bruno-retailleau-propose-une-revolution-copernicienne-dans-laquelle-la-constitution-ne-serait-plus-le-bouclier-qui-prote
+  # Place publique, Notre vision pour la France, Acte I, 23/06/2025, chantier 20 (p. 45) : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view
+  glucksmann: { option: A, source: "Place publique, Notre vision pour la France, Acte I, 23/06/2025, chantier 20 (p. 45)", statut: deduite }
+  # La France des Jours heureux, programme présidentiel 2022, propositions 132 à 134 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "La France des Jours heureux, programme présidentiel 2022, propositions 132 à 134", statut: deduite }
+  # Programme présidentiel 2022 (franceinfo, 07/04/2022 ; Public Sénat, 2022) : https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
+  zemmour: { option: C, source: "Programme présidentiel 2022 (franceinfo, 07/04/2022 ; Public Sénat, 2022)", statut: deduite }
+  # Debout la France, projet 2027, « Refonder et moraliser notre démocratie » : https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/
+  dupont-aignan: { option: C, source: "Debout la France, projet 2027, « Refonder et moraliser notre démocratie »", statut: officielle }
+  # Programme 2022 (Public Sénat, 13/04/2022) ; plan du RN pour un référendum constitutionnel par l'article 11 (AFP, Sud Radio, 05/09/2026) : https://www.sudradio.fr/societe/en-revisant-la-constitution-par-referendum-le-rn-au-pouvoir-ouvrirait-une-crise-majeure
+  le-pen: { option: C, source: "Programme 2022 (Public Sénat, 13/04/2022) ; plan du RN pour un référendum constitutionnel par l'article 11 (AFP, Sud Radio, 05/09/2026)", statut: deduite }
+  # Proposition de résolution LFI n° 788, 21/01/2025 ; L'Avenir en commun 2027 : https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0788_proposition-resolution.pdf
+  melenchon: { option: A, source: "Proposition de résolution LFI n° 788, 21/01/2025 ; L'Avenir en commun 2027", statut: officielle }
+  # Ouest-France, 08/02/2025 ; Public Sénat, 14/05/2025 : https://www.publicsenat.fr/actualites/politique/emmanuel-macron-sur-tf1-il-met-en-scene-son-impuissance-pour-marine-tondelier
+  tondelier: { option: A, source: "Ouest-France, 08/02/2025 ; Public Sénat, 14/05/2025", statut: officielle }
+  # Pacte constitutionnel, Public Sénat, 03/09/2026 : https://www.publicsenat.fr/actualites/politique/presidentielle-2027-bruno-retailleau-propose-une-revolution-copernicienne-dans-laquelle-la-constitution-ne-serait-plus-le-bouclier-qui-prote
   retailleau: { option: C, source: "Pacte constitutionnel, Public Sénat, 03/09/2026", statut: officielle }
   # Discours de Bayeux, 17/06/2026 : https://nouvelle-energie-media-prod.s3.fr-par.scw.cloud/media/legacy/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf
   lisnard: { option: C, source: "Discours de Bayeux, 17/06/2026", statut: officielle }
-  # JDD, 02/08/2026, résumé sur son site de campagne : https://attalpresident.fr/actualites/dans-le-jdd-gabriel-attal-veut-proposer-la-plus-grande-reforme-institutionnelle-depuis-1958
-  attal: { option: C, source: "Entretien au JDD, 02/08/2026", statut: officielle }
-  # Programme 2022 (franceinfo, 07/04/2022) : https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
-  zemmour: { option: C, source: "Programme 2022, franceinfo, 07/04/2022", statut: deduite }
-  # 100 décisions pour la France 2022-2027, décisions 2, 3 et 5 : https://www.debout-la-france.fr/wp-content/uploads/2022/07/100-Decisions-pour-la-France_VFIN.pdf
-  dupont-aignan: { option: C, source: "100 décisions pour la France, décisions 2, 3 et 5, 2022", statut: deduite }
+  # Entretien au JDD, 02/08/2026 (résumé sur son site de campagne) : https://attalpresident.fr/actualites/dans-le-jdd-gabriel-attal-veut-proposer-la-plus-grande-reforme-institutionnelle-depuis-1958
+  attal: { option: C, source: "Entretien au JDD, 02/08/2026 (résumé sur son site de campagne)", statut: officielle }
+  # Cahier de campagne n° 02, Pour séparer l'argent de l'État, juillet 2026 : https://nouspresident.fr/separation-argent-etat/
+  ruffin: { option: B, source: "Cahier de campagne n° 02, Pour séparer l'argent de l'État, juillet 2026", statut: officielle }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/053-sixieme-republique.md (chaque chiffre y a sa
 # source numérotée ; tableau en annexe de l'étude). Le fil : une Constitution qui dure depuis 1958, révisée 25 fois ;
 # depuis 2022, une Assemblée sans majorité ; faut-il la changer, la réviser ou la garder ?

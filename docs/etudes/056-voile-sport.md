@@ -291,6 +291,15 @@ Bilan : 6 positions sur 13 (5 en A, 1 en B), dont une seule officielle ; aucun c
 
 ---
 
+### Positions revérifiées le 28/10/2026
+
+- **Jean-Luc Mélenchon** : option B confirmée (deduite) — Europe 1 (dépêche), point presse du mercredi 19/03/2025, https://www.europe1.fr/node/668697 — « Le leader insoumis a estimé qu'il revenait aux fédérations sportives de décider si "ça dérange ou ça dérange pas". » — Remplace la paraphrase d'Hespress par la dépêche reprise par Europe 1, qui cite ses mots ; son revirement de septembre 2026 sur le voile (LCP, 03/09/2026) ne parle pas du sport et ne change pas le classement.
+- **Nicolas Dupont-Aignan** : position A retirée — Seule source : une question écrite de janvier 2013 (plus de 4 ans) qui demande de s'opposer aux dérogations de la FIFA et du CIO ; elle ne dit pas s'il faut une loi pour toutes les compétitions (A) plutôt que des règles fédérales (B). Rien de plus récent sur le sport : la page « Sport et associations » du projet DLF n'en parle pas, et l'article DLF du 02/09/2026 sur le voile ne vise que la rue.
+- **Édouard Philippe** : option A confirmée (deduite) — CNews, 18/03/2025, rapporté par Sud Radio le 19/03/2025 (transcription), https://www.sudradio.fr/emission/dites-le-franchement-366 — « Il dit interdiction du voile dans les compétitions sportives, oui, mais pas de généralisation au sport » — Aucune autre trace de l'entretien CNews trouvée ; la transcription Sud Radio reste la seule source, sans ambiguïté sur les compétitions.
+- **Marine Le Pen** : option A confirmée (deduite) — LCI, 16/09/2026 (dépêche AFP reprise par La Gazette France), https://www.lagazettefrance.fr/article/interdiction-du-voile-le-pen-veut-le-faire-de-maniere-progressive — « les universités, les sorties scolaires, les fédérations sportives (et) les bâtiments publics » — Ses mots, rapportés par l'AFP : interdire le voile d'abord par décret, notamment dans les fédérations sportives, après un référendum ; déduite car elle vise le voile dans les fédérations, pas tous les signes ni les seules compétitions.
+- **Éric Zemmour** : option A confirmée (officielle) — Message d'Éric Zemmour du 27/06/2023, republié sur son blog (Goodreads), https://www.goodreads.com/author/show/243305._ric_Zemmour/blog?page=1 — « l'interdiction totale du voile islamique dans tout l'espace public, dans le stade comme en dehors du stade. » — Meilleure source que le programme 2022 sur l'espace public : il parle lui-même du stade, la veille de la décision du Conseil d'État ; le 29/06/2023 il salue l'interdiction validée au football.
+- **Bruno Retailleau** : option A confirmée (officielle) — Déclaration radio du 25/03/2025 (dépêche AFP, Bluewin), https://www.bluewin.ch/fr/infos/le-tacle-ose-du-ministre-de-linterieur-teddy-riner-il-ma-fait-vibrer-on-aime-le-sportif-mais-la-li.2622494 — « La ligne du gouvernement, c'est l'interdiction du voile dans les manifestations sportives » — Sud Radio (19/03/2025) le cite aussi : « il faut interdire le port du voile dans toutes les compétitions sportives ».
+
 ## 5. Sources
 
 Sources consultées le 28 octobre 2026.

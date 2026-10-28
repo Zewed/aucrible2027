@@ -253,6 +253,12 @@ Méthode : aucun scrutin public portant sur le décompte des blancs n'a été tr
 
 ---
 
+### Positions revérifiées le 28/10/2026
+
+- **François Ruffin** : position C retirée — Ses seules traces sont des amendements collectifs du groupe LFI cosignés en 2017 (n° 198) et 2018 (CL640), avant son départ de LFI en 2024 ; aucune prise de position sur le vote blanc trouvée depuis Debout ! (recherche 2025-2026 sans résultat). Un parti quitté ne compte pas, et la source a plus de 4 ans.
+- **Jean-Luc Mélenchon** : option C confirmée (officielle) — Amendement LFI n° 313 au projet de loi constitutionnelle n° 2529, 25/03/2026 ; L'Avenir en commun 2027, https://www.assemblee-nationale.fr/dyn/17/amendements/2529/AN/313.pdf — « Une loi organique détermine les conditions dans lesquelles l'insuffisante expression du corps électoral entraîne l'invalidation d'une élection. » — Blancs dans les suffrages exprimés et invalidation sous un seuil (« plus de 50 % des suffrages exprimés d'électeurs inscrits », exposé), « en cohérence avec notre programme » : C, source plus récente et primaire que les amendements de 2017-2018.
+- **Nicolas Dupont-Aignan** : option C confirmée (officielle) — Debout la France, projet 2027, « Refonder et moraliser notre démocratie », https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/ — « Si le vote blanc est majoritaire, le scrutin est reporté et les candidats battus ne peuvent pas se représenter. » — Programme actuel, sans ambiguïté.
+
 ## 5. Sources
 
 Sources consultées le 28 octobre 2026.
