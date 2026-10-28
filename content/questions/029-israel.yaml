@@ -100,7 +100,7 @@ reportage:
       - { texte: Viser le commerce ou les armes, detail: "retirer à Israël ses avantages en Europe, arrêter les ventes militaires" }
     chute: "Certaines mesures se décident à Paris, d'autres à vingt-sept."
     source: "Ministère des Affaires étrangères ; Conseil de l'Union européenne, 2026"
-  camps: { pour: POUR, contre: CONTRE, objet: des sanctions contre le gouvernement israélien }
+  camps: { pour: POUR, contre: CONTRE, objet: des sanctions }
   # Chaque réponse compare ce qui se compare ; aucun mot disputé n'est employé sans être attribué.
   questions:
     # § 2d, [12] [25].

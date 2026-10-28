@@ -39,10 +39,10 @@
   - 90 020 détenus pour 63 348 places opérationnelles, soit une densité carcérale de **142,1 %** (134,7 % un an plus tôt) ;
   - 28 241 détenus en surnombre et **8 347** matelas au sol ; densité de 176,1 % dans les maisons d'arrêt ;
   - 27,3 % des détenus sont des prévenus ; 32,0 % seulement sont en cellule individuelle.
-  - au 1er octobre 2026, 89 400 personnes détenues en France hors outre-mer, soit +7 % en un an [3].
+  - au 1er octobre 2026, 89 400 personnes détenues en France hors collectivités d'outre-mer, c'est-à-dire hors Nouvelle-Calédonie et Polynésie française, où 1 500 personnes sont détenues (les départements d'outre-mer sont compris) ; 90 900 en les comptant ; +7 % en un an [3]. (Corrigé le 28/10/2026 : la version précédente disait « hors outre-mer », ce que la source ne dit pas ; voir aussi l'étude 043, § 1.1.)
 - **Pour les peines planchers** : « ce n'est pas la situation de l'administration pénitentiaire qui doit déterminer notre politique pénale » (rapporteure) [1].
 - **Contre** : les fonctionnaires pénitentiaires alertent sur des conditions « totalement inadaptées à la réinsertion » (députée socialiste) ; le rétablissement de peines planchers augmenterait les peines de prison dans des établissements déjà très occupés [1][2].
-- **Experts** : les chiffres d'occupation sont officiels et convergents ; leur lien avec les peines planchers est une inférence, non chiffrée dans les sources lues.
+- **Experts** : les chiffres d'occupation sont officiels et convergents ; leur lien avec les peines planchers est une inférence, non chiffrée dans les sources lues. (Ajout du 28/10/2026 : une estimation existe, environ 4 000 détenus de plus du fait de la loi de 2007 ; voir les compléments b et d.)
 
 ### Enjeu 4 : l'individualisation des peines et la Constitution
 - **La question** : peut-on fixer un minimum sans empêcher le juge d'adapter la peine ?
@@ -85,6 +85,59 @@
 - **Ruffin** : inconnue.
 - **Arthaud** : inconnue.
 
+## Compléments pour le reportage (28/10/2026)
+
+> Ajoutés pour le reportage vidéo de la fiche. Sources numérotées à la suite de la liste du § 5 ([14] à [16]). Les
+> chiffres ont été relus dans les documents originaux (bulletin du ministère, note de l'Institut des politiques
+> publiques, compte rendu de l'Assemblée, mesure mensuelle de l'incarcération), sauf mention contraire.
+
+### a. Comment les peines planchers de 2007 ont été appliquées (ministère de la Justice, octobre 2012) [14]
+- **Source** : bulletin *Infostat Justice* n° 118, « Peines planchers : application et impact de la loi du 10 août 2007 », F. Leturcq (pôle d'évaluation des politiques pénales, direction des affaires criminelles et des grâces), à partir du casier judiciaire national.
+- **La règle** : pour un délit puni de 3, 5, 7 ou 10 ans de prison, le minimum en récidive était de 1, 2, 3 ou 4 ans ; pour un crime puni de 15, 20 ou 30 ans ou de la perpétuité, de 5, 7, 10 ou 15 ans. Le juge pouvait descendre en dessous par une décision spécialement motivée. « Dans tous les cas, la récidive fait encourir le double des peines prévues (ou la perpétuité pour un crime puni de vingt ou trente ans de réclusion) » [14] ; le garde des sceaux le rappelle en 2024 (« doublement des peines qu'ils encourent ») [1].
+- **Un minimum écarté six fois sur dix** : en 2010, sur 513 098 condamnations, 64 592 sont en récidive légale, dont 26 335 soumises à une peine minimale ; **10 122 peines minimales sont prononcées, soit 38 %** : « 6 fois sur 10 les juges n'hésitent donc pas à faire usage de leur possibilité d'y déroger » [14].
+- **Évolution** (tribunaux correctionnels, majeurs) : 50,1 % de peines au moins égales au minimum en 2007 (quelques mois), 42,8 % en 2008, 41,4 % en 2009, 38,6 % en 2010. Cours d'assises, 2010 : 47 sur 56 condamnations soumises au minimum (84 %). Mineurs : 31 % de 778 condamnations [14].
+- **Avant et après la loi, mêmes affaires** (délits commis en récidive par des majeurs, 2004-2006 contre 2008-2010) [14] :
+  - peines au moins égales au minimum : **8,4 % → 40,7 %** (dont égales au minimum : 4 % → 33,7 %) ; « 6 fois plus souvent qu'avant » pour les vols, les destructions et les stupéfiants (c'est l'étude que cite la rapporteure, § 2, enjeu 1) ;
+  - part des condamnations à de la prison : 93,7 % → 94,1 % ; prison ferme ou en partie ferme : 82,4 % → 79,9 % des condamnations ; sursis total : 12 % → 15 % des peines de prison ;
+  - peine de prison moyenne, sursis compris : 9 → 15,6 mois ; **prison ferme moyenne : 8,2 → 11 mois (+34 %)**.
+- **Le minimum comparé aux peines d'avant** : « un rapport de 1 à 2 pour les infractions encourant 3 ans, mais de 1 à 3 pour celles encourant 5 ans ou plus ». Pour un délit puni de 5 ans : minimum de 2 ans, contre une peine de prison moyenne de 8,1 mois en 2004-2006 (rapport de 3) ; 3 ans : 1 an contre 6,2 mois (1,9) ; 7 ans : 3 ans contre 11,2 mois (3,2) ; 10 ans : 4 ans contre 15,4 mois (3,1) [14].
+- **L'effet sur la prison** : environ 12 000 années de prison ferme de plus sur 2008-2010, « soit environ 4 % du total des années prononcées » par l'ensemble des juridictions (290 000), « ce qui représente environ 4000 années supplémentaires par an ». Le bulletin parle d'une « projection artificielle », fondée sur l'hypothèse que les condamnations auraient été les mêmes sans la loi [14].
+- **La récidive enregistrée** : la part des condamnations en récidive passe de 5 % en 2004 à 13 % en 2010 ; selon le bulletin, cette hausse « ne reflète pas une explosion de la récidive au sens criminologique » mais les changements de loi et un enregistrement plus systématique par les tribunaux [14].
+
+### b. L'effet sur la récidive et sur la prison : l'étude d'A. Ouss et A. Philippe (Institut des politiques publiques, mars 2024) [15]
+- **Source** : *Notes IPP* n° 105, « Les peines planchers sont-elles un outil efficace pour éviter la récidive ? », Aurélie Ouss (université de Pennsylvanie) et Arnaud Philippe (université de Bristol). L'Institut des politiques publiques est créé par l'École d'économie de Paris avec le Groupe des écoles nationales d'économie et de statistique ; c'est un institut de recherche, pas un ministère. Étude de référence : A. Philippe, « Learning by Offending », *American Economic Journal: Economic Policy*, 2023.
+- **Méthode** : casier judiciaire national ; les récidivistes (visés par la loi) sont comparés aux personnes déjà condamnées pour d'autres faits (non visées), pour des délits commis juste avant et juste après le 10 août 2007. Crimes, mineurs, délits routiers et affaires jugées en plus de cinq ans sont exclus.
+- **Champ de la loi** : « en 2006, 39 % des personnes condamnées l'avaient déjà été par le passé » mais 7,5 % étaient des récidivistes au sens de la loi (même infraction, ou infraction assimilée, dans les cinq ans).
+- **Les peines** : entre juillet et août 2007, la peine des récidivistes passe d'environ 180 à 280 jours de prison ferme et de 50 à 150 jours de sursis avec mise à l'épreuve, « soit un doublement de la peine totale (de 230 jours à 430 jours) » ; les peines des autres condamnés ne changent pas. Un minimum d'un an pouvait être atteint avec 3 mois de prison ferme et 9 mois de sursis avec mise à l'épreuve.
+- **À court terme** : « on n'observe aucune diminution du nombre d'infractions commises en état de récidive après la réforme ».
+- **À moyen terme** (quatre ans après la sortie de prison) : les récidivistes jugés après la loi commettent moins de nouveaux délits du même type que les précédents, de 1,35 à 1,17 en moyenne (−13 %) ; une fois tenu compte de l'âge, du sexe et de l'infraction, **−11 %** (le résumé de la note écrit « probabilité 10 % plus faible ») ; leurs autres délits ne baissent pas (environ 1 en moyenne). L'effet s'étend aux personnes condamnées avec eux dans la même affaire, pas au-delà.
+- **La portée** : la baisse concerne « des deuxième ou troisièmes récidives, comportement qui représentait environ **1,75 % des condamnations** avant la réforme » ; « Les taux de délinquance n'ont pas baissé ». Conclusion des auteurs : « la loi sur les peines planchers a eu un effet très important sur l'incarcération en France, mais un effet dissuasif de faible ampleur ».
+- **La prison** : les années de prison ferme prononcées chaque année (majeurs) passent d'environ 80 000 dans les années 2000 à plus de 100 000 en 2016 ; la part des récidivistes y passe d'environ 10 % à 30 % en quelques années après 2007, et l'effet « est toujours visible en 2016 malgré l'abrogation » de 2014, qui « n'a, en pratique, pas amené à une diminution des sanctions ». À partir du bulletin de 2012 [14], les auteurs estiment que la loi a fait **« de l'ordre de 4 000 »** détenus de plus, soit environ **146 millions d'euros par an** (environ 100 € par jour de détention, selon le Sénat en 2015) : « une estimation basse », hors construction.
+- **À l'étranger** (cité par la note) : la loi californienne dite « three strikes » a eu des effets dissuasifs significatifs (Helland et Tabarrok, 2007) mais aussi des effets pervers (Iyengar, 2008) ; des hausses de peines moins extrêmes ont eu des effets limités (Abrams, 2012).
+- **Ce que cela change aux enjeux 1 et 2** : les deux camps peuvent citer la même étude, l'un pour la baisse de 11 % chez les récidivistes punis plus lourdement, l'autre pour l'absence d'effet à court terme et la faible portée. Le chiffre d'un député (« 5 à 10 % » de récidive en moins entre 2007 et 2014, sans source, § 2, enjeu 1) n'est confirmé par aucune source lue.
+
+### c. La sévérité avant, pendant et après les peines planchers (garde des sceaux, 31/10/2024) [1]
+- « Le taux de prononcé de l'emprisonnement ferme pour un majeur en récidive n'a cessé de croître en près de vingt ans, passant de **54 %** pour la période 2001-2005 à **69 %** pour la période 2016-2020, c'est-à-dire bien au-delà de la période pendant laquelle les peines planchers ont existé et indépendamment d'elles. » Les deux périodes sont sans peines planchers.
+- « L'abrogation du dispositif en vigueur de 2007 à 2014 n'a d'ailleurs pas entraîné de diminution de la sévérité des peines prononcées » ; il cite un « maintien à un niveau élevé du quantum moyen ferme prononcé contre les récidivistes et un accroissement sensible de ce quantum pour les non-récidivistes. À titre d'exemple, le quantum moyen ferme, qui était de 7,3 mois à 7,9 mois pendant la période du dispositif, a atteint 9 mois après son abrogation ». **[à vérifier]** : l'exemple suit la phrase sur les non-récidivistes et ne dit pas sur qui il porte ; il ne correspond pas aux 11 mois de prison ferme mesurés en 2008-2010 pour les récidivistes soumis au minimum (a). Le reportage ne le reprend pas ; la légende de la fiche (« 9 mois […] contre 7,3 à 7,9 mois quand les peines planchers existaient ») est à relire par l'auteur.
+- Le garde des sceaux ajoute que les peines minimales ont été « sans impact en matière criminelle » [1].
+
+### d. Les prisons depuis 2016 (ministère de la Justice, série au 1er septembre) [2]
+
+| 1er septembre | Détenus | Places opérationnelles | Densité |
+|---|---|---|---|
+| 2016 | 68 253 | 58 587 | 116,5 % (calcul de l'étude) |
+| 2026 | **90 020** | **63 348** | **142,1 %** |
+
+- Calcul de l'étude : **+21 767 détenus (+32 %)** et +4 761 places (+8 %) en dix ans, sans peines planchers en vigueur (mêmes chiffres que l'étude 043, § 1.1). L'étude de l'Institut des politiques publiques (b) note que l'abrogation de 2014 n'a pas fait baisser les peines : la hausse ne dit donc rien, à elle seule, de l'effet durable de la loi de 2007.
+
+### e. Le vol commis en récidive [14][16]
+- Le vol simple est puni de « trois ans d'emprisonnement et de 45 000 euros d'amende » (code pénal, article 311-3) [16]. De 2007 à 2014, commis en récidive légale, il relevait donc d'un minimum d'un an de prison, ferme ou avec sursis, sauf décision spécialement motivée du juge [14][15]. Depuis l'abrogation de 2014, aucun minimum ne s'applique à ce délit (§ 1).
+
+### f. Ce qui n'a pas pu être vérifié
+- Le rapport du jury de la conférence de consensus (20/02/2013) n'a pas été ouvert ; il est connu par la citation du garde des sceaux [1].
+- Aucune donnée n'a été trouvée sur la part des peines au moins égales au minimum après 2010, ni sur la récidive des condamnés après l'abrogation de 2014.
+- Pour les crimes, le code pénal prévoit qu'une peine de prison prononcée à la place de la réclusion ne peut descendre sous un ou deux ans (article 132-18, non relu) **[à vérifier]** : la phrase de la fiche « aucune peine minimale ne s'impose » vaut sans réserve pour les délits ; le reportage ne parle que d'un délit.
+
 ## 5. Sources
 1. Assemblée nationale, compte rendu intégral, 3e séance du jeudi 31/10/2024 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2024-2025/troisieme-seance-du-jeudi-31-octobre-2024.pdf
 2. Ministère de la Justice, « La mesure de l'incarcération », indicateurs au 01/09/2026 : https://www.justice.gouv.fr/sites/default/files/2026-10/mesure_mensuelle_01092026.pdf
@@ -99,3 +152,23 @@
 11. Votons 2027, pages sécurité des candidats (programmes relevés) : https://votons-2027.fr/candidats/melenchon/programme/securite
 12. Le Monde du Droit, « Présidentielle 2022 : quelles sont les propositions d'Éric Zemmour en matière de justice », 15/02/2022 : https://www.lemondedudroit.fr/decryptages/79916-presidentielle-2022-quelles-sont-les-propositions-d-eric-zemmour-en-matiere-de-justice.html
 13. Debout la France, « Justice » : https://www.debout-la-france.fr/projet/justice/
+14. Ministère de la Justice, F. Leturcq, « Peines planchers : application et impact de la loi du 10 août 2007 », *Infostat Justice* n° 118, octobre 2012 (casier judiciaire national ; taux de peines minimales, peines avant et après la loi, années de prison) : https://www.justice.gouv.fr/sites/default/files/migrations/portail/art_pix/stat_infostat_118_20121017.pdf
+15. Aurélie Ouss et Arnaud Philippe, « Les peines planchers sont-elles un outil efficace pour éviter la récidive ? », *Notes IPP* n° 105, Institut des politiques publiques, mars 2024 (effet sur les peines, la récidive et le nombre de détenus) : https://www.ipp.eu/wp-content/uploads/2024/03/Note_IPP_105_peines_planchers.pdf
+16. Code pénal, article 311-3 (vol simple), Légifrance : https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006418131
+
+## Annexe — d'où vient chaque chiffre du reportage
+
+| Écran | Chiffre | Source |
+|---|---|---|
+| Accroche | De 2007 à 2014, un an de prison au moins (ferme ou avec sursis) pour un délit puni de 3 ans commis en récidive, sauf décision motivée ; le vol simple est un délit puni de 3 ans ; aucun minimum pour ce délit depuis l'abrogation de 2014 (pour les crimes, voir compléments f) | [14] [15] [16] [1], § 1, compléments a, b, e et f |
+| Leviers | Les trois options de la fiche ; la récidive double la peine maximale encourue ; aucun minimum pour un délit | [14] [1], § 1, compléments a |
+| Q1 POUR | −11 % de nouveaux délits du même type, dans les quatre ans après la sortie (« à moyen terme »), chez les récidivistes jugés après la loi (estimation) | [15], compléments b |
+| Q1 CONTRE | La baisse porte sur des deuxièmes ou troisièmes récidives, environ 1,75 % des condamnations avant la loi ; à court terme, « aucune diminution du nombre d'infractions commises en état de récidive » | [15], compléments b |
+| Q2 CONTRE | 69 % des majeurs en récidive condamnés à de la prison ferme en 2016-2020, contre 54 % en 2001-2005 | [1], compléments c |
+| Q2 POUR | Peine moyenne des récidivistes (prison ferme et sursis avec mise à l'épreuve) de 230 à 430 jours en 2007, « un doublement » | [15], compléments b |
+| Q3 CONTRE | Environ 4 000 détenus de plus du fait de la loi de 2007 (estimation) ; prisons « surpeuplées » : 142,1 détenus pour 100 places au 1er septembre 2026 (sans chiffre à l'écran) | [15] [14] [2], § 2, enjeu 3, compléments b |
+| Q3 POUR | Environ 12 000 années de prison ferme de plus sur 2008-2010, « soit environ 4 % du total des années prononcées » (projection du ministère) | [14], compléments a |
+| Q4 POUR | En 2010, 38 % de peines au moins égales au minimum : le juge l'écarte six fois sur dix | [14], compléments a |
+| Q4 CONTRE | Délit puni de 5 ans : minimum de 2 ans, contre 8,1 mois de prison en moyenne en 2004-2006 (rapport de 3) | [14], compléments a |
+
+Les deux camps de Q1 citent la même étude ; ceux de Q4, le même bulletin du ministère. En Q2, les deux chiffres ne mesurent pas la même chose (combien de récidivistes vont en prison ferme ; la durée de leur peine) et ne portent pas sur les mêmes années : chaque texte dit les siennes. En Q3, les deux chiffres viennent du même calcul du ministère (2012), repris par l'Institut des politiques publiques pour les 4 000 détenus : l'un en détenus, l'autre en part des années de prison prononcées. La hausse de 21 767 détenus de 2016 à 2026 (compléments d) n'est pas reprise : elle ne dit rien, à elle seule, de l'effet de la loi.

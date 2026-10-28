@@ -1,49 +1,147 @@
-# DONNÉES DE DÉMONSTRATION : question, contexte, chiffres, sources et textes des options
-# inventés pour développer l'app. Aucune position de candidat n'est renseignée. Rien n'est
-# vérifié : à remplacer par une fiche sourcée avant toute mise en ligne.
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/023-loyers.md (tout ce qui suit y est sourcé).
+# À vérifier en priorité : la deuxième lecture à l'Assemblée est prévue le 18/11/2026 ; sans adoption définitive,
+# l'expérimentation prend fin le 23/11/2026 (étude, § 1.4). La fiche sera à mettre à jour après ce vote.
 numero: 23
 date: 2026-10-22
 theme: logement
 question: Faut-il encadrer les loyers dans les grandes villes ?
 titreCourt: "L'encadrement des loyers"
 contexte:
-  - Dans plusieurs grandes villes, un loyer de référence fixe le plafond qu'un propriétaire ne peut pas dépasser.
-  - Ce dispositif est une expérimentation, et les villes choisissent de l'appliquer ou non.
-  - Ses effets sur les loyers et sur le nombre de logements à louer sont discutés.
+  - "Depuis 2019 à Paris, et aujourd'hui dans 70 communes dont Lille, Lyon, Bordeaux et Montpellier, le loyer d'un nouveau bail ne peut pas dépasser de plus de 20 % le loyer habituel du quartier, sauf supplément justifié par le confort ou l'emplacement."
+  - "C'est un essai prévu par la loi Élan de 2018, qui s'arrête le 23 novembre 2026 sans nouvelle loi : le Sénat a voté le 21 octobre une prolongation de deux ans sans nouvelles villes, et les députés doivent se prononcer le 18 novembre."
+  - "L'évaluation remise au Parlement en 2026 trouve une baisse des loyers de 2 à 4 % hors Paris ; son effet durable sur le nombre de logements à louer n'a pas pu être mesuré, et plus d'un tiers des nouveaux baux dépassent le plafond, parfois avec un supplément permis."
 chiffres:
   - valeur: 40 %
-    legende: des ménages sont locataires de leur résidence principale
-    source: { organisme: INSEE, annee: 2023 }
-  - valeur: "26"
-    unite: villes
-    legende: appliquent un encadrement des loyers
-    source: { organisme: Ministère du Logement, annee: 2025 }
+    legende: "des ménages sont locataires de leur résidence principale ; 22,6 % louent à un bailleur privé"
+    source: { organisme: Insee, document: Insee Focus n° 309, annee: 2023 }
+  - valeur: "70"
+    unite: communes
+    legende: "appliquent un encadrement des loyers, dans 9 territoires, en octobre 2026"
+    source: { organisme: Sénat, document: rapport n° 47, annee: 2026 }
 options:
   - id: A
-    libelle: Oui, dans toutes les grandes villes
-    implique: Un plafond de loyer s'applique partout où le logement est le plus cher.
-    defenseurs: Les locataires gardent un logement abordable près de leur travail.
-    critiques: Des propriétaires risquent de retirer leur logement de la location.
+    libelle: "Le généraliser et baisser les loyers"
+    implique: "L'encadrement devient permanent dans tout le pays, et ses plafonds sont abaissés dans les grandes villes pour faire baisser les loyers."
+    defenseurs: "Les locataires du privé consacrent un quart de leur revenu à se loger : il faut des loyers plus bas partout, pas un frein de quelques pour cent dans quelques villes."
+    critiques: "Des loyers fixés sous le niveau du marché coûteraient aux propriétaires et à l'État, et la plupart des études étrangères trouvent qu'ils font reculer l'offre de logements à louer."
+    axes: { economie: -2 }
   - id: B
-    libelle: Seulement là où la ville le demande
-    implique: Chaque ville décide d'encadrer ou non ses loyers.
-    defenseurs: La ville connaît son marché et choisit l'outil qui lui convient.
-    critiques: Les règles changent d'une ville à l'autre et deviennent difficiles à suivre.
+    libelle: "Le rendre permanent et l'étendre"
+    implique: "L'encadrement devient permanent et s'applique dans bien plus de villes, voire dans tout le pays ; le plafond reste fixé à 20 % au-dessus du loyer habituel du quartier."
+    defenseurs: "Selon l'évaluation remise au Parlement, il a fait baisser les loyers de 2 à 4 % ; les villes où le logement manque doivent pouvoir l'appliquer sans attendre l'accord de l'État."
+    critiques: "Selon la même évaluation, son effet sur l'offre reste inconnu et, à Paris, ses gains vont surtout à des ménages aisés ; l'étendre à toutes les villes où le logement manque coûterait à l'État 320 millions d'euros d'impôts perçus en moins, selon une estimation."
+    axes: { economie: -1 }
   - id: C
-    libelle: Non, laisser les loyers libres
-    implique: Le loyer se fixe entre le propriétaire et le locataire.
-    defenseurs: Des loyers libres encouragent à construire et à mettre des logements en location.
-    critiques: Dans les villes les plus chères, les loyers peuvent continuer de grimper.
+    libelle: "Le prolonger à l'essai"
+    implique: "L'encadrement continue deux ans de plus dans les 70 communes qui l'appliquent, sans nouvelles villes, le temps de collecter les loyers déclarés aux impôts pour mieux l'évaluer."
+    defenseurs: "Les données manquent pour juger de ses effets sur l'offre : deux ans de plus, avec les loyers déclarés aux impôts, permettent de décider sur des chiffres fiables."
+    critiques: "Pour les uns, c'est repousser encore la décision et refuser l'outil aux villes qui le demandent ; pour les autres, c'est prolonger un dispositif que la Cour des comptes propose d'arrêter, à défaut d'une profonde réforme."
+  - id: D
+    libelle: "Y mettre fin"
+    implique: "L'essai s'arrête : le loyer d'un nouveau bail n'a plus de plafond par quartier ; restent les règles nationales qui limitent les hausses en cours de bail et, là où le logement manque, entre deux locataires."
+    defenseurs: "Un plafond ne crée aucun logement et décourage les propriétaires de louer : mieux vaut construire, et s'appuyer sur la limite des hausses qui existe déjà, une solution plus simple selon la Cour des comptes."
+    critiques: "Les locataires des villes concernées pourraient perdre en moyenne 500 à 800 euros par an, et la limite des hausses entre deux locataires est, selon l'évaluation remise au Parlement, peu appliquée."
+    axes: { economie: 1 }
+pourAllerPlusLoin:
+  - titre: "Cour des comptes, L'encadrement des loyers, 2026"
+    url: https://www.ccomptes.fr/fr/publications/lencadrement-des-loyers
+  - titre: "Sénat, rapport n° 47 sur la proposition de loi « Rapports locatifs », 2026"
+    url: https://www.senat.fr/rap/l26-047/l26-047.html
+  - titre: "Assemblée nationale, dossier de la proposition de loi « Rapports locatifs »"
+    url: https://questions.assemblee-nationale.fr/dyn/17/dossiers/retrouver_confiance_equilibre_rapports_locatifs_17e
 # Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
 cotes:
   - titre: "Pour encadrer les loyers"
-    argument: "Les locataires gardent un logement abordable près de leur travail."
+    argument: "Selon l'évaluation remise au Parlement, le plafond fait baisser les loyers : un ménage locataire y gagne en moyenne 500 à 800 euros par an."
   - titre: "Pour ne pas les encadrer"
-    argument: "Des loyers libres encouragent à construire et à mettre des logements en location."
+    argument: "Un plafond ne crée aucun logement et décourage les propriétaires de louer : mieux vaut construire, et s'appuyer sur la limite des hausses qui existe déjà, plus simple selon la Cour des comptes."
 # Les deux choix de l'autocollant « Et toi ? » de la story.
 story:
   - choix: "Encadrer"
     precision: "les loyers"
-  - choix: "Les laisser"
-    precision: "libres"
-positions: {}
+  - choix: "Ne pas encadrer"
+    precision: "les loyers"
+positions:
+  # L'Avenir en commun, édition 2025, chapitre 7 « Garantir le droit au logement » (« Encadrer les loyers partout sur le territoire et à la baisse dans les grandes villes ») : https://melenchon2027.fr/programme2025/livre/chapitre7/s5/ ; proposition de loi LFI n° 2225, 9/12/2025 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b2225_proposition-loi.pdf
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, chapitre 7", statut: officielle }
+  # Programme 2022, mesure 99 (« baisse des loyers », « la quittance ne devra pas dépasser 20 % des revenus du foyer ») : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf ; rappelé par SeLoger, 28/09/2026 : https://edito.seloger.com/actualites/france/presidentielle-2027-propositions-de-fabien-roussel-logement-article-23785.html
+  roussel: { option: A, source: "Programme 2022, mesure 99", statut: deduite }
+  # Programme des Écologistes, juillet 2026, p. 20 (« la généralisation, l'amélioration et la pérennisation de l'encadrement des loyers ») : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027 (page inaccessible le 28/10/2026 ; citation relevée par deux sites de comparaison, à vérifier)
+  tondelier: { option: B, source: "Programme des Écologistes, juillet 2026, p. 20", statut: officielle }
+  # Place publique, Notre vision pour la France, Acte I, 23/06/2025, p. 64 (« Encadrer les loyers dans les zones en grande tension ») : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view
+  glucksmann: { option: B, source: "Place publique, Acte I, 23/06/2025, p. 64", statut: deduite }
+  # Invité de Public Sénat, 17/06/2026 (« c'est la généralisation de l'encadrement des loyers ») : https://www.youtube.com/watch?v=zFxkKPGVslc ; débat avec F. Lenglet, 27/05/2026 (« le plafonnement des loyers dans tout le pays ») : https://www.youtube.com/watch?v=slRKJjyk85U (transcriptions automatiques, à vérifier à l'écoute)
+  ruffin: { option: B, source: "Public Sénat, 17/06/2026", statut: deduite }
+  # Groupe RN pour la suppression de l'article 1er, scrutin n° 4724 du 11/12/2025 : https://questions.assemblee-nationale.fr/dyn/17/scrutins/4724 ; sénateurs du groupe Union nationale pour les territoires contre la prolongation, scrutin n° 25 du 21/10/2026 : https://www.senat.fr/scrutin-public/2026/scr2026-25.html (nuance : 22 députés RN sur 27 ont ensuite voté la prolongation de deux ans, scrutin n° 4725)
+  le-pen: { option: D, source: "Vote du groupe RN, 11/12/2025", statut: deduite }
+  # Vote contre la prolongation de deux ans au Sénat, scrutin n° 25 du 21/10/2026 : https://www.senat.fr/scrutin-public/2026/scr2026-25.html
+  retailleau: { option: D, source: "Vote au Sénat, 21/10/2026", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/023-loyers.md (chaque chiffre y a sa source
+# numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : un essai parti de Paris en 2019, étendu à 70
+# communes, qui s'arrête en novembre 2026 sans nouveau vote ; quatre choix ; puis quatre questions où chaque camp avance
+# son meilleur fait. Les face-à-face des fiches voisines (008, logements sociaux ; 019, locations type Airbnb ; 051,
+# logements vides) ne sont pas repris.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.2 et 1.4, [1] [4] : Paris seule au 1/07/2019 (décret n° 2019-315), 70 communes dans 9 territoires en octobre
+    # 2026 ; fin de l'essai le 23/11/2026 (Sénat ; « 24 novembre » selon la Cour des comptes) ; séance des députés
+    # prévue le 18/11/2026.
+    etapes:
+      - { quand: En 2019, valeur: 1 commune }
+      - { quand: En 2026, valeur: 70 communes }
+    chute: "… plafonnent les loyers des nouveaux baux. C'est un essai : sans nouvelle loi, il s'arrête le 23 novembre 2026."
+  # Pas de « mécanisme » : aucun rapport « X pour 1 » ne résume le sujet. Pas d'« écart » : les grandeurs à deux dates
+  # (annonces, dépassements du plafond) sont traitées dans les questions, avec la réponse d'en face.
+  leviers:
+    # § 1.4 et 4, [1] [8] [16] : les quatre options de la fiche, à égalité et dans son ordre. La chute dit qui paie une
+    # baisse de loyer due au plafond : deux tiers les propriétaires bailleurs, un tiers l'État (moins d'impôts sur les
+    # loyers perçus).
+    titre: "L'encadrement des loyers : quatre choix"
+    choix:
+      - { texte: "Le généraliser et baisser les loyers", detail: "dans tout le pays, avec des plafonds plus bas dans les grandes villes" }
+      - { texte: "Le rendre permanent et l'étendre", detail: "à bien plus de villes, avec les plafonds actuels" }
+      - { texte: "Le prolonger à l'essai", detail: "deux ans de plus, dans les 70 communes actuelles, pour mieux le mesurer" }
+      - { texte: "Y mettre fin", detail: "plus de plafond pour un nouveau bail ; restent les limites nationales aux hausses" }
+    chute: "Ce que le locataire économise est payé aux deux tiers par le propriétaire, au tiers par l'État, qui perçoit moins d'impôts."
+    source: "G. Chapelle et G. Fack, évaluation, 2026"
+  # POUR : les options A, B et C, qui gardent un plafond ; CONTRE : l'option D. Aucune réponse POUR ne dépend d'une
+  # baisse des plafonds, pour valoir pour A comme pour B et C.
+  camps: { pour: POUR, contre: CONTRE, objet: "un plafond de loyer" }
+  # Chaque question oppose deux faits de la même source, ou deux mesures de la même chose ; chaque texte dit d'où vient
+  # son chiffre (une évaluation, un observatoire, une fondation).
+  questions:
+    # § 2a, [7] [8] : la même question (l'effet du plafond sur les loyers, hors Paris), deux estimations nommées.
+    # Le pour : l'évaluation officielle, − 2 à − 3 % hors Île-de-France et − 3 à − 4 % en Seine-Saint-Denis, par
+    # rapport à des communes-centres de zones tendues non encadrées. Le contre : Clameur, observatoire alimenté par les
+    # professionnels de l'immobilier, « autour de 1 % », « voire inexistant », à Bordeaux, Montpellier, Lyon et Lille
+    # (cité par la Cour des comptes). Paris est laissé de côté des deux côtés, son effet étant discuté. Les deux textes
+    # disent ce qu'est leur source sur le même ton (« Selon l'évaluation remise au Parlement » / « Selon l'observatoire
+    # des agences ») ; aucune affirmation n'est attribuée, et les deux chiffres portent le même signe (une baisse).
+    - question: "Le plafond fait-il baisser les loyers ?"
+      pour: { affirmation: "Oui, de quelques pour cent.", chiffre: "−2 à −4 %", texte: "Selon l'évaluation remise au Parlement, les loyers encadrés hors Paris sont 2 à 4 % plus bas que sans plafond.", source: "G. Chapelle et G. Fack, 2026" }
+      contre: { affirmation: "Presque pas, en province.", chiffre: "0 à −1 %", texte: "Selon l'observatoire des agences, la baisse est d'environ 1 %, ou nulle, à Lyon, Lille, Bordeaux et Montpellier.", source: "Clameur, 2026 ; Cour des comptes, 2026" }
+    # § 2b, [8] : le même rapport. Le pour : un gain moyen de 800 € par an et par ménage locataire à Paris, 500 € dans
+    # les villes de province. Le contre : à Paris, « la majorité des transferts » va aux ménages du 70e au 100e centile
+    # de niveau de vie national, soit les 30 % les plus aisés. CONTRE parle en premier : sa carte nomme la source, celle
+    # du POUR dit « la même évaluation ».
+    - question: "À qui profite le plafond ?"
+      pour: { affirmation: "Aux locataires, chaque année.", chiffre: "800 €", texte: "Selon la même évaluation, un ménage locataire gagne en moyenne 800 € par an à Paris, 500 € en province.", source: "G. Chapelle et G. Fack, 2026" }
+      contre: { affirmation: "À Paris, d'abord aux plus aisés.", chiffre: "30 %", texte: "Selon l'évaluation remise au Parlement, à Paris, la majorité des gains va aux 30 % les plus aisés du pays.", source: "G. Chapelle et G. Fack, 2026" }
+    # § 2c, [8] : le même rapport, la même mesure (les nouvelles annonces de location rapportées au nombre de logements),
+    # la même méthode. Le pour : à Paris, près de 50 % d'annonces en plus de 2019 à 2022, en partie liées au retour des
+    # meublés de tourisme pendant le Covid. Le contre : hors Île-de-France, environ − 8 % (données 2019-2024), sans que
+    # l'évaluation puisse dire si l'offre a reculé ou si les locataires restent plus longtemps. Chaque carte dit sa
+    # période, son périmètre et sa réserve. CONTRE parle en premier : sa carte ne renvoie pas à Paris (pas d'« ailleurs »).
+    - question: "Y a-t-il moins de logements à louer ?"
+      pour: { affirmation: "Pas à Paris.", chiffre: "+50 %", texte: "À Paris, de 2019 à 2022, les annonces de location ont augmenté de près de moitié, en partie à cause du Covid.", source: "G. Chapelle et G. Fack, 2026" }
+      contre: { affirmation: "Moins d'annonces en province.", chiffre: "−8 %", texte: "En province, de 2019 à 2024, les villes encadrées ont perdu 8 % d'annonces, sans qu'on sache si l'offre a reculé.", source: "G. Chapelle et G. Fack, 2026" }
+    # § 2d, [10] : le même baromètre, la même mesure (part des annonces proposant un loyer au-dessus du plafond, dont
+    # certaines avec un supplément permis par la loi), la même année (2026), chaque carte avec sa propre année de
+    # comparaison. Le pour : Bordeaux, 17 % (37 % en 2023). Le contre : Paris, 46 % (31 % un an plus tôt). Chaque
+    # affirmation s'en tient à sa ville : toutes villes confondues, la part monte (28 % en 2024, 37 % en 2026).
+    - question: "Le plafond est-il respecté ?"
+      pour: { affirmation: "De plus en plus, à Bordeaux.", chiffre: "17 %", texte: "À Bordeaux, en 2026, 17 % des annonces proposaient un loyer au-dessus du plafond, contre 37 % en 2023.", source: "Fondation pour le logement des défavorisés, 2026" }
+      contre: { affirmation: "De moins en moins, à Paris.", chiffre: "46 %", texte: "À Paris, en 2026, 46 % des annonces proposaient un loyer au-dessus du plafond, contre 31 % un an plus tôt.", source: "Fondation pour le logement des défavorisés, 2026" }

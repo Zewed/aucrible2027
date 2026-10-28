@@ -111,7 +111,7 @@ reportage:
       - { texte: Aller plus loin, detail: "jusqu'à 6 heures de train, comme le demande Greenpeace" }
     chute: "Le décret de 2023 était prévu pour trois ans, jusqu'en mai 2026 : aucune prolongation n'est connue."
     source: "Légifrance, 2023 ; UFC-Que Choisir, Réseau Action Climat et Greenpeace, 2021"
-  camps: { pour: POUR, contre: CONTRE, objet: une interdiction jusqu'à 4 heures de train }
+  camps: { pour: POUR, contre: CONTRE, objet: "étendre l'interdiction" }
   # Relu une fois par deux relecteurs, l'un pour étendre l'interdiction, l'autre contre (notes 8,5 et 8,5) ;
   # chaque réponse compare ce qui se compare, et l'ordre d'apparition des camps suit ABBA.
   questions:

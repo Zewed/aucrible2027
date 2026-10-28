@@ -24,14 +24,14 @@ options:
   - id: A
     libelle: Non, pas de plafond
     implique: "Le nombre d'arrivées n'est pas plafonné : aucun quota annuel ne limite les titres de séjour."
-    defenseurs: Chaque être humain doit pouvoir circuler et s'installer librement, et les sans-papiers doivent être régularisés.
+    defenseurs: "Près de la moitié des arrivées relèvent de droits reconnus par la Constitution, la famille et l'asile ; pour une partie de la gauche, chacun doit aussi pouvoir circuler et s'installer librement."
     critiques: Sans plafond, l'État ne peut pas choisir le nombre ni les profils des arrivées pour répondre aux besoins du pays.
     axes: { societe: -2 }
   - id: B
     libelle: Oui, pour l'immigration de travail
     implique: Les besoins de main-d'œuvre sont évalués, par exemple tous les deux ans avec les partenaires sociaux, et le Parlement vote des quotas pour l'immigration de travail seulement.
     defenseurs: Choisir notre immigration économique selon les besoins réels du marché du travail, évalués avec les partenaires sociaux.
-    critiques: "Les quotas de travail ne touchent qu'une partie des arrivées : dans l'Union, un premier titre sur trois est délivré pour un emploi."
+    critiques: "En France, 13,5 % des premiers titres de 2025 ont été délivrés pour un emploi : des quotas de travail laisseraient de côté les autres motifs."
     axes: { societe: 1 }
   - id: C
     libelle: Oui, un plafond pour toutes les catégories
@@ -51,7 +51,7 @@ cotes:
   - titre: "Pour des quotas"
     argument: "Choisir notre immigration selon les besoins réels du pays, évalués avec les partenaires sociaux."
   - titre: "Pour ne pas en fixer"
-    argument: "Chaque être humain doit pouvoir circuler et s'installer librement, et les sans-papiers doivent être régularisés."
+    argument: "Près de la moitié des arrivées relèvent de droits reconnus par la Constitution, la famille et l'asile : un nombre fixé à l'avance ne peut pas les limiter."
 # Les deux choix de l'autocollant « Et toi ? » de la story.
 story:
   - choix: "Des quotas"
@@ -69,3 +69,62 @@ positions:
   retailleau: { option: C, source: "Public Sénat, 03/09/2026", statut: officielle }
   # https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure_caravane_2026-01_-_couleur.pdf (« liberté de circulation et d'installation pour chaque être humain »)
   arthaud: { option: A, source: "Lutte ouvrière, brochure, 06/2026", statut: officielle }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # Compléments § C1, [16] [18] : la même série d'Eurostat (premiers titres délivrés par la France à des citoyens de
+    # pays hors de l'Union), de son premier point (2008) à son dernier (2025). Les Britanniques y entrent en 2021 avec le
+    # Brexit (8 235 en 2025 ; sans eux, ×1,96) : la chute le dit. Par habitant, 5,5 premiers titres pour 1 000 en France
+    # contre 8,6 dans l'Union (calcul de l'étude) : l'échelle à côté du doublement.
+    etapes:
+      - { quand: "En 2008", valeur: "188 723" }
+      - { quand: "En 2025", valeur: "377 462" }
+    chute: "… premiers titres de séjour donnés en France, Britanniques compris depuis le Brexit. Par habitant, c'est moins que dans l'Union."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : la seule grandeur à deux dates qui
+  # éclaire le débat, le nombre de titres, est déjà dans l'accroche ; leur répartition par motif est dans les questions.
+  leviers:
+    # § 1 et 4, [1] : les trois options de la fiche, à égalité. La chute dit où en est le droit, utile aux trois camps :
+    # aucun quota aujourd'hui ; la censure de 2024 porte sur l'obligation faite au Parlement (§ 7 de la décision), pas sur
+    # le principe des quotas. L'article censuré n'est jamais entré en vigueur : « a refusé qu'une loi oblige ».
+    titre: "Trois choix possibles"
+    choix:
+      - { texte: "Pas de plafond", detail: "aucun quota annuel ne limite les titres de séjour" }
+      - { texte: "Des quotas pour le travail", detail: "votés par le Parlement selon les besoins des métiers, évalués avec syndicats et patronat" }
+      - { texte: "Un plafond pour tout", detail: "travail, famille, études et asile, quitte à changer la Constitution" }
+    chute: "Aucun quota n'existe. En 2024, le Conseil constitutionnel a refusé qu'une loi oblige le Parlement à en voter."
+    source: "Conseil constitutionnel, 2024"
+  camps: { pour: POUR, contre: CONTRE, objet: "des quotas d'immigration" }
+  # Chaque texte dit ce qu'il mesure ; les quatre questions ne reprennent aucun face-à-face des fiches 036, 042 et 046.
+  # « (calcul) » : toute part ou tout rapport calculé par l'étude à partir des nombres d'Eurostat, dans les deux camps.
+  questions:
+    # Compléments § C2, [19] [16] [17] [24] : deux arguments de nature différente sur la même question, chacun daté.
+    # Le POUR cite le sondage Elabe de novembre 2023 (75 % favorables à un débat annuel du Parlement où « pourraient être
+    # fixés » les quotas pour trois ans ; 1 001 personnes, en ligne). Le CONTRE : les premiers titres de 2025 donnés pour
+    # la famille (90 959) ou une protection au titre de l'asile (84 657), sur 377 462, soit 46,5 % (calcul de l'étude) ;
+    # deux droits reconnus par le Conseil constitutionnel en 1993 (vie familiale normale, asile). Les traités (Genève,
+    # droit européen) ne sont pas relus dans l'étude : le texte s'en tient à la Constitution.
+    - question: "Les élus doivent-ils fixer le nombre d'arrivées ?"
+      pour: { affirmation: "Oui, la majorité des sondés y est favorable.", chiffre: "75 %", texte: "Dans un sondage de novembre 2023, 75 % des personnes interrogées approuvaient un débat annuel au Parlement pouvant fixer des quotas d'arrivées.", source: "Elabe pour BFMTV, 2023" }
+      contre: { affirmation: "Non, près de la moitié relève d'un droit.", chiffre: "46,5 %", texte: "En 2025, 46,5 % des premiers titres relevaient de la famille ou de l'asile, deux droits reconnus par la Constitution.", source: "Eurostat, 2026 (calcul) ; Conseil constitutionnel, 1993" }
+    # Compléments § C3, [20] [16] [21] [22] : deux objectifs fixés par l'exécutif, pas par un vote ; chaque carte dit sa
+    # limite. Le français (2007) portait sur la part du travail (50 % des entrées durables), sans date ; 2012 est la fin
+    # du mandat (Eurostat : 15 827 sur 199 500, 7,9 % ; série du ministère : 8,3 %). La crise de 2008-2009 n'est pas
+    # citée : aucune source ne mesure sa part dans l'écart, et en 2008 l'emploi pesait déjà 21 784 titres sur 188 723.
+    # Le canadien portait sur le nombre de résidents permanents (485 000) et ne couvrait pas les résidents temporaires
+    # (1,6 million de permis en 2024).
+    - question: "Un objectif chiffré peut-il être tenu ?"
+      pour: { affirmation: "Oui, le Canada a tenu le sien.", chiffre: "483 640", texte: "En 2024, le Canada a admis 483 640 nouveaux résidents permanents, pour 485 000 prévus. Cet objectif ne couvrait pas les permis temporaires.", source: "Gouvernement du Canada, 2025" }
+      contre: { affirmation: "Non, la France n'a pas tenu le sien.", chiffre: "8 %", texte: "En 2007, l'État visait la moitié des arrivées pour le travail, sans date. En 2012, ce motif représentait 8 % des premiers titres.", source: "Élysée, 2007 ; Eurostat, 2026 (calcul)" }
+    # Compléments § C1, [16] : la même source, le même périmètre, la même année. Le CONTRE additionne études (118 404)
+    # et emploi (50 848), soit 44,8 % (calcul de l'étude) ; le texte dit le fait de l'étude (l'accord d'une école ou d'un
+    # employeur, puis de l'État), pas « choisis ». Le POUR compare la part de l'emploi en France et dans l'Union.
+    - question: "La France choisit-elle déjà qui vient ?"
+      pour: { affirmation: "Non, moins pour le travail que dans l'Union.", chiffre: "13,5 %", texte: "En 2025, 13,5 % des premiers titres donnés en France l'étaient pour un emploi, contre 33,6 % dans l'Union européenne.", source: "Eurostat, 2026 (calcul)" }
+      contre: { affirmation: "Oui, près de la moitié.", chiffre: "44,8 %", texte: "En 2025, pour 44,8 % des premiers titres, il fallait l'accord d'une école ou d'un employeur, puis celui de l'État.", source: "Eurostat, 2026 (calcul)" }
+    # Compléments § C4 et C1, [23] [16] [26] : deux arguments sur le même besoin, chacun daté, chacun avec sa tendance
+    # récente. Le POUR : l'enquête annuelle de France Travail auprès des employeurs (2,275 millions de projets en 2026,
+    # 43,8 % jugés difficiles, 50,1 % en 2025). Le CONTRE : les premiers titres pour un emploi, 21 784 en 2008 et 50 848 en
+    # 2025 (×2,3, calcul de l'étude), sans quota, mais −13 % de 2024 à 2025 (Eurostat −13,2 % ; ministère −13 %).
+    - question: "Faut-il des quotas pour les métiers qui manquent de bras ?"
+      pour: { affirmation: "Oui, l'embauche reste difficile.", chiffre: "43,8 %", texte: "En 2026, les employeurs jugeaient difficiles 43,8 % de leurs projets d'embauche, contre 50,1 % en 2025, selon France Travail.", source: "France Travail, 2026" }
+      contre: { affirmation: "Non, l'immigration de travail a doublé sans quota.", chiffre: "×2,3", texte: "De 2008 à 2025, les premiers titres pour un emploi ont plus que doublé. Ils ont reculé de 13 % en 2025.", source: "Eurostat, 2026 (calcul)" }

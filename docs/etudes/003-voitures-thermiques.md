@@ -101,3 +101,65 @@
 10. Édouard Philippe, « Pour une France plus conquérante » : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
 11. Votons 2027, pages climat de Mélenchon, Glucksmann, Attal, Tondelier, Ruffin : https://votons-2027.fr/candidats/attal/programme/climat (et pages homologues des autres candidats)
 12. Debout la France, « Automobilistes et motards » : https://www.debout-la-france.fr/projet/automobilistes-et-motards/
+
+## Compléments pour le reportage (28/10/2026)
+
+> Ajoutés le 28/10/2026 pour donner à chaque camp son meilleur argument chiffré dans le reportage vidéo, et pour dire
+> où en est la règle européenne à cette date. Les sources [13] à [22] suivent la liste du § 5.
+
+### a. Où en est la règle européenne au 28/10/2026
+- **Le texte en discussion** : la proposition de la Commission du 16/12/2025 (COM(2025) 995, procédure 2025/0420(COD)) ramène l'objectif des voitures neuves à **−90 %** en 2035 par rapport à 2021 ; pour les camionnettes, −40 % en 2030 et −90 % en 2035 ; elle prévoit des « super-crédits » pour les petites voitures électriques [15].
+- **Au Parlement européen** : la commission de l'environnement est chargée du texte ; son rapporteur, Massimiliano Salini (PPE, Italie), est nommé le 19/03/2026 et présente son projet de rapport le 17/04/2026 [15]. Le **22/10/2026**, la commission de l'industrie (49 pour, 27 contre, 5 abstentions) et celle des transports (27 pour, 18 contre, 1 abstention) approuvent un compromis des groupes PPE, S&D et Renew : **−95 %** en 2035 par rapport à 2021, dont jusqu'à 7,5 points peuvent venir de l'acier « produit en Europe de façon favorable au climat », soit **−87,5 %** au moins à l'échappement ; il resterait donc de la place pour des voitures thermiques et hybrides neuves après 2035 [13] **[source secondaire]** (electrive, d'après l'agence dpa). La commission de l'environnement doit voter début novembre et la séance plénière est attendue en décembre selon la presse [13] **[source secondaire]**, le 23/11/2026 selon la page du Parlement [15].
+- **Au Conseil** : le groupe de travail « environnement » a examiné le texte douze fois entre le 13/01 et le 23/09/2026 ; les ministres en ont débattu les 17/03 et 25/06/2026 ; leur position commune (« orientation générale ») est attendue le **11/12/2026** [15]. Selon le *Spiegel*, cité par electrive, l'Allemagne et la France défendraient en octobre 2026 un objectif de −90 % sans compensation, la France ayant « apparemment » changé de camp [14] **[source secondaire]**.
+- **Conséquence** : au 28/10/2026, aucun texte modificatif n'est adopté ; le règlement de 2023 (−100 % en 2035) reste le texte en vigueur tant qu'un nouveau règlement n'a pas été adopté par le Parlement et le Conseil (déduction de cette étude à partir de [1] et [15]).
+
+### b. Les ventes et les voitures qui roulent (SDES)
+- **Septembre 2026** : les voitures électriques font **41,1 %** des voitures particulières neuves immatriculées, « niveau record », en hausse de 2,9 points sur un mois ; essence hybride non rechargeable 35,6 % ; hybrides rechargeables 6,4 % ; 150 800 voitures neuves ; 63,7 g de CO2 par km en moyenne (SDES, publié le 05/10/2026) [16]. Le chiffre du § 2 (enjeu 3), « à vérifier », est donc vérifié.
+- **Rappel 2025** : 19,9 % d'électriques dans les ventes neuves de l'année, soit **1 sur 5** (arrondi de cette étude) [5].
+- **Parc au 1er janvier 2026** : **40,0 millions** de voitures en circulation ; **3,5 %** sont électriques et 2,0 % hybrides rechargeables (5,5 % ensemble) ; diesel 46,1 % ; âge moyen **11,8 ans** (11,4 ans un an plus tôt) ; âge moyen des véhicules détruits **20,0 ans** (SDES, publié le 10/07/2026) [17].
+- **Calcul de cette étude** : 1,665 million de voitures neuves en 2025 [5] pour 40,0 millions en circulation [17], soit environ 4 % du parc renouvelé par an.
+
+### c. Le bilan carbone et le coût (ADEME, avis du 07/10/2026)
+L'ADEME publie le 07/10/2026 son « Avis sur la voiture électrique et sa recharge » (18 pages) [18]. Le PDF n'a pas pu être lu (pages de l'ADEME inaccessibles à la lecture automatique) ; les chiffres ci-dessous viennent de deux articles de presse qui en rendent compte [19] [20] **[source secondaire]**, concordants entre eux.
+- **Bilan carbone** : en France, une voiture électrique divise à peu près **par deux** son empreinte carbone sur toute sa vie par rapport à une thermique ou une hybride [19] ; à 240 000 km, elle est 2,25 fois plus basse que celle d'une hybride essence non rechargeable [19] (250 000 km selon [20]). Les pages de l'ADEME, vues dans une recherche, disent « deux à trois fois » moins pour une petite citadine **[source secondaire]**.
+- **Fabrication** : une compacte électrique de 60 kWh émet à la fabrication **deux fois plus** qu'une compacte hybride ; cette « dette carbone » est remboursée à partir d'environ **70 000 km** [19] [20]. Une grosse batterie (SUV de 90 kWh) réduit l'avantage ; l'ADEME recommande des batteries de taille raisonnable [19].
+- **Coût d'usage** : recharger coûte environ **trois fois moins cher** que faire le plein (recharge mêlant domicile et borne) [20] ; « 2,5 à 3 fois » selon les pages de l'ADEME vues dans une recherche **[source secondaire]** ; entretien **40 %** moins cher ; assurance 11 % plus chère en moyenne [20].
+- **Prix d'achat, avant les aides** : surcoût d'une électrique neuve d'un peu moins de 3 000 € pour une compacte, d'environ **5 200 €** pour une citadine polyvalente et de plus de 7 000 € pour une petite urbaine [20] ; pour une citadine comme une Peugeot 208 ou une Citroën C3, l'écart est passé de 10 000 € en 2024 à 5 200 € en 2025 ; avec les aides de l'État, le prix est presque au niveau d'une thermique [19].
+- **Autres** : les batteries contiennent six fois plus de métaux critiques qu'une voiture thermique [19] [20] ; les électriques d'occasion perdent plus vite leur valeur [19] [20].
+
+### d. L'emploi et la production de l'industrie automobile
+- **Étude Xerfi pour l'EDEC automobile** (accord entre l'État, les organisations patronales, les syndicats de la métallurgie, de la plasturgie et du caoutchouc, et l'OPCO 2i), publiée par la Plateforme automobile le 26/06/2025 [21] : environ 375 000 emplois industriels en 2019 et environ 335 000 fin 2024 (−38 600) ; dans un « scénario du statu quo règlementaire d'ici à 2035 », perte brute d'environ **75 000** emplois de 2025 à 2035 (plus de 22 % des effectifs), compensée « au mieux » par quelque 19 000 emplois dans les batteries et l'hydrogène, soit une perte nette d'environ **56 000** emplois (constructeurs −20 300, équipementiers −19 140, fournisseurs −16 230). C'est une **estimation**, commandée par la filière et l'État ; la page n'attribue pas ces pertes à une cause précise.
+- **Assemblée nationale**, commission des affaires économiques, séance thématique de contrôle « La défense de la filière automobile française », décembre 2025 (rapporteurs Julien Dive, Droite républicaine ; Laurent Mazaury, LIOT ; Éric Michoux, UDR) [22] :
+  - « Notre production nationale de voitures a été divisée par **trois** depuis le début des années 2000 » ; la filière amont « régresse » depuis 20 ans, « avec une nette accélération depuis la crise du covid-19 » ; 1,35 million de voitures produites en France en 2024, un million de moins qu'en 2020 **[à vérifier : la production de 2020, année du covid, était plus basse ; l'année de comparaison semble erronée]** ; part de la France dans la production mondiale de véhicules légers : 8 % en 1989, 5,5 % en 2005, 1,5 % en 2024 (données de la Plateforme automobile) ;
+  - « perte effective de 38 600 emplois entre 2020 et 2025 » ; l'étude Xerfi y est résumée en « 95 000 emplois nets » perdus de 2020 à 2035 (les 38 600 déjà perdus et les 56 000 à venir) ;
+  - concurrence chinoise : la Chine fait plus de 50 % de la production mondiale de voitures électriques ; selon la Plateforme automobile, une voiture électrique sur quatre vendue en Europe serait importée de Chine ; près des deux tiers des batteries importées en France en 2024 viennent de Chine, qui produit 90 % des cellules importées par l'Union ;
+  - prix : la technologie électrique coûterait à l'achat « environ 20 % à 40 % plus cher qu'un moteur essence selon les gammes ».
+
+### Sources (suite du § 5)
+13. electrive.com, « EU Auto Package: Committee vote to relax CO₂ rules », 23/10/2026 : https://www.electrive.com/2026/10/23/eu-auto-package-committee-vote-to-relax-co%E2%82%82-rules/
+14. electrive.com, « EU Parliament mulls watered-down CO₂ reductions for cars in Auto Package debate », 20/10/2026 : https://www.electrive.com/2026/10/20/eu-parliament-mulls-watered-down-co%E2%82%82-reductions-for-cars-in-auto-package-debate/
+15. Parlement européen, Legislative Train, « CO2 emission standards for new light duty vehicles and labelling » (2025/0420(COD)), page mise à jour le 20/09/2026, lue le 28/10/2026 : https://www.europarl.europa.eu/legislative-train/package-automotive-package/file-co2-emission-standards-for-new-light-duty-vehicles-and-labelling
+16. SDES, « Motorisations des véhicules légers neufs – Émissions de CO2 et bonus écologique – Septembre 2026 », 05/10/2026 : https://www.statistiques.developpement-durable.gouv.fr/motorisations-des-vehicules-legers-neufs-emissions-de-co2-et-bonus-ecologique-septembre-2026
+17. SDES, « 40 millions de voitures en circulation en France au 1er janvier 2026 », 10/07/2026 : https://www.statistiques.developpement-durable.gouv.fr/40-millions-de-voitures-en-circulation-en-france-au-1er-janvier-2026
+18. ADEME, « Avis de l'ADEME sur la voiture électrique et sa recharge », réf. 013361, 07/10/2026 : https://librairie.ademe.fr/mobilite-et-transports/9581-11491-avis-de-l-ademe-sur-la-voiture-electrique-et-sa-recharge.html (PDF non lu)
+19. L'Automobiliste, « Voiture électrique : deux fois moins de CO2, sauf pour les gros SUV », 12/10/2026 : https://lautomobiliste.fr/12/10/2026/voiture-electrique-benefices-environnementaux-reduits-par-le-gigantisme/
+20. Le Repaire des motards, article sur l'avis de l'ADEME, 09/10/2026 : https://www.lerepairedesmotards.com/actualites/2026/vehicule-electrique-recharge-batterie-avis-ademe.php
+21. Plateforme automobile (PFA), « Industrie automobile : quels impacts sur l'emploi d'ici à 2035 ? » (étude Xerfi pour l'EDEC automobile), 26/06/2025 : https://pfa-auto.fr/industrie-automobile-quels-impacts-sur-lemploi-dici-a-2035/
+22. Assemblée nationale, commission des affaires économiques, « La défense de la filière automobile française », séance thématique de contrôle, décembre 2025 : https://www.assemblee-nationale.fr/dyn/17/documents/cion-eco/l17n977630962_document
+
+## Annexe — d'où vient chaque chiffre du reportage
+
+| Écran | Chiffre | Source |
+|---|---|---|
+| Accroche | 1 voiture neuve sur 5 électrique en 2025 (19,9 %) ; 5 sur 5 prévu en 2035 par le règlement de 2023, voté au Parlement européen le 14/02/2023 par 340 voix contre 279 (21 abstentions) | SDES [5] ; Parlement européen [1], § 1 |
+| Leviers | maintenir −100 % ; assouplir à −90 %, le reste compensé (proposition de la Commission) ; supprimer l'interdiction ; vote en commission le 22/10/2026, plénière et Conseil à venir | [1] [2] [13] [15], § 1 et Compléments a |
+| Q1 POUR | 41,1 % d'électriques dans les ventes neuves de septembre 2026, record ; 19,9 % en 2025 | SDES [16] [5], Compléments b |
+| Q1 CONTRE | 3,5 % d'électriques dans le parc au 1er janvier 2026 ; âge moyen des véhicules détruits 20,0 ans | SDES [17], Compléments b |
+| Q2 CONTRE | +5 200 € avant aides pour une citadine électrique neuve, 2025 (estimation de l'ADEME) | ADEME [18] lu dans [19] [20], Compléments c |
+| Q2 POUR | recharge environ trois fois moins chère que le plein ; entretien −40 % | ADEME [18] lu dans [20], Compléments c |
+| Q3 CONTRE | −56 000 emplois industriels nets de fin 2024 à 2035, réglementation inchangée (estimation) | Xerfi pour l'EDEC [21], Compléments d |
+| Q3 POUR | production de voitures divisée par trois depuis le début des années 2000 ; recul depuis 20 ans | Assemblée nationale [22], Compléments d |
+| Q4 POUR | environ deux fois moins de CO2 sur la vie de la voiture, en France, batterie comprise (calcul) | ADEME [18] lu dans [19], Compléments c |
+| Q4 CONTRE | fabrication deux fois plus émettrice qu'une hybride ; dette remboursée vers 70 000 km (compacte de 60 kWh) | ADEME [18] lu dans [19] [20], Compléments c |
+
+Les deux camps d'une même question citent le même avis de l'ADEME (Q2, Q4) ou le même service statistique (Q1) ; à la Q1, chaque texte dit s'il parle des ventes neuves ou des voitures qui roulent ; à la Q3, une estimation de l'emploi à venir répond à un fait passé sur la production, et chaque texte nomme ce qu'il mesure. Les chiffres de l'ADEME sont lus dans la presse **[source secondaire]** : à vérifier sur le PDF de l'avis avant la mise en ligne.

@@ -91,3 +91,75 @@ positions:
   arthaud: { option: B, source: "Programme 2022, 05/04/2022", statut: deduite }
   # Proposition de loi LFI, 01/02/2018 : https://melenchon.fr/2018/02/02/droit-a-leuthanasie-suicide-assiste/
   melenchon: { option: C, source: "Proposition de loi LFI, 01/02/2018", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/011-fin-de-vie.md (chaque chiffre y a sa source
+# numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : de la loi de 2016 à celle de 2026, puis trois
+# choix, et quatre questions où chaque camp avance son meilleur fait. Sujet de conscience : aucune carte ne dit ni ne
+# laisse entendre qu'un camp serait indifférent à la souffrance ou à la vie ; aucun cas individuel n'est raconté.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1 et C1, [1] [3] [5] [9] [25] [26] : en 2016, la sédation profonde et continue maintenue jusqu'au décès (les
+    # mots de la loi : « endormir » dit le moyen, « jusqu'au décès » la durée ; rien ne dit qu'elle provoque la mort) ;
+    # en 2026, la loi n° 2026-794, votée en lecture définitive par 291 voix contre 241, après le rejet du Sénat (181
+    # contre 122). Au 28/10/2026, aucun décret d'application ni recommandation de la HAS n'a été trouvé publié ; le
+    # cabinet de la ministre de la Santé vise une application « au début de l'année 2027 ».
+    etapes:
+      - { quand: "En 2016", valeur: "Endormir jusqu'au décès" }
+      - { quand: "En 2026", valeur: "Aider à mourir" }
+    chute: "… une loi votée 291 voix contre 241, après un rejet du Sénat, pas encore appliquée : le gouvernement vise début 2027."
+  # Pas de « mécanisme ». Pas d'« écart » : les recensements des départements sans unité de soins palliatifs (2019,
+  # 2021, 2023) ne comptent pas tous l'outre-mer de la même façon ; le dernier est cité à la question 4.
+  leviers:
+    # § 1 et 4, [1]. Les trois options de la fiche, à égalité. L'abrogation laisse en vigueur la loi de 2016 : « s'en
+    # tenir à », pas « revenir à ». La chute dit à qui s'adresse la loi (majeur atteint d'une affection grave et
+    # incurable, en phase avancée ou terminale, à la souffrance réfractaire ou insupportable) : ce sont les limites dont
+    # parle la question 3, et la souffrance des malades, l'argument du pour, y est dite.
+    titre: "L'aide à mourir : trois choix"
+    choix:
+      - { texte: "L'abroger", detail: "s'en tenir à la loi de 2016 et développer les soins palliatifs" }
+      - { texte: "La garder telle quelle", detail: "le malade prend lui-même le produit, ou un soignant le lui donne s'il ne le peut pas" }
+      - { texte: "L'étendre à l'euthanasie", detail: "un médecin ou un infirmier peut donner le produit si le malade le demande" }
+    chute: "La loi d'août 2026 est le deuxième choix, pour les malades incurables qui souffrent, en phase avancée ou terminale."
+    source: "Journal officiel, 2026"
+  # POUR : les options B et C (autoriser l'aide à mourir, ou aller plus loin) ; CONTRE : l'option A. Aucune réponse
+  # POUR ne dépend de qui donne le produit, pour valoir pour B comme pour C.
+  camps: { pour: POUR, contre: CONTRE, objet: "l'aide à mourir" }
+  # Chaque question oppose deux faits de la même source, ou deux mesures de la même question, et chaque texte dit ce
+  # qu'il mesure (un vote, une estimation, un relevé, un plan). L'ordre d'apparition des camps suit ABBA.
+  questions:
+    # § C3 et C2, [18] [22] : deux réponses de 2023 à la même question, le cadre de 2016 suffit-il, et chaque texte dit
+    # ce qu'il est (un vote, une estimation). Le pour : le constat de la Convention citoyenne (« l'absence de réponse
+    # satisfaisante à certaines situations, notamment les souffrances réfractaires ») et son vote (75,6 % des votants
+    # pour une aide à mourir, suicide assisté et euthanasie, ce qui vaut pour B comme pour C ; un avis, d'où « ont
+    # soutenu »). Le contre : la loi de 2016 suffit si on lui en donne les moyens, l'argument du quart opposé de cette
+    # convention (la « faible application » de la loi de 2016), chiffré par la Cour des comptes (besoins de soins
+    # palliatifs couverts à 50 % de leur estimation maximale ; « 48 % » sur la page de présentation du rapport), qui
+    # rattache ce droit à la loi de 2016.
+    - question: "La loi de 2016 suffisait-elle ?"
+      pour: { affirmation: "Non, selon des citoyens tirés au sort.", chiffre: "76 %", texte: "Pour eux, certaines souffrances restaient sans réponse satisfaisante. Après 27 jours de débats, 76 % des votants ont soutenu une aide à mourir.", source: "Convention citoyenne, 2023" }
+      contre: { affirmation: "Oui, mais elle manquait de moyens.", chiffre: "50 %", texte: "La Cour des comptes estimait que les soins palliatifs, auxquels cette loi donne droit, couvraient la moitié des besoins.", source: "Cour des comptes, 2023" }
+    # § C4, [23] : le même relevé officiel (Oregon, 400 malades morts en 2025 après avoir pris le produit), deux lignes
+    # du même tableau : la peur d'être un poids pour ses proches (39,8 %) et le suivi en soins palliatifs (« hospice »,
+    # 91,8 % ; le tableau ne dit pas à quel moment, d'où l'absence de « au moment de mourir »). Les deux cartes nomment
+    # l'Oregon ; celle du pour dit sa condition (une maladie en phase terminale, pronostic de six mois), qui n'est pas
+    # celle de la loi française et explique en partie le suivi en soins palliatifs. Le contre parle en premier.
+    - question: "Demandera-t-on à mourir faute de soutien ?"
+      pour: { affirmation: "Non, la plupart étaient soignés.", chiffre: "9 sur 10", texte: "Dans l'Oregon, où la loi exige d'être en phase terminale, 9 malades aidés à mourir sur 10 étaient suivis en soins palliatifs.", source: "Oregon Health Authority, 2026" }
+      contre: { affirmation: "Oui, certains, pour ne pas peser.", chiffre: "4 sur 10", texte: "Aux États-Unis, dans l'Oregon, la peur d'être un poids pour ses proches est citée pour 4 malades aidés à mourir sur 10.", source: "Oregon Health Authority, 2026" }
+    # § C5, [24] : le même rapport de Santé Canada. Le contre : 5 461 aides à mourir en 2019, 16 499 en 2024 (×3,0),
+    # et l'ouverture de 2021 aux malades dont la mort n'est pas raisonnablement prévisible ; le pour : 95,6 % des cas de
+    # 2024 remplissent la condition d'origine de la loi canadienne (une mort raisonnablement prévisible), qui n'est pas
+    # celle de la loi française. Les deux cartes disent qu'il s'agit de la loi canadienne, avec les mêmes mots (« une
+    # mort prévisible ») ; le pour donne l'année de son chiffre, la dernière de la série du contre.
+    - question: "Les limites de la loi tiendront-elles ?"
+      pour: { affirmation: "Oui, dans presque tous les cas.", chiffre: "96 %", texte: "En 2024, 96 % des personnes aidées à mourir remplissaient la condition d'origine de la loi canadienne : une mort prévisible.", source: "Santé Canada, 2025" }
+      contre: { affirmation: "Pas au Canada.", chiffre: "×3", texte: "Au Canada, les aides à mourir ont triplé de 2019 à 2024. Depuis 2021, la loi n'exige plus une mort prévisible.", source: "Santé Canada, 2025" }
+    # § C2, [19] [20] [21] : l'offre de soins palliatifs en France, vue par le plan (1,1 milliard d'euros de 2024 à 2034,
+    # confirmé par le ministère en 2026 et inscrit par la loi de mai 2026) et par le dernier recensement officiel (20
+    # départements sur 101 sans unité de soins palliatifs, Atlas de mars 2023, cité par le ministère ; ces départements
+    # ont des lits réservés dans d'autres services, ce que le texte dit). Aucun recensement plus récent n'a été trouvé.
+    # Chaque carte porte sa date, pour que l'ordre d'apparition ne trompe pas : le plan court depuis 2024, le
+    # recensement date de 2023, avant lui, et reste le dernier.
+    - question: "Y aura-t-il assez de soins palliatifs ?"
+      pour: { affirmation: "Oui, l'État s'y engage.", chiffre: "1,1 milliard €", texte: "Depuis 2024, un plan de dix ans prévoit 1,1 milliard d'euros pour les soins palliatifs. Une loi de mai 2026 l'a inscrit.", source: "Ministère de la Santé, 2026 ; franceinfo, 2026" }
+      contre: { affirmation: "Non, pas partout.", chiffre: "1 sur 5", texte: "Au dernier recensement, en 2023, 20 départements sur 101 n'avaient aucun service de soins palliatifs, mais des lits réservés dans d'autres services.", source: "Ministère de la Santé, 2023" }

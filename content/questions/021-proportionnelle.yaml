@@ -8,8 +8,8 @@ question: "Faut-il élire les députés à la proportionnelle ?"
 titreCourt: "La proportionnelle"
 contexte:
   - "Les 577 députés sont élus au scrutin majoritaire à deux tours, dans autant de circonscriptions ; seules les élections de 1986 se sont faites à la proportionnelle sous la Ve République."
-  - "En 2024, le bloc arrivé en tête avec 33,2 % des voix au premier tour n'a eu que 24,6 % des sièges, alors que les deux suivants en ont eu davantage que de voix, et aucun n'a atteint la majorité de 289 sièges."
-  - "En 2025, le Premier ministre a proposé une proportionnelle intégrale par département, comme en 1986 ; les partis restent divisés sur le sujet."
+  - "En 2024, le bloc arrivé en tête avec 33,2 % des voix au premier tour a eu 24,6 % des sièges, alors que les deux suivants en ont eu davantage que de voix, et aucun n'a atteint la majorité de 289 sièges."
+  - "En 2025, le Premier ministre a consulté les partis sur une proportionnelle intégrale par département, comme en 1986 ; les partis restent divisés sur le sujet."
 chiffres:
   - valeur: 33,2 %
     legende: "des voix au premier tour pour le bloc arrivé en tête en 2024"
@@ -80,3 +80,80 @@ positions:
   zemmour: { option: D, source: "Le Figaro, 29/01/2021", statut: deduite }
   # https://www.cnews.fr/france/2025-01-17/la-proportionnelle-serait-le-clou-sur-le-cercueil-de-la-france-estime-nicolas
   dupont-aignan: { option: D, source: "CNews, 17/01/2025", statut: deduite }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # Compléments C1, [18] [19] [20] : de 1945 à 1956, les députés sont élus sur des listes par département à la
+    # proportionnelle (la loi des apparentements de 1951, appliquée en 1951 et 1956, en garde le principe) ; depuis 1958,
+    # un député par circonscription, en deux tours, sauf en 1986 (loi du 10 juillet 1985, abrogée par celle du
+    # 11 juillet 1986). L'accroche sert les deux camps : la France a pratiqué la proportionnelle, et l'a quittée deux fois.
+    etapes:
+      - { quand: "De 1945 à 1956", valeur: "Proportionnelle" }
+      - { quand: "Depuis 1958", valeur: "Deux tours" }
+    chute: "… et un député par circonscription. Une exception : 1986, seule élection à la proportionnelle."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : aucune grandeur à deux dates n'éclaire
+  # le débat mieux que l'accroche ; les voix et les sièges de 2024 vont à la question 1.
+  leviers:
+    # Les quatre options de la fiche, à égalité et dans l'ordre (§ 1 et 2, enjeu E, [4] [5] [9]). La chute (compléments
+    # C1, [20]) : un fait utile aux deux camps, puisqu'une loi suffit à changer le mode de scrutin dans un sens comme
+    # dans l'autre (article 34 de la Constitution) ; 1985 et 1986 le montrent.
+    titre: "Comment élire les députés ? Quatre réponses"
+    choix:
+      - { texte: "Tout à la proportionnelle", detail: "chaque liste a des sièges selon ses voix, sans bonus" }
+      - { texte: "La proportionnelle, plus un bonus", detail: "des sièges en plus pour la liste arrivée en tête" }
+      - { texte: "Une part à la proportionnelle", detail: "par exemple 15 % des députés, les autres comme aujourd'hui" }
+      - { texte: "Garder le scrutin actuel", detail: "un député par circonscription, élu en deux tours" }
+    chute: "Pas besoin de changer la Constitution : la loi a suffi, en 1985 pour passer à la proportionnelle, en 1986 pour en revenir."
+    source: "Constitution, article 34 ; lois de 1985 et 1986"
+  camps: { pour: POUR, contre: CONTRE, objet: "la proportionnelle" }
+  # POUR rassemble les options A, B et C (des députés élus à la proportionnelle, en tout ou en partie), CONTRE l'option D :
+  # chaque réponse POUR vaut pour les trois options. Ordre d'apparition (ABBA) : POUR d'abord aux questions 1 et 4, CONTRE
+  # d'abord aux questions 2 et 3 ; aucune carte qui parle en premier ne renvoie à l'autre. Aucun candidat ni parti n'est
+  # nommé ; la simulation de la question 2 est attribuée à son auteur, un groupe de réflexion. Rien n'y reprend les
+  # face-à-face des fiches 010, 053, 054 et 055 (signatures et Suisse, Italie, confiance du CEVIPOF ; sondages sur la
+  # Constitution, 49.3, dissolution, Espagne et Chili ; Flandre, Chili, Australie et Belgique ; vote blanc).
+  questions:
+    # § 2, enjeu A, et compléments C2, [1] [2] [21] : la même élection (2024), deux façons de dire « respecter les voix »,
+    # et chaque texte dit la sienne. POUR : à l'échelle du pays, la part des voix au premier tour (33,16 %) et la part des
+    # sièges (142 sur 577, 24,6 %) du bloc arrivé en tête. CONTRE : à l'échelle de la circonscription, les élus qui ont eu
+    # plus de la moitié des voix, soit les 76 élus du premier tour et les vainqueurs des 409 duels du second : au moins 485
+    # sur 577 (84 %), sans compter les triangulaires gagnées avec plus de la moitié des voix (calcul de l'étude). Le texte
+    # CONTRE dit « au premier ou au second tour », comme le texte POUR dit « au premier tour » : la plupart de ces élus
+    # passent la moitié au second tour, souvent après des désistements (C2, « lecture »). L'affirmation CONTRE ne dit pas
+    # « dans chaque circonscription » : le décompte couvre 485 élus sur 577, pas tous.
+    - question: "Le scrutin actuel respecte-t-il les voix ?"
+      pour: { affirmation: "Non, pas à l'échelle du pays.", chiffre: "25 %", texte: "Le bloc arrivé en tête en 2024 avait 33 % des voix au premier tour. Il a eu 25 % des sièges.", source: "Ministère de l'Intérieur, 2024" }
+      contre: { affirmation: "Oui, à l'échelle de la circonscription.", chiffre: "8 sur 10", texte: "En 2024, plus de huit députés sur dix ont dépassé la moitié des voix, au premier ou au second tour.", source: "Ministère de l'Intérieur ; Public Sénat, 2024 (calcul)" }
+    # § 2, enjeu B, et compléments C3, [1] [2] [22] : la même élection (2024) et la même mesure (les sièges du bloc le plus
+    # nombreux, face aux 289 de la majorité absolue), l'une simulée, l'autre réelle. CONTRE : la simulation de la Fondapol
+    # répartit les 577 sièges à la proportionnelle nationale, sans bonus, d'après les voix du premier tour (le bloc en
+    # tête, le RN et ses alliés : 192 sièges) ; le texte dit « nationale » et « sans bonus », puisqu'un bonus (option B) ou
+    # des listes par département (comme en 1986) changeraient le résultat, et l'affirmation dit « selon une simulation »
+    # (« ce ne sont que des projections », note 62). Le chiffre suit la règle de trois sur les résultats officiels (C3) :
+    # la carte nomme la Fondapol comme groupe de réflexion, comme la fiche 015, sans y ajouter la conclusion de l'auteur.
+    # POUR : au scrutin actuel, le bloc le plus nombreux (l'Union de la gauche) a eu 178 sièges ; l'affirmation s'en tient
+    # à 2024, comme la simulation. Les deux textes disent « le plus gros bloc » : la même mesure, pas le même bloc. La
+    # question ne présuppose pas qu'il y aurait une majorité sans la proportionnelle (il n'y en a pas eu en 2024).
+    - question: "La proportionnelle donnerait-elle une majorité ?"
+      pour: { affirmation: "Pas moins que le scrutin actuel en 2024.", chiffre: "178", texte: "En 2024, avec le scrutin actuel, aucun bloc n'a eu la majorité. Le plus gros avait 178 sièges.", source: "Ministère de l'Intérieur, 2024" }
+      contre: { affirmation: "Non, selon une simulation.", chiffre: "192", texte: "Avec les voix de 2024, une proportionnelle nationale sans bonus aurait donné 192 sièges au plus gros bloc. Il en faut 289.", source: "Fondapol (groupe de réflexion), 2026" }
+    # § 2, enjeu C, et compléments C4, [23] : le même sondage (CSA pour l'Assemblée nationale, 4 512 personnes, automne
+    # 2021), deux questions différentes, et chaque texte dit la sienne. CONTRE : Q8, un député doit s'occuper « en
+    # priorité » des problèmes de son territoire d'élection (70 %) plutôt que des problèmes nationaux (29 %). POUR : Q3,
+    # « Est-ce que vous connaissez votre député(e) ? », les deux réponses « Non, je ne sais pas qui c'est » (49 % ; 50 %
+    # le connaissent). La question porte sur le lien local, que la fiche donne comme critique de l'option A.
+    - question: "Les Français tiennent-ils à leur député local ?"
+      pour: { affirmation: "Près d'un sur deux ne le connaît pas.", chiffre: "49 %", texte: "Dans le même sondage, 49 % des Français disaient ne pas savoir qui est leur député.", source: "CSA pour l'Assemblée nationale, 2021" }
+      contre: { affirmation: "Oui, d'abord pour leur territoire.", chiffre: "70 %", texte: "Dans un sondage de 2021, 70 % des Français voulaient qu'un député s'occupe d'abord des problèmes de son territoire.", source: "CSA pour l'Assemblée nationale, 2021" }
+    # § 2, enjeux B et D, et compléments C5, [18] [24] : la même mesure (le nombre de gouvernements formés), le même pays,
+    # deux périodes et deux modes de scrutin ; chaque texte dit sa période, plus courte pour POUR (13 mois) que pour
+    # CONTRE (près de 7 ans). POUR : les gouvernements nommés par décret du 21/09/2024, du 23/12/2024, du 05/10/2025 et
+    # du 12/10/2025. CONTRE : « Entre juillet 1951 et mai 1958, une douzaine de gouvernements se succèdent » (Assemblée
+    # nationale), qui voit dans la proportionnelle l'une des causes de cette instabilité ; d'autres l'attribuent aux
+    # règles de la IVe République (compléments C5). Aucun texte n'affirme une cause : chaque affirmation est celle de son camp,
+    # et le texte CONTRE dit le mode de scrutin à part, comme un fait. Chaque texte dit la durée de sa période (« en treize
+    # mois », « en près de sept ans »), pour que les deux chiffres ne se lisent pas comme pris sur la même durée. POUR dit
+    # « l'ont déjà été » : le gouvernement du 12/10/2025 est encore en fonctions fin août 2026 (C5), la carte s'arrête là.
+    - question: "La proportionnelle rendrait-elle les gouvernements instables ?"
+      pour: { affirmation: "Ils l'ont déjà été, sans elle.", chiffre: "4", texte: "Avec le scrutin actuel, quatre gouvernements ont été nommés en treize mois, de septembre 2024 à octobre 2025.", source: "Journal officiel, 2024-2025" }
+      contre: { affirmation: "Oui, comme sous la IVe République.", chiffre: "12", texte: "En près de sept ans, de 1951 à 1958, une douzaine de gouvernements se sont succédé. L'Assemblée était élue à la proportionnelle.", source: "Assemblée nationale, 2026" }

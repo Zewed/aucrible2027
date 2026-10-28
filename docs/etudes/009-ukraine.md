@@ -16,7 +16,7 @@
   sécurité [1][2].
 - **13/10/2022 :** un fonds spécial bilatéral de 200 millions d'euros est signé pour 2023, abondé de 200 millions à la
   fin de 2023 [2].
-- **17/02/2024 :** accord de coopération en matière de sécurité entre la France et l'Ukraine, sur dix ans [1]. Le
+- **16/02/2024 :** accord de coopération en matière de sécurité entre la France et l'Ukraine, sur dix ans [1]. Le
   12/03/2024, l'Assemblée nationale se prononce sur cet accord ; la France s'y engage à porter son effort à 3 milliards
   d'euros par an (rapport de la commission des affaires étrangères, 19/02/2025) [11].
 - **12/03/2025 :** l'Assemblée adopte (288 pour, 54 contre, 132 abstentions) une résolution européenne « appelant au
@@ -78,7 +78,7 @@ depuis 2024 (selon un député LFI cité par franceinfo) [4].
   [1] ; **22 000** selon franceinfo (28/09/2026) [4].
 - Matériels cités : Mirage 2000-5 ; systèmes SAMP/T ; missiles Aster 30, SCALP, MICA ; bombes A2SM Hammer ; canons Caesar ;
   AMX-10 RC ; VAB ; missiles Milan. **Quantités non divulguées** (Ministère des Armées, 26/02/2026) [1].
-- **Dix ans** : durée de l'accord bilatéral de sécurité signé le 17/02/2024 [1].
+- **Dix ans** : durée de l'accord bilatéral de sécurité signé le 16/02/2024 [1].
 
 **Ceux qui veulent continuer ou renforcer disent** que la France doit « continuer de former les soldats ukrainiens,
 poursuivre les livraisons d'armes à l'Ukraine et renforcer la défense européenne » (groupe EPR) [11] ; qu'il faut
@@ -215,3 +215,115 @@ n'ont pu être établies.
 13. Sud Radio, « Ukraine : je ne veux pas que la France entre en guerre contre la Russie, déclare Fabien Roussel », 07/03/2024 : https://www.sudradio.fr/linvite-politique/ukraine-je-ne-veux-pas-que-la-france-entre-en-guerre-contre-la-russie-declare-fabien-roussel
 14. Lutte ouvrière, « Non à la guerre impérialiste avec la peau des prolétaires ukrainiens et russes ! », 11/03/2024 : https://www.lutte-ouvriere.org/portail/editoriaux/non-la-guerre-imperialiste-avec-la-peau-des-proletaires-ukrainiens-et-russes-729795.html
 15. Programme des Écologistes, « Pour une prospérité écologique » (juillet 2026), page 197, tel que cité par MonVote2027 (page non ouverte, accès refusé) : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+
+## Compléments pour le reportage (28/10/2026)
+
+> Ajoutés le 28/10/2026 pour donner à chaque camp son meilleur argument chiffré dans le reportage vidéo, et pour dire
+> où en sont la guerre et les négociations à cette date. Les sources [16] à [24] suivent la liste du § 5. Les
+> face-à-face des fiches 030 (soldats en Ukraine) et 031 (sanctions contre la Russie) ne sont pas repris : ni le risque
+> d'escalade entre puissances nucléaires, ni l'opinion des Français, ni le prêt européen de 90 milliards d'euros.
+
+### C1. La guerre et les négociations au 28/10/2026
+- **23/10/2026** : le porte-parole du Kremlin annonce que les discussions entre la Russie, l'Ukraine et les États-Unis
+  reprendront à Abou Dhabi, « dans un format trilatéral », dans « la première moitié de novembre » (le Kremlin propose
+  « aux alentours du 10 novembre »). Selon lui, elles porteraient sur la sécurité des deux pays « une fois qu'un
+  règlement pacifique aura été trouvé ». Le président russe rejette une « courte pause dans les combats » ; le président
+  ukrainien juge l'arrêt des combats sur la ligne de front actuelle « la voie la plus réaliste ». Le dialogue « a de
+  facto tourné court dès le début de l'année » (Euronews, d'après l'AFP) [16]. Aucun cessez-le-feu général n'est signé ;
+  les frappes de drones continuent des deux côtés [10].
+- **Le territoire** : avant l'invasion de février 2022, la Russie contrôlait déjà « quelque 7 % » de l'Ukraine (la
+  Crimée et des zones du Donbass) ; fin septembre 2025, elle exerçait « un contrôle total ou partiel sur 19 % du
+  territoire ukrainien », zones revendiquées comprises (analyse de l'AFP sur les données de l'ISW, institut américain
+  d'étude de la guerre) [17]. Selon la carte du groupe ukrainien DeepState, environ **116 900 km², soit 19,4 %** de
+  l'Ukraine, étaient sous contrôle russe au 25/08/2026, après un gain d'environ 787 km² depuis le début de 2026 [18]
+  **[source secondaire]**. Le chiffre de 19 % reste donc juste en octobre 2026 (déduction de cette étude à partir de
+  [17] et [18]).
+
+### C2. Ce que coûte l'aide, relu dans franceinfo [4]
+- **Institut de Kiel, février 2022 – juin 2026** : 7,91 milliards d'euros d'aide bilatérale, dont **6,23 milliards
+  d'aide militaire**, 876 millions d'aide humanitaire et 799 millions d'aide financière directe ; 18,31 milliards
+  attribués à la France au titre de l'aide de l'Union européenne (part de chaque pays dans le budget de l'Union) ; total
+  **26,22 milliards d'euros**. Une partie de l'aide européenne est faite de prêts. Le gouvernement n'a pas confirmé ces
+  chiffres ; le ministère des Armées refuse de donner un total [4].
+- **Le calcul par an** : « Comme *Le Monde* l'a calculé, cela équivaut à une moyenne d'environ 6 milliards d'euros
+  d'aides par an » ; la phrase suivante, sans auteur nommé (*Le Monde* ou franceinfo), ajoute que ces 6 milliards
+  représentent **1,34 %** de la moyenne annuelle des dépenses de l'État de 2022 à 2025 (446,2 milliards d'euros) et
+  3,99 % de la moyenne annuelle des déficits publics sur la même période (150,3 milliards d'euros) [4]. Le reportage dit
+  donc « selon un calcul de presse ». Le § 2 (enjeu 1) attribue les deux pourcentages au *Monde* : l'article ne le dit
+  que pour les 6 milliards.
+- **Rang** : franceinfo place la France au 10e rang des pays qui soutiennent directement l'Ukraine, et au 20e rapportée
+  à la richesse du pays [4] ; le 13e rang européen de la fiche vient du JDD, en février 2026 [3]. Les deux classements
+  ne portent ni sur la même date ni sur la même liste de pays. Non repris dans le reportage.
+- **La dette publique** : à la fin du 2e trimestre 2026, la dette publique au sens de Maastricht atteint **3 595,5
+  milliards d'euros, soit 119,0 % du PIB**, en hausse de 59,6 milliards sur le trimestre ; la contribution de l'État
+  augmente de 53,0 milliards (Insee, 29/09/2026) [19].
+
+### C3. Les armes cédées par l'armée française, et la production
+- **2022** : la France a donné à l'Ukraine **18 canons Caesar** pris à l'armée de Terre, qui en avait **76** avant
+  l'invasion ; ces cessions « ont amputé de près d'un quart le stock de l'armée française ». Le ministre des Armées
+  annonce une enveloppe de 85 millions d'euros pour les remplacer ; « la fabrication d'un système Caesar prend
+  actuellement plus de 18 mois, selon Nexter » (Belga, 20/07/2022) [20].
+- **2025** : « KNDS France a divisé par deux les délais de production de ses obusiers Caesar tout en triplant le volume
+  produit » ; la France a livré 30 000 obus de 155 mm à l'Ukraine depuis le début du conflit, avec un objectif de 80 000
+  pour 2025 (ministère des Armées, bilan de la deuxième année d'« économie de guerre », 01/01/2025) [21].
+- Ces deux faits répondent à la limite du § 2 (enjeu 2), « la capacité de l'armée française à renouveler ses stocks :
+  non trouvés » : ils portent sur le seul canon Caesar, à deux dates. L'état actuel des stocks reste non publié.
+
+### C4. Ce que veulent les Ukrainiens : deux sondages qui ne posent pas la même question
+- **Gallup** (avril 2026, 1 000 personnes de 15 ans et plus jointes par téléphone portable, hors territoires occupés,
+  marge d'erreur de 3,8 points ; publié le 30/06/2026) : **66 %** des Ukrainiens veulent que leur pays cherche à
+  négocier la fin de la guerre le plus tôt possible, 24 % qu'il continue à se battre jusqu'à la victoire ; en 2022, 73 %
+  voulaient continuer à se battre et 22 % négocier [22].
+- **Institut international de sociologie de Kiev (KIIS)** (8-16/10/2026, 1 031 adultes joints par téléphone, sur le
+  territoire contrôlé par Kiev) : **61 %** jugent « catégoriquement inacceptable » de céder tout le Donbass à la Russie
+  en échange de garanties de sécurité des États-Unis et de l'Europe, 35 % seraient prêts à cette concession, « difficile »
+  pour la plupart (Ukrainska Pravda, 19/10/2026, qui cite le KIIS) [23] **[source secondaire]**.
+- **Prudence** : la première question porte sur le moment de négocier, la seconde sur une concession précise ; les
+  deux résultats ne se contredisent pas, et le reportage dit qu'ils ne posent pas la même question.
+
+### C5. L'accord de sécurité du 16/02/2024 : sa durée, sa sortie, ses 3 milliards
+- **Durée** : « Le présent accord est valable pour une durée de dix ans à compter de la date de sa signature » ; la
+  France poursuit son soutien militaire « pendant les dix ans que durera le présent accord » [24].
+- **Sortie** : chaque partie peut y mettre fin par notification écrite ; « le présent accord sera résilié six mois
+  après la date de réception de cette notification » [24]. Si l'Ukraine rejoint l'OTAN avant son terme, « les
+  Participants décideront de son futur statut » [24].
+- **Les 3 milliards** : « En 2024, la France fournira jusqu'à 3 milliards d'euros de soutien supplémentaire » [24]. Le
+  texte ne fixe pas de montant pour les années suivantes ; le « 3 milliards d'euros par an » du § 1 et du § 2 (enjeu 1)
+  vient du rapport de l'Assemblée [11], pas du texte de l'accord. Non repris dans le reportage.
+
+### C6. Les leviers : ce qui reste secret, et qui paie
+- Les quantités livrées ne sont pas divulguées, « pour raisons de sécurité » (ministère des Armées) [1] ; l'aide
+  militaire directe, le fonds bilatéral et la contribution à la Facilité européenne pour la paix sont des dépenses de
+  l'État [3], financées par l'impôt et, tant que les comptes sont en déficit, par l'emprunt [19] (déduction de cette
+  étude).
+
+### Sources (suite du § 5)
+16. Euronews (d'après l'AFP), « La Russie annonce des négociations à Abou Dhabi avec l'Ukraine et les États-Unis », 23/10/2026 : https://fr.euronews.com/2026/10/23/la-russie-annonce-des-negociations-a-abou-dhabi-avec-lukraine-et-les-etats-unis
+17. AFP via La Libre Belgique, « Guerre en Ukraine : la progression russe ralentit encore en septembre », 01/10/2025 (données de l'ISW et du Critical Threats Project) : https://www.lalibre.be/international/europe/guerre-ukraine-russie/2025/10/01/guerre-en-ukraine-la-progression-russe-ralentit-encore-en-septembre-KXJR3KR6JZD3LBCQUB75QYQDRQ/
+18. Charter97, « Peskov Was Caught Lying », 27/08/2026, citant la carte DeepState au 25/08/2026 [source secondaire] : https://charter97.org/en/news/2026/8/27/696276/
+19. Insee, Informations rapides n° 239, « Dette trimestrielle de Maastricht des administrations publiques – deuxième trimestre 2026 », 29/09/2026 : https://www.insee.fr/fr/statistiques/9053525
+20. Belga via RTBF, « Paris va investir 85 millions d'euros pour remplacer les canons Caesar donnés à Kiev », 20/07/2022 : https://www.rtbf.be/article/paris-va-investir-85-millions-d-euros-pour-remplacer-les-canons-caesar-donnes-a-kiev-11035003
+21. Ministère des Armées, « Wartime economics, year 2: what are the results? », 01/01/2025 : https://www.defense.gouv.fr/en/news/wartime-economics-year-2-what-are-results
+22. Gallup, « Ukrainians Sour on U.S. Leadership as Views of War Stabilize », 30/06/2026 : https://news.gallup.com/poll/711992/ukrainians-sour-washington-views-war-stabilize.aspx
+23. Ukrainska Pravda, « Over 60% Ukrainians strongly opposed to withdrawal of Ukrainian troops from Donbas – survey » (sondage du KIIS), 19/10/2026 [source secondaire] : https://www.pravda.com.ua/eng/news/2026/10/19/8058715/
+24. Élysée, « Accord de coopération en matière de sécurité entre la France et l'Ukraine », 16/02/2024 : https://www.elysee.fr/emmanuel-macron/2024/02/16/accord-de-cooperation-en-matiere-de-securite-entre-la-france-et-lukraine
+
+## Annexe — d'où vient chaque chiffre du reportage
+
+| Écran | Chiffre | Source |
+|---|---|---|
+| Accroche | 7 % de l'Ukraine contrôlé par la Russie avant l'invasion de 2022 (AFP-ISW) ; 19 % aujourd'hui : 19,4 % sous contrôle russe au 25/08/2026 (DeepState, contrôle seul). Le 19 % de l'AFP à fin septembre 2025 compte aussi les zones que la Russie revendique : non repris. Discussions à trois en novembre 2026, annoncées par la Russie | AFP-ISW [17] ; DeepState [18] ; Euronews [16], C1 |
+| Leviers | quatre choix ; quantités non publiées ; l'aide payée par le budget de l'État, donc par l'impôt ou l'emprunt | [1] [3] [19], § 1 et C6 |
+| Q1 POUR | l'aide à l'Ukraine, part européenne comprise (environ 6 milliards d'euros par an), fait 1,34 % des dépenses annuelles moyennes de l'État, 2022-2025 (calcul de presse) | Kiel et franceinfo [4], C2 |
+| Q1 CONTRE | le même calcul de presse : environ 6 milliards d'euros d'aide par an, part européenne comprise ; dette publique de 119,0 % du PIB à la fin du 2e trimestre 2026 | Kiel, *Le Monde* et franceinfo [4] ; Insee [19], C2 |
+| Q2 CONTRE | 18 des 76 canons Caesar de l'armée de Terre donnés en 2022 ; plus de 18 mois pour en fabriquer un | Belga [20], C3 |
+| Q2 POUR | production de Caesar triplée, délais divisés par deux, en deux ans d'« économie de guerre » (bilan au 01/01/2025, donc fin 2024) | Ministère des Armées [21], C3 |
+| Q3 CONTRE | 66 % des Ukrainiens veulent négocier la fin de la guerre au plus vite (sondage d'avril 2026) | Gallup [22], C4 |
+| Q3 POUR | 61 % jugent inacceptable de céder tout le Donbass contre des garanties de sécurité des États-Unis et de l'Europe (sondage d'octobre 2026) | KIIS, lu dans [23] (« cité par la presse »), C4 |
+| Q4 POUR | accord de sécurité de dix ans, soutien militaire pendant toute sa durée | Élysée [24], C5 |
+| Q4 CONTRE | fin de l'accord six mois après une notification écrite | Élysée [24], C5 |
+
+Les deux camps de Q1 citent le même calcul de presse, l'un en part des dépenses de l'État, l'autre en euros par an, que
+le camp CONTRE met face à la dette ; ceux de Q2 parlent du même canon, à deux dates écrites sur les cartes ; ceux de Q3
+citent deux sondages qui ne posent pas la même question, datés de la même façon, et le second le dit ; ceux de Q4 citent
+le même texte.

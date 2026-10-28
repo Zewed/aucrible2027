@@ -40,7 +40,7 @@ options:
     libelle: "Abaisser la majorité pénale à 16 ans"
     implique: "Les 16 et 17 ans seraient jugés comme des majeurs. Le Conseil constitutionnel ayant jugé en 2025 que l'atténuation de la responsabilité selon l'âge est un principe fondamental de la République, une telle réforme poserait la question d'une révision de la Constitution."
     defenseurs: "À 16 ans, on mesure la portée de ses actes : juger les 16-17 ans comme des adultes protège mieux les victimes et rend la sanction plus dissuasive."
-    critiques: "Cela supposerait de réviser la Constitution, et ses opposants craignent que des adolescents encourent des peines d'adultes sans accompagnement éducatif."
+    critiques: "Selon ses opposants, cela supposerait de réviser la Constitution, et des adolescents encourraient des peines d'adultes sans accompagnement éducatif."
     axes: { societe: 2 }
   - id: D
     libelle: "Abaisser la majorité pénale à 16 ans et faire de l'excuse de minorité l'exception dès 13 ans"
@@ -80,3 +80,81 @@ positions:
   tondelier: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
   # https://www.debout-la-france.fr/projet/justice/
   dupont-aignan: { option: C, source: "Projet justice, DLF, mesure 8, 2026", statut: officielle }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1 et compléments e, [3] [21] : la loi du 12 avril 1906 a porté la majorité pénale de 16 à 18 ans (proposition
+    # de 1905 « portant […] fixation de la majorité pénale à dix-huit ans ») ; avant, le code pénal de 1810 la fixait à
+    # 16 ans. La chute dit le droit d'aujourd'hui (avant 18 ans, des juges et des peines propres aux mineurs [2] [13]),
+    # pas celui de 1906 : le régime des 16-18 ans entre 1906 et 1945 n'a pas été relu (compléments g).
+    etapes:
+      - { quand: "Jusqu'en 1906", valeur: "16 ans" }
+      - { quand: "Depuis 1906", valeur: "18 ans" }
+    chute: "… l'âge de la majorité pénale. Plus jeune, on est jugé aujourd'hui par une justice à part."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : la seule grandeur à deux dates qui
+  # éclaire le débat, le nombre de mineurs soupçonnés de 2016 à 2024, est l'objet de la question 1.
+  leviers:
+    # Les quatre options de la fiche (A à D), à égalité, chacune dans les mots de son libellé (« plus fermement » pour B,
+    # « durcir » pour D). Aucun levier ne fait payer directement. La chute dit un fait que chaque camp lit à sa façon :
+    # la prison ferme existe pour les mineurs, et elle reste minoritaire parmi leurs peines (§ 2.2, [1]).
+    titre: "La majorité pénale : quatre choix"
+    choix:
+      - { texte: "Garder 18 ans", detail: "et l'éducation d'abord, comme aujourd'hui" }
+      - { texte: "Garder 18 ans, plus fermement", detail: "jugés plus vite, et punis plus durement pour la récidive ou le trafic de drogue" }
+      - { texte: "Passer à 16 ans", detail: "les 16 et 17 ans jugés comme des majeurs" }
+      - { texte: "Passer à 16 ans, et durcir dès 13 ans", detail: "dès 13 ans, la peine d'un adulte devient la règle" }
+    chute: "En 2024, sur 46 884 peines et mesures contre des mineurs, 2 680 étaient de la prison ferme, au moins en partie."
+    source: "Ministère de la Justice, 2025"
+  camps: { pour: POUR, contre: CONTRE, objet: "baisser la majorité pénale" }
+  # POUR = abaisser la majorité pénale à 16 ans (options C et D) ; CONTRE = la garder à 18 ans (options A et B). Chaque
+  # réponse CONTRE vaut pour A comme pour B : aucune ne dit que punir plus ou plus vite serait inutile, ni que la justice
+  # des mineurs n'est pas trop douce. Les deux camps de Q1, Q2 et Q4 citent la même source ; ceux de Q3, deux sources
+  # américaines qui ne mesurent pas la même chose, et chaque affirmation dit ce qu'est sa preuve. Aucun face-à-face des
+  # fiches 005 (peines planchers) et 043 (prisons) n'est repris.
+  questions:
+    # Compléments b, [7] : les deux chiffres viennent du même tableau du ministère de l'Intérieur (personnes « mises en
+    # cause » dans des affaires élucidées, France hors collectivités d'outre-mer, 2024 provisoire), cité par l'Inspection
+    # générale de la justice en 2025 : même indicateur (le nombre de mineurs soupçonnés, pas condamnés), mêmes années, et
+    # chaque texte dit son périmètre et que 2024 est provisoire. Homicides, coups mortels compris : 34 en 2016, 119 en 2024
+    # (×3,5). Tous crimes et délits : 165 638 puis 131 572 (−20,6 %, calcul de l'étude ; le rapport écrit « 20 % »). Les
+    # réserves de chaque côté (qualification de départ des homicides ; baisse « à relativiser » selon l'Inspection) ne
+    # sont pas reprises, ni l'une ni l'autre. En 2025, les deux sens se confirment : la part des mineurs parmi les
+    # soupçonnés d'homicide passe de 3 % à 9 % depuis 2016 [8], et leur nombre total baisse de 15 % sur 2016-2025 [9].
+    - question: "La délinquance des mineurs s'aggrave-t-elle ?"
+      pour: { affirmation: "Oui, pour les homicides.", chiffre: "×3,5", texte: "En 2024 (chiffres provisoires), 119 mineurs ont été soupçonnés d'homicide par les forces de l'ordre, contre 34 en 2016.", source: "Ministère de l'Intérieur, cité par l'Inspection de la justice, 2025" }
+      contre: { affirmation: "Non, pas dans l'ensemble.", chiffre: "−21 %", texte: "En 2024 (chiffres provisoires), les mineurs soupçonnés d'un crime ou délit par les forces de l'ordre sont 21 % moins nombreux qu'en 2016.", source: "Ministère de l'Intérieur, cité par l'Inspection de la justice, 2025" }
+    # Compléments c, [10] : le même bilan du ministère de la Justice (Infostat Justice n° 186, 2022), la même année 2020.
+    # CONTRE : durée moyenne de la prison ferme prononcée contre un mineur, 5,5 mois en 2010, 9 mois en 2020. POUR : part
+    # des alternatives aux poursuites (rappel à la loi, réparation, stage…) dans la réponse de la justice, 63 % pour les
+    # mineurs, 46 % pour les majeurs. Deux mesures différentes (la durée d'une peine ; la part des réponses sans procès) :
+    # chaque texte dit la sienne. La durée moyenne peut aussi s'allonger parce que les affaires les moins graves se règlent
+    # plus souvent sans procès (compléments c, part non mesurée) : le texte le laisse voir (« pour des faits peut-être plus
+    # graves »), et l'affirmation s'en tient au fait mesuré, sans dire que la justice est moins douce. Aucune autre mesure
+    # de la sévérité dans le temps n'est dans l'étude.
+    - question: "La justice des mineurs est-elle trop douce ?"
+      pour: { affirmation: "Oui, plus que pour les majeurs.", chiffre: "63 %", texte: "En 2020, 63 % des réponses de la justice aux mineurs se faisaient sans procès, contre 46 % pour les majeurs.", source: "Ministère de la Justice, 2022" }
+      contre: { affirmation: "Ses peines de prison se sont allongées.", chiffre: "9 mois", texte: "En 2020, la prison ferme d'un mineur durait 9 mois en moyenne, contre 5,5 en 2010, pour des faits peut-être plus graves.", source: "Ministère de la Justice, 2022" }
+    # Compléments d, [11] [12] : deux sources américaines, pays où des mineurs sont jugés comme des adultes. CONTRE : revue
+    # de six études par un groupe d'experts réuni par l'agence de santé publique des États-Unis (2007) : les mineurs
+    # transférés vers la justice des adultes commettent ensuite 34 % de crimes ou délits en plus (effet médian, « environ
+    # un tiers ») que ceux restés devant la justice des mineurs. POUR : S. Levitt (1998), sur 1978-1993 : la violence des
+    # mineurs a crû presque deux fois plus vite que celle des adultes, et la baisse de sévérité de la justice des mineurs,
+    # par rapport à celle des adultes, « peut expliquer 60 % » de cet écart (estimation d'un modèle). À égalité, chaque
+    # affirmation dit ce qu'est sa preuve (une estimation ; six études), sans dire plus qu'elle, et chaque texte la situe
+    # aux États-Unis ; les années sont dans les sources. Le texte POUR dit l'écart avec les adultes (60 % de l'écart, pas
+    # de la hausse) et une sévérité relative. La revue de 2007 juge les preuves insuffisantes sur l'effet d'ensemble ;
+    # Levitt ne trouve pas de lien entre la sévérité subie et la délinquance plus tard (compléments d).
+    - question: "Juger un mineur comme un adulte, est-ce dissuasif ?"
+      pour: { affirmation: "Oui, selon une estimation.", chiffre: "60 %", texte: "La violence des mineurs américains a grimpé plus vite que celle des adultes. Leurs peines, adoucies face aux adultes, en expliqueraient 60 %.", source: "Steven Levitt, 1998" }
+      contre: { affirmation: "Non, selon six études.", chiffre: "+34 %", texte: "Les mineurs américains jugés comme des adultes ont ensuite récidivé environ un tiers plus souvent que les autres.", source: "Agence de santé publique des États-Unis, 2007" }
+    # Compléments e, [13] [14] [2] : deux règles du même code, que chaque camp invoque. POUR : article L. 11-1, depuis le
+    # 30 septembre 2021, un mineur d'au moins 13 ans est présumé capable de discernement (une présomption qu'on peut
+    # renverser), et aucune peine n'est possible avant 13 ans (fiche du ministère, 2021). CONTRE : article L. 121-5, au
+    # plus la moitié de la peine encourue (20 ans pour un crime puni de la perpétuité) ; dès 16 ans, le tribunal peut
+    # l'écarter « à titre exceptionnel » par une décision motivée (Conseil constitutionnel, 2025, considérant 53) : le texte
+    # le dit tel quel, car c'est l'âge de la question. Le Conseil rattache l'atténuation de la responsabilité selon l'âge à
+    # un principe fondamental reconnu par les lois de la République, de valeur constitutionnelle : l'affirmation le lui
+    # attribue.
+    - question: "À 16 ans, est-on responsable de ses actes ?"
+      pour: { affirmation: "Oui, la loi le présume dès 13 ans.", chiffre: "13 ans", texte: "Depuis 2021, la loi présume qu'un mineur comprend ce qu'il fait dès 13 ans. Dès cet âge, il peut recevoir une peine.", source: "Code de la justice pénale des mineurs, 2021" }
+      contre: { affirmation: "Pas comme un adulte, selon le Conseil constitutionnel.", chiffre: "÷ 2", texte: "Un mineur risque au plus la moitié de la peine d'un adulte. Dès 16 ans, le tribunal peut passer outre, par exception.", source: "Code de la justice pénale des mineurs ; Conseil constitutionnel, 2025" }

@@ -222,3 +222,134 @@ promulgation sur l'abrogation ou l'élargissement n'a été trouvée.
 15. Orange, « David Lisnard contre un droit à l'aide active à mourir » (vers le 12/01/2025) : https://video-streaming.orange.fr/actu-politique/david-lisnard-contre-un-droit-a-l-aide-active-a-mourir-CNT000002gYwMd.html
 16. Jean-Luc Mélenchon, « Pour un droit à l'euthanasie et au suicide assisté », 02/02/2018 : https://melenchon.fr/2018/02/02/droit-a-leuthanasie-suicide-assiste/
 17. Programme des Écologistes, « Pour une prospérité écologique » (juillet 2026), p. 130, tel que cité par MonVote2027 (page non ouverte, accès refusé) : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+18. Cour des comptes, « Les soins palliatifs », rapport remis à l'Assemblée nationale, 05/07/2023 (passages lus dans le texte extrait du PDF : synthèse, partie I) : https://www.ccomptes.fr/fr/publications/les-soins-palliatifs (rapport : https://www.ccomptes.fr/sites/default/files/2023-10/20230705-soins-palliatifs.pdf)
+19. Ministère de la Santé, réponse à la question écrite n° 10137 de Mme Chantal Jourdan (Assemblée nationale, 16e législature), *Journal officiel* du 19/12/2023 : https://www.assemblee-nationale.fr/dyn/16/questions/QANR5L16QE10137
+20. Ministère de la Santé, réponse à la question écrite n° 04632 de M. Joshua Hochart (Sénat), *Journal officiel* (Sénat) du 23/04/2026 : https://www.senat.fr/questions/base/2025/qSEQ250504632.html
+21. franceinfo, « La loi fin de vie pour améliorer l'accès aux soins palliatifs est promulguée », 27/05/2026 **[source secondaire]** : https://www.franceinfo.fr/societe/euthanasie/la-loi-fin-de-vie-pour-ameliorer-l-acces-aux-soins-palliatifs-est-promulguee_8031410.html
+22. CESE, « Synthèse de la Convention citoyenne sur la fin de vie », avril 2023 : https://www.lecese.fr/sites/default/files/documents/CCFV/Conventioncitoyenne_findevie_Synthèse.pdf
+23. Oregon Health Authority, « 2025 Oregon Death with Dignity Act Data Summary » (données au 23/01/2026, publiées en avril 2026 ; texte extrait du PDF) : https://www.oregon.gov/oha/PH/PROVIDERPARTNERRESOURCES/EVALUATIONRESEARCH/DEATHWITHDIGNITYACT/Documents/year28.pdf
+24. Santé Canada, « Sixième rapport annuel sur l'aide médicale à mourir au Canada, 2024 », novembre 2025 : https://www.canada.ca/en/health-canada/services/publications/health-system-services/annual-report-medical-assistance-dying-2024.html (version française : https://www.canada.ca/content/dam/hc-sc/documents/services/publications/health-system-services/annual-report-medical-assistance-dying-2024/rapport-annuel-aide-medicale-mourir-2024.pdf)
+25. franceinfo, « Pourquoi la loi sur l'aide à mourir n'entrera pas en application avant "début 2027" », 16/07/2026 **[source secondaire]** : https://www.franceinfo.fr/societe/euthanasie/pourquoi-la-loi-sur-l-aide-a-mourir-n-entrera-pas-en-application-avant-debut-2027_8097482.html
+26. Caducée.net, « Aide à mourir : la loi est en vigueur, mais le passage à la pratique reste inachevé », 25/08/2026 **[source secondaire]** : https://www.caducee.net/actualite-medicale/16948/aide-a-mourir-la-loi-est-en-vigueur-mais-le-passage-a-la-pratique-reste-inacheve.html
+
+## Compléments pour le reportage (28/10/2026)
+
+> Chiffres ajoutés pour le reportage vidéo de la fiche, sources [18] à [26] à la suite de la liste du § 5. Ils
+> comblent trois manques signalés plus haut : l'état de l'offre de soins palliatifs, les votes de la Convention
+> citoyenne et les pratiques observées à l'étranger. Les deux pays retenus sont ceux que les deux camps citent le plus :
+> l'Oregon (le malade prend lui-même le produit, depuis 1998) et le Canada (élargi en 2021). Leurs lois diffèrent de
+> la loi française ; le reportage ne compare jamais un pays à un autre, chaque question oppose deux chiffres du même
+> relevé.
+
+### C1. Où en est la loi au 28/10/2026
+- **En vigueur, pas encore applicable** : promulguée le 18/08/2026, publiée au *Journal officiel* du 19/08/2026, ses
+  dispositions sont en vigueur depuis le 20/08/2026 [26] ; mais la procédure ne peut pas être mise en œuvre avant ses
+  textes d'application : un décret en Conseil d'État sur la forme de la demande et la vérification des conditions
+  (art. 13, article L. 1111-12-11 du code de la santé publique), des décrets en Conseil d'État sur la commission de
+  contrôle, le registre des clauses de conscience et le système d'information, après avis de la CNIL (art. 15), un
+  arrêté sur les prix des préparations létales et les honoraires (art. 17, II), et la définition des substances par la
+  Haute Autorité de santé (art. 16) [1][26]. L'arrêté sur les prix est attendu dans les trois mois suivant la
+  promulgation, soit vers le 18/11/2026 [26].
+- **Haute Autorité de santé** : note de cadrage publiée le 18/06/2026 [26] ; mission prévue jusqu'au 01/11/2026,
+  calendrier confirmé par la HAS à franceinfo en juillet [25] ; recommandations définitives annoncées d'ici la fin de
+  2026 [26].
+- **Calendrier visé** : le cabinet de la ministre de la Santé, Stéphanie Rist, dit viser une application « au début de
+  l'année 2027 » ; une circulaire de 2022 demande aux ministères de publier les textes réglementaires dans les six mois
+  qui suivent une loi [25].
+- **Au 28/10/2026** : aucune publication d'un décret d'application ni des recommandations définitives de la HAS n'a été
+  trouvée (recherche web ; la page Légifrance de la loi n'affiche ni échéancier ni décret lié) [1]. **À vérifier sur
+  Légifrance avant mise en ligne** : si un décret paraît, la chute de l'accroche change.
+
+### C2. Les soins palliatifs : l'offre, le plan, la loi de mai 2026
+- **Besoins estimés** (Cour des comptes, méthode de l'Institut national de santé publique du Québec) : 64 % des décès en
+  2008, soit 335 000 personnes ; 60,6 % des décès en 2017, soit 365 273 personnes [18]. La Cour précise que les
+  méthodes d'estimation des besoins et de l'offre « ne sont pas partagées par tous les experts » [18].
+- **Couverture** : « Les besoins estimés de soins palliatifs ne seraient couverts qu'à hauteur de 50 % de leur
+  estimation maximale alors même que le droit d'accès aux soins palliatifs, reconnu par la loi Claeys-Leonetti, suppose
+  une couverture de la totalité des besoins » (synthèse du rapport) [18] ; la page de présentation du rapport donne
+  48 % [18]. L'offre a augmenté de près de 30 % depuis 2015 par rapport aux besoins estimés [18].
+- **Autres chiffres de la Cour** : en 2021, environ 90 780 patients hospitalisés pour soins palliatifs ; un écart de
+  4 000 lits spécialisés entre besoins estimés et offre ; dépense publique de 1,453 milliard d'euros (+24,6 % depuis
+  2017) ; 22 départements sans unité de soins palliatifs, dont 3 d'outre-mer (en 2019, selon l'Atlas de 2020 :
+  24 départements métropolitains, la Guyane et Mayotte) ; 18 % des Français interrogés disent avoir rédigé leurs
+  directives anticipées (sondage BVA de janvier 2021) [18].
+- **Le dernier recensement officiel** (Atlas des soins palliatifs de mars 2023, cité par le ministère) : **20
+  départements** sans unité de soins palliatifs, un nombre « réduit depuis la précédente édition » ; dans ces
+  départements, « une offre particulièrement développée en lits identifiés de soins palliatifs » (des lits réservés dans
+  d'autres services) ; 15 M€ par an en 2022 et 2023, puis 20 M€ en 2024, pour renforcer la filière [19]. Calcul de
+  l'étude : 20 sur 101 départements, soit 19,8 %, environ **un sur cinq**. Aucun recensement officiel plus récent n'a été
+  trouvé ; les décomptes de 2019, 2021 et 2023 n'ont pas le même champ pour l'outre-mer, d'où l'absence d'« écart »
+  dans le reportage.
+- **Le plan** : la stratégie décennale des soins d'accompagnement 2024-2034 « bénéficiera d'un financement à hauteur de
+  **1,1 milliard d'euros** sur la période » (ministère, réponse publiée le 23/04/2026) ; la réponse ne fixe ni cible
+  d'unités par département ni échéance [20].
+- **La loi de mai 2026 sur les soins palliatifs** : adoptée définitivement le 12/05/2026 après un dernier vote du Sénat,
+  promulguée et publiée au *Journal officiel* le 27/05/2026 ; elle crée des maisons d'accompagnement et de soins
+  palliatifs ; le « droit opposable » aux soins palliatifs a été retiré du texte final ; elle « inscrit une stratégie
+  nationale pluriannuelle, déjà lancée par le gouvernement, dotée de plus d'un milliard d'euros sur dix ans » [21]
+  **[source secondaire]**. Le *Quotidien du médecin* date l'adoption définitive du 11/05/2026 : **à vérifier** (sans
+  effet sur le reportage, qui dit « mai 2026 »).
+
+### C3. La Convention citoyenne sur la fin de vie (2023)
+- **184 citoyens tirés au sort**, neuf sessions de trois jours de décembre 2022 à avril 2023, soit **27 jours** [22].
+- **Constat partagé** : le cadre actuel « n'est pas adapté aux différentes situations rencontrées », pour deux raisons,
+  l'inégalité d'accès à l'accompagnement de la fin de vie et l'absence de réponse satisfaisante à certaines situations,
+  notamment les souffrances réfractaires ; conviction commune : améliorer l'accompagnement, dont l'accès aux soins
+  palliatifs « pour toutes et tous, partout » [22].
+- **Votes** : **75,6 % des votants** pour l'aide active à mourir ; une majorité pour le suicide assisté et l'euthanasie
+  ensemble (28,2 % : suicide assisté d'abord, euthanasie par exception ; 39,9 % : au choix) ; 21,7 % pour un accès sans
+  condition médicale ; **23,2 % contre**, qui mettent en avant « la méconnaissance et la faible application de la loi
+  Claeys-Leonetti de 2016 », les risques pour les personnes vulnérables et les réticences d'une partie des soignants ;
+  78 % pour une clause de conscience des soignants [22]. Le nombre de votants n'est pas dans la synthèse : le reportage
+  dit « 76 % des votants ».
+
+### C4. L'Oregon (États-Unis), 2025
+- **La loi** : des malades en phase terminale (pronostic de six mois) s'administrent eux-mêmes un produit prescrit par
+  un médecin ; la condition de résidence a été supprimée en 2023 [23].
+- **2025** : 637 prescriptions ; 400 décès après la prise du produit (dont 42 prescrits avant 2025), soit 1,0 % des décès
+  de l'État ; 88 % de 65 ans ou plus, âge médian 76 ans ; cancer 61 % ; 80 % meurent chez eux [23].
+- **Soins palliatifs** : 367 des 400 malades (**91,8 %**) étaient suivis en soins palliatifs (« hospice ») ; 91,1 % de
+  1998 à 2025 [23].
+- **Inquiétudes de fin de vie** (réponses positives des formulaires de déclaration, plusieurs réponses possibles) :
+  perte d'autonomie 89 % ; moindre capacité à profiter de la vie 89 % ; perte de dignité 65 % ; perte du contrôle des
+  fonctions du corps 53 % ; **être un poids pour la famille, les amis ou les aidants 39,8 %** (159 sur 400 ; 45,7 % de
+  1998 à 2025) ; douleur mal soulagée, ou crainte qu'elle le soit, 37 % ; coût du traitement 6 % [23].
+- **Ceux qui ne prennent pas le produit** : sur les 637 prescriptions de 2025, 358 (56 %) sont morts après l'avoir pris,
+  100 (16 %) ne l'ont pas pris et sont morts d'une autre cause, 179 (28 %) inconnus ; depuis 1998, 5 520 prescriptions et
+  3 691 décès après la prise (67 %) [23]. Non repris : la part des inconnus est trop grande pour un chiffre net.
+
+### C5. Le Canada, 2024
+- **16 499 aides médicales à mourir en 2024** (+6,9 % sur 2023), soit **5,1 % des décès** ; 76 475 depuis 2016 [24].
+- **Série** : 5 461 (2019), 7 469 (2020), 10 066 (2021), 13 199 (2022), 15 427 (2023), 16 499 (2024) [24]. Calcul de
+  l'étude : 16 499 / 5 461 = 3,0, un triplement en cinq ans.
+- **Deux voies** : voie 1, mort naturelle raisonnablement prévisible, la condition de la loi de 2016 : **15 767 cas
+  (95,6 %)** ; voie 2, mort non raisonnablement prévisible, permise depuis 2021 (ancien projet de loi C-7) : 732 cas
+  (4,4 %) [24].
+- **Soins palliatifs** : 74,1 % en avaient reçu (76,4 % en voie 1, 23,2 % en voie 2) ; parmi les 2,5 % qui en avaient
+  besoin sans en recevoir, 91,2 % y avaient accès [24].
+- **Sources de souffrance déclarées** : sentiment d'être un fardeau pour la famille, les amis ou les aidants, 48,4 % en
+  voie 1 et 50,3 % en voie 2 ; isolement ou solitude, 21,9 % et 44,7 % ; perte de la capacité à faire des activités qui
+  ont du sens, 95,1 % et 97,5 % [24].
+- **Demandes** : 22 535 demandes écrites en 2024 ; 16 499 aides, 4 017 personnes mortes d'une autre cause, 1 327 jugées
+  inadmissibles, 692 retraits [24].
+
+## Annexe — d'où vient chaque chiffre du reportage
+
+| Écran | Chiffre | Source |
+|---|---|---|
+| Accroche | 2016 : sédation profonde et continue maintenue jusqu'au décès (« endormir jusqu'au décès ») ; 2026 : loi n° 2026-794 (« aider à mourir »), votée en lecture définitive le 15/07/2026 par 291 voix contre 241, après le rejet du Sénat le 28/01/2026 (181 contre, 122 pour) ; pas encore appliquée, le gouvernement vise début 2027 | [1] [3] [5] [9] [25] [26], § 1, C1 |
+| Leviers | les trois options de la fiche ; la loi d'août 2026 est l'option B, pour les majeurs atteints d'une affection grave et incurable, en phase avancée ou terminale, à la souffrance réfractaire ou insupportable (« les malades incurables qui souffrent, en phase avancée ou terminale ») | [1] [2], § 1 |
+| Q1 pour | 75,6 % des votants de la Convention citoyenne pour une aide active à mourir, arrondi à 76 %, après 27 jours de débats | [22], C3 |
+| Q1 contre | besoins estimés de soins palliatifs couverts à 50 % de leur estimation maximale, un droit que la Cour rattache à la loi Claeys-Leonetti (48 % sur la page de présentation) | [18], C2 |
+| Q2 contre | 39,8 % des 400 malades morts en 2025 après la prise du produit : inquiétude d'être un poids pour la famille, les amis ou les aidants, arrondi à 4 sur 10 | [23], C4 |
+| Q2 pour | 91,8 % des mêmes 400 malades suivis en soins palliatifs, arrondi à 9 sur 10 | [23], C4 |
+| Q3 contre | 5 461 (2019) puis 16 499 (2024) aides médicales à mourir, ×3,0 (calcul de l'étude) ; voie 2, hors mort prévisible, permise depuis 2021 | [24], C5 |
+| Q3 pour | 95,6 % des aides de 2024 en voie 1 (mort naturelle raisonnablement prévisible, la condition de 2016) | [24], C5 |
+| Q4 pour | stratégie 2024-2034 : 1,1 milliard d'euros ; inscrite par la loi de mai 2026 | [20] [21], C2 |
+| Q4 contre | 20 départements sur 101 sans unité de soins palliatifs (Atlas de mars 2023), avec des lits réservés dans d'autres services ; un sur cinq (calcul de l'étude : 19,8 %) | [19], C2 |
+
+Les deux camps de Q2 citent deux lignes du même tableau (les mêmes 400 malades, la même année) ; ceux de Q3, le même
+rapport et la même année ; ceux de Q1 répondent à la même question (le cadre de 2016 suffit-il ?) par deux mesures de
+2023 dont chaque texte dit la nature, un vote et une estimation ; ceux de Q4 décrivent la même offre de soins
+palliatifs, l'un par le plan qui la finance, l'autre par le dernier recensement officiel. Aucune réponse POUR ne dépend
+de qui donne le produit : elles valent pour l'option B comme pour l'option C.

@@ -7,7 +7,7 @@ theme: travail-retraites
 question: "Faut-il réduire la durée d'indemnisation du chômage ?"
 titreCourt: "La durée du chômage"
 contexte:
-  - "Depuis février 2023, un chômeur de moins de 55 ans est indemnisé 18 mois au maximum (24 mois auparavant), et cette durée tombe à 15 mois après une rupture conventionnelle depuis le 1er septembre 2026."
+  - "Depuis février 2023, un chômeur de moins de 53 ans (55 ans depuis la convention de novembre 2024) est indemnisé 18 mois au maximum, contre 24 mois auparavant, et cette durée tombe à 15 mois après une rupture conventionnelle depuis le 1er septembre 2026."
   - "Le chômage atteint 8,3 % de la population active au deuxième trimestre 2026, soit 2,7 millions de personnes, son plus haut niveau depuis 2020."
   - "L'assurance chômage est déficitaire (2,3 milliards d'euros prévus en 2026) et sa dette atteindra 61,5 milliards d'euros fin 2026."
 chiffres:
@@ -48,7 +48,7 @@ options:
     libelle: "La réduire pour tous : 12 mois avant 50 ans"
     implique: "Un plafond de 12 mois pour les moins de 50 ans, contre 18 aujourd'hui ; aucune économie chiffrée à ce jour."
     defenseurs: "Plus la fin des droits approche, plus la recherche d'emploi s'intensifie : douze mois, comme l'Allemagne selon ses partisans, incitent à reprendre plus vite et allègent le régime."
-    critiques: "Ceux qui arrivent en fin de droits sans emploi basculent vers le RSA : la charge est transférée aux minima sociaux sans économie nette, et les parcours fragiles sont les plus touchés."
+    critiques: "Ceux qui arrivent en fin de droits sans emploi pourraient basculer vers le RSA : la charge serait transférée aux minima sociaux, et les parcours fragiles sont les plus touchés."
     axes: { economie: 2 }
 pourAllerPlusLoin:
   - titre: "Unédic, principales règles de l'indemnisation"
@@ -82,3 +82,85 @@ positions:
   retailleau: { option: C, source: "Public Sénat, 07/01/2026", statut: officielle }
   # https://www.ifrap.org/comparateurs/presidentielles-2027
   tondelier: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # Compléments C1, [23] [2] [18] : la limite pour un chômeur de moins de 50 ans, la seule tranche d'âge dont la
+    # limite n'a pas bougé de 2009 à 2023 (le seuil des « seniors » est passé de 50 à 53 puis 55 ans). Deux
+    # périodes, pas deux années voisines : 24 mois pendant quatorze ans, 18 mois depuis la baisse de 25 % de 2023.
+    etapes:
+      - { quand: "De 2009 à 2023", valeur: "24 mois" }
+      - { quand: "Depuis 2023", valeur: "18 mois" }
+    chute: "… d'allocation chômage au plus, pour un chômeur de moins de 50 ans."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : les grandeurs à deux dates qui
+  # éclairent le débat, la dette du régime ou le nombre de fins de droits (43 000 puis 71 000 par mois, C2), sont
+  # chacune l'argument d'un camp ; la dette est à la question 2, face à la réponse de l'autre camp.
+  leviers:
+    # § 1, [1] [3] [9], et compléments C3, [7] [19]. Les quatre options de la fiche, dans son ordre et à égalité ; la
+    # rupture conventionnelle est dite en mots de tous les jours (« départ négocié »). La chute dit qui paierait des
+    # droits plus longs (les cotisations des employeurs et la part de CSG, 30,4 et 17,1 Md€ en 2026), en 130 caractères
+    # au plus ; des droits plus courts se paient en mois d'allocation en moins, ce que disent les cartes.
+    titre: "Combien de mois d'allocation ?"
+    choix:
+      - { texte: "Allonger à nouveau", detail: "annuler les réformes : jusqu'à 24 mois, comme avant 2023" }
+      - { texte: "Garder 18 mois", detail: "avant 55 ans, puis jusqu'à 27 mois selon l'âge" }
+      - { texte: "Réduire en cas de départ négocié", detail: "une rupture conventionnelle : 15 mois avant 55 ans, depuis septembre 2026" }
+      - { texte: "Réduire pour tous", detail: "12 mois au plus avant 50 ans, contre 18 aujourd'hui" }
+    chute: "L'assurance chômage est payée par les cotisations des employeurs et par une contribution prélevée sur les revenus du travail."
+    source: "Unédic, 2026"
+  # POUR : les options C et D, qui réduisent la durée ; CONTRE : A et B. Chaque réponse CONTRE vaut pour les deux :
+  # revenir à des droits plus longs, ou ne plus les réduire. L'objet tient sur une ligne à côté de « CONTRE »
+  # (26 caractères au plus) et reprend le mot de la question, « réduire la durée ».
+  camps: { pour: POUR, contre: CONTRE, objet: "une durée plus courte" }
+  # Chaque réponse est le meilleur argument de son camp ; les estimations et les prévisions sont dites comme telles.
+  # Aucune question ne reprend un face-à-face des fiches 040 (les heures du RSA) et 034 (la semaine de quatre jours) :
+  # ni l'emploi « pris à d'autres », ni les sanctions, ni les 35 heures.
+  questions:
+    # Compléments C2, [20] [19]. Le pour donne l'estimation française la plus nette de l'effet de la durée sur le
+    # temps passé au chômage (de 7 à 15 mois de droits, 2000-2002 : +2,5 mois), et le texte dit sa date et que c'est
+    # une estimation. Le contre répond pour ceux sur qui la limite joue, ceux qui vont au bout de leurs droits : l'étude
+    # du Trésor et de la Dares (fins de droits du second semestre 2022, moins de 59 ans) donne 40 % en emploi salarié un
+    # an après, 30 % en emploi durable (CDI, fonctionnaire, CDD de plus de six mois). Le texte ne dit pas que les six
+    # autres sont sans emploi : une partie peut travailler à son compte, hors du champ de l'étude. Les deux mesures ne
+    # sont pas les mêmes (une durée moyenne, une situation à un an) : chaque texte dit la sienne. Pas les 14 % → 31 %
+    # du mois d'avant à trois mois après (même étude) : ils diraient l'effet du pour avec une mesure qui ne l'isole pas.
+    # L'affirmation du contre répond à la question posée (« pas pour la plupart » de ceux qui vont au bout de leurs
+    # droits), sans prétendre mesurer une vitesse.
+    - question: "Des droits plus courts font-ils retrouver un emploi plus vite ?"
+      pour: { affirmation: "Oui, plus vite.", chiffre: "2,5 mois", texte: "Au début des années 2000, 8 mois de droits en plus ont allongé le chômage de 2,5 mois, selon une estimation.", source: "Institut des politiques publiques, 2013" }
+      contre: { affirmation: "Pas pour la plupart en fin de droits.", chiffre: "4 sur 10", texte: "Un an après la fin de leurs droits, quatre chômeurs sur dix ont un emploi salarié, trois sur dix un emploi durable.", source: "Trésor et Dares, 2025" }
+    # Compléments C3, [7] : la même prévision de l'Unédic (17 juin 2026), la même année 2026, la même unité. Le contre
+    # reprend la lecture de l'Unédic (« sans les prélèvements État de 4,1 Md€, le solde serait de +1,8 Md€ ») ;
+    # « prélèvements » est le mot de l'Unédic, attribué dans le texte par « ce qu'elle appelle » (l'État parle de
+    # « moindres compensations » d'exonérations, qui financent France Travail et France Compétences) ; l'affirmation,
+    # voix du camp, garde son mot. Le pour compare la dette fin 2026 aux recettes de la même année (61,5 contre
+    # 44,3 Md€, calcul de l'étude) : son affirmation dit cette comparaison, que le texte prouve (« sa dette remonte »
+    # n'y était pas prouvé). Le contre parle en premier (ABBA) ; le pour, second, renvoie à « la même prévision ».
+    - question: "L'assurance chômage manque-t-elle d'argent ?"
+      pour: { affirmation: "Oui, sa dette dépasse un an de recettes.", chiffre: "61,5 milliards €", texte: "Dans la même prévision, sa dette atteint 61,5 milliards d'euros fin 2026, plus que toutes ses recettes de l'année.", source: "Unédic, 2026" }
+      contre: { affirmation: "Non, sans les prélèvements de l'État.", chiffre: "+1,8 milliard €", texte: "En 2026, l'assurance chômage serait en excédent sans ce qu'elle appelle les prélèvements de l'État : 4,1 milliards d'euros, selon sa prévision.", source: "Unédic, 2026" }
+    # Compléments C2, [18] : la même note de l'Unédic sur la baisse de 2023 (décembre 2025). Le pour cite son estimation
+    # d'économies (4,5 Md€ par an une fois la mesure en place, vers 2027, si la conjoncture reste stable : « estime »,
+    # « à terme »). Le contre, la part des chômeurs en fin de droits qui passent à l'allocation de solidarité
+    # spécifique, payée par l'État (13 % en juin 2022, 20 % en juin 2025) : le texte dit, comme l'Unédic, que la hausse
+    # vient « notamment » des réformes (celles de 2019-2021 et de 2023), pas de la seule baisse de 2023 ; l'étude n'a
+    # pas de montant des dépenses reportées.
+    # Pas le RSA (18 % trois mois après la fin des droits, C2) : il est payé par les départements, et le chiffre porte sur
+    # des fins de droits de 2022, avant les effets de la baisse ; l'allocation de solidarité vient de la même note que les
+    # 4,5 Md€. Le contre parle en premier (ABBA) ; le pour, second, renvoie à « la même étude ».
+    - question: "Réduire la durée fait-il faire des économies ?"
+      pour: { affirmation: "Oui, des milliards chaque année.", chiffre: "4,5 milliards €", texte: "Dans la même étude, l'assurance chômage estime que la baisse de 2023 lui fera économiser à terme 4,5 milliards d'euros par an.", source: "Unédic, 2025" }
+      contre: { affirmation: "En partie reportées sur l'État.", chiffre: "20 %", texte: "Mi-2025, 20 % des chômeurs en fin de droits passaient à l'allocation de l'État, contre 13 % en 2022, notamment sous l'effet des réformes.", source: "Unédic, 2025" }
+    # Compléments C4, [21] : deux des quatre études sur la rupture conventionnelle que recense l'Unédic (février 2026),
+    # lues chez elle (la source le dit). Le pour cite l'estimation de la Dares de 2018 (75 % des ruptures auraient
+    # remplacé des démissions) ; le contre, celle de Batut et Maurin (2020), la seule des quatre qui ne trouve pas de
+    # démissions remplacées, et qui trouve 10 % de licenciements pour motif personnel en moins. L'Unédic écrit que trois
+    # études sur quatre trouvent plus de démissions que de licenciements remplacés (les deux autres : 40 % d'enquêtés qui
+    # pensent qu'ils auraient démissionné, Dares 2013 ; 19 % des démissions et 12 % des licenciements pour motif personnel
+    # remplacés, IPP 2025). Les affirmations rendent cet équilibre : « d'après la plupart des études » au pour (trois
+    # sur quatre ; « le plus souvent » prêtait à toutes ce que seule la Dares 2018 chiffre, une majorité des ruptures),
+    # « selon une autre étude » au contre (une sur quatre). Chaque texte dit ce que son étude mesure ; le contre,
+    # second, renvoie à l'autre carte.
+    - question: "Les ruptures conventionnelles remplacent-elles des démissions ?"
+      pour: { affirmation: "Oui, d'après la plupart des études.", chiffre: "3 sur 4", texte: "Selon une estimation de 2018, trois sur quatre ont remplacé une démission, qui n'ouvre pas droit au chômage.", source: "Dares, 2018 (cité par l'Unédic, 2026)" }
+      contre: { affirmation: "Plutôt des licenciements, selon une autre étude.", chiffre: "−10 %", texte: "Cette étude de 2020 trouve qu'elles ont fait baisser de 10 % les licenciements pour motif personnel, pas les démissions.", source: "Batut et Maurin, 2020 (cités par l'Unédic, 2026)" }

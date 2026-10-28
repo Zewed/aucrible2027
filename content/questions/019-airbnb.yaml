@@ -8,7 +8,7 @@ question: "Faut-il limiter davantage les locations de courte durée type Airbnb 
 titreCourt: "Les locations type Airbnb"
 contexte:
   - "Depuis la loi du 19 novembre 2024, les communes peuvent soumettre les nouveaux meublés de tourisme à autorisation, fixer des quotas et ramener de 120 à 90 jours par an la location d'une résidence principale."
-  - "L'abattement fiscal des meublés non classés est passé de 50 % à 30 % pour les revenus de 2025, et l'enregistrement de tous les meublés devient obligatoire à partir de mai 2026."
+  - "L'abattement fiscal des meublés non classés est passé de 50 % à 30 % pour les revenus de 2025, et l'enregistrement de tous les meublés, prévu par la loi pour mai 2026, attend un portail national annoncé pour fin 2026."
   - "Ces locations offrent un revenu aux propriétaires et un hébergement aux touristes, mais peuvent concurrencer le logement des habitants là où il manque."
 chiffres:
   - valeur: "213 millions"
@@ -18,8 +18,8 @@ chiffres:
     legende: "logements entiers disponibles sur Airbnb à Paris en octobre 2025"
     source: { organisme: Apur, document: note n° 281, annee: 2025 }
   - valeur: 41 %
-    legende: "des annonces parisiennes portées par un multi-loueur"
-    source: { organisme: Apur, document: note n° 281, annee: 2025 }
+    legende: "des logements entiers sur Airbnb à Paris proposés par un loueur à plusieurs annonces"
+    source: { organisme: Apur, document: note n° 281, annee: 2026 }
   - valeur: 30 %
     legende: "d'abattement fiscal pour un meublé non classé, au lieu de 50 % (plafond 15 000 €)"
     source: { organisme: Ministère du Logement, document: guide pratique, annee: 2025 }
@@ -70,3 +70,82 @@ positions:
   melenchon: { option: A, source: "Programme 2027, plan BTP et logement, présenté le 28/09/2026", statut: officielle }
   # Vote du groupe RN : https://www.assemblee-nationale.fr/dyn/17/scrutins/289 (51 contre, 1 pour, 07/11/2024) et https://www.assemblee-nationale.fr/dyn/16/scrutins/3261 (20 contre, 1 pour, 29/01/2024)
   le-pen: { option: D, source: "Vote du groupe RN à l'Assemblée, 07/11/2024", statut: deduite }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # Compléments C1, [17] [8] : la même série d'Eurostat (nuitées réservées sur Airbnb, Booking, Expedia et Tripadvisor
+    # dans des hébergements proposés par des particuliers), publiée par l'Insee pour 2019 (109 millions) et pour 2025
+    # (213 millions) ; la même page de l'Insee compte 472 millions de nuitées en 2025 dans les hébergements collectifs
+    # (« et autres » : résidences de tourisme, villages vacances…). Pas 2018 : l'estimation de l'Insee suit
+    # une autre méthode. Des nuitées, pas des logements : aucune source ne dit combien de logements sortent de la location
+    # à l'année. Chute de 117 caractères.
+    etapes:
+      - { quand: "En 2019", valeur: "109 millions" }
+      - { quand: "En 2025", valeur: "213 millions" }
+    chute: "… de nuits réservées en France chez des particuliers, via les plateformes. Hôtels, campings et autres : 472 millions."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : la seule grandeur à deux dates qui
+  # éclaire le débat, les logements entiers sur Airbnb à Paris (+68 % de 2015 à 2025, C2), redirait la hausse de
+  # l'accroche ; leur niveau d'aujourd'hui et leur baisse depuis 2025 sont traités dans les questions 1 et 4.
+  leviers:
+    # § 1, § 4 et C4, [1] [5] [6] : les quatre options de la fiche, à égalité. Le détail du premier choix dit qui
+    # paierait (les loueurs, par l'impôt). La chute dit ce que la loi de 2024 permet à chaque commune et ce qu'en a fait
+    # Paris : un fait utile à ceux qui veulent aller plus loin comme à ceux qui veulent s'en tenir là. 121 caractères.
+    # Le dernier choix dit ce qu'il assouplit (ce qu'a ajouté 2024), pas « moins d'impôt qu'en 2024 », qui se lirait
+    # comme moins d'impôt qu'avant la loi.
+    titre: "Les locations type Airbnb : quatre choix"
+    choix:
+      - { texte: "Limiter nettement", detail: "60 jours par an, interdite au centre des métropoles, plus d'impôt pour les loueurs" }
+      - { texte: "Durcir les règles", detail: "autorisations, quotas et contrôles là où le logement manque" }
+      - { texte: "Garder les règles de 2024", detail: "les communes s'en servent, on mesure leurs effets d'abord" }
+      - { texte: "Alléger les règles", detail: "assouplir les contraintes et l'impôt ajoutés en 2024" }
+    chute: "Depuis 2025, chaque commune peut ramener de 120 à 90 jours par an la location d'une résidence principale. Paris l'a fait."
+    source: "Ministère du Logement, 2025 ; Apur, 2026"
+  # Les mots de la question, pas ceux d'un camp (ni « Airbnbisation », ni « punition des propriétaires »). POUR = les
+  # options A et B (les « cotes » de la fiche : « Pour limiter davantage ») ; CONTRE = les options C et D (« Pour ne pas
+  # limiter davantage ») : chaque réponse vaut pour les deux options de son camp.
+  camps: { pour: POUR, contre: CONTRE, objet: "limiter davantage" }
+  # Chaque question oppose deux faits de la même source, de même unité et de même date, et chaque texte dit ce qu'il
+  # mesure ; ordre d'apparition ABBA. Trois questions s'appuient sur Paris, seule ville dont l'offre est suivie par un
+  # observatoire public (Apur, données Inside Airbnb) : les deux cartes le disent. Rien n'est repris des fiches 008
+  # (logements sociaux), 023 (encadrement des loyers) et 051 (logements vides).
+  # Relu par IA le 28/10/2026, une lecture pour chaque camp puis un arbitrage ; à vérifier par l'auteur.
+  questions:
+    # Enjeu A et C2, [5] : la même note de l'Apur, le même mois (octobre 2025), la même mesure (logements entiers
+    # disponibles sur Airbnb rapportés à tous les logements, recensement de l'Insee), deux périmètres que chaque texte
+    # nomme : Paris Centre (1er au 4e arrondissement, 9,6 %, « près d'un sur dix ») et tout Paris (3,5 %), les deux
+    # chiffres dans la même unité. Un logement proposé n'est pas forcément loué toute l'année : ni l'un ni l'autre texte
+    # ne dit « loué ». Ni « aux touristes » : un sur sept est proposé en bail mobilité, de 1 à 10 mois (question 4).
+    - question: "Ces locations occupent-elles beaucoup de logements ?"
+      pour: { affirmation: "Oui, au cœur de Paris.", chiffre: "9,6 %", texte: "Au centre de Paris, du 1er au 4e arrondissement, près d'un logement sur dix est proposé sur Airbnb.", source: "Apur, 2026" }
+      contre: { affirmation: "Peu, sur toute la ville.", chiffre: "3,5 %", texte: "Selon la même source, sur tout Paris, 3,5 % des logements sont proposés sur Airbnb.", source: "Apur, 2026" }
+    # Enjeu B et C2, [5] : la même note, le même champ (logements entiers disponibles sur Airbnb à Paris). CONTRE cite le
+    # niveau en octobre 2025 (59 % proposés par un loueur qui n'a qu'une annonce) ; POUR, l'évolution de la part des
+    # loueurs à plusieurs annonces (19 % en 2015, 41 % en 2025 : « plus que doublé »), que l'Apur lit comme une
+    # « professionnalisation ». Pas 41 % contre 59 % : ce seraient les deux faces de la même mesure. L'Apur ne peut pas
+    # distinguer particuliers et professionnels : les textes parlent de loueurs et d'annonces, pas de propriétaires.
+    # CONTRE parle en premier : seule la carte POUR renvoie à l'autre (« la même source »).
+    - question: "Ces locations sont-elles l'affaire de professionnels ?"
+      pour: { affirmation: "Oui, de plus en plus.", chiffre: "×2", texte: "Selon la même source, la part des logements proposés par des loueurs à plusieurs annonces a plus que doublé depuis 2015.", source: "Apur, 2026" }
+      contre: { affirmation: "Non, pas pour la plupart.", chiffre: "59 %", texte: "À Paris, 59 % des logements entiers sur Airbnb sont proposés par un loueur qui n'en a pas d'autre.", source: "Apur, 2026" }
+    # Enjeu C et C3, [1] [18] [19] : les mêmes règles (revenus de 2025, régime forfaitaire dit micro-BIC), la même unité
+    # (la part des loyers soumise à l'impôt). Sans étoiles, abattement de 30 % : imposé sur 70 %, comme une location vide
+    # au forfait (micro-foncier, 30 %) ; classé en étoiles, abattement de 50 % : imposé sur la moitié. Le Sénat (2024)
+    # rapporte, d'après Airbnb, qu'un logement sur cinq de la plateforme est classé : ce chiffre de l'entreprise n'est pas
+    # repris. « Au forfait » : au régime réel, on déduit les charges et l'amortissement (C3), qui ne se comparent pas ici.
+    # Le projet de budget 2027 (C3) vise l'amortissement au réel, pas ces taux. CONTRE parle en premier. Les deux cartes
+    # se mesurent à la même chose, la location vide au forfait (70 %) : l'avantage se lit sur chaque carte.
+    - question: "L'impôt avantage-t-il encore ces locations ?"
+      pour: { affirmation: "Oui, celles classées en étoiles.", chiffre: "50 %", texte: "Au forfait, un meublé classé en étoiles est imposé sur la moitié de ses loyers, une location vide sur 70 %.", source: "Ministère du Logement, 2025 ; Sénat, 2024" }
+      contre: { affirmation: "Non, plus pour celles sans étoiles.", chiffre: "70 %", texte: "Au forfait, depuis 2025, un meublé de tourisme sans étoiles est imposé sur 70 % de ses loyers, comme une location vide.", source: "Ministère du Logement, 2025 ; Sénat, 2024" }
+    # Enjeu D et C4, [5] : la même note, le même champ (logements entiers disponibles sur Airbnb à Paris), deux effets
+    # des règles. POUR : 6 759 sur 48 322 (14 %, « un sur sept ») en bail mobilité (1 à 10 mois), bail que les règles
+    # des meublés de tourisme ne visent pas, « potentiel instrument de contournement » selon l'Apur, d'où « possible » ;
+    # « proposé », pas « se loue » : l'Apur voit des annonces, pas des baux signés.
+    # CONTRE : −14 % depuis le 1er janvier 2025, jour où Paris passe à 90 jours ; l'Apur parle d'une baisse « dans un
+    # nouveau contexte réglementaire » sans en isoler la cause, d'où « depuis » et non « à cause de ». Pas le −16 % sur
+    # un an : il part d'octobre 2024, avant les 90 jours. Pas de chiffre national : aucun bilan de la loi n'a été
+    # publié (C4), et les nuits réservées en France montent encore (accroche) : l'affirmation dit « à Paris ». « Sur
+    # Airbnb » : l'Apur ne voit que cette plateforme, une annonce retirée peut passer sur une autre.
+    - question: "Les règles de 2024 suffisent-elles ?"
+      pour: { affirmation: "Non, une partie leur échappe.", chiffre: "1 sur 7", texte: "Un logement Airbnb parisien sur sept est proposé pour 1 à 10 mois, un moyen possible de contourner les règles, selon l'Apur.", source: "Apur, 2026" }
+      contre: { affirmation: "Oui, à Paris, l'offre recule déjà.", chiffre: "−14 %", texte: "Sur Airbnb, l'offre de logements entiers a baissé de 14 % depuis le passage de Paris à 90 jours, en janvier 2025.", source: "Apur, 2026" }

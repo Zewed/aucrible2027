@@ -39,7 +39,7 @@ options:
     axes: { economie: -1 }
   - id: C
     libelle: "Augmenter les impôts des plus riches et des grandes entreprises, sans baisser les dépenses"
-    implique: "Un peu plus de 100 milliards d'euros de recettes en plus dès 2027 selon le plan le plus chiffré (impôt sur la fortune rétabli, flat tax supprimée, niches rabotées), dont une partie finance des dépenses nouvelles ; le reste réduit le déficit."
+    implique: "Un peu plus de 100 milliards d'euros de recettes en plus dès 2027 selon le plan le plus chiffré (impôt sur la fortune rétabli, flat tax supprimée, niches rabotées), dont plus de 80 milliards financent des dépenses nouvelles ; le reste réduit le déficit."
     defenseurs: "Les baisses d'impôts des dernières années ont coûté plus de 60 milliards d'euros de recettes et ont surtout profité aux plus riches et aux grandes entreprises : les corriger réduit le déficit sans toucher aux services publics."
     critiques: "Une hausse massive de la fiscalité sur le capital et les entreprises risque de freiner l'investissement, alors que les prélèvements sont déjà à 43,6 % du PIB."
     axes: { economie: -2 }
@@ -89,3 +89,83 @@ positions:
   dupont-aignan: { option: B, source: "Projet économie et travail, 2026", statut: officielle }
   # https://www.ici.fr/emissions/l-invite-d-ici-matin-ici-picardie/francois-ruffin-depute-de-la-somme-et-candidat-a-l-election-presidentielle-3905071
   ruffin: { option: B, source: "ICI Picardie, 30/09/2026", statut: officielle }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # Compléments § a, [21] [20] [28] : la dette au sens de Maastricht, en part de la richesse produite, sur trente ans
+    # (1995 est la première année de la série européenne ; 115,7 % est le chiffre de la fiche), et le solde public,
+    # négatif chaque année de 1995 à 2025 (le plus petit déficit : 1,3 % en 2000), d'où « chaque année » ; le présent
+    # vaut aussi pour 2026 (5,4 % de déficit prévus, § 1). Chute sous 130 caractères.
+    etapes:
+      - { quand: "En 1995", valeur: "57,8 %" }
+      - { quand: "En 2025", valeur: "115,7 %" }
+    chute: "… de la richesse produite en un an : c'est la dette publique. Depuis 1995, les dépenses dépassent les recettes chaque année."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : la charge d'intérêts, seule autre grandeur
+  # à deux dates qui éclaire le débat, est l'objet de la question 4.
+  leviers:
+    # § 1, 2.2, 2.3, 2.4 et 4, [6] [10] [12] [14]. Les quatre options de la fiche, à égalité et dans son ordre ; chaque détail
+    # dit sur qui porterait l'effort, et celui de D comment il réduirait le déficit (fiche : « relancer l'activité »), pas
+    # uniquement ce qu'il refuse ; la chute donne le déficit à réduire encore, selon la Cour des comptes, quel que soit le
+    # choix, sans dire par quel levier.
+    titre: "Pour réduire le déficit, quatre choix"
+    choix:
+      - { texte: "Baisser fortement les dépenses", detail: "sur l'État et la protection sociale, une partie rendue en impôts en moins" }
+      - { texte: "Cibler les économies et les impôts", detail: "trier les aides aux entreprises, taxer les grandes fortunes et héritages" }
+      - { texte: "Augmenter les impôts", detail: "des plus riches et des grandes entreprises, sans baisser les dépenses" }
+      - { texte: "Miser sur la croissance", detail: "relancer l'activité, sans économies ni hausse d'impôts" }
+    chute: "Pour stabiliser la dette, il faudrait encore réduire le déficit d'environ 90 milliards d'euros, selon la Cour des comptes."
+    source: "Cour des comptes, 2026"
+  # Règle du cahier, faute de deux camps évidents (B mêle les deux leviers, D refuse les deux) : POUR = A, l'option qui
+  # change le plus la conduite actuelle. En 2025, le déficit a baissé « exclusivement » par des hausses d'impôts et de
+  # cotisations, et la dépense a monté plus vite que l'activité (Cour des comptes, § 1) : A inverse les deux, sur les plus
+  # gros montants (140 à 200 milliards d'économies). CONTRE = B et C, qui refusent de commencer par les dépenses et veulent
+  # des recettes nouvelles sur les plus aisés ; chaque réponse CONTRE vaut pour B et pour C. D, hors échelle, n'est dans
+  # aucun camp, comme l'option E des fiches 001 et 024. L'objet reprend les mots de la fiche (côtés et story). D n'a pas
+  # de voix dans les face-à-face : l'accroche (« les dépenses dépassent les recettes ») et la chute des leviers (le déficit
+  # à réduire) ne disent pas par quel levier, et la question 2 montre ce que coûtent les deux autres.
+  camps: { pour: POUR, contre: CONTRE, objet: "baisser d'abord les dépenses" }
+  # Chaque réponse est le meilleur argument de son camp ; les calculs, modèles, estimations et prévisions sont dits comme
+  # tels. L'ordre d'apparition des camps suit ABBA : POUR d'abord aux questions 1 et 4, CONTRE d'abord aux questions 2 et 3.
+  questions:
+    # Compléments § b, [20] [22] : la même statistique européenne, la même unité (part de la richesse produite). Le POUR
+    # donne le niveau de 2025 (2e de l'Union, après la Finlande à 57,5 %) ; le CONTRE, la composition de l'écart en 2024,
+    # dernière année détaillée par fonction : 5,8 points sur 8,5 (retraites 2,8 ; santé 1,6 ; autres aides sociales 1,4),
+    # soit 68 %, calcul de l'étude, d'où « selon un calcul ». Le CONTRE répond aussi « oui » : il ne nie pas le niveau, il
+    # dit où va l'écart. Son affirmation dit « protection sociale », qui couvre les trois postes du chiffre : « retraites
+    # et santé » seules font 4,4 points, 52 %, et le « 2/3 » placé dessous l'aurait gonflé.
+    - question: "La France dépense-t-elle plus que les autres pays ?"
+      pour: { affirmation: "Oui, plus que la moyenne européenne.", chiffre: "57,3 %", texte: "En 2025, les dépenses publiques faisaient 57,3 % de la richesse produite, contre 49,4 % en moyenne dans l'Union européenne.", source: "Eurostat, 2026" }
+      contre: { affirmation: "Oui, surtout pour la protection sociale.", chiffre: "2/3", texte: "En 2024, les deux tiers de l'écart avec l'Union venaient des retraites, de la santé et des aides sociales, selon un calcul.", source: "Eurostat, 2026" }
+    # Compléments § d, [25] [27] : deux mesures qui ne posent pas la même question, et chaque texte dit la sienne. Le CONTRE
+    # (qui parle le premier) : le modèle de l'OFCE pour le budget 2026, effet dans l'année (économies : 0,7 à 0,8 pour un
+    # euro ; impôts nouveaux, surtout sur les grandes entreprises et les revenus financiers : 0,3 point de richesse
+    # prélevé, 0,1 point de croissance en moins). Le POUR : l'étude d'Alesina et autres sur 14 pays riches, France
+    # comprise, de 1978 à 2007, effet cumulé sur trois ans (impôts : 2 % de richesse en moins pour un plan de 1 % ;
+    # économies : « very small recessions », effet « pas significativement différent de zéro », d'où « presque 0 » et
+    # « très peu », pas « rien »). Les deux chiffres disent ce que coûte un euro économisé, mais ne se comparent pas : pays,
+    # période, horizon et méthode diffèrent, et cette littérature reste discutée (§ d). Chaque carte le dit : l'horizon
+    # dans l'affirmation, des deux côtés (« dans l'année », « sur trois ans » ; l'OFCE note que les impôts coûtent plus
+    # « à long terme »), le pays, la période, la méthode et « discuté » dans le texte.
+    - question: "Baisser les dépenses freine-t-il l'économie ?"
+      pour: { affirmation: "Moins que des impôts, sur trois ans.", chiffre: "presque 0", texte: "Selon une étude discutée sur 14 pays riches de 1978 à 2007, un euro économisé coûtait très peu, un euro d'impôts deux.", source: "Alesina et al., 2015" }
+      contre: { affirmation: "Oui, plus que des impôts nouveaux, dans l'année.", chiffre: "70 à 80 centimes", texte: "Selon un modèle discuté, un euro économisé en 2026 coûterait 70 à 80 centimes de richesse, plus que les impôts nouveaux.", source: "OFCE, 2026" }
+    # Compléments § c, [24] [23]. Le CONTRE (premier) : l'estimation de la Cour des comptes, le coût en 2023 des baisses
+    # d'impôts et de cotisations décidées de 2018 à 2023 (2,2 points de richesse), « non compensées par des économies en
+    # dépenses ». Le POUR : le niveau des impôts et cotisations en 2024, au sens européen (2e de l'Union après le Danemark,
+    # 45,5 %), comme dans les études 024, 039 et 045. Deux mesures différentes, un coût en euros et un niveau en part de
+    # la richesse produite, chacune nommée dans son texte.
+    - question: "Peut-on augmenter les impôts ?"
+      pour: { affirmation: "Non, ils sont parmi les plus élevés.", chiffre: "45,3 %", texte: "En 2024, impôts et cotisations faisaient 45,3 % de la richesse produite, le 2e taux de l'Union européenne après le Danemark.", source: "Eurostat, 2026" }
+      contre: { affirmation: "Oui, après des années de baisses.", chiffre: "62 milliards €", texte: "Selon une estimation, les baisses d'impôts décidées de 2018 à 2023 coûtaient 62 milliards d'euros en 2023, sans économies en face.", source: "Cour des comptes, 2024" }
+    # Compléments § e, [20] [5] : la charge d'intérêts de l'ensemble des administrations publiques, constatée (Eurostat)
+    # puis prévue (Cour des comptes, lue dans une dépêche de l'AFP : source secondaire) ; les 77,4 milliards prévus pour
+    # 2026 (+12) recoupent les 65,7 constatés en 2025. Le POUR la donne en euros, le CONTRE en part de la richesse
+    # produite, aux mêmes dates (2025 et 2029), et en 1996, le plus haut de la série européenne (3,6 %, comme en 1997).
+    # Le CONTRE est gardé : c'est le seul chiffre de l'étude qui relativise ce coût (l'annulation de la dette détenue par
+    # la BCE n'est que l'idée de C, sans chiffre ; les 62 milliards sont à la question 3), il vaut pour B comme pour C
+    # (« pas plus que », et non « non » : B veut aussi réduire la dette), et la part de la richesse produite efface trente
+    # ans d'inflation. Le 3 % de 2029 est la même prévision que les 100 milliards du POUR. Prévision lue dans une dépêche :
+    # « citée par l'AFP » dans les deux sources, comme à la fiche 045.
+    - question: "La dette coûte-t-elle trop cher ?"
+      pour: { affirmation: "Oui, de plus en plus.", chiffre: "100 milliards €", texte: "Selon une prévision, les intérêts de la dette atteindraient 100 milliards d'euros par an en 2029, contre 66 milliards en 2025.", source: "Cour des comptes, citée par l'AFP, 2026 ; Eurostat, 2026" }
+      contre: { affirmation: "Pas plus que dans les années 1990.", chiffre: "3,6 %", texte: "En 1996, les intérêts pesaient 3,6 % de la richesse produite, contre 2,2 % en 2025 et 3 % prévus en 2029.", source: "Eurostat, 2026 ; Cour des comptes, citée par l'AFP, 2026" }

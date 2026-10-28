@@ -104,3 +104,59 @@
 13. Votons 2027, programme santé de Philippe (reprend edouardphilippe.fr) : https://votons-2027.fr/candidats/philippe/programme/sante
 14. Fabien Roussel, « La France des Jours heureux », programme 2022 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
 15. PCF, communiqué de Fabien Roussel « Franchises médicales : le gouvernement choisit de faire payer les malades », 23/07/2026 : https://www.pcf74.fr/2026/07/franchises-medicales-le-gouvernement-choisit-de-faire-payer-les-malades-fabien-roussel.html
+16. DREES, A. Fauchon et O. Bonnet, « Dérembourser des soins pour maîtriser la dépense de santé : qui paie ? », Les Dossiers de la Drees n° 135, février 2026, document complet (PDF de la source [3], lu le 28/10/2026 ; modèle de microsimulation Ines-Omar 2019) : https://drees.solidarites-sante.gouv.fr/sites/default/files/2026-02/DD135_Mesures_déremboursements.pdf
+17. Irdes, B. Kambia-Chopin et M. Perronnin, « Les franchises ont-elles modifié les comportements d'achats de médicaments ? », Questions d'économie de la santé n° 158, octobre 2010 (Enquête santé protection sociale 2008, données déclaratives) : https://www.irdes.fr/Publications/2010/Qes158.pdf
+18. Journal de l'économie, « Franchises médicales : 140 euros par an, quels assurés sont concernés ? », 14/09/2026 (reprend Le Parisien) [source secondaire] : https://www.journaldeleconomie.fr/franchises-medicales-140-euros-par-an/
+19. Eurostat, « Tax revenue statistics », données 2024 extraites le 31/10/2025 [chiffres lus dans un résumé de la page, page non ouverte ; mêmes chiffres que la source [81] de l'étude 024] : https://ec.europa.eu/eurostat/statistics-explained/index.php/Tax_revenue_statistics
+20. Commission européenne (fiscalité et douanes), « Tax revenue rebounds in 2024 after decade low in 2023 », 31/03/2026 [lu dans un résumé, page non ouverte] : https://taxation-customs.ec.europa.eu/news/tax-revenue-rebounds-2024-after-decade-low-2023-2026-03-31_en
+
+---
+
+## Compléments pour le reportage (28/10/2026)
+
+> Ajoutés pour donner à chaque camp du reportage son meilleur argument chiffré, avec la même exigence que le reste de
+> l'étude : chaque chiffre a sa valeur, son année, son organisme et sa source numérotée (16 à 20 ci-dessus). Un chiffre
+> lu de seconde main est marqué **[source secondaire]**. Le reportage appelle « franchises » les franchises et les
+> participations forfaitaires ensemble, comme le titre de la fiche.
+
+### C1. Les plafonds et les montants, de 2005 à 2026
+- **2005** : la participation forfaitaire est créée, 1 € par consultation, plafonnée à 4 € par jour pour un même professionnel et à **50 € par an** et par assuré (DREES, 2026) [16].
+- **2008** : les franchises s'y ajoutent, 0,50 € par boîte de médicaments et par acte paramédical, 2 € par transport sanitaire, plafonnées à **50 € par an** ; en sont exonérés les mineurs, les bénéficiaires de la CMU-C (aujourd'hui la C2S) et les femmes enceintes, pas les patients en affection de longue durée (DREES, 2026 ; Irdes, 2010) [16][17]. De 2008 à septembre 2026, le plafond cumulé est donc de **100 € par an** ; il passe à **140 €** (70 + 70 €) le 1er octobre 2026 (§ 1, [10]).
+- **31 mars 2024** : les montants unitaires et les plafonds par jour sont doublés (1 € par boîte, 2 € par consultation, 4 € par transport), les plafonds annuels restent inchangés (DREES, 2026) [16].
+- Rendements chiffrés, rapportés par la DREES (tableau 3, sources publiques ; entre parenthèses, son propre modèle) [16] : le doublement des montants de 2024, **800 M€** par an (700 M€) ; le doublement des seuls plafonds discuté en 2025, 700 M€ (630 M€) ; celui des plafonds et des montants, 2 Md€ (1,99 Md€). Le recouvrement des sommes dues est partiel, environ 80 % des montants (DSS, 2025, cité par la DREES) [16].
+
+### C2. Le reste à charge comparé à l'Europe, la même année
+- En **2024**, « la donnée la plus récente disponible pour tous les pays », le reste à charge des ménages est de **9,8 %** de la dépense de santé en France, le **troisième plus faible de l'Union européenne** ; il est de 495 € par habitant en 2025 (DREES, 14/10/2026) [2].
+- Le reportage retient ce 9,8 % de 2024 pour comparer la même année ; le 9,7 % de la fiche porte sur 2025, et la moyenne européenne de 14,8 % sur une année antérieure (§ 2, enjeu 5, [1]).
+
+### C3. Ce que paient les malades en affection de longue durée, et ce que la hausse leur ajoute
+- Les assurés en affection de longue durée paient en moyenne **78 € par an** de franchises et de participations forfaitaires, contre **41 €** pour les autres assurés ; 33 % des assurés se situent entre 46 et 50 € de franchises, près du plafond, et 21 % pour les participations ; près d'un tiers de ceux qui atteignent les plafonds ont plus de 68 ans (Cour des comptes, rapport sur l'application des lois de financement de la sécurité sociale, mai 2026, cité par Caducée le 14/09/2026) [9] **[source secondaire]**. L'année des données n'est pas précisée ; elles sont postérieures au doublement de 2024 et antérieures au plafond de 140 €.
+- Pour le plafond à 140 €, le cabinet de la ministre de la Santé estime la hausse moyenne à moins de 1 € par mois pour les assurés concernés et à **environ 2 € par mois pour les assurés en affection de longue durée** (AFP, 24/08/2026, cité par Caducée [9] ; même estimation attribuée au ministère par le Journal de l'économie, d'après Le Parisien [18]) **[source secondaire]**, soit environ **24 € par an** (2 € × 12, calcul de l'étude). C'est une estimation du gouvernement, qui défend la mesure.
+- Pour comparaison, la simulation de la DREES (hausse des franchises calibrée à 1 Md€, modèle de 2019) donne 57 € par an (0,21 % du revenu) pour les ménages dont la personne la plus âgée a 75 ans ou plus, contre 15 € (0,05 %) pour les moins de 40 ans, et 49 € (0,18 %) pour les ménages en mauvaise santé, contre 35 € (0,10 %) en moyenne [16].
+
+### C4. L'effet des franchises sur les achats de médicaments (enquête de 2008)
+- Enquête santé protection sociale 2008 de l'Irdes, données déclaratives : 4 985 adultes à qui des médicaments ont été prescrits en 2008, hors bénéficiaires de la CMU-C et femmes enceintes ; la franchise valait alors 0,50 € par boîte [17].
+  - **88 %** (4 391 personnes) déclarent n'avoir en rien modifié leurs achats de médicaments ; **12 %** (594) déclarent les avoir modifiés. Parmi ces derniers, 64 % n'ont acheté qu'une partie des médicaments prescrits, 33,5 % ont repoussé certains achats, 28 % ont demandé au médecin de réduire la prescription et 13 % citent d'autres changements (automédication, contrôle du budget) [17].
+  - Selon le revenu mensuel par unité de consommation : **14,3 %** ont modifié leurs achats sous 870 €, 14,2 % de 870 à 1 166 €, 11,9 % de 1 167 à 1 485 €, 12,1 % de 1 486 à 1 996 €, **8,4 %** à partir de 1 997 €. Toutes choses égales par ailleurs, la probabilité est de 7 points plus élevée sous 870 € qu'au-dessus de 1 167 €, « soit un quasi-doublement », et de 2 points chez les malades chroniques [17].
+- La DREES en conclut que « la réaction semble avoir été faible dans l'ensemble, mais plus importante chez les moins aisés », et relève que les franchises, prélevées après coup, sont peu visibles pour les patients [16]. Aucune mesure plus récente, après les hausses de 2024 ou de 2026, n'a été trouvée.
+
+### C5. Les autres façons de trouver l'argent
+- Simulation de la DREES, pour 1 Md€ chacune (modèle de 2019) [16] : une hausse proportionnelle de tous les prélèvements qui financent l'Assurance maladie (cotisations, CSG, CRDS, TVA, accises, taxe sur les médicaments) coûterait **11 € par an, 0,06 % du revenu**, aux 20 % de ménages les plus modestes, contre **21 €, 0,13 %**, pour une hausse des franchises ; pour les 40 % les plus modestes, 0,06 % contre 0,12 à 0,13 % pour les déremboursements, « deux fois moins » ; pour les 20 % les plus aisés, 0,09 %, presque deux fois plus. Une telle hausse pèserait davantage sur les actifs que sur les retraités et pourrait réduire l'emploi, un effet que la DREES ne chiffre pas.
+- En **2024**, impôts et cotisations sociales représentent **45,3 % du PIB** en France, le deuxième taux de l'Union européenne après le Danemark (45,8 %) et devant la Belgique (45,1 %) ; moyenne de l'Union : 40,4 % (Eurostat, données extraites le 31/10/2025) [19] **[chiffres lus dans un résumé de la page]**. Une autre mesure de la Commission européenne, publiée en mars 2026, donne 43,5 % pour la France, 45,2 % pour le Danemark et 39,4 % pour l'Union, sans que le rang de la France y ait été relu [20] **[lu dans un résumé]** ; selon l'Insee, les prélèvements obligatoires, nets des crédits d'impôt, atteignent 43,6 % du PIB en 2025 (étude 024, source [80]).
+
+## Annexe — d'où vient chaque chiffre du reportage
+
+| Écran | Chiffre | Source |
+|---|---|---|
+| Accroche | plafond cumulé des franchises et participations : 100 € par an (50 + 50) de 2008 à septembre 2026, 140 € (70 + 70) depuis le 1er octobre 2026 | DREES 2026 [16], Irdes 2010 [17], décret n° 2026-858 [10], § 1 et C1 |
+| Leviers | les quatre options de la fiche ; 2,5 Md€ de moindres dépenses pour les régimes de base en 2025, laissés aux patients | Cour des comptes 2026, cité par [9] **[source secondaire]**, § 2 (enjeu 1) |
+| Q1 pour | 9,8 % de reste à charge en 2024, troisième plus faible de l'Union européenne | DREES 2026 [2], C2 |
+| Q1 contre | ×2 : de 0,50 à 1 € par boîte, de 1 à 2 € par consultation, en 2024 | DREES 2026 [16], C1 |
+| Q2 contre | 78 € par an pour les assurés en affection de longue durée, 41 € pour les autres | Cour des comptes 2026, cité par [9] **[source secondaire]**, C3 |
+| Q2 pour | environ 2 € par mois pour les assurés en affection de longue durée, soit environ 24 € par an (calcul), estimation du gouvernement | cabinet de la ministre, AFP 24/08/2026, cité par [9] et [18] **[source secondaire]**, C3 |
+| Q3 contre | 14,3 % (revenu sous 870 € par unité de consommation) et 8,4 % (à partir de 1 997 €) ont modifié leurs achats de médicaments, 2008 | Irdes 2010 [17], C4 |
+| Q3 pour | 88 % n'ont rien modifié, même enquête | Irdes 2010 [17], C4 |
+| Q4 pour | 45,3 % du PIB en impôts et cotisations en 2024, deuxième taux de l'Union européenne | Eurostat [19] **[chiffres lus dans un résumé]**, C5 |
+| Q4 contre | à 1 Md€ égal, 0,06 % du revenu (11 €) par les prélèvements contre 0,13 % (21 €) par les franchises, pour les 20 % les plus modestes | DREES 2026 [16], C5 |
+
+Les deux camps de Q2 parlent des mêmes malades, en euros par an ; ceux de Q3 citent la même enquête, l'un un sous-groupe, l'autre l'ensemble ; ceux de Q1 et de Q4 donnent deux mesures différentes, et chaque texte dit à quoi il compare.

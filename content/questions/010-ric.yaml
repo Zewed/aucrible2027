@@ -8,16 +8,16 @@ question: Faut-il créer un référendum d'initiative citoyenne (RIC) ?
 titreCourt: "Le référendum citoyen"
 contexte:
   - Aujourd'hui, seul le référendum d'initiative partagée (RIP) permet aux citoyens de s'en saisir, avec le soutien d'un cinquième des parlementaires et de 10 % des électeurs.
-  - "Une seule tentative a été menée, sur Aéroports de Paris : 1,09 million de soutiens recueillis pour 4,72 millions requis."
+  - "Sur sept demandes déposées depuis 2019, une seule a été validée, sur Aéroports de Paris : 1,09 million de soutiens recueillis pour 4,72 millions requis."
   - Le dernier référendum national date de 2005.
 chiffres:
   - valeur: "4,7"
     unite: millions
-    legende: de signatures d'électeurs, en plus de 185 parlementaires, pour déclencher un référendum d'initiative partagée
+    legende: de signatures d'électeurs, en plus de 185 parlementaires, pour demander un référendum d'initiative partagée
     source: { organisme: Conseil constitutionnel, document: déclaration sur la proposition de loi Aéroports de Paris, annee: 2020 }
   - valeur: "1,09"
     unite: million
-    legende: de soutiens recueillis pour la seule tentative, sur Aéroports de Paris (2019-2020)
+    legende: de soutiens recueillis pour la seule demande validée, sur Aéroports de Paris (2019-2020)
     source: { organisme: Conseil constitutionnel, document: déclaration sur la proposition de loi Aéroports de Paris, annee: 2020 }
   - valeur: 26 %
     legende: des Français déclarent avoir confiance dans la politique
@@ -27,7 +27,7 @@ options:
     libelle: Non, garder les règles actuelles
     implique: Le référendum reste décidé par le Président ou le Parlement ; le RIP actuel est maintenu, avec les mêmes seuils.
     defenseurs: "Le RIP et ses contrôles suffisent : un RIC irait trop loin dans la remise en cause de la démocratie représentative."
-    critiques: "Le RIP est inopérant : sa seule tentative n'a recueilli que le quart des signatures requises."
+    critiques: "Selon ses critiques, le RIP ne fonctionne pas : sur sept demandes, une seule a été validée, et elle a recueilli moins du quart des signatures requises."
   - id: B
     libelle: Alléger le référendum d'initiative partagée
     implique: Moins de signatures (2,5 millions au lieu de 5 millions dans l'un des projets) et des sujets élargis ; les parlementaires gardent un rôle.
@@ -80,3 +80,73 @@ positions:
   ruffin: { option: C, source: "Proposition de loi constitutionnelle n° 2081, 18/11/2025", statut: officielle }
   # Programme 2022 : https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
   arthaud: { option: A, source: "Programme 2022, 07/04/2022", statut: deduite }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § C1, [15] : les dix référendums nationaux, du 28 septembre 1958 au 29 mai 2005, organisés par le gouvernement en
+    # 1958, puis par le président de la République (articles 11 et 89) ; aucun depuis (§ 1, [7]). La chute dit qui les a
+    # lancés sans l'opposer aux citoyens, le cadrage d'un seul camp : elle sert ceux qui veulent que les citoyens
+    # puissent en lancer comme ceux qui veulent que le président en propose davantage (§ 2, enjeu 5). « Lancés » plutôt
+    # que « décidés », que l'on pourrait lire comme le résultat du vote.
+    etapes:
+      - { quand: "De 1958 à 2005", valeur: "10 référendums" }
+      - { quand: "Depuis 2005", valeur: "Aucun" }
+    chute: "Tous ont été lancés par le président de la République ou, en 1958, par le gouvernement."
+  # Pas de « mécanisme » ni d'« écart » : aucune grandeur à deux dates n'éclaire le débat mieux que l'accroche. Les
+  # signatures de la seule demande soumise aux électeurs vont dans la chute des leviers.
+  leviers:
+    # Les trois options de la fiche, à égalité et dans l'ordre. § 1, 4 et C2, [1] [2] [5] [8]. La chute : le constat commun
+    # de l'étude (§ 3), précisé par les sept décisions du Conseil constitutionnel (§ C2, [1] [21]) ; il sert les trois
+    # options (un seuil trop haut, des sujets trop étroits, ou un contrôle qui protège la Constitution).
+    titre: "Qui peut lancer un référendum ? Trois réponses"
+    choix:
+      - { texte: "Garder les règles actuelles", detail: "185 parlementaires, puis 4,7 millions d'électeurs" }
+      - { texte: "Alléger ces règles", detail: "moins de signatures et plus de sujets, toujours avec des parlementaires" }
+      - { texte: "Créer un référendum citoyen", detail: "de 500 000 à 1 million de signatures, sans parlementaires" }
+    chute: "Depuis 2019, le Conseil constitutionnel a validé une demande sur sept. Elle a réuni 1,09 million de signatures sur 4,7 millions."
+    source: "Conseil constitutionnel, 2020 et 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: "un référendum citoyen" }
+  # POUR rassemble l'option C, CONTRE les options A et B (pas de référendum lancé par les citoyens seuls) : chaque réponse
+  # CONTRE vaut pour les deux. Ordre d'apparition (ABBA) : POUR d'abord aux questions 1 et 4, CONTRE d'abord aux
+  # questions 2 et 3 ; aucune carte qui parle en premier ne renvoie à l'autre. Aucun candidat n'est nommé. Rien n'y
+  # reprend les face-à-face des fiches 053, 054 et 055 (sondages sur la Constitution, 49.3, dissolution, Espagne et Chili,
+  # Flandre, Australie et Belgique, vote blanc).
+  questions:
+    # § C3 et C2, [16] [1] : deux faits sur le rôle des parlementaires dans la procédure actuelle. POUR : la règle
+    # (article 11 de la Constitution et loi organique du 6 décembre 2013, article 9 : un texte examiné au moins une fois par
+    # chaque assemblée dans les six mois, délai suspendu entre les sessions, ne va pas au référendum, même s'il est rejeté).
+    # CONTRE : la règle aussi (toute demande part d'un cinquième des parlementaires : les sept demandes viennent d'eux),
+    # illustrée par la seule allée jusqu'aux signatures (248 signataires pour 185 requis en 2019). L'affirmation ne tire
+    # plus une généralité (« ils soutiennent les demandes ») de ce seul cas ; « 7 sur 7 » n'en serait pas une preuve,
+    # puisqu'aucune demande ne peut être déposée sans le cinquième requis.
+    - question: "Aujourd'hui, les parlementaires freinent-ils le référendum ?"
+      pour: { affirmation: "Oui, ils peuvent éviter le vote.", chiffre: "6 mois", texte: "Même avec 4,7 millions de signatures, le vote n'a pas lieu si l'Assemblée et le Sénat examinent le texte en six mois.", source: "Loi organique, 2013" }
+      contre: { affirmation: "Non, ce sont eux qui le demandent.", chiffre: "248", texte: "En 2019, 248 députés et sénateurs ont demandé un référendum sur Aéroports de Paris. Il en fallait 185.", source: "Conseil constitutionnel, 2019" }
+    # § C4, [17] : le même tableau du Parlement suisse, la même législature (2019-2023), le même nombre de textes rejetés
+    # par les électeurs (8), rapporté aux textes contestés (8 sur 21, CONTRE) ou à tous les textes contestables (8 sur
+    # 244, 3,3 %, POUR). Les deux cartes répondent ainsi à « déferait-il » ; avant, la carte POUR répondait à une autre
+    # question, la part des textes contestés (21 sur 244, 8,6 %). « Textes » : les lois et arrêtés fédéraux qu'un
+    # référendum demandé par 50 000 électeurs peut contester, l'équivalent le plus proche d'un référendum citoyen qui
+    # abroge une loi.
+    - question: "Un référendum citoyen déferait-il les lois votées ?"
+      pour: { affirmation: "Rarement, sur l'ensemble des lois.", chiffre: "3 %", texte: "Sur la même période, les Suisses ont rejeté 8 des 244 textes qu'ils pouvaient contester, soit 3 %.", source: "Parlement suisse, 2024" }
+      contre: { affirmation: "Souvent, quand un vote a lieu.", chiffre: "8 sur 21", texte: "En Suisse, de 2019 à 2023, 21 textes du Parlement ont été contestés par référendum. Les électeurs en ont rejeté 8.", source: "Parlement suisse, 2024" }
+    # § C5, [18] [15] [19] : la même mesure (part des électeurs inscrits qui ont voté, Italie et étranger) pour le même type
+    # de vote, le référendum qui abroge une loi, valable si plus de la moitié des inscrits votent, sur deux périodes qui se
+    # suivent et couvrent toute la série : deux séries de même force, et non plus un vote contre une série. CONTRE : de 1997 à
+    # 2025, dix journées de vote, une seule au-dessus de la moitié, en 2011 (2025 : environ 30 %, lu chez Pagella
+    # Politica et Youtrend, source secondaire ; d'où Pagella Politica dans la source de la carte). POUR : de 1974 à 1995,
+    # huit journées sur neuf au-dessus de la moitié (1990 : 43,4 %), et 2011 (54,8 %), l'exception de la période du
+    # CONTRE. Qui a demandé chaque vote (signatures ou conseils régionaux) n'est pas vérifié : aucune carte ne le dit.
+    - question: "Les électeurs viendraient-ils voter ?"
+      pour: { affirmation: "Oui, ils l'ont longtemps fait.", chiffre: "8 sur 9", texte: "De 1974 à 1995, plus de la moitié des électeurs italiens ont voté huit fois sur neuf, et encore en 2011.", source: "Ministère de l'Intérieur italien, 2025" }
+      contre: { affirmation: "Le plus souvent non, en Italie.", chiffre: "9 sur 10", texte: "En Italie, depuis 1997, neuf fois sur dix, moins de la moitié des électeurs ont voté : le référendum est resté sans effet.", source: "Ministère de l'Intérieur italien ; Pagella Politica, 2025" }
+    # § 2 (enjeu 2 : « plus de démocratie directe peut-il restaurer la confiance ? ») et C6, [20]. La question relie la
+    # confiance au débat, sans le « encore » qui supposait une baisse ; la méfiance est un constat partagé (§ 2, enjeu 2).
+    # Même question du même sondage (Q13, confiance dans les institutions, janvier 2026, 3 166 inscrits), pour deux
+    # assemblées élues : l'Assemblée nationale (20 %, après 24 % en 2025), qui vote les lois sur lesquelles porterait un
+    # référendum citoyen, et le conseil municipal (58 %, stable). « Le conseil municipal », pas « les élus locaux » : les
+    # conseils départementaux (49 %) et régionaux (46 %) sont sous la moitié.
+    - question: "Faut-il un référendum citoyen parce qu'on se méfie des élus ?"
+      pour: { affirmation: "Oui, la méfiance vise l'Assemblée nationale.", chiffre: "20 %", texte: "Selon un sondage de janvier 2026, 20 % des Français faisaient confiance à l'Assemblée nationale, qui vote les lois.", source: "CEVIPOF et OpinionWay, 2026" }
+      contre: { affirmation: "Non, le conseil municipal garde la confiance.", chiffre: "58 %", texte: "Dans le même sondage, 58 % faisaient confiance à leur conseil municipal, une assemblée élue elle aussi.", source: "CEVIPOF et OpinionWay, 2026" }

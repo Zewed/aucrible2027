@@ -15,8 +15,8 @@
 - **Fiscalité** : depuis les revenus de 2025, le régime micro-BIC applique aux meublés non classés un abattement de 30 %
   jusqu'à 15 000 € de revenus annuels (50 % jusqu'à 77 700 € auparavant) et aux meublés classés un abattement de 50 %
   jusqu'à 77 700 € (71 % jusqu'à 188 700 € auparavant) [1].
-- **Contrôle** : l'enregistrement des meublés devient obligatoire sur tout le territoire à partir de mai 2026, par un
-  portail national unique ; les amendes sont alourdies [1].
+- **Contrôle** : la loi rend l'enregistrement des meublés obligatoire sur tout le territoire au plus tard en mai 2026, par un
+  portail national unique ; les amendes sont alourdies [1]. Le portail n'ouvrira qu'au quatrième trimestre 2026 (voir les Compléments).
 - **Vote** : le texte est adopté définitivement le 7 novembre 2024 par 168 voix contre 54 [2][3]. Au Sénat, le vote a été
   unanime deux jours plus tôt [4].
 
@@ -190,3 +190,142 @@ s'en tenir au cadre de 2024. Option D : alléger les contraintes et la fiscalit�
 15. melenchon2027.fr, « Comparateur Place Publique 2025 – Chantier 31 » : https://melenchon2027.fr/?p=17731
 16. IFRAP, comparateur des propositions des candidats à la présidentielle 2027 (rubrique Logement, sans sources datées) :
     https://www.ifrap.org/comparateurs/presidentielles-2027
+
+## Compléments pour le reportage (28/10/2026)
+
+> Chiffres ajoutés pour le reportage vidéo de la fiche, sources [17] à [23] à la suite de la liste du § 5. La note de l'Apur
+> [5], le guide du ministère [1] et la synthèse du rapport du Sénat [18] ont été lus dans leur texte (extrait des PDF, sans
+> navigateur) ; [20] et [22] sont de la presse spécialisée et marqués **[source secondaire]** ; de l'étude [23], seul le
+> résumé a été lu. Rien de ce qui précède n'a été modifié ; C6 signale deux écarts avec le § 1 et la fiche.
+
+### C1. Les nuits réservées chez des particuliers, de 2019 à 2025 (accroche)
+- **2019 : 109 millions** de nuitées en France dans des hébergements proposés par des particuliers via quatre plateformes
+  (Airbnb, Booking, Expedia, Tripadvisor), soit un cinquième des nuitées de l'Union européenne ; 62 millions (57 %) par
+  des résidents français (Insee Première n° 1879, novembre 2021, données d'Eurostat) [17].
+- **2022 : 137 millions** (Insee, 2024) [9]. **2025 : 213 millions** (212,6 millions, 22,3 % de l'Union européenne),
+  contre **472 millions** de nuitées dans les hébergements collectifs de tourisme (hôtels, campings et autres
+  hébergements collectifs) la même année (Insee, page publiée le 29/09/2026) [8]. De 2019 à 2025 : + 95 %, presque deux
+  fois plus.
+- **Pas repris** : l'estimation de l'Insee pour 2018 (Insee Focus n° 158, non relue ici), faite avec une
+  autre méthode que les données d'Eurostat, ne se compare pas.
+- **Limite** : ce sont des nuitées, pas des logements. Aucune source lue ne dit combien de logements ces nuitées retirent
+  de la location à l'année.
+
+### C2. Les locations type Airbnb à Paris en octobre 2025 (questions 1 et 2)
+Toutes les données viennent de la note n° 281 de l'Apur (janvier 2026), qui exploite les annonces du site Airbnb
+moissonnées par Inside Airbnb, rapportées aux logements du recensement de l'Insee (2016 et 2022) [5].
+- **L'offre** : 82 045 annonces, dont 53 812 disponibles (ouvertes à la réservation au moins un jour dans l'année) et
+  **48 322 logements entiers** disponibles (9 annonces disponibles sur 10).
+- **La part des logements** : les logements entiers disponibles sur Airbnb font **3,5 %** de tous les logements de Paris
+  (+ 1,4 point depuis septembre 2015), **9,6 %** à Paris Centre (1er au 4e arrondissement, 5 % de la population), 12,5 %
+  dans le 2e, plus de 20 % voire 30 % dans quelques quartiers (Champs-Élysées, Opéra, Notre-Dame), 1,3 % dans le 13e.
+- **Sur dix ans** : + 68 % de logements entiers disponibles de septembre 2015 à octobre 2025 ; + 90 % pour l'ensemble des
+  annonces disponibles de 2015 à 2025.
+- **La durée proposée** : 35 633 logements entiers sont ouverts à la réservation plus de 90 jours par an, dont 33 141 plus
+  de 120 jours ; ils font 62 % des annonces disponibles (43 % en 2023, 52 % en 2024). Selon l'Apur, beaucoup sont
+  « potentiellement » loués à l'année hors des règles, mais un calendrier ouvert ne veut pas dire que le logement est loué.
+- **Les loueurs** : **59 %** des logements entiers disponibles sont proposés par un « mono-loueur » (une seule annonce sur
+  Airbnb) ; **41 %** par un multi-loueur, dont 16 % par un loueur de 2 à 9 annonces et 25 % par un loueur d'au moins 10
+  annonces. La part des multi-loueurs était de **19 % en 2015** et de 34 % en 2024 (× 2,2 en dix ans). L'Apur y voit une
+  « professionnalisation » de l'activité, sans pouvoir distinguer particuliers et professionnels. Les 10 plus gros loueurs
+  proposent près de 2 600 logements (5 % des annonces disponibles).
+- **Les autorisations** : 248 autorisations de changement d'usage avec compensation accordées depuis 2010, pour 548
+  logements, soit 1 % de l'offre disponible (données de la Ville de Paris citées par l'Apur). En 2018, un rapport du Sénat
+  estimait à environ 20 000 les appartements parisiens détournés de la location longue (cité par l'Apur).
+- **Les touristes** : 14,8 millions de nuitées en 2024 à Paris, dont 85 % de voyageurs étrangers (Eurostat, cité par
+  l'Apur) ; prix médian d'une nuit dans un logement entier : 162 € en octobre 2025.
+
+### C3. L'impôt sur ces loyers, revenus de 2025 et de 2026 (question 3)
+- **Au forfait (régime micro-BIC)** : un meublé de tourisme non classé bénéficie d'un abattement de **30 %** jusqu'à
+  15 000 € de loyers par an, donc est imposé sur 70 % de ses loyers ; un meublé classé (1 à 5 étoiles), d'un abattement
+  de **50 %**, imposé sur la moitié, jusqu'à 77 700 € pour les revenus de 2025 et **83 600 €** pour ceux de 2026
+  (Ministère du Logement, 2025 ; Service-Public, 27/07/2026) [1] [19].
+- **La location vide** : au forfait (micro-foncier), l'abattement est aussi de 30 %. La commission des finances du Sénat
+  proposait en mai 2024 d'« aligner » le taux des meublés non classés sur celui-ci, ce qu'a fait la loi (Sénat, 2024) [18].
+- **Avant** : 71 % jusqu'à 188 700 € pour un meublé classé, 50 % jusqu'à 77 700 € pour un non classé [18]. D'après Airbnb,
+  cité par le Sénat, un logement sur cinq de la plateforme est classé [18] **[chiffre de l'entreprise, non repris]**.
+- **Au régime réel**, le loueur déduit ses charges réelles et l'amortissement du logement ; ce régime n'est pas comparé
+  dans le reportage. Le projet de loi de finances pour 2027 (présenté le 1er octobre 2026, article 7) plafonnerait
+  l'amortissement des meublés de tourisme au réel à 1,5 % par an et 5 000 € par foyer, pour 260 millions d'euros de
+  recettes en 2027 puis 330 millions par an selon le gouvernement ; le forfait n'est pas touché. La commission des
+  finances de l'Assemblée a rejeté la première partie du projet le 9 octobre ; vote prévu le 3 novembre 2026 [22]
+  **[source secondaire]**. Texte en discussion : pas dans le reportage.
+
+### C4. Les effets de la loi du 19 novembre 2024, au 28 octobre 2026 (question 4 et leviers)
+- **Aucun bilan national** : aucun rapport d'application ou d'évaluation de la loi, ni aucun décompte des communes qui
+  ont adopté les 90 jours, des quotas ou l'enregistrement, n'a été trouvé. La réponse du ministère à une question écrite
+  du Sénat (16/04/2026) décrit les outils sans chiffre [21].
+- **Paris** : 90 jours par an depuis le 1er janvier 2025 pour une résidence principale ; création de meublés de tourisme
+  interdite dans les arrondissements 1 à 11 et une partie du 18e depuis le PLU bioclimatique de novembre 2024 [5].
+- **L'offre parisienne baisse** : **− 14 %** de logements entiers disponibles sur Airbnb depuis le 1er janvier 2025 ;
+  − 16 % d'octobre 2024 à octobre 2025 (jusqu'à − 24 % dans le 19e). Elle avait culminé à plus de 79 000 annonces
+  disponibles en juillet 2024, avant une baisse après les Jeux. L'Apur parle d'une offre en baisse « dans un nouveau
+  contexte réglementaire », sans isoler la part de la loi [5].
+- **Une partie se déplace** : **6 759** logements entiers disponibles (**14 %**, un sur sept) sont proposés en bail
+  mobilité (un bail meublé de 1 à 10 mois, que les règles des meublés de tourisme ne visent pas) ; 16 % de ceux ouverts
+  plus de 120 jours ; 5 % de toutes les annonces de logements entiers en 2021, 9 % en octobre 2025 ; 74 % proposés par un
+  multi-loueur. L'Apur y voit un « potentiel instrument de contournement de la réglementation ». Les annonces exemptées
+  au titre d'une « location de type hôtelier » passent de 1 % à 4 % des logements entiers [5].
+- **La fréquentation monte encore** : 54 000 commentaires laissés par mois en 2024 sur les annonces parisiennes, près de
+  57 000 de janvier à septembre 2025 (une estimation indirecte des séjours, sur des périodes différentes) [5].
+- **Ailleurs** : Avignon est passée à 90 nuits en février 2025 et Marseille devait voter le 25 avril 2025 [20] **[source
+  secondaire]** ; le Grand Annecy a fixé des quotas par zone en 2025, Saint-Malo en a depuis 2022 (validés par le tribunal
+  administratif de Rennes en 2024), et Cancale, Bonifacio, Chamonix et des communes de la côte basque ont réservé des
+  zones aux résidences principales en 2025 [5].
+- **L'enregistrement** : la loi le rend obligatoire partout « au plus tard le 20 mai 2026 » [5]. Le 27 juillet 2026,
+  Service-Public annonce le portail national pour le quatrième trimestre 2026 ; d'ici là, l'enregistrement n'est
+  obligatoire que dans certaines communes de zone tendue [19].
+- **Les nuitées en France** continuent de croître (C1) ; elles ne disent pas si l'offre baisse hors de Paris.
+
+### C5. Les loyers : l'étude de 2020 citée par le ministère
+- Ayouba, Breuillé, Grivault et Le Gallo (2020) étudient huit villes françaises : la densité d'annonces Airbnb fait
+  monter les loyers à Lyon, Montpellier et Paris, sans effet significatif dans les autres ; l'effet est plus fort pour les
+  loueurs professionnels (Marseille, Paris) et pour les nouveaux baux (Paris, Marseille, Montpellier) [23]. L'ampleur
+  n'a pas été lue (texte intégral inaccessible sans navigateur). **Pas dans le reportage** : faute d'un second chiffre
+  de la même étude pour l'autre camp, la question des loyers n'aurait opposé que les deux faces d'un même résultat.
+
+### C6. Écarts avec le § 1 et la fiche
+- **L'enregistrement** : le § 1 et le contexte de la fiche disent qu'il « devient obligatoire » partout à partir de mai
+  2026. Au 27/07/2026, le portail national n'est pas ouvert (prévu au quatrième trimestre 2026) et l'enregistrement
+  n'est obligatoire que dans certaines communes [19]. À corriger par l'auteur ; le reportage n'en parle pas.
+- **Le plafond des meublés classés** : 77 700 € (§ 1, juste pour les revenus de 2025) ; 83 600 € pour ceux de 2026 [19].
+- Les chiffres de la fiche « 48 000 » et « 41 % » sont confirmés par la note de l'Apur (48 322 ; 41 %) [5].
+
+### Sources (suite du § 5)
+
+17. Insee, « Hébergements proposés par des particuliers via des plateformes », Insee Première n° 1879, 26/11/2021 :
+    https://www.insee.fr/fr/statistiques/5871113
+18. Sénat, commission des finances, « L'essentiel sur… la proposition de loi visant à remédier aux déséquilibres du marché
+    locatif », avis n° 579 (2023-2024) de Jean-François Husson, mai 2024 : https://www.senat.fr/rap/a23-579/a23-579-syn.pdf
+19. Service-Public.fr (DILA), « Mettre son logement en location : les règles évoluent en 2026 », 27/07/2026 :
+    https://www.service-public.gouv.fr/particuliers/actualites/A18880
+20. Banque des Territoires (Localtis), J. D. Lesay, « Régulation des meublés de tourisme : une loi qui a fait son chemin »,
+    23/04/2025 : https://www.banquedesterritoires.fr/regulation-des-meubles-de-tourisme-une-loi-qui-fait-son-chemin
+21. Sénat, question écrite de Catherine Dumas, « Impact des locations touristiques sur le parc locatif parisien », et
+    réponse du ministère de la Ville et du Logement, JO Sénat du 16/04/2026, p. 1888 :
+    https://www.senat.fr/questions/base/2026/qSEQ260107231.html
+22. Rental Scale-Up, U. Wahi, « Budget 2027 : l'amortissement des meublés de tourisme dans le viseur », 23/10/2026 :
+    https://www.rentalscaleup.com/fr/budget-2027-lamortissement-des-meubles-de-tourisme-dans-le-viseur/
+23. K. Ayouba, M.-L. Breuillé, C. Grivault, J. Le Gallo, « Does Airbnb Disrupt the Private Rental Market? An Empirical
+    Analysis for French Cities », *International Regional Science Review*, vol. 43 (1-2), 2020, p. 76-104 (résumé) :
+    https://hal.science/hal-02476711v1
+
+## Annexe — d'où vient chaque chiffre du reportage
+
+| Écran | Chiffre | Source |
+|---|---|---|
+| Accroche | 109 millions de nuitées en 2019, 213 millions en 2025, réservées en France via quatre plateformes chez des particuliers ; 472 millions dans les hébergements collectifs en 2025 | Insee 2021 [17] ; Insee 2026 [8], C1 |
+| Leviers | quatre options de la fiche ; depuis 2025, chaque commune peut ramener de 120 à 90 jours la location d'une résidence principale, Paris l'a fait au 1er janvier 2025 | Ministère du Logement 2025 [1] ; Apur 2026 [5], C4 |
+| Q1 pour | 9,6 % (« près d'un sur dix ») des logements de Paris Centre (1er au 4e) sont des logements entiers disponibles sur Airbnb, octobre 2025 | Apur 2026 [5], C2 |
+| Q1 contre | 3,5 % sur tout Paris, même mesure, même date | Apur 2026 [5], C2 |
+| Q2 contre | 59 % des logements entiers disponibles proposés par un loueur d'une seule annonce, octobre 2025 | Apur 2026 [5], C2 |
+| Q2 pour | part des annonces de multi-loueurs : 19 % en 2015, 41 % en 2025 (« plus que doublé », × 2,2) | Apur 2026 [5], C2 |
+| Q3 contre | meublé de tourisme non classé, au forfait : abattement de 30 %, imposé sur 70 % de ses loyers, comme la location vide (30 %), revenus de 2025 | Ministère du Logement 2025 [1] ; Sénat 2024 [18], C3 |
+| Q3 pour | meublé classé en étoiles, au forfait : abattement de 50 %, imposé sur la moitié de ses loyers ; location vide au forfait : abattement de 30 %, imposée sur 70 % | Ministère du Logement 2025 [1] ; Sénat 2024 [18] ; Service-Public 2026 [19], C3 |
+| Q4 pour | 6 759 logements entiers disponibles sur 48 322 (14 %, « un sur sept ») en bail mobilité de 1 à 10 mois, « potentiel instrument de contournement » selon l'Apur | Apur 2026 [5], C4 |
+| Q4 contre | − 14 % de logements entiers disponibles sur Airbnb à Paris depuis le 1er janvier 2025 (passage à 90 jours) | Apur 2026 [5], C4 |
+
+Les deux camps de Q1 citent la même mesure à la même date, sur deux périmètres nommés ; ceux de Q2, la même note sur le
+même champ (un niveau, une évolution, pas les deux faces d'une même part) ; ceux de Q3, les mêmes règles fiscales pour
+les mêmes revenus, en part des loyers imposée, chacun face à la location vide au forfait (70 %) ; ceux de Q4, la même
+note sur le même champ, deux effets des mêmes règles.

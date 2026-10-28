@@ -111,7 +111,7 @@ reportage:
       - { texte: Freiner le commerce avec la Chine, detail: droits de douane ou accords suspendus }
     chute: "Ces quatre voies vont du dialogue à la pression sur le commerce, et peuvent se combiner."
     source: "Sénat, 2023 ; Union européenne, 2024"
-  camps: { pour: POUR, contre: CONTRE, objet: de nouvelles mesures contre la Chine }
+  camps: { pour: POUR, contre: CONTRE, objet: de nouvelles mesures }
   questions:
     # § 1.5 et 2c, [5] [7] [10] [13] : sanctions et contre-sanctions du même jour, 22/03/2021.
     - question: Faut-il sanctionner des responsables chinois ?

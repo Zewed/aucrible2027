@@ -8,35 +8,35 @@ question: Faut-il imposer l'uniforme à l'école ?
 titreCourt: "L'uniforme à l'école"
 contexte:
   - "Aucune loi n'impose l'uniforme : c'est le règlement intérieur de chaque école ou établissement qui peut rendre une tenue commune obligatoire."
-  - Une expérimentation de la tenue commune, lancée à la rentrée 2024 dans 115 établissements volontaires, n'a pas été reconduite à la rentrée 2026.
+  - Une expérimentation de la tenue commune, lancée à la rentrée 2024 dans 119 établissements volontaires, n'a pas été reconduite à la rentrée 2026.
   - "Dans l'évaluation de la DEPP, les directeurs d'école y voient plus d'appartenance, mais l'effet sur le comportement et les apprentissages reste limité."
 chiffres:
-  - valeur: "115"
+  - valeur: "119"
     unite: établissements
     legende: volontaires pour l'expérimentation de la tenue commune, dès la rentrée 2024
     source: { organisme: DEPP, document: évaluation des expérimentations du port de la tenue commune, annee: 2026 }
   - valeur: 75 %
-    legende: des directeurs d'école constatent un effet positif sur le sentiment d'appartenance
+    legende: des directeurs d'école constatent une évolution positive du sentiment d'appartenance
     source: { organisme: DEPP, document: évaluation des expérimentations du port de la tenue commune, annee: 2026 }
   - valeur: 36 %
     legende: des directeurs d'école constatent une amélioration du climat scolaire
     source: { organisme: DEPP, document: évaluation des expérimentations du port de la tenue commune, annee: 2026 }
-  - valeur: "100"
+  - valeur: "180"
     unite: € par élève
-    legende: "au plus : la part de l'État, qui finance la moitié d'un trousseau d'environ 200 €"
-    source: { organisme: Ministère de l'Éducation nationale, document: réponse à la question écrite n° 1439, annee: 2025 }
+    legende: "pour une tenue, selon les directeurs d'école ; l'État pouvait en financer la moitié si la collectivité le demandait"
+    source: { organisme: DEPP, document: évaluation des expérimentations du port de la tenue commune, annee: 2026 }
 options:
   - id: A
     libelle: Non, la tenue reste libre
     implique: L'expérimentation n'est pas relancée et aucune tenue commune n'est encouragée au niveau national.
     defenseurs: Une égalité de façade, à l'effet limité sur les apprentissages, pendant que les inégalités se déplacent vers les coiffures, les chaussures et les sacs.
-    critiques: Selon les directeurs d'école, une tenue commune renforce le sentiment d'appartenance (75 %).
+    critiques: "75 % des directeurs d'école constatent une évolution positive du sentiment d'appartenance avec la tenue commune."
     axes: { societe: -1 }
   - id: B
     libelle: Laisser chaque établissement décider
     implique: Le règlement intérieur, voté avec la communauté éducative, peut inscrire une tenue commune ; l'État ne l'impose pas.
     defenseurs: Chaque communauté éducative choisit ce qui lui convient, au rythme de ce que sa collectivité peut payer.
-    critiques: Sans l'État, une collectivité ne peut pas financer les tenues ; seule une règle nationale vaudrait pour tous.
+    critiques: "Sans l'État, des collectivités comme Reims disent ne pas pouvoir financer les tenues ; seule une règle nationale vaudrait pour tous."
   - id: C
     libelle: L'imposer à tous les élèves du public
     implique: Une loi rend la tenue obligatoire dans les écoles et collèges publics (certains textes vont jusqu'au lycée) ; chaque établissement en fixe la coupe et la couleur.
@@ -45,7 +45,7 @@ options:
     axes: { societe: 2 }
 pourAllerPlusLoin:
   - titre: DEPP, évaluation des expérimentations du port de la tenue commune, 2026
-    url: https://www.education.gouv.fr/depp
+    url: https://www.education.gouv.fr/depp/evaluation-des-experimentations-du-port-de-la-tenue-commune-l-ecole-504773
   - titre: Assemblée nationale, réponse du ministère à la question écrite n° 1439, 2025
     url: https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE1439
   - titre: Banque des Territoires, Uniforme à l'école, mention passable et avenir incertain, 2026
@@ -77,3 +77,72 @@ positions:
   dupont-aignan: { option: B, source: "Programme 2022, 23/03/2022", statut: deduite }
   # https://www.lutte-ouvriere.org/breves/uniforme-scolaire-cachez-ces-inegalites-que-je-ne-saurais-voir-468155.html
   arthaud: { option: A, source: "Lutte ouvrière, 13/01/2023", statut: deduite }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1 et compléments C1, [2] [3] [16] : l'essai annoncé en 2023 (généralisation possible en 2026 si le bilan était
+    # favorable), mené en 2024-2025 et 2025-2026 comme prévu, puis non reconduit par l'État à la rentrée 2026.
+    # « Non reconduit », le mot du ministre et de la fiche, plutôt qu'« arrêté » : l'essai a duré les deux ans prévus,
+    # le ministre a dit « ni un échec, ni un gâchis » et les collectivités restent libres de poursuivre (Béziers
+    # l'étend) [3]. « Une centaine » : le mot du rapport de la DEPP, qui compte 97 écoles et 22 collèges et lycées (115
+    # dans l'échantillon de son enquête, sans Mayotte). Aucune série longue sur l'uniforme en France n'a été trouvée :
+    # les sondages d'opinion ne posent pas la même question d'un institut à l'autre.
+    etapes:
+      - { quand: "En 2023", valeur: "Essai annoncé" }
+      - { quand: "En 2026", valeur: "Essai non reconduit" }
+    chute: "… par l'État, après deux ans dans une centaine d'écoles, collèges et lycées volontaires. Aucune loi n'impose l'uniforme."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : aucune grandeur à deux dates ne mesure
+  # le sujet (personne ne compte les écoles qui gardent une tenue après l'arrêt de l'essai) ; le coût va dans la chute
+  # des leviers.
+  leviers:
+    # Les trois options de la fiche, à égalité. Compléments C4, [16] : 180 € par élève selon les directeurs d'école (190 €
+    # selon les chefs d'établissement) ; le trousseau payé par la collectivité, qui pouvait demander à l'État la moitié,
+    # jusqu'à 100 € par élève : en février 2025, un tiers des écoles de l'essai figuraient parmi les bénéficiaires d'une
+    # aide de l'État, d'où « parfois ». Les familles ont acheté des pièces en plus dans 17 % des écoles (35 € environ),
+    # hors trousseau. La chute dit qui payait, utile aux deux camps : la gratuité pour les familles, la dépense publique.
+    titre: "L'uniforme à l'école : trois choix"
+    choix:
+      - { texte: "La tenue libre", detail: "pas d'essai relancé, aucune tenue commune encouragée par l'État" }
+      - { texte: "Chaque école décide", detail: "son règlement peut imposer une tenue ; l'État ne l'impose pas" }
+      - { texte: "L'uniforme pour tous", detail: "une loi, dans les écoles et collèges publics" }
+    chute: "Dans l'essai, une tenue coûtait environ 180 € par élève, selon les directeurs, payée par la commune, parfois aidée par l'État."
+    source: "DEPP, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: "l'uniforme obligatoire" }
+  # POUR = l'option C (une loi qui l'impose) ; CONTRE = les options A et B, qui refusent de l'imposer : chaque réponse
+  # CONTRE vaut pour les deux. Tous les chiffres viennent du seul bilan publié au 28/10/2026, l'évaluation de la DEPP
+  # (mai 2026) sur la première année ; aucune évaluation de la deuxième année n'a été trouvée (compléments C1). Les
+  # directions ont été interrogées par la DEPP, les élèves et les parents par FORS-Recherche sociale dans 8 écoles et
+  # 4 collèges, pour le même rapport ; ce sont des avis, pas des effets mesurés, et chaque texte dit qui répond. Chaque
+  # camp cite des adultes et des élèves : POUR des directions (Q1, Q2, Q4) et des écoliers (Q3), CONTRE des élèves (Q1,
+  # Q4), des directeurs d'école (Q2) et des parents (Q3). Les limites (écoles volontaires, première année) sont dites
+  # par « volontaires » dans l'accroche et « après un an » dans les cartes.
+  # L'ordre d'apparition suit ABBA : aux questions 2 et 3, CONTRE parle en premier et c'est la carte POUR qui renvoie à
+  # l'autre (« dans la même enquête », « dans les mêmes écoles ») ; aux questions 1 et 4, c'est la carte CONTRE.
+  questions:
+    # Compléments C2 et C3, [16] : le même objet (se sentir du collège), vu par les directions et par les élèves. Les
+    # 16 chefs d'établissement dirigent 10 collèges et 6 lycées, les élèves viennent de 4 collèges : le texte POUR dit
+    # « collège ou lycée ». 57 % = 15 % « plutôt pas » + 42 % « pas du tout » d'accord (876 collégiens ; 20 % d'accord,
+    # 23 % ne savent pas) : c'est ce chiffre qui prouve « pas », « 1 sur 5 » d'accord laisserait croire à 4 sur 5 contre.
+    - question: "La tenue donne-t-elle un esprit de groupe ?"
+      pour: { affirmation: "Oui, selon les chefs d'établissement.", chiffre: "13 sur 16", texte: "Interrogés après un an, 13 chefs d'établissement sur 16 voient les élèves plus attachés à leur collège ou lycée.", source: "DEPP, 2026" }
+      contre: { affirmation: "Pas selon les collégiens.", chiffre: "57 %", texte: "Dans quatre collèges, 57 % des élèves interrogés ne se sentent pas plus « dans le groupe » depuis la tenue.", source: "DEPP, 2026" }
+    # Compléments C2, [16] : la même question de la même enquête (« les problématiques de harcèlement »), posée aux
+    # directeurs d'école et aux chefs d'établissement ; chaque camp cite un niveau, et le texte le nomme. 71 % = « pas
+    # d'évolution notable » (18 % y voient un progrès) ; 10 sur 16 = « plutôt » ou « très » positive (1 négative).
+    - question: "La tenue fait-elle reculer le harcèlement ?"
+      pour: { affirmation: "Au collège et au lycée, oui.", chiffre: "10 sur 16", texte: "Dans la même enquête, 10 chefs d'établissement sur 16 voient un progrès contre le harcèlement.", source: "DEPP, 2026" }
+      contre: { affirmation: "Pas dans la plupart des écoles.", chiffre: "71 %", texte: "Interrogés après un an, 71 % des directeurs d'école ne voient pas de changement notable sur le harcèlement.", source: "DEPP, 2026" }
+    # Compléments C3, [16] : la même enquête dans les mêmes écoles, deux questions qui ne se contredisent pas (on critique
+    # moins les vêtements, mais on se juge sur autre chose) ; chaque texte dit qui répond et à quoi. « Réduit » et non
+    # « efface » : c'est ce que promettent ses défenseurs (§ 2, enjeu 1), personne ne dit qu'elle efface tout. Le « 32 %
+    # non » reste : 43 % n'est pas une majorité, et seul l'écart avec le non (25 % ne savent pas) justifie le « oui ».
+    - question: "La tenue réduit-elle les différences entre élèves ?"
+      pour: { affirmation: "Sur les vêtements, oui.", chiffre: "43 %", texte: "Dans les mêmes écoles, 43 % des écoliers trouvent qu'on critique moins les vêtements des autres ; 32 % non.", source: "DEPP, 2026" }
+      contre: { affirmation: "Non, ils se comparent autrement.", chiffre: "64 %", texte: "Interrogés dans huit écoles, 64 % des parents trouvent que la tenue n'empêche pas les jugements entre élèves.", source: "DEPP, 2026" }
+    # Compléments C2 et C3, [16] : la fin de la première année à l'école primaire, vue par les directeurs (enquête de la
+    # DEPP) et par les écoliers (enquête de FORS) ; deux questions différentes, que chaque texte nomme. « En sont-ils
+    # contents » et non « veulent-ils la garder » : on n'a pas demandé aux écoliers s'ils voulaient la garder, mais s'ils
+    # aimaient la porter ; la question vaut ainsi pour les deux chiffres.
+    - question: "Ceux qui l'ont essayée en sont-ils contents ?"
+      pour: { affirmation: "Les directeurs d'école, oui.", chiffre: "7 sur 10", texte: "Interrogés après un an, sept directeurs d'école sur dix étaient favorables à la poursuite de l'essai.", source: "DEPP, 2026" }
+      contre: { affirmation: "Les écoliers, non.", chiffre: "57 %", texte: "Dans une autre enquête, menée dans huit écoles, 57 % des écoliers disent ne pas aimer porter la tenue.", source: "DEPP, 2026" }

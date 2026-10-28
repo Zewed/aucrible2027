@@ -121,7 +121,7 @@ reportage:
       - { texte: Aller plus loin, detail: "reconnaître le visage des personnes recherchées" }
     chute: "En Europe, reconnaître les visages en direct dans les lieux publics reste interdit à la police, sauf exceptions."
     source: "Parlement, 2026 ; Union européenne, 2024"
-  camps: { pour: POUR, contre: CONTRE, objet: "la généralisation des caméras à intelligence artificielle" }
+  camps: { pour: POUR, contre: CONTRE, objet: généraliser ces caméras }
   questions:
     # § 2b et § 3, [23] [24] : deux synthèses d'études avec zones témoins, des mêmes chercheurs (celle de 2019 met à jour
     # celle de 2008) ; les deux camps citent des caméras classiques, sans intelligence artificielle. La comparaison de

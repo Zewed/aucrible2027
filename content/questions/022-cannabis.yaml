@@ -7,7 +7,7 @@ theme: societe
 question: "Faut-il légaliser le cannabis ?"
 titreCourt: "Le cannabis"
 contexte:
-  - "En France, l'usage de cannabis est un délit puni d'un an de prison et de 3 750 € d'amende au plus, et une amende forfaitaire de 200 € s'applique depuis 2020."
+  - "En France, l'usage de cannabis est un délit puni d'un an de prison et de 3 750 € d'amende au plus, et une amende forfaitaire, sans procès, s'applique depuis 2020 : 500 € depuis août 2026, contre 200 € auparavant."
   - "Environ un adulte sur dix en consomme chaque année, et la France compte parmi les premiers pays consommateurs d'Europe."
   - "Le Canada, l'Uruguay, Malte, le Luxembourg et l'Allemagne ont légalisé tout ou partie de l'usage récréatif ; la France maintient l'interdiction."
 chiffres:
@@ -87,3 +87,93 @@ positions:
   zemmour: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite }
   # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
   dupont-aignan: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite }
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  # Les faits établis par les autorités de santé (l'Inserm) sont dans la chute des leviers, que les deux camps
+  # reconnaissent ; les questions portent sur ce qui est débattu : l'effet de l'interdit, de la légalisation, du
+  # marché légal. Chaque comparaison étrangère dit son lieu, ses dates et ce qu'elle mesure (compléments d à g).
+  accroche:
+    # Compléments a, [16] et § 1, [3] : la loi du 31 décembre 1970 fait de l'usage un délit ; l'article L. 3421-1 du
+    # code de la santé publique le punit d'un an de prison et de 3 750 € d'amende au plus, et l'amende forfaitaire,
+    # qui éteint les poursuites sans passer devant un juge, est de 500 € depuis le 20 août 2026 (loi n° 2026-798 du
+    # 18 août 2026, art. 25, vérifié sur Légifrance), contre 200 € depuis sa généralisation le 1er septembre 2020 ; le
+    # contexte de la fiche dit de même. 117 caractères.
+    etapes:
+      - { quand: "Depuis 1970", valeur: "Un délit" }
+      - { quand: "Depuis août 2026", valeur: "500 € d'amende" }
+    chute: "… ou jusqu'à un an de prison, pour avoir consommé du cannabis. Cette amende, sans procès, était de 200 € depuis 2020."
+  # Pas de « mécanisme » : son dessin est propre aux retraites. Pas d'« écart » : les grandeurs à deux dates (la
+  # consommation des jeunes, la teneur en THC, la part du marché légal) sont chacune l'argument d'un camp et vont dans
+  # les questions.
+  leviers:
+    # Les trois options de la fiche (A, B, C), à égalité et dans leurs mots. Aucun levier ne fait payer directement :
+    # les recettes d'un marché légal (2 milliards d'euros par an estimés en 2019, § 2 D, [2]) ne sont pas dans
+    # l'option A. Compléments b, [17] pour la chute : un fait établi par l'Inserm, que les deux camps invoquent (vendre
+    # aux seuls adultes et prévenir ; ou maintenir l'interdit) ; « peut … déclencher » reprend « peut induire des
+    # symptômes psychotiques et précipiter des troubles psychotiques » ; « troubles psychotiques » est le mot de
+    # l'Inserm (« psychiques », plus large, dirait plus que ce qu'il établit). L'option C dit « sanctionnés », d'où
+    # « sanctionnés » plutôt que « punis ». 129 caractères (130 au plus).
+    titre: "Le cannabis : trois choix"
+    choix:
+      - { texte: "Légaliser et encadrer", detail: "produire, vendre et consommer deviennent légaux pour les adultes, sous contrôle de l'État" }
+      - { texte: "Dépénaliser l'usage", detail: "consommer n'est plus un délit, vendre reste interdit" }
+      - { texte: "Maintenir l'interdiction", detail: "usage et vente sanctionnés, avec la prévention et la lutte contre les trafics" }
+    chute: "Selon l'Inserm, le cannabis est plus risqué à l'adolescence : il peut nuire à la mémoire et déclencher des troubles psychotiques."
+    source: "Inserm, 2014"
+  # POUR : l'option A, qui change le plus la règle ; CONTRE : les options B et C, qui gardent la vente interdite. Aucune
+  # réponse CONTRE ne défend la sanction de l'usage : chacune vaut pour B comme pour C. Chaque camp reçoit un argument
+  # tiré du Canada (Q2 et Q3 pour le CONTRE, Q4 pour le POUR) et un tiré des États-Unis (Q2 pour le POUR, Q4 pour le
+  # CONTRE).
+  camps: { pour: POUR, contre: CONTRE, objet: "la légalisation" }
+  questions:
+    # Compléments c, [1] : deux chiffres de l'OFDT. POUR : consommation dans l'année des 15-34 ans en 2021, 21,8 % en
+    # France, la plus haute de l'Union (de 3,4 % en Hongrie à 21,8 % en France), 15,4 % en moyenne (Agence européenne des
+    # drogues, rapport 2023, cité par l'OFDT). CONTRE : expérimentation à 17 ans (enquête ESCAPAD), 29,9 % en 2022, au
+    # plus bas depuis 2000, 20 points de moins qu'en 2002, où la moitié des jeunes en avait déjà pris. Un niveau chez les
+    # jeunes adultes, une tendance chez les adolescents : deux mesures différentes, que chaque texte nomme (« dans
+    # l'année », « déjà »). Ni l'un ni l'autre ne prouve une cause, et aucun texte n'en affirme. L'affirmation du CONTRE
+    # reprend le verbe de la question (« Chez les jeunes, de plus en plus », à côté de « 30 % », se lisait « de plus en
+    # plus de jeunes en prennent ») et parle de l'interdit du produit, que B garde aussi, pas de la sanction de l'usage.
+    - question: "L'interdiction éloigne-t-elle du cannabis ?"
+      pour: { affirmation: "Non, la France est en tête.", chiffre: "22 %", texte: "En 2021, 22 % des 15-34 ans en France en avaient pris dans l'année, le plus haut de l'Union (15 % en moyenne).", source: "OFDT, d'après l'Agence européenne des drogues, 2023" }
+      contre: { affirmation: "Oui, les jeunes s'en éloignent.", chiffre: "30 %", texte: "En 2022, 30 % des jeunes de 17 ans en avaient déjà pris, au plus bas depuis 2000, contre la moitié en 2002.", source: "OFDT, 2023" }
+    # Compléments d et e, [18] [20] [24] [25] : la consommation après la légalisation, là où elle a été mesurée avant et
+    # après. CONTRE : Canada (légalisation le 17/10/2018), enquête de Santé Canada sur les 16 ans et plus, 22 % dans
+    # l'année en 2018 (mai-juillet, avant la légalisation), 26 % en 2024 ; hausse significative. POUR : Colorado
+    # (magasins ouverts en janvier 2014), enquête de l'État auprès des lycéens, consommation dans le mois, environ 20 %
+    # en 2013 et 12,8 % en 2023 (arrondi à 13 %) ; une étude sur 1993-2021 ne trouve aucune hausse chez les lycéens
+    # américains après la légalisation [23]. Deux pays, deux âges, deux mesures (« dans l'année », « dans le mois ») :
+    # chaque texte dit la sienne. Chez les 16-19 ans canadiens, la hausse (36 % à 41 %) n'est pas significative selon
+    # Santé Canada : elle n'est pas citée. En 2018, 31 % des Canadiens disaient qu'ils admettraient plus facilement
+    # leur consommation une fois légale : une part de la hausse peut venir de là. L'enquête du Colorado n'a pas été
+    # ouverte : « moins de 13 % » (université du Colorado, 2024) et « environ un sur cinq » (2013), 12,8 % et 19,7 %
+    # lus dans la presse (compléments e et h), d'où « citée par la presse ».
+    - question: "Légaliser fait-il consommer plus ?"
+      contre: { affirmation: "Oui, au Canada.", chiffre: "26 %", texte: "En 2024, 26 % des Canadiens de 16 ans et plus en avaient pris dans l'année, contre 22 % en 2018, avant la légalisation.", source: "Santé Canada, 2024" }
+      pour: { affirmation: "Pas chez les lycéens du Colorado.", chiffre: "13 %", texte: "Au Colorado, 13 % des lycéens en avaient pris dans le mois en 2023, contre 20 % en 2013, avant les magasins légaux.", source: "Enquête de l'État du Colorado, citée par la presse, 2024" }
+    # Compléments d et c, [21] [22] [1]. CONTRE : étude de 13,6 millions d'Ontariens de 14 à 65 ans, 2006-2022 : la part
+    # des nouveaux cas de schizophrénie attribuable à un abus de cannabis (soigné aux urgences ou à l'hôpital) passe de
+    # 3,7 % (janvier 2006 à novembre 2015) à 10,3 % (octobre 2018 à décembre 2022) ; c'est une estimation, d'où « selon
+    # une estimation ». Les auteurs notent une hausse régulière, sans accélération après la légalisation, et un taux de
+    # schizophrénie stable : le texte dit « liés », pas « causés », et ne parle pas de hausse des cas ; l'affirmation
+    # dit que la hausse « a continué » (elle montait avant la loi), pas que la loi l'a causée. POUR : teneur
+    # moyenne en THC de la résine, 12,3 % en 2011, 29 % en 2023 (OFDT). Un effet sur la santé mesuré au Canada, un
+    # produit mesuré en France : chaque texte dit le sien. Un marché légal peut encadrer la teneur sans la garantir
+    # basse (l'Uruguay est passé de 9 % à 20 %, complément g ; l'Allemagne, complément f) : l'affirmation du POUR dit
+    # « encadrée », au conditionnel, et non que le légal serait moins fort.
+    - question: "Un marché légal protégerait-il la santé ?"
+      contre: { affirmation: "Non, la hausse a continué au Canada.", chiffre: "10 %", texte: "En Ontario, selon une estimation, 10 % des nouveaux cas de schizophrénie étaient liés à l'abus de cannabis après 2018, 4 % avant 2015.", source: "JAMA Network Open, 2025" }
+      pour: { affirmation: "Oui, l'illégal n'a aucun contrôle.", chiffre: "29 %", texte: "En France, la résine illégale contenait en moyenne 29 % de THC, la substance active, en 2023, contre 12 % en 2011.", source: "OFDT, 2025" }
+    # Compléments d et e, [18] [19] [28] : deux mesures de la part du marché légal, six à sept ans après l'ouverture
+    # des magasins dans les deux cas. POUR : Canada, enquête de Santé Canada, part des consommateurs de l'année dont la
+    # source habituelle est un magasin, un site ou un revendeur illégal, 28 % en 2018, 3 % en 2024 (72 % achètent dans
+    # un magasin ou sur un site légal). CONTRE : Californie (ventes légales depuis le 1er janvier 2018), estimation de
+    # l'État : environ 40 % du cannabis consommé vient des magasins autorisés en 2024 (25 % en 2019), donc 60 % n'en
+    # vient pas (calcul) ; ces 60 % peuvent comprendre la culture à domicile, autorisée : le texte dit « ne venait pas
+    # des magasins autorisés », pas « marché noir ». L'affirmation « Pas en Californie » s'appuie sur le même rapport,
+    # qui juge la production illégale stable par rapport à avant la légalisation [28]. Une part des consommateurs, une
+    # part des quantités : chaque texte dit la sienne. L'Uruguay et l'Allemagne, aux résultats plus partagés, sont aux
+    # compléments f et g.
+    - question: "Légaliser assèche-t-il le marché noir ?"
+      pour: { affirmation: "Au Canada, oui.", chiffre: "3 %", texte: "En 2024, 3 % des consommateurs canadiens achetaient d'habitude au marché illégal, contre 28 % en 2018, avant la légalisation.", source: "Santé Canada, 2024" }
+      contre: { affirmation: "Pas en Californie.", chiffre: "60 %", texte: "En Californie, 60 % du cannabis consommé en 2024 ne venait pas des magasins autorisés, selon une estimation de l'État.", source: "État de Californie, 2025" }
