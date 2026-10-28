@@ -1,0 +1,21 @@
+src/video/reportage/Reportage.tsx
+  s_613931134209e1::t_65c3344740229d 48,58-59,86-88,238,249,366,377
+src/video/reportage/reportage.css
+  s_613931134209e1::t_cb12521c4fa897 32,83,121-133
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b9ac7b8e2d5d79489b2511c3234e85bf8c434d2b",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
