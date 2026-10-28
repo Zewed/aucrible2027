@@ -1,0 +1,130 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/027-gpa.md (tout ce qui suit y est sourcé).
+# Mots disputés (étude, « Règles de lecture ») : ni « femme porteuse » (mot des partisans) ni « mère porteuse » (mot des
+# opposants) ; la fiche écrit « la femme qui porte l'enfant » ou « grossesse pour autrui ».
+numero: 27
+date: 2026-10-26
+theme: societe
+question: "Faut-il autoriser la gestation pour autrui (GPA) en France ?"
+titreCourt: "La GPA"
+contexte:
+  - "Depuis 1994, la loi interdit la gestation pour autrui (GPA) : un contrat par lequel une femme porte un enfant pour le remettre à d'autres est nul, et l'intermédiaire est puni."
+  - "Recourir à la GPA dans un pays où elle est légale n'est pas puni. Le 3 juillet 2026, la Cour de cassation a reconnu deux pères d'enfants nés ainsi au Canada, tout en confirmant l'interdiction en France."
+  - "Depuis 2025, la proposition d'autoriser une GPA dite « éthique », sans paiement, a relancé le débat. Ses partisans y voient une réponse à l'infertilité et une question d'égalité entre couples ; ses opposants, à droite comme à gauche, une marchandisation du corps des femmes."
+chiffres:
+  - valeur: "1"
+    unite: an de prison
+    legende: "et 15 000 € d'amende au plus pour l'intermédiaire ; recourir à la GPA dans un pays où elle est légale n'est pas puni"
+    source: { organisme: Ministère de la Justice, document: réponse à la question écrite n° 11042, annee: 2024 }
+  - valeur: "5"
+    unite: affaires
+    legende: "dans lesquelles la Cour européenne des droits de l'homme a condamné la France, de 2014 à 2017, pour avoir refusé à des enfants nés de GPA tout lien légal avec leur père, sans condamner l'interdiction elle-même"
+    source: { organisme: Sénat, document: étude de législation comparée n° 327, annee: 2023 }
+  - valeur: "7,8 %"
+    legende: "des grossesses pour autrui ont connu une complication grave en Ontario (Canada), contre 2,3 % des grossesses sans aide médicale et 4,3 % après une fécondation in vitro"
+    source: { organisme: Annals of Internal Medicine, document: "Velez et al.", annee: 2024 }
+options:
+  - id: A
+    libelle: L'interdire aussi à l'étranger
+    implique: "La GPA reste interdite en France, et y recourir devient un délit même dans un pays où elle est légale, comme en Italie depuis 2024 ; les peines contre les intermédiaires sont alourdies."
+    defenseurs: "Interdire en France sans punir le recours à l'étranger revient à laisser faire : la GPA porte atteinte à la dignité des femmes et des enfants, il faut la combattre partout."
+    critiques: "Des juristes jugent difficile de punir un acte légal là où il a lieu, et ce sont les enfants déjà nés qui en subiraient les conséquences."
+    axes: { societe: 2 }
+  - id: B
+    libelle: Garder l'interdiction actuelle
+    implique: "La GPA reste interdite en France et l'intermédiaire est puni ; le recours à l'étranger n'est pas puni, et le juge reconnaît au cas par cas les parents des enfants qui en sont nés."
+    defenseurs: "L'enfant n'est pas un droit et le corps des femmes n'est pas une marchandise ; mais l'enfant né à l'étranger n'a pas à payer le choix de ses parents."
+    critiques: "Les uns y voient une interdiction contournée sans risque à l'étranger, les autres un refus d'encadrer en France une pratique qui existe déjà."
+    axes: { societe: 1 }
+  - id: C
+    libelle: L'autoriser sans paiement
+    implique: "Une femme peut porter un enfant pour d'autres sans être payée, ses frais étant remboursés, dans un cadre strict fixé par la loi, comme au Royaume-Uni ou au Canada."
+    defenseurs: "Des couples infertiles et des couples d'hommes partent déjà à l'étranger : mieux vaut une GPA encadrée et non lucrative en France, qui protège la femme et l'enfant."
+    critiques: "« Il n'y a pas de GPA éthique » : la femme engage son corps, l'enfant est séparé d'elle à la naissance, et le remboursement des frais peut cacher un paiement."
+    axes: { societe: -1 }
+  - id: D
+    libelle: "L'autoriser, même payée"
+    implique: "La femme qui porte l'enfant peut être payée, dans un contrat encadré par la loi, comme en Californie."
+    defenseurs: "Porter un enfant pour d'autres demande du temps et comporte des risques : le rémunérer le reconnaît, dans un cadre qui protège les droits de chacun."
+    critiques: "Payer une grossesse fait du corps des femmes et de l'enfant un objet de marché, et attire d'abord les femmes les plus pauvres."
+    axes: { societe: -2 }
+pourAllerPlusLoin:
+  - titre: "Sénat, La gestation pour autrui, étude de législation comparée n° 327, 2023"
+    url: https://www.senat.fr/lc/lc327/lc327.html
+  - titre: "Assemblée nationale, question écrite n° 11042 et réponse du ministère de la Justice, 2024"
+    url: https://www.assemblee-nationale.fr/dyn/16/questions/QANR5L16QE11042
+  - titre: "Le Club des juristes, la Cour de cassation et la filiation des enfants nés de GPA à l'étranger, 2026"
+    url: https://www.leclubdesjuristes.com/societe/malgre-linterdiction-de-la-gpa-en-france-la-cour-de-cassation-valide-la-filiation-denfants-nes-a-letranger-16910/
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour autoriser la GPA"
+    argument: "Des couples partent déjà à l'étranger : mieux vaut une GPA encadrée et non lucrative en France."
+  - titre: "Pour ne pas l'autoriser"
+    argument: "Le corps des femmes n'est pas une marchandise, et l'enfant n'est pas l'objet d'un contrat."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "L'autoriser"
+    precision: "avec ou sans paiement"
+  - choix: "L'interdire"
+    precision: "en France ou aussi à l'étranger"
+# Positions sourcées seulement (étude, § 4). Inconnues : Philippe, Glucksmann, Lisnard, Tondelier, Ruffin, Arthaud.
+# Pistes à vérifier avant tout ajout : Glucksmann (BFMTV, 26/04/2024, selon MonVote2027 : C si confirmé) ; Ruffin (JDD, juin 2023, selon MonVote2027).
+positions:
+  # Programme 2022, rapporté par Têtu le 04/04/2022 : https://tetu.com/2022/04/04/presidentielle-candidats-proposition-lgbtqi-election/
+  # Programme 2022, livret « La Famille » : https://rassemblementnational.fr/documents/projet/projet-la-famille.pdf
+  le-pen: { option: A, source: "Programme 2022, livret « La Famille »", statut: deduite }
+  # Proposition de loi n° 572 au Sénat, 03/05/2024 : https://www.senat.fr/leg/ppl23-572.html
+  retailleau: { option: A, source: "Proposition de loi n° 572 au Sénat, 03/05/2024", statut: officielle }
+  # Programme 2022, mesure 11 ; projet Famille 2026, mesure 13 : https://www.lesprosdelapetiteenfance.fr/article/nicolas-dupont-aignan-candidat-souverainiste-debout-la-france/
+  dupont-aignan: { option: A, source: "Programme 2022, mesure 11 ; projet Famille 2026, mesure 13", statut: deduite }
+  # L'Avenir en commun, édition 2025, chap. 4 : https://melenchon2027.fr/programme2025/livre/chapitre4/s1/
+  melenchon: { option: B, source: "L'Avenir en commun, édition 2025, chap. 4", statut: officielle }
+  # Discours, université d'été du PCF, 26/08/2025 : https://www.pcf.fr/ue_25_discours_fr
+  roussel: { option: B, source: "Discours, université d'été du PCF, 26/08/2025", statut: officielle }
+  # franceinfo, 21/08/2025 : https://www.franceinfo.fr/politique/la-republique-en-marche/gabriel-attal-fait-travailler-le-parti-renaissance-sur-la-legalisation-d-une-gpa-ethique_7446940.html
+  attal: { option: C, source: "franceinfo, 21/08/2025", statut: deduite }
+  # France 2, L'Heure de vérité, 08/10/2026 (franceinfo) : https://www.franceinfo.fr/politique/edouard-philippe/immigration-retraites-allocations-familiales-parcoursup-ce-qu-il-faut-retenir-de-l-interview-d-edouard-philippe-dans-l-emission-l-heure-de-verite_8228416.html
+  philippe: { option: B, source: "France 2, L'Heure de vérité, 08/10/2026 (franceinfo)", statut: deduite }
+  # têtu·, 18/03/2025 : https://tetu.com/2025/03/18/interview-politique-depute-francois-ruffin-extreme-droite-argent-gpa-famille-transidentite-droits-lgbt/
+  ruffin: { option: B, source: "têtu·, 18/03/2025", statut: officielle }
+  # Programme présidentiel 2022 : https://web.archive.org/web/20220527160820/https://programme.ericzemmour.fr/famille
+  zemmour: { option: A, source: Programme présidentiel 2022, statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/027-gpa.md (chaque chiffre y a sa source
+# numérotée, voir son annexe). Le fil : trois choix possibles ; la France applique le deuxième.
+# Ni mécanisme ni écart : aucun rapport « X pour 1 » ni aucune grandeur à deux dates ne sont sourcés pour ce sujet.
+reportage:
+  accroche:
+    # § 1.1 et 1.2, [1] [2] [8] [9].
+    etapes:
+      - { quand: Depuis 1994, valeur: Interdite en France }
+      - { quand: Le 3 juillet 2026, valeur: Deux pères reconnus }
+    chute: … pour des enfants nés d'une GPA au Canada.
+  leviers:
+    # § 1.1, 2d et 2e, [2] [3] [4] [32].
+    titre: Trois choix possibles
+    choix:
+      - { texte: L'interdire aussi à l'étranger, detail: punir ceux qui y ont recours hors de France }
+      - { texte: Garder la loi actuelle, detail: "interdite en France, les enfants nés ailleurs reconnus par le juge" }
+      - { texte: L'autoriser, detail: "sans paiement, ou même payée" }
+    chute: "Aujourd'hui, la France applique le deuxième."
+    source: "Ministère de la Justice, 2024"
+  camps: { pour: POUR, contre: CONTRE, objet: la GPA en France }
+  # Chaque réponse compare ce qui se compare ; questions 1 et 2 : la même étude des deux côtés.
+  questions:
+    # § 2b, [26].
+    - question: Porter un enfant pour d'autres est-il dangereux ?
+      pour: { affirmation: Pas pour la plupart., chiffre: 92 sur 100, texte: "Au Canada, 92 femmes sur 100 ayant porté un enfant pour d'autres n'ont eu aucune complication grave.", source: "Annals of Internal Medicine, 2024" }
+      contre: { affirmation: Plus qu'une grossesse ordinaire., chiffre: 3 fois plus, texte: "Au Canada, les grossesses pour autrui ont connu trois fois plus de complications graves que les grossesses sans aide médicale.", source: "Annals of Internal Medicine, 2024" }
+    # § 2c, [27] : 22 familles nées de GPA, résultats non détaillés pour la GPA seule.
+    - question: Les enfants nés de GPA vont-ils bien ?
+      pour: { affirmation: "Oui, comme les autres.", chiffre: 20 ans, texte: "Suivis jusqu'à 20 ans par une étude anglaise, des enfants nés de GPA ou de dons vont aussi bien que les autres.", source: "Université de Cambridge, 2023" }
+      contre: { affirmation: Pas prouvé pour la GPA seule., chiffre: 22 familles, texte: "Une étude anglaise les a suivis jusqu'à 20 ans : 22 familles nées de GPA, sans résultat publié pour elles seules.", source: "Université de Cambridge, 2023" }
+    # § 2d, [31] [2] : le décompte de la justice à Nantes plutôt que l'estimation non attribuée de 200 à 300 par an.
+    - question: La loi française empêche-t-elle la GPA ?
+      pour: { affirmation: "Non, elle se fait à l'étranger.", chiffre: Une centaine par an, texte: "Chaque année, la justice traite une centaine de dossiers d'état civil d'enfants nés de GPA à l'étranger.", source: "Europe 1, 2018" }
+      contre: { affirmation: "En France, oui.", chiffre: 1 an de prison, texte: "Servir d'intermédiaire pour une GPA y est puni jusqu'à un an de prison et 15 000 € d'amende.", source: "Ministère de la Justice, 2024" }
+    # § 2e et 2d, [4] [32].
+    - question: D'autres pays l'autorisent-ils ?
+      pour: { affirmation: "Oui, sans paiement.", chiffre: Depuis 1985, texte: "Le Royaume-Uni autorise la GPA depuis 1985, si la femme qui porte l'enfant n'est pas payée. Le Canada aussi, depuis 2004.", source: "Sénat, 2023" }
+      contre: { affirmation: "L'Italie, elle, durcit l'interdiction.", chiffre: 2 ans de prison, texte: "Depuis 2024, l'Italie punit jusqu'à deux ans de prison ceux qui y ont recours, même dans un pays où elle est légale.", source: "Loi italienne, 2024" }

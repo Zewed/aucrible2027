@@ -1,0 +1,141 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/040-rsa.md (tout ce qui suit y est sourcé).
+# La distinction qui structure la fiche : des heures d'accompagnement (formation, démarches, stage), pas un emploi ;
+# les options vont de leur suppression à un travail pour la collectivité.
+numero: 40
+date: 2026-09-18
+theme: travail-retraites
+question: "Faut-il conditionner le RSA à 15 heures d'activité par semaine ?"
+titreCourt: "Les 15 heures du RSA"
+contexte:
+  - "Depuis le 1er janvier 2025, les allocataires du RSA, 1,84 million de foyers fin 2024, sont inscrits d'office à France Travail et signent un contrat qui prévoit en principe au moins 15 heures d'activité par semaine, comme une formation, des démarches ou un stage en entreprise."
+  - "Ces heures peuvent être réduites selon la situation, ou supprimées pour raison de santé, de handicap ou pour un parent isolé sans solution de garde. Depuis juin 2025, un premier manquement peut entraîner une retenue d'au moins 30 % du RSA pendant un à deux mois, rendue si la personne reprend ses démarches ; en cas de récidive, elle peut durer jusqu'à quatre mois et ne plus être rendue."
+  - "Dans l'essai mené de 2023 à 2024, sans les sanctions actuelles, les participants ont plus souvent trouvé un emploi que des allocataires comparables ; au total, l'évaluation officielle ne mesure pas d'emploi en plus, d'autres allocataires voisins en ayant trouvé moins."
+chiffres:
+  - valeur: "15"
+    unite: heures
+    legende: "d'activité par semaine en principe, réductibles selon la situation de chacun, demandées depuis 2025 aux allocataires du RSA"
+    source: { organisme: Conseil constitutionnel, document: "décision n° 2023-858 DC", annee: 2023 }
+  - valeur: "651,69"
+    unite: euros
+    legende: "par mois : le RSA d'une personne seule sans ressources, depuis le 1er avril 2026"
+    source: { organisme: Journal officiel, document: "décret n° 2026-220", annee: 2026 }
+  - valeur: "1 sur 3"
+    legende: "des foyers qui avaient droit au RSA ne le percevaient pas fin 2021, avant la réforme"
+    source: { organisme: Drees, document: "Études et résultats n° 1370", annee: 2026 }
+options:
+  - id: A
+    libelle: "Supprimer les heures obligatoires"
+    implique: "On revient sur la loi pour le plein emploi : plus de minimum d'heures ni la retenue créée en 2025 ; l'allocataire reste tenu, comme depuis 2009, de suivre des démarches d'insertion, et le RSA reste soumis à ses conditions de ressources."
+    defenseurs: "Le RSA est un minimum pour vivre, pas un salaire : la Commission nationale consultative des droits de l'homme juge que ces heures portent atteinte aux droits humains, et l'évaluation officielle ne trouve pas d'emploi en plus au total."
+    critiques: "Avant la loi, six allocataires sur dix n'avaient pas de contrat d'accompagnement valide selon la Cour des comptes, et huit Français sur dix approuvaient ces heures dans un sondage de 2022."
+    axes: { economie: -2 }
+  - id: B
+    libelle: "Garder la règle actuelle"
+    implique: "15 heures par semaine en principe, réduites selon la situation, ou aucune pour raison de santé, de handicap ou pour un parent isolé sans garde ; au premier manquement, au moins 30 % du RSA est retenu un à deux mois, puis rendu si la personne reprend ses démarches."
+    defenseurs: "La règle s'adapte à chacun et vient d'entrer en vigueur : dans l'essai, les participants ont plus souvent trouvé un emploi durable, et le Conseil d'État a jugé les sanctions proportionnées en 2026."
+    critiques: "Pour les uns, l'évaluation de l'essai ne trouve pas d'emploi en plus au total et les sanctions varient d'un département à l'autre ; pour les autres, la règle reste trop souple pour que le travail rapporte toujours plus que les aides."
+    # 0 et non une absence de note : c'est le point milieu entre la suppression et le durcissement.
+    axes: { economie: 0 }
+  - id: C
+    libelle: "Les durcir : 15 heures pour tous, moins d'aide sans activité"
+    implique: "Le RSA est fusionné avec d'autres aides : une part est versée sans condition, 300 euros par mois dans la proposition des Républicains, le reste à condition de justifier 15 heures d'activité, et le total des aides est plafonné à 70 % du Smic net."
+    defenseurs: "Le travail doit toujours rapporter plus que les aides : une allocation plus haute pour ceux qui se forment ou cherchent un emploi récompense l'effort, et deux allocataires sur trois sont orientés vers un parcours qui vise l'emploi."
+    critiques: "Ceux qui ne peuvent pas faire 15 heures vivraient avec moins, alors que huit allocataires sur dix ont au moins une difficulté de transport, de santé, d'argent ou de logement, et aucune économie n'est chiffrée par l'administration."
+    axes: { economie: 1 }
+  - id: D
+    libelle: "Le RSA contre un travail pour la collectivité"
+    implique: "En échange du RSA, l'allocataire travaille, par exemple une journée par semaine, pour une commune, un hôpital ou une maison de retraite, comme le proposait Nicolas Dupont-Aignan en 2022 ; il ne s'agit plus d'heures d'accompagnement mais d'un travail, sans autre paie que le RSA."
+    defenseurs: "Recevoir une aide de la collectivité, c'est lui rendre un peu de son temps : un travail utile redonne un rythme et des contacts, et le Conseil d'État a admis en 2018 du bénévolat dans le contrat d'un allocataire."
+    critiques: "Un travail sans salaire ni contrat concurrence les emplois payés, ce que ses opposants appellent du « travail gratuit », et le gouvernement rappelle que la loi n'oblige en aucun cas à travailler bénévolement."
+    axes: { economie: 2 }
+pourAllerPlusLoin:
+  - titre: "Dares et IPP, évaluation de l'accompagnement rénové des allocataires du RSA, 2026"
+    url: https://www.ipp.eu/wp-content/uploads/2026/07/Synthese_Rapport_IPP_evaluation_accompagnement_renove_bRSA-1.pdf
+  - titre: "Conseil constitutionnel, décision n° 2023-858 DC sur la loi pour le plein emploi, 2023"
+    url: https://www.conseil-constitutionnel.fr/decision/2023/2023858DC.htm
+  - titre: "Drees, non-recours au RSA, 2026"
+    url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/260506-non-recours-au-rsa-fin-2021
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour des heures obligatoires"
+    argument: "La règle s'adapte à chacun, et dans l'essai, les participants ont plus souvent trouvé un emploi durable."
+  - titre: "Pour les supprimer"
+    argument: "Le RSA est un minimum pour vivre, pas un salaire, et l'évaluation de l'essai ne trouve pas d'emploi en plus au total."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Des heures"
+    precision: "en échange du RSA"
+  - choix: "Pas d'heures"
+    precision: "imposées"
+positions:
+  # Vote du groupe RN contre la loi (49 sur 49), 14/11/2023 : https://datan.fr/votes/legislature-16/vote_2965 ; contre l'amendement des 15 heures (3 contre 1), 28/09/2023 : https://datan.fr/votes/legislature-16/vote_2557 ; explication de vote : https://lcp.fr/actualites/reforme-du-rsa-france-travail-l-assemblee-nationale-adopte-le-projet-de-loi-pour-le
+  # L'Avenir en commun, édition 2025, mesure 107 : https://votons-2027.fr/candidats/melenchon/programme/economie (reprend https://melenchon2027.fr/programme2025/livre/, page d'origine non lue)
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, mesure 107", statut: officielle }
+  # https://www.publicsenat.fr/actualites/politique/la-fete-est-finie-bruno-retailleau-veut-supprimer-les-35-heures-inciter-a-la-reprise-dactivite-et-plafonner-les-aides-sociales-pour-relancer-lemploi ; programme : https://votons-2027.fr/candidats/retailleau/programme/economie
+  retailleau: { option: C, source: "Public Sénat, 07/01/2026", statut: officielle }
+  # Les Écologistes, « Pour une prospérité écologique », nouveau programme, juillet 2026, ch. 32, mesure 1 (p. 119 du PDF) : https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
+  tondelier: { option: A, source: "Les Écologistes, « Pour une prospérité écologique », nouveau programme, juillet 2026, ch. 32, mesure 1 (p. 119 du PDF)", statut: officielle }
+  # Assemblée nationale, amendement n° 400 au projet de loi pour le plein emploi, art. 2, 22/09/2023, cosigné par Fabien Roussel (« Supprimer l'alinéa 9 ») : https://www.assemblee-nationale.fr/dyn/16/amendements/1673/AN/400.pdf
+  roussel: { option: A, source: "Assemblée nationale, amendement n° 400 au projet de loi pour le plein emploi, art. 2, 22/09/2023, cosigné par Fabien Roussel (« Supprimer l'alinéa 9 »)", statut: deduite }
+  # Assemblée nationale, amendement n° 1365 (LFI-Nupes) au projet de loi pour le plein emploi, art. 2, 22/09/2023, cosigné par François Ruffin ; vote personnel contre la loi, scrutin n° 2965, 14/11/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/1673/AN/1365.pdf
+  ruffin: { option: A, source: "Assemblée nationale, amendement n° 1365 (LFI-Nupes) au projet de loi pour le plein emploi, art. 2, 22/09/2023, cosigné par François Ruffin ; vote personnel contre la loi, scrutin n° 2965, 14/11/2023", statut: deduite }
+  # Lutte ouvrière, discours de Nathalie Arthaud au meeting du 07/10/2023, publié le 11/10/2023 : https://www.lutte-ouvriere.org/journal/article/2023-10-11-nathalie-arthaud-pour-une-perspective-communiste-revolutionnaire_727031.html
+  arthaud: { option: A, source: "Lutte ouvrière, discours de Nathalie Arthaud au meeting du 07/10/2023, publié le 11/10/2023", statut: deduite }
+  # LCP, déclaration de politique générale de Gabriel Attal, 30/01/2024 : https://lcp.fr/actualites/desmicardiser-debureaucratiser-deverrouiller-les-principales-annonces-de-gabriel-attal-a
+  attal: { option: B, source: "LCP, déclaration de politique générale de Gabriel Attal, 30/01/2024", statut: deduite }
+  # Assemblée nationale (relevé Datan), scrutin n° 2557 du 28/09/2023 sur l'amendement n° 183 des 15 heures : Horizons 7 pour sur 7 ; loi entière, scrutin n° 2965 : 20 pour sur 20 : https://datan.fr/votes/legislature-16/vote_2557
+  philippe: { option: B, source: "Assemblée nationale (relevé Datan), scrutin n° 2557 du 28/09/2023 sur l'amendement n° 183 des 15 heures : Horizons 7 pour sur 7 ; loi entière, scrutin n° 2965 : 20 pour sur 20", statut: deduite }
+  # Projet présidentiel 2022 de N. Dupont-Aignan, « 100 décisions pour la France », décision 22 (2022nda.fr, archive d'avril 2022) : https://web.archive.org/web/20220405000000/https://2022nda.fr/projet/lessentiel/
+  dupont-aignan: { option: D, source: "Projet présidentiel 2022 de N. Dupont-Aignan, « 100 décisions pour la France », décision 22 (2022nda.fr, archive d'avril 2022)", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/040-rsa.md (chaque chiffre y a sa source
+# numérotée). Le fil : depuis 2025, 15 heures en principe ; faut-il les supprimer, les garder, les durcir ou
+# demander un travail ? Ni mécanisme ni écart : aucun ratio « X pour 1 » ni aucune grandeur à deux dates n'éclaire
+# ce débat mieux que les leviers.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1 et 1.3, [1] [2] : la loi n'exigeait aucun minimum d'heures avant 2025.
+    etapes:
+      - { quand: "Jusqu'en 2024", valeur: "Aucun minimum" }
+      - { quand: "Depuis 2025", valeur: "15 heures" }
+    # « demandées » et non « pour toucher le RSA » : la sanction vise un manquement au contrat, pas des heures non faites (§ 1.1, [2]).
+    chute: "… d'activité par semaine, en principe, demandées aux allocataires du RSA."
+  leviers:
+    # § 2a et 2j, [31] [32] [33]. Supprimer = revenir à avant 2025 : les démarches d'insertion de 2009 restent (§ 1.1, [10]).
+    # La chute dit qui est concerné (§ 1.2, [10]) ; un résultat de la réforme (l'inscription à France Travail) aurait clos
+    # les leviers sur un argument pour « les garder ».
+    titre: "Que faire de ces 15 heures ?"
+    choix:
+      - { texte: "Les supprimer", detail: "sans minimum d'heures, comme avant 2025" }
+      - { texte: "Les garder", detail: "15 heures en principe, moins selon la santé ou la famille" }
+      - { texte: "Les durcir", detail: "pour tous, avec une aide plus basse sans activité" }
+      - { texte: "Un travail contre le RSA", detail: "une journée par semaine pour une collectivité" }
+    chute: "Fin 2024, 1,84 million de foyers touchaient le RSA."
+    source: "Drees, 2025"
+  camps: { pour: POUR, contre: CONTRE, objet: "les heures obligatoires" }
+  # Chaque réponse compare ce qui se compare : même étude, même essai ou même règle.
+  questions:
+    # § 2b, [7] : les deux réponses viennent de la même évaluation, la seule avec groupe de comparaison. « 0 en plus » rend
+    # « pas d'effet net significatif » et la conclusion des auteurs (« réallocation » plutôt que « créations nettes ») ;
+    # le texte garde « ne mesure », qui dit la limite de la mesure.
+    - question: "Les heures aident-elles à trouver un emploi ?"
+      pour: { affirmation: "Oui, pour ceux qui les suivent.", chiffre: "3 sur 100", texte: "Sur 100 participants à l'essai, 3 de plus que chez des allocataires semblables avaient un emploi salarié dans l'année.", source: "Dares et IPP, 2026" }
+      contre: { affirmation: "Pas d'emploi en plus au total.", chiffre: "0 en plus", texte: "Ces emplois ont manqué à d'autres allocataires voisins. Au total, l'évaluation ne mesure aucun gain net.", source: "Dares et IPP, 2026" }
+    # § 2c, [7] : même évaluation, mêmes participants. Le contre parle en premier (ABBA).
+    - question: "Quels emplois ont-ils trouvés ?"
+      pour: { affirmation: "Des emplois qui durent.", chiffre: "7 sur 10", texte: "Sept emplois gagnés sur dix durent plus de six mois, sans plus de temps partiel ni de salaire plus bas.", source: "Dares et IPP, 2026" }
+      contre: { affirmation: "Souvent des emplois aidés.", chiffre: "2 sur 3", texte: "Deux tiers des emplois durables gagnés sont des contrats aidés, payés en partie par l'État, en nombre limité.", source: "Dares et IPP, 2026" }
+    # § 2d, [8] : même bilan, mêmes 18 territoires, même date. Deux mesures différentes, chacune dite pour ce qu'elle est :
+    # l'orientation (68 % emploi ou socio-professionnel, d'où « avec ou sans suivi social ») et les freins (82 % des 73 %
+    # dont la situation a été examinée, d'où « évalués »). « Difficultés » est le mot de la source, pas « urgences ».
+    - question: "Peut-on demander 15 heures à chacun ?"
+      pour: { affirmation: "La plupart peuvent viser l'emploi.", chiffre: "68 %", texte: "Dans les territoires d'essai, 68 % des allocataires ont été orientés vers un parcours qui vise l'emploi, avec ou sans suivi social.", source: "État et France Travail, 2025" }
+      contre: { affirmation: "Beaucoup ont d'abord d'autres difficultés.", chiffre: "82 %", texte: "Parmi les allocataires évalués à l'entrée, 82 % avaient au moins une difficulté : transport, santé, argent, logement ou garde d'enfants.", source: "État et France Travail, 2025" }
+    # § 1.1, 1.2 et 2e, [2] [4] [6] : la règle de la première sanction, et ce qu'en font les départements.
+    # 100 % dans la limite de 50 % pour une famille (§ 1.2, [5]) : le texte le dit. L'enquête du Monde n'est connue que par
+    # une question écrite d'un député (12/05/2026, [6]), sa date est à vérifier : la source le dit. Le contre parle en premier (ABBA).
+    - question: "Les sanctions sont-elles mesurées ?"
+      pour: { affirmation: "Oui, courtes et réversibles.", chiffre: "2 mois", texte: "Au premier manquement, la retenue dure deux mois au plus, et l'argent est rendu si l'on reprend ses démarches.", source: "Journal officiel, 2025" }
+      contre: { affirmation: "Pas partout.", chiffre: "17 sur 51", texte: "D'après la presse, 17 départements sur 51 retiennent tout le RSA au premier manquement, la moitié au plus pour une famille.", source: "Le Monde, cité par un député, 2026" }

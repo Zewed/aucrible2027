@@ -1,0 +1,152 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/047-legitime-defense-policiers.md (tout ce qui suit y est sourcé).
+# Vocabulaire : « présomption de légitime défense » (auteurs du texte, RN, Reconquête, Debout la France ; titre du texte
+# voté) et « permis de tuer » (opposants : LFI, Amnesty, LDH) sont des mots attribués ; le texte voté parle de
+# « présomption d'usage légitime de l'arme ». Ne contredit pas les fiches 005, 037 et 043 (même gouvernement,
+# même ministre de l'Intérieur, mêmes règles de déduction des positions).
+numero: 47
+date: 2026-09-11
+theme: securite-justice
+question: "Quand un policier ou un gendarme tire, faut-il présumer qu'il respecte la loi ?"
+titreCourt: "Le tir des policiers"
+contexte:
+  - "Depuis une loi de 2017, policiers et gendarmes peuvent tirer dans cinq cas, toujours en cas d'absolue nécessité, dont celui d'une voiture qui refuse de s'arrêter et dont les occupants risquent de mettre des vies en danger en fuyant."
+  - "Le 7 juillet 2026, l'Assemblée nationale a voté par 313 voix contre 199 une présomption : quand ils tirent, ils seraient réputés avoir respecté ces règles, sauf preuve contraire."
+  - "Ses auteurs parlent de « présomption de légitime défense » et ses opposants de « permis de tuer » ; le Sénat ne l'a pas encore examinée."
+chiffres:
+  # § 2b, [11] [12] : refus « aggravés », qui exposent d'autres personnes à un risque de mort ou de blessure grave.
+  - valeur: "4 905"
+    unite: refus
+    legende: "de s'arrêter mettant des vies en danger en 2022, deux fois plus qu'en 2012 (2 520)"
+    source: { organisme: Assemblée nationale, document: "mission d'information sur les refus d'obtempérer", annee: 2024 }
+  # § 2c, [11] : police nationale ; la part des refus suivis d'un tir est revenue à son niveau d'avant 2017 dès 2019.
+  - valeur: "156"
+    unite: tirs par an
+    legende: "de policiers sur des voitures en mouvement de 2018 à 2022, contre 122 de 2012 à 2016"
+    source: { organisme: Assemblée nationale, document: "mission d'information sur les refus d'obtempérer", annee: 2024 }
+  # § 1.2, [7].
+  - valeur: "313"
+    unite: députés
+    legende: "pour la présomption le 7 juillet 2026, contre 199 : le texte doit encore passer au Sénat"
+    source: { organisme: Assemblée nationale, document: scrutin n° 7987, annee: 2026 }
+options:
+  - id: A
+    libelle: "Revenir sur la loi de 2017"
+    implique: "La règle de 2017 qui permet de tirer sur une voiture qui refuse de s'arrêter est supprimée, ou réservée à un danger évident et immédiat. Aucune présomption n'est créée."
+    defenseurs: "Selon une étude de chercheurs, les tirs mortels de policiers sur des voitures ont été multipliés par cinq après 2017, et la Cour européenne des droits de l'homme a condamné la France en 2018 pour un tir de 2008 sur une voiture déjà en fuite."
+    critiques: "Les refus de s'arrêter qui mettent des vies en danger ont doublé en dix ans, et les députés chargés d'évaluer la loi n'ont pas établi qu'elle ait fait tirer davantage : la part des refus suivis d'un tir est revenue dès 2019 à son niveau d'avant 2017."
+    axes: { societe: -2 }
+  - id: B
+    libelle: "Garder les règles actuelles"
+    implique: "Les cinq cas de tir fixés en 2017 restent tels quels, sans présomption : après un tir, la justice vérifie au cas par cas qu'il était nécessaire. L'effort porte sur la formation et le matériel pour arrêter les voitures."
+    defenseurs: "La loi protège déjà le policier qui respecte ses règles, alors qu'une présomption risquerait, selon le Défenseur des droits, de faire peser la preuve sur les victimes et de banaliser l'usage des armes."
+    critiques: "Pour les uns, la loi de 2017 a été comprise comme des règles plus souples et doit être resserrée ; pour les autres, des policiers qui ont respecté la loi restent traités d'emblée comme des suspects."
+    axes: { societe: 0 }
+  - id: C
+    libelle: "Présumer que le tir respecte la loi"
+    implique: "Quand un policier ou un gendarme tire, il est présumé avoir agi dans l'un des cinq cas prévus et avec l'absolue nécessité exigée. Toute preuve contraire, une vidéo par exemple, peut renverser cette présomption à tout moment."
+    defenseurs: "Les agents décident en quelques secondes, face à des refus de s'arrêter plus dangereux : quand ils ont agi dans le cadre de la loi, ils ne doivent pas être traités d'emblée comme des suspects. Chacun est déjà présumé en légitime défense dans deux cas."
+    critiques: "La présomption dépendrait du métier de celui qui tire et non des circonstances, et le Défenseur des droits comme les avocats craignent qu'elle affaiblisse le contrôle du juge et fasse peser la preuve sur les victimes."
+    axes: { societe: 2 }
+pourAllerPlusLoin:
+  - titre: "Légifrance, article L. 435-1 du code de la sécurité intérieure"
+    url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000034107970
+  - titre: "Assemblée nationale, texte adopté n° 328 du 7 juillet 2026"
+    url: https://www.assemblee-nationale.fr/dyn/17/textes/l17t0328_texte-adopte-seance.pdf
+  - titre: "Assemblée nationale, mission d'information sur les refus d'obtempérer, mai 2024"
+    url: https://www.assemblee-nationale.fr/dyn/contenu/telechargement/832518/file/DP%20final_refus%20d%27obtemp%C3%A9rer.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour une présomption"
+    argument: "Quand ils ont agi dans le cadre de la loi, les policiers et les gendarmes ne doivent pas être traités d'emblée comme des suspects."
+  - titre: "Contre une présomption"
+    argument: "La présomption dépendrait du métier de celui qui tire, et pourrait faire peser la preuve sur les victimes."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Présumer"
+    precision: "que le tir respecte la loi"
+  - choix: "Ne pas présumer"
+    precision: "garder ou resserrer les règles"
+positions:
+  # Règle (étude § 4) : le vote d'ensemble du 07/07/2026 porte sur l'article unique, donc sur la mesure ; « pour » range en C ;
+  # « contre » n'écarte que C. Scrutin n° 7987 : https://www.assemblee-nationale.fr/dyn/17/scrutins/7987 ; détail : https://datan.fr/votes/legislature-17/vote_7987
+  # https://rassemblementnational.fr/22-mesures (mesure 3 : « Instituer une présomption de légitime défense pour les forces de l'ordre ») ; vote personnel pour, 07/07/2026 : https://datan.fr/votes/legislature-17/vote_7987
+  # Debout la France, livret « Sécurité » d'octobre 2025, mesure 8 (« présomption de légitime défense », « jusqu'à preuve du contraire ») : https://www.debout-la-france.fr/projet/securite/
+  dupont-aignan: { option: C, source: "Debout la France, livret Sécurité, octobre 2025, mesure 8", statut: officielle }
+  # L'Avenir en commun, édition 2025 (programme sur melenchon2027.fr), chap. 4, « Refonder une police républicaine » : https://melenchon2027.fr/programme2025/livre/chapitre4/s3/
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025 (programme sur melenchon2027.fr), chap. 4, « Refonder une police républicaine »", statut: officielle }
+  # Les Écologistes, « Pour une prospérité écologique », nouveau programme, juillet 2026, ch. 50 « Refonder une police républicaine », mesure 3 (p. 165 du PDF) : https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
+  tondelier: { option: A, source: "Les Écologistes, « Pour une prospérité écologique », nouveau programme, juillet 2026, ch. 50 « Refonder une police républicaine », mesure 3 (p. 165 du PDF)", statut: officielle }
+  # Amendement n° 25 au texte n° 691 (art. unique), groupe Écologiste et Social, F. Ruffin parmi les auteurs, 19/01/2026 (rejeté) : https://www.assemblee-nationale.fr/dyn/17/amendements/0691/AN/25.pdf
+  ruffin: { option: A, source: "Amendement n° 25 au texte n° 691 (art. unique), groupe Écologiste et Social, F. Ruffin parmi les auteurs, 19/01/2026 (rejeté)", statut: deduite }
+  # Assemblée nationale, scrutin n° 7987 (vote sur l'ensemble, article unique), 07/07/2026 : vote personnel pour ; programme RN des législatives 2024 : https://www.assemblee-nationale.fr/dyn/17/scrutins/7987
+  le-pen: { option: C, source: "Assemblée nationale, scrutin n° 7987 (vote sur l'ensemble, article unique), 07/07/2026 : vote personnel pour ; programme RN des législatives 2024", statut: deduite }
+  # Assemblée nationale, scrutin n° 7987 (vote sur l'ensemble, article unique), 07/07/2026 : Horizons & Indépendants 31 pour, 0 contre : https://www.assemblee-nationale.fr/dyn/17/scrutins/7987
+  philippe: { option: C, source: "Assemblée nationale, scrutin n° 7987 (vote sur l'ensemble, article unique), 07/07/2026 : Horizons & Indépendants 31 pour, 0 contre", statut: deduite }
+  # Assemblée nationale, scrutin n° 7987 (vote sur l'ensemble, article unique), 07/07/2026 : Droite républicaine 48 pour, 0 contre ; texte d'É. Pauget (LR) : https://www.assemblee-nationale.fr/dyn/17/scrutins/7987
+  retailleau: { option: C, source: "Assemblée nationale, scrutin n° 7987 (vote sur l'ensemble, article unique), 07/07/2026 : Droite républicaine 48 pour, 0 contre ; texte d'É. Pauget (LR)", statut: deduite }
+  # Assemblée nationale, scrutin n° 7987 (vote sur l'ensemble, article unique), 07/07/2026 : vote personnel pour : https://www.assemblee-nationale.fr/dyn/17/scrutins/7987
+  attal: { option: C, source: "Assemblée nationale, scrutin n° 7987 (vote sur l'ensemble, article unique), 07/07/2026 : vote personnel pour", statut: deduite }
+  # Programme présidentiel d'Éric Zemmour 2022, « Assurer la sécurité et la tranquillité des Français », visuel 1/4 (mars 2022) : https://assets.nationbuilder.com/ez/pages/515/attachments/original/1647540641/programme-Assurer-securite-tranquilite-1sur4.jpg?1647540641
+  zemmour: { option: C, source: "Programme présidentiel d'Éric Zemmour 2022, « Assurer la sécurité et la tranquillité des Français », visuel 1/4 (mars 2022)", statut: deduite }
+  # Inconnues : Glucksmann (rien de Place publique), Lisnard (programme muet), Roussel (vote GDR contre, rien sur la loi de 2017), Arthaud.
+  # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/047-legitime-defense-policiers.md (chaque chiffre y a
+  # sa source numérotée). Le fil : plus de refus de s'arrêter dangereux, plus de tirs ; faut-il présumer que le policier qui
+  # tire respecte la loi, garder les règles, ou les resserrer ?
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 2b et 2c, [11] [12] [13] : refus aggravés (police et gendarmerie), même source et mêmes années ; la chute donne
+    # le fait de l'autre camp aux mêmes années, en nombres plutôt qu'en « plus souvent » (tirs de policiers sur des
+    # véhicules en mouvement : 116 en 2012, 138 en 2022, ministère de l'Intérieur).
+    etapes:
+      - { quand: "En 2012", valeur: "2 520 refus" }
+      - { quand: "En 2022", valeur: "4 905 refus" }
+    chute: "… de s'arrêter qui ont mis des vies en danger. Sur la même période, les tirs de policiers sur des voitures sont passés de 116 à 138."
+  # Pas de mécanisme : aucun rapport « X pour 1 » parlant (moins d'un refus sur cent finit par un tir, repris en question).
+  # Pas d'écart : la seule grandeur à deux dates qui compte (les tirs) est déjà dans la chute et dans les questions.
+  leviers:
+    # § 1.2, 2c et 2f, [8] [11] [29] : les trois options de la fiche, à égalité.
+    titre: "Trois réponses possibles"
+    choix:
+      - { texte: "Revenir sur la loi de 2017", detail: "l'abroger, ou réserver les tirs sur une voiture à un danger évident et immédiat" }
+      - { texte: "Garder les règles actuelles", detail: "sans présomption, en misant sur la formation" }
+      - { texte: "Présumer que le tir respecte la loi", detail: "sauf preuve contraire, comme l'a voté l'Assemblée" }
+    # La chute ne dit plus « elles changent » : garder les règles actuelles ne change rien (§ 1.2, 2a).
+    chute: "Revenir sur la loi change les cas où l'on peut tirer ; présumer change qui doit prouver que le tir était nécessaire."
+    source: "Assemblée nationale, 2024 et 2026"
+  # L'objet tient sur une ligne (28 caractères, 418 px sur 458 côté CONTRE) ; « pour les policiers » faisait lire le camp
+  # CONTRE comme « contre les policiers ».
+  camps: { pour: POUR, contre: CONTRE, objet: "la présomption en cas de tir" }
+  questions:
+    # § 1.1, 1.4 et 2b, [30] [36] : deux faits de même poids, une mort de chaque côté, racontée de la même façon et
+    # datée. Comyn : percuté par un véhicule qui refusait d'obtempérer, Mougins, 26/08/2024. Toubache c. France,
+    # 07/06/2018 : un gendarme tire sur une voiture qui a foncé sur lui puis fuit, tuant un passager ; au moment du tir,
+    # sa vie n'était « plus menacée et le véhicule était déjà en fuite » (faits de 2008, avant la loi de 2017).
+    # L'étude n'a aucun chiffre sur les tirs « après le danger » : chaque chiffre compte donc la mort qu'il raconte.
+    - question: "Tirer sur une voiture qui fuit, est-ce justifié ?"
+      pour: { affirmation: "Oui, quand la voiture peut tuer.", chiffre: "1 gendarme tué", texte: "En août 2024, un gendarme est mort près de Cannes, percuté par un conducteur qui refusait de s'arrêter.", source: "Gendarmerie nationale, 2024" }
+      contre: { affirmation: "Pas quand le danger est passé.", chiffre: "1 passager tué", texte: "En 2008, une voiture fonce sur un gendarme, puis s'enfuit : il tire et tue un passager. La France a été condamnée.", source: "Cour européenne des droits de l'homme, 2018" }
+    # § 2c, [11] [13] [14]. Les deux camps ne mesurent pas la même chose, et c'est le cœur de la controverse : la mission
+    # rapporte les tirs aux refus (0,6 à 0,7 % de 2012 à 2016, même niveau dès 2019) ; l'étude de 2022 compte les tirs
+    # mortels (×5 entre 2012-2016 et 2017-2021, chiffres lus dans la question écrite n° 549 ; limite dans l'étude : le
+    # ministère n'a pas de décompte fiable des morts avant 2018 et la mission « nuance » l'étude). Chaque texte dit ce
+    # qu'il mesure (une part des refus, un nombre de tirs mortels), sur quelles années, et qui le dit.
+    - question: "La loi de 2017 a-t-elle fait plus de morts ?"
+      pour: { affirmation: "Le lien n'est pas prouvé.", chiffre: "< 1 %", texte: "Depuis 2019, moins d'un refus de s'arrêter sur cent finit par un tir, comme avant la loi, selon les députés.", source: "Assemblée nationale, 2024" }
+      contre: { affirmation: "Oui, plus de tirs mortels.", chiffre: "×5", texte: "Selon des chercheurs, il y a eu cinq fois plus de tirs mortels de policiers sur des voitures en 2017-2021 qu'en 2012-2016.", source: "Revue Esprit, 2022" }
+    # § 1.2, 2c et 3, [8] [11] [13] : la règle écrite (cinq cas inchangés) contre la façon dont une loi est comprise
+    # (constat des deux rapporteurs de la mission, Renaissance et socialiste : « ce nouveau cadre a pu être compris comme
+    # un assouplissement »). La preuve : 2017, année record (202 tirs de policiers sur des véhicules en mouvement, contre
+    # 137 en 2016), consensus de l'étude ; le retour à la normale depuis 2019 est dans la réponse POUR de la question 2.
+    - question: "La présomption change-t-elle les règles du tir ?"
+      pour: { affirmation: "Non, les mêmes cinq cas.", chiffre: "5 cas", texte: "Le texte voté ne crée aucun nouveau cas de tir. La loi en garde cinq, tous soumis à l'absolue nécessité.", source: "Assemblée nationale, 2026" }
+      contre: { affirmation: "Elle peut changer les pratiques.", chiffre: "202 tirs", texte: "En 2017, 202 tirs de policiers ont visé des voitures, un record. Selon les députés, la loi a pu sembler plus souple.", source: "Ministère de l'Intérieur et Assemblée nationale, 2024" }
+    # § 1.1, 1.2 et 2a, [3] [4] [8] [17] : le même article du code pénal pour les deux camps. Pour : l'argument du
+    # rapporteur (des présomptions simples existent déjà, pour tous ; ce ne sont pas les mêmes). Contre : celui du
+    # Défenseur des droits et du député Roger Vicot (elles visent des circonstances, la nouvelle viserait un métier) ;
+    # sa preuve est le texte adopté, qui ne vaut que pour la police nationale et la gendarmerie (policiers municipaux retirés).
+    - question: "Est-ce une règle à part pour la police ?"
+      pour: { affirmation: "Non, des présomptions existent déjà pour tous.", chiffre: "2 cas", texte: "Chacun est déjà présumé en légitime défense dans deux cas, comme repousser de nuit une intrusion chez soi.", source: "Code pénal, article 122-6 ; Assemblée nationale, 2026" }
+      contre: { affirmation: "Oui, elle dépend du métier.", chiffre: "2 métiers", texte: "Ces deux cas visent une situation. La nouvelle présomption s'appliquerait à deux métiers : policier et gendarme.", source: "Défenseur des droits ; Assemblée nationale, 2026" }

@@ -1,0 +1,158 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/056-voile-sport.md (tout ce qui suit y est sourcé).
+# Les règles et textes étudiés visent tous les signes religieux et politiques ; le débat, les recours et le sondage portent
+# surtout sur le voile. La fiche ne va pas au-delà de ce que disent les textes. Mots disputés (« séparatisme »,
+# « islamisme », « liberté religieuse », « discrimination ») : toujours attribués, voir l'étude, « Règles de lecture ».
+numero: 56
+date: 2026-09-02
+theme: societe
+question: "Faut-il interdire les signes religieux, dont le voile, dans les compétitions sportives ?"
+titreCourt: "Le voile dans le sport"
+contexte:
+  - "Les sportifs sélectionnés en équipe de France doivent rester neutres et ne portent aucun signe religieux en compétition, comme l'a jugé le Conseil d'État en 2023."
+  - "Pour les autres licenciés, chaque fédération décide. Le football et le basket interdisent les signes religieux en match, d'autres sports comme le handball les autorisent."
+  - "En février 2025, le Sénat a voté un texte qui les interdirait dans toutes les compétitions, amateurs comprises. L'Assemblée nationale ne l'a pas encore examiné."
+chiffres:
+  - valeur: "210"
+    unite: sénateurs
+    legende: "ont voté, contre 81, le texte qui interdirait les signes religieux dans toutes les compétitions, le 18 février 2025"
+    source: { organisme: Sénat, document: scrutin public n° 199, annee: 2025 }
+  - valeur: "14"
+    unite: fédérations
+    legende: "sur 80 étudiées par le ministère des Sports interdisent un signe ou une tenue religieuse en compétition"
+    source: { organisme: Assemblée nationale, document: mission flash sur le sport, annee: 2025 }
+  - valeur: "1"
+    unite: pays sur 38
+    # Amnesty est partie au débat ; aucune source indépendante ne confirme ce décompte (étude § 2f) : la légende le dit.
+    legende: "en Europe interdit le voile au football, au basket ou au volley : la France, selon Amnesty International, qui conteste ces interdictions"
+    source: { organisme: Amnesty International, annee: 2024 }
+options:
+  - id: A
+    libelle: L'interdire dans toutes les compétitions
+    implique: "Une règle nationale interdit les signes et tenues religieux ou politiques visibles dans toutes les compétitions officielles, du niveau départemental au niveau national, comme le prévoit le texte voté par le Sénat en 2025."
+    # L'égalité entre les femmes et les hommes est l'argument d'une partie de la gauche laïque comme de la droite
+    # (étude § 2d, [18] [22]) ; « prosélytisme » retiré, absent de l'étude.
+    defenseurs: "Le terrain doit rester neutre et le même pour toutes et tous : une loi claire protège les arbitres et les clubs, défend l'égalité entre les femmes et les hommes et ferme la porte au repli communautaire."
+    critiques: "La laïcité oblige l'État et ses agents, pas les joueuses : la loi écarterait des compétitions, même amateurs, des femmes qui portent le voile, ce que des experts de l'ONU jugent discriminatoire."
+    # Société : la note mesure l'écart à la règle actuelle (B, 0). A et C changent un point (la loi interdit dans
+    # toutes les fédérations, ou leur interdit d'interdire), D en change deux (l'équipe de France aussi).
+    # +1 et non +2 : l'interdiction n'est pas une position de la seule droite. Une partie de la gauche laïque la
+    # défend au nom de la laïcité et de l'égalité (§ 2d) : 12 des 18 sénateurs communistes ont voté l'article 1er
+    # (§ 1.4, [3]) et 66 % des proches du PS y sont favorables dans le sondage CSA (§ 2g, [21]).
+    axes: { societe: 1 }
+  - id: B
+    libelle: Laisser chaque fédération décider
+    implique: "Les sélectionnés en équipe de France restent neutres. Pour les autres, chaque fédération fixe sa règle sous le contrôle du juge, qui exige qu'une interdiction soit nécessaire au bon déroulement des matchs."
+    defenseurs: "Chaque fédération connaît les risques de son sport : le juge a validé l'interdiction au football, sans qu'une loi impose la même règle à tous."
+    critiques: "Les uns y voient un flou qui laisse arbitres et clubs seuls face aux pressions, les autres des interdictions qui écartent déjà des joueuses au football et au basket."
+    # 0 et non +1 : c'est la règle actuelle, le point milieu, défendue à gauche comme au centre (J.-L. Mélenchon,
+    # É. Borne, étude § 1.4 et § 4) ; +1 la rangeait du côté conservateur.
+    axes: { societe: 0 }
+  - id: C
+    libelle: "L'autoriser, sauf en équipe de France"
+    implique: "Les sélectionnés en équipe de France restent neutres. Pour tous les autres, une fédération ne peut plus interdire un couvre-chef religieux adapté au sport, sauf pour une raison de sécurité."
+    defenseurs: "La neutralité s'impose à ceux qui représentent la France, pas aux amateurs, qui ne représentent pas l'État : les écarter les prive de sport."
+    critiques: "Le terrain deviendrait un lieu d'affichage religieux, et chaque club serait exposé seul aux pressions de ceux qui veulent y imposer leurs règles."
+    axes: { societe: -1 }
+  - id: D
+    libelle: "L'autoriser partout, équipe de France comprise"
+    implique: "Aucune fédération ne peut interdire un couvre-chef religieux adapté au sport, et les athlètes de l'équipe de France peuvent le porter, comme le permettent les règles mondiales du basket ou du football."
+    defenseurs: "Les fédérations internationales et le Comité international olympique l'autorisent : une athlète qui porte le voile doit pouvoir représenter son pays, comme ailleurs en Europe."
+    critiques: "Une équipe nationale représente un État laïque : ses membres doivent rester neutres, comme l'a jugé le Conseil d'État."
+    axes: { societe: -2 }
+pourAllerPlusLoin:
+  - titre: "Sénat, proposition de loi visant à assurer le respect du principe de laïcité dans le sport, dossier législatif, 2025"
+    url: https://www.senat.fr/dossier-legislatif/ppl23-376.html
+  - titre: "Conseil d'État, décision du 29 juin 2023 sur l'interdiction des signes religieux par la Fédération française de football"
+    url: https://www.conseil-etat.fr/fr/arianeweb/CE/decision/2023-06-29/458088
+  - titre: "Défenseur des droits, Les discriminations fondées sur la religion, 2025"
+    url: https://www.defenseurdesdroits.fr/sites/default/files/2025-12/ddd_rapport_les-discriminations-fondees-sur-la-religion_20251204.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour l'interdire"
+    argument: "Le terrain doit rester neutre et le même pour toutes et tous."
+  - titre: "Pour ne pas l'interdire"
+    argument: "La neutralité s'impose à ceux qui représentent l'État, pas aux joueuses amateurs."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "L'interdire partout"
+    precision: "par la loi"
+  - choix: "Ne pas l'interdire partout"
+    precision: "chaque sport décide, ou on l'autorise"
+# Positions sourcées seulement (étude, § 4). Inconnues : Glucksmann, Lisnard, Attal, Tondelier, Roussel, Ruffin, Arthaud.
+# Pistes à vérifier avant tout ajout : Attal (PPL n° 1886 de députés de son groupe, sans lui) ; Roussel (12 sénateurs
+# du groupe communiste pour l'article 1er le 18/02/2025, ce n'est pas son vote).
+positions:
+  # LCI, 16/09/2026, rapporté par La Gazette France : https://www.lagazettefrance.fr/article/interdiction-du-voile-le-pen-veut-le-faire-de-maniere-progressive
+  # et par Dakaractu : https://www.dakaractu.com/Marine-Le-Pen-veut-interdire-le-voile-de-maniere-progressive-en-cas-de-victoire_a276105.amp.html
+  le-pen: { option: A, source: "LCI, 16/09/2026", statut: deduite }
+  # Déclaration radio du 25/03/2025 (dépêche AFP) : https://www.bluewin.ch/fr/infos/le-tacle-ose-du-ministre-de-linterieur-teddy-riner-il-ma-fait-vibrer-on-aime-le-sportif-mais-la-li.2622494
+  # Sud Radio, 19/03/2025 (« favorable à une loi interdisant le port du voile dans les compétitions sportives ») : https://www.sudradio.fr/emission/dites-le-franchement-366
+  retailleau: { option: A, source: "Déclaration radio, 25/03/2025", statut: officielle }
+  # CNews, vers le 18/03/2025, rapporté par Sud Radio le 19/03/2025 (transcription automatique) : https://www.sudradio.fr/emission/dites-le-franchement-366
+  philippe: { option: A, source: "CNews, mars 2025 (Sud Radio, 19/03/2025)", statut: deduite }
+  # Programme présidentiel 2022 (« Interdire le port du voile islamique dans l'espace public ») : https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/interdire-le-voile-dans-lespace-public/
+  zemmour: { option: A, source: "Programme présidentiel 2022", statut: deduite }
+  # Question écrite n° 15698, 15/01/2013 : https://questions.assemblee-nationale.fr/q14/14-15698QE.htm
+  dupont-aignan: { option: A, source: "Question écrite n° 15698, 15/01/2013", statut: deduite }
+  # Point presse du 19/03/2025, rapporté par Hespress (« la décision revient aux fédérations sportives », paraphrase) : https://fr.hespress.com/416209-france-le-port-du-voile-dans-le-sport-divise-la-scene-politique.html
+  melenchon: { option: B, source: "Point presse, 19/03/2025 (Hespress)", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/056-voile-sport.md (chaque chiffre y a sa source
+# numérotée, voir son annexe). Le fil : le Sénat veut une loi, l'Assemblée ne l'a jamais votée ; quatre choix possibles,
+# la France applique le deuxième.
+# Ni mécanisme ni écart : aucun rapport « X pour 1 » ni aucune grandeur à deux dates ne sont sourcés pour ce sujet.
+reportage:
+  accroche:
+    # § 1.4, [2] [5] [6] [30].
+    etapes:
+      - { quand: "En 2021", valeur: "Voté au Sénat" }
+      - { quand: "En 2025", valeur: "Voté à nouveau" }
+    chute: "… mais jamais adopté par l'Assemblée nationale."
+  leviers:
+    # § 1.2 et 2h, [2] [7] [8].
+    titre: "Quatre choix possibles"
+    choix:
+      - { texte: "L'interdire par la loi", detail: "dans toutes les compétitions, comme l'a voté le Sénat" }
+      - { texte: "Laisser chaque fédération décider", detail: "le football et le basket l'interdisent, d'autres sports non" }
+      - { texte: "L'autoriser, sauf en équipe de France", detail: "ceux qui représentent la France restent neutres" }
+      - { texte: "L'autoriser partout", detail: "comme les fédérations internationales" }
+    chute: "Aujourd'hui, la France applique le deuxième."
+    source: "Conseil d'État, 2023"
+  camps: { pour: POUR, contre: CONTRE, objet: "une interdiction par la loi" }
+  # Relu le 28/10/2026 par deux relecteurs, l'un pour une interdiction par la loi (gauche laïque comprise), l'autre
+  # contre (sportives concernées comprises). Chaque réponse compare ce qui se compare : question 1, le même sondage des
+  # deux côtés, ses commanditaires nommés ; question 2, deux arguments de principe sur la laïcité ; question 3, deux
+  # mesures différentes, que chaque texte nomme ; question 4, la même décision du Conseil d'État, lue par chaque camp.
+  # Le récit ne rattache pas le voile au « séparatisme » : les comptages de l'État portent sur des associations, pas
+  # sur des sportives qui portent un signe religieux, et aucune source ne mesure un lien entre les deux (étude § 2c).
+  questions:
+    # § 2g, [21] : même sondage des deux côtés, commandé par CNews, Europe 1 et Le JDD. Taille, dates et mode de
+    # recueil non vus [à vérifier] ; la question portait sur « le voile », sans distinguer amateurs et équipe de France.
+    - question: "Les Français veulent-ils l'interdire ?"
+      pour: { affirmation: "Oui, près de trois sur quatre.", chiffre: "73 %", texte: "Dans un sondage de mars 2025, 73 % des personnes interrogées veulent interdire le voile en compétition.", source: "CSA pour CNews, Europe 1 et Le JDD, 2025" }
+      contre: { affirmation: "Pas la majorité des jeunes.", chiffre: "57 %", texte: "Dans le même sondage, 57 % des 18-24 ans s'opposent à cette interdiction.", source: "CSA pour CNews, Europe 1 et Le JDD, 2025" }
+    # § 1.1 et 2a, [13] [5] [8] : le meilleur argument de principe de chaque camp. POUR : la loi de 2004 impose déjà
+    # la neutralité à des usagers, les élèves ; « le sport, comme l'école, apprend la règle commune » (Sénat). CONTRE :
+    # le Défenseur des droits juge « contraire au principe même de laïcité » l'extension à tous les licenciés.
+    # Remplace « Des clubs sont-ils en rupture avec la République ? » (127 associations, 0,03 % : calcul de l'étude),
+    # hors du sujet (voir plus haut) et qui forçait chaque camp à répondre sur le terrain du « séparatisme ».
+    # Chiffres : la durée d'application de la loi de 2004 (§ 1.2, [13]) et le nombre de licenciés que viserait
+    # une interdiction générale (16,5 millions, [18], source secondaire), plutôt que des années, qui ne prouvent rien.
+    - question: "La laïcité doit-elle s'imposer à tous les sportifs ?"
+      pour: { affirmation: "Oui, comme aux élèves à l'école.", chiffre: "22 ans", texte: "Depuis 22 ans, la loi interdit les signes religieux voyants aux élèves des écoles publiques, qui ne sont pas des agents de l'État.", source: "Loi du 15 mars 2004" }
+      contre: { affirmation: "Non, elle oblige l'État, pas les amateurs.", chiffre: "16,5 millions", texte: "L'interdire aux 16,5 millions de licenciés des clubs serait contraire à la laïcité, selon le Défenseur des droits.", source: "Défenseur des droits, 2025 ; gouvernement, 2025" }
+    # § 2b et 2f, [19] [9] : deux mesures différentes, que chaque texte dit. « La France fait exception » est le
+    # constat partagé de l'étude (§ 2f) ; le décompte « 1 sur 38 » est celui d'Amnesty, partie au débat, sans
+    # confirmation indépendante : le texte dit qu'elle s'oppose à ces interdictions.
+    - question: "Faut-il une même règle pour tous les sports ?"
+      pour: { affirmation: "Oui, les règles varient d'un sport à l'autre.", chiffre: "14 sur 80", texte: "Sur 80 fédérations étudiées par le ministère des Sports, 14 interdisent les signes religieux en compétition.", source: "Assemblée nationale, 2025" }
+      contre: { affirmation: "Non, la France fait déjà exception.", chiffre: "1 sur 38", texte: "Sur 38 pays européens, seule la France interdit le voile au foot, au basket ou au volley, selon Amnesty, qui s'y oppose.", source: "Amnesty International, 2024" }
+    # § 1.2 et 2b, [7] [8] [5] : la même décision, lue par chaque camp. POUR : elle ne vaut que pour la Fédération
+    # française de football, chaque autre fédération doit justifier sa règle (Défenseur des droits), d'où la demande
+    # d'un « cadre législatif clair » (Sénat). Remplace « 1 club » (un retrait d'agrément depuis 2021, § 2c) : cet
+    # outil vise les clubs contraires aux principes républicains, pas les signes religieux. CONTRE : la décision vise
+    # tous les signes (statuts de la FFF), d'où « les signes religieux » et non « le voile ».
+    - question: "Les règles actuelles suffisent-elles ?"
+      pour: { affirmation: "Non, chaque fédération doit se justifier seule.", chiffre: "1 sport", texte: "Le Conseil d'État a validé l'interdiction au football. Chaque autre fédération doit prouver que la sienne est nécessaire.", source: "Conseil d'État, 2023 ; Défenseur des droits, 2025" }
+      contre: { affirmation: "Oui, le juge permet d'interdire.", chiffre: "3 recours", texte: "Le Conseil d'État a rejeté trois recours : une fédération peut interdire les signes religieux si c'est nécessaire.", source: "Conseil d'État, 2023" }

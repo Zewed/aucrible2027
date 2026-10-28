@@ -1,0 +1,135 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/050-salaire-enseignants.md
+numero: 50
+date: 2026-09-08
+theme: education-jeunesse
+question: "Faut-il augmenter le salaire des enseignants, et à quelles conditions ?"
+titreCourt: "Le salaire des enseignants"
+contexte:
+  - "Le salaire d'un enseignant suit une grille commune, qui monte avec l'ancienneté, plus des primes ; depuis septembre 2023, la prime versée à tous a doublé, à 2 550 euros bruts par an."
+  - "Le « pacte enseignant », créé en 2023, paie en plus ceux qui acceptent des missions, comme remplacer un collègue absent : 1 250 euros bruts par an et par mission, jusqu'à trois missions."
+  - "Selon le Sénat, le pouvoir d'achat des enseignants a baissé de 5 à 8 % entre 2002 et 2022 ; après des années de postes vides aux concours, presque tous les postes ont été pourvus en 2026, première année d'un concours ouvert dès la licence."
+chiffres:
+  - valeur: "3 090"
+    unite: euros nets par mois
+    legende: "gagnés en moyenne par un enseignant fonctionnaire en 2024, primes comprises"
+    source: { organisme: DEPP, document: "Note d'information n° 26.36", annee: 2026 }
+  - valeur: "18 %"
+    legende: "de salaire en moins que la moyenne des pays de l'OCDE en milieu de carrière, contre 2 % en début de carrière"
+    source: { organisme: OCDE, document: "Regards sur l'éducation 2026, cité par L'Étudiant", annee: 2026 }
+  - valeur: "4,2"
+    unite: milliards d'euros
+    legende: "par an : ce que coûtent en 2026 les hausses de salaire des enseignants décidées depuis 2022"
+    source: { organisme: Sénat, document: "rapport sur le budget 2026 de l'enseignement scolaire", annee: 2025 }
+options:
+  - id: A
+    libelle: "Augmenter tous les enseignants"
+    implique: "La grille et les primes communes augmentent pour tous, de 10 à 30 % ou de 135 à 500 euros nets par mois selon les propositions, souvent davantage en milieu de carrière, sans travail en plus demandé en échange."
+    defenseurs: "En milieu de carrière, un enseignant français gagne 18 % de moins que la moyenne de l'OCDE, et son pouvoir d'achat a baissé de 2002 à 2022 : le rattrapage doit concerner tous les enseignants."
+    critiques: "Une hausse de 10 % pour tous coûterait de l'ordre de 4 à 5 milliards d'euros par an, payés par l'impôt ou par des économies ailleurs, alors que le déficit public atteint 5,1 % du PIB."
+    axes: { economie: -1 }
+  - id: B
+    libelle: "Augmenter ceux qui font des missions en plus"
+    implique: "Le pacte de 2023 est gardé ou élargi : chaque mission acceptée, comme remplacer un collègue absent ou aider des élèves en difficulté, est payée en plus, ou la hausse est donnée contre plus de présence dans l'établissement."
+    defenseurs: "Payer le travail fait en plus améliore aussi l'école : en un an, le pacte a multiplié par 2,5 le remplacement des absences de quelques jours."
+    critiques: "Moins d'un tiers des enseignants du public l'avaient choisi à la rentrée 2024, la Cour des comptes juge la participation « encore fragile », et son budget est passé de 780 à 480 millions d'euros entre 2025 et 2026."
+    axes: { economie: 1 }
+  - id: C
+    libelle: "Payer selon le mérite ou l'établissement"
+    implique: "Une part du salaire dépend de l'évaluation de chaque enseignant, des résultats de son équipe ou des choix de son établissement, qui recrute ses professeurs ; l'ancienneté compte moins."
+    defenseurs: "Une carrière fondée sur l'ancienneté paie pareil celui qui s'investit et celui qui ne le fait pas ; selon une synthèse de 44 études, surtout américaines, les primes au mérite améliorent un peu les résultats des élèves, davantage quand elles récompensent une équipe."
+    critiques: "Le travail d'un enseignant se mesure mal, et d'un pays à l'autre l'OCDE ne trouve pas de lien d'ensemble entre primes au mérite et résultats des élèves ; les études favorables viennent surtout des États-Unis."
+    axes: { economie: 2 }
+  - id: D
+    libelle: "Pas de nouvelle hausse"
+    implique: "On garde les hausses de 2023 et la grille actuelle ; l'argent va d'abord à la réduction du déficit, à des classes moins chargées et à la formation payée des futurs professeurs."
+    defenseurs: "Les hausses décidées depuis 2022 coûtent déjà 4,2 milliards d'euros par an, le salaire moyen a augmenté de 4,3 % de plus que les prix en 2024, et 97 % des postes de professeurs des écoles ont été pourvus en 2026, première année du concours dès la licence."
+    critiques: "En milieu de carrière, l'écart avec la moyenne de l'OCDE reste de 18 %, et le bond des candidats en 2026 tient en partie à deux concours organisés la même année."
+    axes: { economie: 1 }
+pourAllerPlusLoin:
+  - titre: "DEPP, L'évolution du salaire des enseignants entre 2023 et 2024, Note d'information n° 26.36, août 2026"
+    url: https://www.education.gouv.fr/sites/default/files/document/depp-ni-2026-36pdf-519727.pdf
+  - titre: "Sénat, rapport sur le budget 2026 de l'enseignement scolaire, O. Paccaud, 24/11/2025"
+    url: https://www.senat.fr/rap/l25-139-313/l25-139-313_mono.html
+  - titre: "Cour des comptes, Le Pacte enseignant, audit flash, 01/07/2025"
+    url: https://www.ccomptes.fr/fr/publications/le-pacte-enseignant
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour augmenter tous les enseignants"
+    argument: "En milieu de carrière, un enseignant français gagne 18 % de moins que la moyenne de l'OCDE : le rattrapage doit concerner tous les enseignants."
+  - titre: "Pour ne pas augmenter tout le monde"
+    argument: "Les hausses décidées depuis 2022 coûtent déjà 4,2 milliards d'euros par an : mieux vaut payer le travail en plus, le mérite, ou ne rien ajouter."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Augmenter tout le monde"
+    precision: "sans condition"
+  - choix: "Pas tout le monde"
+    precision: "missions, mérite, ou rien de plus"
+# Seuls les candidats sourcés ; Zemmour, Dupont-Aignan et Arthaud sont « inconnue » (voir l'étude, § 4).
+positions:
+  # Programme 2022, « une hausse de 3 % de leur rémunération par an » (Institut Montaigne, d'après Le Parisien du 07/03/2022) : https://www.institutmontaigne.org/presidentielle-2022/legislatives-2022/rassemblement-national/revaloriser-les-salaires-des-enseignants-de-3-par-an-pendant-le-quinquennat-et-refonder-leur-formation ; en 2026, le RN promet d'« abroger le Pacte enseignant » : https://www.publicsenat.fr/actualites/politique/presidentielle-2027-que-proposent-les-candidats-pour-lecole
+  # Entretien au Figaro du 24/08/2026, « une augmentation de 20 % de la rémunération moyenne des enseignants », rapporté par LCP : https://lcp.fr/index%2Ephp/actualites/presidentielle-salaires-des-enseignants-sanctions-pour-les-parents-ce-que-propose
+  philippe: { option: A, source: "Entretien au Figaro, 24/08/2026", statut: officielle }
+  # Public Sénat, 31/08/2026 (« une hausse de 10 % pour tous les enseignants », jusqu'à 25 %, 6 Md€) : https://www.publicsenat.fr/actualites/politique/presidentielle-2027-que-proposent-les-candidats-pour-lecole ; annonce sur TF1 (Public Sénat, 24/08/2026) : https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann
+  glucksmann: { option: A, source: "Plan pour l'école annoncé sur TF1, août 2026", statut: officielle }
+  # Entretien au Monde, août 2026 (+200 € nets en moyenne, jusqu'à 500 €, 2,5 Md€), rapporté par Public Sénat le 25/08/2026 : https://www.publicsenat.fr/actualites/politique/presidentielle-2027-philippe-et-attal-font-de-lecole-un-nouveau-terrain-de-bataille-au-risque-dereinter-le-bilan-macron
+  attal: { option: A, source: "Entretien au Monde, août 2026", statut: officielle }
+  # Programme des Écologistes, juillet 2026 (« 15 % en cinq ans, en plus de l'inflation »), rapporté par Sud Radio le 03/09/2026 (programme non relu) : https://www.sudradio.fr/sud-radio/presidentielle-2027-comment-les-candidats-draguent-les-professeurs-et-lecole
+  tondelier: { option: A, source: "Programme des Écologistes, juillet 2026", statut: officielle }
+  # La France des jours heureux, programme présidentiel 2022, proposition 20 (p. 31) : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "La France des jours heureux, programme présidentiel 2022, proposition 20 (p. 31)", statut: deduite }
+  # Projet présidentiel 2022 de Marine Le Pen, livret « L'École », § 3 « Revaloriser le métier d'enseignant » (p. 14) : https://rassemblementnational.fr/documents/projet/projet-l-ecole.pdf
+  le-pen: { option: A, source: "Projet présidentiel 2022 de Marine Le Pen, livret « L'École », § 3 « Revaloriser le métier d'enseignant » (p. 14)", statut: deduite }
+  # L'Avenir en commun, édition 2025 (programme sur melenchon2027.fr), chap. 5, « Revaloriser les personnels de l'Éducation nationale » : https://melenchon2027.fr/programme2025/livre/chapitre5/s3/
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025 (programme sur melenchon2027.fr), chap. 5, « Revaloriser les personnels de l'Éducation nationale »", statut: officielle }
+  # Nouvelle Énergie, programme, page « Éducation » (consultée le 28/10/2026) : https://www.unenouvelleenergie.fr/notre-programme/education/
+  lisnard: { option: B, source: "Nouvelle Énergie, programme, page « Éducation » (consultée le 28/10/2026)", statut: officielle }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/050-salaire-enseignants.md (chaque chiffre y a sa
+# source numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : depuis 1990, les débuts de carrière ont
+# gagné, le milieu a perdu ; l'écart avec les autres pays est au milieu de la carrière ; quatre façons de payer.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 2a, [2] (Sénat, 2025) : le salaire statutaire à un même stade de carrière, 1990–2023, après inflation.
+    # Fourchettes sur trois corps : débuts +3,4 % (agrégés) à +10,1 % (certifiés) ; 15 ans −9,8 % à −12,8 %.
+    # Pas le salaire moyen (−5 à −8 % de 2002 à 2022, +4,3 % en 2024) : il manque 2022–2023, et un an
+    # à côté de vingt ferait croire à un rattrapage qu'aucun chiffre ne mesure.
+    etapes:
+      - { quand: "En début de carrière", valeur: "+3 à +10 %" }
+      - { quand: "Après 15 ans de métier", valeur: "−10 à −13 %" }
+    chute: "… de salaire, inflation déduite, entre un professeur de 1990 et un professeur de 2023 au même stade."
+  # Pas de « mécanisme » : aucun rapport « X pour 1 » ne résume le sujet. Pas d'« écart » : le recrutement, seule
+  # grandeur à deux dates qui éclaire le débat, est traité dans les questions.
+  leviers:
+    # § 2d, 2e et 2f, [2] [3] [14] [16] [20]. Les quatre options de la fiche, à égalité ; la chute dit qui paierait.
+    titre: "Le salaire des enseignants : quatre choix"
+    choix:
+      - { texte: "Augmenter tout le monde", detail: "une hausse pour tous, sans condition" }
+      - { texte: "Payer le travail en plus", detail: "remplacer un collègue absent, aider des élèves" }
+      - { texte: "Payer selon le mérite", detail: "ou selon l'établissement où l'on enseigne" }
+      - { texte: "Ne rien ajouter", detail: "garder les hausses de 2023, sans nouvelle hausse" }
+    chute: "Une hausse pour tous coûterait plusieurs milliards d'euros par an, payés par les impôts ou par des économies ailleurs."
+    source: "Sénat, 2025"
+  camps: { pour: POUR, contre: CONTRE, objet: une hausse pour tous }
+  # Chaque question oppose deux faits de la même source ou du même indicateur, et chaque texte dit ce qu'il mesure.
+  questions:
+    # § 2b, [10] : la même édition de l'OCDE, deux moments de la carrière, lue chez L'Étudiant, qui ne dit ni le
+    # niveau d'enseignement ni le nombre d'années : les textes n'en disent pas plus, et la source le dit.
+    - question: "Les enseignants sont-ils mal payés ?"
+      pour: { affirmation: "Oui, en milieu de carrière.", chiffre: "−18 %", texte: "En milieu de carrière, les enseignants français gagnent 18 % de moins que la moyenne des pays riches.", source: "OCDE, cité par L'Étudiant, 2026" }
+      contre: { affirmation: "Pas en début de carrière.", chiffre: "−2 %", texte: "En début de carrière, les enseignants français gagnent 2 % de moins que la moyenne des pays riches.", source: "OCDE, cité par L'Étudiant, 2026" }
+    # § 1.5 et 2c, [2] [7] : le même indicateur (candidats présents au concours de professeur des écoles), deux périodes ;
+    # le pour dit que les postes offerts ont baissé aussi (−20,8 %) ; le contre dit que le ×2 additionne deux concours
+    # tenus la même année (le nombre de candidats inscrits aux deux n'est pas connu).
+    - question: "Faut-il mieux payer pour recruter ?"
+      pour: { affirmation: "Oui, les candidats manquaient.", chiffre: "−31 %", texte: "De 2016 à 2024, les candidats au concours de professeur des écoles ont baissé de 31 %, les postes offerts de 21 %.", source: "Sénat, 2025" }
+      contre: { affirmation: "Non, la réforme a ramené des candidats.", chiffre: "×2", texte: "En 2026, l'ancien concours et un nouveau, ouvert dès la licence, ont attiré ensemble deux fois plus de candidats qu'en 2025.", source: "Ministère de l'Éducation, 2026" }
+    # § 1.4 et 2d, [2] : le même rapport du Sénat.
+    - question: "Payer des missions en plus, est-ce efficace ?"
+      pour: { affirmation: "Non, moins d'un tiers des enseignants y participent.", chiffre: "28 %", texte: "À la rentrée 2024, 28 % des enseignants du public avaient accepté ces missions payées en plus.", source: "Sénat, 2025" }
+      contre: { affirmation: "Oui, pour remplacer les absents.", chiffre: "×2,5", texte: "En un an, ces missions ont multiplié par 2,5 la part des absences de quelques jours remplacées.", source: "Sénat, 2025" }
+    # § 1.6 et 2f, [7] : le même dossier du ministère sur le budget 2027.
+    - question: "Moins d'élèves, est-ce de quoi payer la hausse ?"
+      pour: { affirmation: "En partie, oui.", chiffre: "−650 000", texte: "Le primaire public a près de 650 000 élèves de moins qu'en 2017 : il faut moins de classes, donc moins de postes.", source: "Ministère de l'Éducation, 2026" }
+      contre: { affirmation: "Pas si l'on garde ces postes.", chiffre: "2 sur 3", texte: "Le budget 2027 garde deux postes libérés sur trois pour alléger les classes et aider les élèves fragiles.", source: "Ministère de l'Éducation, 2026" }

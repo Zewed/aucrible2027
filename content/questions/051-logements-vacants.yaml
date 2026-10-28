@@ -1,0 +1,134 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/051-logements-vacants.md (tout ce qui suit y est sourcé).
+numero: 51
+date: 2026-09-07
+theme: logement
+question: "Que faire des logements vides ?"
+titreCourt: "Les logements vides"
+contexte:
+  - "Au 1er janvier 2026, la France compte 2,9 millions de logements vides, soit 7,6 % des logements ; une partie le reste quelques mois, entre deux locataires, pendant une vente, une succession ou des travaux."
+  - "Dans les communes où le logement manque, le propriétaire d'un logement vide depuis au moins un an paie une taxe de 17 % de sa valeur locative la première année, puis 34 % ; dès 2027, ces communes pourront aller jusqu'à 30 %, puis 60 %."
+  - "Le préfet peut aussi réquisitionner certains logements vides, surtout ceux de sociétés, pour y loger des personnes contre un loyer versé au propriétaire ; il ne l'a presque plus fait depuis 2001."
+chiffres:
+  - valeur: "2,9 millions"
+    legende: "de logements vides au 1er janvier 2026, soit 7,6 % des logements, contre 1,9 million (7,9 %) en 1982"
+    source: { organisme: Insee, document: Insee Focus n° 388, annee: 2026 }
+  - valeur: "1,1 million"
+    legende: "de logements privés vides depuis plus de deux ans, dont 118 000 dans les communes où le logement manque (données 2022)"
+    source: { organisme: Cour des comptes, document: rapport sur la lutte contre les logements vacants, annee: 2025 }
+  - valeur: "271"
+    unite: millions d'euros
+    legende: "rapportés en 2023 par la taxe sur les logements vides des communes où le logement manque, contre 80 millions en 2014"
+    source: { organisme: Cour des comptes, document: rapport sur la lutte contre les logements vacants, annee: 2025 }
+options:
+  - id: A
+    libelle: "Les réquisitionner"
+    implique: "En plus de la taxe, le préfet ou le maire peut occuper pour quelques années un logement vide depuis longtemps et y loger des personnes ; le propriétaire reste propriétaire et touche un loyer garanti par l'État."
+    defenseurs: "Des gens dorment dehors quand des logements restent vides : la réquisition ne prive pas le propriétaire de son bien, il est payé, et sa seule menace pousse à relouer."
+    critiques: "C'est une atteinte au droit de propriété, coûteuse et exposée aux recours en justice ; beaucoup de logements vides sont à rénover, et l'outil n'a presque plus servi depuis 2001."
+    axes: { economie: -2 }
+  - id: B
+    libelle: "Les taxer plus fort"
+    implique: "Sans réquisition, la taxe payée par les propriétaires de logements vides augmente, par exemple plus fort si le logement reste vide longtemps ou si son propriétaire en possède plusieurs."
+    defenseurs: "Garder un logement vide là où des familles cherchent un toit doit coûter cher : une taxe plus lourde pousse à louer ou à vendre, et une étude a mesuré son effet."
+    critiques: "Près de la moitié de la taxe réclamée en 2022 a été rendue à des propriétaires qui ne pouvaient pas louer, et la Cour des comptes juge son effet non démontré."
+    axes: { economie: -1 }
+  - id: C
+    libelle: "Aider à les remettre en location"
+    implique: "La taxe et les règles actuelles restent ; l'État et les communes financent des travaux, garantissent les loyers et accordent des avantages fiscaux aux propriétaires qui louent."
+    defenseurs: "Beaucoup de logements vides sont vieux, petits ou en mauvais état, et leurs propriétaires âgés ou modestes : mieux vaut les aider à faire les travaux que les sanctionner."
+    critiques: "Les aides se paient avec l'argent public et touchent peu de logements ; là où le logement manque, peu de propriétaires répondent quand la mairie les contacte."
+  - id: D
+    libelle: "Alléger les règles pour les louer"
+    implique: "Les interdictions de louer les logements les plus mal isolés sont levées ou assouplies, pour que ceux qui sont vides puissent être loués, et les propriétaires qui louent paient moins d'impôts ; ni réquisition, ni taxe nouvelle."
+    defenseurs: "Aucun propriétaire n'a intérêt à garder un bien vide : les logements vides sont plus souvent mal isolés que les autres, et alléger les normes et les impôts les remettrait sur le marché."
+    critiques: "Des logements mal isolés seraient reloués avec de lourdes factures de chauffage, et aucune étude n'a mesuré l'effet de ces interdictions sur les logements vides."
+    axes: { economie: 1 }
+pourAllerPlusLoin:
+  - titre: "Cour des comptes, La lutte contre les logements vacants dans le parc privé, 2025"
+    url: https://www.ccomptes.fr/sites/default/files/2025-05/20250522-S2025-0608-Lutte-contre-logements-vacants-dans-le-parc-prive.pdf
+  - titre: "Insee, Parc de logements au 1er janvier 2026 : 7,6 % de logements vacants"
+    url: https://www.insee.fr/fr/statistiques/9055697
+  - titre: "Service-public, Une taxe unique pour les logements vacants à partir de 2027"
+    url: https://www.service-public.gouv.fr/particuliers/actualites/A18896
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour taxer ou réquisitionner"
+    argument: "Garder un logement vide là où des familles cherchent un toit doit coûter cher : une taxe plus lourde, ou la menace d'une réquisition, pousse les propriétaires à louer."
+  - titre: "Pour aider ou alléger les règles"
+    argument: "Beaucoup de logements vides sont vieux ou bloqués par les normes : il faut aider les propriétaires à les remettre en état et lever les freins, pas les sanctionner."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Taxer"
+    precision: "ou réquisitionner"
+  - choix: "Aider"
+    precision: "ou alléger les règles"
+positions:
+  # Programme 2027 : LFI, « Comment nous allons remettre de l'ordre dans les comptes publics », octobre 2026, p. 8 (« la réquisition de logements vacants ») : https://melenchon2027.fr/wp-content/uploads/2026/10/Comment-nous-allons-remettre-de-l-ordre-dans-les-comptes-publics.pdf ; plan BTP et logement du 28/09/2026 (réquisition et taxe progressive), relayé par SeLoger le 09/10/2026 : https://edito.seloger.com/node/23842
+  melenchon: { option: A, source: "LFI, programme 2027, octobre 2026, p. 8", statut: officielle }
+  # Les Écologistes, Pour une prospérité écologique, juillet 2026, mesure 6, p. 20 (« Utiliser le droit de réquisition pour lutter contre les logements vacants ») : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+  tondelier: { option: A, source: "Programme des Écologistes, juillet 2026, p. 20", statut: officielle }
+  # Cosignataire de la proposition de loi n° 2303 (réquisition par les maires), 23/12/2025 : https://questions.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B2303.html ; intervention en commission, 04/02/2026 : https://www.assemblee-nationale.fr/dyn/17/rapports/cion-eco/l17b2426_rapport-fond.pdf
+  ruffin: { option: A, source: "Proposition de loi n° 2303, 23/12/2025", statut: deduite }
+  # Éditorial de N. Arthaud, Lutte ouvrière, 16/09/2026 (Le Pen ne propose pas « de réquisitionner les logements vides ») : https://lutte-ouvriere.org/journal/article/non-guerre-entre-travailleurs-197106.html
+  arthaud: { option: A, source: "Éditorial de Lutte ouvrière, 16/09/2026", statut: deduite }
+  # Place publique, Notre vision pour la France, Acte I, 23/06/2025, p. 64 (« renforcer la fiscalité sur la vacance longue avec des barèmes progressifs et dissuasifs ») : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view
+  glucksmann: { option: B, source: "Place publique, Acte I, 23/06/2025, p. 64", statut: deduite }
+  # Debout la France, projet Famille, mesure 20 (avantage fiscal aux propriétaires qui louent, réhabilitation simplifiée) : https://www.debout-la-france.fr/projet/famille/
+  dupont-aignan: { option: C, source: "Debout la France, projet Famille, mesure 20", statut: officielle }
+  # Cosignataire de la proposition de loi RN n° 278 sur les « contraintes énergétiques » de la location : https://www.assemblee-nationale.fr/dyn/17/textes/l17b0278_proposition-loi.pdf ; vote contre sa suppression, scrutin n° 219 du 31/10/2024 : https://datan.fr/votes/legislature-17/vote_219 ; amendement n° 1 contre la réquisition, 05/02/2026 : https://www.assemblee-nationale.fr/dyn/17/amendements/2303/AN/1.pdf
+  le-pen: { option: D, source: "Vote sur la proposition de loi RN n° 278, 31/10/2024", statut: deduite }
+  # Entretien sur le site de Nouvelle Énergie, 05/12/2025 (« je supprimerais le DPE », « je baisserais la fiscalité sur le revenu du locatif ») : https://www.unenouvelleenergie.fr/david-lisnard-face-a-la-crise-du-logement-il-est-temps-de-briser-cette-spirale-infernale/
+  lisnard: { option: D, source: "Entretien, Nouvelle Énergie, 05/12/2025", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/051-logements-vacants.md (chaque chiffre y a sa source
+# numérotée, voir l'annexe de l'étude). Le fil : il y a beaucoup de logements vides, mais tous ne sont pas utiles ni
+# disponibles ; quatre façons de les remettre en usage.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1, [1] : Insee, même série, 1982 et 2026 (+54,4 % ; part de 7,9 % à 7,6 %).
+    etapes:
+      - { quand: En 1982, valeur: "1,9 million" }
+      - { quand: En 2026, valeur: "2,9 millions" }
+    chute: "… de logements vides en France. Leur nombre a augmenté de 54 % ; leur part parmi tous les logements est restée proche de 8 %."
+  # Pas de « mécanisme » : aucun rapport « X pour 1 » ne résume le sujet. Pas d'« écart » : la seule grandeur à deux
+  # dates qui éclaire le débat (ce que rapporte la taxe) est traitée dans les questions, avec la réponse d'en face.
+  leviers:
+    # § 1.3, [2] [6] [7] : les quatre options de la fiche, à égalité ; la chute dit qui paierait.
+    titre: "Les logements vides : quatre choix"
+    choix:
+      - { texte: Réquisitionner, detail: "les occuper quelques années, contre un loyer garanti par l'État" }
+      - { texte: Taxer plus fort, detail: les propriétaires de logements vides paient plus }
+      - { texte: Aider à louer, detail: "financer les travaux, garantir les loyers" }
+      - { texte: Alléger les règles, detail: lever les interdictions de louer ceux qui sont mal isolés }
+    chute: "La taxe est payée par les propriétaires de logements vides ; les aides, par l'argent public."
+    source: "Cour des comptes, 2025"
+  camps: { pour: POUR, contre: CONTRE, objet: taxer ou réquisitionner }
+  # Chaque question oppose deux faits de la même source ou de même périmètre ; quand une réponse s'appuie sur une
+  # étude ou une estimation, son texte le dit.
+  questions:
+    # § 2a, [2] : la même source, la même année (Lovac 2022), le même champ (logements privés vides depuis plus de
+    # deux ans) ; 118 330 sur 1,1 million ≈ 1 sur 10.
+    - question: "Les logements vides peuvent-ils loger ceux qui cherchent ?"
+      pour: { affirmation: "Oui, il y en a plus d'un million.", chiffre: "1 100 000", texte: "En 2022, 1,1 million de logements privés étaient vides depuis plus de deux ans, d'après les impôts.", source: "Cour des comptes, 2025" }
+      contre: { affirmation: "Peu sont là où l'on en manque.", chiffre: 1 sur 10, texte: "Sur dix logements vides depuis plus de deux ans, un se trouve dans une commune où le logement manque.", source: "Cour des comptes, 2025" }
+    # § 1.1, 1.3 et 2c, [2] [3] [14] : l'étude mesure l'effet de la création de la taxe (loi de 1998, appliquée en 1999,
+    # mesure 1997–2001) ; la Cour constate que la taxe « n'a en rien endigué » la vacance longue, et la série Lovac des
+    # logements privés vides depuis plus de deux ans reste autour de 1,1 à 1,2 million (millésimes 2020–2026, hors saut
+    # de 2025 dû à une rupture de série). Chaque texte dit ce qu'il est : une étude, un constat. Limite : série nationale,
+    # alors que la taxe ne couvre pas toutes les communes ; l'étude n'a pas de série propre aux communes taxées.
+    - question: "Taxer les logements vides, est-ce que ça marche ?"
+      pour: { affirmation: "Oui, à sa création.", chiffre: "−13 %", texte: "Selon une étude, la taxe appliquée dès 1999 a fait baisser de 13 % la part de logements vides des villes taxées.", source: "M. Segú, étude, 2019" }
+      contre: { affirmation: "Non, selon la Cour des comptes.", chiffre: "1,1 à 1,2 million", texte: "La Cour constate que la taxe n'a pas fait reculer les logements vides de longue durée : 1,1 à 1,2 million depuis 2020.", source: "Cour des comptes, 2025 ; Cerema, 2026" }
+    # § 2d, [7] : le même rapport, la même unité (logements réquisitionnés), deux campagnes.
+    - question: "Réquisitionner, est-ce que ça marche ?"
+      pour: { affirmation: "Oui, l'État l'a déjà fait.", chiffre: "800", texte: "En 1995 et 1996, l'État a réquisitionné environ 800 logements vides, propriété de grands investisseurs.", source: "Assemblée nationale, 2026" }
+      contre: { affirmation: "Rarement, sur le terrain.", chiffre: "48", texte: "En 2001, 48 logements ont été réquisitionnés sur 300 annoncés. Depuis, l'outil ne sert presque plus.", source: "Assemblée nationale, 2026" }
+    # § 2b et 2e, [2] : le même rapport, toute la France ; le pour est un constat (2020–2024), le contre une
+    # estimation statistique du ministère, que le texte annonce. Pas de « suffit-il » : la taxe et la réquisition sont
+    # jugées sur « est-ce que ça marche », l'aide ne doit pas l'être sur une barre plus haute ; et chaque chiffre prouve
+    # son affirmation (le 45 % dit pourquoi ces logements sont vides, pas que l'aide marche).
+    - question: "Faut-il d'abord aider les propriétaires ?"
+      pour: { affirmation: "Non, peu de logements reviennent.", chiffre: "6,6 %", texte: "Quand une mairie contacte les propriétaires, 6,6 % de leurs logements vides cessent de l'être.", source: "Cour des comptes, 2025" }
+      contre: { affirmation: "Oui, beaucoup sont vieux ou abîmés.", chiffre: "45 %", texte: "Selon une étude, 45 % des logements vides depuis longtemps le sont car trop vieux, trop petits ou abîmés.", source: "Cour des comptes, 2025" }

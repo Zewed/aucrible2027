@@ -1,0 +1,134 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/034-semaine-4-jours.md (tout ce qui suit y est sourcé).
+# La distinction qui structure la fiche : quatre jours à heures égales (journées plus longues) ou quatre jours avec moins d'heures (32 heures).
+numero: 34
+date: 2026-09-29
+theme: travail-retraites
+question: "Faut-il passer à la semaine de 4 jours ?"
+titreCourt: "La semaine de 4 jours"
+contexte:
+  - "La durée légale du travail est de 35 heures par semaine depuis les lois Aubry de 1998 et 2000, et un salarié à temps plein travaille en moyenne 38,8 heures."
+  - "La semaine de quatre jours est déjà possible par accord d'entreprise : en 2023, 9 de ces accords sur 10 gardaient les mêmes heures en allongeant les journées."
+  - "D'autres veulent passer à 32 heures en quatre jours sans baisse de salaire, et une proposition de loi en ce sens a été déposée au Sénat le 31 août 2026."
+chiffres:
+  - valeur: "38,8"
+    unite: heures
+    legende: "par semaine : la durée habituelle d'un salarié à temps plein en 2024, pour une durée légale de 35 heures"
+    source: { organisme: Insee, document: "Insee Références, Durée du travail", annee: 2025 }
+  - valeur: "89 %"
+    legende: "des 150 accords d'entreprise sur la semaine de quatre jours signés en 2023 gardent le même nombre d'heures"
+    source: { organisme: CEET, document: "cité par le rapport d'information de l'Assemblée nationale n° 460", annee: 2024 }
+  - valeur: "350 000"
+    unite: emplois
+    legende: "attribués au passage aux 35 heures entre 1998 et 2002, une estimation discutée"
+    source: { organisme: Insee, document: "Économie et Statistique n° 376-377", annee: 2005 }
+options:
+  - id: A
+    # « Ne rien imposer » reprenait le vocabulaire de ce camp (« hostiles à toute forme de contrainte », § 2a) ; même tournure que la fiche 007.
+    libelle: "Laisser chaque entreprise décider"
+    implique: "Ni loi, ni aide, ni droit nouveau : chaque entreprise décide par accord de passer ou non à quatre jours, à heures égales ou réduites, à ses frais."
+    defenseurs: "Chaque métier est différent : c'est à l'entreprise et à ses salariés de choisir, et la France a besoin de travailler plus, pas moins."
+    critiques: "Sans droit ni aide, rien ne se fait si l'employeur ne le veut pas, et les salariés qui voudraient travailler moins ne peuvent pas l'exiger."
+    # +1 et non +2 : l'option ne va pas au-delà de la règle actuelle.
+    axes: { economie: 1 }
+  - id: B
+    libelle: "Quatre jours, à heures égales"
+    implique: "La durée reste de 35 heures, réparties sur quatre journées de 8 h 45 ; l'État la développe dans ses services et la favorise dans les entreprises, par exemple avec un droit de la demander, comme en Belgique depuis 2022."
+    defenseurs: "Un jour libre de plus chaque semaine, sans baisse de salaire ni coût pour l'employeur : à Lyon, 93 % des agents de l'essai qui ont répondu voulaient la garder."
+    critiques: "Des journées plus longues fatiguent : un tiers des actifs pensent qu'elles seraient trop fatigantes, et en Belgique, moins de 1 % des salariés du privé l'ont choisie."
+  - id: C
+    libelle: "Aller vers les 32 heures, par étapes"
+    implique: "La durée légale reste de 35 heures ; l'État baisse les cotisations des entreprises qui passent à 32 heures en quatre jours sans baisse de salaire et embauchent, ou impose d'abord les 32 heures pour le travail de nuit et les métiers pénibles."
+    defenseurs: "Partager le travail crée des emplois : avec des aides, les 35 heures en ont créé près de 350 000 selon l'Insee."
+    critiques: "Les aides pèsent sur les finances publiques, celles des 35 heures coûtant 11 à 13 milliards d'euros par an au début des années 2010, et les petites entreprises ont plus de mal à s'organiser."
+    axes: { economie: -1 }
+  - id: D
+    libelle: "32 heures pour tous"
+    implique: "La durée légale passe de 35 à 32 heures par semaine, sans baisse de salaire ; au-delà, les heures sont payées en heures supplémentaires."
+    defenseurs: "Les gains de productivité doivent rendre du temps aux salariés, et partager le travail entre tous fait reculer le chômage, à 8,3 % en 2026."
+    critiques: "Payer 35 heures pour 32 renchérit l'heure de travail d'environ 9 % avant gains de productivité, et l'État devrait embaucher : 6,2 milliards d'euros par an selon l'Institut Montaigne."
+    axes: { economie: -2 }
+pourAllerPlusLoin:
+  - titre: "Assemblée nationale, rapport d'information sur la semaine de quatre jours, 2024"
+    url: https://questions.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b0460_rapport-information.pdf
+  - titre: "Sénat, proposition de loi pour 32 heures en 4 jours, 2026"
+    url: https://www.senat.fr/leg/ppl25-938.html
+  - titre: "Insee, Les effets de la RTT sur l'emploi, 2005"
+    url: https://www.insee.fr/fr/statistiques/1376464
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour les 32 heures en 4 jours"
+    argument: "Partager le travail crée des emplois et rend du temps aux salariés."
+  - titre: "Pour laisser chaque entreprise décider"
+    argument: "C'est à l'entreprise et à ses salariés de choisir, et la France a besoin de travailler plus, pas moins."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Moins d'heures"
+    precision: "32 heures en 4 jours"
+  - choix: "Mêmes heures"
+    precision: "en 4 ou 5 jours"
+positions:
+  # Programme « Travail et salaires » : https://attalpresident.fr/programme/travail-salaires (« la promotion, là où c'est possible, de la semaine en quatre jours ») ; déclaration de politique générale du 30/01/2024 : https://www.lalibre.be/international/europe/2024/01/30/attal-demande-a-ses-ministres-dexperimenter-la-semaine-en-4-jours-dans-leurs-administrations-JPGRGIYUYJDMPKFGSJF4MTOOLQ/
+  # Programme Travail et salaires, 2026 : https://attalpresident.fr/programme/travail-salaires
+  attal: { option: B, source: "Programme Travail et salaires, 2026", statut: officielle }
+  # L'Avenir en commun, édition 2025, chap. 8 : https://melenchon2027.fr/programme2025/livre/chapitre8/s2/
+  melenchon: { option: C, source: "L'Avenir en commun, édition 2025, chap. 8", statut: officielle }
+  # Projet 2027 des Écologistes, p. 57, juillet 2026 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+  tondelier: { option: C, source: "Projet 2027 des Écologistes, p. 57, juillet 2026", statut: officielle }
+  # Tribune, La Tribune Dimanche, 02/05/2026 : https://www.latribune.fr/article/la-tribune-dimanche/opinions/1253976204284314/opinion-instaurons-la-priorite-travail-par-bruno-retailleau-president-des-lr-et-candidat-a-la-presidentielle
+  retailleau: { option: A, source: "Tribune, La Tribune Dimanche, 02/05/2026", statut: officielle }
+  # Programme 2022, mesure 9 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: D, source: "Programme 2022, mesure 9", statut: deduite }
+  # Amendement n° 519 cosigné, 30/11/2025 : https://www.assemblee-nationale.fr/dyn/17/amendements/2141/AN/519.pdf
+  ruffin: { option: D, source: "Amendement n° 519 cosigné, 30/11/2025", statut: officielle }
+  # Meeting du 26/09/2026 : https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html
+  arthaud: { option: D, source: "Meeting du 26/09/2026", statut: deduite }
+  # Discours de rentrée, Cannes, 29/08/2026 : https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-assouplir-les-35-heures/
+  lisnard: { option: A, source: "Discours de rentrée, Cannes, 29/08/2026", statut: deduite }
+  # Programme, edouardphilippe.fr, 2026 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+  philippe: { option: A, source: "Programme, edouardphilippe.fr, 2026", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/034-semaine-4-jours.md (chaque chiffre y a sa source
+# numérotée). Le fil : quatre jours, ce n'est pas forcément moins d'heures. Ni mécanisme ni écart : aucun ratio
+# « X pour 1 » ni aucune grandeur à deux dates n'éclaire ce débat mieux que les leviers.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.3, [2].
+    etapes:
+      - { quand: "En 1982", valeur: 39 heures }
+      - { quand: "En 2000", valeur: 35 heures }
+    chute: "Et demain, quatre jours ?"
+  leviers:
+    # § 2a et 1.2, [1] [7] : 133 accords sur 150 en 2023 (89 %) gardent les mêmes heures. La chute dit l'année et
+    # le périmètre (les accords de semaine de quatre jours, pas tous les accords). Espaces insécables dans « 8 h 45 ».
+    titre: "Quatre jours, mais combien d'heures ?"
+    choix:
+      - { texte: "Laisser chaque entreprise décider", detail: "ni loi, ni aide, ni droit nouveau" }
+      - { texte: "4 jours, mêmes heures", detail: "35 heures en journées de 8 h 45" }
+      - { texte: Aider les 32 heures, detail: "l'État baisse les cotisations des entreprises qui passent à 32 heures et embauchent" }
+      - { texte: 32 heures pour tous, detail: "la loi baisse la durée du travail, sans baisse de salaire" }
+    chute: "En 2023, sur 10 accords pour passer à quatre jours, 9 gardaient les mêmes heures."
+    source: "Centre d'études de l'emploi et du travail, 2024"
+  camps: { pour: POUR, contre: CONTRE, objet: les 32 heures en quatre jours }
+  # Chaque réponse compare ce qui se compare : même réforme, même étude ou même année.
+  questions:
+    # § 2b, [2] [3] [4].
+    - question: "Les 35 heures ont-elles créé des emplois ?"
+      pour: { affirmation: "Oui, des centaines de milliers.", chiffre: "350 000", texte: "Entre 1998 et 2002, les 35 heures, avec leurs aides, ont ajouté près de 350 000 emplois, selon les estimations de l'Insee.", source: "Insee, 2005" }
+      contre: { affirmation: "Moins que promis, et c'est discuté.", chiffre: "700 000", texte: "Le gouvernement en promettait 700 000. Une étude sur l'Alsace-Moselle, où la règle s'appliquait moins, ne trouve pas d'effet mesurable sur l'emploi.", source: "Assemblée nationale, 2014 ; Chemin et Wasmer, 2009" }
+    # § 2b, 2e et 3, [2] : les mêmes aides comptées de deux façons, c'est le désaccord lui-même (« brut ou net »).
+    # Chaque texte dit son année (2002, 2013) et sa façon de compter, avec les mêmes mots ; le contre parle en premier.
+    - question: "Les 35 heures ont-elles coûté cher ?"
+      pour: { affirmation: "Moins, une fois les emplois comptés.", chiffre: "2,5 milliards €", texte: "Sur 10,5 milliards d'aides en 2002, il restait 2,5 milliards à payer en comptant les recettes des emplois créés, selon une estimation.", source: "OFCE, 2014" }
+      contre: { affirmation: "Oui, des milliards chaque année.", chiffre: "11 à 13 milliards €", texte: "En 2013, les baisses de cotisations des 35 heures coûtaient 11 à 13 milliards par an, avant de compter les emplois créés.", source: "Ministère du Budget, 2014" }
+    # § 2c et 2d, [10] : les deux réponses viennent de la même étude, sur un essai à moins d'heures (38 → 34 h).
+    # Le contre parle en premier (ABBA) : son texte se lit sans celui du pour.
+    - question: "Peut-on faire autant en moins d'heures ?"
+      pour: { affirmation: "Oui, dans les essais menés.", chiffre: "56 sur 61", texte: "Au Royaume-Uni, 56 entreprises sur 61 ont poursuivi la semaine de 4 jours après six mois d'essai, sans baisser les salaires.", source: "Autonomy et universités, 2023" }
+      contre: { affirmation: "La preuve reste fragile.", chiffre: "23 sur 61", texte: "Au Royaume-Uni, les 61 entreprises de l'essai étaient volontaires, sans groupe de comparaison, et 23 ont fourni leur chiffre d'affaires.", source: "Autonomy et universités, 2023" }
+    # § 2j, [17] [19] : deux sondages de 2024, en ligne, auprès d'environ 1 000 personnes, qui ne posent pas la même
+    # question : chaque texte dit la sienne, et chaque source nomme qui a commandé le sondage.
+    - question: "Les Français veulent-ils travailler moins ?"
+      pour: { affirmation: "Oui, si le salaire suit.", chiffre: "70 %", texte: "Dans un sondage, 70 % des Français se disent favorables à 32 heures en quatre jours, payées comme 35 heures.", source: "Ifop pour Politis, 2024" }
+      contre: { affirmation: "Pas forcément.", chiffre: "54 %", texte: "Dans un autre sondage, 54 % jugent que la durée moyenne d'un temps plein, 38,7 heures, est juste ce qu'il faut.", source: "Elabe pour Les Échos et l'Institut Montaigne, 2024" }

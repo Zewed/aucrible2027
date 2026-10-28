@@ -1,0 +1,135 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/031-russie.md (tout ce qui suit y est sourcé).
+numero: 31
+date: 2026-09-26
+theme: europe-international
+question: "Faut-il durcir, maintenir ou lever les sanctions contre la Russie ?"
+titreCourt: "Les sanctions contre la Russie"
+contexte:
+  - "Depuis l'invasion de l'Ukraine en 2022, l'Union européenne a décidé 21 séries de sanctions contre la Russie, après de premières mesures en 2014 ; chacune exige l'accord des 27."
+  - "Environ 210 milliards d'euros de la banque centrale russe sont bloqués en Europe : leurs intérêts servent déjà à aider l'Ukraine, mais l'argent lui-même n'a pas été saisi."
+  - "Les achats de gaz russe livré par bateau doivent cesser d'ici janvier 2027 ; en 2026, la guerre en Iran a fait monter le prix du gaz, et des discussions de paix doivent reprendre en novembre."
+chiffres:
+  - valeur: "21"
+    unite: séries de sanctions
+    legende: "décidées par l'Union européenne contre la Russie depuis février 2022"
+    source: { organisme: Toute l'Europe, document: les sanctions de l'UE contre la Russie, annee: 2026 }
+  - valeur: "210"
+    unite: milliards d'euros
+    legende: "de la banque centrale russe bloqués dans l'Union européenne, dont 19 en France"
+    source: { organisme: Toute l'Europe, document: les avoirs russes gelés en Europe, annee: 2026 }
+  - valeur: "3,2"
+    unite: milliards d'euros
+    legende: "de gaz russe achetés par la France en 2025, plus des trois quarts de ce qu'elle achète à la Russie"
+    source: { organisme: DG Trésor, document: relations économiques France-Russie, annee: 2026 }
+options:
+  - id: A
+    libelle: Les lever
+    implique: "La France demande la fin des sanctions européennes, y compris sur l'énergie, et relance la coopération avec Moscou."
+    defenseurs: "Les sanctions coûtent plus cher aux Européens qu'à la Russie, qui vend ailleurs, et la paix en Europe passe par un partenariat avec elle."
+    critiques: "Les lever sans accord de paix rendrait à Moscou ses revenus européens et priverait l'Europe d'un levier pour négocier la paix."
+  - id: B
+    libelle: "Garder les sanctions ciblées, lever les autres"
+    implique: "On lève les sanctions sur l'énergie et le commerce, mais on garde celles qui visent des dirigeants, des proches du pouvoir et le matériel militaire."
+    defenseurs: "On vise les responsables de la guerre sans faire payer aux ménages et aux entreprises la hausse de l'énergie et la perte de marchés."
+    critiques: "Rouvrir le commerce de l'énergie rendrait à l'État russe des recettes qui, pour ses critiques, financent sa guerre."
+  - id: C
+    libelle: Les maintenir
+    implique: "Les sanctions actuelles restent en place jusqu'à un accord de paix ; l'argent russe reste bloqué et seuls ses intérêts servent à l'Ukraine."
+    defenseurs: "Elles gardent la pression sur Moscou et un levier pour négocier la paix, sans le risque juridique et financier d'une saisie de l'argent russe."
+    critiques: "Pour les uns, elles pèsent sur l'énergie et les entreprises sans arrêter la guerre ; pour les autres, elles laissent aux Européens la charge de financer l'Ukraine."
+  - id: D
+    libelle: Les durcir
+    implique: "La France demande de nouvelles séries de sanctions, l'arrêt de tout achat d'énergie russe et l'utilisation de l'argent russe bloqué pour financer l'Ukraine."
+    defenseurs: "Il faut frapper Moscou au portefeuille : ses ventes de gaz financent sa guerre, et c'est à la Russie, pas aux Européens, de payer pour l'Ukraine."
+    critiques: "Saisir l'argent d'un État heurte, pour ses critiques, le droit international, expose les entreprises européennes à des représailles et peut renchérir l'énergie."
+pourAllerPlusLoin:
+  - titre: "DG Trésor, relations économiques France-Russie, 2026"
+    url: https://www.tresor.economie.gouv.fr/Pays/RU/les-relations-commerciales-bilaterales-franco-russes-juin-2018
+  - titre: "Toute l'Europe, quelles sanctions de l'Union européenne contre la Russie ?, 2026"
+    url: https://www.touteleurope.eu/l-ue-dans-le-monde/guerre-en-ukraine-quelles-sanctions-de-l-ue-contre-la-russie/
+  - titre: "Institut Jacques Delors, soutien de l'UE à l'Ukraine en 2026 : la saga du prêt de réparation, 2026"
+    url: https://institutdelors.eu/content/uploads/2026/02/PP320_EU_support_Ukraine_2026_Montoya_FR.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour maintenir ou durcir les sanctions"
+    argument: "Elles gardent la pression sur Moscou et un levier pour négocier la paix."
+  - titre: "Pour les alléger ou les lever"
+    argument: "Les sanctions coûtent plus cher aux Européens qu'à la Russie, qui vend ailleurs."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Durcir"
+    precision: "ou maintenir"
+  - choix: "Alléger"
+    precision: "ou lever"
+positions:
+  # Europe 1 avec AFP, 02/08/2022 : https://www.europe1.fr/politique/le-pen-reclame-labandon-des-sanctions-contre-la-russie-qui-ne-servent-a-rien-4126228
+  # Aucune déclaration de 2025-2026 sur la levée trouvée ; communiqué du 19/09/2026, sans mot sur les sanctions :
+  # https://actu.orange.fr/politique/le-rassemblement-national-condamne-les-actes-d-hostilite-russes-en-france-et-en-europe-magic-CNT000002rZE3W.html
+  # Euronews, 17/10/2026 : https://fr.euronews.com/2026/10/17/moins-de-fonds-pour-lukraine-et-budget-de-lue-en-baisse-que-changerait-une-victoire-de-le-
+  le-pen: { option: A, source: "Euronews, 17/10/2026", statut: officielle }
+  # Le Grand Continent, 06/10/2026 : https://legrandcontinent.eu/fr/2026/10/06/quelle-geopolitique-pour-la-primaire-socialiste/
+  glucksmann: { option: D, source: "Le Grand Continent, 06/10/2026", statut: officielle }
+  # Vote du groupe Horizons, 12/03/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/988
+  philippe: { option: D, source: "Vote du groupe Horizons, 12/03/2025", statut: deduite }
+  # Vote des députés Droite républicaine (LR), 12/03/2025 : https://questions.assemblee-nationale.fr/dyn/17/rapports/cion_afetr/l17b1001_rapport-fond.pdf
+  retailleau: { option: D, source: "Vote des députés Droite républicaine (LR), 12/03/2025", statut: deduite }
+  # Débat à l'Assemblée nationale, 03/03/2025 : https://lcp.fr/actualites/situation-en-ukraine-et-securite-en-europe-que-retenir-du-debat-qui-a-eu-lieu-a-l
+  attal: { option: D, source: "Débat à l'Assemblée nationale, 03/03/2025", statut: officielle }
+  # Projet 2027 des Écologistes, juillet 2026 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+  tondelier: { option: D, source: "Projet 2027 des Écologistes, juillet 2026", statut: officielle }
+  # Public Sénat, 08/03/2022 : https://www.publicsenat.fr/actualites/politique/guerre-en-ukraine-que-le-camp-occidental-se-pose-en-sauveur-me-revolte-denonce
+  arthaud: { option: A, source: "Public Sénat, 08/03/2022", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/031-russie.md (chaque chiffre y a sa source
+# numérotée). Le fil : des sanctions toujours plus nombreuses ; l'Europe achète beaucoup moins de gaz russe ;
+# quatre choix possibles ; les deux camps s'opposent sur l'effet, le coût, l'argent bloqué et l'énergie.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1, [1].
+    etapes:
+      - { quand: Février 2022, valeur: 1re série }
+      - { quand: Juillet 2026, valeur: 21e série }
+    chute: Près de 4 600 personnes et organisations sont aujourd'hui sanctionnées.
+  # Pas de mécanisme : aucun rapport « X pour 1 » ne résume le sujet.
+  ecart:
+    # § 1.3 et 2b, [7].
+    titre: Quelle part du gaz acheté par l'Europe vient de Russie ?
+    etapes:
+      - { quand: En 2021, valeur: 45 % }
+      - { quand: En 2025, valeur: 12 % }
+    chute: L'Union a décidé de s'en passer complètement d'ici fin 2027.
+    source: "Toute l'Europe, 2026"
+  leviers:
+    # § 3 et 4 ; unanimité : [10].
+    titre: "Face à la Russie, quatre choix"
+    choix:
+      - { texte: Lever, detail: "toutes les sanctions, et renouer avec Moscou" }
+      - { texte: Alléger, detail: "garder celles qui visent des personnes et l'armement, lever les autres" }
+      - { texte: Maintenir, detail: "les sanctions actuelles, avec l'argent russe toujours bloqué" }
+      - { texte: Durcir, detail: "plus de sanctions, et l'argent russe bloqué utilisé pour l'Ukraine" }
+    # Unanimité pour toute sanction, et donc pour sa prolongation (§ 2f, [10]) : un seul pays peut, en théorie, ne pas la prolonger.
+    chute: Chaque série de sanctions et chaque prolongation exigent l'accord des 27.
+    source: "Institut Delors, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: des sanctions plus dures }
+  # Relu une fois par deux relecteurs, l'un pour des sanctions plus dures, l'autre contre (notes 8,5 et 8). Le camp
+  # CONTRE réunit ceux qui veulent maintenir et ceux qui veulent lever : chacune de ses réponses vaut pour les deux.
+  questions:
+    # § 2a, [4] [5].
+    - question: Les sanctions affaiblissent-elles la Russie ?
+      pour: { affirmation: "Oui, Moscou le reconnaît lui-même.", chiffre: "0,4 %", texte: "Le gouvernement russe prévoit 0,4 % de croissance en 2026, contre 1,3 % auparavant. Il en accuse notamment les sanctions.", source: "Gouvernement russe, 2026" }
+      contre: { affirmation: "Pas son industrie de l'armement.", chiffre: "+3,6 %", texte: "En 2025, l'industrie russe de l'armement a grandi de 3,6 %, plus vite que l'économie du pays.", source: "DG Trésor, 2026" }
+    # § 2c, [3].
+    - question: Les sanctions coûtent-elles cher à la France ?
+      pour: { affirmation: "Le prix pour moins dépendre de Moscou.", chiffre: "4 %", texte: "La Russie fournissait 15 % de l'énergie importée par la France en 2021, et 4 % en 2025.", source: "DG Trésor, 2026" }
+      contre: { affirmation: "Oui, nos ventes en Russie ont chuté.", chiffre: "−71 %", texte: "Entre 2021 et 2025, les ventes de la France à la Russie ont baissé de 71 %.", source: "DG Trésor, 2026" }
+    # § 1.2 et 2d, [2] [10] [28].
+    - question: Faut-il prendre l'argent russe bloqué en Europe ?
+      pour: { affirmation: "Oui, sinon c'est l'Europe qui s'endette.", chiffre: "90 milliards €", texte: "Faute d'accord sur l'argent russe, l'Union emprunte elle-même 90 milliards d'euros pour les prêter à l'Ukraine en 2026 et 2027.", source: "Toute l'Europe ; Parlement européen, 2026" }
+      contre: { affirmation: "Non, ses intérêts aident déjà l'Ukraine.", chiffre: "50 milliards $", texte: "Les sept pays du G7 prêtent jusqu'à 50 milliards de dollars, remboursés par ces intérêts. Saisir l'argent serait, selon ses opposants, illégal.", source: "Institut Delors ; LCP, 2026" }
+    # § 1.3, 1.4 et 2b, [3] [25]. La question de l'étude (§ 2b) : tout achat d'énergie, pas le seul gaz liquéfié déjà
+    # interdit en 2027, sinon ceux qui veulent maintenir les sanctions répondraient « oui » avec le camp POUR.
+    - question: Faut-il cesser tout achat d'énergie russe dès 2027 ?
+      pour: { affirmation: "Oui, cet argent finance la guerre.", chiffre: "3,2 milliards €", texte: "En 2025, la France a acheté à la Russie pour 3,2 milliards d'euros de gaz.", source: "DG Trésor, 2026" }
+      contre: { affirmation: "Pas encore, nous en avons besoin.", chiffre: "2e", texte: "En 2025, la Russie restait notre deuxième fournisseur de gaz. En 2026, la guerre en Iran a fait grimper les prix.", source: "DG Trésor ; Commission européenne, 2026" }

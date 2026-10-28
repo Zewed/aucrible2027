@@ -1,0 +1,132 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/038-reseaux-sociaux.md (tout ce qui suit y est sourcé).
+# Aucune note d'axe : le clivage ne suit pas l'axe progressiste/conservateur. La loi de juillet 2026 a été votée de LR
+# au PS et chez les écologistes, combattue par LFI, et le RN, pour en janvier, s'est abstenu en juillet (étude, § 4).
+numero: 38
+date: 2026-09-20
+theme: education-jeunesse
+question: Faut-il interdire les réseaux sociaux aux moins de 15 ans ?
+titreCourt: "Les réseaux sociaux avant 15 ans"
+contexte:
+  - "Une loi de 2023 exigeait l'accord d'un parent pour s'inscrire sur un réseau social avant 15 ans, mais elle n'est jamais entrée en vigueur."
+  - "Le Parlement a voté en juillet 2026 une interdiction générale avant 15 ans. Le Conseil constitutionnel, qui juge l'objectif légitime, l'a censurée le 14 août pour atteinte à la liberté d'expression et à la vie privée."
+  - "Le gouvernement a annoncé un nouveau texte, et la Commission européenne a proposé le 17 septembre 2026 de fixer à 15 ans l'âge d'un compte autonome dans toute l'Union."
+chiffres:
+  - valeur: "58 %"
+    legende: des 12-17 ans vont chaque jour sur les réseaux sociaux
+    source: { organisme: "Crédoc, cité par l'Anses", document: baromètre du numérique, annee: 2025 }
+  - valeur: "11 %"
+    legende: "des jeunes Européens de 11 à 15 ans ont un usage problématique des réseaux sociaux en 2022, contre 7 % en 2018"
+    source: { organisme: OMS Europe, document: enquête HBSC, annee: 2024 }
+  - valeur: "42 %"
+    legende: "des moins de 16 ans ont encore un compte en Australie trois mois après l'interdiction, contre 52 % avant"
+    source: { organisme: eSafety Commissioner (Australie), document: évaluation à trois mois, annee: 2026 }
+options:
+  - id: A
+    libelle: Ne pas interdire, éduquer
+    implique: "Pas d'âge minimum fixé par la loi française : les règles des plateformes (13 ans le plus souvent) et le droit européen s'appliquent, et l'on mise sur l'éducation au numérique et l'aide aux parents."
+    defenseurs: "Une interdiction se contourne et oblige chacun, adultes compris, à prouver son âge : mieux vaut apprendre aux jeunes à s'en servir et aider les parents à les guider."
+    critiques: "La limite de 13 ans n'est pas respectée, puisque 58 % des 11-12 ans avaient un compte en 2021, et l'éducation ne change pas la conception des applications."
+  - id: B
+    libelle: Interdire les fonctions jugées addictives
+    implique: "Les moins de 15 ans gardent accès aux réseaux sociaux, mais la loi leur interdit une liste de fonctions : lecture automatique des vidéos, défilement sans fin, notifications la nuit, messages d'inconnus."
+    defenseurs: "On vise ce qui nuit, la façon dont les applications sont conçues, sans couper les adolescents de leurs amis ni interdire des services dont les risques ne sont pas établis."
+    critiques: "Les plateformes n'ont pas fait respecter leur propre limite de 13 ans, et il faudrait tout de même vérifier l'âge de chacun pour savoir à qui appliquer ces règles."
+  - id: C
+    libelle: Interdire avant 15 ans, sauf accord des parents
+    implique: "Pas de compte avant 15 ans sans l'accord d'un parent, qui peut le donner service par service, comme le prévoyaient la loi de 2023 et la version votée par le Sénat en mars 2026."
+    defenseurs: "Les parents décident selon la maturité de leur enfant, ce que le Conseil d'État et le Conseil constitutionnel reprochaient à l'interdiction générale de ne pas permettre."
+    critiques: "La loi de 2023, fondée sur l'accord des parents, a été bloquée par le droit européen, et il faudrait vérifier à la fois l'âge de l'enfant et l'identité du parent."
+  - id: D
+    libelle: Interdire strictement avant 15 ans
+    implique: "Aucun compte sur un réseau social avant 15 ans, sans dérogation, et vérification de l'âge de tous les utilisateurs, comme dans la loi votée en juillet 2026 ; l'Australie a choisi 16 ans."
+    defenseurs: "Les réseaux sociaux abîment le sommeil et l'image de soi des adolescents, selon l'agence de sécurité sanitaire. Une règle claire et la même pour tous les enfants les en protège ; 69 % des 10-14 ans la jugent eux-mêmes une bonne idée."
+    critiques: "Le Conseil constitutionnel l'a censurée en 2026 pour atteinte à la liberté d'expression et à la vie privée, et en Australie, la plupart des enfants qui avaient un compte l'ont gardé ou en ont ouvert un autre."
+pourAllerPlusLoin:
+  - titre: Conseil constitutionnel, décision n° 2026-911 DC du 14 août 2026
+    url: https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm
+  - titre: "Anses, Usages des réseaux sociaux numériques et santé des adolescents, 2026"
+    url: https://www.anses.fr/fr/content/AP2019-SA-0152-RA
+  - titre: "Commission d'experts, Enfants et écrans, à la recherche du temps perdu, 2024"
+    url: https://www.vie-publique.fr/files/rapport/pdf/293978.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour interdire avant 15 ans"
+    argument: "Les réseaux sociaux abîment le sommeil et l'image de soi des adolescents, selon l'agence de sécurité sanitaire ; une règle claire, la même pour tous, les en protège."
+  - titre: "Pour ne pas interdire"
+    argument: "Une interdiction se contourne et oblige chacun, adultes compris, à prouver son âge."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Interdire"
+    precision: "avant 15 ans"
+  - choix: "Ne pas interdire"
+    precision: "éduquer et encadrer"
+positions:
+  # Vote contre du groupe LFI (63 voix), 21/07/2026 : https://nosparlementaires.fr/actualites/reseaux-sociaux-interdits-15-ans-adoption-definitive ; saisine du Conseil constitutionnel (M. Panot) : https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm
+  # Vote du groupe Horizons, 21/07/2026 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8431
+  philippe: { option: D, source: "Vote du groupe Horizons, 21/07/2026", statut: deduite }
+  # Programme École, 2026 : https://attalpresident.fr/programme/education
+  attal: { option: D, source: "Programme École, 2026", statut: officielle }
+  # Communiqué de N. Dupont-Aignan, 22/07/2026 : https://www.debout-la-france.fr/actualite/communique-la-protection-de-nos-enfants-se-joue-sur-le-terrain/
+  dupont-aignan: { option: A, source: "Communiqué de N. Dupont-Aignan, 22/07/2026", statut: officielle }
+  # Place publique, Acte I, 23/06/2025 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view
+  glucksmann: { option: D, source: "Place publique, Acte I, 23/06/2025", statut: deduite }
+  # Les Échos, tribune, 11/02/2026 : https://www.unenouvelleenergie.fr/reseaux-sociaux-linterdiction-est-le-dernier-refuge-de-limpuissance-publique/
+  lisnard: { option: B, source: "Les Échos, tribune, 11/02/2026", statut: officielle }
+  # X, 27/01/2026 : https://x.com/ZemmourEric/status/2016132150811119718
+  zemmour: { option: A, source: "X, 27/01/2026", statut: officielle }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/038-reseaux-sociaux.md (chaque chiffre y a sa source
+# numérotée). Le fil : deux lois votées, aucune appliquée ; quatre façons de protéger les enfants, que l'Europe mélange.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1, [1] [5] [6] [8].
+    etapes:
+      - { quand: Juillet 2026, valeur: Interdiction votée }
+      - { quand: Août 2026, valeur: Interdiction censurée }
+    chute: "… et aujourd'hui, aucune interdiction ne s'applique en France."
+  # Pas de mécanisme : aucun rapport « X pour 1 » ne résume le sujet.
+  ecart:
+    # § 2c, [29] : même population (moins de 16 ans en Australie), même enquête, avant et après l'interdiction.
+    # La chute donne les deux lectures du § 2c : la règle se contourne ; le régulateur en accuse les plateformes.
+    titre: "En Australie, combien de moins de 16 ans ont un compte ?"
+    etapes:
+      - { quand: Fin 2025, valeur: "52 %" }
+      - { quand: Mars 2026, valeur: "42 %" }
+    chute: "Une baisse, mais la plupart de ceux qui avaient un compte l'ont gardé ou en ont ouvert un autre. Selon le régulateur, les plateformes vérifient mal l'âge."
+    source: "eSafety Commissioner (Australie), 2026"
+  leviers:
+    # § 2f, 2g et 2j, [11] [13] [15]. Les quatre options de la fiche, dans l'ordre.
+    titre: Pour protéger les enfants, quatre façons de faire
+    choix:
+      - { texte: Éduquer, detail: "apprendre aux enfants à s'en servir, aider les parents" }
+      - { texte: Changer les applications, detail: "avant 15 ans, pas de fonctions qui poussent à rester connecté" }
+      - { texte: Laisser décider les parents, detail: pas de compte avant 15 ans sans leur accord }
+      # Toute règle d'âge suppose de vérifier l'âge (§ 3) : ce n'est pas ce qui distingue l'interdiction.
+      - { texte: Interdire, detail: "aucun compte avant 15 ans, même avec l'accord des parents" }
+    chute: "L'Europe propose d'en mélanger trois : pas de compte avant 13 ans, un compte limité ouvert par un parent jusqu'à 15 ans, des applications sans ces fonctions."
+    source: Commission européenne, 2026
+  camps: { pour: POUR, contre: CONTRE, objet: une interdiction avant 15 ans }
+  questions:
+    # § 2a, [21] [25]. Les deux réponses portent sur des adolescents ; la seconde dit qu'elle mesure tout le numérique
+    # (l'étude n'a pas relu quelles questions sur les réseaux l'indicateur contient : on n'écrit pas « réseaux compris »).
+    # Les deux mesures diffèrent (réseaux / tout le numérique, 2026 / 2019) : c'est la meilleure carte de chaque camp au
+    # § 2a, et chaque carte dit ce qu'elle mesure.
+    - question: Les réseaux sociaux nuisent-ils à la santé des jeunes ?
+      pour: { affirmation: "Oui, selon l'agence de sécurité sanitaire.", chiffre: "1 000 études", texte: "Elle en a examiné plus de mille : sommeil perturbé, image de soi abîmée, harcèlement. Les filles sont les plus touchées.", source: "Anses, 2026" }
+      contre: { affirmation: "Un lien existe, mais il est faible.", chiffre: "0,4 %", texte: "Sur 355 000 adolescents, l'usage du numérique dans son ensemble explique au plus 0,4 % des écarts de bien-être.", source: "Université d'Oxford, 2019" }
+    # § 2c, [31] : le même sondage pour les deux réponses, et les deux disent que ce sont des réponses d'enfants.
+    - question: Les enfants respecteraient-ils une interdiction ?
+      pour: { affirmation: "Oui, pour la plupart.", chiffre: 2 sur 3, texte: "Dans le même sondage, deux enfants sur trois disent qu'ils respecteraient l'interdiction.", source: "Arcom, 2026" }
+      contre: { affirmation: Pas tous., chiffre: 1 sur 3, texte: "Dans un sondage, un enfant sur trois de 10 à 14 ans dit qu'il la contournerait, avec une fausse date de naissance.", source: "Arcom, 2026" }
+    # § 1.2 et 2d, [1] [2] [15] [17]. Les sept pays viennent de Toute l'Europe [17]. Le Conseil constitutionnel a
+    # censuré pour deux motifs, liberté d'expression et vie privée : d'où « notamment ». Pas de « 100 % » construit.
+    - question: "Vérifier l'âge de tous, est-ce acceptable ?"
+      pour: { affirmation: "Oui, sans dévoiler son identité.", chiffre: 7 pays, texte: "Sept pays, dont la France, préparent une application européenne qui dit si l'on a l'âge, sans donner son nom.", source: "Commission européenne ; Toute l'Europe, 2026" }
+      contre: { affirmation: Pas sans garanties solides., chiffre: Août 2026, texte: "Chacun, adultes compris, devrait prouver son âge. Le Conseil constitutionnel a censuré l'interdiction, notamment faute de garanties sur cette preuve.", source: "Conseil constitutionnel, 2026" }
+    # § 2g, [15] [32]. Un sondage d'un côté, une proposition de l'autre : chaque camp donne son argument du § 2g, et
+    # aucun chiffre n'est mis en face d'un autre ; les deux affirmations répondent à la question.
+    - question: "Est-ce aux parents de décider ?"
+      pour: { affirmation: "Non, la plupart des parents veulent une loi.", chiffre: "74 %", texte: "Trois parents d'enfants de 6 à 16 ans sur quatre sont favorables à l'interdiction avant 15 ans, selon un sondage.", source: "Observatoire de la parentalité numérique, 2026" }
+      contre: { affirmation: "Oui, avec un compte surveillé.", chiffre: 13 ans, texte: "L'Europe propose qu'entre 13 et 15 ans, un parent puisse ouvrir à son enfant un compte limité à une heure par jour.", source: "Commission européenne, 2026" }

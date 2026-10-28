@@ -1,0 +1,142 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/041-pesticides.md (tout ce qui suit y est sourcé).
+# À vérifier en priorité : aucune exception accordée par l'Anses n'a été trouvée au 28/10/2026, et une proposition de
+# loi qui veut supprimer ces exceptions est examinée à l'Assemblée le 29/10/2026 (voir l'étude, § 1.4).
+numero: 41
+date: 2026-09-17
+theme: ecologie-energie
+question: Faut-il assouplir ou durcir les règles sur les pesticides ?
+titreCourt: "Les pesticides"
+contexte:
+  - "Depuis 2018, la France interdit les néonicotinoïdes, une famille d'insecticides dont fait partie l'acétamipride, que l'Union européenne autorise jusqu'en 2033."
+  - "En 2025, le Conseil constitutionnel a censuré leur retour prévu par la loi Duplomb ; en 2026, il a validé une loi qui permet des exceptions pour quatre cultures, trois ans au plus, si l'Anses, l'agence sanitaire, les accorde."
+  - "Le glyphosate reste autorisé en Europe jusqu'en 2033, et l'objectif officiel est de réduire de moitié l'usage et les risques des pesticides d'ici 2030."
+chiffres:
+  - valeur: "4"
+    unite: cultures
+    legende: "noisette, betterave, pomme et cerise : celles où l'Anses peut accorder une exception depuis août 2026, pour trois ans au plus"
+    source: { organisme: Conseil constitutionnel, document: décision n° 2026-914 DC, annee: 2026 }
+  - valeur: "1 sur 27"
+    legende: "la France est le seul pays de l'Union européenne à interdire les produits à base d'acétamipride"
+    source: { organisme: Sénat, document: rapport n° 762, annee: 2026 }
+  - valeur: "3 sur 10"
+    legende: "Français ont reçu au moins une fois en 2024 une eau du robinet dépassant la limite de qualité fixée pour les pesticides"
+    source: { organisme: Ministère de la Santé, document: bilan de la qualité de l'eau, annee: 2024 }
+options:
+  - id: A
+    libelle: "Autoriser ce que l'Europe autorise"
+    implique: "Les pesticides autorisés dans l'Union européenne, comme l'acétamipride, redeviennent utilisables en France pour toutes les cultures qui en ont besoin, sans liste de quatre cultures ni limite de trois ans."
+    defenseurs: "La France est le seul pays de l'Union à interdire l'acétamipride : ses agriculteurs perdent des récoltes face à des voisins qui l'utilisent, et la France importe alors ce qu'elle ne produit plus."
+    critiques: "L'agence européenne a divisé par cinq en 2024 la dose d'acétamipride jugée sans risque, et le Conseil constitutionnel a censuré en 2025 une dérogation sans limite de durée ni de cultures, au nom du droit à un environnement sain."
+    # Moins de règles, plus de place au marché ; note modérée, comme pour les vols intérieurs (fiche 035).
+    axes: { economie: 1 }
+  - id: B
+    libelle: "Garder les règles actuelles"
+    implique: "L'interdiction des néonicotinoïdes reste la règle ; l'Anses peut accorder une exception d'un an, renouvelable deux fois, pour la noisette, la betterave, la pomme ou la cerise, en cas de menace grave sans autre solution. Le glyphosate reste autorisé avec des restrictions, et l'objectif de réduire de moitié l'usage et les risques d'ici 2030 est maintenu."
+    defenseurs: "Un passage étroit, dont la décision revient aux scientifiques de l'Anses, pour des filières sans solution prête, comme la noisette, que l'Inrae juge « au bord de la faillite » ; le Conseil constitutionnel l'a jugé suffisamment encadré."
+    critiques: "Pour les uns, c'est le retour de produits qui nuisent aux pollinisateurs, à l'eau et aux sols, ce que reconnaît le Conseil constitutionnel ; pour les autres, quatre cultures et trois ans laissent les agriculteurs français désavantagés face à leurs voisins."
+    # La règle en vigueur depuis la loi du 18/08/2026 ; pas de note, elle se tient au milieu.
+  - id: C
+    libelle: "Revenir à l'interdiction sans exception"
+    implique: "Les exceptions ouvertes en 2026 sont supprimées : l'acétamipride et le flupyradifurone redeviennent interdits sans exception, comme de 2023 à 2026 ; les autres règles, dont l'autorisation du glyphosate, restent les mêmes."
+    defenseurs: "En 2018, l'Anses trouvait au moins une alternative sans produit chimique pour 78 % des usages de ces insecticides : les exceptions retardent la recherche de solutions durables et exposent les pollinisateurs, l'eau et les sols."
+    critiques: "Pour la noisette, l'Inrae juge les solutions de remplacement pas encore opérationnelles, et les agriculteurs français resteraient les seuls de l'Union privés de l'acétamipride."
+    # Un peu plus strict que la règle actuelle ; pas de note, pour ne pas pousser le plateau vers les bords.
+  - id: D
+    libelle: "Interdire davantage, glyphosate compris"
+    implique: "En plus de supprimer les exceptions, la France interdit d'autres pesticides autorisés en Europe, à commencer par le glyphosate, et fixe un calendrier pour sortir des pesticides de synthèse, de tout de suite pour les plus dangereux à 2050 selon ses partisans."
+    defenseurs: "Les agriculteurs sont les premiers exposés : selon l'Inserm, le lien entre les pesticides et des maladies comme Parkinson ou certains cancers est fortement présumé, et près de 3 Français sur 10 ont reçu au moins une fois en 2024 une eau dépassant la limite fixée pour les pesticides."
+    critiques: "L'évaluation européenne de 2023 n'a relevé aucun risque critique pour le glyphosate, autorisé dans l'Union jusqu'en 2033 ; l'interdire en France creuserait l'écart avec les voisins, alors que les solutions de remplacement ne sont pas toutes prêtes selon l'Inrae."
+    # Plus de règles ; laissé à −1 pour ne pas pousser le plateau vers les bords.
+    axes: { economie: -1 }
+pourAllerPlusLoin:
+  - titre: "Conseil constitutionnel, décision n° 2026-914 DC du 14 août 2026"
+    url: https://www.conseil-constitutionnel.fr/decision/2026/2026914DC.htm
+  - titre: "Inrae, rapport sur les alternatives aux néonicotinoïdes, 2025"
+    url: https://www.inrae.fr/actualites/rapport-2025-alternatives-usage-neonicotinoides
+  - titre: "Ministère de l'Agriculture, indicateurs de la stratégie Écophyto 2030"
+    url: https://agriculture.gouv.fr/les-indicateurs-de-suivi-de-la-strategie-ecophyto-2030
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour assouplir ou garder les règles"
+    argument: "La France est le seul pays de l'Union à interdire l'acétamipride : ses agriculteurs perdent des récoltes face à leurs voisins."
+  - titre: "Pour les durcir"
+    argument: "Ces insecticides nuisent aux pollinisateurs, à l'eau et aux sols, et des alternatives sans produit chimique existent pour la plupart des usages."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Assouplir"
+    precision: "ou garder les règles"
+  - choix: "Durcir"
+    precision: "sans exception, ou plus"
+positions:
+  # Projet agricole des Républicains, mars 2026, mesure 6 relevée par votons-2027.fr : https://votons-2027.fr/candidats/retailleau/programme/climat ; PDF d'origine (non ouvert) : https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf
+  retailleau: { option: A, source: "Projet agricole des Républicains, mars 2026", statut: officielle }
+  # L'Avenir en commun, édition 2025, mesures 6 et 152, relevées par votons-2027.fr : https://votons-2027.fr/candidats/melenchon/programme/climat ; page d'origine (inaccessible) : https://melenchon2027.fr/programme2025/livre/
+  melenchon: { option: D, source: "L'Avenir en commun, édition 2025", statut: officielle }
+  # Place publique, programme « Acte I », mesure 6, relevée par votons-2027.fr : https://votons-2027.fr/candidats/glucksmann/programme/climat
+  glucksmann: { option: D, source: "Place publique, programme « Acte I », 23/06/2025", statut: officielle }
+  # Projet 2027 des Écologistes, mesure 9, relevée par votons-2027.fr : https://votons-2027.fr/candidats/tondelier/programme/climat
+  tondelier: { option: D, source: "Projet 2027 des Écologistes, mesure 9", statut: officielle }
+  # Cahier « Travaillisme écologique », septembre 2026 : https://nouspresident.fr/travaillisme-ecologique/
+  ruffin: { option: D, source: "Cahier « Travaillisme écologique », septembre 2026", statut: officielle }
+  # Assemblée nationale, PPL n° 2117 (acétamipride, abrogation de la loi Duplomb), amendement n° 5 de M. de Lépinau et du groupe RN, cosigné par Marine Le Pen, 20/11/2025 : https://www.assemblee-nationale.fr/dyn/17/amendements/2117/AN/5.pdf
+  le-pen: { option: A, source: "Assemblée nationale, PPL n° 2117 (acétamipride, abrogation de la loi Duplomb), amendement n° 5 de M. de Lépinau et du groupe RN, cosigné par Marine Le Pen, 20/11/2025", statut: deduite }
+  # Réussir, « Arrêt du glyphosate : le sujet qui divise les candidats », propos de F. Roussel aux Controverses de l'agriculture, 15/02/2022 (article du 16/02/2022) : https://www.reussir.fr/arret-du-glyphosate-le-sujet-qui-divise-les-candidats-lelection-presidentielle-2022
+  roussel: { option: D, source: "Réussir, « Arrêt du glyphosate : le sujet qui divise les candidats », propos de F. Roussel aux Controverses de l'agriculture, 15/02/2022 (article du 16/02/2022)", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/041-pesticides.md (chaque chiffre y a sa source
+# numérotée ; tableau des renvois en annexe de l'étude). Le fil : un insecticide interdit en France et permis en Europe ;
+# faut-il assouplir ou durcir ? Quatre angles à poids égal : santé, environnement, revenu des agriculteurs, concurrence.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1 et 1.3, [2] [14] [16].
+    etapes:
+      - { quand: "Interdit en France depuis", valeur: "2018" }
+      - { quand: "Autorisé en Europe jusqu'en", valeur: "2033" }
+    chute: "C'est l'acétamipride, un insecticide. Depuis août 2026, la loi française permet des exceptions."
+  # Pas de mécanisme : aucun rapport « X pour 1 » suivi à deux dates ne résume le sujet.
+  ecart:
+    # § 2a, [20] : même périmètre (ventes hors produits utilisables en bio et de biocontrôle), même unité, même organisme.
+    titre: Combien de pesticides vend-on chaque année ?
+    etapes:
+      - { quand: En 2015-2017, valeur: "52 700 tonnes" }
+      - { quand: En 2024, valeur: "42 900 tonnes" }
+    chute: "Sans compter les produits utilisables en bio : près d'un cinquième de moins, avec une remontée en 2024."
+    source: "Ministère de la Transition écologique, 2025"
+  leviers:
+    # § 1.3, 2i et 4, [2] [38] [42].
+    titre: "Pour les pesticides, quatre choix"
+    choix:
+      - { texte: Autoriser, detail: "ce que l'Europe autorise, comme l'acétamipride" }
+      - { texte: Garder les règles, detail: "des exceptions pour quatre cultures, trois ans au plus" }
+      - { texte: Interdire sans exception, detail: "comme de 2023 à 2026" }
+      - { texte: Interdire davantage, detail: "le glyphosate aussi, jusqu'à sortir des pesticides de synthèse" }
+    chute: "Depuis août 2026, c'est l'Anses, l'agence sanitaire, qui accorde ou refuse chaque exception."
+    source: "Conseil constitutionnel, 2026 ; programmes des candidats, 2026"
+  # Les mots de la question : ni « pesticides interdits » ni « produits autorisés en Europe », deux cadrages opposés.
+  camps: { pour: POUR, contre: CONTRE, objet: des règles plus souples }
+  # Relu une fois par deux relecteurs, l'un pour assouplir, l'autre contre. Chaque réponse compare ce qui se compare :
+  # même organisme européen (Q1), pesticides dans leur ensemble (Q2), mêmes insecticides (Q3), règles comparées aux
+  # voisins (Q4). « Autorisé en Europe jusqu'en 2033 » n'est dit qu'une fois, dans l'accroche, et « seule à
+  # l'interdire » qu'une fois, en Q4 ; Q1 et Q2 portent sur tous les pesticides, pas sur l'acétamipride seul.
+  questions:
+    # § 2b, [14] [37] : POUR sur tous les aliments contrôlés, CONTRE sur un produit ; même organisme.
+    - question: "Ce qu'on mange contient-il des pesticides dangereux ?"
+      pour: { affirmation: "Rarement au-delà des limites légales.", chiffre: "96 %", texte: "En 2023, plus de 96 % des aliments contrôlés en Europe restaient sous la limite légale de résidus de pesticides.", source: "Autorité européenne de sécurité des aliments, 2025" }
+      contre: { affirmation: "Les doutes ont grandi sur certains.", chiffre: "5 fois", texte: "En 2024, l'agence européenne a divisé par cinq la dose d'acétamipride jugée sans risque chaque jour.", source: "Autorité européenne de sécurité des aliments, 2024" }
+    # § 2a et 2d, [21] [23] [26] : l'indicateur a remonté en 2024 (50 → 53), d'où « moins qu'avant » ; Générations
+    # futures le conteste. Le texte CONTRE ne parle pas de hausse : la limite « on cherche plus de molécules » ne joue pas.
+    - question: "Les pesticides abîment-ils l'eau et la nature ?"
+      pour: { affirmation: "Moins qu'avant.", chiffre: "−47 %", texte: "Selon l'indicateur officiel, que des associations contestent, les risques des pesticides ont baissé de 47 % depuis 2011-2013.", source: "Ministère de l'Agriculture, 2026" }
+      contre: { affirmation: "Oui, jusqu'au robinet.", chiffre: "3 sur 10", texte: "En 2024, près de 3 Français sur 10 ont reçu au moins une fois une eau dépassant la limite en pesticides.", source: "Ministère de la Santé, 2025" }
+    # § 1.1, 2f et 2h, [10] [17] [19] : les deux réponses portent sur ces insecticides, pas sur tous les pesticides.
+    # 2020 est l'année de l'épidémie (pression « globalement modérée » depuis, selon l'Inrae) ; l'Anses a trouvé « au
+    # moins une alternative », pas une solution aussi efficace.
+    - question: "Les agriculteurs peuvent-ils se passer de ces insecticides ?"
+      pour: { affirmation: "Pas pour certaines cultures.", chiffre: "30 %", texte: "En 2020, sans ces insecticides, une épidémie portée par des pucerons a fait perdre 30 % des betteraves.", source: "Sénat, 2026" }
+      contre: { affirmation: "Oui, dans la plupart des cas.", chiffre: "78 %", texte: "En 2018, l'agence sanitaire a trouvé au moins une alternative sans produit chimique pour 78 % des usages de ces insecticides.", source: "Anses, 2018" }
+    # § 2g et 2j, [10] [35] : CONTRE nomme aussi les voisins qui autorisent plus (Italie, Espagne), données de janvier 2024.
+    - question: "La France se pénalise-t-elle face à ses voisins ?"
+      pour: { affirmation: "Oui, seule à interdire l'acétamipride.", chiffre: "1 sur 27", texte: "La France est le seul pays de l'Union européenne à interdire les produits à base d'acétamipride.", source: "Sénat, 2026" }
+      contre: { affirmation: "Pas dans l'ensemble.", chiffre: "283", texte: "En 2024, la France autorisait 283 substances de pesticides, plus que l'Allemagne (262) ou la Pologne (265), moins que l'Italie ou l'Espagne.", source: "Public Sénat, 2024" }

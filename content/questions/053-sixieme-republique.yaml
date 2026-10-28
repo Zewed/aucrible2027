@@ -1,0 +1,153 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/053-sixieme-republique.md (tout ce qui suit y est sourcé).
+# Pas de doublon avec les fiches 010 (référendum d'initiative citoyenne) et 021 (proportionnelle) : celle-ci porte sur la
+# Constitution elle-même. Aucune note d'axe, comme pour 010 et 021 : la question oppose des façons de répartir le pouvoir
+# (président, Parlement, peuple), ni plus de redistribution ou de marché, ni progressiste ou conservateur ; une note
+# « société » rangerait la nouvelle Constitution à gauche et le référendum à droite, et dupliquerait le clivage des autres
+# fiches sur le plateau.
+numero: 53
+date: 2026-09-05
+theme: institutions-democratie
+question: "Faut-il changer de Constitution ?"
+titreCourt: "Changer de Constitution"
+contexte:
+  - "La Constitution du 4 octobre 1958 fonde la Ve République et a été révisée 25 fois. Le président, élu pour cinq ans, nomme le Premier ministre et peut dissoudre l'Assemblée nationale."
+  - "Depuis 2022, aucun bloc n'a la majorité absolue à l'Assemblée. Le 49.3, qui fait adopter un texte sans vote sauf si les députés renversent le gouvernement, a servi 23 fois de 2022 à 2024 ; en décembre 2024, un gouvernement a été renversé, pour la première fois depuis 1962."
+  - "Les projets vont d'une nouvelle Constitution, écrite par une assemblée constituante, à des révisions ciblées pour renforcer le Parlement ou le référendum."
+chiffres:
+  - valeur: "25"
+    unite: révisions
+    legende: "de la Constitution de 1958, la dernière en 2024 pour la liberté de recourir à l'avortement"
+    source: { organisme: Assemblée nationale, document: "fiche de synthèse n° 55, La révision de la Constitution", annee: 2024 }
+  - valeur: "23"
+    unite: fois
+    legende: "le 49.3 a été utilisé de 2022 à 2024, sans majorité absolue, contre une fois de 2017 à 2022"
+    source: { organisme: Assemblée nationale, document: "fiche de synthèse n° 64, La mise en cause de la responsabilité du Gouvernement", annee: 2024 }
+  - valeur: "58 %"
+    legende: "des Français estiment qu'il faudrait changer de Constitution et de régime politique, 32 % non (sondage en ligne auprès de 3 166 inscrits)"
+    source: { organisme: "CEVIPOF, OpinionWay", document: "Baromètre de la confiance politique, vague 17", annee: 2026 }
+options:
+  - id: A
+    libelle: "Changer de Constitution"
+    implique: "Une nouvelle Constitution remplace celle de 1958 : selon les projets, une assemblée constituante, élue, tirée au sort ou les deux, l'écrit, puis le peuple l'approuve par référendum. Le gouvernement dépend de l'Assemblée et le président perd son rôle central."
+    defenseurs: "Le pouvoir est trop concentré entre les mains du président : une Constitution écrite avec les citoyens rendrait le premier rôle au Parlement, comme en Allemagne, et pourrait rétablir une confiance au plus bas, 20 % pour l'Assemblée."
+    critiques: "Réécrire toute la Constitution ouvre des années d'incertitude quand le pays cherche de la stabilité ; lancer le processus par un référendum, sans le vote du Parlement, est contesté en droit, et au Chili, deux projets écrits par des assemblées élues ont été rejetés."
+  - id: B
+    libelle: "La réviser pour renforcer le Parlement"
+    implique: "La Constitution de 1958 reste, mais elle est révisée : le 49.3 est supprimé ou limité, le Premier ministre est investi par l'Assemblée, et les pouvoirs propres du président, comme les nominations, sont réduits."
+    defenseurs: "On peut rééquilibrer les pouvoirs sans tout réécrire : de 2022 à 2024, le 49.3 a fait adopter des textes sans vote 23 fois, et les députés doivent retrouver le dernier mot sur les lois et les nominations."
+    critiques: "Sans 49.3 ni majorité stable, un gouvernement peut ne plus réussir à faire voter son budget ; et toute révision doit passer par le Sénat, qui a rejeté en 2026 un texte réduisant les pouvoirs du président."
+  - id: C
+    libelle: "La réviser pour renforcer le référendum"
+    implique: "La Constitution de 1958 reste et le président garde ses pouvoirs, mais le peuple est plus souvent consulté : référendum ouvert à tous les sujets, y compris la Constitution ; selon les projets, mandat de sept ans et référendum pour passer outre une censure du Conseil constitutionnel."
+    defenseurs: "« La souveraineté nationale appartient au peuple » : quand l'Assemblée ne parvient plus à trancher, c'est au peuple de décider, alors qu'aucun référendum national n'a eu lieu depuis 2005 et que 79 % des Français veulent y recourir plus souvent."
+    critiques: "Passer outre le juge constitutionnel affaiblirait la protection des libertés, selon des constitutionnalistes ; et réviser la Constitution par référendum sans le vote du Sénat est une pratique contestée en droit depuis 1962."
+  # Aucun candidat n'y est rangé avec une source (étude, § 4), mais l'option est défendue dans le débat
+  # (« moins on la touche, mieux on se porte », J.-P. Raffarin) et 32 % des sondés du CEVIPOF ne veulent pas changer.
+  - id: D
+    libelle: "La garder telle qu'elle est"
+    implique: "L'équilibre des pouvoirs ne change pas : le président, le gouvernement et l'Assemblée gardent leurs règles ; on change les pratiques et les lois ordinaires, comme le mode de scrutin, pas la Constitution."
+    defenseurs: "« Moins on la touche, mieux on se porte » : la Constitution de 1958 a tenu face à une Assemblée sans majorité et à la censure d'un gouvernement en 2024 ; la crise vient des divisions politiques, qu'aucun texte ne fera disparaître."
+    critiques: "Garder le texte tel quel ne répond pas à une défiance record : 20 % des Français font confiance à l'Assemblée, 22 % à l'institution présidentielle, et 58 % disent qu'il faudrait changer de Constitution."
+pourAllerPlusLoin:
+  - titre: "Conseil constitutionnel, texte intégral de la Constitution du 4 octobre 1958"
+    url: https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur
+  - titre: "Assemblée nationale, La révision de la Constitution, fiche de synthèse n° 55, 2024"
+    url: https://www.assemblee-nationale.fr/dyn/contenu/telechargement/629140/file/Fiche%2055%20-%20R%C3%A9vision%20constitution_actualis%C3%A9e11032024.pdf
+  - titre: "CEVIPOF, Baromètre de la confiance politique, vague 17, 2026"
+    url: https://www.sciencespo.fr/cevipof/sites/sciencespo.fr.cevipof/files/Barometre_confiance_CEVIPOFVague17_fev2026_vd1.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour une nouvelle Constitution"
+    argument: "Le pouvoir est trop concentré entre les mains du président : une Constitution écrite avec les citoyens rendrait le premier rôle au Parlement."
+  - titre: "Pour garder celle de 1958"
+    argument: "Réécrire toute la Constitution ouvre des années d'incertitude : on peut la réviser sur des points précis, ou la garder, sans tout remettre en jeu."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Changer"
+    precision: "de Constitution"
+  - choix: "Garder"
+    precision: "celle de 1958, révisée ou non"
+positions:
+  # L'Avenir en commun 2027, « Faire la révolution citoyenne » : https://avenir-en-commun.net/revolution-citoyenne ; proposition de résolution n° 788, 21/01/2025 : https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0788_proposition-resolution.pdf
+  melenchon: { option: A, source: "L'Avenir en commun 2027, Faire la révolution citoyenne", statut: officielle }
+  # Programme des Écologistes du 13/07/2026 (AFP) : https://www.lagazettefrance.fr/article/2027-les-ecologistes-veulent-instaurer-la-premiere-republique-ecologique-et-citoyenne ; Ouest-France, 08/02/2025 (reproduit, non ouvert) : https://yvelines.eelv.fr/files/2025/02/250210-Marine-Tondelier-_-Nous-Écologistes-demandons-à-Emmanuel-Macron-un-référendum-.pdf
+  tondelier: { option: A, source: "Programme des Écologistes, 13/07/2026 (AFP) ; Ouest-France, 08/02/2025", statut: officielle }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 20 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view
+  glucksmann: { option: A, source: "Place publique, Acte I, chantier 20, 23/06/2025", statut: deduite }
+  # La France des Jours heureux, propositions 132 à 134 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "La France des Jours heureux, propositions 132 à 134, 2022", statut: deduite }
+  # Cahier de campagne n° 02, « Pour séparer l'argent de l'État » : https://nouspresident.fr/separation-argent-etat/
+  ruffin: { option: B, source: "Cahier de campagne n° 02, Pour séparer l'argent de l'État, 2026", statut: officielle }
+  # Programme 2022 (Public Sénat, 13/04/2022) : https://www.publicsenat.fr/actualites/politique/la-reforme-des-institutions-au-coeur-du-duel-macron-le-pen-202480 ; plan du RN (AFP, 05/09/2026) : https://www.sudradio.fr/societe/en-revisant-la-constitution-par-referendum-le-rn-au-pouvoir-ouvrirait-une-crise-majeure
+  le-pen: { option: C, source: "Programme 2022, Public Sénat, 13/04/2022 ; plan du RN, AFP, 05/09/2026", statut: deduite }
+  # Public Sénat, 03/09/2026 : https://www.publicsenat.fr/actualites/politique/presidentielle-2027-bruno-retailleau-propose-une-revolution-copernicienne-dans-laquelle-la-constitution-ne-serait-plus-le-bouclier-qui-prote
+  retailleau: { option: C, source: "Pacte constitutionnel, Public Sénat, 03/09/2026", statut: officielle }
+  # Discours de Bayeux, 17/06/2026 : https://nouvelle-energie-media-prod.s3.fr-par.scw.cloud/media/legacy/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf
+  lisnard: { option: C, source: "Discours de Bayeux, 17/06/2026", statut: officielle }
+  # JDD, 02/08/2026, résumé sur son site de campagne : https://attalpresident.fr/actualites/dans-le-jdd-gabriel-attal-veut-proposer-la-plus-grande-reforme-institutionnelle-depuis-1958
+  attal: { option: C, source: "Entretien au JDD, 02/08/2026", statut: officielle }
+  # Programme 2022 (franceinfo, 07/04/2022) : https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
+  zemmour: { option: C, source: "Programme 2022, franceinfo, 07/04/2022", statut: deduite }
+  # 100 décisions pour la France 2022-2027, décisions 2, 3 et 5 : https://www.debout-la-france.fr/wp-content/uploads/2022/07/100-Decisions-pour-la-France_VFIN.pdf
+  dupont-aignan: { option: C, source: "100 décisions pour la France, décisions 2, 3 et 5, 2022", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/053-sixieme-republique.md (chaque chiffre y a sa
+# source numérotée ; tableau en annexe de l'étude). Le fil : une Constitution qui dure depuis 1958, révisée 25 fois ;
+# depuis 2022, une Assemblée sans majorité ; faut-il la changer, la réviser ou la garder ?
+# Pas de mécanisme : aucun rapport « X pour 1 » ne résume le sujet.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1, [2] [3] : décompte du Conseil constitutionnel (14 textes de 1791 à 1946, puis celui de 1958).
+    etapes:
+      - { quand: "De 1791 à 1946", valeur: "14 Constitutions" }
+      - { quand: "Depuis 1958", valeur: "Une seule" }
+    chute: "Celle de 1958 a été révisée 25 fois, la dernière en 2024."
+  ecart:
+    # § 2b, [4] : chiffres officiels par législature (2017-2022 : XVe ; 2022-2024 : XVIe ; 1988-1993 : IXe).
+    titre: "Combien de fois le 49.3 ?"
+    etapes:
+      - { quand: "De 2017 à 2022", valeur: "1 fois" }
+      - { quand: "De 2022 à 2024", valeur: "23 fois" }
+    # « en cinq ans » : 39 recours sur cinq ans (IXe législature), 23 sur deux ans (XVIe) : on compare à durée connue.
+    chute: "Les gouvernements à la majorité étroite l'utilisent le plus : 39 fois en cinq ans, de 1988 à 1993."
+    source: "Assemblée nationale, 2024"
+  leviers:
+    # Les quatre options de la fiche, à égalité et dans l'ordre ; B et C disent « la réviser », pour qu'on voie qu'elles
+    # gardent le texte de 1958. § 1.2, 2e et 3 (consensus), [1] [3] : la chute dit l'obstacle de chaque camp, le Sénat
+    # pour une révision (article 89), l'absence de constituante dans la Constitution pour une nouvelle.
+    titre: "Que faire de la Constitution ? Quatre réponses"
+    choix:
+      - { texte: "En écrire une nouvelle", detail: "par une assemblée élue ou tirée au sort, puis un référendum" }
+      - { texte: "La réviser pour le Parlement", detail: "un président moins puissant, le 49.3 supprimé ou limité" }
+      - { texte: "La réviser pour le référendum", detail: "sur tous les sujets, et pour certains un mandat de sept ans" }
+      - { texte: "La garder telle qu'elle est", detail: "changer les pratiques, pas le texte" }
+    chute: "Pour la réviser, l'Assemblée et le Sénat doivent voter le même texte. La Constitution ne prévoit pas d'assemblée pour en écrire une nouvelle."
+    source: "Constitution de 1958, article 89"
+  camps: { pour: POUR, contre: CONTRE, objet: "une nouvelle Constitution" }
+  # POUR rassemble l'option A, CONTRE les options B, C et D (garder la Constitution de 1958, révisée ou non) : chaque
+  # réponse CONTRE vaut pour les trois. Les partisans de B partagent les critiques POUR sur le 49.3, mais pas la
+  # réécriture : les questions 2 et 3 demandent donc si le 49.3 et la dissolution sont une raison de changer de
+  # Constitution, pas s'ils sont bons. Relu par deux relecteurs, l'un pour une nouvelle Constitution, l'autre contre.
+  questions:
+    # § 2f, [13] : la même question du même sondage (janvier 2026), ses deux côtés ; « ni le CEVIPOF ni Odoxa ne disent
+    # quel régime les sondés mettent derrière changer de Constitution » (§ 2f).
+    - question: "Les Français veulent-ils changer de Constitution ?"
+      pour: { affirmation: "Oui, plus d'un sur deux.", chiffre: "58 %", texte: "Dans un sondage de janvier 2026, 58 % des Français voulaient changer de Constitution et de régime.", source: "CEVIPOF et OpinionWay, 2026" }
+      contre: { affirmation: "Pas tous : près d'un sur trois dit non.", chiffre: "32 %", texte: "Dans le même sondage, 32 % ne voulaient pas en changer. La question ne disait pas quel régime mettre à la place.", source: "CEVIPOF et OpinionWay, 2026" }
+    # § 1.2, 1.3 et 2b, [1] [4] : la réponse CONTRE vaut pour B (le réviser) comme pour C et D (le garder) ; la limite
+    # de 2008 (budgets sans limite, un autre texte par session) est celle du texte en vigueur.
+    - question: "Le 49.3 est-il une raison de changer de Constitution ?"
+      pour: { affirmation: "Oui, des textes passent sans vote.", chiffre: "23 fois", texte: "De 2022 à 2024, le gouvernement a utilisé 23 fois le 49.3 pour faire adopter des textes sans vote des députés.", source: "Assemblée nationale, 2024" }
+      contre: { affirmation: "Non, une révision peut le changer.", chiffre: "25 révisions", texte: "Révisée 25 fois depuis 1958, la Constitution a limité le 49.3 en 2008 aux budgets et à un autre texte par session.", source: "Assemblée nationale, 2024" }
+    # § 2c, [1] [5] [11] [12] : les mêmes six dissolutions des deux côtés. La question porte sur la dissolution, pas
+    # sur tous les pouvoirs du président, que B veut réduire par une révision.
+    - question: "La dissolution est-elle une raison de changer de Constitution ?"
+      pour: { affirmation: "Oui, le président la décide seul.", chiffre: "6 fois", texte: "Le président peut dissoudre l'Assemblée sans l'accord du gouvernement. Il l'a fait six fois depuis 1958.", source: "Constitution ; Sénat, 2026" }
+      contre: { affirmation: "Non, les électeurs ont le dernier mot.", chiffre: "2 sur 6", texte: "Après deux des six dissolutions, en 1997 et en 2024, le camp du président n'a pas gagné les élections.", source: "Public Sénat ; ministère de l'Intérieur, 2024" }
+    # § 2e et 2g, [34] [35] [36] : deux référendums sur une Constitution écrite par des élus, en part des votants ;
+    # chaque texte dit qui l'a écrite (les Cortes élues en 1977, le Parlement espagnol ; une convention élue au Chili).
+    - question: "Une nouvelle Constitution peut-elle être adoptée ?"
+      pour: { affirmation: "Oui, l'Espagne l'a fait.", chiffre: "88 %", texte: "En 1978, 88 % des votants espagnols ont approuvé la Constitution écrite par le Parlement élu en 1977.", source: "Larousse, 1979" }
+      contre: { affirmation: "Pas toujours : le Chili a dit non.", chiffre: "62 %", texte: "En 2022, 62 % des votants chiliens ont rejeté le projet d'une assemblée élue pour l'écrire. Le suivant a été rejeté en 2023.", source: "Service électoral du Chili, 2022-2023" }

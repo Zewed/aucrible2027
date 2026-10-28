@@ -1,0 +1,139 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/042-regularisation.md (tout ce qui suit y est sourcé).
+# Vocabulaire : « sans-papiers », « clandestins » et « illégaux » sont des mots disputés, attribués dans l'étude ;
+# la fiche dit « étrangers sans titre de séjour », comme le droit (« en situation irrégulière »).
+numero: 42
+date: 2026-09-16
+theme: immigration
+question: "Faut-il régulariser les étrangers sans titre de séjour qui travaillent ?"
+titreCourt: "La régularisation par le travail"
+contexte:
+  - "Un étranger sans titre de séjour peut être régularisé au cas par cas par le préfet ; depuis la loi du 26 janvier 2024 et jusqu'au 31 décembre 2026, il peut l'être s'il a travaillé 12 mois sur 24 dans un métier qui manque de bras et vit en France depuis trois ans."
+  - "En janvier 2025, une circulaire du ministre de l'Intérieur Bruno Retailleau a remplacé la circulaire Valls de 2012 : la régularisation doit rester exceptionnelle, et sept ans de présence servent de repère d'intégration."
+  - "Le ministère de l'Intérieur a compté 28 610 régularisations en 2025, contre 34 724 en 2023, et estime à environ 700 000 le nombre d'étrangers en situation irrégulière."
+chiffres:
+  - valeur: "28 610"
+    unite: régularisations
+    legende: "en 2025 (chiffre provisoire), contre 34 724 en 2023, dont un tiers pour le travail"
+    source: { organisme: "Ministère de l'Intérieur", document: "chiffres de l'immigration 2025", annee: 2026 }
+  - valeur: "1 655"
+    unite: titres
+    legende: "de séjour délivrés en 2025 à des travailleurs d'un métier qui manque de bras"
+    source: { organisme: "Ministère de l'Intérieur", document: "télégramme aux préfets du 14 avril 2026", annee: 2026 }
+  - valeur: "700 000"
+    legende: "étrangers en situation irrégulière en France, selon une estimation du ministère de l'Intérieur"
+    source: { organisme: Sénat, document: "avis sur le budget 2026, Immigration, asile et intégration", annee: 2025 }
+options:
+  - id: A
+    libelle: "Régulariser largement"
+    implique: "Un titre de séjour est ouvert à tous les étrangers sans titre, ou à de larges catégories (ceux qui travaillent, étudient ou ont un enfant scolarisé), sans exiger un métier qui manque de bras, comme l'Espagne l'a fait en 2005 et en 2026."
+    defenseurs: "Ces personnes vivent et travaillent déjà ici : leur donner un titre les sort de l'exploitation et fait entrer des cotisations, au moins 4 000 euros par travailleur et par an en Espagne, où une étude n'a pas trouvé de hausse des arrivées après 2005."
+    critiques: "Une régularisation générale récompense un séjour illégal et peut attirer d'autres arrivées, selon ses opposants ; les pays de l'Union se sont engagés en 2008 à régulariser au cas par cas, et l'Espagne a reçu en 2026 plus d'un million de demandes, plus du double de sa prévision."
+    axes: { societe: -2 }
+  - id: B
+    libelle: "Un titre pour ceux qui travaillent"
+    implique: "L'étranger sans titre qui a travaillé un certain temps obtient de plein droit un titre de séjour, sans dépendre de la décision du préfet ni de son employeur, comme le prévoyait le projet du gouvernement en 2023 (8 mois de travail sur 24 et trois ans en France)."
+    defenseurs: "Des critères clairs plutôt que des décisions inégales d'une préfecture à l'autre : le travailleur ne dépend plus d'un employeur ou d'un guichet, et l'on met fin à ce que le ministre de l'Intérieur appelait en 2023 un « servage moderne »."
+    critiques: "Le Sénat a retiré ce titre automatique de la loi en 2023 : ses opposants veulent que l'État garde le dernier mot, refusent de récompenser un séjour illégal et craignent d'attirer d'autres arrivées."
+    axes: { societe: -1 }
+  - id: C
+    libelle: "Au cas par cas, par le préfet"
+    implique: "La régularisation reste exceptionnelle et décidée par le préfet, qui regarde le travail, l'intégration (sept ans de présence comme repère), le français et l'ordre public ; la voie des métiers qui manquent de bras peut être prolongée après 2026."
+    defenseurs: "L'État garde le dernier mot : on régularise ceux qui sont intégrés et utiles, sans créer de droit automatique, en vérifiant leur travail, leur maîtrise du français et le respect de l'ordre public."
+    critiques: "Les uns jugent la voie trop étroite et inégale selon les préfectures (1 655 titres pour les métiers qui manquent de bras en 2025, la moitié des dossiers non instruits) ; les autres jugent que régulariser, même au cas par cas, récompense un séjour illégal."
+    axes: { societe: 1 }
+  - id: D
+    libelle: "Ne plus régulariser"
+    implique: "Un étranger entré ou resté sans titre ne peut plus en obtenir un, sauf exception décidée en Conseil des ministres pour un motif d'intérêt national ; il doit repartir, et les besoins de main-d'œuvre passent par d'autres voies, comme le recrutement à l'étranger ou la formation des chômeurs."
+    defenseurs: "Entrer ou rester sans titre ne doit ouvrir aucun droit : chaque régularisation crée un « appel d'air », selon ses partisans, et il faut d'abord mieux payer ces métiers et y former des chômeurs, qui sont 2,7 millions."
+    critiques: "Les quelque 700 000 étrangers sans titre estimés par le ministère ne pourraient plus en obtenir et resteraient à la merci d'employeurs, alors qu'environ une obligation de quitter la France sur dix est exécutée ; des études étrangères trouvent des gains à régulariser."
+    axes: { societe: 2 }
+pourAllerPlusLoin:
+  - titre: "Ministère de l'Intérieur, circulaire du 23 janvier 2025 sur l'admission exceptionnelle au séjour"
+    url: https://www.legifrance.gouv.fr/circulaire/id/45584
+  - titre: "Assemblée nationale, réponse du ministère de l'Intérieur sur la voie des métiers en tension, 2025"
+    url: https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE6781
+  - titre: "CEPII, la régularisation exceptionnelle de 1981 et ses effets sur l'économie, 2024"
+    url: https://www.cepii.fr/PDF_PUB/lettre/2024/let446.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour régulariser davantage"
+    argument: "Ces personnes vivent et travaillent déjà ici : leur donner un titre les sort de l'exploitation et fait entrer des cotisations."
+  - titre: "Pour régulariser moins, ou plus du tout"
+    argument: "Entrer ou rester sans titre ne doit ouvrir aucun droit, sinon chaque régularisation crée un « appel d'air »."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Régulariser plus"
+    precision: "au moins ceux qui travaillent"
+  - choix: "Régulariser moins"
+    precision: "ou plus du tout"
+positions:
+  # Lutte ouvrière, brochure de juin 2026 (« Régularisation de tous les sans-papiers ») : https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure_caravane_2026-01_-_couleur.pdf
+  arthaud: { option: A, source: "Lutte ouvrière, brochure, 06/2026", statut: officielle }
+  # Debout la France, projet Immigration, mesure 6 (« supprimer la régularisation pour les étrangers en situation irrégulière ») : https://www.debout-la-france.fr/projet/immigration-et-assimilation/
+  dupont-aignan: { option: D, source: "Debout la France, projet Immigration, mesure 6, 2026", statut: officielle }
+  # Mélenchon 2022, livret thématique « Migrations » (melenchon2022.fr, archive d'avril 2022) ; amendement LFI n° CL740 au projet de loi immigration, 23/11/2023 (titre de plein droit pour travailleurs, étudiants et parents d'enfants scolarisés) : https://web.archive.org/web/20220401000000/https://melenchon2022.fr/livrets-thematiques/migrations/
+  melenchon: { option: A, source: "Mélenchon 2022, livret thématique « Migrations » (melenchon2022.fr, archive d'avril 2022) ; amendement LFI n° CL740 au projet de loi immigration, 23/11/2023 (titre de plein droit pour travailleurs, étudiants et parents d'enfants scolarisés)", statut: deduite }
+  # Assemblée nationale, amendement n° 2086 de « Mme Lavalette et les membres du groupe Rassemblement National » (groupe alors présidé par M. Le Pen), projet de loi immigration, 07/12/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/1943/AN/2086.pdf
+  le-pen: { option: D, source: "Assemblée nationale, amendement n° 2086 de « Mme Lavalette et les membres du groupe Rassemblement National » (groupe alors présidé par M. Le Pen), projet de loi immigration, 07/12/2023", statut: deduite }
+  # Programme présidentiel 2022 d'É. Zemmour, « Immigration », visuel 2/3 « Je supprimerai les dispositifs qui attirent l'immigration » (programme.ericzemmour.fr, archive du 26/04/2022) ; BFMTV, 17/09/2026, rapporté par Public Sénat : https://web.archive.org/web/20220426083007/https://programme.ericzemmour.fr/immigration
+  zemmour: { option: D, source: "Programme présidentiel 2022 d'É. Zemmour, « Immigration », visuel 2/3 « Je supprimerai les dispositifs qui attirent l'immigration » (programme.ericzemmour.fr, archive du 26/04/2022) ; BFMTV, 17/09/2026, rapporté par Public Sénat", statut: deduite }
+  # Circulaire du ministre de l'Intérieur B. Retailleau aux préfets, 23/01/2025, citée par Europe 1 le 23/01/2025 : https://www.europe1.fr/politique/retailleau-aux-prefets-la-regularisation-des-travailleurs-sans-papiers-doit-rester-exceptionnelle-252798
+  retailleau: { option: C, source: "Circulaire du ministre de l'Intérieur B. Retailleau aux préfets, 23/01/2025, citée par Europe 1 le 23/01/2025", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/042-regularisation.md (chaque chiffre y a sa source
+# numérotée, voir son annexe). Le fil : le repère est passé de cinq à sept ans ; quatre choix sont sur la table, et la
+# voie des métiers qui manquent de bras s'arrête fin 2026. Pas de mécanisme : aucun ratio « X pour 1 » ne résume le sujet.
+reportage:
+  accroche:
+    # § 1.1, [1] [4] [5] : cinq ans en général dans la circulaire de 2012, sept ans comme « l'un des indices d'intégration »
+    # en 2025 ; « un repère », pas « le repère » : la voie des métiers qui manquent de bras demande trois ans.
+    etapes:
+      - { quand: "En 2012", valeur: "5 ans" }
+      - { quand: "En 2025", valeur: "7 ans" }
+    chute: "… de vie en France : un repère donné aux préfets pour régulariser un étranger sans titre de séjour."
+  ecart:
+    # § 1.2, [6] [7] : même décompte du ministère (toutes causes) ; 11 525 pour le travail sur 34 724 en 2023.
+    titre: "Combien de régularisations par an ?"
+    etapes:
+      - { quand: "En 2023", valeur: "34 724" }
+      - { quand: "En 2025", valeur: "28 610" }
+    chute: "Le chiffre de 2025 est provisoire. En 2023, une régularisation sur trois était liée au travail."
+    source: "Ministère de l'Intérieur, 2026"
+  leviers:
+    # § 4 : les quatre options de la fiche, à égalité ; § 1.1, [2] pour la fin de l'expérimentation.
+    titre: "Quatre choix possibles"
+    choix:
+      - { texte: "Régulariser largement", detail: "tous les étrangers sans titre, ou ceux qui travaillent, étudient ou ont un enfant à l'école" }
+      - { texte: "Un titre pour qui travaille", detail: "accordé de droit après des mois de travail, sans attendre l'accord du préfet" }
+      - { texte: "Au cas par cas", detail: "le préfet décide, après des années en France, surtout pour les métiers qui manquent de bras" }
+      - { texte: "Ne plus régulariser", detail: "qui est entré ou resté sans titre ne peut plus en obtenir un" }
+    chute: "La voie ouverte pour les métiers qui manquent de bras s'arrête le 31 décembre 2026, sauf nouvelle loi."
+    source: "Loi immigration, 2024"
+  camps: { pour: POUR, contre: CONTRE, objet: "plus de régularisations" }
+  questions:
+    # § 2a, [20] [21] : le POUR parle de tous les immigrés (devenus français ou non, en règle ou non, données 2017,
+    # publiées en 2021), pas des seuls étrangers sans titre, que personne ne compte par métier ; le CONTRE de tous les
+    # chômeurs. Deux arguments différents sur le même besoin, chacun daté, pas une comparaison.
+    - question: "Le pays a-t-il besoin de ces travailleurs ?"
+      pour: { affirmation: "Oui, des métiers en dépendent.", chiffre: "39 %", texte: "En 2017, près de quatre employés de maison sur dix étaient immigrés, en règle ou non, contre un travailleur sur dix.", source: "Dares, 2021" }
+      contre: { affirmation: "Non, il y a d'abord les chômeurs.", chiffre: "8,3 %", texte: "Au printemps 2026, 8,3 % des actifs cherchaient un emploi en France, soit 2,7 millions de personnes.", source: "Insee, 2026" }
+    # § 2c, [18] [26] : l'étude de la régularisation espagnole de 2005, seule étude causale lue, contre la crainte
+    # d'un effet d'attraction exprimée par des dirigeants européens (lettre citée par L'Espresso, source secondaire,
+    # à vérifier). Les 1 174 978 demandes espagnoles de 2026 ne disent pas pourquoi les demandeurs sont venus : elles
+    # restent dans les critiques de l'option A, pas en réponse à cette question.
+    - question: "Régulariser attire-t-il d'autres migrants ?"
+      pour: { affirmation: "Non, selon une étude sur l'Espagne.", chiffre: "600 000", texte: "En 2005, l'Espagne a régularisé près de 600 000 étrangers. Une étude n'y a pas trouvé de hausse des arrivées.", source: "Journal of Labor Economics, 2025" }
+      contre: { affirmation: "Oui, selon des dirigeants européens.", chiffre: "22", texte: "Dans une lettre, 22 dirigeants européens ont dénoncé ce qui attire l'immigration irrégulière, en citant l'Espagne.", source: "L'Espresso (presse italienne), 2026" }
+    # § 2e, [17] [8] : deux réponses à l'exploitation, le titre de séjour ou la sanction des employeurs. Aucun chiffre
+    # de l'étude ne mesure si les sanctions protègent les travailleurs : le CONTRE dit sa solution, le chiffre montre
+    # qu'elle est appliquée et en hausse (1 984 procédures d'amende, +46 % ; 1 257 décisions, 78,7 millions d'euros).
+    - question: "Faut-il les régulariser pour les protéger ?"
+      pour: { affirmation: "Oui, sinon ils sont sous-payés.", chiffre: "4 à 8 %", texte: "Selon des études, à travail égal, un étranger sans titre gagne au moins 4 à 8 % de moins qu'avec un titre.", source: "CEPII, 2024" }
+      contre: { affirmation: "Non, il faut punir les employeurs.", chiffre: "78,7 millions €", texte: "En 2025, 78,7 millions d'euros d'amendes ont été prononcées pour emploi illégal d'étrangers, et les procédures ont augmenté de 46 %.", source: "Ministère de l'Intérieur, 2026" }
+    # § 2h, [30] [31] : deux sondages de 2023 sur les métiers qui manquent de bras, à deux mois d'écart, aux questions
+    # différentes : celle d'Elabe posait des conditions (3 ans de présence, 8 mois de travail sur 24) ; celle de CSA
+    # n'est connue que par le compte rendu de CNews, qui n'en cite pas. Chaque texte dit ce qu'on sait de sa question.
+    - question: "Les Français veulent-ils les régulariser ?"
+      pour: { affirmation: "Oui, sous conditions, selon un sondage.", chiffre: "68 %", texte: "En novembre 2023, 68 % approuvaient leur régularisation dans les métiers qui manquent de bras, après trois ans en France.", source: "Elabe pour BFMTV, 2023" }
+      contre: { affirmation: "Non, selon un autre sondage.", chiffre: "55 %", texte: "En septembre 2023, l'institut CSA posait une autre question : 55 % s'opposaient à leur régularisation dans les mêmes métiers.", source: "CSA pour CNews, 2023" }

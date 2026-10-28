@@ -1,0 +1,142 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/049-service-national.md (tout ce qui suit y est sourcé).
+# Aucune note d'axe : l'obligation civique est défendue de LFI à Debout la France en passant par Place publique, le
+# refus de l'obligation va des Écologistes (A) au centre (B), et aucun candidat n'est rangé en D : le clivage ne suit
+# ni l'axe économique ni l'axe progressiste/conservateur (étude, § 4).
+numero: 49
+date: 2026-09-09
+theme: education-jeunesse
+question: "Faut-il rendre obligatoire un service national pour les jeunes ?"
+titreCourt: "Le service national"
+contexte:
+  - "Le service militaire obligatoire a été suspendu en 1997 : depuis, seuls le recensement et une journée de défense restent obligatoires, et toutes les autres formes de service sont volontaires."
+  - "Le service national universel, lancé en 2019 pour des volontaires de 15 à 17 ans, devait s'étendre à tous les jeunes en 2024. La Cour des comptes a jugé ses objectifs incertains et son coût sous-estimé, et il a été suspendu en septembre 2025."
+  - "Depuis la fin de l'été 2026, un nouveau service militaire de dix mois, volontaire et sélectif, accueille 3 000 jeunes de 18 à 25 ans, payés au moins 800 euros brut par mois, qui servent sur le territoire national."
+chiffres:
+  - valeur: "3 000"
+    unite: jeunes
+    legende: "dans la première promotion du nouveau service militaire volontaire ; 10 000 sont prévus en 2030"
+    source: { organisme: Légifrance, document: "loi n° 2026-791 du 16 août 2026, rapport annexé", annee: 2026 }
+  - valeur: "40 135"
+    unite: jeunes
+    legende: "au service national universel en 2023, pour un objectif de 64 000"
+    source: { organisme: Cour des comptes, document: "Le service national universel, un premier bilan", annee: 2024 }
+  - valeur: "3,5 à 5"
+    unite: milliards d'euros
+    legende: "par an : le coût estimé d'un service national universel étendu à toute une classe d'âge"
+    source: { organisme: Cour des comptes, document: "Le service national universel, un premier bilan", annee: 2024 }
+options:
+  - id: A
+    libelle: "Non, et arrêter le service militaire volontaire"
+    implique: "Le nouveau service militaire de dix mois est supprimé ; l'engagement des jeunes passe par le service civique, volontaire, et l'effort de défense par la réserve opérationnelle et le recrutement des armées."
+    defenseurs: "Un service de dix mois limité au territoire national a une utilité militaire réduite pour 2,3 milliards d'euros de 2026 à 2030 : mieux vaut renforcer la réserve et le service civique, qui reçoit trois fois plus de demandes que de missions."
+    critiques: "Selon le rapporteur du texte à l'Assemblée, les régiments sont « ravis d'avoir un renfort » pour défendre le territoire, et un service choisi permet aux jeunes qui le veulent de s'engager sans rien imposer aux autres."
+  - id: B
+    libelle: "Non, garder le volontariat"
+    implique: "Le service militaire de dix mois, ouvert aux 18-25 ans et payé au moins 800 euros brut par mois, monte en charge jusqu'à 10 000 jeunes en 2030, à côté du service civique ; en cas de crise majeure, le Parlement pourrait appeler au-delà des volontaires."
+    defenseurs: "Les armées n'ont plus vocation à encadrer toute une génération : un service choisi et sélectif répond à leurs besoins sans contraindre ceux qui n'en veulent pas."
+    critiques: "Le volontariat attire plus de jeunes déjà proches des métiers en uniforme : au service national universel, 26 % avaient un parent militaire, policier ou pompier, contre 2 % de la population, et ce service n'a atteint ni ses objectifs de participants ni celui de mixité sociale."
+  - id: C
+    libelle: "Oui, un service civique obligatoire"
+    implique: "Chaque jeune consacre plusieurs mois, de trois à dix selon les projets, à des missions d'intérêt général (écoles, maisons de retraite, secours, environnement) ; servir dans l'armée reste un choix."
+    defenseurs: "Un temps commun à toute une génération, quel que soit son milieu, utile aux autres et face aux crises comme les canicules ou les inondations, sans obliger quiconque à porter les armes."
+    critiques: "Une obligation civile sans lien avec la défense a une base constitutionnelle incertaine, et il faudrait des centaines de milliers de missions : 3,5 milliards d'euros par an selon France Stratégie, 18,5 milliards pour neuf mois payés au Smic selon l'Institut Montaigne (7,4 milliards nets selon ceux qui le proposent)."
+  # D garde le pôle de l'échelle : aucun candidat n'y est rangé avec une source vérifiée (étude, § 4), mais l'option est
+  # défendue dans le débat (président du RN, scénario chiffré de France Stratégie).
+  - id: D
+    libelle: "Oui, un service militaire obligatoire"
+    implique: "Une loi rétablit l'appel sous les drapeaux, suspendu depuis 1997 : les jeunes, filles et garçons, font quelques mois de service militaire (six dans les projets chiffrés), avec une forme civile pour les objecteurs de conscience."
+    defenseurs: "Former toute une génération à la défense donne au pays des réserves nombreuses (la Finlande, 5,7 millions d'habitants, peut mobiliser 285 000 réservistes entraînés) et réunit les jeunes de tous les milieux sous la même règle."
+    critiques: "Six mois pour 600 000 jeunes coûteraient 14,5 milliards d'euros par an selon France Stratégie, pour qui il semblerait impossible à organiser en moins de cinq ans et risquerait d'affaiblir l'armée de métier."
+pourAllerPlusLoin:
+  - titre: "Cour des comptes, Le service national universel, un premier bilan, 2024"
+    url: https://www.vie-publique.fr/files/rapport/pdf/295374.pdf
+  - titre: "France Stratégie, Service national : construire un nouveau modèle français (et européen), 2025"
+    url: https://www.strategie.gouv.fr/files/2025-05/FS-2025-NF01-Service%20national-2mai13h.pdf
+  - titre: "Ministère des Armées, dossier de presse du nouveau service national, 2026"
+    url: https://www.defense.gouv.fr/sites/default/files/ministere-armees/Dossier%20de%20presse_Service%20national.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour un service obligatoire"
+    argument: "Un temps commun à toute une génération, quel que soit son milieu : au service national universel, volontaire, la mixité sociale n'a pas été atteinte."
+  - titre: "Contre l'obligation"
+    argument: "Les armées n'ont plus vocation à encadrer toute une génération : un service choisi répond à leurs besoins sans contraindre ceux qui n'en veulent pas."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Obligatoire"
+    precision: "civil ou militaire"
+  - choix: "Pas d'obligation"
+    precision: "chacun choisit"
+positions:
+  # Amendement LFI n° 304 (suppression de l'article 24, « conscription universelle obligatoire, avec composante militaire optionnelle ») : https://www.assemblee-nationale.fr/dyn/17/amendements/2695/AN/304.pdf ; amendement n° 305 : https://www.assemblee-nationale.fr/dyn/17/amendements/2695/AN/305.pdf ; séance du 18/05/2026 : https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/deuxieme-seance-du-lundi-18-mai-2026.pdf
+  # Lise Magnier pour le groupe Horizons, 2e séance du 18/05/2026 (amendement n° 150 adopté) ; vote Horizons pour l'article 24 (6 pour, 0 contre, scrutin n° 6712) : https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/deuxieme-seance-du-lundi-18-mai-2026.pdf
+  philippe: { option: B, source: "Lise Magnier pour le groupe Horizons, 2e séance du 18/05/2026 (amendement n° 150 adopté) ; vote Horizons pour l'article 24 (6 pour, 0 contre, scrutin n° 6712)", statut: deduite }
+  # Assemblée nationale, 2e séance du 18/05/2026 : amendement de suppression n° 269 du groupe Écologiste et Social (D. Girard) ; vote contre l'article 24 (7 contre, 1 pour, scrutin n° 6712) : https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/deuxieme-seance-du-lundi-18-mai-2026.pdf
+  tondelier: { option: A, source: "Assemblée nationale, 2e séance du 18/05/2026 : amendement de suppression n° 269 du groupe Écologiste et Social (D. Girard) ; vote contre l'article 24 (7 contre, 1 pour, scrutin n° 6712)", statut: deduite }
+  # L'Avenir en commun, édition 2025 (programme sur melenchon2027.fr), chap. 16 ; amendements LFI n° 304 et 305, 29/04/2026 : https://melenchon2027.fr/programme2025/livre/chapitre16/s2/
+  melenchon: { option: C, source: "L'Avenir en commun, édition 2025 (programme sur melenchon2027.fr), chap. 16 ; amendements LFI n° 304 et 305, 29/04/2026", statut: officielle }
+  # Livre « Nous avons encore envie » (Allary, mai 2026), rapporté par LCP, 26/05/2026 : https://lcp.fr/actualites/presidentielle-raphael-glucksmann-devoile-les-premieres-lignes-de-son-possible-programme
+  glucksmann: { option: C, source: "Livre « Nous avons encore envie » (Allary, mai 2026), rapporté par LCP, 26/05/2026", statut: officielle }
+  # Debout la France, projet « Défense », mesure 9 : https://www.debout-la-france.fr/projet/defense/
+  dupont-aignan: { option: C, source: "Debout la France, projet « Défense », mesure 9", statut: officielle }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/049-service-national.md (chaque chiffre y a sa source
+# numérotée). Le fil : on est passé de l'obligation au volontariat ; faut-il revenir à l'obligation, et sous quelle forme ?
+# Pas de mécanisme : aucun rapport « X pour 1 » ne résume le sujet.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1 et 1.2, [1] [3] [12] [14] : environ 30 % d'exemptés juste avant la fin, d'où « la plupart ». Toutes les formes
+    # de service sont volontaires depuis 1997 (pas depuis 2026) ; les 3 000 sont ceux du nouveau service, sous l'uniforme.
+    etapes:
+      - { quand: "Avant 1997", valeur: "Obligatoire" }
+      - { quand: "Depuis 1997", valeur: "Volontaire" }
+    chute: "Avant, la plupart des garçons étaient appelés. Aujourd'hui, 3 000 jeunes volontaires, filles et garçons, servent dix mois sous l'uniforme."
+  ecart:
+    # § 1.1, [3] [4] [9] [12] : la trajectoire votée (3 000 puis 10 000), face à une génération de 820 000 à 850 000 jeunes.
+    titre: "Combien de jeunes dans le nouveau service ?"
+    etapes:
+      - { quand: "En 2026", valeur: "3 000" }
+      - { quand: "En 2030", valeur: "10 000", projection: true }
+    chute: "Une génération compte plus de 800 000 jeunes. Un service obligatoire changerait d'échelle."
+    source: "Loi de programmation militaire, 2026 ; France Stratégie, 2025"
+  leviers:
+    # Les quatre options de la fiche, à égalité et dans l'ordre. § 1.3, 2d et 2j, [1] [3] [12]. La chute : le constat
+    # commun de l'étude sur le coût (§ 2d et 3, [9] [12]), payé par l'État, du bas (service volontaire) au haut (service
+    # militaire obligatoire) des scénarios de France Stratégie.
+    titre: "Faut-il obliger ? Quatre réponses"
+    choix:
+      - { texte: "Arrêter le nouveau service", detail: "miser sur la réserve de l'armée et le service civique" }
+      - { texte: "Le volontariat", detail: "dix mois sous l'uniforme pour celles et ceux qui le choisissent" }
+      - { texte: "Un service civique obligatoire", detail: "quelques mois au service des autres, l'armée pour qui le veut" }
+      - { texte: "Un service militaire obligatoire", detail: "quelques mois sous l'uniforme pour tous les jeunes" }
+    chute: "Selon sa durée et sa forme, civile ou militaire, un service coûterait à l'État de quelques centaines de millions à plus de 14 milliards d'euros par an."
+    source: "Loi du 16 août 2026 ; France Stratégie, 2025"
+  camps: { pour: POUR, contre: CONTRE, objet: "un service obligatoire" }
+  # POUR rassemble les options C et D, CONTRE les options A et B. Relu par IA le 28/10/2026 en deux relectures opposées
+  # (pour l'obligation, puis contre), à vérifier par l'auteur.
+  questions:
+    # § 2b, [9] [10]. Les deux réponses portent sur deux services volontaires différents (SNU d'un côté, service civique
+    # de l'autre) et mesurent chacune l'écart entre les jeunes et les places ; chaque carte nomme son service et son année
+    # (2023, 2025), pour que la comparaison ne passe pas pour un même dispositif.
+    - question: "Le volontariat suffit-il ?"
+      pour: { affirmation: "Non, il n'a pas fait le plein.", chiffre: "40 000", texte: "En 2023, le service national universel, volontaire, a accueilli 40 000 jeunes. L'objectif était de 64 000.", source: "Cour des comptes, 2024" }
+      contre: { affirmation: "Oui, les candidats sont nombreux.", chiffre: "3 fois", texte: "En 2025, le service civique, volontaire lui aussi, recevait trois fois plus de demandes que de missions disponibles.", source: "Sénat, 2025" }
+    # § 2h, [12] [13] : la même source pour les deux réponses ; la Suède est l'un des trois pays cités par la réponse POUR
+    # (Lituanie 2015, Suède 2017, Croatie 2025).
+    - question: "Nos voisins reviennent-ils à l'obligation ?"
+      pour: { affirmation: "Oui, dix pays de l'Union l'ont.", chiffre: "10 pays", texte: "Dix pays de l'Union européenne ont un service militaire obligatoire. La Lituanie, la Suède et la Croatie l'ont rétabli.", source: "France Stratégie, 2025" }
+      contre: { affirmation: "Pas pour tous les jeunes.", chiffre: "8 %", texte: "En Suède, où le service est obligatoire, l'armée retient environ 8 % d'une génération, après des tests.", source: "France Stratégie, 2025" }
+    # § 2d, [12] : la même source, la même unité (euros par jeune), la même base (600 000 jeunes, par an, hors bâtiments).
+    # 5 900 € est le coût moyen réel du service civique en 2023 (le texte le date), 24 000 € une estimation pour six mois
+    # sous l'uniforme (le texte le dit) ; les deux totaux sont des estimations. Les deux réponses ne parlent pas de la même
+    # forme de service, et chaque affirmation le dit : c'est le constat commun de l'étude (§ 2d et 3), le coût dépend
+    # d'abord de la dimension militaire ; le total civil (3,5 milliards) reste à l'écran pour qui le juge trop cher.
+    - question: "Un service obligatoire coûterait-il trop cher ?"
+      pour: { affirmation: "Non, s'il est civil.", chiffre: "5 900 €", texte: "Un service civique a coûté 5 900 euros par jeune en 2023. Pour 600 000 jeunes, on l'estime à 3,5 milliards par an.", source: "France Stratégie, 2025" }
+      contre: { affirmation: "Oui, s'il est militaire.", chiffre: "24 000 €", texte: "On estime six mois sous l'uniforme à 24 000 euros par jeune : 14,5 milliards par an pour 600 000 jeunes.", source: "France Stratégie, 2025" }
+    # § 2i, [15] : le même sondage (mars 2025) et la même question, l'obligation pour tous ou pour les seuls hommes,
+    # posée à tous puis lue chez les moins de 35 ans ; 41 % n'est pas une majorité contre, d'où « pas la majorité ».
+    - question: "Les Français veulent-ils l'obligation ?"
+      pour: { affirmation: "Oui, plus d'un sur deux.", chiffre: "53 %", texte: "Dans un sondage, 53 % des Français voulaient un service militaire obligatoire, pour tous ou pour les garçons.", source: "Ipsos pour Le Parisien, 2025" }
+      contre: { affirmation: "Pas la majorité des moins de 35 ans.", chiffre: "41 %", texte: "Dans le même sondage, 41 % des moins de 35 ans le voulaient obligatoire : moins de la moitié.", source: "Ipsos pour Le Parisien, 2025" }

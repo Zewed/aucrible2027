@@ -1,0 +1,127 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/044-depassements-honoraires.md
+numero: 44
+date: 2026-09-14
+theme: sante
+question: Faut-il limiter ou interdire les dépassements d'honoraires des médecins ?
+titreCourt: "Les dépassements d'honoraires"
+contexte:
+  - "En secteur 1, le médecin applique le tarif de la Sécurité sociale ; en secteur 2, créé en 1980 et réservé aux médecins qui ont certains titres hospitaliers, il peut le dépasser, et ce supplément est payé par le patient et sa mutuelle, pas par la Sécurité sociale."
+  - "Depuis 2017, une option facultative, l'Optam, récompense les médecins du secteur 2 qui modèrent leurs prix ; un peu plus de la moitié de ceux qui y ont droit l'ont signée. Les bénéficiaires de la complémentaire santé solidaire, réservée aux plus modestes, ne paient jamais de dépassement ; en 2021, 44 % des personnes qui y avaient droit ne l'avaient pas demandée."
+  - "Deux députés en octobre 2025, puis le Haut Conseil pour l'avenir de l'assurance maladie en juin 2026, ont proposé de les encadrer davantage ; à l'Assemblée, des amendements pour les taxer ont été rejetés en décembre 2025 et en octobre 2026."
+chiffres:
+  - valeur: "4,7"
+    unite: milliards d'euros
+    legende: "de dépassements facturés par les médecins spécialistes en 2025, hors généralistes, payés par les patients et leurs mutuelles"
+    source: { organisme: HCAAM, document: "Trois scénarios pour une réforme des dépassements d'honoraires", annee: 2026 }
+  - valeur: "75 %"
+    legende: "des jeunes spécialistes qui s'installent en ville choisissent le secteur 2 en 2024, contre 58 % en 2010"
+    source: { organisme: HCAAM, document: "Trois scénarios pour une réforme des dépassements d'honoraires", annee: 2026 }
+  - valeur: "40 %"
+    legende: "des dépassements sont remboursés en moyenne par les mutuelles ; les patients paient le reste"
+    source: { organisme: HCAAM, document: "Trois scénarios pour une réforme des dépassements d'honoraires", annee: 2026 }
+options:
+  - id: A
+    libelle: Les interdire
+    implique: "Tous les médecins conventionnés appliquent le tarif de la Sécurité sociale, revalorisé en échange ; le secteur 2 se ferme, d'abord aux nouveaux installés."
+    defenseurs: "Le soin doit dépendre du besoin, pas des moyens : des tarifs justes payés par la Sécurité sociale plutôt que 4,7 milliards d'euros de dépassements par an laissés aux patients et à leurs mutuelles."
+    critiques: "Selon une simulation, 95 % des spécialistes du secteur 2 perdraient 28 % de leurs honoraires, et même 4 milliards d'euros de hausses de tarifs payées par la Sécurité sociale laisseraient six perdants sur dix."
+    axes: { economie: -2 }
+  - id: B
+    libelle: Les plafonner et rendre le secteur 2 plus sélectif
+    implique: "Un dépassement maximum par acte, par exemple 50 % ou 150 % du tarif de la Sécurité sociale, et un secteur 2 ouvert après plusieurs années d'expérience ; certains soins essentiels peuvent être exclus des dépassements."
+    defenseurs: "Les dépassements augmentent de plus de 5 % par an et pourraient dépasser 10 milliards d'euros en 2040 : une limite claire protège les patients sans supprimer la liberté des médecins."
+    critiques: "Pour certains, un plafond à 150 % du tarif toucherait 13 % des médecins du secteur 2 et réduirait les dépassements de 255 millions d'euros la première année ; pour d'autres, il pénaliserait des spécialités dont les tarifs ne couvrent pas les coûts."
+    axes: { economie: -1 }
+  - id: C
+    libelle: Garder les règles actuelles
+    implique: "Le secteur 2 reste ouvert aux médecins qui ont les titres requis ; l'Optam, facultatif, récompense ceux qui modèrent leurs prix, et les patients de la complémentaire santé solidaire restent protégés."
+    defenseurs: "Les engagements volontaires ont fait baisser le dépassement moyen de 55 % à 46 % du tarif entre 2012 et 2020 : mieux vaut négocier et revaloriser les tarifs que sanctionner les médecins."
+    critiques: "Le dépassement moyen remonte depuis 2020, près d'un médecin concerné sur deux reste hors de l'Optam, et le secteur 2 pourrait concerner neuf spécialistes sur dix en 2040."
+    axes: { economie: 1 }
+  - id: D
+    libelle: Les permettre à tous les médecins
+    implique: "Tout médecin conventionné peut fixer ses prix, par exemple dans un secteur unique où seuls les excès sont encadrés ; les patients modestes et les urgences restent au tarif de la Sécurité sociale, comme le proposent des syndicats de médecins."
+    defenseurs: "Les tarifs de la Sécurité sociale ne suivent pas le coût d'un cabinet : la liberté des prix rendrait la médecine de ville plus attractive et éviterait que des médecins quittent la convention."
+    critiques: "Les patients et leurs mutuelles paieraient davantage, alors que les dépassements sont déjà plus élevés là où les revenus le sont, que des ménages modestes y sont exposés et que les mutuelles en remboursent 40 % en moyenne."
+    axes: { economie: 2 }
+pourAllerPlusLoin:
+  - titre: "HCAAM, Les dépassements d'honoraires des médecins, état des lieux, octobre 2025"
+    url: https://www.vie-publique.fr/files/rapport/pdf/300370.pdf
+  - titre: "HCAAM, Trois scénarios pour une réforme des dépassements d'honoraires des médecins, juin 2026"
+    url: https://www.vie-publique.fr/files/rapport/pdf/303561.pdf
+  - titre: "Assemblée nationale, scrutin n° 8955 sur une contribution sur les dépassements, 21/10/2026"
+    url: https://www.assemblee-nationale.fr/dyn/17/scrutins/8955
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour limiter les dépassements"
+    argument: "Le soin doit dépendre du besoin, pas des moyens : sans limite, les dépassements pourraient dépasser 10 milliards d'euros en 2040."
+  - titre: "Pour ne pas les limiter"
+    argument: "Les tarifs de la Sécurité sociale ne suivent pas le coût d'un cabinet : sans dépassements, presque tous les spécialistes du secteur 2 perdraient 28 % de leurs honoraires."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Limiter"
+    precision: "ou interdire"
+  - choix: "Garder"
+    precision: "ou les permettre à tous"
+# Seuls les candidats sourcés ; les neuf autres sont « inconnue » (voir l'étude, § 4, avec les raisons, notamment pour Ruffin).
+positions:
+  # Amendement n° 1786 du groupe LFI (« interdiction progressive », 31/10/2025) : https://www.assemblee-nationale.fr/dyn/17/amendements/1907/AN/1786.pdf ; amendement n° 1841 (« l'interdiction des dépassements que porte notre groupe », 16/10/2026) : https://www.assemblee-nationale.fr/dyn/17/amendements/3211/AN/1841.pdf ; programme 2017 : https://www.institutmontaigne.org/presidentielle-2017/candidats/jean-luc-melenchon-sante-et-protection-sociale
+  # Les Écologistes, « Pour une prospérité écologique », nouveau programme, juillet 2026, ch. 29 « Améliorer la prévention et le parcours de soin », mesure 5 (p. 111 du PDF) : https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
+  tondelier: { option: B, source: "Les Écologistes, « Pour une prospérité écologique », nouveau programme, juillet 2026, ch. 29 « Améliorer la prévention et le parcours de soin », mesure 5 (p. 111 du PDF)", statut: officielle }
+  # F. Roussel, programme présidentiel 2022 « La France des jours heureux », proposition 13 (p. 15 du PDF), janvier 2022 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "F. Roussel, programme présidentiel 2022 « La France des jours heureux », proposition 13 (p. 15 du PDF), janvier 2022", statut: deduite }
+  # Assemblée nationale, amendement n° 1786 du groupe LFI au PLFSS 2026, 31/10/2025 (interdiction progressive au 1er janvier 2027) ; amendement de repli n° 1841 au PLFSS 2027, 16/10/2026 : https://www.assemblee-nationale.fr/dyn/17/amendements/1907/AN/1786.pdf
+  melenchon: { option: A, source: "Assemblée nationale, amendement n° 1786 du groupe LFI au PLFSS 2026, 31/10/2025 (interdiction progressive au 1er janvier 2027) ; amendement de repli n° 1841 au PLFSS 2027, 16/10/2026", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/044-depassements-honoraires.md (chaque chiffre y a sa
+# source numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : le secteur 2 devient la norme chez les jeunes
+# spécialistes, la facture grossit, et quatre choix la répartissent autrement entre patients, mutuelles et Sécurité sociale.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 2f, [2].
+    etapes:
+      - { quand: En 2010, valeur: "58 %" }
+      - { quand: En 2024, valeur: "75 %" }
+    chute: "… des jeunes spécialistes qui s'installent en ville choisissent de pouvoir dépasser le tarif de la Sécurité sociale."
+  # Pas de « mécanisme » : aucun rapport « X pour 1 » ne résume le sujet.
+  ecart:
+    # § 2a, [2] : spécialistes hors généralistes, en euros constants ; 2040 est une projection « si rien ne change ».
+    titre: "Combien paient les patients et leurs mutuelles ?"
+    etapes:
+      - { quand: En 2025, valeur: "4,7 milliards €" }
+      - { quand: En 2040, valeur: "10 milliards €", projection: true }
+    chute: "C'est une projection : plus de 10 milliards si rien ne change, en euros d'aujourd'hui."
+    source: "HCAAM, 2026"
+  leviers:
+    # § 1.3 et 2e, [2]. Les quatre options de la fiche, à égalité ; la chute dit qui paierait.
+    titre: "Les dépassements : quatre choix"
+    choix:
+      - { texte: Les interdire, detail: "tous les médecins au tarif de la Sécurité sociale, revalorisé" }
+      - { texte: Les plafonner, detail: "un maximum par acte, et moins de nouveaux médecins autorisés à dépasser" }
+      - { texte: Garder les règles, detail: "des engagements volontaires des médecins à modérer leurs prix" }
+      - { texte: Les permettre à tous, detail: chaque médecin fixe ses prix }
+    chute: "Selon le choix, la facture pèse plus sur les patients et le prix de leur mutuelle, ou plus sur la Sécurité sociale, donc sur les cotisations et les impôts."
+    source: "HCAAM, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: une limite aux dépassements }
+  # Chaque question oppose deux faits du même rapport (ou du même modèle), et chaque texte dit ce qu'il mesure.
+  questions:
+    # § 2b, [1] : les deux chiffres viennent du même modèle de la DREES (2019), l'un en part de ce qui reste à payer
+    # pour se soigner (pas du revenu : l'étude n'en donne pas), l'autre en euros ; chaque affirmation dit son unité.
+    - question: "Les dépassements pèsent-ils sur les plus modestes ?"
+      pour: { affirmation: "Autant que sur les plus aisés, en proportion.", chiffre: "20 %", texte: "Selon une estimation, c'est environ 20 % des frais de santé non remboursés des plus modestes, comme chez les plus aisés.", source: "DREES, 2019" }
+      contre: { affirmation: "Moins que sur les plus aisés, en euros.", chiffre: "24 €", texte: "Selon une estimation, les plus modestes en paient 24 € par an et par personne, les plus aisés 110 €.", source: "DREES, 2019" }
+    # § 2d, [1] : le HCAAM établit les deux, la compensation de tarifs bas dans certaines spécialités et la dispersion dans toutes.
+    - question: "Les dépassements compensent-ils des tarifs trop bas ?"
+      pour: { affirmation: "Pas en totalité.", chiffre: "1 sur 10", texte: "Chez les chirurgiens qui dépassent, un sur dix demande près du triple du tarif de la Sécurité sociale ou plus.", source: "HCAAM, 2025" }
+      contre: { affirmation: "Oui, dans plusieurs spécialités.", chiffre: "40 %", texte: "Ils font 40 % du revenu des psychiatres qui en pratiquent, une spécialité moins bien payée que la moyenne.", source: "HCAAM, 2025" }
+    # § 1.3 et 2e, [2] : deux simulations du même rapport ; chaque camp cite le scénario qui l'appuie, et le texte le
+    # nomme (le scénario 3, graduel, contre la suppression de tous les dépassements d'un coup, à activité inchangée).
+    - question: "Limiter les dépassements, est-ce tenable pour les médecins ?"
+      pour: { affirmation: "Oui, en avançant pas à pas.", chiffre: "10 ans", texte: "Une piste : pas de dépassement les dix premières années d'installation, puis un plafond. Les médecins déjà installés gardent leurs prix.", source: "HCAAM, 2026" }
+      contre: { affirmation: "Pas sans pertes de revenus.", chiffre: "−28 %", texte: "Si les dépassements disparaissaient d'un coup, 95 % des spécialistes concernés perdraient 28 % de leurs honoraires, selon une simulation.", source: "HCAAM, 2026" }
+    # § 2f, [1] : le même indicateur (taux de dépassement moyen) à trois dates, et l'adhésion à l'Optam.
+    - question: "Les règles actuelles freinent-elles les dépassements ?"
+      pour: { affirmation: "Non, plus depuis 2020.", chiffre: "50 %", texte: "Le dépassement moyen remonte : 50 % du tarif en 2023. Près d'un médecin concerné sur deux est sans engagement.", source: "HCAAM, 2025" }
+      contre: { affirmation: "Oui, elles les ont fait baisser.", chiffre: "46 %", texte: "Avec les engagements volontaires de 2012, le dépassement moyen est passé de 55 % du tarif à 46 % en 2020.", source: "HCAAM, 2025" }

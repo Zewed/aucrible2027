@@ -1,0 +1,148 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/037-videosurveillance-ia.md (tout ce qui suit y est sourcé).
+# Vocabulaire : « vidéoprotection algorithmique » (gouvernement, Sénat) et « vidéosurveillance algorithmique »
+# (associations, gauche) sont deux noms disputés de la même chose ; la fiche dit « par intelligence artificielle ».
+numero: 37
+date: 2026-09-21
+theme: securite-justice
+question: "Faut-il généraliser la vidéosurveillance par intelligence artificielle ?"
+titreCourt: "Les caméras à intelligence artificielle"
+contexte:
+  - "La loi du 19 mai 2023 sur les Jeux olympiques a permis d'essayer des logiciels qui analysent en direct les images des caméras et signalent à un agent certaines situations, comme une intrusion ou un objet abandonné, sans reconnaître les visages."
+  - "Un comité indépendant a jugé en 2025 leur intérêt « limité mais réel » ; la loi du 18 août 2026 prolonge l'essai jusqu'au 31 décembre 2030 et l'étend à des lieux exposés au terrorisme ou à des violences graves, comme des gares ou des monuments."
+  - "La reconnaissance faciale reste exclue de ce dispositif, et le règlement européen sur l'intelligence artificielle interdit en principe depuis février 2025 son usage en direct par la police dans l'espace public, sauf exceptions encadrées."
+chiffres:
+  - valeur: "800"
+    unite: caméras
+    legende: "environ, équipées d'intelligence artificielle pendant l'essai de 2024, sur une trentaine d'événements"
+    source: { organisme: Comité d'évaluation, document: rapport sur l'expérimentation, annee: 2025 }
+  - valeur: 78 %
+    legende: "de fausses alertes pour les objets abandonnés dans les transports parisiens pendant les Jeux, contre 21 % pour les intrusions"
+    source: { organisme: Comité d'évaluation, document: données de la RATP, annee: 2025 }
+  - valeur: "60 674"
+    unite: caméras
+    legende: "dans les rues fin 2018 selon le ministère de l'Intérieur, un décompte que la Cour des comptes juge approximatif"
+    source: { organisme: Cour des comptes, document: Les polices municipales, annee: 2020 }
+options:
+  - id: A
+    libelle: L'arrêter
+    implique: "L'essai prend fin : plus aucun logiciel n'analyse les images en direct, et la loi interdit expressément la reconnaissance faciale dans l'espace public. Les caméras classiques restent."
+    defenseurs: "L'essai a peu servi sur le terrain (huit interventions selon le Sénat), et chaque prolongation habitue à une surveillance plus intrusive, un risque que soulignent la CNIL et le comité d'évaluation."
+    critiques: "Ceux qui l'ont testé veulent le garder, et les agents ne peuvent pas regarder en même temps des dizaines de milliers de caméras : un agent suit environ quatre écrans à la fois."
+    axes: { societe: -2 }
+  - id: B
+    libelle: Continuer l'essai jusqu'en 2030
+    implique: "On applique la loi de 2026 : l'essai continue pour les grands événements et des lieux exposés au terrorisme ou à des violences graves, sans reconnaissance faciale, et le Parlement décide après le rapport d'évaluation attendu en 2030."
+    defenseurs: "Les résultats ne sont « pas suffisamment probants pour justifier une pérennisation ou au contraire un abandon » selon le Sénat : il faut tester hors des Jeux, plus longtemps et avec d'autres logiciels."
+    critiques: "Pour les uns, un essai relancé deux fois en 2026 devient permanent sans le dire ; pour les autres, il prive le reste du territoire d'un outil que demandent ses utilisateurs."
+    axes: { societe: -1 }
+  - id: C
+    libelle: "La généraliser, sans reconnaissance faciale"
+    implique: "Le dispositif devient permanent et s'ouvre à davantage de lieux, de situations et de villes, toujours sans identifier les personnes et sous le contrôle d'un agent."
+    defenseurs: "Les caméras sont trop nombreuses pour être regardées par des humains : le logiciel signale où regarder, et le comité d'évaluation n'a relevé aucune atteinte au cadre légal pendant l'essai."
+    critiques: "Aucune étude n'a mesuré l'effet de ces logiciels sur la délinquance, près de quatre alertes sur cinq étaient fausses pour les objets abandonnés, et la CNIL met en garde contre une surveillance généralisée."
+    axes: { societe: 1 }
+  - id: D
+    libelle: Aller jusqu'à la reconnaissance faciale
+    implique: "En plus, la police peut reconnaître le visage de personnes recherchées (terrorisme, crimes graves, personnes disparues) avec l'autorisation d'un juge, dans les limites du règlement européen."
+    defenseurs: "Retrouver un terroriste ou un enfant disparu dans une foule justifie un outil ciblé et autorisé par un juge, que le droit européen permet ; dans un sondage de 2024, 76 % des Français sont favorables à des caméras qui reconnaissent une personne précise."
+    critiques: "Chacun deviendrait identifiable partout : le comité d'évaluation recommande d'interdire la reconnaissance faciale hors des enquêtes judiciaires, et le Parlement européen avait voté en 2023 pour l'interdire en direct."
+    axes: { societe: 2 }
+pourAllerPlusLoin:
+  - titre: "Comité d'évaluation, rapport sur l'expérimentation des traitements algorithmiques, janvier 2025"
+    url: https://www.interieur.gouv.fr/sites/minint/files/medias/documents/2025-01/Rapport1701_v200125%20avecannexes1a%CC%806.pdf
+  - titre: "Conseil constitutionnel, décision n° 2026-915 DC du 14 août 2026"
+    url: https://www.conseil-constitutionnel.fr/decision/2026/2026915DC.htm
+  - titre: "CNIL, la position sur les caméras dites « augmentées », juillet 2022"
+    url: https://www.cnil.fr/fr/cameras-dites-augmentees-dans-les-espaces-publics-la-position-de-la-cnil
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour généraliser"
+    argument: "Les caméras sont trop nombreuses pour être regardées par des humains : le logiciel signale où regarder."
+  - titre: "Pour ne pas généraliser"
+    argument: "L'essai a peu servi sur le terrain, et chaque prolongation habitue à une surveillance plus intrusive."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Généraliser"
+    precision: "voire reconnaître les visages"
+  - choix: "Ne pas généraliser"
+    precision: "arrêter ou rester à l'essai"
+positions:
+  # Programme 2026 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure (« allant jusqu'à l'utilisation ciblée de la reconnaissance faciale », dans un « état d'urgence narco »)
+  # edouardphilippe.fr, Pour une France plus sûre, 2026 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
+  philippe: { option: D, source: "edouardphilippe.fr, Pour une France plus sûre, 2026", statut: officielle }
+  # CNews et Europe 1, 01/06/2026 : https://www.centre-europe.com/retailleau-plaide-pour-la-reconnaissance-faciale-et-la-responsabilite-solidaire-des-casseurs/
+  retailleau: { option: D, source: "CNews et Europe 1, 01/06/2026", statut: officielle }
+  # Entretien sur RTL, 19/10/2026 : https://reclaimthenet.org/gabriel-attal-social-media-block-facial-recognition-riots
+  attal: { option: D, source: "Entretien sur RTL, 19/10/2026", statut: officielle }
+  # Votes du groupe RN, 23/03/2023 et 10/07/2026 : https://datan.fr/votes/legislature-17/vote_8194
+  le-pen: { option: B, source: "Votes du groupe RN, 23/03/2023 et 10/07/2026", statut: deduite }
+  # L'Avenir en commun, 2025 ; votes du groupe LFI, 2023 et 2026 : https://melenchon2027.fr/programme2025/livre/chapitre18/s5/
+  melenchon: { option: A, source: "L'Avenir en commun, 2025 ; votes du groupe LFI, 2023 et 2026", statut: deduite }
+  # Projet 2027 et vote du groupe écologiste, 10/07/2026 : https://datan.fr/votes/legislature-17/vote_8194
+  tondelier: { option: A, source: "Projet 2027 et vote du groupe écologiste, 10/07/2026", statut: deduite }
+  # Vote du groupe socialiste, 10/07/2026 : https://datan.fr/votes/legislature-17/vote_8194
+  glucksmann: { option: A, source: "Vote du groupe socialiste, 10/07/2026", statut: deduite }
+  # Vote du groupe écologiste, 10/07/2026 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8194
+  ruffin: { option: A, source: "Vote du groupe écologiste, 10/07/2026", statut: deduite }
+  # Vote des sénateurs communistes, 24/01/2023 : https://www.senat.fr/scrutin-public/2022/scr2022-111.html
+  roussel: { option: A, source: "Vote des sénateurs communistes, 24/01/2023", statut: deduite }
+  # Amendement n° 692, Assemblée nationale, 16/03/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/0939/AN/692.pdf
+  dupont-aignan: { option: A, source: "Amendement n° 692, Assemblée nationale, 16/03/2023", statut: deduite }
+  # franceinfo, 18/10/2023 : https://www.franceinfo.fr/faits-divers/attaque-au-couteau-dans-un-lycee-a-arras/securite-des-etablissements-scolaires-il-faut-dire-stop-selon-david-lisnard-qui-appelle-a-des-mesures-immediates_6129297.html
+  lisnard: { option: D, source: "franceinfo, 18/10/2023", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/037-videosurveillance-ia.md (chaque chiffre y a sa
+# source numérotée). Le fil : un essai né pour les Jeux, prolongé jusqu'en 2030 ; faut-il l'arrêter, le généraliser
+# ou aller jusqu'aux visages ?
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1 et 1.2, [1] [2] [9].
+    etapes:
+      - { quand: "D'abord à l'essai jusqu'en", valeur: mars 2025 }
+      - { quand: "Aujourd'hui jusqu'en", valeur: décembre 2030 }
+    chute: "… pour les caméras qui signalent à un agent certaines situations à risque, sans reconnaître les visages."
+  ecart:
+    # § 2a, [21] [22] : même périmètre (caméras de voie publique), deux décomptes dont la Cour souligne l'imprécision.
+    titre: "Combien de caméras dans nos rues ?"
+    etapes:
+      - { quand: Fin 2010, valeur: "~10 000" }
+      - { quand: Fin 2018, valeur: "~60 000" }
+    chute: "Ce sont des estimations : la Cour des comptes juge le décompte approximatif."
+    source: "Cour des comptes, 2011 et 2020"
+  leviers:
+    # § 2h et § 4 : les quatre options de la fiche, à égalité.
+    titre: "Quatre choix possibles"
+    choix:
+      - { texte: Arrêter, detail: "et interdire la reconnaissance faciale dans la loi" }
+      - { texte: "Continuer l'essai", detail: "jusqu'en 2030, puis décider" }
+      - { texte: Généraliser, detail: "dans plus de lieux, sans reconnaître les visages" }
+      - { texte: Aller plus loin, detail: "reconnaître le visage des personnes recherchées" }
+    chute: "En Europe, reconnaître les visages en direct dans les lieux publics reste interdit à la police, sauf exceptions."
+    source: "Parlement, 2026 ; Union européenne, 2024"
+  camps: { pour: POUR, contre: CONTRE, objet: "la généralisation des caméras à intelligence artificielle" }
+  questions:
+    # § 2b et § 3, [23] [24] : deux synthèses d'études avec zones témoins, des mêmes chercheurs (celle de 2019 met à jour
+    # celle de 2008) ; les deux camps citent des caméras classiques, sans intelligence artificielle. La comparaison de
+    # 58 communes par la Cour des comptes (2020) n'est pas une étude de cause à effet : écartée face à une synthèse.
+    - question: "Les caméras font-elles reculer la délinquance ?"
+      pour: { affirmation: "Oui, dans certains lieux.", chiffre: 40 ans, texte: "Quarante ans d'études montrent une baisse modeste des délits, plus forte dans les parkings et avec un agent devant les écrans.", source: "Criminology & Public Policy, 2019" }
+      contre: { affirmation: "Pas les violences.", chiffre: 44 études, texte: "Une synthèse de 44 études ne trouve pas d'effet sur les violences, et moins d'effet dans les transports et les centres-villes.", source: "Campbell Collaboration, 2008" }
+    # § 2c, [3] : même opérateur (RATP), même période (Jeux olympiques), même unité (part des alertes) : intrusions,
+    # 1 222 justes sur 1 546 (79 %) ; objets abandonnés, 151 fausses sur 193 (78 %). La question porte sur la justesse
+    # des alertes, seule mesurée : ce que le logiciel a manqué ne l'a pas été.
+    - question: "Les alertes de l'intelligence artificielle sont-elles fiables ?"
+      pour: { affirmation: "Oui, pour les intrusions.", chiffre: 4 sur 5, texte: "Dans les transports parisiens, pendant les Jeux olympiques, près de quatre alertes d'intrusion sur cinq étaient justes.", source: "Comité d'évaluation, 2025" }
+      contre: { affirmation: "Pas pour les objets abandonnés.", chiffre: 4 sur 5, texte: "Dans les mêmes transports, près de quatre alertes sur cinq pour un objet abandonné étaient fausses.", source: "Comité d'évaluation, 2025" }
+    # § 2d, [3] [4] : le même essai, vu par ses utilisateurs et par ses interventions sur le terrain (1 préfecture de
+    # police, 7 SNCF, selon le Sénat). « Peu » suit le comité (intérêt « limité », interventions « extrêmement
+    # résiduel[les] ») ; l'affirmation dit sur quoi elle juge, car le comité note que les interventions ne mesurent pas
+    # tout l'intérêt (vérifications, présence policière massive pendant les Jeux).
+    - question: "L'essai a-t-il été utile ?"
+      pour: { affirmation: "Oui, selon ceux qui l'ont mené.", chiffre: 4 sur 4, texte: "Les quatre services qui ont testé ces caméras, dont la police de Paris, demandent à les garder.", source: "Sénat, 2025" }
+      contre: { affirmation: "Peu, à en juger par les interventions.", chiffre: "8", texte: "Pendant l'essai, les alertes de l'intelligence artificielle ont conduit à huit interventions d'agents sur le terrain.", source: "Sénat, 2025" }
+    # § 2h et 2l, [3] : le même sondage pour les deux camps.
+    - question: "Faut-il aller jusqu'à reconnaître les visages ?"
+      pour: { affirmation: "Oui, pour retrouver une personne recherchée.", chiffre: 76 %, texte: "Dans un sondage, 76 % des Français se disent favorables à des caméras capables de reconnaître une personne précise.", source: "Verian, 2024" }
+      contre: { affirmation: "Non, ce serait surveiller tout le monde.", chiffre: 62 %, texte: "Dans le même sondage, 62 % pensent que les caméras à intelligence artificielle vont banaliser la surveillance de tous.", source: "Verian, 2024" }

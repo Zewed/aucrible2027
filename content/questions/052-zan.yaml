@@ -1,0 +1,144 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/052-zan.md (tout ce qui suit y est sourcé).
+# À vérifier en priorité : la proposition de loi « Trace » n'avait pas été examinée par l'Assemblée au 28/10/2026, et
+# l'assouplissement voté en avril 2026 a été censuré le 21/05/2026 (étude, § 1.3 et 1.4).
+numero: 52
+date: 2026-09-06
+theme: logement
+question: "Faut-il garder, assouplir ou supprimer l'objectif « zéro artificialisation nette » ?"
+titreCourt: "Le zéro artificialisation nette"
+contexte:
+  - "La loi Climat et résilience de 2021 vise le « zéro artificialisation nette » en 2050 : à partir de cette date, chaque terre naturelle, agricole ou forestière bâtie ou goudronnée devra être compensée par autant de sol rendu à la nature."
+  - "D'ici 2031, elle impose de prendre deux fois moins de ces terres qu'entre 2011 et 2021 ; une loi de 2023 a garanti au moins un hectare à chaque commune et compté à part les grands projets nationaux."
+  - "En 2025, l'Assemblée nationale a rejeté la suppression de l'objectif, et le Sénat a voté un texte, toujours en attente à l'Assemblée, qui supprime l'étape de 2031 ; un autre assouplissement, voté en 2026, a été censuré par le Conseil constitutionnel pour une raison de procédure."
+chiffres:
+  - valeur: "15 119"
+    unite: hectares
+    legende: "de terres naturelles, agricoles et forestières prises pour bâtir en 2024, contre 29 470 en 2011"
+    source: { organisme: Cerema, document: "La consommation foncière, état des lieux et enjeux", annee: 2026 }
+  - valeur: "65 %"
+    legende: "de ces terres prises depuis 2011 ont servi au logement"
+    source: { organisme: Cerema, document: "La consommation foncière, état des lieux et enjeux", annee: 2026 }
+  - valeur: "68 %"
+    legende: "des terres prises depuis 2021 l'ont été dans les communes rurales : 88 % des communes, un tiers des habitants"
+    source: { organisme: "Cerema, Insee", annee: 2026 }
+options:
+  - id: A
+    libelle: "Supprimer l'objectif"
+    implique: "Les objectifs de 2031 et de 2050 sont abrogés : chaque commune décide des terrains qu'elle ouvre à la construction, dans le respect des autres règles d'urbanisme."
+    defenseurs: "Une règle nationale uniforme fige le développement des communes rurales et périurbaines au profit des grandes villes, et bloque des logements, des routes ou des usines utiles : il faut rendre aux maires la liberté de construire."
+    critiques: "Sans plafond national, les terres prises pourraient repartir à la hausse avec la reprise de la construction, surtout des terres agricoles, alors que ces sols nourrissent, absorbent l'eau de pluie et abritent la vie."
+    # Moins de règles, plus de place aux choix des propriétaires et des communes ; note modérée, comme pour les
+    # pesticides (fiche 041), pour ne pas pousser le plateau vers les bords.
+    axes: { economie: 1 }
+  - id: B
+    libelle: "L'assouplir"
+    implique: "L'objectif de 2050 reste, mais l'étape de 2031 est supprimée ou repoussée, chaque région fixe sa propre trajectoire, et des projets sortent du décompte, comme les usines, l'énergie renouvelable ou les logements sociaux des communes en retard, comme le prévoit le texte voté par le Sénat en 2025."
+    defenseurs: "Diviser par deux d'ici 2031 est jugé impossible sur le terrain, pénalise les communes qui ont peu construit et freine la réindustrialisation : mieux vaut un chemin fixé avec les élus locaux, en gardant le cap de 2050."
+    critiques: "Supprimer l'étape de 2031 permettrait de prendre plus de 80 000 hectares supplémentaires d'ici 2031, selon la Fondation pour la nature et l'homme, et obligerait les collectivités qui ont déjà revu leurs plans à recommencer."
+    # Pas de note : l'option garde l'objectif de 2050, elle se tient près du milieu.
+  - id: C
+    libelle: "Garder les règles actuelles"
+    implique: "Deux fois moins de terres prises entre 2021 et 2031 qu'entre 2011 et 2021, puis zéro artificialisation nette en 2050, avec les aménagements de 2023 : au moins un hectare garanti par commune et une enveloppe nationale de 12 500 hectares pour les grands projets."
+    defenseurs: "Deux régions sur trois et quatre schémas intercommunaux sur cinq ont déjà revu leurs plans : changer la loi une troisième fois en quatre ans créerait de l'incertitude, alors que les terres prises chaque année ont presque diminué de moitié depuis 2011."
+    critiques: "Pour les uns, l'étape de 2031 reste hors d'atteinte et met les campagnes « sous cloche », selon les maires ruraux ; pour les autres, près de 69 000 hectares échappent déjà au décompte, selon la Fondation pour la nature et l'homme."
+    # La règle en vigueur après la censure du 21/05/2026 ; pas de note.
+  - id: D
+    libelle: "Le renforcer"
+    implique: "La France va plus vite ou plus loin : zéro artificialisation nette avant 2050, par exemple dès 2040, un plafond ferme pour 2031-2041, et un décompte qui inclut tout ce qui est pris, carrières et grands projets compris."
+    defenseurs: "Une terre bâtie l'est presque pour toujours : ces sols nourrissent, filtrent l'eau et abritent la vie, et l'on peut construire autrement, sur les friches, en hauteur ou en rénovant les logements vides."
+    critiques: "Les communes rurales, qui ont peu de terrains déjà bâtis, ne pourraient presque plus construire, et reconstruire la ville sur elle-même coûte cher aux communes, qui manquent selon leur association d'un « modèle économique » pour le faire."
+    # Plus de règles ; laissé à −1 pour ne pas pousser le plateau vers les bords.
+    axes: { economie: -1 }
+pourAllerPlusLoin:
+  - titre: "Cerema, la consommation d'espaces naturels, agricoles et forestiers de 2011 à 2025, 2026"
+    url: https://www.cerema.fr/fr/actualites/quelle-consommation-espaces-naturels-agricoles-forestiers
+  - titre: "Portail de l'artificialisation des sols, les définitions"
+    url: https://artificialisation.developpement-durable.gouv.fr/comprendre-et-sensibiliser/consommation-despaces-et-artificialisation-definitions
+  - titre: "Assemblée nationale, proposition de loi « Trace » votée par le Sénat en 2025"
+    url: https://www.assemblee-nationale.fr/dyn/17/dossiers/DLR5L17N50850
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour assouplir ou supprimer"
+    argument: "Une règle nationale uniforme fige les communes rurales et freine les logements et les usines dont les territoires ont besoin."
+  - titre: "Pour garder ou renforcer"
+    argument: "Une terre bâtie l'est presque pour toujours : ces sols nourrissent, filtrent l'eau et abritent la vie."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Assouplir"
+    precision: "ou supprimer"
+  - choix: "Garder"
+    precision: "ou renforcer"
+positions:
+  # Discours de rentrée à Hénin-Beaumont, 13/09/2026 (AFP) : https://www.sudradio.fr/societe/le-pen-veut-mettre-la-priorite-nationale-au-centre-dun-grand-chantier-sur-le-logement ; amendement n° 953 rect. cosigné (suppression du ZAN, rejeté le 28/05/2025) : https://www.assemblee-nationale.fr/dyn/17/amendements/1191/AN/953.pdf
+  le-pen: { option: A, source: "Discours de rentrée, Hénin-Beaumont, 13/09/2026", statut: officielle }
+  # Conférence de presse du 15/09/2026 (Public Sénat) : https://www.publicsenat.fr/actualites/politique/essence-energie-logement-travail-bruno-retailleau-promet-daugmenter-le-pouvoir-dachat-des-francais-sans-un-euro-de-dette-en-plus
+  retailleau: { option: A, source: "Conférence de presse, 15/09/2026", statut: officielle }
+  # Amendement n° 345 cosigné (exemption des communes rurales de 2 000 habitants ou moins qui perdent des habitants), 16/06/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/1359/AN/345.pdf
+  roussel: { option: B, source: "Amendement n° 345 cosigné, Assemblée nationale, 16/06/2023", statut: deduite }
+  # L'Avenir en commun, édition 2025, mesures 28 et 152, relevées par votons-2027.fr (page d'origine inaccessible, erreur 403) : https://votons-2027.fr/candidats/melenchon/programme/climat ; original : https://melenchon2027.fr/programme2025/livre/
+  melenchon: { option: D, source: "L'Avenir en commun, édition 2025, mesures 28 et 152", statut: deduite }
+  # Projet 2027 des Écologistes, mesure 13, relevée par votons-2027.fr (page d'origine inaccessible, erreur 403) : https://votons-2027.fr/candidats/tondelier/programme/climat ; original : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+  tondelier: { option: D, source: "Projet 2027 des Écologistes, mesure 13", statut: officielle }
+  # Amendements cosignés n° 477 (ZAN avancé à 2040), 16/06/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/1359/AN/477.pdf ; et n° 844 (maintien de l'étape de 2031), 03/04/2025 : https://www.assemblee-nationale.fr/dyn/17/amendements/1191/AN/844.pdf
+  ruffin: { option: D, source: "Amendements n° 477 (16/06/2023) et n° 844 (03/04/2025) cosignés", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/052-zan.md (chaque chiffre y a sa source numérotée ;
+# tableau des renvois en annexe de l'étude). Le fil : une loi qui divise par deux les terres prises pour bâtir ;
+# faut-il la garder, l'assouplir ou la supprimer ? Quatre angles : logement, campagnes, faisabilité, opinion.
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1, [1] [2] : article 194 (2021-2031) et article 191 (2050). La chute explique le mot « artificialisation ».
+    etapes:
+      - { quand: "D'ici 2031", valeur: "moitié moins" }
+      - { quand: "En 2050", valeur: "zéro" }
+    chute: "C'est la loi de 2021 : prendre deux fois moins de terres agricoles et naturelles qu'entre 2011 et 2021, puis rendre à la nature autant qu'on en prend."
+  # Pas de mécanisme : aucun rapport « X pour 1 » suivi à deux dates ne résume le sujet.
+  ecart:
+    # § 2a, [3] : même mesure (fichiers fonciers), même organisme, série révisée en 2026 ; 2024 est provisoire. La
+    # chute ne prête la baisse ni à la loi ni à la conjoncture : 19 549 ha dès 2020, avant la loi ; recul des mises en
+    # chantier depuis 2020 (phrase du Cerema).
+    titre: "Chaque année, combien d'hectares de terres sont pris pour bâtir ?"
+    etapes:
+      - { quand: En 2011, valeur: "29 470 ha" }
+      - { quand: En 2024, valeur: "15 119 ha" }
+    chute: "Presque deux fois moins : la baisse a commencé avant la loi de 2021, et s'est poursuivie depuis 2020 avec le recul de la construction."
+    source: "Cerema, 2026"
+  leviers:
+    # § 1.3, 1.4 et 4, [7] [8] [37] [40]. « Prises pour bâtir » plutôt que « prises à la nature » : deux tiers sont
+    # des terres agricoles. La chute ne présume pas que l'Assemblée examinera le texte (aucune date au 28/10/2026).
+    titre: "Les terres prises pour bâtir : quatre choix"
+    choix:
+      - { texte: "Supprimer l'objectif", detail: "sans plafond national, chaque commune décide des terrains à bâtir" }
+      - { texte: "L'assouplir", detail: "plus de temps et des exceptions, en gardant 2050" }
+      - { texte: "Garder les règles", detail: "deux fois moins d'ici 2031, zéro en 2050" }
+      - { texte: "Le renforcer", detail: "aller plus vite et tout compter, carrières comprises" }
+    chute: "Le Sénat a voté un assouplissement en 2025, que l'Assemblée nationale n'a pas examiné : les règles n'ont pas changé."
+    source: "Sénat, 2025 ; Assemblée nationale, 2026"
+  # Les mots de la question : ni « bétonisation » ni « liberté des maires », deux cadrages opposés.
+  camps: { pour: POUR, contre: CONTRE, objet: des règles plus souples }
+  # Chaque réponse compare ce qui se compare : même document du Cerema (Q1), communes rurales des deux côtés (Q2),
+  # même série du Cerema (Q3), même sondage (Q4, deux questions différentes, ce que disent les deux textes).
+  questions:
+    # § 2b, [3] : les deux chiffres portent sur la consommation d'espaces depuis 2011 (synthèse du Cerema, 2026).
+    - question: "Prendre moins de terres, est-ce construire moins de logements ?"
+      pour: { affirmation: "Oui, c'est surtout pour se loger.", chiffre: "65 %", texte: "Depuis 2011, 65 % des terres naturelles et agricoles prises ont servi à construire des logements.", source: "Cerema, 2026" }
+      contre: { affirmation: "Pas là où l'on en manque le plus.", chiffre: "58 %", texte: "Depuis 2011, 58 % de ces terres ont été prises dans des communes où le logement est le moins rare.", source: "Cerema, 2026" }
+    # § 2c, [4] [5] [27] : POUR parle du sol déjà bâti (stock, 2021), CONTRE des terres prises depuis (flux, 2021-2025) ;
+    # c'est le cœur du désaccord, chaque texte dit ce qu'il mesure. CONTRE donne les deux repères (88 % des communes,
+    # comme le Cerema ; un tiers des habitants, Insee), pour ne pas choisir le seul qui l'arrange.
+    - question: "Les communes rurales sont-elles pénalisées ?"
+      pour: { affirmation: "Oui, elles sont peu bâties.", chiffre: "6 %", texte: "En 2021, 6 % du sol des communes rurales était déjà bâti, goudronné ou aménagé, contre 56 % dans les grandes villes.", source: "Insee, 2026" }
+      contre: { affirmation: "Non, elles en prennent le plus.", chiffre: "68 %", texte: "Depuis 2021, 68 % des terres prises l'ont été dans les communes rurales : 88 % des communes, un tiers des habitants.", source: "Cerema, 2026 ; Insee, 2021" }
+    # § 2g et 2b, [3] : le 6 800 est un calcul de l'étude (plafond 2021-2031 moins 2021-2024, divisé par six, sans les
+    # exceptions), ce que disent le texte et la source ; le 7 700 est un chiffre publié par le Cerema, et le texte dit
+    # ce qu'il montre : des terres prises sans foyers de plus à loger.
+    - question: "L'objectif de 2031 peut-il être tenu ?"
+      pour: { affirmation: "Pas au rythme actuel.", chiffre: "6 800 ha", texte: "Selon un calcul, sans compter les exceptions, il faudrait tomber à 6 800 hectares par an, moins de la moitié de 2024.", source: "Cerema, 2026 (calcul)" }
+      contre: { affirmation: "Oui, il y a des terres à épargner.", chiffre: "7 700", texte: "De 2011 à 2022, 7 700 communes ont pris des terres en perdant des foyers : là, on peut en prendre moins.", source: "Cerema, 2026" }
+    # § 2j, [29] : même sondage (Kantar, juin 2022), deux questions différentes, que chaque texte signale ; POUR est lu
+    # en premier (ordre ABBA). Aucune des deux affirmations ne nuance plus que l'autre.
+    - question: "Que veulent les Français ?"
+      pour: { affirmation: "Une maison plutôt qu'un appartement.", chiffre: "79 %", texte: "À une question d'un sondage de 2022, 79 % des Français préféraient vivre dans une maison plutôt qu'en appartement.", source: "Kantar pour La Fabrique de la Cité, 2022" }
+      contre: { affirmation: "Moins de terres prises pour bâtir.", chiffre: "88 %", texte: "À une autre question du même sondage, 88 % des Français jugeaient important de limiter les terres prises pour bâtir.", source: "Kantar pour La Fabrique de la Cité, 2022" }

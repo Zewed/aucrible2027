@@ -1,0 +1,140 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 28/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux dont cette fiche découle : docs/etudes/048-vaccins.md
+# Pas de note de plateau : l'opposition à l'obligation vaccinale traverse la gauche et la droite (RN et LFI contre
+# l'obligation grippe en 2025, EPR, socialistes et écologistes pour), et ne se range ni sur « redistribution / marché »
+# ni sur « progressiste / conservateur ».
+numero: 48
+date: 2026-09-10
+theme: sante
+question: Faut-il élargir, garder ou réduire les vaccins obligatoires ?
+titreCourt: "Les vaccins obligatoires"
+contexte:
+  - "Depuis 2018, onze vaccins sont obligatoires pour les enfants, contre trois auparavant : sans eux, un enfant ne peut pas entrer à la crèche ou à l'école, et depuis 2025 l'obligation contre les méningocoques couvre cinq types au lieu d'un."
+  - "Pour les soignants, l'obligation de se vacciner contre le Covid-19, créée en 2021, est suspendue depuis mai 2023 ; l'hépatite B, la diphtérie, le tétanos et la polio restent obligatoires."
+  - "En juillet 2026, la Haute Autorité de santé a recommandé de rendre obligatoire chaque année la vaccination des soignants contre la grippe ; une loi de décembre 2025 le permet pour les libéraux, et le ministère prépare sa mise en œuvre."
+chiffres:
+  - valeur: "11"
+    unite: vaccins
+    legende: "obligatoires pour les enfants nés depuis le 1er janvier 2018, contre 3 auparavant"
+    source: { organisme: Santé publique France, document: "Extension des obligations vaccinales", annee: 2018 }
+  - valeur: "20 %"
+    legende: "des professionnels des établissements de santé vaccinés contre la grippe en 2024-2025, entre 19 et 22 % depuis quatre hivers"
+    source: { organisme: HAS, document: "Grippe saisonnière, pertinence d'une obligation vaccinale", annee: 2026 }
+  - valeur: "873"
+    unite: cas
+    legende: "de rougeole déclarés en 2025, 80 % de plus qu'en 2024 ; six malades sur dix n'étaient pas ou mal vaccinés"
+    source: { organisme: Santé publique France, document: "Rougeole en France, bilan annuel 2025", annee: 2026 }
+options:
+  - id: A
+    libelle: Ajouter des vaccins obligatoires
+    implique: "Les onze vaccins des enfants restent obligatoires et de nouvelles obligations s'ajoutent, d'abord la grippe chaque année pour les soignants, comme le recommande la Haute Autorité de santé depuis juillet 2026, voire la rougeole pour les soignants non protégés."
+    defenseurs: "Dans les établissements de santé, un soignant sur cinq est vacciné contre la grippe malgré des années d'incitations ; là où l'obligation existe, comme en Finlande, la couverture dépasse 90 %, et elle protège des malades qui ne peuvent pas se défendre."
+    critiques: "Le bénéfice pour les patients repose sur des études jugées peu solides, et selon la Haute Autorité de santé, l'expérience du Covid montre qu'une obligation perçue comme stigmatisante peut créer des tensions."
+  - id: B
+    libelle: Garder les obligations actuelles
+    implique: "Onze vaccins restent obligatoires pour les enfants, et l'hépatite B, la diphtérie, le tétanos et la polio pour les soignants ; la grippe et le papillomavirus restent conseillés, avec des campagnes comme la vaccination au collège."
+    defenseurs: "L'obligation de 2018 a fait passer la vaccination des bébés contre le méningocoque C de 36 % à 76 % en un an, sans alerte de sécurité ; pour les autres vaccins, l'incitation progresse : 62 % des filles de 15 ans ont reçu une première dose contre le papillomavirus en 2025."
+    critiques: "Pour les uns, c'est trop peu : la rougeole revient, avec 873 cas en 2025, et les soignants restent peu vaccinés contre la grippe ; pour les autres, c'est trop : onze vaccins imposés ne laissent aucun choix aux parents."
+  - id: C
+    libelle: Revenir aux trois vaccins d'avant 2018
+    implique: "Seuls la diphtérie, le tétanos et la polio restent obligatoires pour les enfants ; les huit autres vaccins, dont la rougeole et l'hépatite B, redeviennent conseillés et remboursés, et aucune nouvelle obligation n'est créée."
+    defenseurs: "Obliger n'est pas convaincre : l'approbation de l'extension de 2018 est passée de 66 % à 59 % entre 2020 et 2022 selon des sondages, et 17 pays européens sur 30 n'imposent aucun vaccin aux enfants, comme le Portugal, où 96 % ont leurs deux doses contre la rougeole."
+    critiques: "Avant 2018, les vaccins conseillés étaient moins faits : 36 % des bébés étaient vaccinés contre le méningocoque C, 76 % un an après l'obligation, et pour le Conseil d'État, l'obligation a une incidence directe sur la couverture."
+  - id: D
+    libelle: Ne plus imposer aucun vaccin
+    implique: "Toutes les vaccinations deviennent conseillées et restent remboursées comme aujourd'hui ; l'entrée à la crèche ou à l'école n'exige plus de preuve de vaccination."
+    defenseurs: "Chaque parent doit pouvoir décider pour son enfant après une information complète : la liberté de choix est un motif de réticence de plus en plus cité, par 40 % des réticents en 2021 contre 31 % en 2020, et selon l'OMS, une obligation perçue comme autoritaire peut entamer la confiance."
+    # Le tétanos : § 2b, [38].
+    critiques: "Le tétanos ne se transmet pas d'une personne à l'autre : seul son propre vaccin protège ; et les bébés trop jeunes pour être vaccinés dépendent des autres, alors que 62 d'entre eux ont eu la rougeole en 2025."
+pourAllerPlusLoin:
+  - titre: "Santé publique France, la couverture vaccinale en 2025, avril 2026"
+    url: https://www.santepubliquefrance.fr/vaccination/bulletin-national/vaccination-des-enfants-adolescents-et-jeunes-adultes-en-france-bilan-de-la-couverture-vaccinale-en
+  - titre: "HAS, l'obligation vaccinale contre la grippe, juillet 2026"
+    url: https://www.has-sante.fr/jcms/p_4214093/fr/la-has-se-prononce-sur-l-obligation-vaccinale-contre-la-grippe
+  - titre: "Santé publique France, la rougeole en France, bilan 2025"
+    url: https://www.santepubliquefrance.fr/rougeole/bulletin-national/rougeole-en-france-bilan-annuel-2025
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour garder ou étendre l'obligation"
+    argument: "L'obligation de 2018 a fait passer la vaccination des bébés contre le méningocoque C de 36 % à 76 % en un an."
+  - titre: "Pour réduire l'obligation"
+    argument: "Obliger n'est pas convaincre : le Portugal vaccine aussi bien contre la rougeole sans aucun vaccin obligatoire."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Garder ou étendre"
+    precision: "les obligations"
+  - choix: "Réduire"
+    precision: "ou ne rien imposer"
+# Seuls les candidats sourcés ; les huit autres sont « inconnue » (voir l'étude, § 4, avec les raisons, notamment pour Ruffin et Dupont-Aignan).
+positions:
+  # Amendement n° 644 déposé par Marine Le Pen le 20/10/2017 (les onze vaccins obligatoires pour les seules personnes revenant de plus de deux ans à l'étranger, la « pédagogie » pour les autres) : https://www.assemblee-nationale.fr/dyn/15/amendements/0269/AN/644.pdf ; vote du groupe RN contre l'obligation grippe, scrutin n° 3615 du 08/11/2025 : https://datan.fr/votes/legislature-17/vote_3615
+  # Amendement n° 929 à l'article 20 du PLFSS 2026 (nouvelle lecture), cosigné par les députés Horizons (N. Colin-Oesterlé, X. Albertini, F. Valletoux…), 30/11/2025 ; adopté, scrutin n° 4604, 05/12/2025 (Horizons 7 pour, 0 contre) : https://www.assemblee-nationale.fr/dyn/17/amendements/2141/AN/929.pdf
+  philippe: { option: A, source: "Amendement n° 929 à l'article 20 du PLFSS 2026 (nouvelle lecture), cosigné par les députés Horizons (N. Colin-Oesterlé, X. Albertini, F. Valletoux…), 30/11/2025 ; adopté, scrutin n° 4604, 05/12/2025 (Horizons 7 pour, 0 contre)", statut: deduite }
+  # Amendement n° 929 à l'article 20 du PLFSS 2026 (nouvelle lecture), dont G. Attal est cosignataire, 30/11/2025 ; adopté, scrutin n° 4604, 05/12/2025 (EPR 32 pour, 0 contre) : https://www.assemblee-nationale.fr/dyn/17/amendements/2141/AN/929.pdf
+  attal: { option: A, source: "Amendement n° 929 à l'article 20 du PLFSS 2026 (nouvelle lecture), dont G. Attal est cosignataire, 30/11/2025 ; adopté, scrutin n° 4604, 05/12/2025 (EPR 32 pour, 0 contre)", statut: deduite }
+  # Assemblée nationale, scrutin n° 4604, 05/12/2025, amendement n° 929 (obligation grippe étendue aux personnes travaillant avec les soignants libéraux) : Écologiste et Social 7 pour, 0 contre : https://www.assemblee-nationale.fr/dyn/17/scrutins/4604
+  tondelier: { option: A, source: "Assemblée nationale, scrutin n° 4604, 05/12/2025, amendement n° 929 (obligation grippe étendue aux personnes travaillant avec les soignants libéraux) : Écologiste et Social 7 pour, 0 contre", statut: deduite }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/048-vaccins.md (chaque chiffre y a sa source numérotée,
+# et l'annexe de l'étude dit d'où vient chacun). Le fil : en 2018, la France passe de trois à onze vaccins obligatoires
+# pour les enfants ; la rougeole revient ; quatre choix, de « en ajouter » à « ne rien imposer ».
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.1, [1] [3].
+    etapes:
+      - { quand: Avant 2018, valeur: 3 vaccins }
+      - { quand: Depuis 2018, valeur: 11 vaccins }
+    chute: "… obligatoires pour qu'un enfant entre à la crèche ou à l'école."
+  # Pas de « mécanisme » : aucun rapport « X pour 1 » ne résume le sujet.
+  ecart:
+    # § 2c, [11] : cas déclarés de rougeole, même source et même mode de comptage aux deux dates. La chute dit les
+    # deux faits : la hausse de chaque année (117, 483, 873) et le niveau, sous celui de la dernière épidémie.
+    titre: "La rougeole revient-elle ?"
+    etapes:
+      - { quand: En 2023, valeur: 117 cas }
+      - { quand: En 2025, valeur: 873 cas }
+    chute: "Les cas ont augmenté chaque année depuis 2023, sans atteindre le niveau de la dernière épidémie : 2 778 par an en 2018 et 2019."
+    source: "Santé publique France, 2026"
+  leviers:
+    # § 1.2 et 4, [6] [7]. Les quatre options de la fiche, à égalité.
+    titre: "Les vaccins obligatoires : quatre choix"
+    choix:
+      - { texte: En ajouter, detail: "la grippe chaque année pour les soignants" }
+      - { texte: Garder les onze, detail: "et encourager les autres vaccins sans les imposer" }
+      - { texte: Revenir à trois, detail: "diphtérie, tétanos, polio ; les huit autres conseillés et remboursés" }
+      - { texte: Ne rien imposer, detail: "tous les vaccins conseillés et remboursés" }
+    chute: "Chaque choix met en balance la liberté de chacun et la protection de ceux qui ne peuvent pas se vacciner."
+    source: "HAS, 2026"
+  camps: { pour: POUR, contre: CONTRE, objet: l'obligation de se vacciner }
+  # Relu le 28/10/2026 par deux relecteurs, l'un pour l'obligation, l'autre contre. Chaque texte dit ce qu'il mesure ;
+  # Q1 à Q3 comparent ce qui se compare, Q4 oppose deux questions de sondage différentes et le dit dans les deux textes.
+  # Le camp CONTRE est contre l'obligation, pas contre les vaccins : aucune de ses réponses ne met en doute leur sécurité.
+  questions:
+    # § 2a et 2h, [12] [13] : le même indicateur (deux doses contre la rougeole), la même source, la même année.
+    # Ce sont des estimations OMS-Unicef : Santé publique France, avec sa propre méthode, donne « autour de 90 % »
+    # pour la France ; la comparaison avec le Portugal ne vaut qu'entre estimations OMS-Unicef, d'où 93 % ici.
+    # Le POUR montre sa hausse (sa preuve), le CONTRE un niveau ; sans obligation, les Pays-Bas sont à 81 %, et
+    # avec dix obligations l'Italie à 84 % (§ 2h).
+    - question: "Faut-il obliger pour bien vacciner ?"
+      pour: { affirmation: "En France, l'obligation a payé.", chiffre: "80 → 93 %", texte: "L'OMS estime que 93 % des enfants ont leurs deux doses contre la rougeole en 2024, contre 80 % en 2017.", source: "OMS et Unicef, 2025" }
+      contre: { affirmation: "D'autres y arrivent sans obliger.", chiffre: "96 %", texte: "Au Portugal, sans aucun vaccin obligatoire, l'OMS estime que 96 % des enfants ont leurs deux doses en 2024.", source: "OMS et Unicef, 2025" }
+    # § 2c, [11] [9] : le même bilan annuel ; le premier vaccin contre la rougeole se fait à 12 mois.
+    - question: "Qui attrape la rougeole aujourd'hui ?"
+      pour: { affirmation: "Aussi des bébés trop jeunes.", chiffre: "62 bébés", texte: "En 2025, 62 bébés de moins d'un an, trop jeunes pour être vaccinés, ont attrapé la rougeole.", source: "Santé publique France, 2026" }
+      contre: { affirmation: "Souvent des jeunes nés avant 2018.", chiffre: "16 ans", texte: "La moitié des malades de 2025 avaient plus de 16 ans. Nés avant 2018, ils ne sont pas visés par l'obligation.", source: "Santé publique France, 2026" }
+    # § 2d, [6] : les deux réponses viennent de la même revue Cochrane (Thomas et al., 2025, citée par la HAS), sur les
+    # mêmes essais en maisons de retraite (résidents de 60 ans et plus). Grippes confirmées : 5 % → 4 %, « peu ou pas
+    # d'effet », niveau de preuve faible. Décès toutes causes : risque relatif 0,69, soit 31 % de moins, niveau de
+    # preuve modéré, à interpréter « avec prudence » selon la HAS, ce critère n'étant pas propre à la grippe. Le
+    # conditionnel vaut pour les deux. La couverture des soignants (un sur cinq) reste dans les chiffres de la fiche.
+    - question: "Faut-il obliger les soignants contre la grippe ?"
+      pour: { affirmation: "Oui, les résidents meurent moins.", chiffre: "−31 %", texte: "En maison de retraite, vacciner les soignants ferait baisser de 31 % les décès de résidents, toutes causes confondues.", source: "Revue Cochrane, 2025" }
+      contre: { affirmation: "Non, l'effet sur la grippe est incertain.", chiffre: "5 → 4 %", texte: "En maison de retraite, vacciner les soignants aurait peu ou pas d'effet sur la grippe des résidents : de 5 % à 4 %.", source: "Revue Cochrane, 2025" }
+    # § 2g, [5] : deux sondages rapportés par le même bilan du ministère, qui ne posent pas la même question (la
+    # vaccination, l'obligation) ; les affirmations et les textes le disent, et chaque chiffre prouve son affirmation
+    # (un niveau qui tient, une baisse). Les deux séries partent de 2020 et couvrent la période du Covid : aucune
+    # étude trouvée ne sépare l'effet de l'obligation de celui de la crise sanitaire.
+    - question: "Obliger fait-il perdre confiance ?"
+      pour: { affirmation: "Non, l'adhésion aux vaccins tient.", chiffre: "82,5 %", texte: "Interrogés sur la vaccination, 82,5 % des Français y étaient favorables en 2021, contre 80 % en 2020.", source: "Ministère de la Santé, 2022" }
+      contre: { affirmation: "Oui, l'obligation convainc moins.", chiffre: "66 → 59 %", texte: "Interrogés sur l'obligation, 59 % des Français approuvaient son extension en 2022, contre 66 % en 2020.", source: "Ministère de la Santé, 2022" }

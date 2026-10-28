@@ -1,0 +1,129 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 27/10/2026 à partir de sources publiques.
+# Chaque chiffre, chaque position et chaque note de plateau doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/030-soldats-ukraine.md (tout ce qui suit y est sourcé).
+# Distincte de la fiche 009 (livraisons d'armes) : celle-ci porte sur l'envoi de soldats.
+numero: 30
+date: 2026-09-25
+theme: europe-international
+question: "Faut-il envoyer des soldats français en Ukraine pour garantir un cessez-le-feu ?"
+titreCourt: "Des soldats en Ukraine"
+contexte:
+  - "Lancée en 2025 par la France et le Royaume-Uni, la coalition des volontaires prépare une force qui irait en Ukraine après un cessez-le-feu, loin de la ligne de front, si Kiev le demande."
+  - "En janvier 2026, ses 35 pays ont validé ce plan : la France pourrait y envoyer « plusieurs milliers » de soldats, et les États-Unis surveilleraient le cessez-le-feu."
+  - "La Russie dit qu'elle traiterait ces soldats comme des cibles, et la guerre continue : aucun soldat de cette force n'est déployé."
+chiffres:
+  - valeur: "26"
+    unite: pays
+    legende: "se sont engagés en septembre 2025 à contribuer à la force après un cessez-le-feu, sur terre, en mer ou dans les airs"
+    source: { organisme: Élysée, document: réunion de la coalition des volontaires, annee: 2025 }
+  - valeur: "800 000"
+    unite: soldats
+    legende: "le format prévu de l'armée ukrainienne, qui resterait la première ligne de défense"
+    source: { organisme: Élysée, document: sommet de la coalition des volontaires, annee: 2026 }
+  - valeur: "4"
+    unite: mois
+    legende: "au-delà, le Parlement doit autoriser la prolongation d'une intervention à l'étranger ; avant, aucun vote n'est obligatoire"
+    source: { organisme: Constitution, document: article 35, annee: 2008 }
+# Aucune note de plateau : la question ne se range ni sur l'axe économique ni sur l'axe sociétal.
+options:
+  - id: A
+    libelle: "Non, aucun soldat en Ukraine"
+    implique: "La France n'envoie aucun soldat sur le sol ukrainien, même après un cessez-le-feu, et soutient la paix par d'autres moyens."
+    defenseurs: "La Russie, puissance nucléaire, dit qu'elle traiterait toute unité occidentale en Ukraine comme une cible : y envoyer des soldats exposerait la France à une guerre."
+    critiques: "Sans force alliée sur place, un cessez-le-feu reposerait sur l'armée ukrainienne et sur la parole de la Russie."
+  - id: B
+    libelle: "Seulement sous mandat de l'ONU"
+    implique: "Des soldats français pourraient partir dans une force de paix des Nations unies, acceptée par les deux camps, mais pas dans la force de la coalition."
+    defenseurs: "Une force de l'ONU garantirait la paix sans faire entrer la France dans la guerre, et sans dépendre des promesses de Donald Trump."
+    critiques: "La Russie peut bloquer tout mandat au Conseil de sécurité, où elle a un droit de veto, et des forces d'observation, comme au Liban, ont peu garanti la paix."
+  - id: C
+    libelle: "Oui, après un cessez-le-feu"
+    implique: "La France participe à la force de la coalition des volontaires : plusieurs milliers de soldats, loin de la ligne de front, une fois les combats arrêtés."
+    defenseurs: "Des soldats alliés sur place dissuadent la Russie de reprendre la guerre : pour garantir un cessez-le-feu, « la seule solution c'est l'envoi de troupes sur le terrain »."
+    critiques: "La Russie dit qu'elle en ferait des cibles, et le soutien américain est « proposé », sans précision : sans garantie ferme, des soldats français seraient exposés face à une puissance nucléaire."
+  # D garde le pôle de l'échelle ; l'étude ne lui trouve aucun candidat en 2026 et la fonde sur les déclarations
+  # gouvernementales de février 2024 (§ 1.2, [19]), d'où la date dans « implique ». À retirer si aucun candidat ne la porte.
+  - id: D
+    libelle: "Oui, sans attendre un cessez-le-feu"
+    implique: "Comme l'évoquait le gouvernement en 2024, des soldats français iraient dès maintenant en Ukraine pour des missions sans combat : déminage, cyberdéfense, production d'armes."
+    defenseurs: "Ces missions aideraient l'Ukraine tout de suite sans faire entrer la France en guerre, et laisseraient la Russie dans l'incertitude : « rien ne doit être exclu »."
+    critiques: "Selon Vladimir Poutine, toute force occidentale présente pendant les combats serait une « cible légitime » : la France risquerait d'entrer en guerre avec une puissance nucléaire."
+pourAllerPlusLoin:
+  - titre: "Élysée, déclaration de Paris sur les garanties de sécurité pour l'Ukraine, 6 janvier 2026"
+    url: https://www.elysee.fr/emmanuel-macron/2026/01/06/des-garanties-de-securite-robustes-pour-une-paix-solide-et-durable-en-ukraine
+  - titre: "Conseil constitutionnel, la Constitution (article 35, l'intervention des armées à l'étranger)"
+    url: https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur
+  - titre: "Club des juristes, les enjeux de l'envoi de troupes françaises en Ukraine, 2025"
+    url: https://www.leclubdesjuristes.com/international/la-force-de-reassurance-les-enjeux-de-lenvoi-de-troupes-francaises-en-ukraine-10338/
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour envoyer des soldats"
+    argument: "Des soldats alliés sur place dissuadent la Russie de reprendre la guerre : sans eux, un cessez-le-feu reposerait sur l'armée ukrainienne et sur la parole de la Russie."
+  - titre: "Contre, ou seulement avec l'ONU"
+    argument: "La Russie, puissance nucléaire, dit qu'elle traiterait toute unité occidentale en Ukraine comme une cible : y envoyer des soldats exposerait la France à une guerre."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Oui"
+    precision: "envoyer des soldats"
+  - choix: "Non"
+    precision: "ou seulement avec l'ONU"
+positions:
+  # LCP, débat à l'Assemblée nationale du 03/03/2025 : https://lcp.fr/actualites/situation-en-ukraine-et-securite-en-europe-que-retenir-du-debat-qui-a-eu-lieu-a-l
+  # Assemblée nationale, débat du 03/03/2025 : https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2024-2025/seance-du-lundi-03-mars-2025.pdf
+  le-pen: { option: B, source: "Assemblée nationale, débat du 03/03/2025", statut: officielle }
+  # France 3, 16/03/2025 ; LFI, 08/01/2026 : https://www.lagazettefrance.fr/article/ukraine-celui-qui-nous-menace-physiquement-c-est-monsieur-trump-lance-melenchon
+  melenchon: { option: B, source: "France 3, 16/03/2025 ; LFI, 08/01/2026", statut: deduite }
+  # AFP, Kyiv, 26/05/2026 : https://www.lagazettefrance.fr/article/le-candidat-a-la-presidentielle-francaise-edouard-philippe-rencontre-zelensky-a-kiev
+  philippe: { option: C, source: "AFP, Kyiv, 26/05/2026", statut: officielle }
+  # franceinfo, 01/03/2025 : https://x.com/franceinfo/status/1895752396816486489
+  glucksmann: { option: C, source: "franceinfo, 01/03/2025", statut: officielle }
+  # Meeting du 14/02/2026 : https://www.lutte-ouvriere.org/portail/brochures/meeting-14-fevrier-2026-discours-nathalie-arthaud-191591.html
+  arthaud: { option: A, source: Meeting du 14/02/2026, statut: officielle }
+  # Communiqué de N. Dupont-Aignan, 04/09/2025 : https://www.debout-la-france.fr/actualite/communique-envoyer-nos-soldats-en-ukraine-et-la-france-alors/
+  dupont-aignan: { option: A, source: "Communiqué de N. Dupont-Aignan, 04/09/2025", statut: officielle }
+  # Déclaration de Fabien Roussel, 20/02/2025 : https://fdgpierrebe.over-blog.com/2025/02/fabien-roussel-a-l-elysee-une-voix-pour-une-paix-juste-et-durable-en-ukraine.html
+  roussel: { option: B, source: "Déclaration de Fabien Roussel, 20/02/2025", statut: officielle }
+# Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/030-soldats-ukraine.md (chaque chiffre y a sa source
+# numérotée). Le fil : la force est prête sur le papier mais attend un cessez-le-feu ; quatre réponses possibles.
+# Ni mécanisme (aucun rapport « X pour 1 » ne s'applique) ni écart (aucune grandeur à deux dates n'éclaire le débat).
+reportage:
+  # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
+  accroche:
+    # § 1.2, [6] [8] [25] [27].
+    etapes:
+      - { quand: "En septembre 2025", valeur: "26 pays engagés" }
+      - { quand: "Aujourd'hui", valeur: "0 soldat déployé" }
+    chute: "La force s'entraîne hors d'Ukraine : elle attend un cessez-le-feu."
+  leviers:
+    # Les quatre options de la fiche, à égalité. § 1.2, 1.3 et 2 (enjeu 1), [2] [4] [18] [19].
+    titre: "Envoyer des soldats ? Quatre réponses"
+    choix:
+      - { texte: "Aucun soldat", detail: "pas de troupes françaises en Ukraine, même après un cessez-le-feu" }
+      - { texte: "Des casques bleus", detail: "une force des Nations unies, acceptée par les deux camps" }
+      - { texte: "La force européenne", detail: "des soldats loin du front, après un cessez-le-feu" }
+      - { texte: "Des soldats tout de suite", detail: "pour déminer ou produire des armes, sans combattre" }
+    chute: "Au fond : qui garantit la paix, et à quel risque ?"
+    source: "Élysée, 2026 ; Assemblée nationale, 2024 et 2025"
+  camps: { pour: POUR, contre: CONTRE, objet: "l'envoi de soldats français" }
+  # Chaque réponse compare ce qui se compare ; les deux sondages de la dernière question sont du même mois et le texte
+  # dit qu'ils ne posent pas la même question. Relu par IA le 28/10/2026 en deux relectures opposées (pour l'envoi,
+  # puis contre), à vérifier par l'auteur.
+  questions:
+    # Enjeu 2 (« une protection, ou un risque d'entraîner la France dans une guerre »), [1] [3] [4] [10] [11] [34].
+    - question: "Nos soldats, une protection ou un danger ?"
+      pour: { affirmation: "Une protection, loin des combats.", chiffre: "800 000", texte: "L'armée ukrainienne, prévue à 800 000 soldats, resterait en première ligne. Les soldats alliés, placés loin des combats, dissuaderaient la Russie.", source: "Élysée, janvier 2026" }
+      contre: { affirmation: "Un danger : la Russie les viserait.", chiffre: "2 puissances nucléaires", texte: "Pour Moscou, ces soldats seraient des cibles, même après un accord de paix. La France et la Russie ont l'arme nucléaire.", source: "Ministère russe des Affaires étrangères, janvier et juillet 2026" }
+    # Enjeu 3, [2] [4] [12]. La position de Donald Trump date de 2025 (IRIS), d'où le passé composé ; la déclaration de
+    # Paris de 2026 parle d'un soutien américain « proposé », sans précision, et l'étude range « pas de soldats américains
+    # au sol » dans le consensus (§ 3).
+    - question: "Les États-Unis seraient-ils à nos côtés ?"
+      pour: { affirmation: "Oui, pour surveiller le cessez-le-feu.", chiffre: "35 pays", texte: "Les 35 pays de la coalition ont validé un plan où les États-Unis dirigeraient la surveillance du cessez-le-feu.", source: "Déclaration de Paris, janvier 2026" }
+      contre: { affirmation: "Pas avec des soldats sur le terrain.", chiffre: "0 soldat américain", texte: "Donald Trump a exclu d'envoyer des soldats américains au sol. Le plan évoque un soutien « proposé », sans dire lequel.", source: "IRIS, septembre 2025 ; déclaration de Paris, janvier 2026" }
+    # § 1.4 et enjeu 8, [16].
+    - question: "Le Parlement aura-t-il son mot à dire ?"
+      pour: { affirmation: "Oui, au bout de quatre mois.", chiffre: "4 mois", texte: "Si l'opération dure plus de quatre mois, la Constitution oblige le gouvernement à obtenir l'accord du Parlement pour continuer.", source: "Constitution, article 35 (2008)" }
+      contre: { affirmation: "Pas avant le départ des soldats.", chiffre: "3 jours", texte: "Le gouvernement informe le Parlement au plus tard trois jours après le début de l'opération. Aucun vote n'est obligatoire.", source: "Constitution, article 35 (2008)" }
+    # Enjeu 6, [21] [22].
+    - question: "Les Français sont-ils d'accord ?"
+      pour: { affirmation: "Oui, une fois la paix signée.", chiffre: "67 %", texte: "Dans un sondage Elabe, 67 % approuvaient l'envoi de soldats pour garantir la paix après un accord avec la Russie.", source: "Elabe, mars 2025" }
+      contre: { affirmation: "Non, selon un autre sondage.", chiffre: "65 %", texte: "Le même mois, l'institut CSA posait une autre question : 65 % refusaient l'envoi de militaires français dans la coalition des volontaires.", source: "CSA, mars 2025" }
