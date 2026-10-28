@@ -6,6 +6,7 @@ date: 2026-10-11
 theme: economie-impots
 question: "Comment réduire le déficit public : baisser les dépenses, augmenter les impôts, ou ni l'un ni l'autre ?"
 titreCourt: "Le déficit public"
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/012-deficit-HPd2RdogydI5bRtA4RzibZXRwzFu5T.mp4", duree: "2 min 10" }
 contexte:
   - "En 2025, le déficit public a atteint 5,1 % du PIB, au-dessus de la limite européenne de 3 %, et la dette publique 115,7 % du PIB."
   - "Les dépenses publiques représentent 57,3 % du PIB et les prélèvements obligatoires 43,6 %."
