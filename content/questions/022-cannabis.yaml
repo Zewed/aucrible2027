@@ -88,6 +88,8 @@ positions:
   zemmour: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite }
   # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
   dupont-aignan: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite }
+  # É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026) : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
+  philippe: { option: C, source: "É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026)", statut: deduite }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   # Les faits établis par les autorités de santé (l'Inserm) sont dans la chute des leviers, que les deux camps

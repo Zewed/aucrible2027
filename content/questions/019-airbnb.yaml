@@ -71,6 +71,22 @@ positions:
   melenchon: { option: A, source: "Programme 2027, plan BTP et logement, présenté le 28/09/2026", statut: officielle }
   # Vote du groupe RN : https://www.assemblee-nationale.fr/dyn/17/scrutins/289 (51 contre, 1 pour, 07/11/2024) et https://www.assemblee-nationale.fr/dyn/16/scrutins/3261 (20 contre, 1 pour, 29/01/2024)
   le-pen: { option: D, source: "Vote du groupe RN à l'Assemblée, 07/11/2024", statut: deduite }
+  # Cahier « Face à la crise du logement : faire sauter le verrou », septembre 2026, axe 2, proposition 1 : https://nouspresident.fr/face-a-la-crise-du-logement-faire-sauter-le-verrou/
+  ruffin: { option: A, source: "Cahier « Face à la crise du logement : faire sauter le verrou », septembre 2026, axe 2, proposition 1", statut: officielle }
+  # Assemblée nationale, scrutin n° 289 du 07/11/2024, ensemble de la proposition de loi Le Meur-Echaniz sur les meublés de tourisme (texte de la CMP) : https://www.assemblee-nationale.fr/dyn/17/scrutins/289
+  attal: { option: C, source: "Assemblée nationale, scrutin n° 289 du 07/11/2024, ensemble de la proposition de loi Le Meur-Echaniz sur les meublés de tourisme (texte de la CMP)", statut: estimee }
+  # Debout la France, projet « Logement », mesure 11 (2026) : https://www.debout-la-france.fr/projet/logement/
+  dupont-aignan: { option: B, source: "Debout la France, projet « Logement », mesure 11 (2026)", statut: deduite }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 31, p. 64 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: B, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 31, p. 64", statut: estimee }
+  # Vote du groupe Horizons sur la loi de 2024, scrutin n° 289, 07/11/2024 (17 pour, aucun contre) ; programme « Pour une France plus prospère » (moratoire normatif) : https://www.assemblee-nationale.fr/dyn/17/scrutins/289
+  philippe: { option: C, source: "Vote du groupe Horizons sur la loi de 2024, scrutin n° 289, 07/11/2024 (17 pour, aucun contre) ; programme « Pour une France plus prospère » (moratoire normatif)", statut: estimee }
+  # Vote final de la loi sur les meublés de tourisme, Assemblée, scrutin n° 289, 07/11/2024 (Droite républicaine : 18 pour sur 47 membres, après un vote contre en première lecture) ; conférence de presse du 15/09/2026, Public Sénat : https://www.assemblee-nationale.fr/dyn/17/scrutins/289
+  retailleau: { option: C, source: "Vote final de la loi sur les meublés de tourisme, Assemblée, scrutin n° 289, 07/11/2024 (Droite républicaine : 18 pour sur 47 membres, après un vote contre en première lecture) ; conférence de presse du 15/09/2026, Public Sénat", statut: estimee }
+  # Ian Brossat (PCF, adjoint au logement de Paris, aujourd'hui sénateur et porte-parole du PCF), Public Sénat, 06/09/2018 : https://www.publicsenat.fr/actualites/politique/paris-un-elu-veut-chasser-airbnb-du-centre-touristique-132817
+  roussel: { option: A, source: "Ian Brossat (PCF, adjoint au logement de Paris, aujourd'hui sénateur et porte-parole du PCF), Public Sénat, 06/09/2018", statut: estimee }
+  # Les Écologistes, projet 2027, relevé par le comparateur iFRAP (rubrique Logement), 10/2026 : https://www.ifrap.org/comparateurs/presidentielles-2027
+  tondelier: { option: A, source: "Les Écologistes, projet 2027, relevé par le comparateur iFRAP (rubrique Logement), 10/2026", statut: estimee }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   accroche:

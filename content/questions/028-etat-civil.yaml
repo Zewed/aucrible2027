@@ -78,6 +78,10 @@ positions:
   ruffin: { option: D, source: "Proposition de loi n° 656 cosignée, 03/12/2024", statut: officielle }
   # Programme 2022, mesure 90, p. 79 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
   roussel: { option: C, source: "Programme 2022, mesure 90, p. 79", statut: deduite }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 39, p. 79 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: C, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 39, p. 79", statut: estimee }
+  # Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. famille : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: A, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. famille", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/028-etat-civil.md (chaque chiffre y a sa source
 # numérotée, annexe « Chiffres du reportage »). Le fil : trois façons de décider d'un changement (un médecin et un juge,
 # un juge seul, une simple déclaration) ; la question porte sur la troisième. Pas de mécanisme « X pour 1 » ni d'écart

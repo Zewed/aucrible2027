@@ -80,6 +80,14 @@ positions:
   attal: { option: D, source: "Vote du groupe EPR, 12/03/2025", statut: deduite }
   # Programme de juillet 2026, p. 197 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
   tondelier: { option: D, source: "Programme 2027, juillet 2026, p. 197", statut: officielle }
+  # Éditorial de Lutte ouvrière, 31/07/2023 : https://www.lutte-ouvriere.org/portail/editoriaux/contre-cette-guerre-qui-menace-de-se-generaliser-725812.html
+  arthaud: { option: A, source: "Éditorial de Lutte ouvrière, 31/07/2023", statut: deduite }
+  # M. Panot (présidente du groupe LFI), BFMTV, septembre 2026, rapportée par franceinfo, 28/09/2026 ; A. Le Gall pour le groupe LFI, 2e séance du 12/03/2024 (https://www.assemblee-nationale.fr/dyn/16/comptes-rendus/seance/session-ordinaire-de-2023-2024/deuxieme-seance-du-mardi-12-mars-2024.pdf) ; vote du groupe contre la résolution du 12/03/2025 (0 pour, 45 contre, scrutin n° 988) : https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/combien-coute-l-aide-de-la-france-a-l-ukraine-remise-en-cause-par-marine-le-pen-et-le-rn_8209307.html
+  melenchon: { option: B, source: "M. Panot (présidente du groupe LFI), BFMTV, septembre 2026, rapportée par franceinfo, 28/09/2026 ; A. Le Gall pour le groupe LFI, 2e séance du 12/03/2024 (https://www.assemblee-nationale.fr/dyn/16/comptes-rendus/seance/session-ordinaire-de-2023-2024/deuxieme-seance-du-mardi-12-mars-2024.pdf) ; vote du groupe contre la résolution du 12/03/2025 (0 pour, 45 contre, scrutin n° 988)", statut: estimee }
+  # Tribune « Pour une déclaration d'indépendance », Le Grand Continent, 25/02/2026 ; abstention sur la résolution européenne appelant au renforcement du soutien à l'Ukraine, scrutin n° 988, 12/03/2025 : https://legrandcontinent.eu/fr/2026/02/25/pour-une-declaration-dindependance-la-doctrine-ruffin-sur-leurope/
+  ruffin: { option: C, source: "Tribune « Pour une déclaration d'indépendance », Le Grand Continent, 25/02/2026 ; abstention sur la résolution européenne appelant au renforcement du soutien à l'Ukraine, scrutin n° 988, 12/03/2025", statut: estimee }
+  # Votes de S. Knafo, seule eurodéputée Reconquête : contre la résolution du 17/07/2024, abstention le 19/09/2024 (« soutien financier et militaire continu »), le 28/11/2024 et le 12/03/2025 ; Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. international : https://howtheyvote.eu/votes/169676
+  zemmour: { option: B, source: "Votes de S. Knafo, seule eurodéputée Reconquête : contre la résolution du 17/07/2024, abstention le 19/09/2024 (« soutien financier et militaire continu »), le 28/11/2024 et le 12/03/2025 ; Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. international", statut: estimee }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   accroche:

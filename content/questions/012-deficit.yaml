@@ -90,6 +90,12 @@ positions:
   dupont-aignan: { option: B, source: "Projet économie et travail, 2026", statut: officielle }
   # https://www.ici.fr/emissions/l-invite-d-ici-matin-ici-picardie/francois-ruffin-depute-de-la-somme-et-candidat-a-l-election-presidentielle-3905071
   ruffin: { option: B, source: "ICI Picardie, 30/09/2026", statut: officielle }
+  # Programme présidentiel 2022 d'É. Zemmour, « La Reconquête chiffrée et financée » ; plan « 140 milliards d'économies » de S. Knafo (Reconquête), budget2027.fr, 2026 : https://www.budget2027.fr/
+  zemmour: { option: A, source: "Programme présidentiel 2022 d'É. Zemmour, « La Reconquête chiffrée et financée » ; plan « 140 milliards d'économies » de S. Knafo (Reconquête), budget2027.fr, 2026", statut: deduite }
+  # Lutte ouvrière, « Plan Bayrou : quelle riposte ? », 30/07/2025 ; brochure de campagne de N. Arthaud, juin 2026, p. 6 : https://www.lutte-ouvriere.org/journal/article/plan-bayrou-riposte-186056.html
+  arthaud: { option: C, source: "Lutte ouvrière, « Plan Bayrou : quelle riposte ? », 30/07/2025 ; brochure de campagne de N. Arthaud, juin 2026, p. 6", statut: estimee }
+  # Les Écologistes, « plan de sortie de crise » budgétaire, Public Sénat, 04/09/2025 : https://www.publicsenat.fr/actualites/politique/les-ecologistes-presentent-leur-plan-de-sortie-de-crise-et-preparent-la-cohabitation
+  tondelier: { option: B, source: "Les Écologistes, « plan de sortie de crise » budgétaire, Public Sénat, 04/09/2025", statut: deduite }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   accroche:

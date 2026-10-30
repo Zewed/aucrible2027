@@ -84,6 +84,14 @@ positions:
   retailleau: { option: C, source: "Public Sénat, 07/01/2026", statut: officielle }
   # https://www.ifrap.org/comparateurs/presidentielles-2027
   tondelier: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
+  # Lutte ouvrière, « Rapport de l'Unédic : les chômeurs profiteurs ? », 03/06/2026 : https://www.lutte-ouvriere.org/portail/journal/rapport-unedic-chomeurs-profiteurs-194731.html
+  arthaud: { option: A, source: "Lutte ouvrière, « Rapport de l'Unédic : les chômeurs profiteurs ? », 03/06/2026", statut: deduite }
+  # Sud Radio, 29/02/2024, cité par la FAQ de Nouvelle Énergie « Quel candidat veut réformer l'assurance chômage ? » (16/10/2026) ; scrutin n° 7260, 02/06/2026 (vote pour d'A. Martin, députée de Nouvelle Énergie) : https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-reformer-l-assurance-chomage/
+  lisnard: { option: C, source: "Sud Radio, 29/02/2024, cité par la FAQ de Nouvelle Énergie « Quel candidat veut réformer l'assurance chômage ? » (16/10/2026) ; scrutin n° 7260, 02/06/2026 (vote pour d'A. Martin, députée de Nouvelle Énergie)", statut: estimee }
+  # F. Roussel, La France des Jours heureux, programme présidentiel 2022, mesure 2 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022, mesure 2", statut: deduite }
+  # Cahier de campagne n° 01, Pour les travailleurs essentiels, avril 2026 ; vote contre, scrutin n° 7260, 02/06/2026 : https://nouspresident.fr/statut-travailleurs-essentiels/
+  ruffin: { option: A, source: "Cahier de campagne n° 01, Pour les travailleurs essentiels, avril 2026 ; vote contre, scrutin n° 7260, 02/06/2026", statut: estimee }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   accroche:

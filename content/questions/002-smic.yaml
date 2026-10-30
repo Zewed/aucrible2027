@@ -89,6 +89,16 @@ positions:
   philippe: { option: D, source: "edouardphilippe.fr, Pour une France plus prospère, 2026", statut: officielle }
   # https://republicains.fr/wp-content/uploads/2026/01/51705_LesRepublicains_Brochures_A5-40P_DEF.pdf (Le travail gagnant : 30 Md€ restitués aux salariés et aux entreprises)
   retailleau: { option: D, source: "Les Républicains, Le travail gagnant, 01/2026", statut: deduite }
+  # Nouvelle Énergie, FAQ « Comment David Lisnard veut-il augmenter les salaires sans augmenter le coût du travail ? » (mise à jour le 16/10/2026), citant i24NEWS, 11/06/2026 : https://www.unenouvelleenergie.fr/questions/comment-david-lisnard-veut-il-augmenter-les-salaires-sans-augmenter-le-cout-du-travail/
+  lisnard: { option: D, source: "Nouvelle Énergie, FAQ « Comment David Lisnard veut-il augmenter les salaires sans augmenter le coût du travail ? » (mise à jour le 16/10/2026), citant i24NEWS, 11/06/2026", statut: deduite }
+  # Cahier de campagne n° 01, Pour les travailleurs essentiels, avril 2026, mot de la fin de S. Taillé-Polian, responsable du programme : https://nouspresident.fr/statut-travailleurs-essentiels/
+  ruffin: { option: B, source: "Cahier de campagne n° 01, Pour les travailleurs essentiels, avril 2026, mot de la fin de S. Taillé-Polian, responsable du programme", statut: officielle }
+  # Programme présidentiel 2022 d'É. Zemmour, ch. pouvoir d'achat ; confirmé par S. Knafo (Reconquête), Le Casse du siècle, sept. 2026 (Sud Radio, 14/09/2026) : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: D, source: "Programme présidentiel 2022 d'É. Zemmour, ch. pouvoir d'achat ; confirmé par S. Knafo (Reconquête), Le Casse du siècle, sept. 2026 (Sud Radio, 14/09/2026)", statut: deduite }
+  # 100 décisions pour la France, décision 18, 2022 ; repris dans « Notre projet » de DLF (votons-2027.fr) : https://www.debout-la-france.fr/wp-content/uploads/2022/07/100-Decisions-pour-la-France_VFIN.pdf
+  dupont-aignan: { option: D, source: "100 décisions pour la France, décision 18, 2022 ; repris dans « Notre projet » de DLF (votons-2027.fr)", statut: deduite }
+  # F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesure 1 ; programme du Nouveau Front populaire signé par le PCF, juin 2024 (Institut Montaigne) : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: B, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesure 1 ; programme du Nouveau Front populaire signé par le PCF, juin 2024 (Institut Montaigne)", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/002-smic.md (chaque chiffre y a sa source
 # numérotée ; voir « Compléments pour le reportage » et l'annexe). Le fil : depuis 2012, le SMIC monte par sa règle
 # automatique ; l'État a fait baisser son coût pour l'employeur ; faut-il aller plus loin, et par quel levier ?

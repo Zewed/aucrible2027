@@ -73,6 +73,20 @@ positions:
   lisnard: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
   # https://www.debout-la-france.fr/projet/sante/
   dupont-aignan: { option: C, source: "Projet santé, DLF, mesure 10, 2026", statut: officielle }
+  # Lutte ouvrière, journal, 11/09/2024 : https://www.lutte-ouvriere.org/portail/journal/barnier-lhopital-promesses-deconomies-177823.html
+  arthaud: { option: C, source: "Lutte ouvrière, journal, 11/09/2024", statut: deduite }
+  # Loi de financement de la Sécurité sociale pour 2024, article 49 (réforme du financement MCO, gouvernement Borne dont il était membre), mise en œuvre par décret au 01/01/2025 (Le Quotidien du médecin, 03/01/2025) : https://rhumatologie.lequotidiendumedecin.fr/hopital/politique-hospitaliere/reforme-de-la-t2a-le-financement-des-activites-de-medecine-chirurgie-et-obstetrique-officiellement
+  attal: { option: B, source: "Loi de financement de la Sécurité sociale pour 2024, article 49 (réforme du financement MCO, gouvernement Borne dont il était membre), mise en œuvre par décret au 01/01/2025 (Le Quotidien du médecin, 03/01/2025)", statut: estimee }
+  # Discours d'É. Philippe, Premier ministre, « Stratégie de transformation du système de santé », Eaubonne, 13/02/2018 : https://www.banquedesterritoires.fr/sites/default/files/ra/Le%20discours%20d%27Edouard%20Philippe%20le%2013%20f%C3%A9vrier%202018%20%C3%A0%20Eaubonne..pdf
+  philippe: { option: B, source: "Discours d'É. Philippe, Premier ministre, « Stratégie de transformation du système de santé », Eaubonne, 13/02/2018", statut: estimee }
+  # Proposition de loi santé de 23 députés LR (J.-C. Grelier, J.-P. Door), 29/08/2018, rapportée par Le Quotidien du médecin, 03/09/2018 : https://pneumologie.lequotidiendumedecin.fr/internes/etudes-medicales/oral-pre-paces-et-fin-des-stabilisateurs-automatiques-la-droite-defend-sa-loi-de-sante-ideale
+  retailleau: { option: B, source: "Proposition de loi santé de 23 députés LR (J.-C. Grelier, J.-P. Door), 29/08/2018, rapportée par Le Quotidien du médecin, 03/09/2018", statut: estimee }
+  # F. Roussel, La France des Jours heureux, programme présidentiel 2022 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: C, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022", statut: deduite }
+  # Programme présidentiel 2022 d'EELV (Y. Jadot), fiche Institut Montaigne « Supprimer la tarification à l'acte » ; Les Écologistes, projet 2027 (« Réformer le financement des hôpitaux », comparateur iFRAP, 10/2026) : https://www.institutmontaigne.org/presidentielle-2022/yannick-jadot/supprimer-la-tarification-a-lacte-2
+  tondelier: { option: C, source: "Programme présidentiel 2022 d'EELV (Y. Jadot), fiche Institut Montaigne « Supprimer la tarification à l'acte » ; Les Écologistes, projet 2027 (« Réformer le financement des hôpitaux », comparateur iFRAP, 10/2026)", statut: estimee }
+  # Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. santé : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: B, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. santé", statut: estimee }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   # « Tarification à l'activité » s'y dit « paiement au séjour » : l'hôpital reçoit un prix fixé d'avance pour chaque

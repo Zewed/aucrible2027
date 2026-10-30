@@ -86,6 +86,18 @@ positions:
   roussel: { option: D, source: "Programme 2022, 14/03/2022", statut: deduite }
   # Programme 2022 du candidat d'EELV (Terra Nova, 14/03/2022) : https://www.lagrandeconversation.com/app/uploads/2022/03/terra-nova_la-grande-conversation-2022_le-logement-dans-la-campagne-presidentielle_140322.pdf
   tondelier: { option: D, source: "Programme 2022 d'EELV, 14/03/2022", statut: deduite }
+  # Nouvelle Énergie, programme, axe « Réussir une nouvelle ambition française », section logement (consulté le 28/10/2026) : https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/
+  lisnard: { option: A, source: "Nouvelle Énergie, programme, axe « Réussir une nouvelle ambition française », section logement (consulté le 28/10/2026)", statut: officielle }
+  # Lutte ouvrière, brève « La loi SRU même pas appliquée », 30/01/2021 ; journal, 18/02/2026 : https://lutte-ouvriere.org/portail/breves/en-regions-ile-de-france-breves-la-loi-sru-meme-pas-appliquee-154341.html
+  arthaud: { option: D, source: "Lutte ouvrière, brève « La loi SRU même pas appliquée », 30/01/2021 ; journal, 18/02/2026", statut: estimee }
+  # Debout la France, projet « Logement », mesure 21 (2026) : https://www.debout-la-france.fr/projet/logement/
+  dupont-aignan: { option: B, source: "Debout la France, projet « Logement », mesure 21 (2026)", statut: officielle }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 31, p. 64 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: C, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 31, p. 64", statut: estimee }
+  # Public Sénat, « Logement : le totem de la loi SRU, objet d'attaques à l'Assemblée », 06/06/2018 (loi ELAN, gouvernement Philippe) ; programme « Pour une France plus prospère » (moratoire normatif) : https://www.publicsenat.fr/article/politique/logement-le-totem-de-la-loi-sru-objet-d-attaques-a-l-assemblee-86689
+  philippe: { option: C, source: "Public Sénat, « Logement : le totem de la loi SRU, objet d'attaques à l'Assemblée », 06/06/2018 (loi ELAN, gouvernement Philippe) ; programme « Pour une France plus prospère » (moratoire normatif)", statut: estimee }
+  # Cahier « Face à la crise du logement : faire sauter le verrou », septembre 2026 : https://nouspresident.fr/face-a-la-crise-du-logement-faire-sauter-le-verrou/
+  ruffin: { option: C, source: "Cahier « Face à la crise du logement : faire sauter le verrou », septembre 2026", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/008-sru.md (chaque chiffre y a sa source numérotée,
 # compléments du 28/10/2026 et annexe). Le fil : une obligation fixée en 2000, relevée en 2013, qu'un millier de
 # communes n'atteignent pas ; puis ce qu'elle produit, ce qu'elle coûte et qui elle loge.

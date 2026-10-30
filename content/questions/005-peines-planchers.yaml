@@ -76,6 +76,20 @@ positions:
   le-pen: { option: C, source: "22 mesures pour 2022, 2022", statut: deduite }
   # https://www.lemondedudroit.fr/decryptages/79916-presidentielle-2022-quelles-sont-les-propositions-d-eric-zemmour-en-matiere-de-justice.html (« pour chaque crime et délit »)
   zemmour: { option: C, source: "Programme 2022, Le Monde du Droit, 15/02/2022", statut: deduite }
+  # Lutte ouvrière, brève « Surpopulation carcérale et calcul électoral », 12/05/2025 : https://www.lutte-ouvriere.org/portail/breves/surpopulation-carcerale-calcul-electoral-184199.html
+  arthaud: { option: A, source: "Lutte ouvrière, brève « Surpopulation carcérale et calcul électoral », 12/05/2025", statut: deduite }
+  # Assemblée nationale, vote n° 8309 du 16/07/2026, amendement n° 660 (Droite républicaine) créant des peines planchers pour les crimes et délits sexuels sur mineurs (Datan) ; G. Attal dans Le Figaro, 12/06/2026 : https://datan.fr/votes/legislature-17/vote_8309
+  attal: { option: A, source: "Assemblée nationale, vote n° 8309 du 16/07/2026, amendement n° 660 (Droite républicaine) créant des peines planchers pour les crimes et délits sexuels sur mineurs (Datan) ; G. Attal dans Le Figaro, 12/06/2026", statut: estimee }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 30, p. 61 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: A, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 30, p. 61", statut: estimee }
+  # Vote du groupe LFI (17 pour, 0 contre) pour la suppression de l'article unique de la PPL n° 959 (peine minimale pour violences en récidive), scrutin n° 1263, 03/04/2025 ; L'Avenir en commun 2025 : https://datan.fr/votes/legislature-17/vote_1263
+  melenchon: { option: A, source: "Vote du groupe LFI (17 pour, 0 contre) pour la suppression de l'article unique de la PPL n° 959 (peine minimale pour violences en récidive), scrutin n° 1263, 03/04/2025 ; L'Avenir en commun 2025", statut: estimee }
+  # F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), chapitre justice : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), chapitre justice", statut: estimee }
+  # Assemblée nationale, amendement n° CL549 (groupe Écologiste et social, cosigné par F. Ruffin) au projet de loi n° 2850, 18/06/2026 ; vote du groupe pour la suppression de la PPL sur les peines planchers, scrutin n° 1263, 03/04/2025 : https://www.assemblee-nationale.fr/dyn/17/amendements/2850/CION_LOIS/CL549.pdf
+  ruffin: { option: A, source: "Assemblée nationale, amendement n° CL549 (groupe Écologiste et social, cosigné par F. Ruffin) au projet de loi n° 2850, 18/06/2026 ; vote du groupe pour la suppression de la PPL sur les peines planchers, scrutin n° 1263, 03/04/2025", statut: estimee }
+  # Les Écologistes, projet 2027, juillet 2026, p. 170 (cité par MonVote2027) ; mesures justice relevées par le comparateur iFRAP, 10/2026 : https://monvote2027.fr/candidat/tondelier
+  tondelier: { option: A, source: "Les Écologistes, projet 2027, juillet 2026, p. 170 (cité par MonVote2027) ; mesures justice relevées par le comparateur iFRAP, 10/2026", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/005-peines-planchers.md (chaque chiffre y a sa source
 # numérotée ; l'annexe de l'étude dit d'où vient chacun). Le fil : un minimum de prison a existé de 2007 à 2014 ; a-t-il
 # fait reculer la récidive, rendu les juges plus sévères, rempli les prisons, laissé le juge adapter la peine ?

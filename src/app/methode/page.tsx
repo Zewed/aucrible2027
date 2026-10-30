@@ -251,14 +251,14 @@ function RegleDesInconnues() {
       <div className="rule-body split">
         <div className="rule-txt">
           <p>
-            Si on ne trouve aucune source pour la position d&apos;un candidat sur une question, elle est notée <b>«&nbsp;inconnue&nbsp;»</b>.
+            Si rien, dans les sources publiques, ne permet de placer un candidat sur une question, sa position est notée <b>«&nbsp;inconnue&nbsp;»</b>.
           </p>
           <p>
             Pour ce candidat, la question est <b>exclue du calcul</b>&nbsp;: elle ne lui donne aucun point et ne lui en retire aucun.
             Elle ne compte pas non plus dans le maximum possible.
           </p>
           <p>
-            <b>On ne devine jamais.</b> Une case vide vaut mieux qu&apos;une case inventée.
+            <b>On n&apos;invente jamais.</b> Même estimée, une position s&apos;appuie sur une source citée (règle 6).
           </p>
         </div>
         <figure className="demo" aria-label="Quatre questions, dont une inconnue">
@@ -388,11 +388,18 @@ function RegleDuPlateau() {
 
 /** Les crans des sources, du plus sûr au moins sûr (SPEC.md, « Sources des positions des candidats »). */
 const SOURCES = [
-  { titre: "Le programme officiel 2027", precision: "Publié par le candidat ou son équipe.", officielle: true },
-  { titre: "Une déclaration publique du candidat", precision: "Datée, de moins de 12 mois.", officielle: true },
-  { titre: "Les votes de son groupe", precision: "À l'Assemblée nationale ou au Parlement européen.", officielle: false },
-  { titre: "Le programme 2022 de son parti", precision: "Quand rien de plus récent n'existe.", officielle: false },
-];
+  { titre: "Le programme officiel 2027", precision: "Publié par le candidat ou son équipe.", statut: "officielle" },
+  { titre: "Une déclaration publique du candidat", precision: "Datée, de moins de 12 mois.", statut: "officielle" },
+  { titre: "Les votes de son groupe", precision: "À l'Assemblée nationale ou au Parlement européen.", statut: "deduite" },
+  { titre: "Le programme 2022 de son parti", precision: "Quand rien de plus récent n'existe.", statut: "deduite" },
+  { titre: "Sa ligne sur un sujet voisin", precision: "Son programme ou les votes de son groupe sur un texte proche.", statut: "estimee" },
+] as const;
+/** Le badge de chaque cran, sa classe et son texte. */
+const BADGES = {
+  officielle: { classe: "off", texte: "position officielle" },
+  deduite: { classe: "ded", texte: "position déduite" },
+  estimee: { classe: "est", texte: "position estimée" },
+} as const;
 
 /** Règle n° 6 : la première source disponible fait la position, et son cran donne le badge. */
 function RegleDesSources() {
@@ -412,14 +419,14 @@ function RegleDesSources() {
           </p>
         </div>
         <ol className="ladder">
-          {SOURCES.map(({ titre, precision, officielle }, rang) => (
+          {SOURCES.map(({ titre, precision, statut }, rang) => (
             <li key={titre}>
               <span className="n">{rang + 1}</span>
               <span className="t">
                 <b>{titre}</b>
                 <small>{precision}</small>
               </span>
-              <span className={officielle ? "src-badge off" : "src-badge ded"}>{officielle ? "position officielle" : "position déduite"}</span>
+              <span className={`src-badge ${BADGES[statut].classe}`}>{BADGES[statut].texte}</span>
             </li>
           ))}
           <li className="none">
@@ -433,16 +440,17 @@ function RegleDesSources() {
         </ol>
         <div className="rule-txt">
           <p>
-            <b>Deux badges, deux niveaux de certitude.</b> Une position <b>officielle</b> a été écrite ou dite par le candidat pour
+            <b>Trois badges, trois niveaux de certitude.</b> Une position <b>officielle</b> a été écrite ou dite par le candidat pour
             2027. Une position <b>déduite</b> n&apos;a pas été dite telle quelle&nbsp;: on la déduit des votes de son groupe ou du
-            programme 2022, et on la recode dès qu&apos;une déclaration arrive.
+            programme 2022. Une position <b>estimée</b> vient de sa ligne sur un sujet voisin, citée à côté. On recode dès
+            qu&apos;une déclaration arrive.
           </p>
           <p>
-            <b>On ne devine jamais</b> et <b>on ne sollicite pas les équipes de campagne</b>&nbsp;: seules les sources publiques
+            <b>On n&apos;invente jamais</b> et <b>on ne sollicite pas les équipes de campagne</b>&nbsp;: seules les sources publiques
             comptent.
           </p>
         </div>
-        <figure className="demo" aria-label="Deux exemples de lignes de source">
+        <figure className="demo" aria-label="Trois exemples de lignes de source">
           <figcaption className="demo-k">
             <i></i>Ce que tu vois sur chaque position
           </figcaption>
@@ -454,6 +462,10 @@ function RegleDesSources() {
             <li>
               <span className="src-badge ded">position déduite</span>
               <span className="s">Vote du groupe à l&apos;AN · réforme des retraites · 03/2023</span>
+            </li>
+            <li>
+              <span className="src-badge est">position estimée</span>
+              <span className="s">Programme 2027 · Assurance chômage · 06/2026</span>
             </li>
           </ul>
           {/* La maquette ajoute « et mène à la source » : les sources ne sont pas encore des liens (à trancher, 007). */}

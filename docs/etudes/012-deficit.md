@@ -117,6 +117,15 @@ Options de la fiche : A = baisser fortement la dépense et alléger les impôts 
 | Ruffin | B | ICI Picardie, 30/09/2026 : faire payer d'abord « les plus riches » puis « trier » plus de 200 milliards d'euros de subventions aux entreprises [18] | officielle |
 | Arthaud | inconnue | Lutte ouvrière refuse « les plans d'austérité » mais le document consulté ne propose pas de plan de recettes [19] : non classée | |
 
+### Positions complétées le 29/10/2026
+
+- **Éric Zemmour** : option A (deduite) — Programme présidentiel 2022 d'É. Zemmour, « La Reconquête chiffrée et financée » ; plan « 140 milliards d'économies » de S. Knafo (Reconquête), budget2027.fr, 2026, https://www.budget2027.fr/ — « 140 milliards d'économies par an » — 2022 : 65 Md€ d'économies finançant 28 Md€ de baisses d'impôts des ménages et 36 Md€ des entreprises ; 2026 : Knafo chiffre 140 Md€ d'économies pour supprimer la CSG d'activité et les droits de succession.
+
+### Positions complétées le 29/10/2026
+
+- **Nathalie Arthaud** : option C (estimee) — Lutte ouvrière, « Plan Bayrou : quelle riposte ? », 30/07/2025 ; brochure de campagne de N. Arthaud, juin 2026, p. 6, https://www.lutte-ouvriere.org/journal/article/plan-bayrou-riposte-186056.html — « Quant au budget de l'État et à la dette, ils doivent être payés intégralement par les profits patronaux. » — La brochure rejette les coupes dans « tous les budgets utiles à la population » (écarte A et B) et réclame de taxer les profits (écarte D) : C est l'option la plus proche, même si le parti ne fixe aucun objectif de déficit et veut confisquer plutôt que taxer.
+- **Marine Tondelier** : option B (deduite) — Les Écologistes, « plan de sortie de crise » budgétaire, Public Sénat, 04/09/2025, https://www.publicsenat.fr/actualites/politique/les-ecologistes-presentent-leur-plan-de-sortie-de-crise-et-preparent-la-cohabitation — « La somme de toutes ces mesures a été chiffrée par les Ecologistes à 16,6 milliards d'euros » — Le plan de son parti réduit le déficit par 28,5 milliards de recettes en plus (taxe Zucman, impôt sur les grandes entreprises) et 16,6 milliards d'économies ciblées sur les aides aux entreprises (exonérations de cotisations, CIR) et des niches : c'est l'option B.
+
 ## 5. Sources
 
 1. Insee, comptes des administrations publiques 2025 (Insee Première) : https://www.insee.fr/fr/statistiques/8997691

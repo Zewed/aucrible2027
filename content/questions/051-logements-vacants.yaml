@@ -83,6 +83,14 @@ positions:
   tondelier: { option: A, source: "Les Écologistes, Pour une prospérité écologique, juillet 2026, mesure 6, p. 20", statut: officielle }
   # Debout la France, projet 2027, « Économie et travail » (et « Famille », mesure 20) : https://www.debout-la-france.fr/projet/economie-travail/
   dupont-aignan: { option: D, source: "Debout la France, projet 2027, « Économie et travail » (et « Famille », mesure 20)", statut: officielle }
+  # Datan, scrutin n° 219 du 31/10/2024 (G. Attal pour la suppression de l'article assouplissant l'interdiction de louer les passoires) ; commission des affaires économiques, 04/02/2026 (A. Le Meur, EPR, contre la réquisition) : https://datan.fr/votes/legislature-17/vote_219
+  attal: { option: C, source: "Datan, scrutin n° 219 du 31/10/2024 (G. Attal pour la suppression de l'article assouplissant l'interdiction de louer les passoires) ; commission des affaires économiques, 04/02/2026 (A. Le Meur, EPR, contre la réquisition)", statut: estimee }
+  # Conférence de presse du 15/09/2026, Public Sénat ; programme 2027, comparateur iFRAP, section Logement, 10/2026 : https://www.ifrap.org/comparateurs/presidentielles-2027
+  retailleau: { option: D, source: "Conférence de presse du 15/09/2026, Public Sénat ; programme 2027, comparateur iFRAP, section Logement, 10/2026", statut: deduite }
+  # PPL n° 238 de I. Brossat (PCF) et autres, Sénat, 11/01/2024 ; soutien du groupe GDR à la PPL Simonnet n° 2303 en commission, 04/02/2026 : https://www.senat.fr/leg/ppl23-238.html
+  roussel: { option: A, source: "PPL n° 238 de I. Brossat (PCF) et autres, Sénat, 11/01/2024 ; soutien du groupe GDR à la PPL Simonnet n° 2303 en commission, 04/02/2026", statut: estimee }
+  # Reconquête, « Notre projet pour l'Europe des nations et de la civilisation », européennes du 09/06/2024, ch. 3.B ; S. Knafo (Reconquête), plan « 140 milliards d'économies », budget2027.fr, 2026, mesure 8 (suppression de l'Anah) : https://assets.ericzemmour.fr/document/Programme%20Reconqu%C3%AAte%20Europ%C3%A9ennes%202024.pdf
+  zemmour: { option: D, source: "Reconquête, « Notre projet pour l'Europe des nations et de la civilisation », européennes du 09/06/2024, ch. 3.B ; S. Knafo (Reconquête), plan « 140 milliards d'économies », budget2027.fr, 2026, mesure 8 (suppression de l'Anah)", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/051-logements-vacants.md (chaque chiffre y a sa source
 # numérotée, voir l'annexe de l'étude). Le fil : il y a beaucoup de logements vides, mais tous ne sont pas utiles ni
 # disponibles ; quatre façons de les remettre en usage.

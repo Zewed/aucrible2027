@@ -112,7 +112,7 @@
 .total-bar { height: 12px; border-radius: 4px; background: var(--table-3); overflow: hidden; }
 .total-bar i {
   display: block; height: 100%;
-  background: repeating-linear-gradient(90deg, var(--chalk) 0 calc(5% - 2px), transparent calc(5% - 2px) 5%);
+  background: repeating-linear-gradient(90deg, var(--sur-table) 0 calc(5% - 2px), transparent calc(5% - 2px) 5%);
   background-size: calc(100% * 100 / var(--p)) 100%;
   width: calc(var(--p) * 1%);
   transform-origin: left;
@@ -193,6 +193,8 @@
 .src-badge.off::before { content: "✓"; }
 .src-badge.ded { background: #fff; border: 2px dashed var(--ink); padding: 5px 10px 4px; }
 .src-badge.ded::before { content: "≈"; font-size: 17px; }
+.src-badge.est { background: #fff; color: var(--ink-soft); border: 2px dotted var(--ink-soft); padding: 5px 10px 4px; }
+.src-badge.est::before { content: "~"; font-size: 17px; }
 .src-badge.nil { background: var(--slot); color: var(--ink-soft); }
 .srclines { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .srclines li { background: #fff; border-radius: 10px; padding: 10px 12px; display: grid; gap: 7px; justify-items: start; }

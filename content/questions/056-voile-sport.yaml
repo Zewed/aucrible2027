@@ -97,6 +97,16 @@ positions:
   zemmour: { option: A, source: "Message d'Éric Zemmour du 27/06/2023, republié sur son blog (Goodreads)", statut: officielle }
   # Déclaration radio du 25/03/2025 (dépêche AFP, Bluewin) : https://www.bluewin.ch/fr/infos/le-tacle-ose-du-ministre-de-linterieur-teddy-riner-il-ma-fait-vibrer-on-aime-le-sportif-mais-la-li.2622494
   retailleau: { option: A, source: "Déclaration radio du 25/03/2025 (dépêche AFP, Bluewin)", statut: officielle }
+  # D. Lisnard, tribune au Figaro reprise par Nouvelle Énergie, 07/03/2025 : https://www.unenouvelleenergie.fr/david-lisnard-quand-la-ministre-des-sports-fait-du-deni-de-proselytisme-islamiste/
+  lisnard: { option: A, source: "D. Lisnard, tribune au Figaro reprise par Nouvelle Énergie, 07/03/2025", statut: officielle }
+  # Lutte ouvrière, « Laïcité dans le sport : un voile sur les abus », 26/03/2025 : https://www.lutte-ouvriere.org/journal/article/laicite-sport-voile-abus-182969.html
+  arthaud: { option: B, source: "Lutte ouvrière, « Laïcité dans le sport : un voile sur les abus », 26/03/2025", statut: estimee }
+  # Public Sénat, « Gabriel Attal propose d'interdire le voile pour les moins de 15 ans et souhaite une nouvelle loi séparatisme », 21/05/2025 ; proposition de loi n° 1886 (interdiction en compétition) déposée par des députés de son groupe, 30/09/2025 : https://www.publicsenat.fr/actualites/politique/gabriel-attal-propose-dinterdire-le-voile-pour-les-moins-de-15-ans-et-souhaite-une-nouvelle-loi-separatisme
+  attal: { option: A, source: "Public Sénat, « Gabriel Attal propose d'interdire le voile pour les moins de 15 ans et souhaite une nouvelle loi séparatisme », 21/05/2025 ; proposition de loi n° 1886 (interdiction en compétition) déposée par des députés de son groupe, 30/09/2025", statut: estimee }
+  # Question écrite n° 15698, 15/01/2013 ; Debout la France, projet « Enseignement supérieur », point 13 (2026) : https://www.debout-la-france.fr/projet/enseignement-superieur/
+  dupont-aignan: { option: A, source: "Question écrite n° 15698, 15/01/2013 ; Debout la France, projet « Enseignement supérieur », point 13 (2026)", statut: estimee }
+  # Le Courrier de l'Atlas, « Présidentielles 2027 : cinq choses à savoir sur Marine Tondelier », 19/10/2026 ; Les Écologistes, projet 2027, p. 172 (cité par MonVote2027) : https://www.lecourrierdelatlas.com/?p=218350
+  tondelier: { option: C, source: "Le Courrier de l'Atlas, « Présidentielles 2027 : cinq choses à savoir sur Marine Tondelier », 19/10/2026 ; Les Écologistes, projet 2027, p. 172 (cité par MonVote2027)", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/056-voile-sport.md (chaque chiffre y a sa source
 # numérotée, voir son annexe). Le fil : le Sénat veut une loi, l'Assemblée ne l'a jamais votée ; quatre choix possibles,
 # la France applique le deuxième.

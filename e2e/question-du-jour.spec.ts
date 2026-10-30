@@ -73,7 +73,7 @@ test("le 23 octobre 2026, l'accueil affiche la question du jour, ses cinq option
 test("valider « À la carte, avec un système à points » révèle Nicolas Dupont-Aignan et Édouard Philippe", async ({ page }) => {
   await page.goto("/");
   await choisir(page, "À la carte, avec un système à points");
-  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await validerMaReponse(page);
 
   await expect(page).toHaveURL(/\/revelation$/);
   const defenseurs = page.getByRole("list", { name: "Sur ce sujet, tu es aligné·e avec" });
@@ -85,7 +85,7 @@ test("valider « À la carte, avec un système à points » révèle Nicolas Dup
 test("valider « 62 ans » révèle Marine Le Pen, Marine Tondelier et Raphaël Glucksmann", async ({ page }) => {
   await page.goto("/");
   await choisir(page, "62 ans");
-  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await validerMaReponse(page);
 
   const defenseurs = page.getByRole("list", { name: "Sur ce sujet, tu es aligné·e avec" });
   await expect(defenseurs.getByRole("listitem")).toHaveCount(3);
@@ -125,6 +125,24 @@ test("la question n° 24 (Travail & retraites) s'affiche en orange", async ({ pa
   expect(await fond(page.getByRole("button", { name: "Voir les propositions" }))).toBe(ORANGE);
   await voirLesPropositions(page);
   expect(await fond(page.locator(".mq-tete"))).toBe(ORANGE);
+});
+
+test.describe("un appareil réglé en mode clair", () => {
+  test.use({ colorScheme: "light" });
+
+  test("la table devient lavande pâle, son texte foncé, et la couleur du thème s'adoucit (orange pâle sur la n° 24)", async ({ page }) => {
+    await page.goto("/");
+    const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
+    await expect.poll(() => fond(carte.locator(".bloc"))).toBe("rgb(243, 162, 106)");
+    expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(242, 240, 246)");
+    expect(await page.getByRole("region", { name: "Le contexte" }).locator("p").first().evaluate((p) => getComputedStyle(p).color)).toBe("rgb(42, 37, 68)");
+  });
+
+  test("le thème et la durée de la vidéo restent en pastille sombre, texte clair", async ({ page }) => {
+    await page.goto("/");
+    const pastille = page.locator(".ecran-partage .theme-chip");
+    expect(await pastille.evaluate((e) => [getComputedStyle(e).backgroundColor, getComputedStyle(e).color])).toEqual(["rgb(29, 24, 56)", "rgb(246, 243, 255)"]);
+  });
 });
 
 test("une question d'Écologie & énergie s'affiche en vert, et les 11 thèmes ont 11 couleurs", async ({ page }) => {
@@ -167,7 +185,7 @@ test.describe("numéro et date de la question", () => {
   test("après validation, la révélation garde « Question n° 24 »", async ({ page }) => {
     await page.goto("/");
     await choisir(page, "62 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toHaveText("Question n° 24", { useInnerText: true });
   });
@@ -190,7 +208,7 @@ test.describe("sur ordinateur, le menu est une colonne d'icônes à gauche, et l
   test("la révélation aussi commence en haut, sans bandeau", async ({ page }) => {
     await page.goto("/");
     await choisir(page, "62 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await expect(page.getByRole("heading", { level: 1, name: "La révélation" }).filter({ visible: true })).toBeVisible();
     await expect(page.locator(".strip").filter({ visible: true })).toHaveCount(0);
@@ -591,7 +609,7 @@ test("après A puis B et validation, la révélation nomme les défenseurs de B,
   await page.goto("/");
   await choisir(page, "60 ans");
   await choisir(page, "62 ans");
-  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await validerMaReponse(page);
   await expect(page).toHaveURL(/\/revelation$/);
   const defenseurs = page.getByRole("list", { name: "Sur ce sujet, tu es aligné·e avec" });
   for (const nom of ["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]) await expect(defenseurs.getByText(nom)).toBeVisible();
@@ -619,19 +637,37 @@ test("sans rien choisir, « Valider ma réponse » est inactif : le toucher n'ou
   expect(await reponsesEnregistrees(page)).toEqual([]);
 });
 
-test("dès qu'une option est choisie, « Valider ma réponse » ouvre la révélation", async ({ page }) => {
+test("une option choisie sans importance laisse « Valider ma réponse » inactif : le toucher n'enregistre rien", async ({ page }) => {
   await page.goto("/");
   const valider = page.getByRole("button", { name: "Valider ma réponse" });
   await choisir(page, "65 ans ou plus");
+  await expect(valider).toBeDisabled();
+  await valider.click({ force: true });
+  await page.waitForTimeout(500);
+  await expect(page).toHaveURL(/\/$/);
+  expect(await reponsesEnregistrees(page)).toEqual([]);
+});
+
+test("dès qu'une option et son importance sont choisies, « Valider ma réponse » ouvre la révélation", async ({ page }) => {
+  await page.goto("/");
+  const valider = page.getByRole("button", { name: "Valider ma réponse" });
+  await choisir(page, "65 ans ou plus");
+  await peser(page, "×2");
   await expect(valider).toBeEnabled();
   await valider.click();
   await expect(page).toHaveURL(/\/revelation$/);
 });
 
+test("« Je ne sais pas » se valide sans importance", async ({ page }) => {
+  await page.goto("/");
+  await choisir(page, "Je ne sais pas");
+  await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeEnabled();
+});
+
 test("choisir « Je ne sais pas » puis valider enregistre la réponse et ouvre la révélation de la question n° 24", async ({ page }) => {
   await page.goto("/");
   await choisir(page, "Je ne sais pas");
-  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await validerMaReponse(page);
   await expect(page).toHaveURL(/\/revelation$/);
   await expect(page.getByText(/^Question n° 24/).filter({ visible: true })).toBeVisible();
   expect(await reponsesEnregistrees(page)).not.toEqual([]);
@@ -686,6 +722,18 @@ test("changer d'importance ne change pas l'option choisie : « Ta carte » reste
   await expect(page.getByText("Ta carte", { exact: true }).filter({ visible: true })).toHaveCount(1);
 });
 
+/**
+ * Valider la réponse comme l'électeur : une option choisie se valide avec son importance, donc on donne « ×1 » si
+ * aucune n'est encore choisie (« Je ne sais pas » n'en demande pas, mais en accepte une).
+ */
+async function validerMaReponse(page: Page) {
+  const niveaux = page.getByRole("group", { name: "Ce sujet compte pour toi ?" }).filter({ visible: true }).getByRole("radio");
+  if ((await niveaux.count()) > 0 && !(await niveaux.evaluateAll((radios) => radios.some((r) => (r as HTMLInputElement).checked)))) {
+    await page.getByRole("group", { name: "Ce sujet compte pour toi ?" }).filter({ visible: true }).getByText("×1", { exact: true }).click();
+  }
+  await page.getByRole("button", { name: "Valider ma réponse" }).filter({ visible: true }).click();
+}
+
 /** Répondre à la question du jour et arriver sur sa révélation. */
 async function repondre(page: Page, libelle: string) {
   // Repartir d'un appareil sans réponse : une question déjà répondue rouvre sur sa révélation.
@@ -696,7 +744,7 @@ async function repondre(page: Page, libelle: string) {
   });
   await page.goto("/");
   await choisir(page, libelle);
-  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await validerMaReponse(page);
   await expect(page).toHaveURL(/\/revelation$/);
   await expect(quiDefendQuoi(page)).toBeVisible();
 }
@@ -761,7 +809,7 @@ test.describe("la révélation rappelle l'importance donnée", () => {
       await page.goto("/");
       await choisir(page, "62 ans");
       await peser(page, poids);
-      await page.getByRole("button", { name: "Valider ma réponse" }).click();
+      await validerMaReponse(page);
       const encart = page.getByRole("region", { name: `Ta réponse : B · 62 ans. Importance ${poids}` });
       await expect(encart.getByText(`Importance ${poids}`, { exact: true })).toBeVisible();
       const pastilles = encart.locator(".chips i");
@@ -1113,7 +1161,7 @@ test.describe("l'importance donnée est retrouvée en revenant", () => {
     await page.goto("/");
     await choisir(page, libelle);
     await peser(page, poids);
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
   }
 
@@ -1169,7 +1217,7 @@ test("rien dans l'app ne demande de créer un compte ou de se connecter, ni avan
   await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeVisible();
   await verifier();
   await choisir(page, "64 ans");
-  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await validerMaReponse(page);
   await expect(page).toHaveURL(/\/revelation$/);
   await expect(quiDefendQuoi(page)).toBeVisible();
   await verifier();
@@ -1355,7 +1403,7 @@ async function repondreCeJour(page: Page, jour: string, libelle?: string) {
   await voirLesPropositions(page);
   const options = page.getByRole("radiogroup", { name: "Les options" });
   await (libelle ? options.getByText(libelle, { exact: true }) : options.locator("label").first()).click();
-  await page.getByRole("button", { name: "Valider ma réponse" }).click();
+  await validerMaReponse(page);
   await expect(page).toHaveURL(/\/revelation$/);
 }
 
@@ -1370,7 +1418,7 @@ test.describe("la série de jours d'affilée n'existe plus", () => {
     await expect(page.getByRole("radiogroup", { name: "Les options" })).not.toContainText("série");
     await voirLesPropositions(page);
     await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await expect(quiDefendQuoi(page)).toBeVisible();
     await expect(page.getByRole("region", { name: "Ta série" })).toHaveCount(0);
@@ -1453,7 +1501,7 @@ test.describe("la révélation mène à la question suivante", () => {
     await expect(page.getByRole("heading", { level: 1, name: "Faut-il rétablir l'ISF ?" })).toBeVisible();
     await voirLesPropositions(page);
     await page.getByRole("radiogroup", { name: "Les options" }).filter({ visible: true }).locator("label").first().click();
-    await page.getByRole("button", { name: "Valider ma réponse" }).filter({ visible: true }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/question\/9\/revelation$/);
     await suivante(page).click();
     await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" }).filter({ visible: true })).toBeVisible();
@@ -1468,7 +1516,7 @@ test.describe("la révélation mène à la question suivante", () => {
     });
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await expect(page.getByRole("link", { name: "Voir mes résultats" }).filter({ visible: true }).first()).toBeVisible();
     await expect(suivante(page)).toHaveCount(0);
@@ -1492,7 +1540,7 @@ test.describe("une question répondue est marquée « Répondu » et passe en fi
     await page.goto(`/question/${numero}`);
     await voirLesPropositions(page);
     await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(new RegExp(`/question/${numero}/revelation$`));
   }
 
@@ -1580,7 +1628,7 @@ test.describe("l'électeur filtre la liste par thème", () => {
     await page.goto("/question/5");
     await voirLesPropositions(page);
     await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/question\/5\/revelation$/);
     await page.goto("/rattrapage");
     await filtrer(page, "Travail & retraites");
@@ -1729,7 +1777,7 @@ test.describe("la révélation mène à « Mes résultats »", () => {
   async function repondreEALaQuestionDuJour(page: Page) {
     await page.goto("/");
     await choisir(page, "À la carte, avec un système à points");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
   }
 
@@ -1863,7 +1911,7 @@ test.describe("« Je ne sais pas » ne compte pas dans le classement", () => {
     expect([avant["François Ruffin"], avant["David Lisnard"], avant["Marine Tondelier"]]).toEqual([81, 76, 71]);
     await page.goto("/");
     await choisir(page, "Je ne sais pas");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/resultats");
     await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
@@ -2003,7 +2051,7 @@ test.describe("avant 10 réponses, le classement dit combien il en manque", () =
     await expect(classementDeLaPage(page).getByRole("heading", { name: "Encore 1 réponse pour voir ton classement" })).toBeVisible();
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/resultats");
     await expect(classementDeLaPage(page).getByRole("listitem")).toHaveCount(13);
@@ -2331,7 +2379,7 @@ test.describe("une part se remplit après 3 réponses dans son thème", () => {
     await reponsesAuxNumeros(page, [5, 12]);
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/resultats");
     await expect(page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").filter({ hasText: "Travail & retraites" }).locator(".pips")).toHaveAttribute("aria-label", "3 réponses");
@@ -2359,7 +2407,7 @@ test.describe("le camembert affiche le nombre de parts gagnées", () => {
     await vingtTroisReponses(page);
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/resultats");
     await expect(compteur(page)).toHaveText("6/11parts");
@@ -2418,7 +2466,7 @@ test.describe("un thème sous 3 réponses dit « pas encore assez de réponses �
     await vingtTroisReponses(page);
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/resultats");
     await expect(page.locator(".big-token .count b")).toHaveText("6/11");
@@ -2452,7 +2500,7 @@ test.describe("la révélation annonce la part gagnée", () => {
     await vingtTroisReponses(page);
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     const bloc = page.getByRole("region", { name: "Ton camembert" }).filter({ visible: true });
     await expect(bloc.getByText("+1 réponse en Travail & retraites : 3/3, la part est gagnée !")).toBeVisible();
@@ -2494,7 +2542,7 @@ test.describe("la carte affiche réponses et thèmes", () => {
     await vingtTroisReponses(page);
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/carte");
     await expect(piedDeLaCarte(page)).toHaveText("24 réponses · 6/11 thèmes");
@@ -2532,7 +2580,7 @@ test.describe("la carte affiche le camembert", () => {
     await vingtTroisReponses(page);
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/carte");
     await expect(page.getByRole("img", { name: "Camembert : 6 thèmes sur 11" })).toBeVisible();
@@ -2749,7 +2797,7 @@ test.describe("avant 10 réponses, la carte reste verrouillée", () => {
     await expect(carte(page).getByRole("button", { name: "Partager ma carte" })).toBeDisabled();
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/resultats");
     await carte(page).getByRole("link", { name: "Partager ma carte" }).click();
@@ -2965,6 +3013,13 @@ test.describe("chaque position porte son badge", () => {
     await positionsDeTondelier(page);
     expect(await badgeEtSource(page, 5)).toEqual(["position officielle", "Source : Déclaration sur BFMTV, 21/09/2026"]);
     expect(await badgeEtSource(page, 2)).toEqual(["position déduite", "Source : Programme 2022 des Écologistes"]);
+  });
+
+  test("une position tirée de sa ligne sur un sujet voisin porte « position estimée », bordée de pointillés (Q25)", async ({ page }) => {
+    const positions = await positionsDeTondelier(page, "2026-10-24T09:00:00+02:00");
+    expect(await badgeEtSource(page, 25)).toEqual(["position estimée", "Source : Programme 2027 des Écologistes, sujet voisin"]);
+    const badge = positions.getByRole("listitem").filter({ has: page.locator(".pos-n", { hasText: /^Q25$/ }) }).locator(".badge");
+    expect(await badge.evaluate((b) => getComputedStyle(b).borderStyle)).toBe("dotted");
   });
 });
 
@@ -3349,9 +3404,9 @@ test.describe("la page Méthode explique pourquoi une position inconnue ne compt
     await expect(page.getByRole("article").nth(2)).toHaveAccessibleName("Position inconnue : la question est sautée");
     await expect(regle3(page).getByText("Règle n° 3")).toBeVisible();
     await expect(regle3(page).locator(".rule-txt p")).toHaveText([
-      "Si on ne trouve aucune source pour la position d'un candidat sur une question, elle est notée « inconnue ».",
+      "Si rien, dans les sources publiques, ne permet de placer un candidat sur une question, sa position est notée « inconnue ».",
       "Pour ce candidat, la question est exclue du calcul : elle ne lui donne aucun point et ne lui en retire aucun. Elle ne compte pas non plus dans le maximum possible.",
-      "On ne devine jamais. Une case vide vaut mieux qu'une case inventée.",
+      "On n'invente jamais. Même estimée, une position s'appuie sur une source citée (règle 6).",
     ]);
   });
 
@@ -3365,9 +3420,9 @@ test.describe("la page Méthode explique pourquoi une position inconnue ne compt
     await expect(exemple.locator(".demo-cap b")).toHaveText("Comptées : 3 questions sur 4.");
   });
 
-  test("la règle écrit « On ne devine jamais. Une case vide vaut mieux qu'une case inventée. »", async ({ page }) => {
+  test("la règle écrit « On n'invente jamais. Même estimée, une position s'appuie sur une source citée (règle 6). »", async ({ page }) => {
     await page.goto("/methode");
-    await expect(regle3(page).getByText("On ne devine jamais. Une case vide vaut mieux qu'une case inventée.")).toBeVisible();
+    await expect(regle3(page).getByText("On n'invente jamais. Même estimée, une position s'appuie sur une source citée (règle 6).")).toBeVisible();
   });
 });
 
@@ -3415,50 +3470,55 @@ test.describe("la page Méthode explique l'ordre des sources", () => {
       "Une déclaration publique du candidat",
       "Les votes de son groupe",
       "Le programme 2022 de son parti",
+      "Sa ligne sur un sujet voisin",
       "Aucune source",
     ]);
-    await expect(crans.locator(".n")).toHaveText(["1", "2", "3", "4", "?"]);
+    await expect(crans.locator(".n")).toHaveText(["1", "2", "3", "4", "5", "?"]);
     await expect(crans.nth(1).locator("small")).toHaveText("Datée, de moins de 12 mois.");
     await expect(crans.nth(2).locator("small")).toHaveText("À l'Assemblée nationale ou au Parlement européen.");
   });
 
-  test("un cinquième cran, « Aucune source », renvoie à la position « inconnue », sautée (règle 3)", async ({ page }) => {
+  test("un sixième cran, « Aucune source », renvoie à la position « inconnue », sautée (règle 3)", async ({ page }) => {
     await page.goto("/methode");
-    const dernier = regle6(page).locator(".ladder li").nth(4);
+    const dernier = regle6(page).locator(".ladder li").nth(5);
     await expect(dernier).toHaveClass("none");
     await expect(dernier.locator("small")).toHaveText("Position « inconnue », sautée (règle 3).");
   });
 
-  test("la règle écrit « On ne devine jamais » et « on ne sollicite pas les équipes de campagne »", async ({ page }) => {
+  test("la règle écrit « On n'invente jamais » et « on ne sollicite pas les équipes de campagne »", async ({ page }) => {
     await page.goto("/methode");
-    await expect(regle6(page).getByText("On ne devine jamais et on ne sollicite pas les équipes de campagne : seules les sources publiques comptent.")).toBeVisible();
+    await expect(regle6(page).getByText("On n'invente jamais et on ne sollicite pas les équipes de campagne : seules les sources publiques comptent.")).toBeVisible();
   });
 });
 
-test.describe("la page Méthode explique les deux badges", () => {
+test.describe("la page Méthode explique les trois badges", () => {
   const regle6 = (page: Page) => page.getByRole("article", { name: "Chaque position a une source, classée par priorité" });
 
   test("dans l'échelle des sources, le programme 2027 et la déclaration portent « position officielle », les votes du groupe et le programme 2022 « position déduite »", async ({ page }) => {
     await page.goto("/methode");
     const crans = regle6(page).locator(".ladder li");
-    await expect(crans.locator(".src-badge")).toHaveText(["position officielle", "position officielle", "position déduite", "position déduite", "pas de position"]);
-    await expect(crans.locator(".src-badge")).toHaveClass(["src-badge off", "src-badge off", "src-badge ded", "src-badge ded", "src-badge nil"]);
+    await expect(crans.locator(".src-badge")).toHaveText(["position officielle", "position officielle", "position déduite", "position déduite", "position estimée", "pas de position"]);
+    await expect(crans.locator(".src-badge")).toHaveClass(["src-badge off", "src-badge off", "src-badge ded", "src-badge ded", "src-badge est", "src-badge nil"]);
   });
 
   test("le paragraphe dit ce qu'est une position officielle, une position déduite, et qu'on la recode dès qu'une déclaration arrive", async ({ page }) => {
     await page.goto("/methode");
     await expect(
       regle6(page).getByText(
-        "Deux badges, deux niveaux de certitude. Une position officielle a été écrite ou dite par le candidat pour 2027. Une position déduite n'a pas été dite telle quelle : on la déduit des votes de son groupe ou du programme 2022, et on la recode dès qu'une déclaration arrive.",
+        "Trois badges, trois niveaux de certitude. Une position officielle a été écrite ou dite par le candidat pour 2027. Une position déduite n'a pas été dite telle quelle : on la déduit des votes de son groupe ou du programme 2022. Une position estimée vient de sa ligne sur un sujet voisin, citée à côté. On recode dès qu'une déclaration arrive.",
       ),
     ).toBeVisible();
   });
 
   test("deux exemples : « position officielle » avec « Programme 2027 · Retraites · 12/09/2026 », « position déduite » avec « Vote du groupe à l'AN · réforme des retraites · 03/2023 »", async ({ page }) => {
     await page.goto("/methode");
-    const exemples = regle6(page).getByRole("figure", { name: "Deux exemples de lignes de source" }).getByRole("listitem");
-    await expect(exemples.locator(".src-badge")).toHaveText(["position officielle", "position déduite"]);
-    await expect(exemples.locator(".s")).toHaveText(["Programme 2027 · Retraites · 12/09/2026", "Vote du groupe à l'AN · réforme des retraites · 03/2023"]);
+    const exemples = regle6(page).getByRole("figure", { name: "Trois exemples de lignes de source" }).getByRole("listitem");
+    await expect(exemples.locator(".src-badge")).toHaveText(["position officielle", "position déduite", "position estimée"]);
+    await expect(exemples.locator(".s")).toHaveText([
+      "Programme 2027 · Retraites · 12/09/2026",
+      "Vote du groupe à l'AN · réforme des retraites · 03/2023",
+      "Programme 2027 · Assurance chômage · 06/2026",
+    ]);
   });
 });
 
@@ -5427,7 +5487,7 @@ test.describe("le face-à-face ne montre que les questions déjà répondues", (
     await expect(page.getByRole("heading", { name: aideActive }).filter({ visible: true })).toBeVisible();
     await voirLesPropositions(page);
     await page.getByRole("radiogroup", { name: "Les options" }).filter({ visible: true }).locator("label").first().click();
-    await page.getByRole("button", { name: "Valider ma réponse" }).filter({ visible: true }).click();
+    await validerMaReponse(page);
     await page.waitForURL(/\/question\/25\/revelation$/);
     await page.goto("/face-a-face/glucksmann/retailleau");
     const { cotes } = await carteDuFaceAFace(page, aideActive);
@@ -6077,7 +6137,7 @@ test.describe("toutes les 5 réponses, un palier", () => {
     }, n);
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/question\/24\/revelation$/);
   }
   const palier = (page: Page) => page.getByRole("region", { name: "Palier" }).filter({ visible: true });
@@ -6178,12 +6238,12 @@ test.describe("en haut de chaque page, la jauge des questions", () => {
     await expect(page).toHaveURL(/\/\?theme=securite-justice$/);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Fiche de test du samedi 17 octobre ?");
     await choisir(page, "Oui, dans toutes les grandes villes");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/question\/18\/revelation\?theme=securite-justice$/);
     await page.getByRole("link", { name: "Question suivante" }).click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Fiche de test du samedi 10 octobre ?");
     await choisir(page, "Oui, dans toutes les grandes villes");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/question\/11\/revelation\?theme=securite-justice$/);
     await expect(page.getByRole("link", { name: "Question suivante" })).toHaveAttribute("href", "/");
   });
@@ -6202,7 +6262,7 @@ test.describe("la question suivante s'ouvre vierge", () => {
     await voirLesPropositions(page);
     await choisir(page, "62 ans");
     await peser(page, "×3");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/question\/24\/revelation$/);
     await page.getByRole("link", { name: "Question suivante" }).filter({ visible: true }).click();
     await expect(page.getByRole("heading", { level: 1, name: "Faut-il encadrer les loyers dans les grandes villes ?" }).filter({ visible: true })).toBeVisible();
@@ -6221,7 +6281,7 @@ test.describe("la révélation n'affiche pas de bloc vide", () => {
     await expect(page.getByRole("heading", { level: 1, name: "Faut-il réguler l'installation des médecins ?" }).filter({ visible: true })).toBeVisible();
     await voirLesPropositions(page);
     await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/question\/26\/revelation$/);
     await expect(quiDefendQuoi(page)).toBeVisible();
     await expect(page.getByRole("region", { name: "Alignement sur ce sujet" })).toHaveCount(0);
@@ -6252,7 +6312,7 @@ test.describe("le classement affiche sa fiabilité", () => {
     await vingtTroisReponses(page);
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/resultats");
     await expect(fiabilite(page)).toHaveText("Fiabilité : moyenne (24 réponses)");
@@ -6400,7 +6460,7 @@ test.describe("les 11 parts remplies font du camembert un trophée", () => {
     await page.goto("/");
     await voirLesPropositions(page);
     await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/question\/33\/revelation$/);
     const trophee = page.getByRole("region", { name: "Camembert complet" }).filter({ visible: true });
     await expect(trophee).toBeVisible();
@@ -6483,7 +6543,7 @@ test.describe("l'électeur copie ses réponses en lien", () => {
     await expect(envoyer(page).locator(".caution")).toHaveText("Le lien contient tes 23 réponses : ne le partage qu'avec toi-même.");
     await page.goto("/");
     await choisir(page, "64 ans");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/appareil");
     await expect(envoyer(page).locator(".caution")).toHaveText("Le lien contient tes 24 réponses : ne le partage qu'avec toi-même.");
@@ -6572,7 +6632,7 @@ test.describe("scanner le QR code importe les réponses", () => {
     await page.goto("/");
     await choisir(page, "À la carte, avec un système à points");
     await peser(page, "×2");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     const adresse = await adresseDeLAppareil(page);
     const nouveau = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
@@ -6615,7 +6675,7 @@ test.describe("coller le lien importe les réponses", () => {
     await page.goto("/");
     await choisir(page, "À la carte, avec un système à points");
     await peser(page, "×2");
-    await page.getByRole("button", { name: "Valider ma réponse" }).click();
+    await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     const { nouveau, autre } = await collerSurUnNouvelAppareil(browser, await adresseDeLAppareil(page));
     await autre.goto("/question/24");

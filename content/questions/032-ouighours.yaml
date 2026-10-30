@@ -81,6 +81,10 @@ positions:
   melenchon: { option: C, source: "Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote des eurodéputés LFI)", statut: deduite }
   # Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote de l'eurodéputé Horizons) : https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1791968
   philippe: { option: C, source: "Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote de l'eurodéputé Horizons)", statut: deduite }
+  # Debout la France, projet « Économie et travail », mesure 7 (2026) : https://www.debout-la-france.fr/projet/economie-travail/
+  dupont-aignan: { option: B, source: "Debout la France, projet « Économie et travail », mesure 7 (2026)", statut: estimee }
+  # D. Lisnard, « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026 : https://www.unenouvelleenergie.fr/le-grand-entretien-avec-david-lisnard-quelle-strategie-pour-la-france-dans-le-nouveau-desordre-mondial/
+  lisnard: { option: B, source: "D. Lisnard, « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/032-ouighours.md (chaque chiffre y a sa source
 # numérotée ; l'annexe de l'étude relie chaque écran à ses sources). Le fil : ce qu'on sait du Xinjiang, ce que la France
 # y engage, les quatre voies possibles, puis quatre questions où chaque camp donne sa meilleure preuve.

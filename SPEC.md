@@ -93,8 +93,11 @@ Ordre de priorité :
 2. Déclaration publique du candidat (datée, moins de 12 mois)
 3. Votes de son groupe à l'Assemblée nationale ou au Parlement européen
 4. Programme 2022 du parti
+5. Sa ligne sur un sujet voisin : son programme ou les votes de son groupe sur un texte proche (position « estimée », décision du 29/10/2026 : les cases vides doivent rester marginales)
 
-Sans source : position « inconnue », exclue du calcul. On ne devine jamais. On ne sollicite pas les équipes de campagne.
+Badges : 1–2 « officielle », 3–4 « déduite », 5 « estimée ». Une estimation cite toujours sa base et son raisonnement, jamais un stéréotype de camp.
+
+Sans aucune base documentée : position « inconnue », exclue du calcul. On n'invente jamais. On ne sollicite pas les équipes de campagne.
 
 ## Candidats
 

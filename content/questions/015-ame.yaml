@@ -73,6 +73,22 @@ positions:
   tondelier: { option: A, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle }
   # https://www.debout-la-france.fr/projet/immigration-et-assimilation/
   dupont-aignan: { option: C, source: "Projet immigration, DLF, mesure 13, 2026", statut: officielle }
+  # Lutte ouvrière, « Aide médicale d'État : deux décrets scélérats », 11/02/2026 : https://www.lutte-ouvriere.org/portail/journal/aide-medicale-detat-deux-decrets-scelerats-191415.html
+  arthaud: { option: A, source: "Lutte ouvrière, « Aide médicale d'État : deux décrets scélérats », 11/02/2026", statut: deduite }
+  # Discours de politique générale du Premier ministre, 30/01/2024, rapporté par Public Sénat, 31/01/2024 : https://www.publicsenat.fr/actualites/politique/reforme-ame-gabriel-attal-a-t-il-vraiment-trahi-la-promesse-gouvernementale
+  attal: { option: B, source: "Discours de politique générale du Premier ministre, 30/01/2024, rapporté par Public Sénat, 31/01/2024", statut: deduite }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 41, p. 82 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: A, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 41, p. 82", statut: estimee }
+  # L'Avenir en commun, programme 2025, mesure phare relevée par votons-2027.fr ; groupe LFI sur la suppression de l'AME votée par le Sénat, LCP, 27/11/2023 (https://lcp.fr/actualites/immigration-tour-d-horizon-des-amendements-deposes-par-les-deputes-sur-la-version) : https://votons-2027.fr/candidats/melenchon/programme/immigration
+  melenchon: { option: A, source: "L'Avenir en commun, programme 2025, mesure phare relevée par votons-2027.fr ; groupe LFI sur la suppression de l'AME votée par le Sénat, LCP, 27/11/2023 (https://lcp.fr/actualites/immigration-tour-d-horizon-des-amendements-deposes-par-les-deputes-sur-la-version)", statut: estimee }
+  # Introduction d'É. Philippe, Premier ministre, conférence de presse du comité interministériel sur l'immigration et l'intégration, 06/11/2019 : https://www.info.gouv.fr/upload/media/default/0001/01/2019_11_introduction_de_m._edouard_philippe_premier_ministre_lors_de_la_conference_de_presse_relative_au_comite_interministeriel_sur_limmigration_et_lintegration.pdf
+  philippe: { option: B, source: "Introduction d'É. Philippe, Premier ministre, conférence de presse du comité interministériel sur l'immigration et l'intégration, 06/11/2019", statut: estimee }
+  # Franceinfo, 26/11/2024 (ministre de l'Intérieur), rapporté par Le Courrier de l'Atlas, 27/11/2024 : https://www.lecourrierdelatlas.com/?p=200893
+  retailleau: { option: C, source: "Franceinfo, 26/11/2024 (ministre de l'Intérieur), rapporté par Le Courrier de l'Atlas, 27/11/2024", statut: officielle }
+  # F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesures 89 et chapitre santé : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesures 89 et chapitre santé", statut: estimee }
+  # Assemblée nationale, amendement n° II-AS51 au PLF 2026 (groupe Écologiste et social, cosigné par F. Ruffin), 07/11/2025 : https://www.assemblee-nationale.fr/dyn/17/amendements/1906C/CION-SOC/AS51.pdf
+  ruffin: { option: A, source: "Assemblée nationale, amendement n° II-AS51 au PLF 2026 (groupe Écologiste et social, cosigné par F. Ruffin), 07/11/2025", statut: estimee }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   # « Sans-papiers » et « clandestins » sont des mots disputés : le reportage ne les emploie pas et dit « étrangers sans

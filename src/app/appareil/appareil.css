@@ -23,7 +23,7 @@
 
 .promise {
   display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: 14px; align-items: start;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   border-radius: var(--r);
   padding: 16px 16px 15px;
   box-shadow: 0 6px 0 var(--pawn-edge);

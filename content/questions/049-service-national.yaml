@@ -81,6 +81,22 @@ positions:
   glucksmann: { option: C, source: "Livre « Nous avons encore envie » (Allary, mai 2026), rapporté par LCP, 26/05/2026", statut: officielle }
   # Debout la France, projet « Défense », mesure 9 : https://www.debout-la-france.fr/projet/defense/
   dupont-aignan: { option: C, source: "Debout la France, projet « Défense », mesure 9", statut: officielle }
+  # Site de campagne, « Gabriel Attal présente ses mesures pour la jeunesse et l'avenir de la France », meeting de Lyon du 10/10/2026, article du 11/10/2026 : https://attalpresident.fr/actualites/gabriel-attal-presente-ses-mesures-pour-la-jeunesse-et-l-avenir-de-la-france
+  attal: { option: C, source: "Site de campagne, « Gabriel Attal présente ses mesures pour la jeunesse et l'avenir de la France », meeting de Lyon du 10/10/2026, article du 11/10/2026", statut: officielle }
+  # Paris Match, repris par Nouvelle Énergie, 12/12/2025 : https://www.unenouvelleenergie.fr/une-experience-formatrice-quil-ne-faut-pas-idealiser-david-lisnard-raconte-son-service-militaire/
+  lisnard: { option: D, source: "Paris Match, repris par Nouvelle Énergie, 12/12/2025", statut: officielle }
+  # Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. défense : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: B, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. défense", statut: deduite }
+  # Nathalie Arthaud, éditorial « Galonnés cherchent chair à canon ! », 01/12/2025 ; Lutte ouvrière, « Nouveau service militaire : la même mise en condition », 16/09/2026 : https://www.lutte-ouvriere.org/portail/editoriaux/galonnes-cherchent-chair-canon-188858.html
+  arthaud: { option: A, source: "Nathalie Arthaud, éditorial « Galonnés cherchent chair à canon ! », 01/12/2025 ; Lutte ouvrière, « Nouveau service militaire : la même mise en condition », 16/09/2026", statut: estimee }
+  # Programme présidentiel 2017 (comparateur Institut Montaigne) ; Public Sénat, 27/06/2018 ; J. Bardella, président du RN, AFP, 23/11/2025 ; abstention du groupe RN sur l'article 24, 18/05/2026 : https://www.institutmontaigne.org/presidentielle-2017/comparaison/justice-securite-defense-marine-le-pen-emmanuel-macron
+  le-pen: { option: D, source: "Programme présidentiel 2017 (comparateur Institut Montaigne) ; Public Sénat, 27/06/2018 ; J. Bardella, président du RN, AFP, 23/11/2025 ; abstention du groupe RN sur l'article 24, 18/05/2026", statut: estimee }
+  # Interview BFMTV, rapportée par Entrevue, 12/09/2026 ; ÉlyséeScope, fiche Défense (renvoie à LCI, 25/05/2026, non lu) : https://entrevue.fr/entrevue/presidentielle-2027-les-jeunes-lr-reclament-le-retour-du-service-militaire-obligatoire-2/
+  retailleau: { option: D, source: "Interview BFMTV, rapportée par Entrevue, 12/09/2026 ; ÉlyséeScope, fiche Défense (renvoie à LCI, 25/05/2026, non lu)", statut: deduite }
+  # Édouard Bénard, député communiste (GDR), défense de l'amendement de suppression n° 642, Assemblée nationale, 18/05/2026 : https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/deuxieme-seance-du-lundi-18-mai-2026.pdf
+  roussel: { option: D, source: "Édouard Bénard, député communiste (GDR), défense de l'amendement de suppression n° 642, Assemblée nationale, 18/05/2026", statut: estimee }
+  # Assemblée nationale, amendement de suppression n° 269 de l'article 24 (service militaire volontaire), groupe Écologiste et social, cosigné par F. Ruffin, 29/04/2026 : https://www.assemblee-nationale.fr/dyn/17/amendements/2695/AN/269.pdf
+  ruffin: { option: A, source: "Assemblée nationale, amendement de suppression n° 269 de l'article 24 (service militaire volontaire), groupe Écologiste et social, cosigné par F. Ruffin, 29/04/2026", statut: deduite }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/049-service-national.md (chaque chiffre y a sa source
 # numérotée). Le fil : on est passé de l'obligation au volontariat ; faut-il revenir à l'obligation, et sous quelle forme ?
 # Pas de mécanisme : aucun rapport « X pour 1 » ne résume le sujet.

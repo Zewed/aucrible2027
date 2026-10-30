@@ -13,7 +13,7 @@
 
 .ff { padding-bottom: 40px; }
 .lead { margin-top: 14px; max-width: 54ch; font-size: 17px; line-height: 1.45; color: var(--muted); }
-.lead b { color: var(--chalk); font-weight: 700; }
+.lead b { color: var(--sur-table); font-weight: 700; }
 
 /* ---------- les deux joueurs ---------- */
 .duel { margin-top: 22px; }
@@ -47,7 +47,7 @@
   list-style: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center; gap: 6px;
   min-height: 44px; width: 100%; padding: 0 12px;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   border-radius: 12px;
   box-shadow: 0 4px 0 var(--pawn-edge);
   font: 800 15px/1 var(--display);
@@ -63,7 +63,7 @@
 .chg[open] summary svg { transform: rotate(180deg); }
 .chg-panel {
   position: absolute; left: 0; right: 0; top: calc(100% + 8px); z-index: 20;
-  background: var(--table-2); color: var(--chalk);
+  background: var(--table-2); color: var(--sur-table);
   border-radius: var(--r);
   padding: 10px 8px 8px;
   box-shadow: 0 0 0 2px var(--table-3), 0 18px 40px rgba(11, 9, 25, .6);
@@ -96,7 +96,7 @@
 a.mid { transition: transform .15s var(--ease-out); }
 a.mid:hover { transform: translateY(-2px); }
 a.mid:active { transform: translateY(2px); }
-a.mid:focus-visible { outline: 3px solid var(--chalk); outline-offset: 4px; }
+a.mid:focus-visible { outline: 3px solid var(--sur-table); outline-offset: 4px; }
 
 .ff-share {
   margin-top: 14px;
@@ -119,10 +119,10 @@ a.mid:focus-visible { outline: 3px solid var(--chalk); outline-offset: 4px; }
 }
 .sum-n em { font-style: normal; color: var(--eco); }
 .sum-s { margin-top: 10px; font-size: 14.5px; line-height: 1.4; color: var(--muted); }
-.sum-s b { color: var(--chalk); font-weight: 700; }
+.sum-s b { color: var(--sur-table); font-weight: 700; }
 .tally { display: flex; gap: 3px; margin-top: 16px; }
 .tally i { flex: 1 1 0; min-width: 0; height: 20px; border-radius: 3px; background: var(--table-3); }
-.tally i.on { background: var(--chalk); }
+.tally i.on { background: var(--sur-table); }
 .tally i.none { background: transparent; box-shadow: inset 0 0 0 2px var(--muted); }
 .tally-key {
   list-style: none; margin: 12px 0 0; padding: 0;
@@ -131,7 +131,7 @@ a.mid:focus-visible { outline: 3px solid var(--chalk); outline-offset: 4px; }
 }
 .tally-key li { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
 .tally-key i { width: 12px; height: 12px; border-radius: 3px; background: var(--table-3); flex: none; }
-.tally-key i.on { background: var(--chalk); }
+.tally-key i.on { background: var(--sur-table); }
 .tally-key i.none { background: transparent; box-shadow: inset 0 0 0 2px var(--muted); }
 
 /* ---------- le filtre par thème ---------- */
@@ -153,13 +153,13 @@ a.mid:focus-visible { outline: 3px solid var(--chalk); outline-offset: 4px; }
   display: inline-flex; align-items: center; gap: 8px;
   min-height: 44px; padding: 0 15px 0 13px;
   border-radius: 999px;
-  background: var(--table-2); color: var(--chalk);
+  background: var(--table-2); color: var(--sur-table);
   box-shadow: inset 0 0 0 2px var(--table-3);
   font: 700 14px/1 var(--text); white-space: nowrap;
   transition: background .15s var(--ease-out), box-shadow .15s var(--ease-out);
 }
 .chip span i { width: 12px; height: 12px; border-radius: 3px; background: var(--theme); transform: rotate(45deg); flex: none; }
-.chip.all { --theme: var(--chalk); --theme-edge: var(--pawn-edge); --on-theme: var(--ink); }
+.chip.all { --theme: var(--sur-table); --theme-edge: var(--pawn-edge); --on-theme: var(--table); }
 .chip.all span i { border-radius: 50%; transform: none; background: var(--muted); }
 .chip input:checked + span { background: var(--theme); color: var(--on-theme); box-shadow: 0 4px 0 var(--theme-edge); }
 .chip input:checked + span i { background: var(--on-theme); }
@@ -226,6 +226,7 @@ a.mid:focus-visible { outline: 3px solid var(--chalk); outline-offset: 4px; }
 .badge svg { width: 14px; height: 14px; flex: none; }
 .badge--off { background: var(--ink); color: var(--chalk); }
 .badge--ded { background: transparent; color: var(--ink); border: 2px dashed var(--ink); padding: 2px 8px 2px 6px; }
+.badge--est { background: transparent; color: var(--ink-soft); border: 2px dotted var(--ink-soft); padding: 2px 8px 2px 6px; }
 .badge--me { background: var(--trav); color: var(--ink); }
 .badge--none { background: transparent; color: var(--ink-soft); border: 2px dashed var(--pawn-edge); padding: 2px 8px 2px 6px; }
 .src { display: flex; align-items: center; gap: 6px; max-width: 100%; min-width: 0; font: 600 13px/1.25 var(--text); color: var(--ink-soft); }
@@ -265,8 +266,8 @@ a.mid:focus-visible { outline: 3px solid var(--chalk); outline-offset: 4px; }
   display: grid; gap: 10px; justify-items: start;
 }
 .fd-card .label { color: var(--muted); }
-.fd-q { font: 800 21px/1.1 var(--display); font-variation-settings: "wdth" 85; letter-spacing: -0.01em; color: var(--chalk); text-wrap: balance; }
-.fd-s { display: flex; align-items: center; gap: 8px; font: 700 15px/1.2 var(--text); color: var(--chalk); }
+.fd-q { font: 800 21px/1.1 var(--display); font-variation-settings: "wdth" 85; letter-spacing: -0.01em; color: var(--sur-table); text-wrap: balance; }
+.fd-s { display: flex; align-items: center; gap: 8px; font: 700 15px/1.2 var(--text); color: var(--sur-table); }
 .fd-s svg { width: 20px; height: 20px; flex: none; }
 .fd-n { font-size: 14px; line-height: 1.4; }
 .fd-card .btn-link { min-height: 44px; margin-top: 2px; }

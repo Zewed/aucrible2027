@@ -18,7 +18,7 @@ import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses, type Rep
 import { tenirALEcran } from "@/lib/tenir-a-l-ecran";
 
 /** Sur grand écran, chaque étape tient dans la fenêtre : son texte se resserre plutôt que d'être coupé. */
-const tenirLEcranPartage = tenirALEcran("(min-width: 1200px)");
+const tenirLEcranPartage = tenirALEcran("(min-width: 1200px)", 1, ".scene");
 const tenirLaMosaique = tenirALEcran("(min-width: 1100px)");
 
 const IMPORTANCES = [
@@ -102,9 +102,12 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
     window.scrollTo({ top: 0 });
   }
 
+  // Une réponse se valide avec son importance ; « Je ne sais pas » n'en demande pas.
+  const prete = choix === JE_NE_SAIS_PAS || (choix !== null && poids !== null);
+
   function valider(evenement: React.FormEvent) {
     evenement.preventDefault();
-    if (!choix || !jour) return;
+    if (!choix || !prete || !jour) return;
     enregistrerReponse(question.numero, { option: choix, importance: poids, graine: tirerGraine(), jour, rang: Object.keys(reponses).length + 1 });
     router.push(revelation);
   }
@@ -265,7 +268,7 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
                 ))}
               </div>
             </fieldset>
-            <button type="submit" className="mq-valider" aria-disabled={!choix}>
+            <button type="submit" className="mq-valider" aria-disabled={!prete}>
               Valider ma réponse
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />

@@ -62,6 +62,13 @@ function Badge({ statut }: { statut: Position["statut"] }) {
       </svg>{" "}
       position officielle
     </span>
+  ) : statut === "estimee" ? (
+    <span className="badge badge--est">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <path d="M2 8.5c2-2 4-2 6 0s4 2 6 0" style={{ fill: "none", stroke: "currentColor", strokeWidth: 2.4, strokeLinecap: "round" }} />
+      </svg>{" "}
+      position estimée
+    </span>
   ) : (
     <span className="badge badge--ded">
       <svg viewBox="0 0 16 16" aria-hidden="true">

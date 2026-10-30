@@ -90,6 +90,14 @@ positions:
   philippe: { option: B, source: "Assemblée nationale (relevé Datan), scrutin n° 2557 du 28/09/2023 sur l'amendement n° 183 des 15 heures : Horizons 7 pour sur 7 ; loi entière, scrutin n° 2965 : 20 pour sur 20", statut: deduite }
   # Projet présidentiel 2022 de N. Dupont-Aignan, « 100 décisions pour la France », décision 22 (2022nda.fr, archive d'avril 2022) : https://web.archive.org/web/20220405000000/https://2022nda.fr/projet/lessentiel/
   dupont-aignan: { option: D, source: "Projet présidentiel 2022 de N. Dupont-Aignan, « 100 décisions pour la France », décision 22 (2022nda.fr, archive d'avril 2022)", statut: deduite }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 25, p. 53 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: A, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 25, p. 53", statut: estimee }
+  # Amendements n° 1426, 1409 et 1431 au projet de loi pour le plein emploi, cosignés par M. Le Pen, 22/09/2023 ; vote du groupe RN contre la loi, scrutin n° 2965, 14/11/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/1673/AN/1426.pdf
+  le-pen: { option: B, source: "Amendements n° 1426, 1409 et 1431 au projet de loi pour le plein emploi, cosignés par M. Le Pen, 22/09/2023 ; vote du groupe RN contre la loi, scrutin n° 2965, 14/11/2023", statut: estimee }
+  # Grand meeting de Saint-Raphaël, 03/07/2026, cité par la FAQ de Nouvelle Énergie « Quel candidat veut regrouper les aides sociales en une allocation unique ? » (16/10/2026) : https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-regrouper-les-aides-sociales-en-une-allocation-unique/
+  lisnard: { option: C, source: "Grand meeting de Saint-Raphaël, 03/07/2026, cité par la FAQ de Nouvelle Énergie « Quel candidat veut regrouper les aides sociales en une allocation unique ? » (16/10/2026)", statut: estimee }
+  # S. Knafo (Reconquête), plan « 140 milliards d'économies », budget2027.fr, 2026, mesure 4 ; Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. fraude sociale : https://www.budget2027.fr/
+  zemmour: { option: C, source: "S. Knafo (Reconquête), plan « 140 milliards d'économies », budget2027.fr, 2026, mesure 4 ; Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. fraude sociale", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/040-rsa.md (chaque chiffre y a sa source
 # numérotée). Le fil : depuis 2025, 15 heures en principe ; faut-il les supprimer, les garder, les durcir ou
 # demander un travail ? Ni mécanisme ni écart : aucun ratio « X pour 1 » ni aucune grandeur à deux dates n'éclaire

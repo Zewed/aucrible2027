@@ -90,6 +90,18 @@ positions:
   tondelier: { option: A, source: "Projet 2027, mesure 5", statut: officielle }
   # https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf (mesure 127)
   roussel: { option: A, source: "La France des Jours heureux, mesure 127, 2022", statut: deduite }
+  # Site de campagne, « À La REF : Gabriel Attal, grand gagnant du premier débat de la présidentielle 2027 », débat du Medef diffusé sur LCI, 27/08/2026 : https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027
+  attal: { option: C, source: "Site de campagne, « À La REF : Gabriel Attal, grand gagnant du premier débat de la présidentielle 2027 », débat du Medef diffusé sur LCI, 27/08/2026", statut: deduite }
+  # D. Lisnard, tribune « Changer de logiciel fiscal » (Atlantico), reprise par Nouvelle Énergie, 16/04/2026 : https://www.unenouvelleenergie.fr/changer-de-logiciel-fiscal/
+  lisnard: { option: D, source: "D. Lisnard, tribune « Changer de logiciel fiscal » (Atlantico), reprise par Nouvelle Énergie, 16/04/2026", statut: officielle }
+  # Plan de redressement, nouspresident.fr, octobre 2026 : https://nouspresident.fr/plan-de-redressement/
+  ruffin: { option: B, source: "Plan de redressement, nouspresident.fr, octobre 2026", statut: officielle }
+  # Debout la France, projet « Logement », mesure 6 (2026) : https://www.debout-la-france.fr/projet/logement/
+  dupont-aignan: { option: C, source: "Debout la France, projet « Logement », mesure 6 (2026)", statut: deduite }
+  # É. Philippe, « Pour une France plus prospère », edouardphilippe.fr (consulté le 29/10/2026) ; vote du groupe Horizons contre la taxe Zucman, 31/10/2025 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+  philippe: { option: C, source: "É. Philippe, « Pour une France plus prospère », edouardphilippe.fr (consulté le 29/10/2026) ; vote du groupe Horizons contre la taxe Zucman, 31/10/2025", statut: estimee }
+  # Programme 2027, comparateur iFRAP, 10/2026 (« sans aucune hausse d'impôts ») ; réforme de l'IFI votée par la majorité LR-centriste du Sénat (amendement A. de Montgolfier, LR), Public Sénat, 29/11/2025 : https://www.publicsenat.fr/actualites/parlementaire/budget-2026-le-senat-reforme-limpot-sur-la-fortune-immobiliere-ifi-pour-un-manque-a-gagner-de-600-millions-deuros
+  retailleau: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026 (« sans aucune hausse d'impôts ») ; réforme de l'IFI votée par la majorité LR-centriste du Sénat (amendement A. de Montgolfier, LR), Public Sénat, 29/11/2025", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/001-isf.md (chaque chiffre y a sa source numérotée,
 # et l'annexe de l'étude dit d'où vient chacun). Le fil : un impôt sur la fortune créé, supprimé, recréé, puis remplacé
 # par un impôt sur l'immobilier ; les cinq choix de la fiche ; les camps s'opposent sur une hausse de l'impôt sur la

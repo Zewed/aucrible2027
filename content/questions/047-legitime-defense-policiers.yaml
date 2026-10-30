@@ -91,6 +91,14 @@ positions:
   attal: { option: C, source: "Assemblée nationale, scrutin n° 7987 (vote sur l'ensemble, article unique), 07/07/2026 : vote personnel pour", statut: deduite }
   # Programme présidentiel d'Éric Zemmour 2022, « Assurer la sécurité et la tranquillité des Français », visuel 1/4 (mars 2022) : https://assets.nationbuilder.com/ez/pages/515/attachments/original/1647540641/programme-Assurer-securite-tranquilite-1sur4.jpg?1647540641
   zemmour: { option: C, source: "Programme présidentiel d'Éric Zemmour 2022, « Assurer la sécurité et la tranquillité des Français », visuel 1/4 (mars 2022)", statut: deduite }
+  # Lutte ouvrière, « Forces de répression : tout est permis », 08/07/2026 : https://www.lutte-ouvriere.org/portail/journal/forces-repression-permis-195650.html
+  arthaud: { option: A, source: "Lutte ouvrière, « Forces de répression : tout est permis », 08/07/2026", statut: deduite }
+  # Assemblée nationale, scrutin n° 7987, 07/07/2026 : Alexandra Martin (Alpes-Maritimes), députée de Nouvelle Énergie, vote pour : https://www.assemblee-nationale.fr/dyn/17/scrutins/7987
+  lisnard: { option: C, source: "Assemblée nationale, scrutin n° 7987, 07/07/2026 : Alexandra Martin (Alpes-Maritimes), députée de Nouvelle Énergie, vote pour", statut: deduite }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 29, p. 60 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: B, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 29, p. 60", statut: estimee }
+  # Amendement CL17 cosigné par F. Roussel (GDR) à la PPL n° 557 sur la présomption de légitime défense, 09/12/2022 : https://www.assemblee-nationale.fr/dyn/16/amendements/0557/CION_LOIS/CL17.pdf
+  roussel: { option: A, source: "Amendement CL17 cosigné par F. Roussel (GDR) à la PPL n° 557 sur la présomption de légitime défense, 09/12/2022", statut: deduite }
   # Inconnues : Glucksmann (rien de Place publique), Lisnard (programme muet), Roussel (vote GDR contre, rien sur la loi de 2017), Arthaud.
   # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/047-legitime-defense-policiers.md (chaque chiffre y a
   # sa source numérotée). Le fil : plus de refus de s'arrêter dangereux, plus de tirs ; faut-il présumer que le policier qui

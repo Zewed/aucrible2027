@@ -35,7 +35,7 @@
 .party {
   display: inline-flex; align-items: center;
   margin-top: 16px;
-  background: var(--table-3); color: var(--chalk);
+  background: var(--table-3); color: var(--sur-table);
   font: 700 14px/1 var(--text);
   padding: 8px 13px 8px;
   border-radius: 999px;
@@ -49,13 +49,13 @@
   padding: 12px 12px 12px 12px;
   font-size: 14.5px; line-height: 1.4;
 }
-.status svg { width: 22px; height: 22px; margin-top: 1px; color: var(--chalk); }
-.status b { color: var(--chalk); font-weight: 700; }
+.status svg { width: 22px; height: 22px; margin-top: 1px; color: var(--sur-table); }
+.status b { color: var(--sur-table); font-weight: 700; }
 
 /* ---------- ta proximité ---------- */
 .prox {
   margin-top: 16px;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   border-radius: var(--r);
   padding: 14px 16px 14px;
   box-shadow: 0 6px 0 var(--pawn-edge);
@@ -87,7 +87,7 @@
 
 /* ---------- ses positions ---------- */
 .pos-sum { margin-top: 8px; font-size: 14px; line-height: 1.45; color: var(--muted); }
-.pos-sum b { color: var(--chalk); font-weight: 700; }
+.pos-sum b { color: var(--sur-table); font-weight: 700; }
 
 .badge {
   display: inline-flex; align-items: center; gap: 6px;
@@ -100,6 +100,7 @@
 .badge svg { width: 16px; height: 16px; flex: none; }
 .badge--off { background: var(--ink); color: var(--chalk); }
 .badge--ded { background: var(--card); color: var(--ink); border: 2px dashed var(--ink-soft); }
+.badge--est { background: var(--card); color: var(--ink-soft); border: 2px dotted var(--ink-soft); }
 .badge--unk { background: var(--slot); color: var(--ink); border: 2px dotted var(--pawn-edge); }
 .badge .q { font: 800 14px/1 var(--display); width: 16px; text-align: center; }
 
@@ -169,14 +170,14 @@
 
 /* une position inconnue : la case reste vide, bordure en pointillés */
 .pos--unk {
-  background: transparent; color: var(--chalk);
+  background: transparent; color: var(--sur-table);
   border: 2px dashed var(--table-3);
   box-shadow: none;
   padding: 11px 12px 12px;
 }
 .pos--unk .pos-q { color: var(--muted); }
-.pos--unk .pos-n { background: var(--table-3); color: var(--chalk); }
-.pos--unk .pos-letter { background: var(--table-3); color: var(--chalk); }
+.pos--unk .pos-n { background: var(--table-3); color: var(--sur-table); }
+.pos--unk .pos-letter { background: var(--table-3); color: var(--sur-table); }
 .pos--unk .pos-title { font-size: 18px; line-height: 1.2; }
 .pos--unk .pos-src { font-size: 13.5px; line-height: 1.4; color: var(--muted); display: block; }
 
@@ -195,7 +196,7 @@
   padding: 14px;
   display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 14px; row-gap: 6px; align-items: center;
 }
-.gone .pawn { --size: 44px; font-size: 14px; background: transparent; color: var(--chalk); box-shadow: none; border: 2px dashed var(--pawn-edge); }
+.gone .pawn { --size: 44px; font-size: 14px; background: transparent; color: var(--sur-table); box-shadow: none; border: 2px dashed var(--pawn-edge); }
 .gone p { font: 600 16px/1.4 var(--text); }
 .gone a { text-underline-offset: 3px; font-weight: 700; }
 .gone .gone-note { grid-column: 2; font-size: 13.5px; font-weight: 400; color: var(--muted); line-height: 1.4; }
@@ -210,7 +211,7 @@
 .report a {
   display: inline-flex; align-items: center; gap: 8px;
   min-height: 44px;
-  font: 700 16px/1.2 var(--text); color: var(--chalk);
+  font: 700 16px/1.2 var(--text); color: var(--sur-table);
   text-underline-offset: 3px; white-space: nowrap;
 }
 .report a svg { width: 20px; height: 20px; flex: none; }

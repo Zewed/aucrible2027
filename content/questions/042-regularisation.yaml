@@ -82,6 +82,18 @@ positions:
   zemmour: { option: D, source: "Programme présidentiel 2022 d'É. Zemmour, « Immigration », visuel 2/3 « Je supprimerai les dispositifs qui attirent l'immigration » (programme.ericzemmour.fr, archive du 26/04/2022) ; BFMTV, 17/09/2026, rapporté par Public Sénat", statut: deduite }
   # Circulaire du ministre de l'Intérieur B. Retailleau aux préfets, 23/01/2025, citée par Europe 1 le 23/01/2025 : https://www.europe1.fr/politique/retailleau-aux-prefets-la-regularisation-des-travailleurs-sans-papiers-doit-rester-exceptionnelle-252798
   retailleau: { option: C, source: "Circulaire du ministre de l'Intérieur B. Retailleau aux préfets, 23/01/2025, citée par Europe 1 le 23/01/2025", statut: deduite }
+  # Nouvelle Énergie, programme, axe « Réussir une nouvelle ambition française », section « La souveraineté des frontières et l’assimilation des immigrés » (consulté le 28/10/2026) : https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/
+  lisnard: { option: D, source: "Nouvelle Énergie, programme, axe « Réussir une nouvelle ambition française », section « La souveraineté des frontières et l’assimilation des immigrés » (consulté le 28/10/2026)", statut: officielle }
+  # Loi immigration du 26/01/2024 (gouvernement dont il était membre), vote de l'ensemble le 19/12/2023 (Datan) ; LCI, 25/08/2026 (attalpresident.fr) : https://datan.fr/votes/legislature-16/vote_3213
+  attal: { option: C, source: "Loi immigration du 26/01/2024 (gouvernement dont il était membre), vote de l'ensemble le 19/12/2023 (Datan) ; LCI, 25/08/2026 (attalpresident.fr)", statut: estimee }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 41, p. 82 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: B, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 41, p. 82", statut: estimee }
+  # É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026) ; vote du groupe Horizons sur la loi immigration, scrutin n° 3213, 19/12/2023 (28 pour, 2 contre) : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
+  philippe: { option: C, source: "É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026) ; vote du groupe Horizons sur la loi immigration, scrutin n° 3213, 19/12/2023 (28 pour, 2 contre)", statut: estimee }
+  # F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesure 89 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesure 89", statut: deduite }
+  # Sud Radio, Le petit déjeuner politique, 03/11/2022 ; France 2, 28/04/2026, rapporté par Public Sénat, 11/05/2026 : https://www.sudradio.fr/linvite-politique/je-refuse-une-immigration-choisie-qui-vienne-combler-les-manques-estime-francois-ruffin
+  ruffin: { option: B, source: "Sud Radio, Le petit déjeuner politique, 03/11/2022 ; France 2, 28/04/2026, rapporté par Public Sénat, 11/05/2026", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/042-regularisation.md (chaque chiffre y a sa source
 # numérotée, voir son annexe). Le fil : le repère est passé de cinq à sept ans ; quatre choix sont sur la table, et la
 # voie des métiers qui manquent de bras s'arrête fin 2026. Pas de mécanisme : aucun ratio « X pour 1 » ne résume le sujet.

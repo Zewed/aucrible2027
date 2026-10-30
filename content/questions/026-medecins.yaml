@@ -89,6 +89,16 @@ positions:
   roussel: { option: B, source: "La France des jours heureux, proposition 13, 2022", statut: deduite }
   # Cosignataire de la proposition de loi n° 966 : https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B0966.html ; vote pour l'amendement de régulation du 14/06/2023 : https://datan.fr/votes/legislature-16/vote_1812
   ruffin: { option: B, source: "Cosignataire de la proposition de loi n° 966, 13/02/2025 ; vote du 14/06/2023", statut: deduite }
+  # Nouvelle Énergie, « Les carnets Santé », 2026 (livret publié en mai 2026) ; BFMTV, 07/05/2025 : https://nouvelle-energie-media-prod.s3.fr-par.scw.cloud/media/legacy/2026/05/Livret-Sante-Nouvelle-Energie.pdf
+  lisnard: { option: D, source: "Nouvelle Énergie, « Les carnets Santé », 2026 (livret publié en mai 2026) ; BFMTV, 07/05/2025", statut: officielle }
+  # Debout la France, projet « Santé », mesures 2, 15 et 18 (2026) : https://www.debout-la-france.fr/projet/sante/
+  dupont-aignan: { option: D, source: "Debout la France, projet « Santé », mesures 2, 15 et 18 (2026)", statut: estimee }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 23, p. 50 ; vote d'Aurélien Rousseau, député Place publique, contre l'article 1er de la loi Garot (scrutin n° 1214, 02/04/2025) : https://datan.fr/votes/legislature-17/vote_1214
+  glucksmann: { option: D, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 23, p. 50 ; vote d'Aurélien Rousseau, député Place publique, contre l'article 1er de la loi Garot (scrutin n° 1214, 02/04/2025)", statut: estimee }
+  # Public Sénat, « Édouard Philippe présente son plan contre les déserts médicaux », 13/10/2017 : https://www.publicsenat.fr/actualites/politique/edouard-philippe-presente-son-plan-contre-les-deserts-medicaux-78562
+  philippe: { option: D, source: "Public Sénat, « Édouard Philippe présente son plan contre les déserts médicaux », 13/10/2017", statut: estimee }
+  # Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. santé ; S. Knafo (Reconquête), plan « 140 milliards d'économies », budget2027.fr, 2026 : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: D, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. santé ; S. Knafo (Reconquête), plan « 140 milliards d'économies », budget2027.fr, 2026", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/026-medecins.md (chaque chiffre y a sa source
 # numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : depuis 1971, un médecin s'installe où il veut ; les
 # députés ont voté une limite, le Sénat l'a adoucie ; quatre choix, et quatre questions où chaque camp avance son meilleur

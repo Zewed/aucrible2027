@@ -20,14 +20,15 @@
                  | -inst | -soc sur un conteneur : cartes, boutons et puces prennent sa couleur.
    Jetons      : --eco … --soc (une couleur par thème, jamais par candidat) · --theme, --theme-edge,
                  --theme-tint, --theme-text (texte sur la table), --on-theme (texte sur le thème)
-                 --table, --table-2, --table-3, --chalk, --muted, --ink, --ink-soft, --ink-deep
+                 --table, --table-2, --table-3, --sur-table, --chalk, --muted, --ink, --ink-soft, --ink-deep
                  --ease-out (seule courbe de mouvement : exponentielle, sans rebond) */
 
 :root {
   --table: #1D1838;      /* la table de jeu */
   --table-2: #29224C;    /* surface posée sur la table */
   --table-3: #3B3369;    /* tranche, filets */
-  --chalk: #F6F3FF;      /* texte clair */
+  --chalk: #F6F3FF;      /* texte clair, sur une surface sombre */
+  --sur-table: var(--chalk); /* le texte posé sur la table : clair sur la table sombre, foncé en mode clair */
   --muted: #B9B1DE;
   --card: #FFFFFF;
   --ink: #1D1838;
@@ -84,7 +85,7 @@ html { -webkit-text-size-adjust: 100%; overflow-x: clip; scroll-padding-top: cal
 body {
   margin: 0;
   background: var(--table);
-  color: var(--chalk);
+  color: var(--sur-table);
   font: 400 16px/1.5 var(--text);
   overflow-x: clip;
 }
@@ -118,7 +119,7 @@ h1, h2, h3, p { margin: 0; }
   display: inline-flex; align-items: center; gap: 9px;
   white-space: nowrap;
   font: 600 14px/1.1 var(--text);
-  color: var(--chalk);
+  color: var(--sur-table);
 }
 .streak b { font: 800 17px/1 var(--display); display: block; }
 .streak small { color: var(--muted); font-size: 12px; }
@@ -144,11 +145,11 @@ h1, h2, h3, p { margin: 0; }
   background: var(--table-2);
 }
 .countdown b {
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   font: 800 16px/1 var(--display);
   padding: 8px 9px 7px;
 }
-.countdown span { padding: 9px 10px 8px; color: var(--chalk); }
+.countdown span { padding: 9px 10px 8px; color: var(--sur-table); }
 .qnum { font: 600 13px/1 var(--text); color: var(--muted); white-space: nowrap; }
 .wide { display: none; }
 
@@ -245,7 +246,7 @@ h1, h2, h3, p { margin: 0; }
 .stake-k { font: 800 12px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--theme-text); white-space: nowrap; }
 .stake-t { margin-top: 6px; font: 800 20px/1.1 var(--display); font-variation-settings: "wdth" 88; }
 .stake-s { margin-top: 6px; font-size: 13.5px; color: var(--muted); line-height: 1.35; }
-.stake-s u { text-decoration: none; color: var(--chalk); font-weight: 700; white-space: nowrap; }
+.stake-s u { text-decoration: none; color: var(--sur-table); font-weight: 700; white-space: nowrap; }
 
 /* ---------- les cartes réponses ---------- */
 .answer { margin-top: 30px; }
@@ -324,11 +325,11 @@ h1, h2, h3, p { margin: 0; }
 
 .idk .opt-face {
   grid-template-columns: 44px 1fr;
-  background: var(--table-2); color: var(--chalk);
+  background: var(--table-2); color: var(--sur-table);
   box-shadow: 0 6px 0 var(--table-3);
   align-items: center;
 }
-.idk .opt-letter { grid-row: auto; background: var(--table-3); color: var(--chalk); }
+.idk .opt-letter { grid-row: auto; background: var(--table-3); color: var(--sur-table); }
 .idk .opt-title { font-size: 21px; }
 .idk .opt-impl { grid-column: 2; color: var(--muted); font-weight: 500; margin-top: 2px; }
 .idk:hover .opt-face { box-shadow: 0 9px 0 var(--table-3); }
@@ -387,7 +388,7 @@ h1, h2, h3, p { margin: 0; }
 .foot .small { font-size: 13px; color: var(--muted); text-underline-offset: 3px; white-space: nowrap; padding: 12px 0; display: inline-block; }
 .btn-link {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   font: 800 16px/1 var(--display);
   padding: 13px 16px 12px; border-radius: 12px;
   text-decoration: none; white-space: nowrap;
@@ -409,7 +410,7 @@ h1, h2, h3, p { margin: 0; }
 .res { max-width: 1240px; margin: 0 auto; padding: 0 16px 40px; }
 .back {
   display: inline-flex; align-items: center; gap: 6px;
-  font: 700 14px/1 var(--text); text-decoration: none; color: var(--chalk);
+  font: 700 14px/1 var(--text); text-decoration: none; color: var(--sur-table);
   background: var(--table-2); padding: 10px 12px 10px 9px; border-radius: 10px;
   white-space: nowrap; min-height: 40px;
 }
@@ -425,7 +426,7 @@ h1, h2, h3, p { margin: 0; }
 .reliab {
   margin-top: 16px;
   display: inline-flex; align-items: center; gap: 12px;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   border-radius: 12px; padding: 10px 14px 10px 12px;
   font: 700 15px/1.1 var(--text);
   white-space: nowrap; max-width: 100%;
@@ -434,7 +435,7 @@ h1, h2, h3, p { margin: 0; }
 .meter i { width: 12px; height: 18px; border-radius: 3px; background: var(--slot); }
 .meter i.on { background: var(--ink); }
 .notpoll { margin-top: 10px; font-size: 13px; color: var(--muted); }
-.notpoll b { color: var(--chalk); }
+.notpoll b { color: var(--sur-table); }
 
 .confetti { position: absolute; inset: -20px 0 auto 0; height: 0; pointer-events: none; }
 .confetti i {
@@ -489,10 +490,10 @@ h1, h2, h3, p { margin: 0; }
 .th svg { width: 34px; height: 34px; grid-row: 1 / span 2; }
 .th-name { font: 700 15.5px/1.2 var(--text); }
 .th-who { grid-column: 2 / -1; font-size: 13.5px; color: var(--muted); line-height: 1.3; }
-.th-who b { color: var(--chalk); font-weight: 700; }
+.th-who b { color: var(--sur-table); font-weight: 700; }
 .pips { display: flex; gap: 3px; }
 .pips i { width: 11px; height: 11px; border-radius: 3px; background: var(--table-3); }
-.th.done { background: var(--chalk); color: var(--ink); }
+.th.done { background: var(--sur-table); color: var(--table); }
 .th.done .th-who { color: var(--ink-soft); }
 .th.done .th-who b { color: var(--ink); }
 
@@ -528,7 +529,7 @@ h1, h2, h3, p { margin: 0; }
 }
 .bar i {
   display: block; height: 100%;
-  background: repeating-linear-gradient(90deg, var(--chalk) 0 calc(5% - 2px), transparent calc(5% - 2px) 5%);
+  background: repeating-linear-gradient(90deg, var(--sur-table) 0 calc(5% - 2px), transparent calc(5% - 2px) 5%);
   background-size: calc(100% * 100 / var(--p)) 100%;
   width: calc(var(--p) * 1%);
   transform-origin: left;
@@ -545,7 +546,7 @@ h1, h2, h3, p { margin: 0; }
   aspect-ratio: 1 / 1;
   border-radius: 16px;
   overflow: hidden;
-  background: var(--chalk);
+  background: var(--sur-table);
   --tk: 7%;
 }
 .board > svg.track { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -660,8 +661,8 @@ h1, h2, h3, p { margin: 0; }
   transition: transform .12s var(--ease-out), box-shadow .12s var(--ease-out);
 }
 .act svg { width: 24px; height: 24px; flex: none; }
-.act.primary { background: var(--chalk); color: var(--ink); box-shadow: 0 6px 0 var(--pawn-edge); }
-.act.second { background: var(--table-2); color: var(--chalk); box-shadow: 0 6px 0 var(--table-3), inset 0 0 0 2px var(--table-3); }
+.act.primary { background: var(--sur-table); color: var(--table); box-shadow: 0 6px 0 var(--pawn-edge); }
+.act.second { background: var(--table-2); color: var(--sur-table); box-shadow: 0 6px 0 var(--table-3), inset 0 0 0 2px var(--table-3); }
 .act:hover { transform: translateY(-2px); }
 .act:active { transform: translateY(5px); box-shadow: none; }
 .act-note { font-size: 13px; color: var(--muted); text-align: center; }
@@ -674,7 +675,7 @@ h1, h2, h3, p { margin: 0; }
 }
 .res-foot a { text-underline-offset: 3px; white-space: nowrap; display: inline-block; padding: 12px 0; }
 .res-foot .tag {
-  background: var(--table-2); color: var(--chalk);
+  background: var(--table-2); color: var(--sur-table);
   padding: 7px 10px; border-radius: 8px; font-weight: 700; white-space: nowrap;
 }
 .res-foot nav { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -691,7 +692,7 @@ h1, h2, h3, p { margin: 0; }
   font: 600 14px/1.2 var(--text); color: var(--muted);
   text-underline-offset: 3px; white-space: nowrap;
 }
-.site-foot a:hover { color: var(--chalk); }
+.site-foot a:hover { color: var(--sur-table); }
 .site-foot a:focus-visible { outline: 3px solid var(--eco); outline-offset: 2px; border-radius: 4px; }
 
 /* ==================== GRAND ÉCRAN ==================== */
@@ -705,7 +706,7 @@ h1, h2, h3, p { margin: 0; }
     font: 700 15px/1 var(--text); text-decoration: none;
     padding: 14px 16px; border-radius: 10px; white-space: nowrap;
   }
-  .topnav a[aria-current] { background: var(--chalk); color: var(--ink); }
+  .topnav a[aria-current] { background: var(--sur-table); color: var(--table); }
   .topnav a:not([aria-current]) { background: var(--table-2); }
   .strip { padding: 0 32px 18px; }
   .today {
@@ -756,4 +757,37 @@ h1, h2, h3, p { margin: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Mode clair : il suit le réglage de l'appareil. La même table, en lavande pâle, et des couleurs de thème adoucies ;
+   la couleur d'un thème, quand elle sert de texte, prend sa tranche sombre pour rester lisible. Les vidéos restent
+   sombres (`data-sombre` sur la racine, voir src/video/racine.tsx). */
+@media (prefers-color-scheme: light) {
+  :root:not([data-sombre]) {
+    --table: #F2F0F6;
+    --table-2: #E8E5F0;
+    --table-3: #D8D3E5;
+    --sur-table: #2A2544;
+    --muted: #6B648A;
+    --eco: #F1D27A;
+    --trav: #F3A26A;
+    --trav-edge: #C9713A;
+    --ecol: #6CC594;
+    --immi: #7CC8EA;
+    --secu: #8E99EE;
+    --sante: #EE8A84;
+    --educ: #B597EE;
+    --loge: #5DB5AC;
+    --euro: #C3DC7E;
+    --inst: #D88DD1;
+    --soc: #F2AECA;
+  }
+  :root:not([data-sombre]) [class*="theme-"] { --theme-text: var(--theme-edge); }
+  :root:not([data-sombre]) .theme-secu { --on-theme: var(--ink); }
+  /* Ce qui part sur les réseaux (la carte en story, les visuels de l'auteur) garde la DA sombre. */
+  :root:not([data-sombre]) :is(.story, .social) {
+    --table: #1D1838; --table-2: #29224C; --table-3: #3B3369; --sur-table: var(--chalk); --muted: #B9B1DE;
+    --eco: #FFC21F; --trav: #FF7A1A; --trav-edge: #C4520A; --ecol: #22B85A; --immi: #1FB2F0; --secu: #4357FF;
+    --sante: #F2453D; --educ: #9461FF; --loge: #0E9E93; --euro: #A6D92B; --inst: #D63AC9; --soc: #FF7FB0;
+  }
 }

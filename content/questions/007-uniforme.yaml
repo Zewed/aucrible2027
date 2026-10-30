@@ -78,6 +78,14 @@ positions:
   dupont-aignan: { option: B, source: "Programme 2022, 23/03/2022", statut: deduite }
   # https://www.lutte-ouvriere.org/breves/uniforme-scolaire-cachez-ces-inegalites-que-je-ne-saurais-voir-468155.html
   arthaud: { option: A, source: "Lutte ouvrière, 13/01/2023", statut: deduite }
+  # Ministre de l'Éducation, annonce de l'expérimentation de la tenue commune, 2023 (L'Info durable, AFP) ; mesures École et jeunesse, attalpresident.fr, 25/08 et 11/10/2026 : https://www.linfodurable.fr/uniforme-lecole-une-experimentation-de-grande-ampleur-annoncee-sous-peu-dit-attal-42583
+  attal: { option: B, source: "Ministre de l'Éducation, annonce de l'expérimentation de la tenue commune, 2023 (L'Info durable, AFP) ; mesures École et jeunesse, attalpresident.fr, 25/08 et 11/10/2026", statut: estimee }
+  # LCI, 30/08/2023, cité par la FAQ de Nouvelle Énergie « Quel candidat veut donner leur autonomie aux établissements scolaires ? » (2026) : https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-donner-leur-autonomie-aux-etablissements-scolaires/
+  lisnard: { option: B, source: "LCI, 30/08/2023, cité par la FAQ de Nouvelle Énergie « Quel candidat veut donner leur autonomie aux établissements scolaires ? » (2026)", statut: officielle }
+  # Télématin (France 2), 18/12/2023, rapporté par ÉlyséeScope [source secondaire] : https://www.elyseescope.com/candidat/fabien-roussel/education-q25-
+  roussel: { option: A, source: "Télématin (France 2), 18/12/2023, rapporté par ÉlyséeScope [source secondaire]", statut: estimee }
+  # Assemblée nationale, question écrite n° 1439 de S. Regol (groupe écologiste), 29/10/2024, réponse au JO du 11/02/2025 : https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE1439
+  tondelier: { option: A, source: "Assemblée nationale, question écrite n° 1439 de S. Regol (groupe écologiste), 29/10/2024, réponse au JO du 11/02/2025", statut: estimee }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   accroche:

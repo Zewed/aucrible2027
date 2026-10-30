@@ -85,6 +85,18 @@ positions:
   le-pen: { option: A, source: "Assemblée nationale, PPL n° 2117 (acétamipride, abrogation de la loi Duplomb), amendement n° 5 de M. de Lépinau et du groupe RN, cosigné par Marine Le Pen, 20/11/2025", statut: deduite }
   # Réussir, « Arrêt du glyphosate : le sujet qui divise les candidats », propos de F. Roussel aux Controverses de l'agriculture, 15/02/2022 (article du 16/02/2022) : https://www.reussir.fr/arret-du-glyphosate-le-sujet-qui-divise-les-candidats-lelection-presidentielle-2022
   roussel: { option: D, source: "Réussir, « Arrêt du glyphosate : le sujet qui divise les candidats », propos de F. Roussel aux Controverses de l'agriculture, 15/02/2022 (article du 16/02/2022)", statut: deduite }
+  # Lutte ouvrière, « Glyphosate : le poison du profit », 18/06/2025 : https://www.lutte-ouvriere.org/portail/journal/glyphosate-poison-profit-185139.html
+  arthaud: { option: D, source: "Lutte ouvrière, « Glyphosate : le poison du profit », 18/06/2025", statut: deduite }
+  # Vote n° 8427 du 20/07/2026, projet de loi d'urgence agricole, texte de la CMP (Datan) ; loi Duplomb, vote n° 2957 du 08/07/2025 : https://datan.fr/votes/legislature-17/vote_8427
+  attal: { option: B, source: "Vote n° 8427 du 20/07/2026, projet de loi d'urgence agricole, texte de la CMP (Datan) ; loi Duplomb, vote n° 2957 du 08/07/2025", statut: deduite }
+  # Debout la France, projet « Agriculture » (2026) ; Réussir, 16/02/2022 : https://www.debout-la-france.fr/projet/agriculture/
+  dupont-aignan: { option: B, source: "Debout la France, projet « Agriculture » (2026) ; Réussir, 16/02/2022", statut: estimee }
+  # Nouvelle Énergie, « Les carnets Agriculture », février 2026 (objectif 5 et chiffre « 140 ») ; page programme « Agriculture » : https://nouvelle-energie-media-prod.s3.fr-par.scw.cloud/media/legacy/2026/02/livret-agriculture.pdf
+  lisnard: { option: A, source: "Nouvelle Énergie, « Les carnets Agriculture », février 2026 (objectif 5 et chiffre « 140 ») ; page programme « Agriculture »", statut: estimee }
+  # É. Philippe, « Pour une France plus prospère », edouardphilippe.fr (consulté le 29/10/2026) ; votes du groupe Horizons pour les lois de 2025 et 2026 (26 pour, 3 contre ; 24 pour, 3 contre) : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+  philippe: { option: A, source: "É. Philippe, « Pour une France plus prospère », edouardphilippe.fr (consulté le 29/10/2026) ; votes du groupe Horizons pour les lois de 2025 et 2026 (26 pour, 3 contre ; 24 pour, 3 contre)", statut: estimee }
+  # Reconquête, « Notre projet pour l'Europe des nations et de la civilisation », européennes du 09/06/2024, ch. 3.C : https://assets.ericzemmour.fr/document/Programme%20Reconqu%C3%AAte%20Europ%C3%A9ennes%202024.pdf
+  zemmour: { option: A, source: "Reconquête, « Notre projet pour l'Europe des nations et de la civilisation », européennes du 09/06/2024, ch. 3.C", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/041-pesticides.md (chaque chiffre y a sa source
 # numérotée ; tableau des renvois en annexe de l'étude). Le fil : un insecticide interdit en France et permis en Europe ;
 # faut-il assouplir ou durcir ? Quatre angles à poids égal : santé, environnement, revenu des agriculteurs, concurrence.

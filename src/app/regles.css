@@ -18,7 +18,7 @@
 .leaf-hero-in { display: grid; gap: 20px; }
 .leaf-k {
   display: inline-flex; align-items: center; gap: 10px;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   border-radius: 999px; padding: 8px 14px 7px 8px;
   font: 800 13px/1 var(--display); text-transform: uppercase; letter-spacing: .08em;
   white-space: nowrap; max-width: 100%;
@@ -41,7 +41,7 @@
 .lead { margin-top: 16px; font-size: 18px; line-height: 1.5; max-width: 60ch; }
 .lead b { font-weight: 700; }
 .lead-note { margin-top: 12px; font-size: 14px; color: var(--muted); max-width: 60ch; }
-.lead-note b { color: var(--chalk); }
+.lead-note b { color: var(--sur-table); }
 .hero-art { display: none; }
 
 /* ---------- le sommaire ---------- */
@@ -59,7 +59,7 @@
 .toc a:focus-visible { outline: 3px solid var(--eco); outline-offset: 2px; }
 .toc b {
   width: 28px; height: 28px; border-radius: 8px; flex: none;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   display: grid; place-items: center;
   font: 800 15px/1 var(--display);
 }

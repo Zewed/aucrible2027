@@ -89,6 +89,10 @@ positions:
   lisnard: { option: A, source: "Discours de rentrée, Cannes, 29/08/2026", statut: deduite }
   # Programme, edouardphilippe.fr, 2026 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
   philippe: { option: A, source: "Programme, edouardphilippe.fr, 2026", statut: deduite }
+  # Debout la France, projet « Économie et travail », mesure 16 (2026) : https://www.debout-la-france.fr/projet/economie-travail/
+  dupont-aignan: { option: A, source: "Debout la France, projet « Économie et travail », mesure 16 (2026)", statut: estimee }
+  # Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. pouvoir d'achat : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: A, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. pouvoir d'achat", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/034-semaine-4-jours.md (chaque chiffre y a sa source
 # numérotée). Le fil : quatre jours, ce n'est pas forcément moins d'heures. Ni mécanisme ni écart : aucun ratio
 # « X pour 1 » ni aucune grandeur à deux dates n'éclaire ce débat mieux que les leviers.

@@ -19,6 +19,8 @@ export default defineConfig({
     baseURL: `http://localhost:${PORT}`,
     locale: "fr-FR",
     timezoneId: "Europe/Paris",
+    // La DA de référence est le mode sombre ; le mode clair, qui suit l'appareil, a ses propres tests.
+    colorScheme: "dark",
   },
   projects: [
     { name: "telephone", use: { ...devices["Pixel 7"] }, testIgnore: /video\.spec\.ts/ },
