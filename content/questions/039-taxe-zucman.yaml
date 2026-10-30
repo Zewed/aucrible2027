@@ -91,6 +91,12 @@ positions:
   tondelier: { option: A, source: "Les Écologistes, « Pour une prospérité écologique », nouveau programme, juillet 2026, ch. 17 « Refonder le pacte fiscal », mesure 1 (p. 66 du PDF)", statut: officielle }
   # Assemblée nationale, PLF 2027, amendement n° I-3931 de N. Sansu et des députés GDR (dont les communistes Bourouaha, Brugerolles, Faucillon, Monnet, Peu), 10/10/2026 (rejeté) : https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/3931.pdf
   roussel: { option: A, source: "Assemblée nationale, PLF 2027, amendement n° I-3931 de N. Sansu et des députés GDR (dont les communistes Bourouaha, Brugerolles, Faucillon, Monnet, Peu), 10/10/2026 (rejeté)", statut: deduite }
+  # Nathalie Arthaud, éditorial « Tout ce qu'ils ont, ils l'ont volé ! », Lutte ouvrière, 03/11/2025 : https://lutte-ouvriere.org/portail/editoriaux/quils-ont-lont-vole-188208.html
+  arthaud: { option: A, source: "Nathalie Arthaud, éditorial « Tout ce qu'ils ont, ils l'ont volé ! », Lutte ouvrière, 03/11/2025", statut: estimee }
+  # RTL, 11/09/2025, rapporté par LCP le 11/09/2025 ; vote pour la taxe Zucman d'Aurélien Rousseau, député Place publique, 31/10/2025 (datan.fr/deputes/yvelines-78/depute_aurelien-rousseau/votes) : https://lcp.fr/actualites/budget-2026-la-taxe-zucman-sur-les-ultrariches-au-centre-de-l-equation-politique-398413
+  glucksmann: { option: A, source: "RTL, 11/09/2025, rapporté par LCP le 11/09/2025 ; vote pour la taxe Zucman d'Aurélien Rousseau, député Place publique, 31/10/2025 (datan.fr/deputes/yvelines-78/depute_aurelien-rousseau/votes)", statut: estimee }
+  # Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. logement et chiffrage ; S. Knafo (Reconquête), plan « 140 milliards d'économies », budget2027.fr, 2026 : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: D, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. logement et chiffrage ; S. Knafo (Reconquête), plan « 140 milliards d'économies », budget2027.fr, 2026", statut: estimee }
 # Zemmour, Dupont-Aignan : aucune source trouvée. Arthaud : éditorial du 07/11/2025 jugeant la taxe insuffisante sans dire
 # si elle la voterait (https://journal.lutte-ouvriere.org/medias/journalnumero/fichiers/2025/11/2988-web.pdf) : non classée.
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/039-taxe-zucman.md (chaque chiffre y a sa source

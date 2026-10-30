@@ -82,6 +82,16 @@ positions:
   tondelier: { option: D, source: "Projet 2027 des Écologistes, juillet 2026", statut: officielle }
   # Public Sénat, 08/03/2022 : https://www.publicsenat.fr/actualites/politique/guerre-en-ukraine-que-le-camp-occidental-se-pose-en-sauveur-me-revolte-denonce
   arthaud: { option: A, source: "Public Sénat, 08/03/2022", statut: deduite }
+  # É. Zemmour, « Petit déjeuner politique », Sud Radio, 25/03/2022 : https://www.sudradio.fr/politique/remigration-une-fois-de-plus-jexprime-ce-que-pensent-les-francais-affirme-eric-zemmour
+  zemmour: { option: B, source: "É. Zemmour, « Petit déjeuner politique », Sud Radio, 25/03/2022", statut: deduite }
+  # Debout la France, plan de paix pour l'Ukraine, point 7, 2022 (repris le 20/09/2025) ; projet « Affaires étrangères » : https://www.debout-la-france.fr/actualite/plan-de-paix-pour-lukraine-conference-de-presse/
+  dupont-aignan: { option: C, source: "Debout la France, plan de paix pour l'Ukraine, point 7, 2022 (repris le 20/09/2025) ; projet « Affaires étrangères »", statut: estimee }
+  # Sud Radio, 29/02/2024, cité par la FAQ de Nouvelle Énergie sur l'Ukraine (16/10/2026) ; « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026 : https://www.unenouvelleenergie.fr/questions/quelle-est-la-position-de-david-lisnard-sur-la-guerre-en-ukraine/
+  lisnard: { option: C, source: "Sud Radio, 29/02/2024, cité par la FAQ de Nouvelle Énergie sur l'Ukraine (16/10/2026) ; « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026", statut: estimee }
+  # AFP via Connaissance des énergies, 19/09/2026 ; vote du groupe GDR contre la résolution du 12/03/2025 (scrutin n° 988) : https://www.connaissancedesenergies.org/afp/carburants-sur-un-peage-dautoroute-fabien-roussel-pcf-appelle-a-la-mobilisation-260919
+  roussel: { option: B, source: "AFP via Connaissance des énergies, 19/09/2026 ; vote du groupe GDR contre la résolution du 12/03/2025 (scrutin n° 988)", statut: estimee }
+  # Tribune « Pour une déclaration d'indépendance », Le Grand Continent, 25/02/2026 ; abstention sur la résolution européenne de soutien à l'Ukraine (saisie des avoirs russes), scrutin n° 988, 12/03/2025 : https://legrandcontinent.eu/fr/2026/02/25/pour-une-declaration-dindependance-la-doctrine-ruffin-sur-leurope/
+  ruffin: { option: C, source: "Tribune « Pour une déclaration d'indépendance », Le Grand Continent, 25/02/2026 ; abstention sur la résolution européenne de soutien à l'Ukraine (saisie des avoirs russes), scrutin n° 988, 12/03/2025", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/031-russie.md (chaque chiffre y a sa source
 # numérotée). Le fil : des sanctions toujours plus nombreuses ; l'Europe achète beaucoup moins de gaz russe ;
 # quatre choix possibles ; les deux camps s'opposent sur l'effet, le coût, l'argent bloqué et l'énergie.

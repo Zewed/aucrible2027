@@ -94,6 +94,8 @@ positions:
   dupont-aignan: { option: D, source: "Projet de Debout la France, mesures 1b et 25, 2026", statut: officielle }
   # Cahier « Travaillisme écologique », septembre 2026 : https://nouspresident.fr/travaillisme-ecologique/
   ruffin: { option: C, source: "Cahier « Travaillisme écologique », septembre 2026", statut: officielle }
+  # Nouvelle Énergie, programme, axe « Générer un renouveau civique », section écologie (consulté le 28/10/2026) : https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/
+  lisnard: { option: D, source: "Nouvelle Énergie, programme, axe « Générer un renouveau civique », section écologie (consulté le 28/10/2026)", statut: officielle }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/025-nucleaire.md (chaque chiffre y a sa source
 # numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : un parc qui vieillit (les plus vieux réacteurs
 # auront 60 ans en 2038, quand le premier neuf est attendu), un devis qui monte, quatre choix, puis quatre questions où

@@ -83,6 +83,20 @@ positions:
   retailleau: { option: A, source: "Conférence de presse du 15/09/2026 (Public Sénat) ; plan logement 2027 (Europe 1, dépêche AFP)", statut: officielle }
   # Projet des Écologistes, juillet 2026, p. 44 : https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
   tondelier: { option: D, source: "Projet des Écologistes, juillet 2026, p. 44", statut: officielle }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier sur les territoires : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: C, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier sur les territoires", statut: officielle }
+  # Lutte ouvrière, brève « Barnier à Limoges : des promesses de milliards pour les licencieurs », 02/12/2024 : https://lutte-ouvriere.org/portail/breves/barnier-limoges-promesses-milliards-licencieurs-180070.html
+  arthaud: { option: C, source: "Lutte ouvrière, brève « Barnier à Limoges : des promesses de milliards pour les licencieurs », 02/12/2024", statut: estimee }
+  # Assemblée nationale, scrutin n° 2131 du 28/05/2025, amendement n° 953 rect. (RN) supprimant le ZAN, rejeté (EPR contre, dont G. Attal) : https://datan.fr/votes/legislature-17/vote_2131
+  attal: { option: C, source: "Assemblée nationale, scrutin n° 2131 du 28/05/2025, amendement n° 953 rect. (RN) supprimant le ZAN, rejeté (EPR contre, dont G. Attal)", statut: estimee }
+  # Debout la France, projet « Logement », mesure 13 (2026) : https://www.debout-la-france.fr/projet/logement/
+  dupont-aignan: { option: A, source: "Debout la France, projet « Logement », mesure 13 (2026)", statut: officielle }
+  # AMF, communiqué repris par Nouvelle Énergie, 10/05/2023 ; FAQ du parti citant un entretien vidéo du 21/01/2026 : https://www.unenouvelleenergie.fr/zan-lamf-soutient-linitiative-du-senat-pour-revoir-le-dispositif-comme-elle-le-demandait/
+  lisnard: { option: B, source: "AMF, communiqué repris par Nouvelle Énergie, 10/05/2023 ; FAQ du parti citant un entretien vidéo du 21/01/2026", statut: estimee }
+  # Vote du groupe Horizons contre la suppression du ZAN, amendement n° 953 rect., 28/05/2025 (10 contre) ; plan biodiversité de son gouvernement, juillet 2018 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+  philippe: { option: C, source: "Vote du groupe Horizons contre la suppression du ZAN, amendement n° 953 rect., 28/05/2025 (10 contre) ; plan biodiversité de son gouvernement, juillet 2018", statut: estimee }
+  # Cahier « Face à la crise du logement : faire sauter le verrou », septembre 2026 ; amendement n° 844 cosigné, 03/04/2025 : https://nouspresident.fr/face-a-la-crise-du-logement-faire-sauter-le-verrou/
+  ruffin: { option: D, source: "Cahier « Face à la crise du logement : faire sauter le verrou », septembre 2026 ; amendement n° 844 cosigné, 03/04/2025", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/052-zan.md (chaque chiffre y a sa source numérotée ;
 # tableau des renvois en annexe de l'étude). Le fil : une loi qui divise par deux les terres prises pour bâtir ;
 # faut-il la garder, l'assouplir ou la supprimer ? Quatre angles : logement, campagnes, faisabilité, opinion.

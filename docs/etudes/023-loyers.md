@@ -421,6 +421,12 @@ par aucun candidat.
 
 ---
 
+### Positions complétées le 29/10/2026
+
+- **Nathalie Arthaud** : option A (estimee) — Lutte ouvrière, brève « Rhône : Encadrer… mais surtout limiter le montant des loyers », 30/07/2012 ; « Loi Duflot », 02/04/2014 ; brève du 26/10/2026, https://lutte-ouvriere.org/portail/breves/en-regions-rhone-alpes-breves-article-encadrer-mais-surtout-limiter-le.html — « A quand des mesures limitant le montant des loyers, et la construction massive des logements sociaux qui manquent ? » — Le parti reproche à l'encadrement de ne pas baisser les loyers (« Il ne s'agit nullement d'un blocage des loyers », 2014) et au Sénat de le restreindre (26/10/2026, écarte C et D) : A, qui abaisse les plafonds, est plus proche que B ; sources anciennes sur le niveau des loyers.
+- **David Lisnard** : option D (estimee) — Entretien au Figaro repris par Nouvelle Énergie, 05/12/2025, https://www.unenouvelleenergie.fr/david-lisnard-face-a-la-crise-du-logement-il-est-temps-de-briser-cette-spirale-infernale/ — « On a tellement voulu protéger le locataire qu’on a fini par le fragiliser en montant les exigences des loueurs. » — Il « remettrait en cause » la loi Alur, qui a créé l'encadrement des loyers, et veut que les propriétaires puissent remettre leurs biens en location en levant les contraintes (il supprimerait aussi le DPE) : la fin de l'essai (D) est nettement plus probable ; il ne nomme jamais l'encadrement.
+- **Édouard Philippe** : option D (deduite) — Empruntis, « Logement : les pistes d'Édouard Philippe pour sortir de la crise », 10/12/2025 (congrès de la FNAIM) ; vote du groupe Horizons pour la suppression de l'article, scrutin n° 4724, 11/12/2025 (6 pour), https://www.empruntis.com/financement/actualites/2025/logement-pistes-edouard-philippe-sortir-crise-20373/ — « dans une économie qui est régulée par le marché, lorsque vous interdisez au prix de faire ce à quoi il sert » — Il dénonce l'encadrement des loyers par principe devant la FNAIM, et son groupe a voté la suppression du dispositif le lendemain (il a aussi voté, en repli, la prolongation de deux ans) : D ; source de presse secondaire.
+
 ## 5. Sources
 
 1. Sénat, rapport n° 47 (2026-2027) de Mme Amel Gacquerre, commission des affaires économiques, sur la proposition de loi pour retrouver la confiance et l'équilibre dans les rapports locatifs, 14/10/2026 : https://www.senat.fr/rap/l26-047/l26-047.html (PDF : https://www.senat.fr/rap/l26-047/l26-0471.pdf)

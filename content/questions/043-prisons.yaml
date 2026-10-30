@@ -96,6 +96,12 @@ positions:
   roussel: { option: A, source: "Sénat, proposition de loi n° 873 « visant à mettre fin à la surpopulation carcérale », sénateurs communistes du groupe CRCE (É. Assassi, C. Cukierman, P. Laurent…), 05/09/2022 ; amendement GDR n° 594, scrutin n° 2164, 06/07/2023 (GDR 4 pour sur 4)", statut: deduite }
   # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier « Rendre la justice plus proche des citoyens et plus efficace », p. 61 : https://place-publique.eu/pages/6mRSwq5tuSrSi68Cw1IADX/l-acte-i
   glucksmann: { option: B, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier « Rendre la justice plus proche des citoyens et plus efficace », p. 61", statut: deduite }
+  # Site de campagne, « Gabriel Attal appelle à une Nouvelle Justice dans Le Figaro », 12/06/2026 ; confirmé dans le JDD (site de campagne, 02/08/2026) : https://attalpresident.fr/actualites/gabriel-attal-dans-le-figaro-appelle-a-une-nouvelle-justice
+  attal: { option: D, source: "Site de campagne, « Gabriel Attal appelle à une Nouvelle Justice dans Le Figaro », 12/06/2026 ; confirmé dans le JDD (site de campagne, 02/08/2026)", statut: officielle }
+  # Lutte ouvrière, « Darmanin : surenchère sécuritaire », 11/06/2025 ; journal, 09/04/2025 : https://lutte-ouvriere.org/journal/article/darmanin-surenchere-securitaire-184994.html
+  arthaud: { option: B, source: "Lutte ouvrière, « Darmanin : surenchère sécuritaire », 11/06/2025 ; journal, 09/04/2025", statut: estimee }
+  # Assemblée nationale, amendement n° 15 (groupe Écologiste et social, cosigné par F. Ruffin) à la proposition de loi « Faire exécuter les peines d'emprisonnement ferme » (n° 1655), 03/04/2026 : https://www.assemblee-nationale.fr/dyn/17/amendements/1655/AN/15.pdf
+  ruffin: { option: A, source: "Assemblée nationale, amendement n° 15 (groupe Écologiste et social, cosigné par F. Ruffin) à la proposition de loi « Faire exécuter les peines d'emprisonnement ferme » (n° 1655), 03/04/2026", statut: deduite }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/043-prisons.md (chaque chiffre y a sa source
 # numérotée). Le fil : les détenus augmentent plus vite que les places ; faut-il construire, punir hors de la prison,
 # faire les deux, ou plafonner ?

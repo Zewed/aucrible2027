@@ -87,6 +87,18 @@ positions:
   arthaud: { option: D, source: "Discours de Nathalie Arthaud à la fête de Lutte ouvrière (mai 2026), brochure « Présidentielle 2027 », juin 2026", statut: officielle }
   # Debout la France, livret « Immigration et assimilation », mesure 2, 03/03/2026 : https://www.debout-la-france.fr/projet/immigration-et-assimilation/
   dupont-aignan: { option: A, source: "Debout la France, livret « Immigration et assimilation », mesure 2, 03/03/2026", statut: officielle }
+  # Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. immigration : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: A, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. immigration", statut: deduite }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 41, p. 82 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: C, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 41, p. 82", statut: estimee }
+  # Sud Radio, 19/09/2023, cité par la FAQ de Nouvelle Énergie « David Lisnard veut-il rétablir le délit de séjour irrégulier ? » (16/10/2026) ; scrutin n° 3261, 30/10/2025 (A. Martin, députée de Nouvelle Énergie) : https://www.unenouvelleenergie.fr/questions/david-lisnard-veut-il-retablir-le-delit-de-sejour-irregulier/
+  lisnard: { option: B, source: "Sud Radio, 19/09/2023, cité par la FAQ de Nouvelle Énergie « David Lisnard veut-il rétablir le délit de séjour irrégulier ? » (16/10/2026) ; scrutin n° 3261, 30/10/2025 (A. Martin, députée de Nouvelle Énergie)", statut: estimee }
+  # F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), chapitre justice ; vote GDR pour la suppression du délit, scrutin n° 3261, 30/10/2025 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: D, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), chapitre justice ; vote GDR pour la suppression du délit, scrutin n° 3261, 30/10/2025", statut: deduite }
+  # Vote pour l'amendement de suppression du délit de séjour irrégulier, scrutin n° 3261, 30/10/2025 (datan) ; vidéos citées par Public Sénat, 11/05/2026 : https://www.publicsenat.fr/actualites/politique/presidentielle-limmigration-nouveau-clivage-a-gauche
+  ruffin: { option: D, source: "Vote pour l'amendement de suppression du délit de séjour irrégulier, scrutin n° 3261, 30/10/2025 (datan) ; vidéos citées par Public Sénat, 11/05/2026", statut: estimee }
+  # Vote du groupe Écologiste et social pour la suppression du délit (35 voix), scrutin n° 3261, 30/10/2025 ; Les Écologistes, projet 2027, mesures Immigration n° 1 et 7 : https://votons-2027.fr/candidats/tondelier/programme/immigration
+  tondelier: { option: D, source: "Vote du groupe Écologiste et social pour la suppression du délit (35 voix), scrutin n° 3261, 30/10/2025 ; Les Écologistes, projet 2027, mesures Immigration n° 1 et 7", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/046-delit-de-sejour.md (chaque chiffre y a sa source
 # numérotée, voir son annexe). Le fil : le délit a disparu en 2013 ; environ un ordre de partir sur dix est exécuté ;
 # quatre choix sont sur la table. Pas de mécanisme : aucun ratio « X pour 1 » ne résume le sujet (et l'écran est dessiné

@@ -86,6 +86,10 @@ positions:
   zemmour: { option: C, source: "Programme 2022, p. 31", statut: deduite }
   dupont-aignan: { option: E, source: "Interview Sud Radio, 02/10/2026", statut: officielle }
   philippe: { option: E, source: "Projet de loi retraites, 2020", statut: deduite }
+  # Nouvelle Énergie, programme, axe « Réussir une nouvelle ambition française », section retraites (consulté le 28/10/2026) : https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/
+  lisnard: { option: D, source: "Nouvelle Énergie, programme, axe « Réussir une nouvelle ambition française », section retraites (consulté le 28/10/2026)", statut: officielle }
+  # Cahier de campagne n° 01, Pour les travailleurs essentiels, avril 2026, mot de la fin de S. Taillé-Polian, responsable du programme : https://nouspresident.fr/statut-travailleurs-essentiels/
+  ruffin: { option: A, source: "Cahier de campagne n° 01, Pour les travailleurs essentiels, avril 2026, mot de la fin de S. Taillé-Polian, responsable du programme", statut: officielle }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/024-retraite.md (chaque chiffre y a sa source
 # numérotée). Le fil : pour équilibrer les retraites, il n'y a que trois leviers (COR) ; l'âge est le premier.
 reportage:

@@ -91,6 +91,8 @@ positions:
   ruffin: { option: B, source: "têtu·, 18/03/2025", statut: officielle }
   # Programme présidentiel 2022 : https://web.archive.org/web/20220527160820/https://programme.ericzemmour.fr/famille
   zemmour: { option: A, source: Programme présidentiel 2022, statut: deduite }
+  # Les Écologistes, projet 2027, juillet 2026, p. 141 (cité par MonVote2027) : https://monvote2027.fr/candidat/tondelier
+  tondelier: { option: B, source: "Les Écologistes, projet 2027, juillet 2026, p. 141 (cité par MonVote2027)", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/027-gpa.md (chaque chiffre y a sa source
 # numérotée, voir son annexe). Le fil : trois choix possibles ; la France applique le deuxième.
 # Ni mécanisme ni écart : aucun rapport « X pour 1 » ni aucune grandeur à deux dates ne sont sourcés pour ce sujet.

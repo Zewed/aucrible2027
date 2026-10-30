@@ -77,6 +77,10 @@ positions:
   lisnard: { option: B, source: "Les Échos, tribune, 11/02/2026", statut: officielle }
   # X, 27/01/2026 : https://x.com/ZemmourEric/status/2016132150811119718
   zemmour: { option: A, source: "X, 27/01/2026", statut: officielle }
+  # Lutte ouvrière n° 2997, janvier 2026, « Réseaux sociaux et portables : le président veut rester à l'écran » : https://www.lutte-ouvriere.org/medias/journalnumero/fichiers/2026/01/2997-web.pdf
+  arthaud: { option: A, source: "Lutte ouvrière n° 2997, janvier 2026, « Réseaux sociaux et portables : le président veut rester à l'écran »", statut: estimee }
+  # Amendement n° 12 du groupe LFI (suppression de l'article 1er) à la proposition de loi n° 2341, 20/01/2026 ; vote contre du groupe (63 voix), 21/07/2026 : https://www.assemblee-nationale.fr/dyn/17/amendements/2341/AN/12.pdf
+  melenchon: { option: A, source: "Amendement n° 12 du groupe LFI (suppression de l'article 1er) à la proposition de loi n° 2341, 20/01/2026 ; vote contre du groupe (63 voix), 21/07/2026", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/038-reseaux-sociaux.md (chaque chiffre y a sa source
 # numérotée). Le fil : deux lois votées, aucune appliquée ; quatre façons de protéger les enfants, que l'Europe mélange.
 reportage:

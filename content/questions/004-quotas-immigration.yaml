@@ -70,6 +70,22 @@ positions:
   retailleau: { option: C, source: "Public Sénat, 03/09/2026", statut: officielle }
   # https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure_caravane_2026-01_-_couleur.pdf (« liberté de circulation et d'installation pour chaque être humain »)
   arthaud: { option: A, source: "Lutte ouvrière, brochure, 06/2026", statut: officielle }
+  # Debout la France, projet « Immigration et assimilation », mesures 5, 7, 10 et 18 (2026) : https://www.debout-la-france.fr/projet/immigration-et-assimilation/
+  dupont-aignan: { option: C, source: "Debout la France, projet « Immigration et assimilation », mesures 5, 7, 10 et 18 (2026)", statut: estimee }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 41, p. 82 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: A, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 41, p. 82", statut: estimee }
+  # Public Sénat, 21/06/2019 (M. Le Pen sur les quotas) ; programme présidentiel 2017 (solde migratoire annuel de 10 000) ; « 22 mesures » 2022 : https://www.publicsenat.fr/article/politique/quotas-l-executif-veut-occuper-le-terrain-de-l-immigration-142293
+  le-pen: { option: C, source: "Public Sénat, 21/06/2019 (M. Le Pen sur les quotas) ; programme présidentiel 2017 (solde migratoire annuel de 10 000) ; « 22 mesures » 2022", statut: estimee }
+  # Amendement n° 1041 du groupe LFI-NUPES au projet de loi immigration (n° 1943), 07/12/2023 ; L'Avenir en commun 2025 : https://www.assemblee-nationale.fr/dyn/16/amendements/1943/AN/1041.pdf
+  melenchon: { option: A, source: "Amendement n° 1041 du groupe LFI-NUPES au projet de loi immigration (n° 1943), 07/12/2023 ; L'Avenir en commun 2025", statut: deduite }
+  # F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesures 89 et 162 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesures 89 et 162", statut: estimee }
+  # France 2, 28/04/2026, rapporté par Public Sénat, 11/05/2026 : https://www.publicsenat.fr/actualites/politique/presidentielle-limmigration-nouveau-clivage-a-gauche
+  ruffin: { option: A, source: "France 2, 28/04/2026, rapporté par Public Sénat, 11/05/2026", statut: estimee }
+  # Les Écologistes, projet 2027, juillet 2026, p. 177 (cité par MonVote2027) et mesure Immigration n° 5 (relevée par votons-2027.fr) : https://votons-2027.fr/candidats/tondelier/programme/immigration
+  tondelier: { option: A, source: "Les Écologistes, projet 2027, juillet 2026, p. 177 (cité par MonVote2027) et mesure Immigration n° 5 (relevée par votons-2027.fr)", statut: estimee }
+  # Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. immigration : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: C, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. immigration", statut: estimee }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   accroche:

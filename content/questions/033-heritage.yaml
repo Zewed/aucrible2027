@@ -98,6 +98,8 @@ positions:
   lisnard: { option: E, source: "Atlantico, tribune, 13/04/2026", statut: officielle }
   # Plan de redressement, nouspresident.fr, 21/10/2026 : https://nouspresident.fr/plan-de-redressement/
   ruffin: { option: B, source: "Plan de redressement, nouspresident.fr, 21/10/2026", statut: officielle }
+  # Lutte ouvrière, « Héritage : la poule aux œufs d'or », 25/09/2024 ; « Budget : tout le monde paiera… sauf les riches », 02/07/2025 : https://www.lutte-ouvriere.org/journal/article/budget-monde-paiera-sauf-riches-185500.html
+  arthaud: { option: B, source: "Lutte ouvrière, « Héritage : la poule aux œufs d'or », 25/09/2024 ; « Budget : tout le monde paiera… sauf les riches », 02/07/2025", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/033-heritage.md (chaque chiffre y a sa source
 # numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : l'impôt rapporte plus, l'héritage pèse plus,
 # et trois leviers permettent de le changer ; les camps s'opposent sur le niveau.

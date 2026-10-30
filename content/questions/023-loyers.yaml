@@ -79,6 +79,12 @@ positions:
   le-pen: { option: D, source: "Vote du groupe RN, 11/12/2025", statut: deduite }
   # Vote contre la prolongation de deux ans au Sénat, scrutin n° 25 du 21/10/2026 : https://www.senat.fr/scrutin-public/2026/scr2026-25.html
   retailleau: { option: D, source: "Vote au Sénat, 21/10/2026", statut: deduite }
+  # Lutte ouvrière, brève « Rhône : Encadrer… mais surtout limiter le montant des loyers », 30/07/2012 ; « Loi Duflot », 02/04/2014 ; brève du 26/10/2026 : https://lutte-ouvriere.org/portail/breves/en-regions-rhone-alpes-breves-article-encadrer-mais-surtout-limiter-le.html
+  arthaud: { option: A, source: "Lutte ouvrière, brève « Rhône : Encadrer… mais surtout limiter le montant des loyers », 30/07/2012 ; « Loi Duflot », 02/04/2014 ; brève du 26/10/2026", statut: estimee }
+  # Entretien au Figaro repris par Nouvelle Énergie, 05/12/2025 : https://www.unenouvelleenergie.fr/david-lisnard-face-a-la-crise-du-logement-il-est-temps-de-briser-cette-spirale-infernale/
+  lisnard: { option: D, source: "Entretien au Figaro repris par Nouvelle Énergie, 05/12/2025", statut: estimee }
+  # Empruntis, « Logement : les pistes d'Édouard Philippe pour sortir de la crise », 10/12/2025 (congrès de la FNAIM) ; vote du groupe Horizons pour la suppression de l'article, scrutin n° 4724, 11/12/2025 (6 pour) : https://www.empruntis.com/financement/actualites/2025/logement-pistes-edouard-philippe-sortir-crise-20373/
+  philippe: { option: D, source: "Empruntis, « Logement : les pistes d'Édouard Philippe pour sortir de la crise », 10/12/2025 (congrès de la FNAIM) ; vote du groupe Horizons pour la suppression de l'article, scrutin n° 4724, 11/12/2025 (6 pour)", statut: deduite }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/023-loyers.md (chaque chiffre y a sa source
 # numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : un essai parti de Paris en 2019, étendu à 70
 # communes, qui s'arrête en novembre 2026 sans nouveau vote ; quatre choix ; puis quatre questions où chaque camp avance

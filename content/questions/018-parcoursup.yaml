@@ -84,6 +84,14 @@ positions:
   attal: { option: C, source: "Meeting à Lyon, 10/10/2026", statut: officielle }
   # https://www.publicsenat.fr/actualites/politique/parcoursup-que-proposent-les-candidats-sur-l-affectation-postbac-200502
   zemmour: { option: C, source: "Campagne 2022, Public Sénat, 29/03/2022", statut: deduite }
+  # Cahier « Éducation : une école de tous les savoirs », octobre 2026, proposition 4 : https://nouspresident.fr/education-une-ecole-de-tous-les-savoirs/
+  ruffin: { option: B, source: "Cahier « Éducation : une école de tous les savoirs », octobre 2026, proposition 4", statut: officielle }
+  # Lutte ouvrière, « Parcoursup : non à la lutte des places », 14/10/2026 ; « Lecornu rend sa copie : très insuffisant », 28/10/2026 : https://lutte-ouvriere.org/journal/article/parcoursup-non-lutte-places-205845.html
+  arthaud: { option: A, source: "Lutte ouvrière, « Parcoursup : non à la lutte des places », 14/10/2026 ; « Lecornu rend sa copie : très insuffisant », 28/10/2026", statut: estimee }
+  # Debout la France, projet « Éducation » (instruction publique), mesure 51 (2026) : https://www.debout-la-france.fr/projet/instruction-publique/
+  dupont-aignan: { option: C, source: "Debout la France, projet « Éducation » (instruction publique), mesure 51 (2026)", statut: officielle }
+  # franceinfo, interview d'É. Philippe dans « L'Heure de vérité » (France 2), 08/10/2026 ; programme « Pour une France plus attentive à ses enfants » : https://www.franceinfo.fr/politique/edouard-philippe/immigration-retraites-allocations-familiales-parcoursup-ce-qu-il-faut-retenir-de-l-interview-d-edouard-philippe-dans-l-emission-l-heure-de-verite_8228416.html
+  philippe: { option: C, source: "franceinfo, interview d'É. Philippe dans « L'Heure de vérité » (France 2), 08/10/2026 ; programme « Pour une France plus attentive à ses enfants »", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/018-parcoursup.md (chaque chiffre y a sa source
 # numérotée ; compléments C1 à C3 et annexe). Chiffres de la session 2026, publiés en octobre 2026 [19] [20], plus
 # récents que ceux de la fiche (2025). Le fil : un outil qui reçoit toujours plus de candidats, que le gouvernement

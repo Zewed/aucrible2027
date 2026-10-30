@@ -81,6 +81,14 @@ positions:
   zemmour: { option: D, source: "Le Figaro, 29/01/2021", statut: deduite }
   # https://www.cnews.fr/france/2025-01-17/la-proportionnelle-serait-le-clou-sur-le-cercueil-de-la-france-estime-nicolas
   dupont-aignan: { option: D, source: "CNews, 17/01/2025", statut: deduite }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 20, p. 46 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: A, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 20, p. 46", statut: officielle }
+  # Lutte ouvrière, « Nathalie Arthaud : campagne en Seine-Saint-Denis », 31/05/2017 ; « Scrutin majoritaire ou proportionnel ? », 24/05/2007 : https://www.lutte-ouvriere.org/journal/article/2017-05-31-nathalie-arthaud-campagne-en-seine-saint-denis_92875.html
+  arthaud: { option: A, source: "Lutte ouvrière, « Nathalie Arthaud : campagne en Seine-Saint-Denis », 31/05/2017 ; « Scrutin majoritaire ou proportionnel ? », 24/05/2007", statut: estimee }
+  # D. Lisnard, chronique dans L'Opinion reprise par Nouvelle Énergie, « Légitimité légale, légitimité politique : la difficile équation présidentielle », 09/10/2025 : https://www.unenouvelleenergie.fr/legitimite-legale-legitimite-politique-la-difficile-equation-presidentielle/
+  lisnard: { option: D, source: "D. Lisnard, chronique dans L'Opinion reprise par Nouvelle Énergie, « Légitimité légale, légitimité politique : la difficile équation présidentielle », 09/10/2025", statut: estimee }
+  # F. Roussel, La France des Jours heureux, programme présidentiel 2022, mesure 133 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022, mesure 133", statut: deduite }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   accroche:

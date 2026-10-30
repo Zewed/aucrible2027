@@ -317,6 +317,17 @@ Options de la fiche : **A** = affecter les nouveaux médecins quelques années l
 
 ---
 
+### Positions complétées le 29/10/2026
+
+- **David Lisnard** : option D (officielle) — Nouvelle Énergie, « Les carnets Santé », 2026 (livret publié en mai 2026) ; BFMTV, 07/05/2025, https://nouvelle-energie-media-prod.s3.fr-par.scw.cloud/media/legacy/2026/05/Livret-Sante-Nouvelle-Energie.pdf — « Garantir la liberté d’installation des médecins et instaurer un conventionnement différencié selon les besoins définis localement » — Liberté d'installation, incitations (meilleur remboursement en zone sous-dotée, exonérations fiscales), deux fois plus d'étudiants : D ; il dit aussi « Je suis contre la régulation » (BFMTV, 07/05/2025, cité par la FAQ du parti).
+
+### Positions complétées le 29/10/2026
+
+- **Nicolas Dupont-Aignan** : option D (estimee) — Debout la France, projet « Santé », mesures 2, 15 et 18 (2026), https://www.debout-la-france.fr/projet/sante/ — « afin de mettre fin aux déserts médicaux, une bourse pour les étudiants en médecine […] s'installer dans une zone sous-dotée pendant leurs 5 premières années » — Toutes ses mesures sur l'installation sont des incitations (bourse volontaire, revenus plus élevés, maisons de santé, plus d'étudiants), sans aucune contrainte : c'est l'option D.
+- **Raphaël Glucksmann** : option D (estimee) — Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 23, p. 50 ; vote d'Aurélien Rousseau, député Place publique, contre l'article 1er de la loi Garot (scrutin n° 1214, 02/04/2025), https://datan.fr/votes/legislature-17/vote_1214 — « Soutenir l’installation, diversifier les pratiques et valoriser les évolutions de carrières, encourager l’exercice mixte (hôpital/ville), favoriser les structures de soins regroupés » — Son projet attire les médecins (maisons et centres de santé, exercice mixte) sans réguler l'installation, et le député de Place publique a voté, seul de son groupe, contre la régulation de la loi Garot : D plutôt que B ou C.
+- **Édouard Philippe** : option D (estimee) — Public Sénat, « Édouard Philippe présente son plan contre les déserts médicaux », 13/10/2017, https://www.publicsenat.fr/actualites/politique/edouard-philippe-presente-son-plan-contre-les-deserts-medicaux-78562 — « Il faut séduire les médecins pour qu'ils viennent » — Premier ministre, il a écarté « la répartition presque forcée, administrative » au profit d'aides et de maisons de santé, ce qui est D ; déclaration ancienne, et son groupe s'est partagé en 2025 sur la régulation (8 pour, 5 contre).
+- **Éric Zemmour** : option D (estimee) — Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. santé ; S. Knafo (Reconquête), plan « 140 milliards d'économies », budget2027.fr, 2026, https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf — « Recruter 1 000 médecins salariés par l'État sur 5 ans pour soigner dans les déserts médicaux » — Contre les déserts médicaux, il recrute des médecins salariés, double les formations et supprime les ARS qui autoriseraient les installations en B, sans toucher à la liberté d'installation (sa garde obligatoire porte sur la permanence des soins) : D, qui est aussi la règle actuelle.
+
 ## 5. Sources
 
 Consultées le 28 octobre 2026.

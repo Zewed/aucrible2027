@@ -78,6 +78,18 @@ positions:
   melenchon: { option: A, source: "L'Avenir en commun, édition 2025, mesures 3 et 5", statut: officielle }
   # https://www.publicsenat.fr/actualites/sante/hausse-des-franchises-medicales-la-methode-bayrou-heurte-egalement-au-senat (« son refus de voir ces franchises médicales relevées », 05/09/2025) ; https://nosparlementaires.fr/actualites/franchises-medicales-decret-plafond-vote-assemblee (vote du groupe DR, 08/11/2025)
   retailleau: { option: B, source: "Public Sénat, 05/09/2025, et vote du groupe, 08/11/2025", statut: deduite }
+  # Lutte ouvrière, « Santé : encore une pilule à avaler », 20/11/2024 : https://www.lutte-ouvriere.org/portail/journal/sante-encore-pilule-avaler-179742.html
+  arthaud: { option: A, source: "Lutte ouvrière, « Santé : encore une pilule à avaler », 20/11/2024", statut: deduite }
+  # Premier ministre, décret de février 2024 doublant les franchises (0,50 € → 1 € par boîte, 1 € → 2 € par consultation) ; programme « Dette de l'État » (frein d'urgence sur les dépenses sociales) : https://attalpresident.fr/actualites/gabriel-attal-lettre-aux-francais-plan-finances-publiques
+  attal: { option: C, source: "Premier ministre, décret de février 2024 doublant les franchises (0,50 € → 1 € par boîte, 1 € → 2 € par consultation) ; programme « Dette de l'État » (frein d'urgence sur les dépenses sociales)", statut: estimee }
+  # Debout la France, projet « Santé », constat (2026) : https://www.debout-la-france.fr/projet/sante/
+  dupont-aignan: { option: B, source: "Debout la France, projet « Santé », constat (2026)", statut: estimee }
+  # Vote du groupe RN pour la suppression de l'article 18 du PLFSS 2026 (71 pour, 0 contre), scrutin n° 3598, 08/11/2025 ; amendement RN adopté en commission, R. Lioret, LCP, 29/10/2025 : https://nosparlementaires.fr/actualites/franchises-medicales-decret-plafond-vote-assemblee
+  le-pen: { option: B, source: "Vote du groupe RN pour la suppression de l'article 18 du PLFSS 2026 (71 pour, 0 contre), scrutin n° 3598, 08/11/2025 ; amendement RN adopté en commission, R. Lioret, LCP, 29/10/2025", statut: estimee }
+  # Vote du groupe Horizons, scrutin n° 3598, 08/11/2025 (13 contre la suppression de l'article 18 du budget de la Sécurité sociale pour 2026), NosParlementaires : https://nosparlementaires.fr/actualites/franchises-medicales-decret-plafond-vote-assemblee
+  philippe: { option: D, source: "Vote du groupe Horizons, scrutin n° 3598, 08/11/2025 (13 contre la suppression de l'article 18 du budget de la Sécurité sociale pour 2026), NosParlementaires", statut: deduite }
+  # Les Écologistes, projet 2027, juillet 2026, ch. 29, p. 111 (cité par MonVote2027) ; vote du groupe écologiste pour la suppression de l'article 18 du PLFSS 2026, scrutin n° 3598, 08/11/2025 : https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
+  tondelier: { option: A, source: "Les Écologistes, projet 2027, juillet 2026, ch. 29, p. 111 (cité par MonVote2027) ; vote du groupe écologiste pour la suppression de l'article 18 du PLFSS 2026, scrutin n° 3598, 08/11/2025", statut: officielle }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/006-franchises-medicales.md (chaque chiffre y a sa
 # source numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : le plafond de ce qu'un patient paie de sa
 # poche n'avait pas bougé de 2008 à 2026 ; il monte ; quatre choix répartissent la note entre les patients qui se

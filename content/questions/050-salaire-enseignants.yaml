@@ -86,6 +86,14 @@ positions:
   melenchon: { option: A, source: "L'Avenir en commun, édition 2025 (programme sur melenchon2027.fr), chap. 5, « Revaloriser les personnels de l'Éducation nationale »", statut: officielle }
   # Nouvelle Énergie, programme, page « Éducation » (consultée le 28/10/2026) : https://www.unenouvelleenergie.fr/notre-programme/education/
   lisnard: { option: B, source: "Nouvelle Énergie, programme, page « Éducation » (consultée le 28/10/2026)", statut: officielle }
+  # Lutte ouvrière, brève « Enseignement : des élèves… mais surtout des profs », 29/08/2024 : https://www.lutte-ouvriere.org/portail/breves/enseignement-deleves-surtout-profs-177557.html
+  arthaud: { option: A, source: "Lutte ouvrière, brève « Enseignement : des élèves… mais surtout des profs », 29/08/2024", statut: deduite }
+  # Cahier « Éducation : une école de tous les savoirs », octobre 2026 : https://nouspresident.fr/education-une-ecole-de-tous-les-savoirs/
+  ruffin: { option: A, source: "Cahier « Éducation : une école de tous les savoirs », octobre 2026", statut: officielle }
+  # Debout la France, projet « Éducation » (instruction publique), mesure 41 (2026) ; 100 décisions, décision 47, 2022 : https://www.debout-la-france.fr/projet/instruction-publique/
+  dupont-aignan: { option: A, source: "Debout la France, projet « Éducation » (instruction publique), mesure 41 (2026) ; 100 décisions, décision 47, 2022", statut: officielle }
+  # Sud Radio, 03/09/2026 ; Public Sénat, 31/08/2026 : https://www.sudradio.fr/sud-radio/presidentielle-2027-comment-les-candidats-draguent-les-professeurs-et-lecole
+  retailleau: { option: A, source: "Sud Radio, 03/09/2026 ; Public Sénat, 31/08/2026", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/050-salaire-enseignants.md (chaque chiffre y a sa
 # source numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : depuis 1990, les débuts de carrière ont
 # gagné, le milieu a perdu ; l'écart avec les autres pays est au milieu de la carrière ; quatre façons de payer.

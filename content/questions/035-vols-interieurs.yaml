@@ -83,6 +83,22 @@ positions:
   lisnard: { option: A, source: "L'Opinion, chronique, 25/05/2023", statut: deduite }
   # Projet 2027 des Écologistes, p. 25, juillet 2026 : https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
   tondelier: { option: D, source: "Projet 2027 des Écologistes, p. 25, juillet 2026", statut: officielle }
+  # Lutte de classe, « La catastrophe écologique et ceux qui s'en servent », 24/10/2021 : https://www.lutte-ouvriere.org/mensuel/article/2021-10-24-la-catastrophe-ecologique-et-ceux-qui-sen-servent_183740.html
+  arthaud: { option: B, source: "Lutte de classe, « La catastrophe écologique et ceux qui s'en servent », 24/10/2021", statut: estimee }
+  # 100 décisions pour la France, 2022 ; Debout la France, projet « Environnement et énergie » (2026) : https://www.debout-la-france.fr/projet/environnement-energie/
+  dupont-aignan: { option: B, source: "100 décisions pour la France, 2022 ; Debout la France, projet « Environnement et énergie » (2026)", statut: estimee }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 12, p. 29 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: C, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 12, p. 29", statut: estimee }
+  # Marine Le Pen sur X, 2024 (interdiction des véhicules thermiques), sujet voisin ; aucune mesure sur l'aérien dans son programme : https://x.com/MLP_officiel/status/1798260422597804199
+  le-pen: { option: B, source: "Marine Le Pen sur X, 2024 (interdiction des véhicules thermiques), sujet voisin ; aucune mesure sur l'aérien dans son programme", statut: estimee }
+  # É. Philippe, « Pour une France plus prospère », edouardphilippe.fr (consulté le 29/10/2026) : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+  philippe: { option: B, source: "É. Philippe, « Pour une France plus prospère », edouardphilippe.fr (consulté le 29/10/2026)", statut: estimee }
+  # Loi Climat, vote du Sénat à majorité LR sur le rapport de P. Tabarot (LR), 24/06/2021, Public Sénat : https://www.publicsenat.fr/actualites/environnement/loi-climat-le-senat-met-fin-aux-vols-interieurs-en-cas-d-alternative-en-train
+  retailleau: { option: B, source: "Loi Climat, vote du Sénat à majorité LR sur le rapport de P. Tabarot (LR), 24/06/2021, Public Sénat", statut: estimee }
+  # F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesures 48 et 49 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: B, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesures 48 et 49", statut: estimee }
+  # Reconquête, « Notre projet pour l'Europe des nations et de la civilisation », européennes du 09/06/2024, introduction ; Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour (avion « 100 % biokérosène ») : https://assets.ericzemmour.fr/document/Programme%20Reconqu%C3%AAte%20Europ%C3%A9ennes%202024.pdf
+  zemmour: { option: B, source: "Reconquête, « Notre projet pour l'Europe des nations et de la civilisation », européennes du 09/06/2024, introduction ; Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour (avion « 100 % biokérosène »)", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/035-vols-interieurs.md (chaque chiffre y a sa source
 # numérotée ; tableau des renvois en annexe de l'étude). Le fil : la loi a retenu 2 h 30 au lieu de 4 heures ; faut-il aller plus loin ?
 reportage:

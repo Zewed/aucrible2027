@@ -315,6 +315,10 @@ Aucun candidat n'a été trouvé pour l'option C (position de la Cour des compte
 - **Marine Tondelier** : option B confirmée (officielle) — Conférence de presse des Écologistes, rapportée par LCP, 27/08/2026, https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election — « La « grande transmission » doit financer la « grande transition » »
 - **Éric Zemmour** : option D confirmée (deduite) — Programme présidentiel 2022, https://web.archive.org/web/20220527160820/https://programme.ericzemmour.fr/famille — « Exonérer 95% des familles françaises de droit de succession en mettant en place une franchise de 200 000 euros par enfant »
 
+### Positions complétées le 29/10/2026
+
+- **Nathalie Arthaud** : option B (estimee) — Lutte ouvrière, « Héritage : la poule aux œufs d'or », 25/09/2024 ; « Budget : tout le monde paiera… sauf les riches », 02/07/2025, https://www.lutte-ouvriere.org/journal/article/budget-monde-paiera-sauf-riches-185500.html — « permet aux actionnaires de transmettre leurs capitaux à leur progéniture, quasiment en franchise d'impôt. » — Le parti dénonce le pacte Dutreil et le fait que les 0,1 % plus gros héritages ne paient qu'environ 10 % : cela écarte C, D et E et vise exactement ce que B réduit ; aucune source ne parle d'un héritage maximal (A), bien qu'elle veuille exproprier les grands capitalistes.
+
 ## 5. Sources
 
 Consultées le 27 octobre 2026.
