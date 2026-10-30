@@ -1,0 +1,229 @@
+content/questions/001-isf.yaml
+  s_613931134209e1::t_eac4169b5ac170 93-104
+content/questions/002-smic.yaml
+  s_613931134209e1::t_4a4f0bf82035e6 92-101
+content/questions/003-voitures-thermiques.yaml
+  s_613931134209e1::t_57a5243e3d0c62 71-88
+content/questions/004-quotas-immigration.yaml
+  s_613931134209e1::t_d30fcdfe72f891 73-88
+content/questions/005-peines-planchers.yaml
+  s_613931134209e1::t_7ef52c5af3e7c1 79-92
+content/questions/006-franchises-medicales.yaml
+  s_613931134209e1::t_f01d3789689ea2 81-92
+content/questions/007-uniforme.yaml
+  s_613931134209e1::t_f776d4c4e49005 81-88
+content/questions/008-sru.yaml
+  s_613931134209e1::t_809c8847ed89db 89-100
+content/questions/009-ukraine.yaml
+  s_613931134209e1::t_dba9e635a3fc74 83-90
+content/questions/010-ric.yaml
+  s_613931134209e1::t_303b012db08a9f 84-87
+content/questions/012-deficit.yaml
+  s_613931134209e1::t_052160b437c0a6 93-98
+content/questions/013-chomage.yaml
+  s_613931134209e1::t_b585ca2fd9a830 87-94
+content/questions/014-eoliennes.yaml
+  s_613931134209e1::t_b158ae9ad19401 86-95
+content/questions/015-ame.yaml
+  s_613931134209e1::t_f047df3e0f412a 76-91
+content/questions/016-majorite-penale.yaml
+  s_613931134209e1::t_6fa8f5729fdf2b 84-95
+content/questions/017-hopital.yaml
+  s_613931134209e1::t_492f930612fe25 76-89
+content/questions/018-parcoursup.yaml
+  s_613931134209e1::t_5813e2624f36f4 87-94
+content/questions/019-airbnb.yaml
+  s_613931134209e1::t_1f909709ef92bc 74-89
+content/questions/020-otan.yaml
+  s_613931134209e1::t_b35a4e4f801b8f 77-84
+content/questions/021-proportionnelle.yaml
+  s_613931134209e1::t_e0941f7d01c3f1 84-91
+content/questions/022-cannabis.yaml
+  s_613931134209e1::t_5c2a60396060b9 91-92
+content/questions/023-loyers.yaml
+  s_613931134209e1::t_fad7b5ef456a0e 82-87
+content/questions/024-retraite.yaml
+  s_613931134209e1::t_b7826b8a27c733 89-92
+content/questions/025-nucleaire.yaml
+  s_613931134209e1::t_bd77abd767d0bd 97-98
+content/questions/026-medecins.yaml
+  s_613931134209e1::t_144c3b07cc35f1 92-101
+content/questions/027-gpa.yaml
+  s_613931134209e1::t_6365143de67fcf 94-95
+content/questions/028-etat-civil.yaml
+  s_613931134209e1::t_24b72af9d554fa 81-84
+content/questions/029-israel.yaml
+  s_613931134209e1::t_9ac6fe81fadc70 82-91
+content/questions/030-soldats-ukraine.yaml
+  s_613931134209e1::t_32afa00d929695 87-88
+content/questions/031-russie.yaml
+  s_613931134209e1::t_d80ec40e33cbe6 85-94
+content/questions/032-ouighours.yaml
+  s_613931134209e1::t_3faad1761048f2 84-87
+content/questions/033-heritage.yaml
+  s_613931134209e1::t_95f644555a08f7 101-102
+content/questions/034-semaine-4-jours.yaml
+  s_613931134209e1::t_907b410f499252 92-95
+content/questions/035-vols-interieurs.yaml
+  s_613931134209e1::t_367717807a7026 86-101
+content/questions/036-droit-du-sol.yaml
+  s_613931134209e1::t_8a17c79182ac51 86-93
+content/questions/038-reseaux-sociaux.yaml
+  s_613931134209e1::t_c5b1b36216cc1d 80-83
+content/questions/039-taxe-zucman.yaml
+  s_613931134209e1::t_821710cd8138df 94-99
+content/questions/040-rsa.yaml
+  s_613931134209e1::t_53716e650aefc8 93-100
+content/questions/041-pesticides.yaml
+  s_613931134209e1::t_d8c05fa3b39973 88-99
+content/questions/042-regularisation.yaml
+  s_613931134209e1::t_188d8e2f8bf040 85-96
+content/questions/043-prisons.yaml
+  s_613931134209e1::t_7c3997acfe724c 99-104
+content/questions/044-depassements-honoraires.yaml
+  s_613931134209e1::t_a800237647be1b 78-89
+content/questions/045-tva.yaml
+  s_613931134209e1::t_485992261f570b 88-95
+content/questions/046-delit-de-sejour.yaml
+  s_613931134209e1::t_fafbbbab355fca 90-101
+content/questions/047-legitime-defense-policiers.yaml
+  s_613931134209e1::t_61f68e1aa3c0ba 94-101
+content/questions/048-vaccins.yaml
+  s_613931134209e1::t_5c4df5a25b9a8a 79-88
+content/questions/049-service-national.yaml
+  s_613931134209e1::t_00b1feaba4a40f 84-99
+content/questions/050-salaire-enseignants.yaml
+  s_613931134209e1::t_be860db26dd159 89-96
+content/questions/051-logements-vacants.yaml
+  s_613931134209e1::t_c3122f1d0689f5 86-93
+content/questions/052-zan.yaml
+  s_613931134209e1::t_fc7273ec962672 86-99
+content/questions/054-vote-obligatoire.yaml
+  s_613931134209e1::t_52e207c0b34e15 73-82
+content/questions/055-vote-blanc.yaml
+  s_613931134209e1::t_706c07d46d5d5e 70-75
+content/questions/056-voile-sport.yaml
+  s_613931134209e1::t_91e48baab29c1f 100-109
+docs/etudes/001-isf.md
+  s_613931134209e1::t_3667b5e1cca577 103-114
+docs/etudes/002-smic.md
+  s_613931134209e1::t_26dd0b90162b02 93-103
+docs/etudes/003-voitures-thermiques.md
+  s_613931134209e1::t_90cfef09443d08 91-105
+docs/etudes/004-quotas-immigration.md
+  s_613931134209e1::t_a42dd331400204 78-88
+docs/etudes/005-peines-planchers.md
+  s_613931134209e1::t_d82f87271a24e6 141-153
+docs/etudes/006-franchises-medicales.md
+  s_613931134209e1::t_323330ca4b0d90 91-102
+docs/etudes/007-uniforme.md
+  s_613931134209e1::t_4a95e383379a2b 196-202
+docs/etudes/008-sru.md
+  s_613931134209e1::t_196d7b485e8fcd 198-209
+docs/etudes/009-ukraine.md
+  s_613931134209e1::t_e853dbf5ac2eab 201-210
+docs/etudes/010-ric.md
+  s_613931134209e1::t_986e6b08df66b1 185-192
+docs/etudes/012-deficit.md
+  s_613931134209e1::t_64e281562f51cf 120-128
+docs/etudes/013-chomage.md
+  s_613931134209e1::t_4ed8b54bb19e3c 116-125
+docs/etudes/014-eoliennes.md
+  s_613931134209e1::t_aba7c4548ef9ca 114-124
+docs/etudes/015-ame.md
+  s_613931134209e1::t_90053fbae70742 105-118
+docs/etudes/016-majorite-penale.md
+  s_613931134209e1::t_386e92786fbdb8 148-159
+docs/etudes/017-hopital.md
+  s_613931134209e1::t_513d0226188064 100-112
+docs/etudes/018-parcoursup.md
+  s_613931134209e1::t_e852beababad10 179-188
+docs/etudes/019-airbnb.md
+  s_613931134209e1::t_07cc7a2c4e25a5 164-177
+docs/etudes/020-otan.md
+  s_613931134209e1::t_04743519cdcaf3 157-163
+docs/etudes/021-proportionnelle.md
+  s_613931134209e1::t_6be1a71fcb1198 138-147
+docs/etudes/022-cannabis.md
+  s_613931134209e1::t_c0f54c82a1b8e4 155-158
+docs/etudes/023-loyers.md
+  s_613931134209e1::t_96039401517973 424-429
+docs/etudes/024-retraite.md
+  s_613931134209e1::t_0c5d5662b78717 700-704
+docs/etudes/025-nucleaire.md
+  s_613931134209e1::t_029d1a62cfa6fa 352-355
+docs/etudes/026-medecins.md
+  s_613931134209e1::t_3a81b47b8a513d 320-330
+docs/etudes/027-gpa.md
+  s_613931134209e1::t_870e2a8c845ed6 310-313
+docs/etudes/028-etat-civil.md
+  s_613931134209e1::t_decb16289b874f 297-301
+docs/etudes/029-israel.md
+  s_613931134209e1::t_b4ae87fe10ed2f 401-408
+docs/etudes/030-soldats-ukraine.md
+  s_613931134209e1::t_9aa4306738934a 406-409
+docs/etudes/031-russie.md
+  s_613931134209e1::t_86812ab5124656 392-402
+docs/etudes/032-ouighours.md
+  s_613931134209e1::t_08c53b0b3a10a3 496-500
+docs/etudes/033-heritage.md
+  s_613931134209e1::t_f7effec6d4857b 318-321
+docs/etudes/034-semaine-4-jours.md
+  s_613931134209e1::t_22324d61388e89 331-335
+docs/etudes/035-vols-interieurs.md
+  s_613931134209e1::t_0b8bb1f82074a9 357-367
+docs/etudes/036-droit-du-sol.md
+  s_613931134209e1::t_9e45a4de6f6ea7 347-353
+docs/etudes/038-reseaux-sociaux.md
+  s_613931134209e1::t_c11b8fc7d97a0d 409-413
+docs/etudes/039-taxe-zucman.md
+  s_613931134209e1::t_81affa37f35924 295-300
+docs/etudes/040-rsa.md
+  s_613931134209e1::t_9e2acf1fae6c49 345-351
+docs/etudes/041-pesticides.md
+  s_613931134209e1::t_28d7dfdf76a9d2 363-374
+docs/etudes/042-regularisation.md
+  s_613931134209e1::t_e628b63e0ab23a 324-335
+docs/etudes/043-prisons.md
+  s_613931134209e1::t_4f87003eaf51d8 318-326
+docs/etudes/044-depassements-honoraires.md
+  s_613931134209e1::t_10f47bb0131574 297-305
+docs/etudes/045-tva.md
+  s_613931134209e1::t_b60c398b61b9cf 284-290
+docs/etudes/046-delit-de-sejour.md
+  s_613931134209e1::t_58053dc40b57bd 375-386
+docs/etudes/047-legitime-defense-policiers.md
+  s_613931134209e1::t_befb0b7f597819 273-282
+docs/etudes/048-vaccins.md
+  s_613931134209e1::t_babf75ccbae96e 283-290
+docs/etudes/049-service-national.md
+  s_613931134209e1::t_d05965d8c71985 443-456
+docs/etudes/050-salaire-enseignants.md
+  s_613931134209e1::t_a07f41474a091b 334-343
+docs/etudes/051-logements-vacants.md
+  s_613931134209e1::t_e0f6c44624959e 354-360
+docs/etudes/052-zan.md
+  s_613931134209e1::t_818613336b04d7 498-510
+docs/etudes/054-vote-obligatoire.md
+  s_613931134209e1::t_b2c0603be38d97 566-573
+docs/etudes/055-vote-blanc.md
+  s_613931134209e1::t_2575afe182c127 262-267
+docs/etudes/056-voile-sport.md
+  s_613931134209e1::t_ecda8db63592c6 303-313
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "64de1d38d3d4e81d9abb12df7b4ad65c64df4904",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
