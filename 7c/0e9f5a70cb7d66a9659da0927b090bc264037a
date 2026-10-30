@@ -1,0 +1,109 @@
+SPEC.md
+  s_613931134209e1::t_7a726cfa7bf680 86
+content/questions/001-isf.yaml
+  s_613931134209e1::t_0bd27581865174 47
+content/questions/002-smic.yaml
+  s_613931134209e1::t_a9bcdced512e8b 47
+content/questions/003-voitures-thermiques.yaml
+  s_613931134209e1::t_e97c9d1f188541 33,39,45
+content/questions/004-quotas-immigration.yaml
+  s_613931134209e1::t_26587d36bf93c4 30
+content/questions/005-peines-planchers.yaml
+  s_613931134209e1::t_72680c1b363242 34
+content/questions/006-franchises-medicales.yaml
+  s_613931134209e1::t_03170c5435419e 48,54
+content/questions/007-uniforme.yaml
+  s_613931134209e1::t_6c67879b14f1d6 41,47
+content/questions/008-sru.yaml
+  s_613931134209e1::t_32821a1d82840a 49,55
+content/questions/010-ric.yaml
+  s_613931134209e1::t_a0464e17eb9228 32,38,44
+content/questions/011-fin-de-vie.yaml
+  s_613931134209e1::t_d3098a7a7db672 44,50
+content/questions/012-deficit.yaml
+  s_613931134209e1::t_cea3dc9146a7ce 54
+content/questions/013-chomage.yaml
+  s_613931134209e1::t_61059615c2d6f4 48
+content/questions/015-ame.yaml
+  s_613931134209e1::t_1adb51907180b4 36,42
+content/questions/016-majorite-penale.yaml
+  s_613931134209e1::t_83fe94def7f8ca 33
+content/questions/017-hopital.yaml
+  s_613931134209e1::t_977b3c176ed53e 42,48
+content/questions/019-airbnb.yaml
+  s_613931134209e1::t_3ce2428e460b23 39,45
+content/questions/022-cannabis.yaml
+  s_613931134209e1::t_e3b115a51a075b 48
+content/questions/023-loyers.yaml
+  s_613931134209e1::t_fb97f63f3e2643 42
+content/questions/024-retraite.yaml
+  s_613931134209e1::t_29f45828fb0636 44,50
+content/questions/026-medecins.yaml
+  s_613931134209e1::t_936dddd333796e 49,55
+content/questions/027-gpa.yaml
+  s_613931134209e1::t_14a3991c110a67 34,40
+content/questions/028-etat-civil.yaml
+  s_613931134209e1::t_0840bf2fb3e0ee 33,39
+content/questions/034-semaine-4-jours.yaml
+  s_613931134209e1::t_3eee5611b137fa 35,41
+content/questions/035-vols-interieurs.yaml
+  s_613931134209e1::t_2a8c1638415b89 36,42,48,55
+content/questions/036-droit-du-sol.yaml
+  s_613931134209e1::t_b172b9a1c44e04 30,36
+content/questions/037-videosurveillance-ia.yaml
+  s_613931134209e1::t_4617016696b9ed 34,40
+content/questions/038-reseaux-sociaux.yaml
+  s_613931134209e1::t_311148187b1493 32,38,44,50
+content/questions/039-taxe-zucman.yaml
+  s_613931134209e1::t_2eb73181a12df7 35,41
+content/questions/040-rsa.yaml
+  s_613931134209e1::t_01da8ea7f4c3cb 34
+content/questions/041-pesticides.yaml
+  s_613931134209e1::t_c1545933331e10 34,40,47,55
+content/questions/042-regularisation.yaml
+  s_613931134209e1::t_bd47b4e7cddce2 46
+content/questions/043-prisons.yaml
+  s_613931134209e1::t_a85bddefb0d488 52
+content/questions/044-depassements-honoraires.yaml
+  s_613931134209e1::t_530de7bcb20c7e 43
+content/questions/046-delit-de-sejour.yaml
+  s_613931134209e1::t_26c12771a4c47d 54
+content/questions/047-legitime-defense-policiers.yaml
+  s_613931134209e1::t_ba1da69d79f6e2 40,52
+content/questions/049-service-national.yaml
+  s_613931134209e1::t_7fbc228d23e279 36,42,48,56
+content/questions/050-salaire-enseignants.yaml
+  s_613931134209e1::t_5c83c4a1bc4626 38,44,50
+content/questions/051-logements-vacants.yaml
+  s_613931134209e1::t_007ad4ea2f04c9 43
+content/questions/052-zan.yaml
+  s_613931134209e1::t_0c6f6b18d7f8bf 35,41,48,56
+content/questions/056-voile-sport.yaml
+  s_613931134209e1::t_1e09a2b8b68ce9 44
+e2e/question-du-jour.spec.ts
+  s_613931134209e1::t_2ce50fe1a2cd9f 2078,2086-2099,2620,2633-2636,3463,3465-3467
+src/app/methode/page.tsx
+  s_613931134209e1::t_9873266874a987 324-325,327-331
+src/components/Carte.tsx
+  s_613931134209e1::t_ffebedc857d22b 12,208
+src/components/Plateau.tsx
+  s_613931134209e1::t_c5312fa2c99822 10,29-30,47
+src/lib/plateau.ts
+  s_613931134209e1::t_4282a7e3c2b374 7-25,27-29,32,39,42,46-47,50,56,59,62-82,84-87
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7c0e9f5a70cb7d66a9659da0927b090bc264037a",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
