@@ -46,13 +46,13 @@ options:
     implique: "Dans une zone très bien pourvue, un généraliste s'installe à condition d'exercer aussi à temps partiel là où les médecins manquent, comme dans la version votée par le Sénat en 2026 ; tous peuvent être appelés en renfort jusqu'à deux jours par mois, comme le proposait le gouvernement en 2025."
     defenseurs: "Aucune zone n'est fermée aux jeunes médecins, et l'effort est partagé entre tous pour aider vite les territoires les plus en difficulté, où vivent plus de 2,5 millions d'habitants."
     critiques: "Pour l'association de patients France Assos Santé, la mesure est « vidée de sa substance » ; pour le syndicat de médecins CSMF, elle garde « une logique de contrainte », et la mission volontaire lancée en 2025 réunissait 250 généralistes fin 2025."
-    axes: { economie: 0 }
+    axes: { economie: -1 }
   - id: D
     libelle: Garder la liberté d'installation et attirer les médecins
     implique: "Chaque médecin choisit où il s'installe ; on l'attire avec des maisons de santé, des assistants médicaux et des aides, et on forme plus de médecins, dont les futurs généralistes de quatrième année, incités à commencer là où les médecins manquent."
     defenseurs: "Le problème est le nombre de médecins, pas leur répartition : trois Français sur quatre vivent dans une zone jugée sous-dotée, et en 2025, deux fois plus de généralistes qu'en 2012 se sont installés en libéral pour la première fois."
     critiques: "La Cour des comptes juge « non démontrée » l'efficacité des aides, 205 millions d'euros en 2023, et la Drees compte dix ans avant que former plus de médecins produise ses effets."
-    axes: { economie: 1 }
+    axes: { economie: 0 }
 pourAllerPlusLoin:
   - titre: "Cour des comptes, Les aides à l'installation des médecins libéraux, novembre 2025"
     url: https://www.ccomptes.fr/fr/publications/les-aides-linstallation-des-medecins-liberaux

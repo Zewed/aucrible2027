@@ -30,7 +30,7 @@ options:
     implique: "Le droit actuel : la responsabilité des mineurs reste atténuée selon l'âge, avec des mesures éducatives d'abord (9 984 mesures éducatives judiciaires et 10 663 avertissements judiciaires en 2024) et une juridiction spécialisée."
     defenseurs: "À 16 ans, on est encore en construction : le droit prévoit une réponse adaptée à l'âge et tournée vers le relèvement éducatif, un principe que le Conseil constitutionnel rattache aux lois fondamentales de la République."
     critiques: "Pour ses détracteurs, la sanction intervient trop tard et envoie un message d'impunité."
-    axes: { societe: -2 }
+    axes: { societe: 0 }
   - id: B
     libelle: "Garder 18 ans, mais répondre plus vite et plus fermement"
     implique: "Comparution immédiate, courtes peines dès le premier délit, excuse de minorité levée ou atténuée pour certains faits (récidive, narcotrafic)."

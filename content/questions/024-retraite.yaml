@@ -41,13 +41,13 @@ options:
     implique: On garde l'âge prévu par la réforme de 2023.
     defenseurs: Le système se rapproche de l'équilibre sans baisser les pensions.
     critiques: Les métiers pénibles et les carrières hachées en paient le prix.
-    axes: { economie: 1 }
+    axes: { economie: 0 }
   - id: D
     libelle: 65 ans ou plus
     implique: Un âge proche de celui de plusieurs voisins européens.
     defenseurs: "On vit plus longtemps : travailler un peu plus protège le niveau des pensions."
     critiques: Beaucoup de seniors sont déjà sans emploi bien avant cet âge.
-    axes: { economie: 2 }
+    axes: { economie: 1 }
   - id: E
     libelle: À la carte, avec un système à points
     implique: Chacun part quand il veut ; la pension dépend des points acquis.

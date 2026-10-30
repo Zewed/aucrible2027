@@ -41,13 +41,13 @@ options:
     implique: Aide à mourir pour les majeurs, français ou résidents, atteints d'une maladie grave et incurable en phase avancée ou terminale ; le patient s'administre le produit, un soignant n'agit que s'il ne le peut pas.
     defenseurs: "Si nul ne souhaite mourir, certains peuvent vouloir arrêter de souffrir : la loi leur donne ce choix, avec des garde-fous (collège de soignants, délai de réflexion de deux jours)."
     critiques: Les uns y voient un « basculement anthropologique majeur », les autres un texte affaibli par les amendements.
-    axes: { societe: -1 }
+    axes: { societe: 0 }
   - id: C
     libelle: L'étendre à l'euthanasie
     implique: Le patient peut demander qu'un médecin ou un infirmier lui administre le produit, sans devoir d'abord être dans l'incapacité de le faire lui-même.
     defenseurs: Une liberté supplémentaire donnée aux êtres humains pour choisir leur fin de vie.
     critiques: "« L'euthanasie est une boîte de Pandore : une fois ouverte, vous n'arrivez plus à la refermer. »"
-    axes: { societe: -2 }
+    axes: { societe: -1 }
 pourAllerPlusLoin:
   - titre: Légifrance, loi n° 2026-794 du 18 août 2026 relative au droit à l'aide à mourir
     url: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054706877

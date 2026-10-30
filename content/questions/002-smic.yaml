@@ -44,7 +44,7 @@ options:
     implique: Le SMIC continue d'être relevé automatiquement avec les prix et une part du gain de pouvoir d'achat des ouvriers et employés.
     defenseurs: Une règle connue, qui suit le coût de la vie sans alourdir le coût du travail ni fragiliser l'emploi.
     critiques: "La règle suit les prix : elle donne peu de pouvoir d'achat supplémentaire aux salariés les moins payés."
-    axes: { economie: 1 }
+    axes: { economie: 0 }
   - id: D
     libelle: Faire monter le net par les cotisations
     implique: Le SMIC brut reste revalorisé comme aujourd'hui ; des baisses de cotisations font monter le salaire net, sans hausse du coût pour l'employeur.

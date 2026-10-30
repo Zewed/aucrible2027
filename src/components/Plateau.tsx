@@ -7,7 +7,7 @@ import { useSyncExternalStore } from "react";
 import { useCoteClient } from "@/lib/cote-client";
 import type { Candidat } from "@/lib/contenu";
 import { melanger } from "@/lib/melange";
-import { aUneNote, ecarter, placeDeLElecteur, placeDuCandidat, surLeChamp } from "@/lib/plateau";
+import { aUneNote, cadreDuPlateau, ecarter, placeDeLElecteur, placeDuCandidat, surLeChamp } from "@/lib/plateau";
 import { reponsesComptees, SEUIL_DES_RESULTATS, type QuestionDuCalcul } from "@/lib/proximite";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 
@@ -26,7 +26,8 @@ const abonnerALaLargeur = (relire: () => void) => {
  */
 export function Plateau({ questions, candidats }: { questions: QuestionDuCalcul[]; candidats: Candidat[] }) {
   const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
-  const { x, y } = surLeChamp(placeDeLElecteur(questions, reponses));
+  const cadre = cadreDuPlateau(questions, candidats);
+  const { x, y } = surLeChamp(placeDeLElecteur(questions, reponses), cadre);
   // La légende range les candidats au hasard (SPEC.md, « Neutralité ») : un ordre fixé par les graines des
   // réponses de l'appareil, qui ne bouge qu'avec une nouvelle réponse.
   const graine = Object.values(reponses).reduce((somme, r) => (somme + r.graine) >>> 0, 0);
@@ -43,7 +44,7 @@ export function Plateau({ questions, candidats }: { questions: QuestionDuCalcul[
       ]
     : [];
   const places = ecarter(
-    poses.map((c) => surLeChamp(placeDuCandidat(questions, c.id))),
+    poses.map((c) => surLeChamp(placeDuCandidat(questions, c.id), cadre)),
     toi,
     grand ? 7 : 12.5,
     grand ? 3 : 7,

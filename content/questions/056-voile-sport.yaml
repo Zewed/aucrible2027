@@ -41,7 +41,7 @@ options:
     # +1 et non +2 : l'interdiction n'est pas une position de la seule droite. Une partie de la gauche laïque la
     # défend au nom de la laïcité et de l'égalité (§ 2d) : 12 des 18 sénateurs communistes ont voté l'article 1er
     # (§ 1.4, [3]) et 66 % des proches du PS y sont favorables dans le sondage CSA (§ 2g, [21]).
-    axes: { societe: 1 }
+    axes: { societe: 2 }
   - id: B
     libelle: Laisser chaque fédération décider
     implique: "Les sélectionnés en équipe de France restent neutres. Pour les autres, chaque fédération fixe sa règle sous le contrôle du juge, qui exige qu'une interdiction soit nécessaire au bon déroulement des matchs."

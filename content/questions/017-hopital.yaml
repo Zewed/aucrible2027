@@ -39,12 +39,13 @@ options:
     implique: "T2A pour les actes courants et dotations pour les missions de service public et les besoins du territoire, avec pour cible la moitié des ressources hors T2A."
     defenseurs: "Garder une incitation à l'activité tout en finançant ce qui ne se paie pas à l'acte (urgences, territoires isolés, missions de santé publique) : la réforme de 2025 ajoute deux dotations aux tarifs."
     critiques: "Pour ses détracteurs, elle ne va pas assez loin (les tarifs restent la principale source de revenus) ou rend le système plus complexe, alors que le déficit persiste (2,9 milliards d'euros en 2024)."
+    axes: { economie: 0 }
   - id: C
     libelle: "En finir avec la tarification à l'activité : une dotation globale selon les besoins du territoire"
     implique: "L'hôpital public reçoit un budget annuel global fixé selon la population et les besoins de son territoire, comme avant 2004, sans paiement à chaque séjour (ou seulement pour certains actes techniques programmés)."
     defenseurs: "Un budget global et pluriannuel, fixé selon les besoins du territoire, permet de planifier, de maintenir des services peu rentables et met fin à la course à l'acte."
     critiques: "Sans lien direct avec l'activité, un budget global peut figer les inégalités entre hôpitaux et réduire l'incitation à soigner plus de patients."
-    axes: { economie: -1 }
+    axes: { economie: -2 }
 pourAllerPlusLoin:
   - titre: "DREES, les dépenses de santé en 2025"
     url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse-infographie-documents-de-reference/261001-les-d%C3%A9penses-de-sant%C3%A9-en-2025-edition-2026-panorama-de-la-drees

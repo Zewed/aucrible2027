@@ -29,16 +29,19 @@ options:
     implique: Le référendum reste décidé par le Président ou le Parlement ; le RIP actuel est maintenu, avec les mêmes seuils.
     defenseurs: "Le RIP et ses contrôles suffisent : un RIC irait trop loin dans la remise en cause de la démocratie représentative."
     critiques: "Selon ses critiques, le RIP ne fonctionne pas : sur sept demandes, une seule a été validée, et elle a recueilli moins du quart des signatures requises."
+    axes: { societe: 0 }
   - id: B
     libelle: Alléger le référendum d'initiative partagée
     implique: Moins de signatures (2,5 millions au lieu de 5 millions dans l'un des projets) et des sujets élargis ; les parlementaires gardent un rôle.
     defenseurs: Il faut alléger les contraintes du RIP et élargir ses sujets pour qu'il soit enfin praticable.
     critiques: "Le RIP reste « partagé » : sans l'accord d'un cinquième des parlementaires, les citoyens ne peuvent pas déclencher un référendum."
+    axes: { societe: -1 }
   - id: C
     libelle: Créer un RIC
     implique: À partir d'un seuil de signatures (de 500 000 à 1 million selon les projets), des citoyens peuvent faire voter une loi ou en abroger une ; certains projets y ajoutent la révision de la Constitution ou la révocation d'élus.
     defenseurs: "« On ne veut pas participer, on veut décider » : le RIC complète le Parlement et rend la parole au peuple."
     critiques: Un RIC pourrait servir à revenir systématiquement sur les décisions de la démocratie représentative.
+    axes: { societe: -2 }
 pourAllerPlusLoin:
   - titre: Conseil constitutionnel, déclaration du 26 mars 2020 sur la proposition de loi Aéroports de Paris
     url: https://www.conseil-constitutionnel.fr/decision/2020/201918RIP.htm

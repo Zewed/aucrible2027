@@ -27,7 +27,7 @@ options:
     implique: "Le nombre d'arrivées n'est pas plafonné : aucun quota annuel ne limite les titres de séjour."
     defenseurs: "Près de la moitié des arrivées relèvent de droits reconnus par la Constitution, la famille et l'asile ; pour une partie de la gauche, chacun doit aussi pouvoir circuler et s'installer librement."
     critiques: Sans plafond, l'État ne peut pas choisir le nombre ni les profils des arrivées pour répondre aux besoins du pays.
-    axes: { societe: -2 }
+    axes: { societe: 0 }
   - id: B
     libelle: Oui, pour l'immigration de travail
     implique: Les besoins de main-d'œuvre sont évalués, par exemple tous les deux ans avec les partenaires sociaux, et le Parlement vote des quotas pour l'immigration de travail seulement.

@@ -83,7 +83,7 @@ Bouton « Signaler une erreur » sur chaque fiche.
 - **Score par question** : options ordonnées sur une échelle → `1 − écart / écart max` ; options non ordonnées → 1 si identique, 0 sinon. Multiplié par l'importance (×1/×2/×3).
 - **Positions inconnues** : exclues du calcul pour ce candidat.
 - **Score global** : % du maximum possible.
-- **Carte** : chaque option reçoit une note de −2 à +2 sur l'axe économique, l'axe sociétal, ou aucun. Position de l'utilisateur = moyenne pondérée de ses options ; même formule pour les candidats.
+- **Carte** : chaque option reçoit une note de −2 à +2 sur l'axe économique, l'axe sociétal, ou aucun, à l'aveugle, d'après son seul texte (0 = règle actuelle, ±2 = rupture nette). Position de l'utilisateur = moyenne pondérée de ses options, chaque thème pesant autant ; même formule pour les candidats. Le plateau se cadre sur les candidats : sur chaque axe, il va du premier au dernier et son centre est le milieu entre eux, avec le même cadre pour l'électeur. Une option peut donc apparaître côté marché ou conservateur sans que sa note soit positive (décision d'Antoine, 30/10/2026).
 
 ## Sources des positions des candidats
 

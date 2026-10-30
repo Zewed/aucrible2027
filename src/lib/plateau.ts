@@ -4,52 +4,87 @@ import { JE_NE_SAIS_PAS, type Reponse } from "@/lib/reponses";
 /** Une place sur le plateau : de −2 à +2 sur chaque axe (−2 : plus de redistribution, progressiste). */
 export type Place = { economie: number; societe: number };
 
+type Axe = keyof Place;
+/** Une note comptée sur un axe : son thème, sa valeur et son poids. */
+type Note = { theme: string; note: number; poids: number };
+
+/** La moyenne pondérée d'une liste de notes, ou 0 sans aucune note. */
+function moyenne(notes: { note: number; poids: number }[]) {
+  const poids = notes.reduce((somme, n) => somme + n.poids, 0);
+  return poids > 0 ? notes.reduce((somme, n) => somme + n.poids * n.note, 0) / poids : 0;
+}
+
 /**
- * La place de l'électeur (SPEC.md, « Méthode de calcul », Carte) : sur chaque axe, la moyenne de la note
- * des options qu'il a choisies, pondérée par l'importance donnée (×1 sans importance). « Je ne sais pas »
- * et une option sans note sur cet axe n'y entrent pas. Sans aucune note, il reste au centre de cet axe.
+ * La place sur un axe : la moyenne de chaque thème, puis la moyenne des thèmes. Chaque thème pèse autant, quel que soit
+ * son nombre de fiches ; sans cela, les thèmes les plus fournis décideraient seuls de l'axe.
+ */
+function moyenneDesThemes(notes: Note[]) {
+  const themes = [...new Set(notes.map((n) => n.theme))];
+  return moyenne(themes.map((theme) => ({ note: moyenne(notes.filter((n) => n.theme === theme)), poids: 1 })));
+}
+
+/**
+ * La place de l'électeur (SPEC.md, « Méthode de calcul », Carte) : sur chaque axe, la note des options qu'il a choisies,
+ * pondérée par l'importance donnée (×1 sans importance), chaque thème pesant autant. « Je ne sais pas » et une option
+ * sans note sur cet axe n'y entrent pas. Sans aucune note, il reste au centre de cet axe.
  */
 export function placeDeLElecteur(questions: QuestionDuCalcul[], reponses: Record<number, Reponse>): Place {
-  const sommes = { economie: { notes: 0, poids: 0 }, societe: { notes: 0, poids: 0 } };
+  const notes: Record<Axe, Note[]> = { economie: [], societe: [] };
   for (const question of questions) {
     const reponse = reponses[question.numero];
     if (!reponse || reponse.option === JE_NE_SAIS_PAS) continue;
     const axes = question.options.find((o) => o.id === reponse.option)?.axes;
-    const poids = reponse.importance ?? 1;
     for (const axe of ["economie", "societe"] as const) {
       const note = axes?.[axe];
-      if (note === undefined) continue;
-      sommes[axe].notes += poids * note;
-      sommes[axe].poids += poids;
+      if (note !== undefined) notes[axe].push({ theme: question.theme, note, poids: reponse.importance ?? 1 });
     }
   }
-  const moyenne = ({ notes, poids }: { notes: number; poids: number }) => (poids > 0 ? notes / poids : 0);
-  return { economie: moyenne(sommes.economie), societe: moyenne(sommes.societe) };
+  return { economie: moyenneDesThemes(notes.economie), societe: moyenneDesThemes(notes.societe) };
 }
 
 /**
- * La place d'un candidat, par la même formule : sur chaque axe, la moyenne de la note de ses options sur
- * toutes les questions publiées où sa position est connue, chacune ×1 (un candidat ne donne pas
- * d'importance). Sans aucune note, il reste au centre de cet axe.
+ * La place d'un candidat, par la même formule, sur toutes les questions publiées où sa position est connue, chacune ×1
+ * (un candidat ne donne pas d'importance). Sans aucune note, il reste au centre de cet axe.
  */
 export function placeDuCandidat(questions: QuestionDuCalcul[], candidat: string): Place {
-  const sommes = { economie: { notes: 0, nombre: 0 }, societe: { notes: 0, nombre: 0 } };
+  const notes: Record<Axe, Note[]> = { economie: [], societe: [] };
   for (const question of questions) {
     const option = question.positions[candidat]?.option;
     const axes = option ? question.options.find((o) => o.id === option)?.axes : undefined;
     for (const axe of ["economie", "societe"] as const) {
       const note = axes?.[axe];
-      if (note === undefined) continue;
-      sommes[axe].notes += note;
-      sommes[axe].nombre += 1;
+      if (note !== undefined) notes[axe].push({ theme: question.theme, note, poids: 1 });
     }
   }
-  const moyenne = ({ notes, nombre }: { notes: number; nombre: number }) => (nombre > 0 ? notes / nombre : 0);
-  return { economie: moyenne(sommes.economie), societe: moyenne(sommes.societe) };
+  return { economie: moyenneDesThemes(notes.economie), societe: moyenneDesThemes(notes.societe) };
 }
 
+/** Le cadre du plateau, sur chaque axe : son milieu et sa demi-largeur, dans l'échelle des notes. */
+export type Cadre = Record<Axe, { milieu: number; demi: number }>;
+const SANS_CADRE: Cadre = { economie: { milieu: 0, demi: 2 }, societe: { milieu: 0, demi: 2 } };
+
+/**
+ * Le plateau se cadre sur les candidats : sur chaque axe, il va du premier au dernier, et son centre est le milieu entre
+ * les deux. Le même cadre vaut pour tous les pions et pour l'électeur : les écarts s'agrandissent, l'ordre ne change pas.
+ */
+export function cadreDuPlateau(questions: QuestionDuCalcul[], candidats: { id: string }[]): Cadre {
+  const places = candidats.filter((c) => aUneNote(questions, c.id)).map((c) => placeDuCandidat(questions, c.id));
+  const cadrer = (axe: Axe) => {
+    const valeurs = places.map((p) => p[axe]);
+    const [bas, haut] = [Math.min(...valeurs), Math.max(...valeurs)];
+    return haut > bas ? { milieu: (bas + haut) / 2, demi: (haut - bas) / 2 } : SANS_CADRE[axe];
+  };
+  return { economie: cadrer("economie"), societe: cadrer("societe") };
+}
+
+/** La part du champ que les candidats occupent de part et d'autre du centre, en % : le reste garde les pions lisibles. */
+const ETENDUE = 44;
+
 /** Où poser une place sur le champ du plateau, en % : redistribution à gauche, progressiste en haut. */
-export const surLeChamp = (place: Place) => ({ x: ((place.economie + 2) / 4) * 100, y: ((place.societe + 2) / 4) * 100 });
+export function surLeChamp(place: Place, cadre: Cadre = SANS_CADRE) {
+  const poser = (axe: Axe) => Math.min(97, Math.max(3, 50 + ((place[axe] - cadre[axe].milieu) / cadre[axe].demi) * ETENDUE));
+  return { x: poser("economie"), y: poser("societe") };
+}
 
 /** Un candidat a-t-il au moins une note sur l'un des axes ? Sans aucune, il n'a pas de place à lui (pas de pion). */
 export function aUneNote(questions: QuestionDuCalcul[], candidat: string): boolean {

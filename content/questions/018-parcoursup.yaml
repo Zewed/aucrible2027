@@ -30,7 +30,6 @@ options:
     implique: "Parcoursup disparaît ; tout bachelier peut s'inscrire dans la formation de son choix, et l'État crée les places nécessaires."
     defenseurs: "Le bac doit suffire pour entrer dans la formation de son choix : sans tri sur dossier, plus d'opacité ni d'attente, et chacun a sa chance quel que soit son lycée."
     critiques: "Beaucoup de formations ont moins de places que de candidats : il faudrait en créer beaucoup, ce qui coûte et prend du temps, ou le tri se ferait autrement."
-    axes: { economie: -1, societe: -1 }
   - id: B
     libelle: "Oui, et le remplacer par un nouvel outil"
     implique: "Parcoursup est abandonné pour une nouvelle procédure d'admission, dont les règles restent à définir."

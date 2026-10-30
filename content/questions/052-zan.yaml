@@ -32,18 +32,20 @@ options:
     critiques: "Sans plafond national, les terres prises pourraient repartir à la hausse avec la reprise de la construction, surtout des terres agricoles, alors que ces sols nourrissent, absorbent l'eau de pluie et abritent la vie."
     # Moins de règles, plus de place aux choix des propriétaires et des communes ; note modérée, comme pour les
     # pesticides (fiche 041), pour ne pas pousser le plateau vers les bords.
-    axes: { economie: 1 }
+    axes: { societe: 2 }
   - id: B
     libelle: "L'assouplir"
     implique: "L'objectif de 2050 reste, mais l'étape de 2031 est supprimée ou repoussée, chaque région fixe sa propre trajectoire, et des projets sortent du décompte, comme les usines, l'énergie renouvelable ou les logements sociaux des communes en retard, comme le prévoit le texte voté par le Sénat en 2025."
     defenseurs: "Diviser par deux d'ici 2031 est jugé impossible sur le terrain, pénalise les communes qui ont peu construit et freine la réindustrialisation : mieux vaut un chemin fixé avec les élus locaux, en gardant le cap de 2050."
     critiques: "Supprimer l'étape de 2031 permettrait de prendre plus de 80 000 hectares supplémentaires d'ici 2031, selon la Fondation pour la nature et l'homme, et obligerait les collectivités qui ont déjà revu leurs plans à recommencer."
+    axes: { societe: 1 }
     # Pas de note : l'option garde l'objectif de 2050, elle se tient près du milieu.
   - id: C
     libelle: "Garder les règles actuelles"
     implique: "Deux fois moins de terres prises entre 2021 et 2031 qu'entre 2011 et 2021, puis zéro artificialisation nette en 2050, avec les aménagements de 2023 : au moins un hectare garanti par commune et une enveloppe nationale de 12 500 hectares pour les grands projets."
     defenseurs: "Deux régions sur trois et quatre schémas intercommunaux sur cinq ont déjà revu leurs plans : changer la loi une troisième fois en quatre ans créerait de l'incertitude, alors que les terres prises chaque année ont presque diminué de moitié depuis 2011."
     critiques: "Pour les uns, l'étape de 2031 reste hors d'atteinte et met les campagnes « sous cloche », selon les maires ruraux ; pour les autres, près de 69 000 hectares échappent déjà au décompte, selon la Fondation pour la nature et l'homme."
+    axes: { societe: 0 }
     # La règle en vigueur après la censure du 21/05/2026 ; pas de note.
   - id: D
     libelle: "Le renforcer"
@@ -51,7 +53,7 @@ options:
     defenseurs: "Une terre bâtie l'est presque pour toujours : ces sols nourrissent, filtrent l'eau et abritent la vie, et l'on peut construire autrement, sur les friches, en hauteur ou en rénovant les logements vides."
     critiques: "Les communes rurales, qui ont peu de terrains déjà bâtis, ne pourraient presque plus construire, et reconstruire la ville sur elle-même coûte cher aux communes, qui manquent selon leur association d'un « modèle économique » pour le faire."
     # Plus de règles ; laissé à −1 pour ne pas pousser le plateau vers les bords.
-    axes: { economie: -1 }
+    axes: { societe: -1 }
 pourAllerPlusLoin:
   - titre: "Cerema, la consommation d'espaces naturels, agricoles et forestiers de 2011 à 2025, 2026"
     url: https://www.cerema.fr/fr/actualites/quelle-consommation-espaces-naturels-agricoles-forestiers
