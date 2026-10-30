@@ -46,12 +46,13 @@ options:
     implique: Taux de 25 % ou 20 %, rattrapage de 33 % du déficit par période de trois ans, exemptions pour les communes qui ne peuvent pas construire.
     defenseurs: La loi produit des logements sociaux et prévoit déjà des exemptions pour les communes qui ne peuvent pas construire.
     critiques: Un millier de communes restent sous le seuil, et d'autres jugent un quota national uniforme trop rigide.
+    axes: { economie: 0 }
   - id: D
     libelle: La durcir
     implique: Le taux passe à 30 % et les sanctions des communes en retard sont alourdies.
     defenseurs: Sans sanction lourde, les communes qui ne jouent pas le jeu ne construisent pas ; l'État doit faire appliquer la loi.
     critiques: "Beaucoup de communes manquent de foncier ou de moyens : relever le taux et les pénalités les frapperait sans les aider à construire."
-    axes: { economie: -2 }
+    axes: { economie: -1 }
 pourAllerPlusLoin:
   - titre: Ministère de la Transition écologique, l'article 55 de la loi SRU
     url: https://www.ecologie.gouv.fr/politiques-publiques/larticle-55-loi-solidarite-renouvellement-urbain-sru

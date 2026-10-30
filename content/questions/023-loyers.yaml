@@ -39,6 +39,7 @@ options:
     implique: "L'encadrement continue deux ans de plus dans les 70 communes qui l'appliquent, sans nouvelles villes, le temps de collecter les loyers déclarés aux impôts pour mieux l'évaluer."
     defenseurs: "Les données manquent pour juger de ses effets sur l'offre : deux ans de plus, avec les loyers déclarés aux impôts, permettent de décider sur des chiffres fiables."
     critiques: "Pour les uns, c'est repousser encore la décision et refuser l'outil aux villes qui le demandent ; pour les autres, c'est prolonger un dispositif que la Cour des comptes propose d'arrêter, à défaut d'une profonde réforme."
+    axes: { economie: 0 }
   - id: D
     libelle: "Y mettre fin"
     implique: "L'essai s'arrête : le loyer d'un nouveau bail n'a plus de plafond par quartier ; restent les règles nationales qui limitent les hausses en cours de bail et, là où le logement manque, entre deux locataires."

@@ -35,19 +35,19 @@ options:
     implique: "Le pacte de 2023 est gardé ou élargi : chaque mission acceptée, comme remplacer un collègue absent ou aider des élèves en difficulté, est payée en plus, ou la hausse est donnée contre plus de présence dans l'établissement."
     defenseurs: "Payer le travail fait en plus améliore aussi l'école : en un an, le pacte a multiplié par 2,5 le remplacement des absences de quelques jours."
     critiques: "Moins d'un tiers des enseignants du public l'avaient choisi à la rentrée 2024, la Cour des comptes juge la participation « encore fragile », et son budget est passé de 780 à 480 millions d'euros entre 2025 et 2026."
-    axes: { economie: 1 }
+    axes: { economie: 0 }
   - id: C
     libelle: "Payer selon le mérite ou l'établissement"
     implique: "Une part du salaire dépend de l'évaluation de chaque enseignant, des résultats de son équipe ou des choix de son établissement, qui recrute ses professeurs ; l'ancienneté compte moins."
     defenseurs: "Une carrière fondée sur l'ancienneté paie pareil celui qui s'investit et celui qui ne le fait pas ; selon une synthèse de 44 études, surtout américaines, les primes au mérite améliorent un peu les résultats des élèves, davantage quand elles récompensent une équipe."
     critiques: "Le travail d'un enseignant se mesure mal, et d'un pays à l'autre l'OCDE ne trouve pas de lien d'ensemble entre primes au mérite et résultats des élèves ; les études favorables viennent surtout des États-Unis."
-    axes: { economie: 2 }
+    axes: { economie: 1 }
   - id: D
     libelle: "Pas de nouvelle hausse"
     implique: "On garde les hausses de 2023 et la grille actuelle ; l'argent va d'abord à la réduction du déficit, à des classes moins chargées et à la formation payée des futurs professeurs."
     defenseurs: "Les hausses décidées depuis 2022 coûtent déjà 4,2 milliards d'euros par an, le salaire moyen a augmenté de 4,3 % de plus que les prix en 2024, et 97 % des postes de professeurs des écoles ont été pourvus en 2026, première année du concours dès la licence."
     critiques: "En milieu de carrière, l'écart avec la moyenne de l'OCDE reste de 18 %, et le bond des candidats en 2026 tient en partie à deux concours organisés la même année."
-    axes: { economie: 1 }
+    axes: { economie: 0 }
 pourAllerPlusLoin:
   - titre: "DEPP, L'évolution du salaire des enseignants entre 2023 et 2024, Note d'information n° 26.36, août 2026"
     url: https://www.education.gouv.fr/sites/default/files/document/depp-ni-2026-36pdf-519727.pdf

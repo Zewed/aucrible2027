@@ -31,13 +31,13 @@ options:
     implique: "La GPA reste interdite en France, et y recourir devient un délit même dans un pays où elle est légale, comme en Italie depuis 2024 ; les peines contre les intermédiaires sont alourdies."
     defenseurs: "Interdire en France sans punir le recours à l'étranger revient à laisser faire : la GPA porte atteinte à la dignité des femmes et des enfants, il faut la combattre partout."
     critiques: "Des juristes jugent difficile de punir un acte légal là où il a lieu, et ce sont les enfants déjà nés qui en subiraient les conséquences."
-    axes: { societe: 2 }
+    axes: { societe: 1 }
   - id: B
     libelle: Garder l'interdiction actuelle
     implique: "La GPA reste interdite en France et l'intermédiaire est puni ; le recours à l'étranger n'est pas puni, et le juge reconnaît au cas par cas les parents des enfants qui en sont nés."
     defenseurs: "L'enfant n'est pas un droit et le corps des femmes n'est pas une marchandise ; mais l'enfant né à l'étranger n'a pas à payer le choix de ses parents."
     critiques: "Les uns y voient une interdiction contournée sans risque à l'étranger, les autres un refus d'encadrer en France une pratique qui existe déjà."
-    axes: { societe: 1 }
+    axes: { societe: 0 }
   - id: C
     libelle: L'autoriser sans paiement
     implique: "Une femme peut porter un enfant pour d'autres sans être payée, ses frais étant remboursés, dans un cadre strict fixé par la loi, comme au Royaume-Uni ou au Canada."

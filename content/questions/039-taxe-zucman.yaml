@@ -32,13 +32,13 @@ options:
     critiques: "Sept économistes estiment qu'elle réduirait le déficit de 5 milliards d'euros par an, pas de 20 ; taxer chaque année des parts d'entreprises peut obliger à vendre, et le rapporteur du Sénat juge le texte probablement contraire à la Constitution."
     # Même note que l'option B de la fiche 001, qui décrit le même impôt ; B et C à 0, comme les deux scénarios
     # du Conseil des prélèvements obligatoires qui les rapprochent (étude § 2g) ; D, le statu quo, à +1 comme dans 001.
-    axes: { economie: -1 }
+    axes: { economie: -2 }
   - id: B
     libelle: "Taxer la fortune, pas les entreprises"
     implique: "Pas de taxe Zucman, mais un impôt sur le patrimoine des plus riches dont sont exclues les parts des entreprises qu'ils détiennent ou dirigent, par exemple 0,5 % par an comme le propose la Cour des comptes, ou un impôt sur la fortune qui épargne les entreprises et la résidence principale."
     defenseurs: "Les plus riches contribuent davantage sans que l'on taxe l'activité des entreprises ni que leurs propriétaires doivent vendre des parts pour payer ; la Cour des comptes chiffre sa version à 1,4 milliard d'euros par an."
     critiques: "Les très grandes fortunes sont surtout faites de parts d'entreprises : le rapporteur du Sénat juge que les exclure dénaturerait l'impôt, et la recette attendue serait plus faible que celle de la taxe Zucman."
-    axes: { economie: 0 }
+    axes: { economie: -1 }
   - id: C
     libelle: "Viser les façons d'éviter l'impôt"
     implique: "Pas d'impôt sur le patrimoine. On resserre les règles qui permettent aux plus riches de garder leurs bénéfices dans des sociétés de détention, les holdings, sans payer d'impôt sur le revenu, et l'on corrige l'impôt minimum de 20 % sur les très hauts revenus."

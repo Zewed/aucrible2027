@@ -31,13 +31,13 @@ options:
     implique: "L'essai prend fin : plus aucun logiciel n'analyse les images en direct, et la loi interdit expressément la reconnaissance faciale dans l'espace public. Les caméras classiques restent."
     defenseurs: "L'essai a peu servi sur le terrain (huit interventions selon le Sénat), et chaque prolongation habitue à une surveillance plus intrusive, un risque que soulignent la CNIL et le comité d'évaluation."
     critiques: "Ceux qui l'ont testé veulent le garder, et les agents ne peuvent pas regarder en même temps des dizaines de milliers de caméras : un agent suit environ quatre écrans à la fois."
-    axes: { societe: -2 }
+    axes: { societe: -1 }
   - id: B
     libelle: Continuer l'essai jusqu'en 2030
     implique: "On applique la loi de 2026 : l'essai continue pour les grands événements et des lieux exposés au terrorisme ou à des violences graves, sans reconnaissance faciale, et le Parlement décide après le rapport d'évaluation attendu en 2030."
     defenseurs: "Les résultats ne sont « pas suffisamment probants pour justifier une pérennisation ou au contraire un abandon » selon le Sénat : il faut tester hors des Jeux, plus longtemps et avec d'autres logiciels."
     critiques: "Pour les uns, un essai relancé deux fois en 2026 devient permanent sans le dire ; pour les autres, il prive le reste du territoire d'un outil que demandent ses utilisateurs."
-    axes: { societe: -1 }
+    axes: { societe: 0 }
   - id: C
     libelle: "La généraliser, sans reconnaissance faciale"
     implique: "Le dispositif devient permanent et s'ouvre à davantage de lieux, de situations et de villes, toujours sans identifier les personnes et sous le contrôle d'un agent."

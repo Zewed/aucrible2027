@@ -49,7 +49,7 @@ options:
     implique: "On construit plus vite, y compris en modules préfabriqués, et les courtes peines continuent de se faire souvent sous bracelet ou en travail d'intérêt général, sans changer leurs règles ni fixer de plafond."
     defenseurs: "Aucun levier ne suffit seul : les places manquent et se construisent lentement, et les peines hors de la prison coûtent moins cher pour ceux qui n'ont pas besoin d'être enfermés."
     critiques: "Pour les uns, construire coûte cher et n'a jamais suivi la hausse du nombre de détenus ; pour les autres, des condamnés à la prison ferme continuent de faire leur peine chez eux."
-    axes: { societe: 1 }
+    axes: { societe: 0 }
   - id: D
     libelle: Construire et faire purger les peines en prison
     implique: "On construit bien au-delà du plan actuel, et les peines de prison ferme se font en prison : fin de l'aménagement automatique des courtes peines et des réductions de peine automatiques."

@@ -32,12 +32,13 @@ options:
     defenseurs: "Chaque métier est différent : c'est à l'entreprise et à ses salariés de choisir, et la France a besoin de travailler plus, pas moins."
     critiques: "Sans droit ni aide, rien ne se fait si l'employeur ne le veut pas, et les salariés qui voudraient travailler moins ne peuvent pas l'exiger."
     # +1 et non +2 : l'option ne va pas au-delà de la règle actuelle.
-    axes: { economie: 1 }
+    axes: { economie: 0 }
   - id: B
     libelle: "Quatre jours, à heures égales"
     implique: "La durée reste de 35 heures, réparties sur quatre journées de 8 h 45 ; l'État la développe dans ses services et la favorise dans les entreprises, par exemple avec un droit de la demander, comme en Belgique depuis 2022."
     defenseurs: "Un jour libre de plus chaque semaine, sans baisse de salaire ni coût pour l'employeur : à Lyon, 93 % des agents de l'essai qui ont répondu voulaient la garder."
     critiques: "Des journées plus longues fatiguent : un tiers des actifs pensent qu'elles seraient trop fatigantes, et en Belgique, moins de 1 % des salariés du privé l'ont choisie."
+    axes: { economie: -1 }
   - id: C
     libelle: "Aller vers les 32 heures, par étapes"
     implique: "La durée légale reste de 35 heures ; l'État baisse les cotisations des entreprises qui passent à 32 heures en quatre jours sans baisse de salaire et embauchent, ou impose d'abord les 32 heures pour le travail de nuit et les métiers pénibles."

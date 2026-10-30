@@ -36,11 +36,13 @@ options:
     implique: "Les outils de la loi de 2024 sont appliqués plus largement, avec des autorisations, des quotas et des contrôles plus systématiques là où le logement manque."
     defenseurs: "Les règles ne valent que si elles sont appliquées : les durcir là où le logement manque protège les habitants sans tout interdire."
     critiques: "Les outils sont déjà nombreux et varient d'une commune à l'autre, ce qui les rend complexes pour les propriétaires et les touristes."
+    axes: { economie: -1 }
   - id: C
     libelle: "Non, le cadre de 2024 suffit"
     implique: "Les règles de 2024 sont conservées et les communes les appliquent ; on évalue leurs effets avant d'aller plus loin."
     defenseurs: "Les communes connaissent leur terrain et leur population : laissons-leur le temps d'utiliser des règles qui viennent d'être complétées."
     critiques: "Chaque commune décide de s'en servir ou non : là où elle ne le fait pas, rien ne change."
+    axes: { economie: 0 }
   - id: D
     libelle: "Non, alléger les règles"
     implique: "Les contraintes et la fiscalité ajoutées en 2024 sont assouplies, pour laisser les propriétaires louer plus librement."

@@ -33,16 +33,19 @@ options:
     implique: "Le nouveau service militaire de dix mois est supprimé ; l'engagement des jeunes passe par le service civique, volontaire, et l'effort de défense par la réserve opérationnelle et le recrutement des armées."
     defenseurs: "Un service de dix mois limité au territoire national a une utilité militaire réduite pour 2,3 milliards d'euros de 2026 à 2030 : mieux vaut renforcer la réserve et le service civique, qui reçoit trois fois plus de demandes que de missions."
     critiques: "Selon le rapporteur du texte à l'Assemblée, les régiments sont « ravis d'avoir un renfort » pour défendre le territoire, et un service choisi permet aux jeunes qui le veulent de s'engager sans rien imposer aux autres."
+    axes: { societe: -1 }
   - id: B
     libelle: "Non, garder le volontariat"
     implique: "Le service militaire de dix mois, ouvert aux 18-25 ans et payé au moins 800 euros brut par mois, monte en charge jusqu'à 10 000 jeunes en 2030, à côté du service civique ; en cas de crise majeure, le Parlement pourrait appeler au-delà des volontaires."
     defenseurs: "Les armées n'ont plus vocation à encadrer toute une génération : un service choisi et sélectif répond à leurs besoins sans contraindre ceux qui n'en veulent pas."
     critiques: "Le volontariat attire plus de jeunes déjà proches des métiers en uniforme : au service national universel, 26 % avaient un parent militaire, policier ou pompier, contre 2 % de la population, et ce service n'a atteint ni ses objectifs de participants ni celui de mixité sociale."
+    axes: { societe: 0 }
   - id: C
     libelle: "Oui, un service civique obligatoire"
     implique: "Chaque jeune consacre plusieurs mois, de trois à dix selon les projets, à des missions d'intérêt général (écoles, maisons de retraite, secours, environnement) ; servir dans l'armée reste un choix."
     defenseurs: "Un temps commun à toute une génération, quel que soit son milieu, utile aux autres et face aux crises comme les canicules ou les inondations, sans obliger quiconque à porter les armes."
     critiques: "Une obligation civile sans lien avec la défense a une base constitutionnelle incertaine, et il faudrait des centaines de milliers de missions : 3,5 milliards d'euros par an selon France Stratégie, 18,5 milliards pour neuf mois payés au Smic selon l'Institut Montaigne (7,4 milliards nets selon ceux qui le proposent)."
+    axes: { societe: 1 }
   # D garde le pôle de l'échelle : aucun candidat n'y est rangé avec une source vérifiée (étude, § 4), mais l'option est
   # défendue dans le débat (président du RN, scénario chiffré de France Stratégie).
   - id: D
@@ -50,6 +53,7 @@ options:
     implique: "Une loi rétablit l'appel sous les drapeaux, suspendu depuis 1997 : les jeunes, filles et garçons, font quelques mois de service militaire (six dans les projets chiffrés), avec une forme civile pour les objecteurs de conscience."
     defenseurs: "Former toute une génération à la défense donne au pays des réserves nombreuses (la Finlande, 5,7 millions d'habitants, peut mobiliser 285 000 réservistes entraînés) et réunit les jeunes de tous les milieux sous la même règle."
     critiques: "Six mois pour 600 000 jeunes coûteraient 14,5 milliards d'euros par an selon France Stratégie, pour qui il semblerait impossible à organiser en moins de cinq ans et risquerait d'affaiblir l'armée de métier."
+    axes: { societe: 2 }
 pourAllerPlusLoin:
   - titre: "Cour des comptes, Le service national universel, un premier bilan, 2024"
     url: https://www.vie-publique.fr/files/rapport/pdf/295374.pdf

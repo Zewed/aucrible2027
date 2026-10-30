@@ -27,13 +27,13 @@ options:
     implique: "Tout enfant né en France, Mayotte comprise, est français dès sa naissance, quelle que soit la situation de ses parents, sans attendre 13 ou 18 ans."
     defenseurs: "Un enfant né en France est un enfant de la République : le faire français dès la naissance, comme aux États-Unis, l'aide à s'intégrer et met fin aux règles à part de Mayotte."
     critiques: "La nationalité serait donnée sans exiger d'avoir vécu en France, y compris à des enfants qui partiront ensuite ; ses opposants y voient un facteur d'attraction pour l'immigration irrégulière, en particulier à Mayotte."
-    axes: { societe: -2 }
+    axes: { societe: -1 }
   - id: B
     libelle: "Le garder tel qu'il est"
     implique: "Les règles actuelles restent : un enfant né en France de parents étrangers devient français à 18 ans s'il y a vécu au moins cinq ans depuis ses 11 ans, ou dès 13 ans sur demande."
     defenseurs: "La règle, en place depuis 1998, demande déjà cinq ans de vie en France, et 94 % des enfants de deux parents immigrés se sentent français : rien ne justifie de la durcir."
     critiques: "La nationalité reste acquise sans démarche à 18 ans et, hors Mayotte, sans condition sur la situation des parents, ce que ses opposants jugent trop large face à l'immigration irrégulière."
-    axes: { societe: -1 }
+    axes: { societe: 0 }
   - id: C
     libelle: "Le restreindre"
     implique: "Le droit du sol reste, avec des conditions plus strictes : une démarche obligatoire du jeune, comme de 1993 à 1998, ou un séjour régulier des parents à la naissance, comme à Mayotte."

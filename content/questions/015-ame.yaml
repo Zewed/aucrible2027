@@ -33,12 +33,13 @@ options:
     implique: "Le dispositif reste en place pour les soins courants et programmés, et le délai de neuf mois avant certains soins non urgents est supprimé."
     defenseurs: "Soigner tôt éviterait des dépenses d'hôpital, selon un rapport d'inspection de l'État (2019), et les hôpitaux publics défendent l'aide ; la dépense moyenne par bénéficiaire (2 699 euros) est inférieure à celle de la population générale (3 659 euros)."
     critiques: "La dépense a augmenté de 68,5 % en dix ans et dépasse chaque année le budget voté ; le dispositif français est jugé plus généreux que ceux de nos voisins, ce que ses opposants lisent comme un facteur d'attractivité."
-    axes: { societe: -2 }
+    axes: { societe: -1 }
   - id: B
     libelle: "Garder l'AME en durcissant ses conditions"
     implique: "Contrôles renforcés, accord préalable de l'Assurance maladie étendu à tous les soins non urgents, justificatifs plus stricts, comme le proposent le rapport Évin-Stefanini (2023) et le Sénat (2025)."
     defenseurs: "Garder un filet de santé publique tout en maîtrisant la dépense : le Sénat chiffre à 200 millions d'euros l'économie d'un accord préalable généralisé, et de 138 à 275 millions celle d'un contrôle strict des justificatifs."
     critiques: "Les contrôles sont déjà nombreux (15,5 % des dossiers en 2024, 2,3 % d'anomalies) ; des restrictions de plus peuvent retarder des soins, quand d'autres jugent qu'elles ne vont pas assez loin."
+    axes: { societe: 1 }
   - id: C
     libelle: "La remplacer par une aide médicale d'urgence limitée aux soins vitaux"
     implique: "Seuls les soins urgents et vitaux seraient pris en charge pour les étrangers en situation irrégulière ; les soins programmés ne le seraient plus."
