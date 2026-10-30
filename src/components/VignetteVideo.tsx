@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { VideoExplicative } from "@/lib/contenu";
 
 /**
@@ -10,9 +10,22 @@ import type { VideoExplicative } from "@/lib/contenu";
  */
 export function VignetteVideo({ titre, video }: { titre: string; video?: VideoExplicative }) {
   const [lecture, setLecture] = useState(false);
+  const lecteur = useRef<HTMLVideoElement>(null);
+
+  // Quitter la page arrête la vidéo : le routeur garde parfois la page précédente en mémoire, cachée mais vivante.
+  useEffect(() => {
+    if (!lecture) return;
+    const video = lecteur.current;
+    const arreter = () => video?.pause();
+    window.addEventListener("pagehide", arreter);
+    return () => {
+      window.removeEventListener("pagehide", arreter);
+      arreter();
+    };
+  }, [lecture]);
 
   if (video && lecture) {
-    return <video className="affiche" src={video.url} controls autoPlay aria-label={`Vidéo : ${titre}, ${video.duree}`} />;
+    return <video ref={lecteur} className="affiche" src={video.url} controls autoPlay aria-label={`Vidéo : ${titre}, ${video.duree}`} />;
   }
 
   const contenu = (

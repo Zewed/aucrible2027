@@ -11,7 +11,7 @@
 }
 .stats b {
   min-width: 32px; height: 32px; border-radius: 8px; padding: 0 6px;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   display: grid; place-items: center;
   font: 800 17px/1 var(--display);
 }
@@ -31,10 +31,10 @@
 .jfilter > label:hover { background: var(--table-3); }
 .jfilter > label b {
   min-width: 24px; height: 24px; border-radius: 7px; padding: 0 5px;
-  background: var(--table-3); color: var(--chalk);
+  background: var(--table-3); color: var(--sur-table);
   display: grid; place-items: center; font: 800 13px/1 var(--display);
 }
-.jfilter > input:checked + label { background: var(--chalk); color: var(--ink); box-shadow: 0 4px 0 var(--pawn-edge); margin-bottom: 4px; }
+.jfilter > input:checked + label { background: var(--sur-table); color: var(--table); box-shadow: 0 4px 0 var(--pawn-edge); margin-bottom: 4px; }
 .jfilter > input:checked + label b { background: var(--ink); color: var(--chalk); }
 .jfilter > input:focus-visible + label { outline: 3px solid var(--eco); outline-offset: 3px; }
 

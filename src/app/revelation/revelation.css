@@ -8,7 +8,7 @@
 .rev-hero { padding: 8px 0 0; }
 .rev-chip {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--table-2); color: var(--chalk);
+  background: var(--table-2); color: var(--sur-table);
   border-radius: 999px; padding: 6px 13px 6px 7px;
   font: 700 14px/1 var(--text); white-space: nowrap;
 }
@@ -93,7 +93,7 @@
   display: inline-flex; align-items: center; gap: 9px;
   min-height: 44px; padding: 7px 14px 7px 7px;
   border-radius: 12px;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   font: 700 15.5px/1.1 var(--text);
   text-decoration: none; white-space: nowrap;
   box-shadow: 0 4px 0 var(--pawn-edge);
@@ -103,7 +103,7 @@
 .who a:hover { transform: translateY(-2px); }
 .who a:focus-visible { outline: 3px solid var(--eco); outline-offset: 3px; }
 .who .pawn { --size: 30px; box-shadow: 0 2px 0 var(--ink-deep); }
-.who.far a { background: transparent; color: var(--chalk); box-shadow: inset 0 0 0 2px var(--table-3); }
+.who.far a { background: transparent; color: var(--sur-table); box-shadow: inset 0 0 0 2px var(--table-3); }
 .who.far .pawn { box-shadow: none; }
 .align-note { padding-top: 14px; border-top: 2px dashed var(--table-3); font-size: 13.5px; line-height: 1.4; color: var(--muted); }
 
@@ -115,7 +115,7 @@
 .seg i.fresh { animation: click .9s var(--ease-out) .9s both; }
 .streak-card svg.die { width: 64px; height: 64px; justify-self: center; }
 .days { display: flex; gap: 4px; margin-top: 8px; }
-.days i { width: 22px; height: 10px; border-radius: 3px; background: var(--chalk); }
+.days i { width: 22px; height: 10px; border-radius: 3px; background: var(--sur-table); }
 .days i.now { background: var(--trav); animation: click .9s var(--ease-out) 1.2s both; }
 
 /* ---------- qui défend quoi : les cartes se retournent ---------- */
@@ -136,7 +136,7 @@
   from { transform: perspective(900px) rotateX(-80deg) translateY(-10px); opacity: 0; }
   to { transform: none; opacity: 1; }
 }
-.ropt.mine { box-shadow: 0 0 0 3px var(--chalk), 0 9px 0 var(--theme-edge); }
+.ropt.mine { box-shadow: 0 0 0 3px var(--sur-table), 0 9px 0 var(--theme-edge); }
 .ropt-head {
   display: grid; grid-template-columns: 44px minmax(0, 1fr);
   column-gap: 12px; row-gap: 4px; align-items: center;
@@ -204,22 +204,23 @@
 .badge svg { width: 12px; height: 12px; flex: none; }
 .badge--off { background: var(--ink); color: var(--chalk); }
 .badge--ded { color: var(--ink-soft); border: 2px dashed var(--ink-soft); padding: 3px 8px 3px 5px; }
+.badge--est { color: var(--ink-soft); border: 2px dotted var(--ink-soft); padding: 3px 8px 3px 5px; }
 .badge--none { color: var(--muted); border: 2px dashed var(--table-3); padding: 3px 8px 3px 8px; }
 
 /* position inconnue : même carte, posée sur la table */
 .ropt.unknown {
-  background: var(--table-2); color: var(--chalk);
+  background: var(--table-2); color: var(--sur-table);
   box-shadow: 0 6px 0 var(--table-3);
   border: 2px dashed var(--table-3);
 }
 .ropt.unknown .ropt-head { background: transparent; }
-.ropt.unknown .ropt-letter { background: var(--table-3); color: var(--chalk); }
+.ropt.unknown .ropt-letter { background: var(--table-3); color: var(--sur-table); }
 .ropt.unknown .ropt-meta { color: var(--muted); }
 .ropt.unknown .ropt-meta { gap: 4px 14px; }
 /* les candidats sans source : des pastilles, à la suite */
 .ropt.unknown .defs { display: flex; flex-wrap: wrap; gap: 8px; padding: 2px 14px 14px; }
 .ropt.unknown .def { display: inline-flex; align-items: center; gap: 8px; padding: 4px 14px 4px 4px; border: 0; border-radius: 999px; background: var(--table-3); }
-.ropt.unknown .def-name { color: var(--chalk); font-size: 15px; align-self: center; }
+.ropt.unknown .def-name { color: var(--sur-table); font-size: 15px; align-self: center; }
 .ropt.unknown .def:hover { background: var(--table-3); }
 .ropt.unknown .def:focus-within { outline-color: var(--eco); }
 .ropt.unknown .pawn { box-shadow: 0 3px 0 var(--pawn-edge); }
@@ -237,7 +238,7 @@ a.go { text-decoration: none; }
 .more a {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   min-height: 48px;
-  font: 600 15px/1.2 var(--text); color: var(--chalk);
+  font: 600 15px/1.2 var(--text); color: var(--sur-table);
   text-underline-offset: 3px;
   border-bottom: 2px dashed var(--table-3);
 }
@@ -335,7 +336,7 @@ a.go { text-decoration: none; }
   /* qui défend quoi : une ligne par candidat, son nom, sa source et son badge à la suite */
   .ropts { margin: 0; gap: var(--gap); }
   .ropt { margin-bottom: 4px; box-shadow: 0 4px 0 var(--theme); }
-  .ropt.mine { box-shadow: 0 0 0 3px var(--chalk), 0 6px 0 var(--theme-edge); }
+  .ropt.mine { box-shadow: 0 0 0 3px var(--sur-table), 0 6px 0 var(--theme-edge); }
   .ropt.unknown { box-shadow: none; border-style: solid; }
   .ropt-head { grid-template-columns: calc(var(--f) * 30px) minmax(0, 1fr) auto; column-gap: 10px; padding: calc(var(--f) * 7px) 14px; }
   .ropt-letter { grid-row: auto; width: calc(var(--f) * 30px); height: calc(var(--f) * 30px); border-radius: 8px; font-size: calc(var(--f) * 16px); }
@@ -349,7 +350,7 @@ a.go { text-decoration: none; }
   .def-src { grid-column: 3; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 3px 8px; }
   .def-doc { font-size: calc(var(--f) * 12.5px); white-space: normal; overflow: visible; text-overflow: clip; }
   .def .badge { font-size: calc(var(--f) * 11px); padding: 3px 7px 3px 5px; }
-  .def .badge--ded { padding: 1px 6px 1px 3px; }
+  .def .badge--ded, .def .badge--est { padding: 1px 6px 1px 3px; }
   .ropt.unknown .defs { gap: 6px; padding: 0 14px calc(var(--f) * 10px); }
   .ropt.unknown .def { padding: 3px 11px 3px 3px; }
   .ropt.unknown .def-name { font-size: calc(var(--f) * 14px); }

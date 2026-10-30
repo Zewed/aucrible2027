@@ -20,7 +20,7 @@
 
 .tiles { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: stretch; }
 .todo {
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   border-radius: var(--r);
   box-shadow: 0 6px 0 var(--pawn-edge);
   margin-bottom: 6px;
@@ -82,7 +82,7 @@
 .chip {
   display: inline-flex; align-items: center; gap: 8px;
   min-height: 44px; padding: 0 14px 0 9px;
-  background: var(--table-2); color: var(--chalk);
+  background: var(--table-2); color: var(--sur-table);
   border-radius: 999px;
   font: 700 14px/1 var(--text);
   white-space: nowrap; cursor: pointer;
@@ -92,7 +92,7 @@
 .chip svg { width: 22px; height: 22px; flex: none; }
 .chip:hover { background: var(--table-3); }
 .fr:focus-visible + .chip { outline: 3px solid var(--eco); outline-offset: 3px; }
-.fr:checked + .chip { background: var(--chalk); color: var(--ink); }
+.fr:checked + .chip { background: var(--sur-table); color: var(--table); }
 
 /* ---------- groupes et légende des dés ---------- */
 .grp { margin-top: 32px; }
@@ -104,7 +104,7 @@
 .key-k { font: 700 13.5px/1.2 var(--text); color: var(--muted); white-space: nowrap; }
 .key ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 14px; }
 .key li { display: inline-flex; align-items: center; gap: 7px; font: 600 14px/1 var(--text); white-space: nowrap; }
-.key .dice { --die: var(--chalk); --pip: var(--ink); width: 26px; height: 26px; }
+.key .dice { --die: var(--sur-table); --pip: var(--table); width: 26px; height: 26px; }
 
 /* ---------- les cartes ---------- */
 .qlist { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 22px; }
@@ -153,7 +153,7 @@
 }
 .st svg { width: 18px; height: 18px; }
 .st-todo { background: var(--ink); color: var(--chalk); }
-.st-done { padding: 9px 12px 8px 14px; box-shadow: inset 0 0 0 2px var(--table-3); color: var(--chalk); }
+.st-done { padding: 9px 12px 8px 14px; box-shadow: inset 0 0 0 2px var(--table-3); color: var(--sur-table); }
 
 /* déjà répondue : la carte s'éteint, sa couleur de thème ne reste qu'en repère */
 .qitem.done .qr { background: var(--table-2); color: var(--muted); box-shadow: 0 6px 0 var(--table-3); }
@@ -172,7 +172,7 @@
   border: 2px dashed var(--table-3); border-radius: var(--r);
   color: var(--muted);
 }
-.pile-in b { font: 800 32px/1 var(--display); font-variation-settings: "wdth" 76, "opsz" 96; color: var(--chalk); letter-spacing: -0.03em; }
+.pile-in b { font: 800 32px/1 var(--display); font-variation-settings: "wdth" 76, "opsz" 96; color: var(--sur-table); letter-spacing: -0.03em; }
 .pile-in span { font: 600 15px/1.25 var(--text); }
 
 /* ---------- l'état « à jour » (aperçu) ---------- */
@@ -187,7 +187,7 @@
 .dp-card {
   flex: none; width: 56px; height: 76px;
   display: grid; place-content: center; justify-items: center;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   border-radius: 8px;
   transform: rotate(-4deg);
   font: 800 30px/0.9 var(--display); font-variation-settings: "wdth" 80;
@@ -225,45 +225,45 @@
 .catch:has(#f-eco:checked) .qitem:not(.theme-eco) { display: none; }
 .catch:has(#f-eco:checked) .grp:not(:has(.theme-eco)) { display: none; }
 .catch:has(#f-eco:checked) .cur-eco { display: inline; }
-.catch:has(#f-eco:checked) .chip[for=f-eco] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-eco:checked) .chip[for=f-eco] { background: var(--sur-table); color: var(--table); }
 .catch:has(#f-trav:checked) .qitem:not(.theme-trav) { display: none; }
 .catch:has(#f-trav:checked) .grp:not(:has(.theme-trav)) { display: none; }
 .catch:has(#f-trav:checked) .cur-trav { display: inline; }
-.catch:has(#f-trav:checked) .chip[for=f-trav] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-trav:checked) .chip[for=f-trav] { background: var(--sur-table); color: var(--table); }
 .catch:has(#f-ecol:checked) .qitem:not(.theme-ecol) { display: none; }
 .catch:has(#f-ecol:checked) .grp:not(:has(.theme-ecol)) { display: none; }
 .catch:has(#f-ecol:checked) .cur-ecol { display: inline; }
-.catch:has(#f-ecol:checked) .chip[for=f-ecol] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-ecol:checked) .chip[for=f-ecol] { background: var(--sur-table); color: var(--table); }
 .catch:has(#f-immi:checked) .qitem:not(.theme-immi) { display: none; }
 .catch:has(#f-immi:checked) .grp:not(:has(.theme-immi)) { display: none; }
 .catch:has(#f-immi:checked) .cur-immi { display: inline; }
-.catch:has(#f-immi:checked) .chip[for=f-immi] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-immi:checked) .chip[for=f-immi] { background: var(--sur-table); color: var(--table); }
 .catch:has(#f-secu:checked) .qitem:not(.theme-secu) { display: none; }
 .catch:has(#f-secu:checked) .grp:not(:has(.theme-secu)) { display: none; }
 .catch:has(#f-secu:checked) .cur-secu { display: inline; }
-.catch:has(#f-secu:checked) .chip[for=f-secu] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-secu:checked) .chip[for=f-secu] { background: var(--sur-table); color: var(--table); }
 .catch:has(#f-sante:checked) .qitem:not(.theme-sante) { display: none; }
 .catch:has(#f-sante:checked) .grp:not(:has(.theme-sante)) { display: none; }
 .catch:has(#f-sante:checked) .cur-sante { display: inline; }
-.catch:has(#f-sante:checked) .chip[for=f-sante] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-sante:checked) .chip[for=f-sante] { background: var(--sur-table); color: var(--table); }
 .catch:has(#f-educ:checked) .qitem:not(.theme-educ) { display: none; }
 .catch:has(#f-educ:checked) .grp:not(:has(.theme-educ)) { display: none; }
 .catch:has(#f-educ:checked) .cur-educ { display: inline; }
-.catch:has(#f-educ:checked) .chip[for=f-educ] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-educ:checked) .chip[for=f-educ] { background: var(--sur-table); color: var(--table); }
 .catch:has(#f-loge:checked) .qitem:not(.theme-loge) { display: none; }
 .catch:has(#f-loge:checked) .grp:not(:has(.theme-loge)) { display: none; }
 .catch:has(#f-loge:checked) .cur-loge { display: inline; }
-.catch:has(#f-loge:checked) .chip[for=f-loge] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-loge:checked) .chip[for=f-loge] { background: var(--sur-table); color: var(--table); }
 .catch:has(#f-euro:checked) .qitem:not(.theme-euro) { display: none; }
 .catch:has(#f-euro:checked) .grp:not(:has(.theme-euro)) { display: none; }
 .catch:has(#f-euro:checked) .cur-euro { display: inline; }
-.catch:has(#f-euro:checked) .chip[for=f-euro] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-euro:checked) .chip[for=f-euro] { background: var(--sur-table); color: var(--table); }
 .catch:has(#f-inst:checked) .qitem:not(.theme-inst) { display: none; }
 .catch:has(#f-inst:checked) .grp:not(:has(.theme-inst)) { display: none; }
 .catch:has(#f-inst:checked) .cur-inst { display: inline; }
-.catch:has(#f-inst:checked) .chip[for=f-inst] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-inst:checked) .chip[for=f-inst] { background: var(--sur-table); color: var(--table); }
 .catch:has(#f-soc:checked) .qitem:not(.theme-soc) { display: none; }
 .catch:has(#f-soc:checked) .grp:not(:has(.theme-soc)) { display: none; }
 .catch:has(#f-soc:checked) .cur-soc { display: inline; }
-.catch:has(#f-soc:checked) .chip[for=f-soc] { background: var(--chalk); color: var(--ink); }
+.catch:has(#f-soc:checked) .chip[for=f-soc] { background: var(--sur-table); color: var(--table); }
 .catch:has(.fr:not(#f-all):checked) .cur-all { display: none; }

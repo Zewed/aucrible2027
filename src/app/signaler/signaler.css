@@ -17,7 +17,7 @@
 }
 .sig-head h1 span { color: var(--eco); }
 .nb { white-space: nowrap; }
-.sig-intro { margin-top: 14px; font-size: 16.5px; line-height: 1.5; color: var(--chalk); max-width: 34em; }
+.sig-intro { margin-top: 14px; font-size: 16.5px; line-height: 1.5; color: var(--sur-table); max-width: 34em; }
 
 /* ---------- la carte formulaire ---------- */
 .sig-card {
@@ -127,10 +127,10 @@ textarea.f-input { min-height: 148px; resize: vertical; }
 .state-ic svg { width: 24px; height: 24px; }
 .state-t { font: 800 22px/1.12 var(--display); font-variation-settings: "wdth" 88; letter-spacing: -0.01em; }
 .state-s { margin-top: 8px; font-size: 14.5px; line-height: 1.45; }
-.state-ok { background: var(--chalk); color: var(--ink); box-shadow: 0 6px 0 var(--pawn-edge); margin-bottom: 6px; }
+.state-ok { background: var(--sur-table); color: var(--table); box-shadow: 0 6px 0 var(--pawn-edge); margin-bottom: 6px; }
 .state-ok .state-ic { background: var(--ink); color: var(--chalk); }
-.state-err { background: var(--table-2); color: var(--chalk); border: 2px dashed var(--muted); }
-.state-err .state-ic { background: var(--chalk); color: var(--ink); }
+.state-err { background: var(--table-2); color: var(--sur-table); border: 2px dashed var(--muted); }
+.state-err .state-ic { background: var(--sur-table); color: var(--table); }
 .state-err .act { grid-column: 1 / -1; }
 .btn-ink {
   display: inline-flex; align-items: center; gap: 8px;

@@ -25,4 +25,4 @@ options:
     defenseurs: ""
     critiques: ""
 positions:
-  tondelier: { option: B, source: "Source de test", statut: deduite }
+  tondelier: { option: B, source: "Programme 2027 des Écologistes, sujet voisin", statut: estimee }
