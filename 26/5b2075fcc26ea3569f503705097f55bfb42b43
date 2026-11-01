@@ -1,0 +1,29 @@
+e2e/jauges.spec.ts
+  s_613931134209e1::t_cc2e4b0965cef6 1-65
+src/app/resultats/jauges.css
+  s_613931134209e1::t_a3dfe058d630db 1-108
+src/app/resultats/page.tsx
+  s_613931134209e1::t_7fe2073ccc4329 7,13-15,22-25,36,53-57,73,76
+src/components/Jauges.tsx
+  s_613931134209e1::t_e7f6d316d2d672 1-140
+src/lib/jauges.ts
+  s_613931134209e1::t_6e6b44a1df7b61 1-187
+src/lib/plateau.ts
+  s_613931134209e1::t_3e7a571903d6b6 9,21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "265b2075fcc26ea3569f503705097f55bfb42b43",
+  "prompts": {},
+  "sessions": {
+    "s_613931134209e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c79ee6b3-8764-40b2-98e0-0c1ca69b04b5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
