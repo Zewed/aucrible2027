@@ -31,7 +31,7 @@ options:
     implique: "On revient sur la loi pour le plein emploi : plus de minimum d'heures ni la retenue créée en 2025 ; l'allocataire reste tenu, comme depuis 2009, de suivre des démarches d'insertion, et le RSA reste soumis à ses conditions de ressources."
     defenseurs: "Le RSA est un minimum pour vivre, pas un salaire : la Commission nationale consultative des droits de l'homme juge que ces heures portent atteinte aux droits humains, et l'évaluation officielle ne trouve pas d'emploi en plus au total."
     critiques: "Avant la loi, six allocataires sur dix n'avaient pas de contrat d'accompagnement valide selon la Cour des comptes, et huit Français sur dix approuvaient ces heures dans un sondage de 2022."
-    axes: { economie: -2 }
+    axes: { economie: -1 }
   - id: B
     libelle: "Garder la règle actuelle"
     implique: "15 heures par semaine en principe, réduites selon la situation, ou aucune pour raison de santé, de handicap ou pour un parent isolé sans garde ; au premier manquement, au moins 30 % du RSA est retenu un à deux mois, puis rendu si la personne reprend ses démarches."

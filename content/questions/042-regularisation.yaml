@@ -43,7 +43,7 @@ options:
     implique: "La régularisation reste exceptionnelle et décidée par le préfet, qui regarde le travail, l'intégration (sept ans de présence comme repère), le français et l'ordre public ; la voie des métiers qui manquent de bras peut être prolongée après 2026."
     defenseurs: "L'État garde le dernier mot : on régularise ceux qui sont intégrés et utiles, sans créer de droit automatique, en vérifiant leur travail, leur maîtrise du français et le respect de l'ordre public."
     critiques: "Les uns jugent la voie trop étroite et inégale selon les préfectures (1 655 titres pour les métiers qui manquent de bras en 2025, la moitié des dossiers non instruits) ; les autres jugent que régulariser, même au cas par cas, récompense un séjour illégal."
-    axes: { societe: 1 }
+    axes: { societe: 0 }
   - id: D
     libelle: "Ne plus régulariser"
     implique: "Un étranger entré ou resté sans titre ne peut plus en obtenir un, sauf exception décidée en Conseil des ministres pour un motif d'intérêt national ; il doit repartir, et les besoins de main-d'œuvre passent par d'autres voies, comme le recrutement à l'étranger ou la formation des chômeurs."

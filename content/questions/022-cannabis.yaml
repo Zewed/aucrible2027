@@ -45,7 +45,7 @@ options:
     implique: "L'usage et la vente restent interdits et sanctionnés, avec la prévention et la lutte contre les trafics en priorité."
     defenseurs: "Le cannabis est dangereux, surtout pour les jeunes, et le légaliser enverrait le signal que sa consommation est acceptable : mieux vaut renforcer la prévention et combattre le trafic."
     critiques: "L'interdit n'empêche ni la consommation ni le trafic, et coûte cher à la police et à la justice sans rapporter de recettes."
-    axes: { societe: 1 }
+    axes: { societe: 0 }
 pourAllerPlusLoin:
   - titre: "OFDT, cannabis"
     url: https://www.ofdt.fr/produits-et-addictions/de-z/cannabis/

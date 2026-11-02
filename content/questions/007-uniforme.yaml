@@ -38,12 +38,13 @@ options:
     implique: Le règlement intérieur, voté avec la communauté éducative, peut inscrire une tenue commune ; l'État ne l'impose pas.
     defenseurs: Chaque communauté éducative choisit ce qui lui convient, au rythme de ce que sa collectivité peut payer.
     critiques: "Sans l'État, des collectivités comme Reims disent ne pas pouvoir financer les tenues ; seule une règle nationale vaudrait pour tous."
+    axes: { societe: 0 }
   - id: C
     libelle: L'imposer à tous les élèves du public
     implique: Une loi rend la tenue obligatoire dans les écoles et collèges publics (certains textes vont jusqu'au lycée) ; chaque établissement en fixe la coupe et la couleur.
     defenseurs: Une tenue commune réduit les inégalités sociales, aide à lutter contre le harcèlement et donne un cadre clair sur les signes religieux.
     critiques: Les effets sur les comportements et les apprentissages restent limités, et les élèves du second degré y adhèrent peu.
-    axes: { societe: 2 }
+    axes: { societe: 1 }
 pourAllerPlusLoin:
   - titre: DEPP, évaluation des expérimentations du port de la tenue commune, 2026
     url: https://www.education.gouv.fr/depp/evaluation-des-experimentations-du-port-de-la-tenue-commune-l-ecole-504773

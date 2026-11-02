@@ -29,21 +29,25 @@ options:
     implique: "Pas d'âge minimum fixé par la loi française : les règles des plateformes (13 ans le plus souvent) et le droit européen s'appliquent, et l'on mise sur l'éducation au numérique et l'aide aux parents."
     defenseurs: "Une interdiction se contourne et oblige chacun, adultes compris, à prouver son âge : mieux vaut apprendre aux jeunes à s'en servir et aider les parents à les guider."
     critiques: "La limite de 13 ans n'est pas respectée, puisque 58 % des 11-12 ans avaient un compte en 2021, et l'éducation ne change pas la conception des applications."
+    axes: { societe: -1 }
   - id: B
     libelle: Interdire les fonctions jugées addictives
     implique: "Les moins de 15 ans gardent accès aux réseaux sociaux, mais la loi leur interdit une liste de fonctions : lecture automatique des vidéos, défilement sans fin, notifications la nuit, messages d'inconnus."
     defenseurs: "On vise ce qui nuit, la façon dont les applications sont conçues, sans couper les adolescents de leurs amis ni interdire des services dont les risques ne sont pas établis."
     critiques: "Les plateformes n'ont pas fait respecter leur propre limite de 13 ans, et il faudrait tout de même vérifier l'âge de chacun pour savoir à qui appliquer ces règles."
+    axes: { societe: 0 }
   - id: C
     libelle: Interdire avant 15 ans, sauf accord des parents
     implique: "Pas de compte avant 15 ans sans l'accord d'un parent, qui peut le donner service par service, comme le prévoyaient la loi de 2023 et la version votée par le Sénat en mars 2026."
     defenseurs: "Les parents décident selon la maturité de leur enfant, ce que le Conseil d'État et le Conseil constitutionnel reprochaient à l'interdiction générale de ne pas permettre."
     critiques: "La loi de 2023, fondée sur l'accord des parents, a été bloquée par le droit européen, et il faudrait vérifier à la fois l'âge de l'enfant et l'identité du parent."
+    axes: { societe: 0 }
   - id: D
     libelle: Interdire strictement avant 15 ans
     implique: "Aucun compte sur un réseau social avant 15 ans, sans dérogation, et vérification de l'âge de tous les utilisateurs, comme dans la loi votée en juillet 2026 ; l'Australie a choisi 16 ans."
     defenseurs: "Les réseaux sociaux abîment le sommeil et l'image de soi des adolescents, selon l'agence de sécurité sanitaire. Une règle claire et la même pour tous les enfants les en protège ; 69 % des 10-14 ans la jugent eux-mêmes une bonne idée."
     critiques: "Le Conseil constitutionnel l'a censurée en 2026 pour atteinte à la liberté d'expression et à la vie privée, et en Australie, la plupart des enfants qui avaient un compte l'ont gardé ou en ont ouvert un autre."
+    axes: { societe: 1 }
 pourAllerPlusLoin:
   - titre: Conseil constitutionnel, décision n° 2026-911 DC du 14 août 2026
     url: https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm

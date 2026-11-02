@@ -40,6 +40,7 @@ options:
     implique: "La taxe et les règles actuelles restent ; l'État et les communes financent des travaux, garantissent les loyers et accordent des avantages fiscaux aux propriétaires qui louent."
     defenseurs: "Beaucoup de logements vides sont vieux, petits ou en mauvais état, et leurs propriétaires âgés ou modestes : mieux vaut les aider à faire les travaux que les sanctionner."
     critiques: "Les aides se paient avec l'argent public et touchent peu de logements ; là où le logement manque, peu de propriétaires répondent quand la mairie les contacte."
+    axes: { economie: 0 }
   - id: D
     libelle: "Alléger les règles pour les louer"
     implique: "Les interdictions de louer les logements les plus mal isolés sont levées ou assouplies, pour que ceux qui sont vides puissent être loués, et les propriétaires qui louent paient moins d'impôts ; ni réquisition, ni taxe nouvelle."

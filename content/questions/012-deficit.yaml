@@ -51,6 +51,7 @@ options:
     critiques: "La croissance prévue est faible (entre 0,5 % et 0,9 % en 2026) et la Cour des comptes juge qu'il faut encore 3 points de PIB d'effort : elle ne suffirait pas seule."
     # Ne se range pas entre « baisser les dépenses » et « augmenter les impôts » : c'est un troisième levier.
     horsEchelle: true
+    axes: { economie: 0 }
 pourAllerPlusLoin:
   - titre: "Insee, comptes des administrations publiques 2025"
     url: https://www.insee.fr/fr/statistiques/8997691

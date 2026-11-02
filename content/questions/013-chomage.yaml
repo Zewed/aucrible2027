@@ -45,7 +45,7 @@ options:
     implique: "Depuis le 1er septembre 2026 : 15 mois avant 55 ans et 20,5 mois ensuite après une rupture conventionnelle ; le gouvernement attend jusqu'à 1 milliard d'euros d'économies par an et jusqu'à 15 000 retours à l'emploi."
     defenseurs: "Beaucoup de ruptures conventionnelles remplacent des démissions, qui n'ouvrent aucun droit : réduire leur indemnisation limite l'effet d'aubaine, dans un accord signé par six organisations patronales et syndicales."
     critiques: "Les salariés de 55 ans et plus risquent d'arriver en fin de droits sans emploi, et la CGT et la CFE-CGC n'ont pas signé l'accord."
-    axes: { economie: 1 }
+    axes: { economie: 0 }
   - id: D
     libelle: "La réduire pour tous : 12 mois avant 50 ans"
     implique: "Un plafond de 12 mois pour les moins de 50 ans, contre 18 aujourd'hui ; aucune économie chiffrée à ce jour."

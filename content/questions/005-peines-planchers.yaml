@@ -31,7 +31,7 @@ options:
     implique: "Le droit actuel est maintenu : aucune peine minimale ne s'impose, et le juge adapte la peine aux faits et à la personne."
     defenseurs: "Chaque situation est différente : le juge doit pouvoir adapter la peine, et le dispositif de 2007-2014 n'a pas fait reculer la récidive à court terme, selon une étude de 2024 ; la baisse qu'elle trouve vient à moyen terme, sur des récidives répétées."
     critiques: Sans seuil, le système devient imprévisible et inaudible pour les victimes, et la sanction n'est pas assez ferme.
-    axes: { societe: -2 }
+    axes: { societe: 0 }
   - id: B
     libelle: Oui, pour certaines infractions ciblées
     implique: Des peines minimales visent les faits les plus graves, les récidivistes ou les agressions contre les policiers, gendarmes et autres personnes exposées.

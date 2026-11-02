@@ -30,18 +30,19 @@ options:
     implique: Les voitures neuves vendues à partir de 2035 n'émettent aucun CO2 à l'échappement, comme le prévoit le règlement de 2023.
     defenseurs: Une échéance claire donne de la visibilité aux constructeurs et aux ménages, et agit sur le premier secteur émetteur de gaz à effet de serre.
     critiques: Elle impose une seule technologie, et des États de l'Union où les ventes d'électriques sont encore faibles demandent un objectif moins strict.
-    axes: { economie: -1 }
+    axes: { societe: 0 }
   - id: B
     libelle: L'assouplir à 90 %
     implique: L'objectif passe à 90 % de réduction ; les 10 % restants sont compensés par de l'acier bas carbone ou des carburants durables, et 27 à 29 % des voitures neuves pourraient encore avoir un moteur thermique après 2035, selon les projets en discussion.
     defenseurs: Garder la direction tout en laissant du temps à l'industrie et aux ménages, avec des hybrides, des carburants durables et des petites voitures électriques abordables.
     critiques: Elle affaiblit la visibilité de l'échéance et laisse des voitures thermiques neuves vendues après 2035.
+    axes: { societe: 1 }
   - id: C
     libelle: Supprimer l'interdiction
     implique: "Il n'y a plus d'échéance de fin de vente des voitures thermiques neuves : les consommateurs et le marché décident."
     defenseurs: "Laisser les Français choisir : les problèmes écologiques seront résolus par le progrès technique, pas par la contrainte."
     critiques: "Les voitures représentent 53 % des émissions des transports, premier secteur émetteur : sans échéance, la baisse de ces émissions serait moins sûre et les constructeurs perdraient en visibilité."
-    axes: { economie: 2 }
+    axes: { societe: 2 }
 pourAllerPlusLoin:
   - titre: Commission européenne, paquet automobile, 16/12/2025
     url: https://transport.ec.europa.eu/transport-themes/action-plan-future-automotive-sector/automotive-package_en

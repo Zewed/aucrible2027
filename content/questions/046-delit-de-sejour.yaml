@@ -51,7 +51,7 @@ options:
     implique: "Pas de délit et moins d'enfermement : les étrangers installés ou qui travaillent obtiennent un titre de séjour, et ceux qui doivent partir sont aidés à rentrer chez eux plutôt que placés en rétention."
     defenseurs: "Être sans titre est une situation administrative, pas une faute, parfois créée par l'attente en préfecture ; un titre sort ces personnes de l'exploitation, et un départ aidé coûte quatre fois moins qu'un renvoi forcé."
     critiques: "Des étrangers sous ordre de partir resteraient sans sanction et pourraient espérer un titre, ce qui attirerait d'autres arrivées selon ses opposants ; en 2024, 6 909 personnes sont parties avec une aide au retour, en dessous de l'objectif de 8 000."
-    axes: { societe: -2 }
+    axes: { societe: -1 }
 pourAllerPlusLoin:
   - titre: "Cour des comptes, La politique de lutte contre l'immigration irrégulière, 2024"
     url: https://www.ccomptes.fr/fr/publications/la-politique-de-lutte-contre-limmigration-irreguliere

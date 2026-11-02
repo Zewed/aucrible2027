@@ -2075,7 +2075,7 @@ const placeDuToi = (page: Page) =>
     });
 
 test.describe("le plateau place le pion « toi » sur les deux axes", () => {
-  test("avec 23 réponses, « Ton plateau » montre un pion « TOI » près du centre, légèrement côté redistribution (à gauche) et progressiste (en haut)", async ({ page }) => {
+  test("avec 23 réponses, « Ton plateau » pose le pion « TOI » dans le cadre des candidats, à droite et sous leur milieu, et les pions occupent tout le plateau", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/resultats");
     const plateau = page.getByRole("region", { name: "Ton plateau" });
@@ -2083,10 +2083,20 @@ test.describe("le plateau place le pion « toi » sur les deux axes", () => {
     // Le rendu serveur, sans les réponses de l'appareil, pose le pion au centre : attendre qu'elles soient lues.
     await expect(plateau.locator(".field .pawn")).toHaveCount(13);
     const { x, y } = await placeDuToi(page);
-    expect(x).toBeGreaterThan(0.35);
-    expect(x).toBeLessThan(0.5);
-    expect(y).toBeGreaterThan(0.35);
-    expect(y).toBeLessThan(0.5);
+    // Le plateau se cadre sur les candidats, groupés en haut à gauche dans ce jeu de fiches : TOI est à droite et sous leur milieu.
+    expect(x).toBeGreaterThan(0.7);
+    expect(x).toBeLessThan(0.82);
+    expect(y).toBeGreaterThan(0.58);
+    expect(y).toBeLessThan(0.7);
+    const pions = await plateau.locator(".field .pawn").evaluateAll((liste) =>
+      liste.map((pion) => {
+        const [champ, style] = [(pion as HTMLElement).offsetParent as HTMLElement, getComputedStyle(pion)];
+        return { x: parseFloat(style.left) / champ.clientWidth, y: parseFloat(style.top) / champ.clientHeight };
+      }),
+    );
+    const etendue = (valeurs: number[]) => Math.max(...valeurs) - Math.min(...valeurs);
+    expect(etendue(pions.map((p) => p.x))).toBeGreaterThan(0.75);
+    expect(etendue(pions.map((p) => p.y))).toBeGreaterThan(0.75);
   });
 });
 
@@ -2607,7 +2617,7 @@ test.describe("l'électeur choisit une carte qui ne montre que son pion", () => 
     await expect(candidat.getByText("Choisie", { exact: true })).toBeHidden();
   });
 
-  test("la carte « Mon pion sur le plateau » montre le pion « TOI » près du centre, côté redistribution et progressiste, sans nom, pourcentage ni pion de candidat", async ({ page }) => {
+  test("la carte « Mon pion sur le plateau » pose le pion « TOI » dans le même cadre que le plateau, sans nom, pourcentage ni pion de candidat", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/carte");
     const carte = page.getByRole("article", { name: "Carte à partager : mon pion sur le plateau, sans nom de candidat" });
@@ -2620,10 +2630,10 @@ test.describe("l'électeur choisit une carte qui ne montre que son pion", () => 
       const style = getComputedStyle(toi);
       return { x: parseFloat(style.left) / champ.clientWidth, y: parseFloat(style.top) / champ.clientHeight };
     });
-    expect(x).toBeGreaterThan(0.35);
-    expect(x).toBeLessThan(0.5);
-    expect(y).toBeGreaterThan(0.35);
-    expect(y).toBeLessThan(0.5);
+    expect(x).toBeGreaterThan(0.7);
+    expect(x).toBeLessThan(0.82);
+    expect(y).toBeGreaterThan(0.58);
+    expect(y).toBeLessThan(0.7);
   });
 
   test("en revenant sur « Mon candidat le plus proche », la version avec « 81 % » et « François Ruffin » redevient la choisie", async ({ page }) => {
@@ -3450,10 +3460,11 @@ test.describe("la page Méthode explique comment le plateau place les pions", ()
     await expect(regle5(page).getByText("La question sans note est ignorée sur cet axe. Résultat : un peu côté redistribution.")).toBeVisible();
   });
 
-  test("la règle dit que les candidats sont placés par la même formule, à partir de leurs positions sourcées, et que les notes passent le même contrôle de neutralité", async ({ page }) => {
+  test("la règle dit que chaque thème pèse autant, que le plateau se cadre sur les candidats, et que les options sont notées à l'aveugle", async ({ page }) => {
     await page.goto("/methode");
-    await expect(regle5(page).getByText("Les candidats sont placés par la même formule, à partir de leurs positions sourcées.")).toBeVisible();
-    await expect(regle5(page).getByText("Les notes sont relues par le même contrôle de neutralité que les questions.")).toBeVisible();
+    await expect(regle5(page).getByText("chaque thème pèse autant. Les candidats sont placés par la même formule, à partir de leurs positions.")).toBeVisible();
+    await expect(regle5(page).getByText("Le plateau se cadre sur les candidats : sur chaque axe, il va du premier au dernier, et son centre est le milieu entre eux. Le même cadre vaut pour tous les pions et pour le tien.")).toBeVisible();
+    await expect(regle5(page).getByText("Les options sont notées à l'aveugle, d'après leur seul texte, sans regarder qui les défend.")).toBeVisible();
     await expect(regle5(page).getByRole("img", { name: "Carte à deux axes : un pion TOI, légèrement côté redistribution et progressiste" })).toBeVisible();
   });
 });

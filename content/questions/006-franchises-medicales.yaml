@@ -45,13 +45,13 @@ options:
     implique: Le plafond passe à 140 euros par an, puis une nouvelle étape est prévue en 2028 et une revalorisation selon l'inflation.
     defenseurs: Une hausse mesurée, qui laisse environ 18 millions de personnes exemptées, dont les mineurs et les bénéficiaires de la complémentaire santé solidaire.
     critiques: "Les plus gros consommateurs de soins paient le plus : les patients en affection de longue durée paient en moyenne 78 euros par an, contre 41 pour les autres."
-    axes: { economie: 1 }
+    axes: { economie: 0 }
   - id: D
     libelle: Les doubler
     implique: Les plafonds sont doublés, à 200 euros par an, et les franchises s'étendent aux soins dentaires et aux dispositifs médicaux, comme proposé en 2025 et en 2026.
     defenseurs: "L'assurance maladie doit maîtriser ses dépenses : le doublement rapporterait 750 millions d'euros par an, pour continuer à investir dans l'hôpital."
     critiques: C'est un impôt sur la maladie, dont le coût rapporté au revenu est environ deux fois plus élevé pour les ménages modestes que pour les aisés, et qui peut faire renoncer à des soins.
-    axes: { economie: 2 }
+    axes: { economie: 1 }
 pourAllerPlusLoin:
   - titre: DREES, Déremboursement de soins, qui paie ?, 2026
     url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/les-dossiers-de-la-drees/260218_DD_%C3%A9valuation-impact-m%C3%A9nages-d%C3%A9remboursement-partiel-soins

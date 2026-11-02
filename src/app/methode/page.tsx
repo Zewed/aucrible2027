@@ -321,10 +321,14 @@ function RegleDuPlateau() {
             </li>
           </ul>
           <p>
-            Ta position sur un axe est la <b>moyenne de tes notes, pondérée par l&apos;importance</b> que tu as donnée. Les candidats
-            sont placés par la même formule, à partir de leurs positions sourcées.
+            Ta position sur un axe est la <b>moyenne de tes notes, pondérée par l&apos;importance</b> que tu as donnée, et{" "}
+            <b>chaque thème pèse autant</b>. Les candidats sont placés par la même formule, à partir de leurs positions.
           </p>
-          <p className="small">Les notes sont relues par le même contrôle de neutralité que les questions.</p>
+          <p>
+            Le plateau se <b>cadre sur les candidats</b>&nbsp;: sur chaque axe, il va du premier au dernier, et son centre est le
+            milieu entre eux. Le même cadre vaut pour tous les pions et pour le tien.
+          </p>
+          <p className="small">Les options sont notées à l&apos;aveugle, d&apos;après leur seul texte, sans regarder qui les défend.</p>
 
           <div className="demo" style={{ marginTop: 16 }}>
             <p className="demo-k">

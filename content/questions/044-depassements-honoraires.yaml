@@ -40,7 +40,7 @@ options:
     implique: "Le secteur 2 reste ouvert aux médecins qui ont les titres requis ; l'Optam, facultatif, récompense ceux qui modèrent leurs prix, et les patients de la complémentaire santé solidaire restent protégés."
     defenseurs: "Les engagements volontaires ont fait baisser le dépassement moyen de 55 % à 46 % du tarif entre 2012 et 2020 : mieux vaut négocier et revaloriser les tarifs que sanctionner les médecins."
     critiques: "Le dépassement moyen remonte depuis 2020, près d'un médecin concerné sur deux reste hors de l'Optam, et le secteur 2 pourrait concerner neuf spécialistes sur dix en 2040."
-    axes: { economie: 1 }
+    axes: { economie: 0 }
   - id: D
     libelle: Les permettre à tous les médecins
     implique: "Tout médecin conventionné peut fixer ses prix, par exemple dans un secteur unique où seuls les excès sont encadrés ; les patients modestes et les urgences restent au tarif de la Sécurité sociale, comme le proposent des syndicats de médecins."

@@ -44,7 +44,7 @@ options:
     implique: Seul le patrimoine immobilier de plus de 1,3 million d'euros reste imposé ; aucun nouvel impôt sur le patrimoine n'est créé, et l'IFI peut être allégé.
     defenseurs: Ne pas taxer les patrimoines professionnels ni créer de nouvel impôt, pour que l'activité et l'investissement restent en France.
     critiques: L'IFI ne frappe que l'immobilier et son seuil n'a jamais été réévalué, alors que les placements financiers y échappent.
-    axes: { economie: 1 }
+    axes: { economie: 0 }
   - id: D
     libelle: Supprimer l'IFI
     implique: Plus aucun impôt annuel sur le patrimoine ne subsiste.
