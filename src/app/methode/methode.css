@@ -112,7 +112,7 @@
 .total-bar { height: 12px; border-radius: 4px; background: var(--table-3); overflow: hidden; }
 .total-bar i {
   display: block; height: 100%;
-  background: repeating-linear-gradient(90deg, var(--chalk) 0 calc(5% - 2px), transparent calc(5% - 2px) 5%);
+  background: repeating-linear-gradient(90deg, var(--sur-table) 0 calc(5% - 2px), transparent calc(5% - 2px) 5%);
   background-size: calc(100% * 100 / var(--p)) 100%;
   width: calc(var(--p) * 1%);
   transform-origin: left;

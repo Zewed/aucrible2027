@@ -13,6 +13,9 @@ import { dureeDu, Reportage, type ProprietesDuReportage } from "@/video/reportag
 
 const IMAGES_PAR_SECONDE = 30;
 
+// Les vidéos gardent la DA sombre, même si le navigateur qui les rend est réglé en mode clair (kit.css).
+document.documentElement.dataset.sombre = "";
+
 /**
  * Le point d'entrée de Remotion : une seule composition, la vidéo du jour, en 1080 × 1920. La fiche arrive par ses
  * propriétés, que `pnpm video` lit dans content/questions (scripts/video.mts).

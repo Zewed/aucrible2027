@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useId, useState } from "react";
 import type { Question, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
-import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
+import { abonnerAuxReponses, avancementParTheme, lesReponses, lireReponses } from "@/lib/reponses";
 
 /** Ce que la jauge lit des questions publiées : leur numéro et leur thème. */
 export type QuestionDeLaJauge = Pick<Question, "numero" | "theme">;
@@ -15,7 +15,7 @@ const surLeClient = () => "oui";
 /**
  * La jauge des questions, en haut de chaque page (décision du 27 octobre 2026) : « 11 sur 26 questions » et une barre,
  * sans couleur, pour ne pas disputer l'œil à la page. Au survol, ou d'une touche, le détail par thème ; un thème qui a
- * encore des questions sans réponse mène à elles, l'accueil les enchaîne alors (« Répondre thème par thème »).
+ * encore des questions sans réponse mène à elles, le questionnaire les enchaîne alors (« Répondre thème par thème »).
  */
 export function JaugeDesQuestions({ questions, themes }: { questions: QuestionDeLaJauge[]; themes: Theme[] }) {
   const [ouvert, setOuvert] = useState(false);
@@ -25,12 +25,7 @@ export function JaugeDesQuestions({ questions, themes }: { questions: QuestionDe
   if (!pret || questions.length === 0) return <div className="jauge"></div>;
 
   const faites = questions.filter((q) => q.numero in reponses).length;
-  const parTheme = themes
-    .map((theme) => {
-      const siennes = questions.filter((q) => q.theme === theme.id);
-      return { theme, total: siennes.length, faites: siennes.filter((q) => q.numero in reponses).length };
-    })
-    .filter(({ total }) => total > 0);
+  const parTheme = avancementParTheme(themes, questions, reponses);
 
   return (
     <nav className="jauge" aria-label="Questions">
@@ -63,7 +58,7 @@ export function JaugeDesQuestions({ questions, themes }: { questions: QuestionDe
             return (
               <li key={theme.id} className={theme.classe}>
                 {faites < total ? (
-                  <Link href={`/?theme=${theme.id}`} onClick={() => setOuvert(false)}>
+                  <Link href={`/questionnaire?theme=${theme.id}`} onClick={() => setOuvert(false)}>
                     {ligne}
                   </Link>
                 ) : (

@@ -13,11 +13,11 @@
 /* La barre du rattrapage : un cran par question publiée (--publiees), remplie jusqu'à --repondues.
    La maquette les fige à 24 et 14 ; « .todo » l'emporte sur sa feuille, chargée après celle-ci. */
 .todo .prog {
-  background: repeating-linear-gradient(90deg, var(--slot) 0 calc(100% / var(--publiees) - 2px), transparent calc(100% / var(--publiees) - 2px) calc(100% / var(--publiees)));
+  background: repeating-linear-gradient(90deg, var(--inverse-vide) 0 calc(100% / var(--publiees) - 2px), transparent calc(100% / var(--publiees) - 2px) calc(100% / var(--publiees)));
 }
 .todo .prog i {
   width: calc(100% * var(--repondues) / var(--publiees));
-  background: repeating-linear-gradient(90deg, var(--ink) 0 calc(100% / var(--publiees) - 2px), transparent calc(100% / var(--publiees) - 2px) calc(100% / var(--publiees)));
+  background: repeating-linear-gradient(90deg, var(--table) 0 calc(100% / var(--publiees) - 2px), transparent calc(100% / var(--publiees) - 2px) calc(100% / var(--publiees)));
   background-size: calc(100% * var(--publiees) / var(--repondues)) 100%;
 }
 
@@ -35,7 +35,7 @@
 .hors-ligne {
   position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 40;
   max-width: 520px; margin: 0 auto;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   border-radius: var(--r); box-shadow: 0 6px 0 var(--pawn-edge);
   padding: 14px 16px; font: 500 15px/1.45 var(--text);
 }
@@ -48,7 +48,7 @@
 .duo[open] > summary .ic { transform: rotate(90deg); }
 .duo-panel {
   margin-top: 4px;
-  background: var(--table-2); color: var(--chalk);
+  background: var(--table-2); color: var(--sur-table);
   border-radius: var(--r);
   padding: 10px 8px 8px;
   box-shadow: 0 0 0 2px var(--table-3);
@@ -62,7 +62,7 @@
   color: inherit; text-decoration: none; font: 700 16px/1.2 var(--text);
 }
 .duo-panel a:hover { background: var(--table-3); }
-.duo-panel a:focus-visible { outline: 3px solid var(--eco); outline-offset: -3px; }
+.duo-panel a:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: -3px; }
 .duo-panel .pawn { --size: 36px; font-size: 12px; box-shadow: 0 3px 0 var(--pawn-edge); }
 
 /* Sans le titre « Choisis ta carte » (retiré le 25 octobre 2026 : la fiche n'explique plus), les cartes réponse gardent,
@@ -81,9 +81,9 @@
   transition: background-color .15s var(--ease-out), color .15s var(--ease-out);
 }
 .topnav a svg { width: 24px; height: 24px; }
-.topnav a:hover { background: var(--table-2); color: var(--chalk); }
-.topnav a[aria-current] { background: var(--chalk); color: var(--ink); box-shadow: 0 4px 0 var(--pawn-edge); }
-.topnav a:focus-visible { outline: 3px solid var(--eco); outline-offset: 2px; }
+.topnav a:hover { background: var(--table-2); color: var(--sur-table); }
+.topnav a[aria-current] { background: var(--sur-table); color: var(--table); box-shadow: 0 4px 0 var(--pawn-edge); }
+.topnav a:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 2px; }
 .rail-cd { display: none; }
 
 /* Sur ordinateur, une colonne à gauche : le logo, les icônes, et le compte à rebours en bas. Le bandeau du haut
@@ -114,7 +114,7 @@
 
 /* Les paliers (toutes les 5 réponses) : sur la révélation, un bloc gagné, avec des confettis aux couleurs des thèmes. */
 .palier { position: relative; overflow: hidden; grid-template-columns: auto minmax(0, 1fr); }
-.palier-n { font: 800 56px/0.9 var(--display); font-variation-settings: "wdth" 80; letter-spacing: -0.03em; color: var(--chalk); min-width: 64px; text-align: center; }
+.palier-n { font: 800 56px/0.9 var(--display); font-variation-settings: "wdth" 80; letter-spacing: -0.03em; color: var(--sur-table); min-width: 64px; text-align: center; }
 .palier .confetti { inset: 0 0 auto 0; }
 @media (prefers-reduced-motion: reduce) {
   .palier .confetti { display: none; }
@@ -131,12 +131,12 @@
   appearance: none; width: 100%; min-height: 32px; padding: 0; border: 0; background: none; color: inherit; cursor: pointer;
   display: flex; align-items: center; gap: 16px; text-align: left; border-radius: 6px;
 }
-.jauge-tete:focus-visible { outline: 3px solid var(--eco); outline-offset: 4px; }
+.jauge-tete:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 4px; }
 .jauge-t { font: 500 14px/1 var(--text); color: var(--muted); white-space: nowrap; }
-.jauge-t b { font: 800 17px/1 var(--display); color: var(--chalk); margin-right: 2px; }
+.jauge-t b { font: 800 17px/1 var(--display); color: var(--sur-table); margin-right: 2px; }
 .jauge-barre { flex: 1; height: 6px; border-radius: 3px; background: var(--table-3); overflow: hidden; }
 .jauge-barre i, .jauge-mini i { display: block; height: 100%; border-radius: inherit; }
-.jauge-barre i { background: var(--chalk); }
+.jauge-barre i { background: var(--sur-table); }
 .jauge-themes {
   position: absolute; top: calc(100% + 8px); left: -12px; z-index: 50; display: none;
   width: min(360px, calc(100vw - 8px)); list-style: none; margin: 0; padding: 8px;
@@ -147,17 +147,17 @@
 .jauge-g:hover .jauge-themes, .jauge-g.ouvert .jauge-themes { display: grid; }
 .jauge-themes a, .jauge-themes .fini {
   display: grid; grid-template-columns: minmax(0, 1fr) 76px 30px; align-items: center; gap: 12px;
-  min-height: 40px; padding: 0 10px; border-radius: 8px; font: 600 14px/1.15 var(--text); color: var(--chalk); text-decoration: none;
+  min-height: 40px; padding: 0 10px; border-radius: 8px; font: 600 14px/1.15 var(--text); color: var(--sur-table); text-decoration: none;
 }
 .jauge-themes a:hover { background: var(--table-3); }
-.jauge-themes a:focus-visible { outline: 3px solid var(--eco); outline-offset: -3px; }
+.jauge-themes a:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: -3px; }
 .jauge-nom { display: flex; align-items: center; gap: 9px; }
 .jauge-nom::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--theme); flex: none; }
 .jauge-mini { height: 4px; border-radius: 2px; background: var(--table-3); overflow: hidden; }
 .jauge-themes a:hover .jauge-mini { background: var(--table-2); }
 .jauge-mini i { background: var(--theme); }
 .jauge-c { font: 700 13px/1 var(--text); color: var(--muted); text-align: right; }
-.jauge-themes .fini .jauge-c { color: var(--chalk); }
+.jauge-themes .fini .jauge-c { color: var(--sur-table); }
 @media (min-width: 900px) {
   :root { --jauge-h: 46px; }
   .jauge { height: var(--jauge-h); min-height: 0; padding: 0 clamp(32px, 3.2vw, 64px); }
@@ -176,14 +176,13 @@
 .app-card .cam { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; background: var(--ink); }
 
 /* Le pied de page commun : le lien de la page en cours est marqué. */
-.site-foot a[aria-current] { color: var(--chalk); text-decoration: underline; text-decoration-thickness: 2px; }
+.site-foot a[aria-current] { color: var(--sur-table); text-decoration: underline; text-decoration-thickness: 2px; }
 
 /* La fiche en deux étapes.
    Étape « lire » : l'écran partagé. À gauche, la couleur du thème porte la question et la vignette de la vidéo ;
    à droite, au calme, le contexte numéroté, les chiffres clés en lignes, puis « Voir les propositions ».
    Étape « répondre » : la question seule, en haut, puis les cartes réponse. */
 :root { --barre-action: 96px; }
-body:has(.etape-lire, .etape-repondre) .site-foot { display: none; }
 .today.etape-lire { display: block; max-width: none; padding: 0 0 calc(var(--barre-action) + 18px); }
 .ecran-partage { --padX: 16px; --padY: 20px; }
 .ecran-partage .scene { display: flex; flex-direction: column; container-type: inline-size; }
@@ -235,7 +234,7 @@ video.affiche { background: var(--ink-deep); }
 .ecran-partage .ctx p {
   counter-increment: phrase; margin: 0;
   display: grid; grid-template-columns: calc(var(--ctx) * 1.9) 1fr; column-gap: calc(var(--ctx) * .55); align-items: start;
-  font: 500 var(--ctx)/1.42 var(--text); color: var(--chalk); text-wrap: pretty;
+  font: 500 var(--ctx)/1.42 var(--text); color: var(--sur-table); text-wrap: pretty;
 }
 .ecran-partage .ctx p::before {
   content: counter(phrase); font: 800 calc(var(--ctx) * 2.6)/0.78 var(--display);
@@ -254,14 +253,14 @@ video.affiche { background: var(--ink-deep); }
 }
 .drapeau svg { width: 16px; height: 16px; }
 .drapeau path { fill: var(--theme-text); }
-.drapeau:hover { color: var(--chalk); }
+.drapeau:hover { color: var(--sur-table); }
 /* Les chiffres clés en lignes sobres (27 octobre 2026 : l'œil va d'abord à la question et à la vidéo) : le chiffre, sa
    légende à côté, ni fond ni couleur, un filet plein entre deux. Toutes les lignes partagent la colonne du chiffre, celle
    du plus large. La source s'ouvre d'un geste, dans une bulle accrochée à sa petite icône, au bout de la ligne. */
 .ecran-partage .figures { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr) auto; column-gap: clamp(14px, 1.4vw, 24px); }
 .ecran-partage .fig {
   grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center;
-  background: none; border: 0; border-top: 2px solid var(--table-2); border-radius: 0; padding: 14px 0; color: var(--chalk);
+  background: none; border: 0; border-top: 2px solid var(--table-2); border-radius: 0; padding: 14px 0; color: var(--sur-table);
 }
 .ecran-partage .fig:last-child { border-bottom: 2px solid var(--table-2); }
 .ecran-partage .fig-num { grid-column: 1; font-size: 34px; font-variation-settings: "wdth" 78, "opsz" 96; letter-spacing: -0.03em; }
@@ -272,8 +271,8 @@ video.affiche { background: var(--ink-deep); }
   border: 0; border-radius: 10px; background: none; color: var(--muted); transition: color .15s, background .15s;
 }
 .fig-voir-source svg { width: 18px; height: 18px; }
-.fig-voir-source:hover, .fig-voir-source:focus-visible { color: var(--chalk); background: var(--table-2); }
-.fig-voir-source:focus-visible { outline: 3px solid var(--eco); outline-offset: 0; }
+.fig-voir-source:hover, .fig-voir-source:focus-visible { color: var(--sur-table); background: var(--table-2); }
+.fig-voir-source:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 0; }
 /* La bulle de la source : accrochée sous son bouton là où le navigateur sait le faire, au centre de l'écran sinon. */
 .ecran-partage .fig-src {
   margin: auto; padding: 10px 13px 11px; border: 0; border-radius: 10px; max-width: min(300px, calc(100vw - 32px));
@@ -341,7 +340,7 @@ video.affiche { background: var(--ink-deep); }
 .mq-question { grid-area: q; font: 800 36px/0.94 var(--display); font-variation-settings: "wdth" 80, "opsz" 96; letter-spacing: -0.025em; text-wrap: balance; color: var(--on-theme); }
 .mq-reperes { display: flex; gap: 8px; padding: 12px 16px 0; }
 .mq-reperes a {
-  flex: 1; min-height: 44px; display: grid; place-items: center; background: var(--table-2); color: var(--chalk);
+  flex: 1; min-height: 44px; display: grid; place-items: center; background: var(--table-2); color: var(--sur-table);
   border-radius: var(--r); text-decoration: none; font: 800 22px/1 var(--display);
 }
 .mq-reperes a.choisi { background: var(--theme); color: var(--on-theme); }
@@ -358,7 +357,7 @@ video.affiche { background: var(--ink-deep); }
   display: flex; flex-direction: column; gap: 10px; transition: background .2s var(--ease-out), box-shadow .2s var(--ease-out);
 }
 .mq-tuile:hover .mq-face { box-shadow: inset 0 0 0 3px var(--theme); }
-.mq-tuile input:focus-visible + .mq-face, .mq-nsp input:focus-visible + span, .mq-niveau input:focus-visible + span { outline: 3px solid var(--eco); outline-offset: 2px; }
+.mq-tuile input:focus-visible + .mq-face, .mq-nsp input:focus-visible + span, .mq-niveau input:focus-visible + span { outline: 3px solid var(--eco-texte); outline-offset: 2px; }
 /* Le titre et, devant, sa lettre : une petite pastille pleine, à la taille du titre. */
 .mq-haut { display: flex; align-items: flex-start; gap: .36em; font-size: 28px; }
 .mq-lettre {
@@ -386,7 +385,7 @@ video.affiche { background: var(--ink-deep); }
 .mq-tuile input:checked + .mq-face .mq-argument b::before { background: var(--ink); }
 .mq-nsp > span {
   flex: 1; min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 12px;
-  background: var(--table-2); color: var(--chalk); border-radius: var(--r); font: 800 22px/1 var(--display);
+  background: var(--table-2); color: var(--sur-table); border-radius: var(--r); font: 800 22px/1 var(--display);
   transition: background .15s var(--ease-out);
 }
 .mq-nsp i { width: 38px; height: 38px; flex: none; display: grid; place-items: center; background: var(--table-3); border-radius: 6px; font: 800 24px/1 var(--display); font-style: normal; }
@@ -403,7 +402,7 @@ video.affiche { background: var(--ink-deep); }
 .mq-niveau { position: relative; display: block; cursor: pointer; }
 .mq-niveau > span {
   min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 6px;
-  background: var(--table-2); color: var(--chalk); border-radius: var(--r); transition: background .15s var(--ease-out);
+  background: var(--table-2); color: var(--sur-table); border-radius: var(--r); transition: background .15s var(--ease-out);
 }
 .mq-niveau b { font: 800 19px/1 var(--display); }
 .mq-niveau em { font: 700 13px/1 var(--text); font-style: normal; white-space: nowrap; }
@@ -411,7 +410,7 @@ video.affiche { background: var(--ink-deep); }
 .mq-niveau input:checked + span { background: var(--theme); color: var(--on-theme); box-shadow: none; }
 .mq-valider {
   width: 100%; min-height: 52px; border: 0; cursor: pointer; margin-bottom: 5px; padding: 0 10px; border-radius: var(--r);
-  background: var(--chalk); color: var(--ink); box-shadow: 0 5px 0 var(--theme);
+  background: var(--sur-table); color: var(--table); box-shadow: 0 5px 0 var(--theme);
   font: 800 17px/1 var(--display); font-variation-settings: "wdth" 84;
   display: flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap;
   transition: transform .12s var(--ease-out), box-shadow .12s var(--ease-out), background .15s;

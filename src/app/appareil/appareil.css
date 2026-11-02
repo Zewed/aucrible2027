@@ -18,12 +18,12 @@
   white-space: nowrap;
 }
 .app-top h1 .l2 { display: block; }
-.app-top h1 i { color: var(--eco); font-style: normal; }
+.app-top h1 i { color: var(--eco-texte); font-style: normal; }
 .app-lead { margin-top: 14px; max-width: 44ch; font-size: 16px; line-height: 1.5; color: var(--muted); }
 
 .promise {
   display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: 14px; align-items: start;
-  background: var(--chalk); color: var(--ink);
+  background: var(--sur-table); color: var(--table);
   border-radius: var(--r);
   padding: 16px 16px 15px;
   box-shadow: 0 6px 0 var(--pawn-edge);
@@ -32,7 +32,7 @@
 .promise-ico { width: 52px; height: 52px; border-radius: 12px; background: var(--eco); display: grid; place-items: center; }
 .promise-ico svg { width: 30px; height: 30px; stroke-width: 2.2; }
 .promise-t { font: 800 21px/1.12 var(--display); font-variation-settings: "wdth" 88; letter-spacing: -0.01em; text-wrap: balance; }
-.promise-s { margin-top: 5px; font: 700 16px/1.3 var(--text); color: var(--ink-soft); }
+.promise-s { margin-top: 5px; font: 700 16px/1.3 var(--text); color: var(--sur-inverse); }
 
 /* ---------- les deux grandes cartes ---------- */
 .app-grid { margin-top: 30px; display: grid; gap: 30px; align-items: start; }

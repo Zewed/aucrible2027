@@ -50,7 +50,7 @@ function Merci() {
       <div>
         <p className="state-t">Merci&nbsp;! Ton signalement est arrivé.</p>
         <p className="state-s">Si tu as laissé ton e-mail, on te répond sous 72&nbsp;h.</p>
-        <Link className="btn-ink" href="/">
+        <Link className="btn-ink" href="/questionnaire">
           Retour aux questions
           <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 12h13M13 6l6 6-6 6" />

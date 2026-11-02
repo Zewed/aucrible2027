@@ -26,7 +26,7 @@ function score(question: QuestionDuCalcul, electeur: string, candidat: string): 
 export const SEUIL_DES_RESULTATS = 10;
 
 /** Les réponses qui entrent dans le calcul : « Je ne sais pas » n'y entre pas, en attendant que ce soit tranché. */
-export const reponsesComptees = (questions: QuestionDuCalcul[], reponses: Record<number, Reponse>) =>
+export const reponsesComptees = (questions: Pick<QuestionDuCalcul, "numero">[], reponses: Record<number, Reponse>) =>
   questions.filter((q) => reponses[q.numero] && reponses[q.numero].option !== JE_NE_SAIS_PAS).length;
 
 /** Le nombre de réponses qu'il faut dans un thème pour en gagner la part (SPEC.md : « à partir de 3 réponses dans un thème »). */

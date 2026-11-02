@@ -8,7 +8,7 @@ import { aujourdhuiAParis, dateLisible } from "@/lib/date";
 import { lireOrdre, prochaineQuestionDuTheme } from "@/lib/ordre";
 import { lesReponses, lireReponses } from "@/lib/reponses";
 
-/** Ce que montre l'accueil quand il n'y a pas de question à poser : une carte, un message. */
+/** Ce que montre le questionnaire quand il n'y a pas de question à poser : une carte, un message. */
 function Annonce({ message, children }: { message: string; children?: React.ReactNode }) {
   return (
     <main className="today">
@@ -27,10 +27,10 @@ function Annonce({ message, children }: { message: string; children?: React.Reac
 }
 
 /**
- * L'accueil : la prochaine question sans réponse, dans l'ordre tiré pour cet appareil (SPEC.md, « Boucle principale »,
+ * Le questionnaire : la prochaine question sans réponse, dans l'ordre tiré pour cet appareil (SPEC.md, « Boucle principale »,
  * 25 octobre 2026). Toutes les questions publiées sont jouables d'un coup. Les réponses sont lues une fois : la
- * question ne change pas sous les yeux de l'électeur pendant qu'il valide, la suivante vient au prochain accueil.
- * Avec `filtre`, un thème choisi dans la jauge des questions, l'accueil enchaîne ses questions tant qu'il en reste.
+ * question ne change pas sous les yeux de l'électeur pendant qu'il valide, la suivante vient à la prochaine visite.
+ * Avec `filtre`, un thème choisi dans la jauge des questions, le questionnaire enchaîne ses questions tant qu'il en reste.
  */
 export function ProchaineQuestion({
   questions,
@@ -64,7 +64,7 @@ export function ProchaineQuestion({
     );
   }
   if (!question || !theme) {
-    // Texte provisoire : ce que dit l'accueil quand toutes les questions ont une réponse.
+    // Texte provisoire : ce qu'il dit quand toutes les questions ont une réponse.
     return (
       <>
         {bandeau}
@@ -78,7 +78,7 @@ export function ProchaineQuestion({
   }
 
   const enJeu = { questions: questions.map(({ numero, theme }) => ({ numero, theme })), themes };
-  // Next garde l'accueil quitté, avec son état : sans clé, la question suivante reprendrait le choix de la précédente.
+  // Next garde la page quittée, avec son état : sans clé, la question suivante reprendrait le choix de la précédente.
   const revelation = `/question/${question.numero}/revelation${dansLeTheme ? `?theme=${theme.id}` : ""}`;
   return <Fiche key={question.numero} question={question} theme={theme} revelation={revelation} enJeu={enJeu} />;
 }

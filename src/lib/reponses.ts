@@ -49,3 +49,13 @@ export function lireReponses(): string | null {
 export function lesReponses(brut: string | null): Record<number, Reponse> {
   return brut ? JSON.parse(brut) : {};
 }
+
+/** Où en est l'électeur dans chaque thème qui a des questions : ses réponses, sur les questions du thème. */
+export function avancementParTheme<T extends { id: string }>(themes: T[], questions: { numero: number; theme: string }[], reponses: Record<number, Reponse>) {
+  return themes
+    .map((theme) => {
+      const siennes = questions.filter((q) => q.theme === theme.id);
+      return { theme, total: siennes.length, faites: siennes.filter((q) => q.numero in reponses).length };
+    })
+    .filter(({ total }) => total > 0);
+}

@@ -18,7 +18,7 @@
   letter-spacing: -0.035em;
   white-space: nowrap;
 }
-.sp-hero h1 i { color: var(--eco); font-style: normal; }
+.sp-hero h1 i { color: var(--eco-texte); font-style: normal; }
 .sp-lead { margin-top: 12px; max-width: 46ch; font-size: 16px; line-height: 1.5; color: var(--muted); }
 
 /* ---------- les deux cartes ---------- */
@@ -143,7 +143,7 @@
 .sp-choice .opt-letter { font-size: 24px; }
 .sp-actions { margin-top: 30px; max-width: none; }
 .sp-actions .act { border: 0; cursor: pointer; width: 100%; padding: 0 18px; }
-.sp-actions .act:focus-visible { outline: 3px solid var(--eco); outline-offset: 3px; }
+.sp-actions .act:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
 .sp-actions + .act-note { margin-top: 4px; }
 .sp .res-foot { max-width: 560px; margin-inline: auto; }
 

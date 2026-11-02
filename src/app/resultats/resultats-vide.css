@@ -61,7 +61,7 @@
 .gauge { flex: 1; min-width: 0; display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; }
 .gauge i { display: block; height: 22px; border-radius: 4px; background: var(--table-3); }
 .gauge i.on { background: var(--eco); }
-.empty-p { margin-top: 14px; font-size: 15px; line-height: 1.45; color: var(--chalk); }
+.empty-p { margin-top: 14px; font-size: 15px; line-height: 1.45; color: var(--sur-table); }
 .empty .go { margin-top: 20px; text-decoration: none; }
 
 /* ---------- le plateau, avec toi seulement ---------- */
@@ -85,14 +85,14 @@
   padding: 8px 12px 8px; border-radius: 10px;
 }
 .vide .legend { grid-template-columns: minmax(0, 1fr); }
-.pawn--ghost { background: transparent; color: var(--chalk); border: 2px dashed var(--pawn-edge); box-shadow: none !important; }
+.pawn--ghost { background: transparent; color: var(--sur-table); border: 2px dashed var(--pawn-edge); box-shadow: none !important; }
 
 /* ---------- les thèmes ---------- */
 .vide .th-who { color: var(--muted); }
 
 /* ---------- la carte à partager, verrouillée ---------- */
 .story.locked {
-  background: var(--table-2); color: var(--chalk);
+  background: var(--table-2); color: var(--sur-table);
   border: 2px dashed var(--table-3);
   box-shadow: 10px 10px 0 var(--table-3);
 }
@@ -110,7 +110,7 @@ button.act { border: 0; width: 100%; font-family: var(--display); cursor: pointe
 }
 .act.is-off:hover, .act.is-off:active { transform: none; }
 .why { font-size: 14px; }
-.why b { color: var(--chalk); }
+.why b { color: var(--sur-table); }
 
 @media (min-width: 900px) {
   .vide .trophy { display: block; background: none; padding: 0; margin-top: 0; text-align: center; }

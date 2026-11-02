@@ -1,24 +1,24 @@
 import { Suspense } from "react";
-import { ProchaineQuestion } from "@/components/ProchaineQuestion";
+import { Accueil } from "@/components/Accueil";
 import { lireThemes } from "@/lib/contenu";
 import { lireProchaineParution, lireQuestionsPubliees } from "@/lib/publication";
+import "./accueil.css";
 
-/** `?theme=`, choisi dans la jauge des questions : l'accueil enchaîne alors les questions de ce thème. */
-async function Accueil({ theme }: { theme: Promise<string | null> }) {
+async function Contenu() {
+  const questions = await lireQuestionsPubliees();
   return (
-    <ProchaineQuestion
-      questions={await lireQuestionsPubliees()}
+    <Accueil
+      questions={questions.map(({ numero, theme, question }) => ({ numero, theme, question }))}
       prochaineParution={await lireProchaineParution()}
       themes={lireThemes()}
-      filtre={await theme}
     />
   );
 }
 
-export default function PageAccueil({ searchParams }: PageProps<"/">) {
+export default function PageAccueil() {
   return (
     <Suspense>
-      <Accueil theme={searchParams.then(({ theme }) => (typeof theme === "string" ? theme : null))} />
+      <Contenu />
     </Suspense>
   );
 }
