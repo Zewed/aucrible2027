@@ -193,6 +193,8 @@
 .src-badge.off::before { content: "✓"; }
 .src-badge.ded { background: #fff; border: 2px dashed var(--ink); padding: 5px 10px 4px; }
 .src-badge.ded::before { content: "≈"; font-size: 17px; }
+.src-badge.est { background: #fff; color: var(--ink-soft); border: 2px dotted var(--ink-soft); padding: 5px 10px 4px; }
+.src-badge.est::before { content: "~"; font-size: 17px; }
 .src-badge.nil { background: var(--slot); color: var(--ink-soft); }
 .srclines { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .srclines li { background: #fff; border-radius: 10px; padding: 10px 12px; display: grid; gap: 7px; justify-items: start; }

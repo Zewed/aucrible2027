@@ -40,7 +40,7 @@ options:
     implique: "Le secteur 2 reste ouvert aux médecins qui ont les titres requis ; l'Optam, facultatif, récompense ceux qui modèrent leurs prix, et les patients de la complémentaire santé solidaire restent protégés."
     defenseurs: "Les engagements volontaires ont fait baisser le dépassement moyen de 55 % à 46 % du tarif entre 2012 et 2020 : mieux vaut négocier et revaloriser les tarifs que sanctionner les médecins."
     critiques: "Le dépassement moyen remonte depuis 2020, près d'un médecin concerné sur deux reste hors de l'Optam, et le secteur 2 pourrait concerner neuf spécialistes sur dix en 2040."
-    axes: { economie: 1 }
+    axes: { economie: 0 }
   - id: D
     libelle: Les permettre à tous les médecins
     implique: "Tout médecin conventionné peut fixer ses prix, par exemple dans un secteur unique où seuls les excès sont encadrés ; les patients modestes et les urgences restent au tarif de la Sécurité sociale, comme le proposent des syndicats de médecins."
@@ -75,6 +75,18 @@ positions:
   roussel: { option: A, source: "F. Roussel, programme présidentiel 2022 « La France des jours heureux », proposition 13 (p. 15 du PDF), janvier 2022", statut: deduite }
   # Assemblée nationale, amendement n° 1786 du groupe LFI au PLFSS 2026, 31/10/2025 (interdiction progressive au 1er janvier 2027) ; amendement de repli n° 1841 au PLFSS 2027, 16/10/2026 : https://www.assemblee-nationale.fr/dyn/17/amendements/1907/AN/1786.pdf
   melenchon: { option: A, source: "Assemblée nationale, amendement n° 1786 du groupe LFI au PLFSS 2026, 31/10/2025 (interdiction progressive au 1er janvier 2027) ; amendement de repli n° 1841 au PLFSS 2027, 16/10/2026", statut: deduite }
+  # Lutte ouvrière, « Honoraires médicaux : ça dépasse les bornes ! », 08/10/2025 : https://lutte-ouvriere.org/journal/article/honorairesnbspmedicaux-depasse-bornes-187610.html
+  arthaud: { option: A, source: "Lutte ouvrière, « Honoraires médicaux : ça dépasse les bornes ! », 08/10/2025", statut: estimee }
+  # Assemblée nationale, scrutin n° 8955 du 21/10/2026 (contribution sur les dépassements, EPR contre) et vote n° 4647 du 05/12/2025 (cotisation additionnelle, EPR contre) : https://www.assemblee-nationale.fr/dyn/17/scrutins/8955
+  attal: { option: C, source: "Assemblée nationale, scrutin n° 8955 du 21/10/2026 (contribution sur les dépassements, EPR contre) et vote n° 4647 du 05/12/2025 (cotisation additionnelle, EPR contre)", statut: estimee }
+  # Debout la France, projet « Santé », constat (2026) : https://www.debout-la-france.fr/projet/sante/
+  dupont-aignan: { option: C, source: "Debout la France, projet « Santé », constat (2026)", statut: estimee }
+  # Votes du groupe RN contre la taxation des dépassements : scrutin n° 4647, 05/12/2025, et scrutin n° 8955, 21/10/2026 ; vote contre la régulation de l'installation (loi Garot), 02/04/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8955
+  le-pen: { option: C, source: "Votes du groupe RN contre la taxation des dépassements : scrutin n° 4647, 05/12/2025, et scrutin n° 8955, 21/10/2026 ; vote contre la régulation de l'installation (loi Garot), 02/04/2025", statut: estimee }
+  # Votes du groupe Horizons contre les taxes sur les dépassements d'honoraires (05/12/2025 et 21/10/2026) ; programme « Pour une France plus prospère » (moratoire normatif) : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+  philippe: { option: C, source: Votes du groupe Horizons contre les taxes sur les dépassements d'honoraires (05/12/2025 et 21/10/2026) ; programme « Pour une France plus prospère » (moratoire normatif), statut: estimee }
+  # Amendement n° 1756 du groupe Droite républicaine (L. Wauquiez et 42 députés LR) au PLFSS 2026, 31/10/2025 ; votes du groupe contre les cotisations sur les dépassements, 05/12/2025 et 21/10/2026 : https://www.assemblee-nationale.fr/dyn/17/amendements/1907/AN/1756.pdf
+  retailleau: { option: C, source: "Amendement n° 1756 du groupe Droite républicaine (L. Wauquiez et 42 députés LR) au PLFSS 2026, 31/10/2025 ; votes du groupe contre les cotisations sur les dépassements, 05/12/2025 et 21/10/2026", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/044-depassements-honoraires.md (chaque chiffre y a sa
 # source numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : le secteur 2 devient la norme chez les jeunes
 # spécialistes, la facture grossit, et quatre choix la répartissent autrement entre patients, mutuelles et Sécurité sociale.

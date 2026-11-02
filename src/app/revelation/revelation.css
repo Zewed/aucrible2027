@@ -204,6 +204,7 @@
 .badge svg { width: 12px; height: 12px; flex: none; }
 .badge--off { background: var(--ink); color: var(--chalk); }
 .badge--ded { color: var(--ink-soft); border: 2px dashed var(--ink-soft); padding: 3px 8px 3px 5px; }
+.badge--est { color: var(--ink-soft); border: 2px dotted var(--ink-soft); padding: 3px 8px 3px 5px; }
 .badge--none { color: var(--muted); border: 2px dashed var(--table-3); padding: 3px 8px 3px 8px; }
 
 /* position inconnue : même carte, posée sur la table */
@@ -347,7 +348,7 @@ a.go { text-decoration: none; }
   .def-src { grid-column: 3; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 3px 8px; }
   .def-doc { font-size: calc(var(--f) * 12.5px); white-space: normal; overflow: visible; text-overflow: clip; }
   .def .badge { font-size: calc(var(--f) * 11px); padding: 3px 7px 3px 5px; }
-  .def .badge--ded { padding: 1px 6px 1px 3px; }
+  .def .badge--ded, .def .badge--est { padding: 1px 6px 1px 3px; }
   .ropt.unknown .defs { gap: 6px; padding: 0 14px calc(var(--f) * 10px); }
   .ropt.unknown .def { padding: 3px 11px 3px 3px; }
   .ropt.unknown .def-name { font-size: calc(var(--f) * 14px); }

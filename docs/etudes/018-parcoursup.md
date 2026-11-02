@@ -176,6 +176,16 @@ Option C : le garder en le réformant. Option D : le garder tel quel.
 - **Arthaud** : inconnue. Lutte ouvrière dénonçait la sélection à l'entrée de l'université en 2018 et 2022, mais aucune
   position de 2026 sur ce que remplacerait Parcoursup n'a été trouvée [18].
 
+### Positions complétées le 29/10/2026
+
+- **François Ruffin** : option B (officielle) — Cahier « Éducation : une école de tous les savoirs », octobre 2026, proposition 4, https://nouspresident.fr/education-une-ecole-de-tous-les-savoirs/ — « il faut remplacer Parcoursup par un système plus juste, plus transparent, et qui traite les jeunes comme des humains » — Il veut remplacer Parcoursup par un nouveau système (algorithme de vœux, commissions d'appel) sans garantir à chaque bachelier la formation de son choix.
+
+### Positions complétées le 29/10/2026
+
+- **Nathalie Arthaud** : option A (estimee) — Lutte ouvrière, « Parcoursup : non à la lutte des places », 14/10/2026 ; « Lecornu rend sa copie : très insuffisant », 28/10/2026, https://lutte-ouvriere.org/journal/article/parcoursup-non-lutte-places-205845.html — « est en réalité un système de tri » — Le parti rejette le tri (« non à la sélection », 2018) et chiffre à « 150 000 » les places nécessaires (28/10/2026), ce qui écarte C et D et correspond à A ; il n'écrit pas « supprimer » et notait le 25/02/2026 que « Parcoursup a bon dos », le problème étant le manque de places.
+- **Nicolas Dupont-Aignan** : option C (officielle) — Debout la France, projet « Éducation » (instruction publique), mesure 51 (2026), https://www.debout-la-france.fr/projet/instruction-publique/ — « Réformer le système Parcoursup afin de le rendre équitable et transparent » — Il garde la plateforme en la réformant.
+- **Édouard Philippe** : option C (estimee) — franceinfo, interview d'É. Philippe dans « L'Heure de vérité » (France 2), 08/10/2026 ; programme « Pour une France plus attentive à ses enfants », https://www.franceinfo.fr/politique/edouard-philippe/immigration-retraites-allocations-familiales-parcoursup-ce-qu-il-faut-retenir-de-l-interview-d-edouard-philippe-dans-l-emission-l-heure-de-verite_8228416.html — « C'est stressant et ça ne marche pas comme ça devrait » — Sa critique écarte D, mais il ne parle ni de supprimer ni de remplacer la plateforme créée par son gouvernement en 2018, et son programme veut « éclairer les élèves sur les prérequis », la logique de Parcoursup : C, le réformer.
+
 ## 5. Sources
 1. Ministère de l'Enseignement supérieur et de la Recherche, *Parcoursup, bilan de la procédure d'admission 2025* (octobre 2025) :
    https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2025-10/bilan-de-la-proc-dure-d-admission-2025-38034.pdf

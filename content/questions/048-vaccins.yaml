@@ -76,6 +76,16 @@ positions:
   attal: { option: A, source: "Amendement n° 929 à l'article 20 du PLFSS 2026 (nouvelle lecture), dont G. Attal est cosignataire, 30/11/2025 ; adopté, scrutin n° 4604, 05/12/2025 (EPR 32 pour, 0 contre)", statut: deduite }
   # Assemblée nationale, scrutin n° 4604, 05/12/2025, amendement n° 929 (obligation grippe étendue aux personnes travaillant avec les soignants libéraux) : Écologiste et Social 7 pour, 0 contre : https://www.assemblee-nationale.fr/dyn/17/scrutins/4604
   tondelier: { option: A, source: "Assemblée nationale, scrutin n° 4604, 05/12/2025, amendement n° 929 (obligation grippe étendue aux personnes travaillant avec les soignants libéraux) : Écologiste et Social 7 pour, 0 contre", statut: deduite }
+  # Lutte ouvrière, « Rougeole : le virus tue, la société aussi », 28/04/2026 ; éditorial « Passe sanitaire et vaccination forcée : c'est non ! », 21/07/2021 : https://www.lutte-ouvriere.org/journal/article/2021-07-21-passe-sanitaire-et-vaccination-forcee-cest-non_166852.html
+  arthaud: { option: B, source: "Lutte ouvrière, « Rougeole : le virus tue, la société aussi », 28/04/2026 ; éditorial « Passe sanitaire et vaccination forcée : c'est non ! », 21/07/2021", statut: estimee }
+  # France Inter, propos rapportés par Le Quotidien du médecin, 27/03/2017 : https://cancerologie.lequotidiendumedecin.fr/actus-medicales/politique-de-sante/vaccin-dtp-nicolas-dupont-aignan-denonce-une-collusion-du-ministere-avec-les-labos
+  dupont-aignan: { option: C, source: "France Inter, propos rapportés par Le Quotidien du médecin, 27/03/2017", statut: estimee }
+  # Nouvelle Énergie, « Les carnets Santé », 2026 (livret publié en mai 2026), partie « Prévention et santé mentale » : https://nouvelle-energie-media-prod.s3.fr-par.scw.cloud/media/legacy/2026/05/Livret-Sante-Nouvelle-Energie.pdf
+  lisnard: { option: B, source: "Nouvelle Énergie, « Les carnets Santé », 2026 (livret publié en mai 2026), partie « Prévention et santé mentale »", statut: estimee }
+  # Amendement n° 374 cosigné par F. Roussel (GDR) au projet de loi de gestion de la crise sanitaire, 21/07/2021 : https://www.assemblee-nationale.fr/dyn/15/amendements/4389/AN/374.pdf
+  roussel: { option: B, source: "Amendement n° 374 cosigné par F. Roussel (GDR) au projet de loi de gestion de la crise sanitaire, 21/07/2021", statut: estimee }
+  # Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. santé : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: B, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. santé", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/048-vaccins.md (chaque chiffre y a sa source numérotée,
 # et l'annexe de l'étude dit d'où vient chacun). Le fil : en 2018, la France passe de trois à onze vaccins obligatoires
 # pour les enfants ; la rougeole revient ; quatre choix, de « en ajouter » à « ne rien imposer ».

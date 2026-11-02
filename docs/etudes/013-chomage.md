@@ -113,6 +113,16 @@ Options de la fiche : A = annuler les réformes et revenir à des droits plus lo
 | Ruffin | inconnue | Aucune position trouvée | |
 | Arthaud | inconnue | Lutte ouvrière dénonce la volonté de « réduire les indemnités des chômeurs » mais ne chiffre pas de durée [17] : non classée | |
 
+### Positions complétées le 29/10/2026
+
+- **Nathalie Arthaud** : option A (deduite) — Lutte ouvrière, « Rapport de l'Unédic : les chômeurs profiteurs ? », 03/06/2026, https://www.lutte-ouvriere.org/portail/journal/rapport-unedic-chomeurs-profiteurs-194731.html — « Plusieurs réformes ont déjà réduit le versement de ces allocations, dont la durée est passée de 24 à 18 mois. » — Le parti condamne les réformes passées (« des milliards qui sont prélevés sur les revenus déjà faibles des travailleurs au chômage ») et non seulement les baisses à venir ; il appelle « attaques » celles de 2019 et 2022 (24/12/2024). Il n'écrit pas « abroger » : position à relire.
+
+### Positions complétées le 29/10/2026
+
+- **David Lisnard** : option C (estimee) — Sud Radio, 29/02/2024, cité par la FAQ de Nouvelle Énergie « Quel candidat veut réformer l'assurance chômage ? » (16/10/2026) ; scrutin n° 7260, 02/06/2026 (vote pour d'A. Martin, députée de Nouvelle Énergie), https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-reformer-l-assurance-chomage/ — « Dégressivité, et puis parallèlement renforcer la vraie formation des personnes en difficulté » — Il approuve le durcissement (« une mesure qu'il faut prendre ») et l'élue de son parti a voté la loi de 2026, ce qui écarte A et B ; il propose la dégressivité, pas un plafond de 12 mois, et entre C et D, C change le moins la règle actuelle.
+- **Fabien Roussel** : option A (deduite) — F. Roussel, La France des Jours heureux, programme présidentiel 2022, mesure 2, https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf — « La loi El Khomri, les ordonnances Macron et la loi Borne sur l'Assurance-chômage seront immédiatement abrogées […] Les demandeuses et demandeurs d'emploi retrouveront leurs droits attaqués » — Son programme abroge les réformes de l'assurance chômage et rend aux chômeurs les droits retirés, ce qu'est l'option A.
+- **François Ruffin** : option A (estimee) — Cahier de campagne n° 01, Pour les travailleurs essentiels, avril 2026 ; vote contre, scrutin n° 7260, 02/06/2026, https://nouspresident.fr/statut-travailleurs-essentiels/ — « on a durci l'assurance-chômage par décrets – Pénicaud en 2019, puis Élisabeth Borne en 2021. » — Son vote contre la baisse après rupture conventionnelle écarte C et D, et son cahier range les réformes de 2019 et 2021 parmi les durcissements qu'il dénonce : les annuler (A) est plus probable que garder les 18 mois issus de la réforme de 2023 (B).
+
 ## 5. Sources
 
 1. Unédic, « Principales règles de l'indemnisation » : https://www.unedic.org/la-reglementation/fiches-thematiques/duree-dindemnisation

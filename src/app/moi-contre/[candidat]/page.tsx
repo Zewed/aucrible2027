@@ -33,7 +33,7 @@ async function MoiContre({ id }: { id: string }) {
         theme: { nom: theme.nom, classe: theme.classe },
         options: q.options.map((o) => ({ lettre: o.id, titre: o.libelle, implique: o.implique })),
         position: option
-          ? { lettre: option.id, titre: option.libelle, implique: option.implique, source: position.source, officielle: position.statut === "officielle" }
+          ? { lettre: option.id, titre: option.libelle, implique: option.implique, source: position.source, statut: position.statut }
           : null,
       };
     });

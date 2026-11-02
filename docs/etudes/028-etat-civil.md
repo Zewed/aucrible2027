@@ -294,6 +294,11 @@ Options de la fiche : **A** rétablir une condition médicale ; **B** garder le 
 - **François Ruffin** : option D confirmée (officielle) — Proposition de loi n° 656 cosignée, 03/12/2024, https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0656_proposition-loi.pdf — « La déclaration mentionnée au premier alinéa de l’article 61-6 qui concerne un mineur âgé de plus de quinze ans révolus peut être remise par le mineur »
 - **Marine Tondelier** : option D confirmée (deduite) — Projet 2027, p. 141 ; proposition de loi cosignée par le groupe écologiste, 03/12/2024, https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0656_proposition-loi.pdf — « Rendre le changement de mention de sexe à l'état civil libre, gratuit et simple, sans passer devant un juge. »
 
+### Positions complétées le 29/10/2026
+
+- **Raphaël Glucksmann** : option C (estimee) — Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 39, p. 79, https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing — « Respecter les identités et garantir le droit à l’autodétermination de genre et encadrer les parcours de transition » — L'autodétermination de genre écarte A et B ; rien sur les mineurs, donc entre C et D on retient C, qui change le moins la règle.
+- **Éric Zemmour** : option A (estimee) — Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. famille, https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf — « Ne reconnaître que la notion de sexe et non de « genre » dans le droit français » — La loi de 2016 (B) fonde le changement sur le sexe vécu, sans critère médical, ce que son programme refuse, et il écarte a fortiori la simple déclaration (C, D) : A, la plus restrictive des options, est la plus proche.
+
 ## 5. Sources
 
 Sources consultées le 27 octobre 2026.

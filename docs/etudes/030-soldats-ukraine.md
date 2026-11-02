@@ -403,6 +403,10 @@ cessez-le-feu ; D. Oui, sans attendre un cessez-le-feu.
 - **Édouard Philippe** : option C confirmée (officielle) — AFP, Kyiv, 26/05/2026, https://www.lagazettefrance.fr/article/le-candidat-a-la-presidentielle-francaise-edouard-philippe-rencontre-zelensky-a-kiev — « Je suis favorable à ce que des troupes européennes soient déployées en Ukraine une fois la paix revenue »
 - **Fabien Roussel** : option B (officielle) — Déclaration de Fabien Roussel, 20/02/2025, https://fdgpierrebe.over-blog.com/2025/02/fabien-roussel-a-l-elysee-une-voix-pour-une-paix-juste-et-durable-en-ukraine.html — « le déploiement d'une force de maintien de la paix sous l'égide des seules Nations unies » — Texte signé de sa main après la réunion à l'Élysée, relayé par une section du PCF (l'original n'a pas été retrouvé sur pcf.fr). Le 08/01/2026, le PCF juge l'envoi d'un contingent de la coalition « une marche de plus vers l’escalade guerrière » (AFP, https://www.arabnews.fr/node/504954/france) : une force de l'ONU, et rien d'autre, donc B.
 
+### Positions complétées le 29/10/2026
+
+- **Marine Tondelier** : option C (estimee) — AFP, réunion des chefs de parti à l'Élysée sur la force en Ukraine, 09/01/2026 (Arab News en français) ; Les Écologistes, projet 2027, mesure Europe n° 2, https://www.arabnews.fr/node/504954/france — « Permettez-nous de douter de la sincérité de ces avancées et de leur stabilité dans le temps » — Après la présentation de la force de la coalition, elle a dit « oui » aux garanties de sécurité pour l'Ukraine tout en doutant de Trump, et son programme veut « soutenir militairement l'Ukraine » : la participation après un cessez-le-feu (C) est la plus probable ; rien ne documente un envoi avant (D) ni l'exigence d'un mandat de l'ONU (B).
+
 ## 5. Sources
 
 Sources consultées le 27/10/2026.

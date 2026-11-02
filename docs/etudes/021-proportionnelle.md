@@ -135,6 +135,16 @@ Option A : proportionnelle intégrale sans prime. Option B : proportionnelle ave
 - **Ruffin** : A, déduite. Cosignataire, le 11/04/2024, de la proposition de loi LFI n° 2508 « visant à instaurer la proportionnelle intégrale au scrutin législatif » (listes par département, seuil de 5 %) [9].
 - **Arthaud** : inconnue.
 
+### Positions complétées le 29/10/2026
+
+- **Raphaël Glucksmann** : option A (officielle) — Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 20, p. 46, https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing — « Instaurer immédiatement la proportionnelle, de préférence par circonscriptions régionales avec un fléchage départemental des candidats. » — Un scrutin de listes régionales pour toute l'Assemblée, sans prime ni dose évoquées. Le mot « intégrale » n'y figure pas : position la plus fragile du lot.
+
+### Positions complétées le 29/10/2026
+
+- **Nathalie Arthaud** : option A (estimee) — Lutte ouvrière, « Nathalie Arthaud : campagne en Seine-Saint-Denis », 31/05/2017 ; « Scrutin majoritaire ou proportionnel ? », 24/05/2007, https://www.lutte-ouvriere.org/journal/article/2017-05-31-nathalie-arthaud-campagne-en-seine-saint-denis_92875.html — « Le mode de scrutin des élections législatives est fait pour barrer la route aux courants minoritaires comme Lutte ouvrière. » — Le parti condamne le scrutin majoritaire et écrivait en 2007 que seule une proportionnelle nationale permettrait « une représentation fidèle du corps électoral », ce qui désigne A ; sources anciennes, et il juge qu'une dose de proportionnelle « ne changera rien sur le fond » (2018).
+- **David Lisnard** : option D (estimee) — D. Lisnard, chronique dans L'Opinion reprise par Nouvelle Énergie, « Légitimité légale, légitimité politique : la difficile équation présidentielle », 09/10/2025, https://www.unenouvelleenergie.fr/legitimite-legale-legitimite-politique-la-difficile-equation-presidentielle/ — « Les institutions de la Ve République sont solides. » — Il répond à ceux qui veulent « réformer le mode de scrutin, introduire la proportionnelle intégrale » qu'ils se trompent et que les institutions ne sont pas en cause, ce qui écarte A et rend le maintien du scrutin actuel (D) le plus probable ; il ne dit rien d'une dose de proportionnelle (les comparateurs qui la lui prêtent ne citent aucune source).
+- **Fabien Roussel** : option A (deduite) — F. Roussel, La France des Jours heureux, programme présidentiel 2022, mesure 133, https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf — « la proportionnelle intégrale permettra la juste représentation des courants politiques, en fonction de leur influence électorale » — Son programme demande la proportionnelle intégrale ; en 2025 il jugeait seulement que ce n'était « pas la priorité » face au 49.3, sans changer d'avis sur le mode de scrutin.
+
 ## 5. Sources
 1. Ministère de l'Intérieur (data.gouv.fr), législatives des 30 juin et 7 juillet 2024, résultats définitifs du 1er tour :
    https://www.data.gouv.fr/datasets/elections-legislatives-des-30-juin-et-7-juillet-2024-resultats-definitifs-du-1er-tour

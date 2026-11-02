@@ -152,6 +152,10 @@ Option A : légaliser et encadrer la production et la vente. Option B : dépéna
 - **Arthaud** : A, déduite. En 2022 : « Je suis plutôt pour » la légalisation, « manifestement, la répression ne fonctionne pas » [12]. À noter : un article de Lutte ouvrière de 2011 se prononce plutôt pour la dépénalisation, et Nathalie Arthaud y
   doutait d'un progrès à légaliser le commerce ; position à vérifier.
 
+### Positions complétées le 29/10/2026
+
+- **Édouard Philippe** : option C (deduite) — É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026), https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure — « Être intraitable avec les consommateurs : opérations « place nette » dans les boîtes de nuit et festivals » — Sanctionner les consommateurs exclut la dépénalisation de l'usage (B) comme la légalisation (A) : il maintient l'interdiction.
+
 ## 5. Sources
 1. OFDT, page « Cannabis » (chiffres 2022-2023) : https://www.ofdt.fr/produits-et-addictions/de-z/cannabis/
 2. Conseil d'analyse économique, note n° 52 « Cannabis : comment reprendre le contrôle ? », 20/06/2019 : https://www.cae-eco.fr/staticfiles/pdf/cae-note052.pdf

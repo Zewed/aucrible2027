@@ -79,6 +79,16 @@ positions:
   ruffin: { option: D, source: "francoisruffin.fr, 05/12/2024", statut: deduite }
   # Lettre à Emmanuel Macron cosignée, 27/07/2025 : https://www.pcf.fr/lettre-au-president-palestine-2025
   tondelier: { option: D, source: "Lettre à Emmanuel Macron cosignée, 27/07/2025", statut: officielle }
+  # Lutte ouvrière, brève « Un geste contre leur sale guerre », 09/06/2025 : https://www.lutte-ouvriere.org/portail/breves/geste-contre-sale-guerre-184948.html
+  arthaud: { option: D, source: "Lutte ouvrière, brève « Un geste contre leur sale guerre », 09/06/2025", statut: estimee }
+  # Premier ministre, sanctions françaises contre 28 colons israéliens violents (interdiction du territoire), ministère des Affaires étrangères, 13/02/2024 : https://www.diplomatie.gouv.fr/en/country-files/israel-palestinian-territories/news/2024/article/israel-palestinian-territories-france-adopts-sanctions-against-violent-israeli
+  attal: { option: C, source: "Premier ministre, sanctions françaises contre 28 colons israéliens violents (interdiction du territoire), ministère des Affaires étrangères, 13/02/2024", statut: estimee }
+  # Vote nominatif au Parlement européen, 11/09/2025, résolution « Gaza at breaking point » (RC-B10-0372/2025) : 28 eurodéputés RN sur 29 s'abstiennent : https://howtheyvote.eu/votes/179048
+  le-pen: { option: B, source: "Vote nominatif au Parlement européen, 11/09/2025, résolution « Gaza at breaking point » (RC-B10-0372/2025) : 28 eurodéputés RN sur 29 s'abstiennent", statut: estimee }
+  # Vote nominatif au Parlement européen, 11/09/2025, résolution « Gaza at breaking point » (RC-B10-0372/2025), qui demande de sanctionner deux ministres israéliens et de suspendre le volet commercial de l'accord d'association : les eurodéputés LR Bellamy, Gomart et Morano votent contre : https://howtheyvote.eu/votes/179048
+  retailleau: { option: B, source: "Vote nominatif au Parlement européen, 11/09/2025, résolution « Gaza at breaking point » (RC-B10-0372/2025), qui demande de sanctionner deux ministres israéliens et de suspendre le volet commercial de l'accord d'association : les eurodéputés LR Bellamy, Gomart et Morano votent contre", statut: estimee }
+  # Vote de S. Knafo (Reconquête) contre la résolution du Parlement européen « Gaza at breaking point », 11/09/2025 (communiqué du Parlement) : https://howtheyvote.eu/votes/179048
+  zemmour: { option: B, source: "Vote de S. Knafo (Reconquête) contre la résolution du Parlement européen « Gaza at breaking point », 11/09/2025 (communiqué du Parlement)", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/029-israel.md (chaque chiffre y a sa source
 # numérotée, voir l'annexe de l'étude). Le fil : depuis le cessez-le-feu, la France a déjà pris des mesures ; faut-il
 # aller plus loin ou revenir en arrière ? Pas de « mécanisme » (aucun rapport « X pour 1 ») ni d'« écart » ; aucun

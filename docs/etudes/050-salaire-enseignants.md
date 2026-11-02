@@ -331,6 +331,16 @@ Options de la fiche : **A** = augmenter tous les enseignants, sans contrepartie 
 - **Jean-Luc Mélenchon** : option A confirmée (officielle) — L'Avenir en commun, édition 2025 (programme sur melenchon2027.fr), chap. 5, « Revaloriser les personnels de l'Éducation nationale », https://melenchon2027.fr/programme2025/livre/chapitre5/s3/ — « Rattraper le gel du point d'indice depuis 2010 et revaloriser les grilles salariales en engageant une négociation avec les organisations syndicales et mettre fin au Pacte enseignant » — Son programme 2027, plus solide que l'amendement LFI n° II-1883 de 2024 (+15 % puis 30 % en moyenne), qui va dans le même sens.
 - **David Lisnard** : option B confirmée (officielle) — Nouvelle Énergie, programme, page « Éducation » (consultée le 28/10/2026), https://www.unenouvelleenergie.fr/notre-programme/education/ — « Nous proposons une augmentation de 20 % des rémunérations en cinq ans, conditionnée à une réorganisation profonde : autonomie accrue, présence renforcée dans l'établissement, formation continue obligatoire, évaluation régulière. » — La hausse est donnée contre plus de présence, mot pour mot l'option B ; la même page laisse les chefs d'établissement « recruter leurs équipes pédagogiques », ce qui le rapproche de C, mais sans lier une part du salaire à l'évaluation.
 
+### Positions complétées le 29/10/2026
+
+- **Nathalie Arthaud** : option A (deduite) — Lutte ouvrière, brève « Enseignement : des élèves… mais surtout des profs », 29/08/2024, https://www.lutte-ouvriere.org/portail/breves/enseignement-deleves-surtout-profs-177557.html — « Une solution simple : augmenter les salaires de tous les enseignants pour les aligner sur ceux du Luxembourg. » — Hausse pour tous ; le parti rejette la hausse « à condition qu'ils mettent en place des « projets » », c'est-à-dire le pacte (journal, 14/02/2024).
+- **François Ruffin** : option A (officielle) — Cahier « Éducation : une école de tous les savoirs », octobre 2026, https://nouspresident.fr/education-une-ecole-de-tous-les-savoirs/ — « hausse pérenne de la grille indiciaire […] hors de toute logique de pacte ou de contreparties » — Grand plan de revalorisation de la grille pour tous, explicitement sans contreparties : A.
+
+### Positions complétées le 29/10/2026
+
+- **Nicolas Dupont-Aignan** : option A (officielle) — Debout la France, projet « Éducation » (instruction publique), mesure 41 (2026) ; 100 décisions, décision 47, 2022, https://www.debout-la-france.fr/projet/instruction-publique/ — « Augmenter de 15 % en 4 ans les salaires nets des professeurs. » — Une hausse pour tous les professeurs, sans contrepartie.
+- **Bruno Retailleau** : option A (estimee) — Sud Radio, 03/09/2026 ; Public Sénat, 31/08/2026, https://www.sudradio.fr/sud-radio/presidentielle-2027-comment-les-candidats-draguent-les-professeurs-et-lecole — « « une augmentation de 300 euros nets » pour les professeurs en milieu de carrière, et 135 euros pour ceux qui débutent » — La hausse annoncée vaut pour tous, sans mission en plus ; sa réforme d'une carrière « encore très marquée par l'ancienneté » touche l'affectation et la progression mais ne lie pas le salaire à l'évaluation : A plutôt que C.
+
 ## 5. Sources
 
 Consultées le 28 octobre 2026.
