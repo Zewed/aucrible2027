@@ -51,7 +51,7 @@ async function Resultats() {
         <footer className="res-foot">
           <span className="tag">Ce n&apos;est pas un sondage</span>
           <nav>
-            <Link href="/">Retour aux questions</Link>
+            <Link href="/questionnaire">Retour aux questions</Link>
           </nav>
         </footer>
       </main>

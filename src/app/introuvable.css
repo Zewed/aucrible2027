@@ -30,7 +30,7 @@
 .digits svg { width: .74em; height: .74em; flex: none; display: block; margin: 0 .03em; }
 
 .lost .go { text-decoration: none; }
-.lost .go:focus-visible, .lost .btn-link:focus-visible { outline: 3px solid var(--eco); outline-offset: 4px; }
+.lost .go:focus-visible, .lost .btn-link:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 4px; }
 .lost .foot .small { white-space: normal; }
 
 @media (min-width: 900px) {
