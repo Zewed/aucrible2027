@@ -80,7 +80,7 @@
   transform-origin: left;
   animation: grow .9s var(--ease-out) both;
 }
-.prox-note { margin-top: 10px; font-size: 13.5px; line-height: 1.4; color: var(--ink-soft); }
+.prox-note { margin-top: 10px; font-size: 13.5px; line-height: 1.4; color: var(--sur-inverse); }
 
 .side-actions { margin-top: 18px; max-width: none; }
 .side-actions .act { font-size: 19px; padding: 0 12px; }
@@ -120,7 +120,7 @@
   color: var(--ink); text-underline-offset: 3px;
 }
 .leg-link svg { width: 18px; height: 18px; flex: none; }
-.leg-link:focus-visible, .report a:focus-visible, .gone a:focus-visible { outline: 3px solid var(--eco); outline-offset: 3px; border-radius: 4px; }
+.leg-link:focus-visible, .report a:focus-visible, .gone a:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3px; border-radius: 4px; }
 .leg-link:focus-visible { outline-color: var(--ink); }
 
 .pos-theme { margin-top: 30px; }

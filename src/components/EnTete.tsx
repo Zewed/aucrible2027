@@ -13,7 +13,7 @@ const TRAIT = { fill: "none", stroke: "currentColor", strokeWidth: 2.4, strokeLi
 /** Les écrans principaux, en icônes : leur nom se lit au survol et par les lecteurs d'écran (décision du 25 octobre 2026). */
 const ECRANS = [
   {
-    adresse: "/",
+    adresse: "/questionnaire",
     nom: "Répondre",
     icone: (
       <>
@@ -58,7 +58,7 @@ function MenuDeLaPage() {
 
 /**
  * Le menu de l'app : sur ordinateur, une colonne d'icônes à gauche, avec le compte à rebours en bas, pour laisser toute
- * la hauteur à la page ; au téléphone, une barre en haut. Le logo ramène à la prochaine question.
+ * la hauteur à la page ; au téléphone, une barre en haut. Le logo ramène à l'accueil.
  */
 export function EnTete() {
   const jour = useCoteClient(() => aujourdhuiAParis());

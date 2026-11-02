@@ -10,7 +10,7 @@
   letter-spacing: -0.035em;
   text-wrap: balance;
 }
-.res-hero .mv-h1 span { color: var(--eco); }
+.res-hero .mv-h1 span { color: var(--eco-texte); }
 
 /* ---------- le gros score ---------- */
 .score {

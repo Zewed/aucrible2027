@@ -15,7 +15,7 @@
   font-variation-settings: "wdth" 80, "opsz" 96;
   letter-spacing: -0.035em;
 }
-.sheet-head h1 span { color: var(--eco); }
+.sheet-head h1 span { color: var(--eco-texte); }
 .lead { margin-top: 12px; max-width: 62ch; color: var(--muted); font-size: 16px; line-height: 1.5; }
 .lead b { color: var(--chalk); font-weight: 700; }
 
@@ -28,7 +28,7 @@
 }
 .switch a:hover { background: var(--table-3); }
 .switch a[aria-current] { background: var(--chalk); color: var(--ink); }
-.switch a:focus-visible { outline: 3px solid var(--eco); outline-offset: 3px; }
+.switch a:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
 
 .specs { list-style: none; margin: 16px 0 0; padding: 0; display: grid; justify-items: start; gap: 8px; }   /* une puce par ligne : le nombre de lignes ne dépend pas de la police */
 .specs li {
@@ -36,7 +36,7 @@
   border-radius: 8px; padding: 8px 11px 7px;
   font: 600 13.5px/1.1 var(--text); white-space: nowrap;
 }
-.specs li b { color: var(--eco); font-weight: 700; }
+.specs li b { color: var(--eco-texte); font-weight: 700; }
 
 /* ---------- la planche ---------- */
 .planche {

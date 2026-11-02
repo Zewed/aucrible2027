@@ -7,6 +7,7 @@ import { Camembert } from "@/components/Camembert";
 import { CompteARebours } from "@/components/CompteARebours";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
+import { StylesDeLaPage } from "@/components/StylesDeLaPage";
 import { VignetteVideo } from "@/components/VignetteVideo";
 import type { Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
@@ -114,6 +115,7 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
 
   return (
     <>
+    <StylesDeLaPage>{".site-foot { display: none; }"}</StylesDeLaPage>
     <Bandeau jour={jour} question={question} />
     <main className={`today ${theme.classe} etape-${etape}`}>
       {etape === "lire" ? (

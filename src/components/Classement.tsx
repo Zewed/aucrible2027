@@ -38,7 +38,7 @@ function ClassementAVenir({ comptees }: { comptees: number }) {
             </div>
           </div>
           {/* La maquette met une jauge dans ce bouton : l'auteur n'en veut pas (25 octobre 2026), le compteur du menu suffit. */}
-          <Link className="btn-link" href="/">
+          <Link className="btn-link" href="/questionnaire">
             Répondre
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />

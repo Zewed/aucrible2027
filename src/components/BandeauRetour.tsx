@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CompteARebours } from "@/components/CompteARebours";
 
 /** Le bandeau des pages secondaires : le retour (aux questions par défaut), et le compte à rebours. */
-export function BandeauRetour({ jour, vers = "/", libelle = "Questions" }: { jour: string; vers?: string; libelle?: string }) {
+export function BandeauRetour({ jour, vers = "/questionnaire", libelle = "Questions" }: { jour: string; vers?: string; libelle?: string }) {
   return (
     <div className="strip">
       <Link className="back" href={vers}>

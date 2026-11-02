@@ -79,7 +79,7 @@ export default function Introuvable() {
             </div>
           </article>
         </div>
-        <Link className="go" href="/">
+        <Link className="go" href="/questionnaire">
           Revenir aux questions{" "}
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />

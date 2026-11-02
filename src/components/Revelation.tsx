@@ -5,6 +5,7 @@ import { Camembert } from "@/components/Camembert";
 import { CompteARebours } from "@/components/CompteARebours";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { Pion } from "@/components/Pion";
+import { StylesDeLaPage } from "@/components/StylesDeLaPage";
 import type { Candidat, Position, Question, Theme } from "@/lib/contenu";
 import { lettreOption } from "@/lib/lettres";
 import { melanger } from "@/lib/melange";
@@ -147,6 +148,8 @@ export function Revelation({
 
   return (
     <>
+      {/* Comme sur la fiche, sur grand écran, le pied de page commun s'efface : la colonne d'icônes mène aux autres pages. */}
+      <StylesDeLaPage>{"@media (min-width: 1100px) { .site-foot { display: none; } }"}</StylesDeLaPage>
       <div className="strip">
         {jour && <CompteARebours jour={jour} />}
         <NumeroQuestion numero={question.numero} />
@@ -322,7 +325,7 @@ export function Revelation({
         <div className="rev-actions">
           {suivante !== undefined ? (
             <>
-              <Link className="go" href={suite?.dansLeTheme ? `/?theme=${filtre}` : "/"}>
+              <Link className="go" href={suite?.dansLeTheme ? `/questionnaire?theme=${filtre}` : "/questionnaire"}>
                 Question suivante{" "}
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />

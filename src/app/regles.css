@@ -37,7 +37,7 @@
   letter-spacing: -0.035em;
   text-wrap: balance;
 }
-.leaf-hero h1 span { color: var(--eco); }
+.leaf-hero h1 span { color: var(--eco-texte); }
 .lead { margin-top: 16px; font-size: 18px; line-height: 1.5; max-width: 60ch; }
 .lead b { font-weight: 700; }
 .lead-note { margin-top: 12px; font-size: 14px; color: var(--muted); max-width: 60ch; }
@@ -56,7 +56,7 @@
   transition: background .15s var(--ease-out);
 }
 .toc a:hover { background: var(--table-3); }
-.toc a:focus-visible { outline: 3px solid var(--eco); outline-offset: 2px; }
+.toc a:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 2px; }
 .toc b {
   width: 28px; height: 28px; border-radius: 8px; flex: none;
   background: var(--sur-table); color: var(--table);
@@ -102,7 +102,7 @@
 .rule-txt .small { font-size: 14px; color: var(--ink-soft); }
 .rule-txt a:not([class]) { text-underline-offset: 3px; font-weight: 700; }
 .rule-txt a:not([class]):hover { text-decoration-thickness: 2px; }
-.leaf a:focus-visible { outline: 3px solid var(--eco); outline-offset: 3px; border-radius: 3px; }
+.leaf a:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3px; border-radius: 3px; }
 .rule a:focus-visible { outline-color: var(--secu); }
 
 /* ---------- le petit schéma sous la règle ---------- */
@@ -143,7 +143,7 @@
 .btn-wide svg { width: 22px; height: 22px; flex: none; }
 .btn-wide:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--ink-deep); }
 .btn-wide:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--ink-deep); }
-.btn-wide:focus-visible { outline: 3px solid var(--eco); outline-offset: 3px; }
+.btn-wide:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
 
 /* ---------- la sortie ---------- */
 .leaf-end {

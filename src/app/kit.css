@@ -29,6 +29,9 @@
   --table-3: #3B3369;    /* tranche, filets */
   --chalk: #F6F3FF;      /* texte clair, sur une surface sombre */
   --sur-table: var(--chalk); /* le texte posé sur la table : clair sur la table sombre, foncé en mode clair */
+  --sur-inverse: var(--ink-soft); /* le texte secondaire d'une surface de la couleur --sur-table, dont le texte est --table */
+  --inverse-vide: var(--slot); /* une case vide sur cette même surface */
+  --eco-texte: var(--eco);   /* le jaune, quand il sert de texte ou de trait sur la table */
   --muted: #B9B1DE;
   --card: #FFFFFF;
   --ink: #1D1838;
@@ -111,7 +114,7 @@ h1, h2, h3, p { margin: 0; }
   white-space: nowrap;
   min-height: 44px;
 }
-.brand b { color: var(--eco); font-weight: 800; }
+.brand b { color: var(--eco-texte); font-weight: 800; }
 .brand svg { width: 26px; height: 26px; flex: none; }
 .topnav { display: none; }
 
@@ -270,7 +273,7 @@ h1, h2, h3, p { margin: 0; }
 }
 .opt:hover .opt-face { transform: translateY(-3px); box-shadow: 0 9px 0 var(--theme); }
 .opt:active .opt-face { transform: translateY(4px); box-shadow: 0 2px 0 var(--theme); }
-.opt input:focus-visible + .opt-face { outline: 3px solid var(--eco); outline-offset: 3px; }
+.opt input:focus-visible + .opt-face { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
 .opt-letter {
   grid-row: 1 / span 2;
   width: 44px; height: 44px; border-radius: 10px;
@@ -358,7 +361,7 @@ h1, h2, h3, p { margin: 0; }
   transform: translateY(-3px);
 }
 .imp input:checked + .imp-face .chips i { background: var(--ink); }
-.imp input:focus-visible + .imp-face { outline: 3px solid var(--eco); outline-offset: 3px; }
+.imp input:focus-visible + .imp-face { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
 
 .go {
   margin-top: 26px;
@@ -422,7 +425,7 @@ h1, h2, h3, p { margin: 0; }
   font-variation-settings: "wdth" 80, "opsz" 96;
   letter-spacing: -0.035em;
 }
-.res-hero h1 span { color: var(--eco); }
+.res-hero h1 span { color: var(--eco-texte); }
 .reliab {
   margin-top: 16px;
   display: inline-flex; align-items: center; gap: 12px;
@@ -432,8 +435,8 @@ h1, h2, h3, p { margin: 0; }
   white-space: nowrap; max-width: 100%;
 }
 .meter { display: flex; gap: 3px; }
-.meter i { width: 12px; height: 18px; border-radius: 3px; background: var(--slot); }
-.meter i.on { background: var(--ink); }
+.meter i { width: 12px; height: 18px; border-radius: 3px; background: var(--inverse-vide); }
+.meter i.on { background: var(--table); }
 .notpoll { margin-top: 10px; font-size: 13px; color: var(--muted); }
 .notpoll b { color: var(--sur-table); }
 
@@ -494,8 +497,8 @@ h1, h2, h3, p { margin: 0; }
 .pips { display: flex; gap: 3px; }
 .pips i { width: 11px; height: 11px; border-radius: 3px; background: var(--table-3); }
 .th.done { background: var(--sur-table); color: var(--table); }
-.th.done .th-who { color: var(--ink-soft); }
-.th.done .th-who b { color: var(--ink); }
+.th.done .th-who { color: var(--sur-inverse); }
+.th.done .th-who b { color: var(--table); }
 
 /* le classement */
 .rank { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 7px; }
@@ -510,7 +513,7 @@ h1, h2, h3, p { margin: 0; }
   padding: 8px 12px 10px 8px;
 }
 .cand:hover { background: var(--table-3); }
-.cand:focus-visible { outline: 3px solid var(--eco); outline-offset: 3px; }
+.cand:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
 .cand-n { font: 800 15px/1 var(--display); color: var(--muted); text-align: center; grid-row: 1 / span 2; }
 .cand .pawn { --size: 40px; font-size: 13px; grid-row: 1 / span 2; }
 .cand-name { font: 700 16px/1.2 var(--text); }
@@ -693,7 +696,7 @@ h1, h2, h3, p { margin: 0; }
   text-underline-offset: 3px; white-space: nowrap;
 }
 .site-foot a:hover { color: var(--sur-table); }
-.site-foot a:focus-visible { outline: 3px solid var(--eco); outline-offset: 2px; border-radius: 4px; }
+.site-foot a:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 2px; border-radius: 4px; }
 
 /* ==================== GRAND ÉCRAN ==================== */
 @media (min-width: 900px) {
@@ -759,35 +762,38 @@ h1, h2, h3, p { margin: 0; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
-/* Mode clair : il suit le réglage de l'appareil. La même table, en lavande pâle, et des couleurs de thème adoucies ;
-   la couleur d'un thème, quand elle sert de texte, prend sa tranche sombre pour rester lisible. Les vidéos restent
-   sombres (`data-sombre` sur la racine, voir src/video/racine.tsx). */
-@media (prefers-color-scheme: light) {
-  :root:not([data-sombre]) {
-    --table: #F2F0F6;
-    --table-2: #E8E5F0;
-    --table-3: #D8D3E5;
-    --sur-table: #2A2544;
-    --muted: #6B648A;
-    --eco: #F1D27A;
-    --trav: #F3A26A;
-    --trav-edge: #C9713A;
-    --ecol: #6CC594;
-    --immi: #7CC8EA;
-    --secu: #8E99EE;
-    --sante: #EE8A84;
-    --educ: #B597EE;
-    --loge: #5DB5AC;
-    --euro: #C3DC7E;
-    --inst: #D88DD1;
-    --soc: #F2AECA;
-  }
-  :root:not([data-sombre]) [class*="theme-"] { --theme-text: var(--theme-edge); }
-  :root:not([data-sombre]) .theme-secu { --on-theme: var(--ink); }
-  /* Ce qui part sur les réseaux (la carte en story, les visuels de l'auteur) garde la DA sombre. */
-  :root:not([data-sombre]) :is(.story, .social) {
-    --table: #1D1838; --table-2: #29224C; --table-3: #3B3369; --sur-table: var(--chalk); --muted: #B9B1DE;
-    --eco: #FFC21F; --trav: #FF7A1A; --trav-edge: #C4520A; --ecol: #22B85A; --immi: #1FB2F0; --secu: #4357FF;
-    --sante: #F2453D; --educ: #9461FF; --loge: #0E9E93; --euro: #A6D92B; --inst: #D63AC9; --soc: #FF7FB0;
-  }
+/* Le mode clair, celui du site pour tout le monde (décision du 2 novembre 2026), quel que soit le réglage de l'appareil :
+   la même table, en lavande pâle, et des couleurs de thème adoucies ; la couleur d'un thème, quand elle sert de texte,
+   part de sa tranche sombre et fonce encore pour rester lisible. Les vidéos restent sombres (`data-sombre` sur la
+   racine, voir src/video/racine.tsx). */
+:root:not([data-sombre]) {
+  --table: #F2F0F6;
+  --table-2: #E8E5F0;
+  --table-3: #D8D3E5;
+  --sur-table: #2A2544;
+  --sur-inverse: #B9B1DE;
+  --inverse-vide: var(--ink-soft);
+  --eco-texte: #9A7400;
+  --muted: #5F587D;
+  --eco: #F1D27A;
+  --trav: #F3A26A;
+  --trav-edge: #C9713A;
+  --ecol: #6CC594;
+  --immi: #7CC8EA;
+  --secu: #8E99EE;
+  --sante: #EE8A84;
+  --educ: #B597EE;
+  --loge: #5DB5AC;
+  --euro: #C3DC7E;
+  --inst: #D88DD1;
+  --soc: #F2AECA;
+}
+:root:not([data-sombre]) [class*="theme-"] { --theme-text: color-mix(in srgb, var(--theme-edge) 60%, var(--ink)); }
+:root:not([data-sombre]) .theme-secu { --on-theme: var(--ink); }
+/* Ce qui part sur les réseaux (la carte en story, les visuels de l'auteur) garde la DA sombre. */
+:root:not([data-sombre]) :is(.story, .social, .sc-deck) {
+  --table: #1D1838; --table-2: #29224C; --table-3: #3B3369; --sur-table: var(--chalk); --muted: #B9B1DE;
+  --sur-inverse: var(--ink-soft); --inverse-vide: var(--slot); --eco-texte: var(--eco);
+  --eco: #FFC21F; --trav: #FF7A1A; --trav-edge: #C4520A; --ecol: #22B85A; --immi: #1FB2F0; --secu: #4357FF;
+  --sante: #F2453D; --educ: #9461FF; --loge: #0E9E93; --euro: #A6D92B; --inst: #D63AC9; --soc: #FF7FB0;
 }

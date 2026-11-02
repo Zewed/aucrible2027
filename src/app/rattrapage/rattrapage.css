@@ -14,7 +14,7 @@
   letter-spacing: -0.035em;
   text-wrap: balance;
 }
-.catch-hero h1 span { color: var(--eco); }
+.catch-hero h1 span { color: var(--eco-texte); }
 .lead { margin-top: 14px; max-width: 46ch; font: 500 17px/1.45 var(--text); }
 .lead b { font-weight: 700; }
 
@@ -47,7 +47,7 @@
   transform-origin: left;
   animation: grow .9s var(--ease-out) both;
 }
-.prog-t { grid-column: 1 / -1; margin-top: 8px; font: 600 14px/1.2 var(--text); color: var(--ink-soft); }
+.prog-t { grid-column: 1 / -1; margin-top: 8px; font: 600 14px/1.2 var(--text); color: var(--sur-inverse); }
 
 .series {
   background: var(--table-2);
@@ -70,7 +70,7 @@
   min-height: 52px; padding: 8px 14px;
   background: var(--table-2); border-radius: 12px;
 }
-.fopen:focus-visible + .fsum { outline: 3px solid var(--eco); outline-offset: 3px; }
+.fopen:focus-visible + .fsum { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
 .fsum-k { font: 800 13px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); white-space: nowrap; }
 .fsum-v { flex: 1; min-width: 0; font: 700 15px/1.2 var(--text); text-align: right; }
 .cur { display: none; }
@@ -91,7 +91,7 @@
 .chip:not([class*="theme-"]) { padding-left: 14px; }
 .chip svg { width: 22px; height: 22px; flex: none; }
 .chip:hover { background: var(--table-3); }
-.fr:focus-visible + .chip { outline: 3px solid var(--eco); outline-offset: 3px; }
+.fr:focus-visible + .chip { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
 .fr:checked + .chip { background: var(--sur-table); color: var(--table); }
 
 /* ---------- groupes et légende des dés ---------- */
@@ -120,7 +120,7 @@
 }
 .qr:hover { transform: translateY(-3px); box-shadow: 0 9px 0 var(--theme-edge); }
 .qr:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--theme-edge); }
-.qr:focus-visible { outline: 3px solid var(--eco); outline-offset: 4px; }
+.qr:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 4px; }
 .qr-top {
   flex: 1;
   display: flex; flex-direction: column; gap: 16px;
@@ -192,7 +192,7 @@
   transform: rotate(-4deg);
   font: 800 30px/0.9 var(--display); font-variation-settings: "wdth" 80;
 }
-.dp-card small { font: 700 12px/1 var(--text); color: var(--ink-soft); }
+.dp-card small { font: 700 12px/1 var(--text); color: var(--sur-inverse); }
 .dp-box h2 { font: 800 26px/1 var(--display); font-variation-settings: "wdth" 85; letter-spacing: -0.02em; }
 .dp-box p { margin-top: 6px; font-size: 15px; line-height: 1.35; color: var(--muted); }
 
