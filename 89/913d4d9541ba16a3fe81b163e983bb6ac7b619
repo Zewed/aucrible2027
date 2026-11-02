@@ -1,0 +1,91 @@
+src/app/globals.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 16,20,65,86,134,153,275,360
+e2e/question-du-jour.spec.ts
+  s_54aace0db20b00::t_710967821bcda6 629,634
+  s_54aace0db20b00::t_5e49ed4dc38cab 644
+  s_54aace0db20b00::t_57baa7378bcf8f 6968
+  s_54aace0db20b00::t_500b4c4ebd6a91 60,74,86,99,110,116-117,122,132,155,163,168,180,191,201,216,260,272,279,290,302,330,354,364,370,376,415,439,459,487,501,516,532,550,566,580,591,611,618,623,650,659,676,689,698,722,727,791,1131,1134,1143,1184,1197,1211,1238,1254,1263,1268,1274,1283,1291,1303,1309,1336,1351,1355,1362,1371,1384,1396,1475,1493,1499,1566,1637,1664,1675,1687,1760,1894,1997,2003,2034,2240,2354,2372,2400,2459,2474,2483,2493,2535,2573,2658,2663,2790,3813,3843,3968,4078,4121,4242,4277,4280,4565,4579,4591,4596,4627,4659,4689,4722,4736,4740,4753,4756,5171,5530,5579,6077,6102,6124,6130,6176,6182,6201,6221,6230,6240,6253,6271,6286,6305,6338,6359,6423,6452,6536,6624,6667,6697,6853,6863,6872,6881,6890,6901,6916,6923,6934,6941-6967,6969-7030,7037-7040,7042
+  s_54aace0db20b00::t_fbe346e4df9949 7031-7036,7041
+src/components/FormulaireDeSignalement.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 53
+src/components/EnTete.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 16,61
+src/lib/proximite.ts
+  s_54aace0db20b00::t_500b4c4ebd6a91 29
+src/app/not-found.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 82
+src/components/FaceAFace.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 298
+src/app/regles.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 40,59,105,146
+src/app/revelation/revelation.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 22,104,245-246
+src/app/candidat/[id]/candidat.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 83,123
+src/app/signaler/signaler.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 18,131,138,141,145
+src/app/page.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 2,5,7-8,10-11,18,21
+src/components/JaugeDesQuestions.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 7,18,28,61
+src/components/ProchaineQuestion.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 11,30,32-33,67,81
+src/app/resultats/page.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 54
+src/components/StylesDeLaPage.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 1-15
+src/app/rattrapage/rattrapage.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 17,50,73,94,123,195
+src/app/questionnaire/page.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 1-24
+src/components/Classement.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 41
+src/components/Accueil.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 1-155
+src/lib/reponses.ts
+  s_54aace0db20b00::t_500b4c4ebd6a91 52-61
+src/app/journal/journal.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 39
+src/app/admin/admin.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 5
+src/components/Fiche.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 10,118
+src/app/appareil/appareil.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 21,35
+src/app/visuels.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 18,31,39
+SPEC.md
+  s_54aace0db20b00::t_500b4c4ebd6a91 33,212-213,216-217
+src/app/face-a-face.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 61,80,120,166
+src/app/kit.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 32-34,117,276,364,428,438-439,500-501,516,699,765-798
+src/app/moi-contre/[candidat]/moi-vs.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 13
+src/components/Revelation.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 8,151-152,328
+src/app/carte/carte-story.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 21,146
+src/components/BandeauRetour.tsx
+  s_54aace0db20b00::t_500b4c4ebd6a91 5
+src/app/accueil.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 1-56
+src/app/introuvable.css
+  s_54aace0db20b00::t_500b4c4ebd6a91 33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "89913d4d9541ba16a3fe81b163e983bb6ac7b619",
+  "prompts": {},
+  "sessions": {
+    "s_54aace0db20b00": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5f66dfae-cc66-41a3-a3bf-d14b7f7cdaef",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
