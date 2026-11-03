@@ -7040,3 +7040,52 @@ test.describe("le site est en mode clair, même sur un appareil réglé en sombr
     await expect.poll(() => fond(page.locator(".sc--a"))).toBe("rgb(255, 194, 31)");
   });
 });
+
+test.describe("le bouton du mode passe le site en sombre, et l'appareil garde ce choix", () => {
+  const TABLE_CLAIRE = "rgb(242, 240, 246)";
+  const TABLE_SOMBRE = "rgb(29, 24, 56)";
+  const fondDeLaPage = (page: Page) => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+
+  test("au téléphone, il est dans le pied de page ; le choix survit au rechargement et se défait", async ({ page }) => {
+    await page.goto("/");
+    const pied = page.getByRole("contentinfo");
+    await expect(page.getByRole("banner").getByRole("button", { name: "Passer en mode sombre" })).toBeHidden();
+    await pied.getByRole("button", { name: "Passer en mode sombre" }).click();
+    await expect.poll(() => fondDeLaPage(page)).toBe(TABLE_SOMBRE);
+    await page.reload();
+    await expect(pied.getByRole("button", { name: "Passer en mode clair" })).toBeVisible();
+    expect(await fondDeLaPage(page)).toBe(TABLE_SOMBRE);
+    await pied.getByRole("button", { name: "Passer en mode clair" }).click();
+    await expect.poll(() => fondDeLaPage(page)).toBe(TABLE_CLAIRE);
+  });
+
+  test("le mode choisi s'applique sans attendre le code de la page, donc sans passer par le clair", async ({ page }) => {
+    await page.goto("/");
+    await page.evaluate(() => localStorage.setItem("aucrible:mode", "sombre"));
+    await page.route("**/_next/static/**/*.js", (route) => route.abort());
+    await page.goto("/");
+    expect(await fondDeLaPage(page)).toBe(TABLE_SOMBRE);
+    await expect(page.locator(".site-foot .mode-soleil")).toBeVisible();
+  });
+
+  test("le choix suit dans les autres onglets", async ({ page, context }) => {
+    await page.goto("/");
+    const autreOnglet = await context.newPage();
+    await autreOnglet.goto("/methode");
+    await expect(autreOnglet.getByRole("contentinfo").getByRole("button", { name: "Passer en mode sombre" })).toBeVisible();
+    await page.getByRole("contentinfo").getByRole("button", { name: "Passer en mode sombre" }).click();
+    await expect.poll(() => fondDeLaPage(autreOnglet)).toBe(TABLE_SOMBRE);
+  });
+
+  test.describe("sur ordinateur", () => {
+    test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
+
+    test("il est dans la colonne du menu, pas dans le pied de page", async ({ page }) => {
+      await page.goto("/");
+      await expect(page.getByRole("contentinfo").getByRole("button", { name: "Passer en mode sombre" })).toBeHidden();
+      await page.getByRole("banner").getByRole("button", { name: "Passer en mode sombre" }).click();
+      await expect.poll(() => fondDeLaPage(page)).toBe(TABLE_SOMBRE);
+      await expect(page.getByRole("banner").getByRole("button", { name: "Passer en mode clair" })).toBeVisible();
+    });
+  });
+});
