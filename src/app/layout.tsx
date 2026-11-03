@@ -7,6 +7,7 @@ import { PiedDePage } from "@/components/PiedDePage";
 import { SansReseau } from "@/components/SansReseau";
 import { Visite } from "@/components/Visite";
 import { lireThemes } from "@/lib/contenu";
+import { SCRIPT_DU_MODE } from "@/lib/mode";
 import { lireQuestionsPubliees } from "@/lib/publication";
 import "./kit.css";
 import "./globals.css";
@@ -29,7 +30,10 @@ async function Jauge() {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="fr" className={`${affiche.variable} ${texte.variable}`}>
+    <html lang="fr" className={`${affiche.variable} ${texte.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: SCRIPT_DU_MODE }} />
+      </head>
       <body>
         <EnTete />
         <Suspense fallback={<div className="jauge"></div>}>

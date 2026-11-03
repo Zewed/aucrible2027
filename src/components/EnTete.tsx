@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
+import { BoutonDuMode } from "@/components/BoutonDuMode";
 import { CompteARebours } from "@/components/CompteARebours";
 import { Logo } from "@/components/Logo";
 import { useCoteClient } from "@/lib/cote-client";
@@ -57,8 +58,8 @@ function MenuDeLaPage() {
 }
 
 /**
- * Le menu de l'app : sur ordinateur, une colonne d'icônes à gauche, avec le compte à rebours en bas, pour laisser toute
- * la hauteur à la page ; au téléphone, une barre en haut. Le logo ramène à l'accueil.
+ * Le menu de l'app : sur ordinateur, une colonne d'icônes à gauche, avec le mode et le compte à rebours en bas, pour
+ * laisser toute la hauteur à la page ; au téléphone, une barre en haut. Le logo ramène à l'accueil.
  */
 export function EnTete() {
   const jour = useCoteClient(() => aujourdhuiAParis());
@@ -73,6 +74,7 @@ export function EnTete() {
       <Suspense fallback={<Menu chemin={null} />}>
         <MenuDeLaPage />
       </Suspense>
+      <BoutonDuMode />
       <div className="rail-cd">{jour && <CompteARebours jour={jour} court />}</div>
     </header>
   );

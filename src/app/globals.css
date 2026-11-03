@@ -86,6 +86,17 @@
 .topnav a:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 2px; }
 .rail-cd { display: none; }
 
+/* Le bouton du mode : au téléphone une ligne du pied de page, la barre du haut étant pleine (56 px de trop à 360 px) ;
+   sur ordinateur une icône de la colonne, le pied de page étant sous la ligne de flottaison. */
+.mode { appearance: none; padding: 0; border: 0; background: none; color: var(--muted); cursor: pointer; }
+.mode:hover { color: var(--sur-table); }
+.mode:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 2px; }
+.mode svg { width: 16px; height: 16px; }
+.mode-soleil, [data-sombre] .mode-lune { display: none; }
+[data-sombre] .mode-soleil { display: block; }
+.site-foot .mode { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font: 600 14px/1.2 var(--text); white-space: nowrap; }
+.topbar .mode { display: none; }
+
 /* Sur ordinateur, une colonne à gauche : le logo, les icônes, et le compte à rebours en bas. Le bandeau du haut
    (compte à rebours, numéro, retour) disparaît : la page commence en haut de l'écran. */
 @media (min-width: 900px) {
@@ -104,7 +115,15 @@
   .topnav a:not([aria-current]) { background: none; }
   .topnav a:not([aria-current]):hover { background: var(--table-2); }
   .topnav a svg { width: 26px; height: 26px; }
-  .rail-cd { display: block; margin-top: auto; }
+  .site-foot .mode { display: none; }
+  .topbar .mode {
+    display: grid; place-items: center; width: 52px; height: 52px; margin-top: auto; border-radius: 14px;
+    transition: background-color .15s var(--ease-out), color .15s var(--ease-out);
+  }
+  .topbar .mode:hover { background: var(--table-2); }
+  .topbar .mode svg { width: 26px; height: 26px; }
+  .topbar .mode span { display: none; }
+  .rail-cd { display: block; }
   .rail-cd .countdown { flex-direction: column; align-items: center; background: none; overflow: visible; }
   .rail-cd .countdown b { border-radius: 8px; padding: 5px 7px 4px; font-size: 13px; }
   .rail-cd .countdown span { padding: 5px 0 0; font-size: 11px; color: var(--muted); }

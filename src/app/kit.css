@@ -5,7 +5,7 @@
    Page        : body (fond table) · .sr (texte pour lecteurs d'écran) · .one (une ligne, ellipsis)
    En-tête     : header.topbar (collant) > .brand + nav.topnav (a[aria-current]) + .streak (.die)
                  puis .strip (.countdown, .qnum, .back) · contenu dans main.today ou main.res
-   Pied        : footer.site-foot > nav > a (5 liens vers les écrans) · .tag (pastille facultative)
+   Pied        : footer.site-foot > nav > a (5 liens vers les écrans) + .mode · .tag (pastille facultative)
    Boutons     : .go (gros bouton d'action, couleur du thème) · .btn-link (bouton clair, flèche)
                  .act.primary / .act.second (actions empilées) · .back (retour)
    Cartes      : .deck > .qcard (.qcard-top .theme-chip h1, .qcard-body) · .label · .fig
@@ -762,10 +762,12 @@ h1, h2, h3, p { margin: 0; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
-/* Le mode clair, celui du site pour tout le monde (décision du 2 novembre 2026), quel que soit le réglage de l'appareil :
+/* Le mode clair, celui du site par défaut (décision du 2 novembre 2026), quel que soit le réglage de l'appareil :
    la même table, en lavande pâle, et des couleurs de thème adoucies ; la couleur d'un thème, quand elle sert de texte,
-   part de sa tranche sombre et fonce encore pour rester lisible. Les vidéos restent sombres (`data-sombre` sur la
-   racine, voir src/video/racine.tsx). */
+   part de sa tranche sombre et fonce encore pour rester lisible. Le mode sombre, ce sont les jetons de :root, avec
+   `data-sombre` sur la racine : posé par le bouton de l'en-tête (src/lib/mode.ts), et toujours sur les vidéos
+   (src/video/racine.tsx). */
+:root[data-sombre] { color-scheme: dark; }
 :root:not([data-sombre]) {
   --table: #F2F0F6;
   --table-2: #E8E5F0;

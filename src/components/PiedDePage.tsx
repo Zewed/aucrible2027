@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
+import { BoutonDuMode } from "@/components/BoutonDuMode";
 
 const LIENS = [
   ["/rattrapage", "Toutes les questions"],
@@ -20,6 +21,7 @@ function Liens({ chemin }: { chemin: string | null }) {
           {nom}
         </Link>
       ))}
+      <BoutonDuMode />
     </nav>
   );
 }

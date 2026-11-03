@@ -206,7 +206,7 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 
 **Navigation (25/10/2026)** : sur ordinateur, une colonne d'icônes à gauche (Répondre, Mes résultats, Toutes les questions, Méthode) avec le compte à rebours en bas ; au-dessus des pages, seulement la jauge des questions (27/10/2026) ; au téléphone, les mêmes icônes dans la barre du haut. Peu de mots : un écran qui a besoin d'être expliqué est à revoir. Ce n'est pas un jeu : ni « jouer », ni « partie », ni « le jeu » dans les textes.
 
-**Mode clair (02/11/2026)** : le site est en clair pour tout le monde, quel que soit le réglage de l'appareil : la même DA, une table lavande et des couleurs de thème adoucies. Les vidéos et ce qui part sur les réseaux restent sombres.
+**Mode clair (02/11/2026)** : le site s'ouvre en clair pour tout le monde, quel que soit le réglage de l'appareil : la même DA, une table lavande et des couleurs de thème adoucies. Un bouton passe en sombre, et l'appareil garde ce choix : une icône en bas de la colonne sur ordinateur, une ligne du pied de page au téléphone, où la barre du haut est pleine. Les vidéos et ce qui part sur les réseaux restent sombres.
 
 Maquettes statiques de tous les écrans, dans la direction « Jeu de société » : `maquettes/` (ouvrir `maquettes/index.html`).
 
