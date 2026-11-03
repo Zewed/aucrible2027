@@ -1,0 +1,270 @@
+SPEC.md
+  h_1294ab5999dad1 87,97,99-101
+content/questions/001-isf.yaml
+  h_1294ab5999dad1 47,93-104
+content/questions/002-smic.yaml
+  h_1294ab5999dad1 47,92-101
+content/questions/003-voitures-thermiques.yaml
+  h_1294ab5999dad1 33,39,45,72-89
+content/questions/004-quotas-immigration.yaml
+  h_1294ab5999dad1 30,73-88
+content/questions/005-peines-planchers.yaml
+  h_1294ab5999dad1 34,79-92
+content/questions/006-franchises-medicales.yaml
+  h_1294ab5999dad1 48,54,81-92
+content/questions/007-uniforme.yaml
+  h_1294ab5999dad1 41,47,82-89
+content/questions/008-sru.yaml
+  h_1294ab5999dad1 49,55,90-101
+content/questions/009-ukraine.yaml
+  h_1294ab5999dad1 83-90
+content/questions/010-ric.yaml
+  h_1294ab5999dad1 32,38,44,87-90
+content/questions/011-fin-de-vie.yaml
+  h_1294ab5999dad1 44,50
+content/questions/012-deficit.yaml
+  h_1294ab5999dad1 54,94-99
+content/questions/013-chomage.yaml
+  h_1294ab5999dad1 48,87-94
+content/questions/014-eoliennes.yaml
+  h_1294ab5999dad1 86-95
+content/questions/015-ame.yaml
+  h_1294ab5999dad1 36,42,77-92
+content/questions/016-majorite-penale.yaml
+  h_1294ab5999dad1 33,84-95
+content/questions/017-hopital.yaml
+  h_1294ab5999dad1 42,48,77-90
+content/questions/018-parcoursup.yaml
+  h_1294ab5999dad1 86-93
+content/questions/019-airbnb.yaml
+  h_1294ab5999dad1 39,45,76-91
+content/questions/020-otan.yaml
+  h_1294ab5999dad1 77-84
+content/questions/021-proportionnelle.yaml
+  h_1294ab5999dad1 84-91
+content/questions/022-cannabis.yaml
+  h_1294ab5999dad1 48,91-92
+content/questions/023-loyers.yaml
+  h_1294ab5999dad1 42,83-88
+content/questions/024-retraite.yaml
+  h_1294ab5999dad1 44,50,89-92
+content/questions/025-nucleaire.yaml
+  h_1294ab5999dad1 97-98
+content/questions/026-medecins.yaml
+  h_1294ab5999dad1 49,55,92-101
+content/questions/027-gpa.yaml
+  h_1294ab5999dad1 34,40,94-95
+content/questions/028-etat-civil.yaml
+  h_1294ab5999dad1 33,39,81-84
+content/questions/029-israel.yaml
+  h_1294ab5999dad1 82-91
+content/questions/030-soldats-ukraine.yaml
+  h_1294ab5999dad1 87-88
+content/questions/031-russie.yaml
+  h_1294ab5999dad1 85-94
+content/questions/032-ouighours.yaml
+  h_1294ab5999dad1 84-87
+content/questions/033-heritage.yaml
+  h_1294ab5999dad1 101-102
+content/questions/034-semaine-4-jours.yaml
+  h_1294ab5999dad1 35,41,93-96
+content/questions/035-vols-interieurs.yaml
+  h_1294ab5999dad1 36,42,48,55,87-102
+content/questions/036-droit-du-sol.yaml
+  h_1294ab5999dad1 30,36,86-93
+content/questions/037-videosurveillance-ia.yaml
+  h_1294ab5999dad1 34,40
+content/questions/038-reseaux-sociaux.yaml
+  h_1294ab5999dad1 32,38,44,50,84-87
+content/questions/039-taxe-zucman.yaml
+  h_1294ab5999dad1 35,41,94-99
+content/questions/040-rsa.yaml
+  h_1294ab5999dad1 34,93-100
+content/questions/041-pesticides.yaml
+  h_1294ab5999dad1 34,40,47,55,90-101
+content/questions/042-regularisation.yaml
+  h_1294ab5999dad1 46,85-96
+content/questions/043-prisons.yaml
+  h_1294ab5999dad1 52,99-104
+content/questions/044-depassements-honoraires.yaml
+  h_1294ab5999dad1 43,78-89
+content/questions/045-tva.yaml
+  h_1294ab5999dad1 88-95
+content/questions/046-delit-de-sejour.yaml
+  h_1294ab5999dad1 54,90-101
+content/questions/047-legitime-defense-policiers.yaml
+  h_1294ab5999dad1 40,52,94-101
+content/questions/048-vaccins.yaml
+  h_1294ab5999dad1 79-88
+content/questions/049-service-national.yaml
+  h_1294ab5999dad1 36,42,48,56,88-103
+content/questions/050-salaire-enseignants.yaml
+  h_1294ab5999dad1 38,44,50,89-96
+content/questions/051-logements-vacants.yaml
+  h_1294ab5999dad1 43,87-94
+content/questions/052-zan.yaml
+  h_1294ab5999dad1 35,41,48,56,88-101
+content/questions/054-vote-obligatoire.yaml
+  h_1294ab5999dad1 73-82
+content/questions/055-vote-blanc.yaml
+  h_1294ab5999dad1 70-75
+content/questions/056-voile-sport.yaml
+  h_1294ab5999dad1 44,100-109
+docs/etudes/001-isf.md
+  h_1294ab5999dad1 103-114
+docs/etudes/002-smic.md
+  h_1294ab5999dad1 93-103
+docs/etudes/003-voitures-thermiques.md
+  h_1294ab5999dad1 91-105
+docs/etudes/004-quotas-immigration.md
+  h_1294ab5999dad1 78-88
+docs/etudes/005-peines-planchers.md
+  h_1294ab5999dad1 141-153
+docs/etudes/006-franchises-medicales.md
+  h_1294ab5999dad1 91-102
+docs/etudes/007-uniforme.md
+  h_1294ab5999dad1 196-202
+docs/etudes/008-sru.md
+  h_1294ab5999dad1 198-209
+docs/etudes/009-ukraine.md
+  h_1294ab5999dad1 201-210
+docs/etudes/010-ric.md
+  h_1294ab5999dad1 185-192
+docs/etudes/012-deficit.md
+  h_1294ab5999dad1 120-128
+docs/etudes/013-chomage.md
+  h_1294ab5999dad1 116-125
+docs/etudes/014-eoliennes.md
+  h_1294ab5999dad1 114-124
+docs/etudes/015-ame.md
+  h_1294ab5999dad1 105-118
+docs/etudes/016-majorite-penale.md
+  h_1294ab5999dad1 148-159
+docs/etudes/017-hopital.md
+  h_1294ab5999dad1 100-112
+docs/etudes/018-parcoursup.md
+  h_1294ab5999dad1 179-188
+docs/etudes/019-airbnb.md
+  h_1294ab5999dad1 164-177
+docs/etudes/020-otan.md
+  h_1294ab5999dad1 157-163
+docs/etudes/021-proportionnelle.md
+  h_1294ab5999dad1 138-147
+docs/etudes/022-cannabis.md
+  h_1294ab5999dad1 155-158
+docs/etudes/023-loyers.md
+  h_1294ab5999dad1 424-429
+docs/etudes/024-retraite.md
+  h_1294ab5999dad1 700-704
+docs/etudes/025-nucleaire.md
+  h_1294ab5999dad1 352-355
+docs/etudes/026-medecins.md
+  h_1294ab5999dad1 320-330
+docs/etudes/027-gpa.md
+  h_1294ab5999dad1 310-313
+docs/etudes/028-etat-civil.md
+  h_1294ab5999dad1 297-301
+docs/etudes/029-israel.md
+  h_1294ab5999dad1 401-408
+docs/etudes/030-soldats-ukraine.md
+  h_1294ab5999dad1 406-409
+docs/etudes/031-russie.md
+  h_1294ab5999dad1 392-402
+docs/etudes/032-ouighours.md
+  h_1294ab5999dad1 496-500
+docs/etudes/033-heritage.md
+  h_1294ab5999dad1 318-321
+docs/etudes/034-semaine-4-jours.md
+  h_1294ab5999dad1 331-335
+docs/etudes/035-vols-interieurs.md
+  h_1294ab5999dad1 357-367
+docs/etudes/036-droit-du-sol.md
+  h_1294ab5999dad1 347-353
+docs/etudes/038-reseaux-sociaux.md
+  h_1294ab5999dad1 409-413
+docs/etudes/039-taxe-zucman.md
+  h_1294ab5999dad1 295-300
+docs/etudes/040-rsa.md
+  h_1294ab5999dad1 345-351
+docs/etudes/041-pesticides.md
+  h_1294ab5999dad1 363-374
+docs/etudes/042-regularisation.md
+  h_1294ab5999dad1 324-335
+docs/etudes/043-prisons.md
+  h_1294ab5999dad1 318-326
+docs/etudes/044-depassements-honoraires.md
+  h_1294ab5999dad1 297-305
+docs/etudes/045-tva.md
+  h_1294ab5999dad1 284-290
+docs/etudes/046-delit-de-sejour.md
+  h_1294ab5999dad1 375-386
+docs/etudes/047-legitime-defense-policiers.md
+  h_1294ab5999dad1 273-282
+docs/etudes/048-vaccins.md
+  h_1294ab5999dad1 283-290
+docs/etudes/049-service-national.md
+  h_1294ab5999dad1 443-456
+docs/etudes/050-salaire-enseignants.md
+  h_1294ab5999dad1 334-343
+docs/etudes/051-logements-vacants.md
+  h_1294ab5999dad1 354-360
+docs/etudes/052-zan.md
+  h_1294ab5999dad1 498-510
+docs/etudes/054-vote-obligatoire.md
+  h_1294ab5999dad1 566-573
+docs/etudes/055-vote-blanc.md
+  h_1294ab5999dad1 262-267
+docs/etudes/056-voile-sport.md
+  h_1294ab5999dad1 303-313
+e2e/fiches/candidat/025.yaml
+  h_1294ab5999dad1 28
+e2e/question-du-jour.spec.ts
+  h_1294ab5999dad1 76,88,170,193,594,622,626-637,643-648,652,707-718,729,794,1146,1202,1388,1403,1486,1501,1525,1613,1762,1896,2036,2060,2068-2081,2374,2402,2461,2495,2537,2575,2602,2615-2618,2792,3009-3015,3399,3401,3415,3417,3445,3447-3449,3466,3469,3474,3476,3481,3483,3487,3493-3494,3501,3508-3514,5482,6132,6233,6238,6257,6276,6307,6455,6538,6627,6670,6968,7031-7036
+src/app/candidat/[id]/candidat.css
+  h_1294ab5999dad1 103
+src/app/candidat/[id]/page.tsx
+  h_1294ab5999dad1 13-14,23-29
+src/app/face-a-face.css
+  h_1294ab5999dad1 229
+src/app/face-a-face/[a]/[b]/page.tsx
+  h_1294ab5999dad1 17
+src/app/globals.css
+  h_1294ab5999dad1 323
+src/app/methode/methode.css
+  h_1294ab5999dad1 196-197
+src/app/methode/page.tsx
+  h_1294ab5999dad1 254,261,324-325,327-331,395-406,426,433,447,449-450,453,457,470-473
+src/app/moi-contre/[candidat]/page.tsx
+  h_1294ab5999dad1 36
+src/app/revelation/revelation.css
+  h_1294ab5999dad1 207,351
+src/components/Carte.tsx
+  h_1294ab5999dad1 12,208
+src/components/FaceAFace.tsx
+  h_1294ab5999dad1 5,10,20-21,23-41,100
+src/components/Fiche.tsx
+  h_1294ab5999dad1 22,106-108,111,273
+src/components/Plateau.tsx
+  h_1294ab5999dad1 10,29-30,47
+src/components/Revelation.tsx
+  h_1294ab5999dad1 66-72
+src/components/VignetteVideo.tsx
+  h_1294ab5999dad1 3,13-25,28
+src/lib/contenu.ts
+  h_1294ab5999dad1 44
+src/lib/plateau.ts
+  h_1294ab5999dad1 7-25,27-29,32,39,42,46-47,50,56,59,62-82,84-87
+src/lib/tenir-a-l-ecran.ts
+  h_1294ab5999dad1 3-4,9-11,13,18-24,27,29-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9d40d4854d3b5d1cbbf79f52e05e13576beed53e",
+  "prompts": {},
+  "humans": {
+    "h_1294ab5999dad1": {
+      "author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
