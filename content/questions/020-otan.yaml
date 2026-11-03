@@ -74,6 +74,14 @@ positions:
   retailleau: { option: C, source: "Programme 2022 de LR, Europe 1, 23/03/2022", statut: deduite }
   # https://www.europe1.fr/politique/otan-ce-que-proposent-les-principaux-candidats-a-la-presidentielle-4100861
   attal: { option: C, source: "Programme 2022 de la majorité, Europe 1, 23/03/2022", statut: deduite }
+  # Vote de R. Glucksmann pour la résolution du Parlement européen sur le livre blanc sur l'avenir de la défense européenne, 12/03/2025 (RC-B10-0146/2025), § 6 : https://howtheyvote.eu/votes/172867
+  glucksmann: { option: C, source: "Vote de R. Glucksmann pour la résolution du Parlement européen sur le livre blanc sur l'avenir de la défense européenne, 12/03/2025 (RC-B10-0146/2025), § 6", statut: estimee }
+  # D. Lisnard, « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026 : https://www.unenouvelleenergie.fr/le-grand-entretien-avec-david-lisnard-quelle-strategie-pour-la-france-dans-le-nouveau-desordre-mondial/
+  lisnard: { option: C, source: "D. Lisnard, « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026", statut: estimee }
+  # La Gazette France (AFP), « Le candidat à la présidentielle française Édouard Philippe rencontre Zelensky à Kiev », 26/05/2026 : https://www.lagazettefrance.fr/article/le-candidat-a-la-presidentielle-francaise-edouard-philippe-rencontre-zelensky-a-kiev
+  philippe: { option: C, source: "La Gazette France (AFP), « Le candidat à la présidentielle française Édouard Philippe rencontre Zelensky à Kiev », 26/05/2026", statut: estimee }
+  # Les Écologistes, projet 2027, juillet 2026, p. 192 (cité par MonVote2027) ; programme 2022 d'EELV (Y. Jadot), Europe 1, 23/03/2022 : https://monvote2027.fr/candidat/tondelier
+  tondelier: { option: C, source: "Les Écologistes, projet 2027, juillet 2026, p. 192 (cité par MonVote2027) ; programme 2022 d'EELV (Y. Jadot), Europe 1, 23/03/2022", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/020-otan.md (chaque chiffre y a sa source numérotée,
 # et l'annexe de l'étude dit d'où vient chacun). Le fil : 43 ans hors du commandement, 17 ans dedans ; ce que l'Alliance
 # demande désormais à ses membres ; trois choix ; puis qui commande, qui dépense, qui protège l'Europe, et la parole

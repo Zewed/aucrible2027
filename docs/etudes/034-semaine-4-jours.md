@@ -328,6 +328,11 @@ Bilan : 7 candidats classés sur 13 (2 officielles, 5 déduites), 6 « inconnue 
 - **François Ruffin** : option D confirmée (officielle) — Amendement n° 519 cosigné, 30/11/2025, https://www.assemblee-nationale.fr/dyn/17/amendements/2141/AN/519.pdf — « Pour toutes ces raisons, le groupe écologiste et social propose une réduction du temps de travail à 32 heures hebdomadaires. »
 - **Marine Tondelier** : option C confirmée (officielle) — Projet 2027 des Écologistes, p. 57, juillet 2026, https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027 — « Passer aux 32 heures sans perte de salaire dans les métiers pénibles ou de nuit en y conditionnant les aides aux entreprises. »
 
+### Positions complétées le 29/10/2026
+
+- **Nicolas Dupont-Aignan** : option A (estimee) — Debout la France, projet « Économie et travail », mesure 16 (2026), https://www.debout-la-france.fr/projet/economie-travail/ — « Cette défiscalisation concernera les cotisations salariales (le net sera égal au brut). » — Il veut encourager les heures supplémentaires au-delà de 1 607 heures par an, ce qui écarte une baisse de la durée (C, D) ; entre A et B, A change le moins la règle actuelle.
+- **Éric Zemmour** : option A (estimee) — Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. pouvoir d'achat, https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf — « Revenir pleinement au principe vertueux « Travailler plus pour gagner plus » en exonérant totalement d'impôts et de charges sociales les heures supplémentaires » — Il veut faire travailler plus, ce qui écarte les 32 heures (C, D) ; rien sur la semaine de quatre jours, et entre A et B, A change le moins la règle actuelle.
+
 ## 5. Sources
 
 Sources consultées le 27 octobre 2026.

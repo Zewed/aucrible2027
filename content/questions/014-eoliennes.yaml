@@ -83,6 +83,16 @@ positions:
   tondelier: { option: A, source: "Programme 2027 (iFRAP), colloque de l'UFE, 23/06/2026", statut: officielle }
   # https://www.debout-la-france.fr/projet/economie-travail/
   dupont-aignan: { option: C, source: "Projet économie et travail, 2026", statut: officielle }
+  # Cahier « Travaillisme écologique », septembre 2026, propositions 4 et 5 : https://nouspresident.fr/travaillisme-ecologique/
+  ruffin: { option: B, source: "Cahier « Travaillisme écologique », septembre 2026, propositions 4 et 5", statut: officielle }
+  # Mesures pour la jeunesse et l'avenir de la France, meeting de Lyon, attalpresident.fr, 11/10/2026 ; vision économique (« plan Messmer II »), 28/10/2026 : https://attalpresident.fr/actualites/gabriel-attal-presente-ses-mesures-pour-la-jeunesse-et-l-avenir-de-la-france
+  attal: { option: B, source: "Mesures pour la jeunesse et l'avenir de la France, meeting de Lyon, attalpresident.fr, 11/10/2026 ; vision économique (« plan Messmer II »), 28/10/2026", statut: estimee }
+  # Nouvelle Énergie, programme, axe « Générer un renouveau civique », section écologie (consulté le 28/10/2026) : https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/
+  lisnard: { option: C, source: "Nouvelle Énergie, programme, axe « Générer un renouveau civique », section écologie (consulté le 28/10/2026)", statut: estimee }
+  # É. Philippe, « Pour une France plus conquérante », edouardphilippe.fr (consulté le 29/10/2026) : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-conquerante
+  philippe: { option: B, source: "É. Philippe, « Pour une France plus conquérante », edouardphilippe.fr (consulté le 29/10/2026)", statut: estimee }
+  # F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesure 55 ; colloque de l'UFE, 23/06/2026 (Sfen) : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: B, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesure 55 ; colloque de l'UFE, 23/06/2026 (Sfen)", statut: estimee }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   accroche:

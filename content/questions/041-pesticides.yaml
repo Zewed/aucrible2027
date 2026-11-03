@@ -31,18 +31,20 @@ options:
     defenseurs: "La France est le seul pays de l'Union à interdire l'acétamipride : ses agriculteurs perdent des récoltes face à des voisins qui l'utilisent, et la France importe alors ce qu'elle ne produit plus."
     critiques: "L'agence européenne a divisé par cinq en 2024 la dose d'acétamipride jugée sans risque, et le Conseil constitutionnel a censuré en 2025 une dérogation sans limite de durée ni de cultures, au nom du droit à un environnement sain."
     # Moins de règles, plus de place au marché ; note modérée, comme pour les vols intérieurs (fiche 035).
-    axes: { economie: 1 }
+    axes: { societe: 1 }
   - id: B
     libelle: "Garder les règles actuelles"
     implique: "L'interdiction des néonicotinoïdes reste la règle ; l'Anses peut accorder une exception d'un an, renouvelable deux fois, pour la noisette, la betterave, la pomme ou la cerise, en cas de menace grave sans autre solution. Le glyphosate reste autorisé avec des restrictions, et l'objectif de réduire de moitié l'usage et les risques d'ici 2030 est maintenu."
     defenseurs: "Un passage étroit, dont la décision revient aux scientifiques de l'Anses, pour des filières sans solution prête, comme la noisette, que l'Inrae juge « au bord de la faillite » ; le Conseil constitutionnel l'a jugé suffisamment encadré."
     critiques: "Pour les uns, c'est le retour de produits qui nuisent aux pollinisateurs, à l'eau et aux sols, ce que reconnaît le Conseil constitutionnel ; pour les autres, quatre cultures et trois ans laissent les agriculteurs français désavantagés face à leurs voisins."
+    axes: { societe: 0 }
     # La règle en vigueur depuis la loi du 18/08/2026 ; pas de note, elle se tient au milieu.
   - id: C
     libelle: "Revenir à l'interdiction sans exception"
     implique: "Les exceptions ouvertes en 2026 sont supprimées : l'acétamipride et le flupyradifurone redeviennent interdits sans exception, comme de 2023 à 2026 ; les autres règles, dont l'autorisation du glyphosate, restent les mêmes."
     defenseurs: "En 2018, l'Anses trouvait au moins une alternative sans produit chimique pour 78 % des usages de ces insecticides : les exceptions retardent la recherche de solutions durables et exposent les pollinisateurs, l'eau et les sols."
     critiques: "Pour la noisette, l'Inrae juge les solutions de remplacement pas encore opérationnelles, et les agriculteurs français resteraient les seuls de l'Union privés de l'acétamipride."
+    axes: { societe: -1 }
     # Un peu plus strict que la règle actuelle ; pas de note, pour ne pas pousser le plateau vers les bords.
   - id: D
     libelle: "Interdire davantage, glyphosate compris"
@@ -50,7 +52,7 @@ options:
     defenseurs: "Les agriculteurs sont les premiers exposés : selon l'Inserm, le lien entre les pesticides et des maladies comme Parkinson ou certains cancers est fortement présumé, et près de 3 Français sur 10 ont reçu au moins une fois en 2024 une eau dépassant la limite fixée pour les pesticides."
     critiques: "L'évaluation européenne de 2023 n'a relevé aucun risque critique pour le glyphosate, autorisé dans l'Union jusqu'en 2033 ; l'interdire en France creuserait l'écart avec les voisins, alors que les solutions de remplacement ne sont pas toutes prêtes selon l'Inrae."
     # Plus de règles ; laissé à −1 pour ne pas pousser le plateau vers les bords.
-    axes: { economie: -1 }
+    axes: { societe: -2 }
 pourAllerPlusLoin:
   - titre: "Conseil constitutionnel, décision n° 2026-914 DC du 14 août 2026"
     url: https://www.conseil-constitutionnel.fr/decision/2026/2026914DC.htm
@@ -85,6 +87,18 @@ positions:
   le-pen: { option: A, source: "Assemblée nationale, PPL n° 2117 (acétamipride, abrogation de la loi Duplomb), amendement n° 5 de M. de Lépinau et du groupe RN, cosigné par Marine Le Pen, 20/11/2025", statut: deduite }
   # Réussir, « Arrêt du glyphosate : le sujet qui divise les candidats », propos de F. Roussel aux Controverses de l'agriculture, 15/02/2022 (article du 16/02/2022) : https://www.reussir.fr/arret-du-glyphosate-le-sujet-qui-divise-les-candidats-lelection-presidentielle-2022
   roussel: { option: D, source: "Réussir, « Arrêt du glyphosate : le sujet qui divise les candidats », propos de F. Roussel aux Controverses de l'agriculture, 15/02/2022 (article du 16/02/2022)", statut: deduite }
+  # Lutte ouvrière, « Glyphosate : le poison du profit », 18/06/2025 : https://www.lutte-ouvriere.org/portail/journal/glyphosate-poison-profit-185139.html
+  arthaud: { option: D, source: "Lutte ouvrière, « Glyphosate : le poison du profit », 18/06/2025", statut: deduite }
+  # Vote n° 8427 du 20/07/2026, projet de loi d'urgence agricole, texte de la CMP (Datan) ; loi Duplomb, vote n° 2957 du 08/07/2025 : https://datan.fr/votes/legislature-17/vote_8427
+  attal: { option: B, source: "Vote n° 8427 du 20/07/2026, projet de loi d'urgence agricole, texte de la CMP (Datan) ; loi Duplomb, vote n° 2957 du 08/07/2025", statut: deduite }
+  # Debout la France, projet « Agriculture » (2026) ; Réussir, 16/02/2022 : https://www.debout-la-france.fr/projet/agriculture/
+  dupont-aignan: { option: B, source: "Debout la France, projet « Agriculture » (2026) ; Réussir, 16/02/2022", statut: estimee }
+  # Nouvelle Énergie, « Les carnets Agriculture », février 2026 (objectif 5 et chiffre « 140 ») ; page programme « Agriculture » : https://nouvelle-energie-media-prod.s3.fr-par.scw.cloud/media/legacy/2026/02/livret-agriculture.pdf
+  lisnard: { option: A, source: "Nouvelle Énergie, « Les carnets Agriculture », février 2026 (objectif 5 et chiffre « 140 ») ; page programme « Agriculture »", statut: estimee }
+  # É. Philippe, « Pour une France plus prospère », edouardphilippe.fr (consulté le 29/10/2026) ; votes du groupe Horizons pour les lois de 2025 et 2026 (26 pour, 3 contre ; 24 pour, 3 contre) : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+  philippe: { option: A, source: "É. Philippe, « Pour une France plus prospère », edouardphilippe.fr (consulté le 29/10/2026) ; votes du groupe Horizons pour les lois de 2025 et 2026 (26 pour, 3 contre ; 24 pour, 3 contre)", statut: estimee }
+  # Reconquête, « Notre projet pour l'Europe des nations et de la civilisation », européennes du 09/06/2024, ch. 3.C : https://assets.ericzemmour.fr/document/Programme%20Reconqu%C3%AAte%20Europ%C3%A9ennes%202024.pdf
+  zemmour: { option: A, source: "Reconquête, « Notre projet pour l'Europe des nations et de la civilisation », européennes du 09/06/2024, ch. 3.C", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/041-pesticides.md (chaque chiffre y a sa source
 # numérotée ; tableau des renvois en annexe de l'étude). Le fil : un insecticide interdit en France et permis en Europe ;
 # faut-il assouplir ou durcir ? Quatre angles à poids égal : santé, environnement, revenu des agriculteurs, concurrence.

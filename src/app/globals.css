@@ -320,7 +320,7 @@ video.affiche { background: var(--ink-deep); }
   }
   .ecran-partage .scene { min-height: calc(100 * var(--u)); }
   .ecran-partage .bloc { flex: 1 1 auto; justify-content: space-between; }
-  .ecran-partage .bloc h1 { font-size: clamp(44px, min(13.5cqw, 10.6 * var(--u)), 138px); }
+  .ecran-partage .bloc h1 { font-size: calc(var(--titre, 1) * clamp(44px, min(13.5cqw, 10.6 * var(--u)), 138px)); }
   .ecran-partage .bobine { padding-bottom: var(--padY); background: linear-gradient(to bottom, var(--theme) 0 calc((100% - var(--padY)) * .56), transparent 0); }
   .ecran-partage .affiche { width: min(100%, calc(46 * var(--u) * 16 / 9)); }
   /* Le contexte en haut, « Voir les propositions » en bas, les chiffres au milieu de ce qui reste ; le texte se resserre

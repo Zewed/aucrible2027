@@ -349,6 +349,10 @@ Points fragiles à revérifier en priorité : Le Pen (programme chiffré de 2022
 
 ---
 
+### Positions complétées le 29/10/2026
+
+- **David Lisnard** : option D (officielle) — Nouvelle Énergie, programme, axe « Générer un renouveau civique », section écologie (consulté le 28/10/2026), https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/ — « réinvestir les sommes ainsi économisées dans des projets d’avenir, en particulier les nouvelles technologies nucléaires » — Priorité au nucléaire (réacteurs jusqu'à 60 ans, EPR de nouvelle génération, mini-réacteurs) et fin du régime des renouvelables « dérogatoires aux prix du marché », dont les économies vont au nucléaire : D. Texte non daté (vers 2021) ; l'entretien de Nouvelle Énergie du 27/10/2026 confirme la relance et les 60 ans.
+
 ## 5. Sources
 
 Sources consultées le 28 octobre 2026.

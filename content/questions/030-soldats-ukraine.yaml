@@ -84,6 +84,8 @@ positions:
   dupont-aignan: { option: A, source: "Communiqué de N. Dupont-Aignan, 04/09/2025", statut: officielle }
   # Déclaration de Fabien Roussel, 20/02/2025 : https://fdgpierrebe.over-blog.com/2025/02/fabien-roussel-a-l-elysee-une-voix-pour-une-paix-juste-et-durable-en-ukraine.html
   roussel: { option: B, source: "Déclaration de Fabien Roussel, 20/02/2025", statut: officielle }
+  # AFP, réunion des chefs de parti à l'Élysée sur la force en Ukraine, 09/01/2026 (Arab News en français) ; Les Écologistes, projet 2027, mesure Europe n° 2 : https://www.arabnews.fr/node/504954/france
+  tondelier: { option: C, source: "AFP, réunion des chefs de parti à l'Élysée sur la force en Ukraine, 09/01/2026 (Arab News en français) ; Les Écologistes, projet 2027, mesure Europe n° 2", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/030-soldats-ukraine.md (chaque chiffre y a sa source
 # numérotée). Le fil : la force est prête sur le papier mais attend un cessez-le-feu ; quatre réponses possibles.
 # Ni mécanisme (aucun rapport « X pour 1 » ne s'applique) ni écart (aucune grandeur à deux dates n'éclaire le débat).

@@ -9,7 +9,7 @@ import { useCoteClient } from "@/lib/cote-client";
 import { dessinerLaCarte, enregistrer, lirePolices } from "@/lib/image-de-carte";
 import { classement, REPONSES_PAR_PART, reponsesComptees, reponsesParTheme, SEUIL_DES_RESULTATS, type QuestionDuCalcul } from "@/lib/proximite";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
-import { placeDeLElecteur, surLeChamp } from "@/lib/plateau";
+import { cadreDuPlateau, placeDeLElecteur, surLeChamp } from "@/lib/plateau";
 
 /** La couleur d'un thème : `--eco` pour « theme-eco ». */
 const couleurDe = (theme: Theme) => `var(--${theme.classe.replace("theme-", "")})`;
@@ -205,7 +205,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
   }
   const nombre = gagnees.filter(Boolean).length;
   const camembert = themes.map((theme, i) => (gagnees[i] ? couleurDe(theme) : null));
-  const { x, y } = surLeChamp(placeDeLElecteur(questions, reponses));
+  const { x, y } = surLeChamp(placeDeLElecteur(questions, reponses), cadreDuPlateau(questions, candidats));
   const frise = (
     <div className="sc-tiles" aria-hidden="true">
       {themes.map((theme) => (

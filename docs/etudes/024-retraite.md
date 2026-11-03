@@ -697,3 +697,8 @@ Un écran par camp : le chiffre en très grand, la phrase dessous.
 | Relever ou garder l'âge | **45,3 %** | du PIB en impôts et cotisations, l'un des taux les plus élevés de l'UE | Eurostat, données 2024 [81] |
 
 Les deux chiffres sont des constats, non des prévisions. Le premier montre qu'une recette de cette taille a déjà été levée ; il ne dit pas qu'elle est durable ni qu'elle est allée aux retraites (§ k). Le second montre le niveau déjà atteint par les prélèvements ; il ne dit pas qu'aucune hausse n'est possible.
+
+### Positions complétées le 29/10/2026
+
+- **David Lisnard** : option D (officielle) — Nouvelle Énergie, programme, axe « Réussir une nouvelle ambition française », section retraites (consulté le 28/10/2026), https://www.unenouvelleenergie.fr/notre-programme/reussir-une-nouvelle-ambition-francaise/ — « la norme de l’âge légal de 65 ans est un impératif national urgent pour des raisons d’équilibre financier » — 65 ans, puis un socle par répartition dès 65 ans et le reste en capitalisation : D. Fragile : texte non daté (vers 2021) ; la FAQ du parti (16/10/2026) dit qu'il refuse de revenir sur 2023 mais met en avant la capitalisation plutôt qu'un âge.
+- **François Ruffin** : option A (officielle) — Cahier de campagne n° 01, Pour les travailleurs essentiels, avril 2026, mot de la fin de S. Taillé-Polian, responsable du programme, https://nouspresident.fr/statut-travailleurs-essentiels/ — « Des mesures fortes, concrètes, comme le SMIC à 1 600€ ou la retraite à 60 ans, qui revalorisent le travail. » — Le cahier officiel de sa campagne cite la retraite à 60 ans parmi ses mesures.

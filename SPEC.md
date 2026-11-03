@@ -84,7 +84,7 @@ Bouton « Signaler une erreur » sur chaque fiche.
 - **Score par question** : options ordonnées sur une échelle → `1 − écart / écart max` ; options non ordonnées → 1 si identique, 0 sinon. Multiplié par l'importance (×1/×2/×3).
 - **Positions inconnues** : exclues du calcul pour ce candidat.
 - **Score global** : % du maximum possible.
-- **Carte** : chaque option reçoit une note de −2 à +2 sur l'axe économique, l'axe sociétal, ou aucun. Position de l'utilisateur = moyenne pondérée de ses options ; même formule pour les candidats.
+- **Carte** : chaque option reçoit une note de −2 à +2 sur l'axe économique, l'axe sociétal, ou aucun, à l'aveugle, d'après son seul texte (0 = règle actuelle, ±2 = rupture nette). Position de l'utilisateur = moyenne pondérée de ses options, chaque thème pesant autant ; même formule pour les candidats. Le plateau se cadre sur les candidats : sur chaque axe, il va du premier au dernier et son centre est le milieu entre eux, avec le même cadre pour l'électeur. Une option peut donc apparaître côté marché ou conservateur sans que sa note soit positive (décision d'Antoine, 30/10/2026).
 
 ## Sources des positions des candidats
 
@@ -94,8 +94,11 @@ Ordre de priorité :
 2. Déclaration publique du candidat (datée, moins de 12 mois)
 3. Votes de son groupe à l'Assemblée nationale ou au Parlement européen
 4. Programme 2022 du parti
+5. Sa ligne sur un sujet voisin : son programme ou les votes de son groupe sur un texte proche (position « estimée », décision du 29/10/2026 : les cases vides doivent rester marginales)
 
-Sans source : position « inconnue », exclue du calcul. On ne devine jamais. On ne sollicite pas les équipes de campagne.
+Badges : 1–2 « officielle », 3–4 « déduite », 5 « estimée ». Une estimation cite toujours sa base et son raisonnement, jamais un stéréotype de camp.
+
+Sans aucune base documentée : position « inconnue », exclue du calcul. On n'invente jamais. On ne sollicite pas les équipes de campagne.
 
 ## Candidats
 

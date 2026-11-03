@@ -45,7 +45,7 @@ options:
     implique: "L'usage et la vente restent interdits et sanctionnés, avec la prévention et la lutte contre les trafics en priorité."
     defenseurs: "Le cannabis est dangereux, surtout pour les jeunes, et le légaliser enverrait le signal que sa consommation est acceptable : mieux vaut renforcer la prévention et combattre le trafic."
     critiques: "L'interdit n'empêche ni la consommation ni le trafic, et coûte cher à la police et à la justice sans rapporter de recettes."
-    axes: { societe: 1 }
+    axes: { societe: 0 }
 pourAllerPlusLoin:
   - titre: "OFDT, cannabis"
     url: https://www.ofdt.fr/produits-et-addictions/de-z/cannabis/
@@ -88,6 +88,8 @@ positions:
   zemmour: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite }
   # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
   dupont-aignan: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite }
+  # É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026) : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
+  philippe: { option: C, source: "É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026)", statut: deduite }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   # Les faits établis par les autorités de santé (l'Inserm) sont dans la chute des leviers, que les deux camps

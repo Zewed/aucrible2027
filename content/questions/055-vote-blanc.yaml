@@ -67,6 +67,12 @@ positions:
   melenchon: { option: C, source: "Amendement LFI n° 313 au projet de loi constitutionnelle n° 2529, 25/03/2026 ; L'Avenir en commun 2027", statut: officielle }
   # Debout la France, projet 2027, « Refonder et moraliser notre démocratie » : https://www.debout-la-france.fr/projet/refonder-et-moraliser-notre-democratie/
   dupont-aignan: { option: C, source: "Debout la France, projet 2027, « Refonder et moraliser notre démocratie »", statut: officielle }
+  # Europe 1, « Présidentielle : au fait, comment fait-on pour voter blanc ? », 2017 (tribune de N. Arthaud sur Change.org) : https://www.europe1.fr/politique/vote-blanc-au-fait-comment-ca-fonctionne-3304604
+  arthaud: { option: B, source: "Europe 1, « Présidentielle : au fait, comment fait-on pour voter blanc ? », 2017 (tribune de N. Arthaud sur Change.org)", statut: estimee }
+  # S. Peu pour le groupe GDR, commission des lois, rapport n° 4039 sur la PPL constitutionnelle de reconnaissance du vote blanc, 31/03/2021 : https://www.assemblee-nationale.fr/dyn/15/rapports/cion_lois/l15b4039_rapport-fond.pdf
+  roussel: { option: B, source: "S. Peu pour le groupe GDR, commission des lois, rapport n° 4039 sur la PPL constitutionnelle de reconnaissance du vote blanc, 31/03/2021", statut: estimee }
+  # Sénat, compte rendu de la séance du 12/02/2014, amendement n° 3 d'H. Lipietz (groupe écologiste) à la loi sur le vote blanc : https://www.senat.fr/cra/s20140212/s20140212_4.html
+  tondelier: { option: B, source: "Sénat, compte rendu de la séance du 12/02/2014, amendement n° 3 d'H. Lipietz (groupe écologiste) à la loi sur le vote blanc", statut: estimee }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/055-vote-blanc.md (chaque chiffre y a sa source
 # numérotée). Le fil : depuis 2014, les blancs sont comptés à part mais ne pèsent pas ; faut-il qu'ils pèsent, et
 # jusqu'à pouvoir faire refaire l'élection ? Pas de mécanisme : aucun rapport « X pour 1 » ne résume le sujet. Pas

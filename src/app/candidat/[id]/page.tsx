@@ -10,7 +10,8 @@ import { melanger } from "@/lib/melange";
 import { lireAujourdhui, lireCandidatsEnLice, lireLesCandidats, lireQuestionsDuCalcul, lireQuestionsPubliees } from "@/lib/publication";
 import "./candidat.css";
 
-/** Le badge d'une position : dite par le candidat (officielle) ou tirée de son groupe ou de son parti (déduite). */
+/** Le badge d'une position : dite par le candidat (officielle), tirée de son groupe ou de son parti (déduite), ou de sa
+    ligne sur un sujet voisin (estimée). */
 function Badge({ statut }: { statut: Position["statut"] }) {
   return statut === "officielle" ? (
     <span className="badge badge--off">
@@ -18,6 +19,13 @@ function Badge({ statut }: { statut: Position["statut"] }) {
         <path d="M5 12.5l4.5 4.5L19 7.5" />
       </svg>
       position officielle
+    </span>
+  ) : statut === "estimee" ? (
+    <span className="badge badge--est">
+      <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 12.5c2.7-3 5.3 3 8 0s5.3 3 8 0" />
+      </svg>
+      position estimée
     </span>
   ) : (
     <span className="badge badge--ded">

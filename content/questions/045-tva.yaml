@@ -85,6 +85,14 @@ positions:
   dupont-aignan: { option: A, source: "Debout la France, projet « Économie et travail », « 10 mesures pour relancer le pouvoir d'achat »", statut: officielle }
   # Éditorial de Nathalie Arthaud, Lutte ouvrière, 30/03/2026 : https://www.lutte-ouvriere.org/portail/editoriaux/essence-bas-profiteurs-guerre-augmentation-salaires-193163.html
   arthaud: { option: A, source: "Éditorial de Nathalie Arthaud, Lutte ouvrière, 30/03/2026", statut: officielle }
+  # D. Lisnard, tribune « Changer de logiciel fiscal » (Atlantico), reprise par Nouvelle Énergie, 16/04/2026 ; programme, axe « Réussir une nouvelle ambition française » : https://www.unenouvelleenergie.fr/changer-de-logiciel-fiscal/
+  lisnard: { option: B, source: "D. Lisnard, tribune « Changer de logiciel fiscal » (Atlantico), reprise par Nouvelle Énergie, 16/04/2026 ; programme, axe « Réussir une nouvelle ambition française »", statut: estimee }
+  # Public Sénat, « Présidentielle : le regain d'intérêt pour la TVA sociale… », 02/09/2026 (premier débat des candidats, 27/08/2026) ; L'Essentiel de l'éco, 08/09/2026 : https://www.publicsenat.fr/actualites/emploi/presidentielle-le-regain-dinteret-pour-la-tva-sociale-idee-clivante-pour-augmenter-le-salaire-net
+  philippe: { option: C, source: "Public Sénat, « Présidentielle : le regain d'intérêt pour la TVA sociale… », 02/09/2026 (premier débat des candidats, 27/08/2026) ; L'Essentiel de l'éco, 08/09/2026", statut: estimee }
+  # Conférence de presse du 15/09/2026, Public Sénat ; programme 2027, comparateur iFRAP, 10/2026 ; votes du groupe Droite républicaine contre la TVA à 0 % sur l'essentiel, à 5,5 % sur l'électricité et sur les carburants (scrutins n° 4062, 4041, 4044, 20/11/2025) : https://www.publicsenat.fr/actualites/politique/essence-energie-logement-travail-bruno-retailleau-promet-daugmenter-le-pouvoir-dachat-des-francais-sans-un-euro-de-dette-en-plus
+  retailleau: { option: B, source: "Conférence de presse du 15/09/2026, Public Sénat ; programme 2027, comparateur iFRAP, 10/2026 ; votes du groupe Droite républicaine contre la TVA à 0 % sur l'essentiel, à 5,5 % sur l'électricité et sur les carburants (scrutins n° 4062, 4041, 4044, 20/11/2025)", statut: estimee }
+  # Reconquête, « Notre projet pour l'Europe des nations et de la civilisation », européennes du 09/06/2024, ch. 3.A : https://assets.ericzemmour.fr/document/Programme%20Reconqu%C3%AAte%20Europ%C3%A9ennes%202024.pdf
+  zemmour: { option: A, source: "Reconquête, « Notre projet pour l'Europe des nations et de la civilisation », européennes du 09/06/2024, ch. 3.A", statut: estimee }
 # Inconnues (étude § 4) : Philippe (« rééquilibrer le financement du modèle social », sans nommer la TVA :
 # https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere), Glucksmann, Retailleau (« pas d'impôt nouveau »,
 # sans rien dire d'une baisse), Lisnard (simplifier les taux : https://www.unenouvelleenergie.fr/changer-de-logiciel-fiscal/),

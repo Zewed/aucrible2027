@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useSyncExternalStore } from "react";
+import type { Position } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
 
 /** Ce que le face-à-face montre d'un candidat sur une question : son option, ou rien si sa position est inconnue. */
-export type PositionComparee = { lettre: string; titre: string; implique: string; source: string; officielle: boolean } | null;
+export type PositionComparee = { lettre: string; titre: string; implique: string; source: string; statut: Position["statut"] } | null;
 /** Une question du face-à-face, réduite à ce qu'il en montre, et aux positions des deux candidats seulement. */
 export type QuestionComparee = {
   numero: number;
@@ -16,17 +17,28 @@ export type QuestionComparee = {
 };
 export type Joueur = { nom: string; initiales: string };
 
-/** Le badge de la position : il suit la source (officielle ou déduite), jamais le candidat. */
-function Badge({ officielle }: { officielle: boolean }) {
+/** Le badge de la position : il suit la source (officielle, déduite ou estimée), jamais le candidat. */
+function Badge({ statut }: { statut: Position["statut"] }) {
   const trait = { fill: "none", stroke: "currentColor", strokeWidth: 2.6, strokeLinecap: "round", strokeLinejoin: "round" } as const;
-  return officielle ? (
-    <span className="badge badge--off">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 12.5l4.5 4.5L19 7.5" style={trait} />
-      </svg>
-      Position officielle
-    </span>
-  ) : (
+  if (statut === "officielle")
+    return (
+      <span className="badge badge--off">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 12.5l4.5 4.5L19 7.5" style={trait} />
+        </svg>
+        Position officielle
+      </span>
+    );
+  if (statut === "estimee")
+    return (
+      <span className="badge badge--est">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 12.5c2.7-3 5.3 3 8 0s5.3 3 8 0" style={trait} />
+        </svg>
+        Position estimée
+      </span>
+    );
+  return (
     <span className="badge badge--ded">
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4 9c2.7-3 5.3 3 8 0s5.3 3 8 0M4 16c2.7-3 5.3 3 8 0s5.3 3 8 0" style={trait} />
@@ -85,7 +97,7 @@ export function Cote({ joueur, position }: { joueur: Joueur; position: PositionC
       {/* La source est du texte, comme la maquette : en faire un lien reste à trancher. */}
       {position && (
         <div className="meta">
-          <Badge officielle={position.officielle} />
+          <Badge statut={position.statut} />
           <p className="src">
             <Document />
             <span>{position.source}</span>
