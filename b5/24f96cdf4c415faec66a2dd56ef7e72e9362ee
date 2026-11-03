@@ -1,0 +1,44 @@
+src/app/layout.tsx
+  s_ecf4e588531374::t_0829a2e062ed26 33-36
+  s_ecf4e588531374::t_81df1a1d0856d4 10
+src/components/PiedDePage.tsx
+  s_ecf4e588531374::t_0612ff8a868e5e 6
+  s_ecf4e588531374::t_ec715c6f2e2a67 24
+src/app/globals.css
+  s_ecf4e588531374::t_3030a0c37748fa 89-94,97-98
+  s_ecf4e588531374::t_702fd051f7a2bf 95-96
+  s_ecf4e588531374::t_bcfac52f3567b0 118-125
+  s_ecf4e588531374::t_e7a33362d515b0 126
+  s_ecf4e588531374::t_62ad9484793167 99
+src/app/kit.css
+  s_ecf4e588531374::t_1c60aa09d17af2 765,767-770
+  s_ecf4e588531374::t_c2cde3fdbecde8 8
+src/components/EnTete.tsx
+  s_ecf4e588531374::t_1b518b4ee98232 6
+  s_ecf4e588531374::t_84c2d76de9fb0e 77
+  s_ecf4e588531374::t_0f19534c242783 61-62
+src/lib/mode.ts
+  s_ecf4e588531374::t_12ed28fa175a45 1-31
+e2e/question-du-jour.spec.ts
+  s_ecf4e588531374::t_752fa66b4c0637 6984-7032
+SPEC.md
+  s_ecf4e588531374::t_54f234e87c9115 209
+src/components/BoutonDuMode.tsx
+  s_ecf4e588531374::t_353b621fde0126 1-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b524f96cdf4c415faec66a2dd56ef7e72e9362ee",
+  "prompts": {},
+  "sessions": {
+    "s_ecf4e588531374": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fb33104e-3cf0-4711-a898-ca5a0a72f2d3",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
