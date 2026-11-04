@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Accueil } from "@/components/Accueil";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { lireThemes } from "@/lib/contenu";
 import { lireProchaineParution, lireQuestionsPubliees } from "@/lib/publication";
 import "./accueil.css";
@@ -17,7 +18,7 @@ async function Contenu() {
 
 export default function PageAccueil() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       <Contenu />
     </Suspense>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { Pion } from "@/components/Pion";
 import { PisteDuPlateau } from "@/components/PisteDuPlateau";
 import { DeDesRegles, RayuresDesThemes } from "@/components/Regles";
@@ -712,7 +713,7 @@ async function Methode() {
 
 export default function PageMethode() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       <Methode />
     </Suspense>
   );

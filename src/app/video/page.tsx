@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { VisuelsDuJour } from "@/components/VisuelsDuJour";
 import { lireThemes } from "@/lib/contenu";
 import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
@@ -85,7 +86,7 @@ async function VideoDuJour() {
 
 export default function PageVideo() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       <VideoDuJour />
     </Suspense>
   );

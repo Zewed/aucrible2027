@@ -196,6 +196,8 @@
 
 /* Le pied de page commun : le lien de la page en cours est marqué. */
 .site-foot a[aria-current] { color: var(--sur-table); text-decoration: underline; text-decoration-thickness: 2px; }
+/* Tant que la page arrive, sa place fait un écran : le pied de page attend en bas, hors de la vue. */
+.page-en-attente { min-height: 100dvh; }
 
 /* La fiche en deux étapes.
    Étape « lire » : l'équerre (4 novembre 2026, la vidéo devient verticale). La couleur du thème dessine un L : à gauche

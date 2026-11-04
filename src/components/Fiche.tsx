@@ -9,7 +9,7 @@ import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
 import { StylesDeLaPage } from "@/components/StylesDeLaPage";
 import { VignetteVideo } from "@/components/VignetteVideo";
-import type { Question, Theme } from "@/lib/contenu";
+import type { Question, QuestionDeLaFiche, Theme } from "@/lib/contenu";
 import { DetailDeLOption } from "@/components/DetailDeLOption";
 import { lettreOption } from "@/lib/lettres";
 import { tirerGraine } from "@/lib/melange";
@@ -30,7 +30,7 @@ const IMPORTANCES = [
 ];
 
 /** Le bandeau sous l'en-tête : le compte à rebours, et le numéro de la fiche quand il y en a une. */
-export function Bandeau({ jour, question }: { jour: string; question: Question | null }) {
+export function Bandeau({ jour, question }: { jour: string; question: QuestionDeLaFiche | null }) {
   return (
     <div className="strip">
       <CompteARebours jour={jour} />
@@ -44,7 +44,7 @@ export function Bandeau({ jour, question }: { jour: string; question: Question |
  * s'il est long, moins s'il est court, de 44 à 60 %. Réglé sur les fiches de l'alpha pour que le contexte et les chiffres
  * clés finissent à peu près ensemble, et que la question garde sa taille.
  */
-function partDuContexte(question: Question) {
+function partDuContexte(question: QuestionDeLaFiche) {
   const signes = question.contexte.join(" ").length;
   return Math.min(0.6, Math.max(0.44, 0.48 + (signes - 650) * 0.00042));
 }
@@ -59,7 +59,7 @@ export type PartEnJeu = { questions: Pick<Question, "numero" | "theme">[]; theme
  * « En jeu aujourd'hui » : quand répondre à cette question gagne la part de son thème (2 réponses sur 3),
  * le bloc l'annonce et mène à « Mes résultats ». Ce qu'il dit dans les autres cas reste à trancher.
  */
-function EnJeu({ question, theme, enJeu, reponses }: { question: Question; theme: Theme; enJeu: PartEnJeu; reponses: Record<number, Reponse> }) {
+function EnJeu({ question, theme, enJeu, reponses }: { question: QuestionDeLaFiche; theme: Theme; enJeu: PartEnJeu; reponses: Record<number, Reponse> }) {
   const parTheme = reponsesParTheme(enJeu.questions, reponses);
   const dansLeTheme = parTheme[theme.id] ?? 0;
   if (dansLeTheme !== REPONSES_PAR_PART - 1) return null;
@@ -93,7 +93,7 @@ function EnJeu({ question, theme, enJeu, reponses }: { question: Question; theme
  * Une fiche à répondre : la carte question, ses options et l'importance. Valider enregistre la réponse
  * et mène à `revelation` ; une fiche déjà répondue sur cet appareil y rouvre directement.
  */
-export function Fiche({ question, theme, revelation, enJeu }: { question: Question; theme: Theme; revelation: string; enJeu?: PartEnJeu }) {
+export function Fiche({ question, theme, revelation, enJeu }: { question: QuestionDeLaFiche; theme: Theme; revelation: string; enJeu?: PartEnJeu }) {
   const router = useRouter();
   const [etape, setEtape] = useState<"lire" | "repondre">("lire");
   const [choix, setChoix] = useState<string | null>(null);

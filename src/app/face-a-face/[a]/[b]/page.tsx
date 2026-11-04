@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { FiltreDuFaceAFace, QuestionsDuFaceAFace, ResumeDuFaceAFace, type Joueur, type PositionComparee, type QuestionComparee } from "@/components/FaceAFace";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { Pioche } from "@/components/Pioche";
 import { lireThemes, type Candidat, type Question } from "@/lib/contenu";
 import { melanger } from "@/lib/melange";
@@ -102,5 +103,5 @@ async function FaceAFace({ a, b }: { a: string; b: string }) {
 }
 
 export default function PageFaceAFace({ params }: PageProps<"/face-a-face/[a]/[b]">) {
-  return <Suspense>{params.then(({ a, b }) => <FaceAFace a={a} b={b} />)}</Suspense>;
+  return <Suspense fallback={<PageEnAttente />}>{params.then(({ a, b }) => <FaceAFace a={a} b={b} />)}</Suspense>;
 }

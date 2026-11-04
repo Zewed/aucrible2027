@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { FormulaireDeSignalement } from "@/components/FormulaireDeSignalement";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { PuceTheme } from "@/components/PuceTheme";
 import { lireThemes, type Question, type Theme } from "@/lib/contenu";
 import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
@@ -83,7 +84,7 @@ async function Signaler({ numero }: { numero?: string }) {
 
 export default function PageSignaler({ searchParams }: PageProps<"/signaler">) {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       {searchParams.then(({ question }) => (
         <Signaler numero={typeof question === "string" ? question : undefined} />
       ))}

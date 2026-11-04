@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useSyncExternalStore } from "react";
 import { CodeIllisible } from "@/components/CodeIllisible";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { useCoteClient } from "@/lib/cote-client";
 import { lesReponses, lireReponses, remplacerLesReponses } from "@/lib/reponses";
 import { decoderLesReponses } from "@/lib/transfert";
@@ -68,7 +69,7 @@ export function Importer() {
     router.replace("/resultats");
   }, [importees, existantes, router]);
 
-  if (fragment === null) return null;
+  if (fragment === null) return <PageEnAttente />;
   return (
     <main className="app">
       <section className="app-top">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { PREMIER_TOUR } from "@/components/CompteARebours";
 import { Logo } from "@/components/Logo";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { PartDuTheme } from "@/components/PuceTheme";
 import { VisuelsDuJour } from "@/components/VisuelsDuJour";
 import { lireThemes, type Question, type Theme } from "@/lib/contenu";
@@ -315,7 +316,7 @@ function CarrouselEnFigures({ question, theme }: { question: Question; theme: Th
 
 export default function PageCarrousel() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       <CarrouselDuJour />
     </Suspense>
   );

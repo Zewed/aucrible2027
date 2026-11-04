@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { Bandeau, Fiche } from "@/components/Fiche";
-import type { Question, Theme } from "@/lib/contenu";
+import { PageEnAttente } from "@/components/PageEnAttente";
+import type { QuestionDeLaFiche, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis, dateLisible } from "@/lib/date";
 import { lireOrdre, prochaineQuestionDuTheme } from "@/lib/ordre";
@@ -38,7 +39,7 @@ export function ProchaineQuestion({
   themes,
   filtre,
 }: {
-  questions: Question[];
+  questions: QuestionDeLaFiche[];
   prochaineParution: string | null;
   themes: Theme[];
   filtre: string | null;
@@ -48,7 +49,8 @@ export function ProchaineQuestion({
   const ordre = useCoteClient(() => lireOrdre(numeros));
   const reponses = lesReponses(useCoteClient(lireReponses));
 
-  if (!jour || !ordre) return null;
+  // Le rendu serveur ne connaît ni le jour local ni les réponses : la page garde sa place jusqu'au navigateur.
+  if (!jour || !ordre) return <PageEnAttente />;
 
   const { numero, dansLeTheme } = prochaineQuestionDuTheme(ordre, questions, Object.keys(reponses).map(Number), filtre);
   const question = questions.find((q) => q.numero === numero) ?? null;

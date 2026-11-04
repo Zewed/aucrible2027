@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { parse } from "yaml";
 
@@ -99,7 +99,26 @@ export type Question = {
   story?: [ChoixDeStory, ChoixDeStory];
 };
 
+/** Ce que l'écran d'une fiche lit d'une question : sans le reportage ni les positions, qu'il n'affiche pas. */
+export type QuestionDeLaFiche = Pick<Question, "numero" | "theme" | "question" | "contexte" | "chiffres" | "options" | "video" | "titreCourt">;
+
 const RACINE = path.join(process.cwd(), "content");
+
+/** Les fichiers YAML déjà lus, avec l'heure de leur dernière modification. */
+const dejaLus = new Map<string, { modifie: number; contenu: unknown }>();
+
+/**
+ * Un fichier YAML, lu une seule fois tant qu'il ne change pas : chaque page en relirait sinon des centaines de Ko.
+ * Le résultat sert à toutes les requêtes ; on le copie avant de le changer, jamais en place.
+ */
+function lireYaml<T>(fichier: string): T {
+  const modifie = statSync(fichier).mtimeMs;
+  const lu = dejaLus.get(fichier);
+  if (lu?.modifie === modifie) return lu.contenu as T;
+  const contenu = parse(readFileSync(fichier, "utf8"));
+  dejaLus.set(fichier, { modifie, contenu });
+  return contenu;
+}
 
 /**
  * Les candidats de content/candidats.yaml. Pour les tests de bout en bout seulement, des ajouts de test
@@ -108,10 +127,10 @@ const RACINE = path.join(process.cwd(), "content");
  * comme un candidat qui se déclare.
  */
 export function lireCandidats(ajoutsDeTest?: string): Candidat[] {
-  const candidats: Candidat[] = parse(readFileSync(path.join(RACINE, "candidats.yaml"), "utf8"));
+  const candidats = lireYaml<Candidat[]>(path.join(RACINE, "candidats.yaml"));
   const test = process.env.AUCRIBLE_FICHES_DE_TEST;
   if (!test || !ajoutsDeTest || !/^[a-z-]+$/.test(ajoutsDeTest)) return candidats;
-  const ajouts: Partial<Candidat>[] = parse(readFileSync(path.join(process.cwd(), test, "candidats", `${ajoutsDeTest}.yaml`), "utf8"));
+  const ajouts = lireYaml<Partial<Candidat>[]>(path.join(/* turbopackIgnore: true */ process.cwd(), test, "candidats", `${ajoutsDeTest}.yaml`));
   const entrants = ajouts.filter((a) => !a.remplace && !candidats.some((c) => c.id === a.id)) as Candidat[];
   return candidats
     .map((c) => {
@@ -137,10 +156,10 @@ export function lireListeOfficielle(jeuDeTest?: string): ListeOfficielle | null 
   const test = process.env.AUCRIBLE_FICHES_DE_TEST;
   const fichier =
     test && jeuDeTest && /^[a-z-]+$/.test(jeuDeTest)
-      ? path.join(process.cwd(), test, "listes", `${jeuDeTest}.yaml`)
+      ? path.join(/* turbopackIgnore: true */ process.cwd(), test, "listes", `${jeuDeTest}.yaml`)
       : path.join(RACINE, "liste-officielle.yaml");
   if (!existsSync(fichier)) return null;
-  const liste: ListeOfficielle = parse(readFileSync(fichier, "utf8"));
+  const liste = lireYaml<ListeOfficielle>(fichier);
   return { ...liste, date: String(liste.date) };
 }
 
@@ -172,13 +191,13 @@ export function lireCorrections(jeuDeTest?: string): Correction[] {
   const test = process.env.AUCRIBLE_FICHES_DE_TEST;
   const fichier =
     test && jeuDeTest && /^[a-z-]+$/.test(jeuDeTest)
-      ? path.join(process.cwd(), test, "corrections", `${jeuDeTest}.yaml`)
+      ? path.join(/* turbopackIgnore: true */ process.cwd(), test, "corrections", `${jeuDeTest}.yaml`)
       : path.join(RACINE, "corrections.yaml");
-  return (parse(readFileSync(fichier, "utf8")) as Correction[]).map((c) => ({ ...c, date: String(c.date) }));
+  return lireYaml<Correction[]>(fichier).map((c) => ({ ...c, date: String(c.date) }));
 }
 
 export function lireThemes(): Theme[] {
-  return parse(readFileSync(path.join(RACINE, "themes.yaml"), "utf8"));
+  return lireYaml(path.join(RACINE, "themes.yaml"));
 }
 
 /** La musique du reportage d'un thème : un morceau Pixabay, son tempo et la seconde de son premier temps fort. */
@@ -186,13 +205,13 @@ export type Musique = { titre: string; auteur: string; page: string; mp3: string
 
 /** La musique de chaque thème, par identifiant de thème (content/musiques.yaml). */
 export function lireMusiques(): Record<string, Musique> {
-  return parse(readFileSync(path.join(RACINE, "musiques.yaml"), "utf8"));
+  return lireYaml(path.join(RACINE, "musiques.yaml"));
 }
 
 /** Une fiche, ou rien si elle a été retirée entre la lecture du dossier et la sienne. */
 function lireFiche(chemin: string): Question[] {
   try {
-    return [parse(readFileSync(chemin, "utf8")) as Question];
+    return [lireYaml<Question>(chemin)];
   } catch (erreur) {
     if ((erreur as NodeJS.ErrnoException).code === "ENOENT") return [];
     throw erreur;
@@ -211,11 +230,11 @@ export function lireQuestions(jeuDeTest?: string, surchargesDeTest?: string): Qu
   const test = process.env.AUCRIBLE_FICHES_DE_TEST;
   const valide = (nom?: string): nom is string => !!test && !!nom && /^[a-z-]+$/.test(nom);
   const dossiers = valide(jeuDeTest)
-    ? [path.join(process.cwd(), test!, jeuDeTest)]
+    ? [path.join(/* turbopackIgnore: true */ process.cwd(), test!, jeuDeTest)]
     : test
-      ? [path.join(process.cwd(), test, "contenu"), path.join(process.cwd(), test)]
+      ? [path.join(/* turbopackIgnore: true */ process.cwd(), test, "contenu"), path.join(/* turbopackIgnore: true */ process.cwd(), test)]
       : [path.join(RACINE, "questions")];
-  const surcharges = valide(surchargesDeTest) ? lireDossier(path.join(process.cwd(), test!, "surcharges", surchargesDeTest)) : [];
+  const surcharges = valide(surchargesDeTest) ? lireDossier(path.join(/* turbopackIgnore: true */ process.cwd(), test!, "surcharges", surchargesDeTest)) : [];
   return dossiers
     .flatMap(lireDossier)
     .map((q) => {

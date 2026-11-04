@@ -4,6 +4,7 @@ import { BandeauRetour } from "@/components/BandeauRetour";
 import { ApercuDeLaCarte } from "@/components/Carte";
 import { Classement } from "@/components/Classement";
 import { Fiabilite } from "@/components/Fiabilite";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { Plateau } from "@/components/Plateau";
 import { GrandCamembert, TesThemes } from "@/components/Themes";
 import { lireThemes } from "@/lib/contenu";
@@ -61,7 +62,7 @@ async function Resultats() {
 
 export default function PageResultats() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       <Resultats />
     </Suspense>
   );
