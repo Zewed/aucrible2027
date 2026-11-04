@@ -1,0 +1,21 @@
+content/questions/009-ukraine.yaml
+  s_fd8baca3a9cdf3::t_67801a57077947 9
+content/videos-verrouillees.yaml
+  s_fd8baca3a9cdf3::t_a8b1efca5c221e 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4151fa821989e24859d8ec994b41c36f492ab94a",
+  "prompts": {},
+  "sessions": {
+    "s_fd8baca3a9cdf3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b0b4910e-c0b7-497c-8131-9c2df7602d9c",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
