@@ -1,0 +1,21 @@
+content/questions/028-etat-civil.yaml
+  s_452df6b59561e8::t_f5ca07ed1de6de 10
+content/videos-verrouillees.yaml
+  s_452df6b59561e8::t_09a1baccdfd527 31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d8a9399ae9718df0056d20a5e575d662ac09bf00",
+  "prompts": {},
+  "sessions": {
+    "s_452df6b59561e8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fdaa05ec-f4fe-439c-bbfd-47753df2c028",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
