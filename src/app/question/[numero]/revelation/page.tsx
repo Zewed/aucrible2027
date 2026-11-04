@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { Revelation } from "@/components/Revelation";
 import { lireThemes } from "@/lib/contenu";
 import { lireLesCandidats, lireQuestionsPubliees } from "@/lib/publication";
@@ -10,12 +11,20 @@ async function RevelationPubliee({ numero, theme }: { numero: string; theme: str
   const questions = await lireQuestionsPubliees();
   const question = questions.find((q) => String(q.numero) === numero);
   if (!question) notFound();
-  return <Revelation questions={questions} candidats={await lireLesCandidats()} themes={lireThemes()} numero={question.numero} filtre={theme} />;
+  return (
+    <Revelation
+      question={question}
+      questions={questions.map(({ numero, theme }) => ({ numero, theme }))}
+      candidats={await lireLesCandidats()}
+      themes={lireThemes()}
+      filtre={theme}
+    />
+  );
 }
 
 export default function PageRevelationPubliee({ params, searchParams }: PageProps<"/question/[numero]/revelation">) {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       {Promise.all([params, searchParams]).then(([{ numero }, { theme }]) => (
         <RevelationPubliee numero={numero} theme={typeof theme === "string" ? theme : null} />
       ))}

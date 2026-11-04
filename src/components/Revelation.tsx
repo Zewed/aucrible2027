@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Camembert } from "@/components/Camembert";
 import { CompteARebours } from "@/components/CompteARebours";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { Pion } from "@/components/Pion";
 import { StylesDeLaPage } from "@/components/StylesDeLaPage";
 import type { Candidat, Position, Question, Theme } from "@/lib/contenu";
@@ -83,31 +84,33 @@ function Badge({ statut }: { statut: Position["statut"] }) {
 const nombreDeCandidats = (n: number) => `${n} candidat${n > 1 ? "s" : ""}`;
 
 /**
- * La révélation de la question `numero`, puis la suite : « Question suivante », la prochaine sans réponse dans l'ordre
+ * La révélation de la `question`, puis la suite : « Question suivante », la prochaine sans réponse dans l'ordre
  * de l'appareil, tant qu'il en reste (SPEC.md, « Boucle principale », 25 octobre 2026). Venue d'un thème choisi dans la
  * jauge (`filtre`), elle reste dans ce thème tant qu'il a des questions sans réponse.
  */
 export function Revelation({
+  question,
   questions,
   candidats,
   themes,
-  numero,
   filtre = null,
 }: {
-  questions: Question[];
+  question: Question;
+  /** Toutes les questions publiées, pour la suite et les parts : leur numéro et leur thème suffisent. */
+  questions: Pick<Question, "numero" | "theme">[];
   candidats: Candidat[];
   themes: Theme[];
-  numero: number;
   filtre?: string | null;
 }) {
   const jour = useCoteClient(() => aujourdhuiAParis());
   const reponses = lesReponses(useCoteClient(lireReponses));
   const numeros = questions.map((q) => q.numero);
   const ordre = useCoteClient(() => lireOrdre(numeros));
-  const question = questions.find((q) => q.numero === numero);
-  const reponse = question && reponses[question.numero];
-  const theme = question && themes.find((t) => t.id === question.theme);
-  if (!reponse || !question || !theme) return null;
+  const reponse = reponses[question.numero];
+  const theme = themes.find((t) => t.id === question.theme);
+  // Le rendu serveur ne connaît pas les réponses : la page garde sa place jusqu'au navigateur.
+  if (!jour) return <PageEnAttente />;
+  if (!reponse || !theme) return null;
   const suite = ordre ? prochaineQuestionDuTheme(ordre, questions, Object.keys(reponses).map(Number), filtre) : undefined;
   const suivante = suite?.numero;
   const palier = reponse.rang ? messageDuPalier(reponse.rang) : null;

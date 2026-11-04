@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ChoixDuFaceAFace } from "@/components/ChoixDuFaceAFace";
 import { CompteARebours } from "@/components/CompteARebours";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { ProximiteDuCandidat } from "@/components/ProximiteDuCandidat";
 import { PartDuTheme } from "@/components/PuceTheme";
 import { lireThemes, type Candidat, type Position, type Question, type Theme } from "@/lib/contenu";
@@ -244,5 +245,5 @@ async function FicheCandidat({ id }: { id: string }) {
 }
 
 export default function PageCandidat({ params }: PageProps<"/candidat/[id]">) {
-  return <Suspense>{params.then(({ id }) => <FicheCandidat id={id} />)}</Suspense>;
+  return <Suspense fallback={<PageEnAttente />}>{params.then(({ id }) => <FicheCandidat id={id} />)}</Suspense>;
 }

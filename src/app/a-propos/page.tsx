@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { DeDesRegles, RayuresDesThemes } from "@/components/Regles";
 import { lireAujourdhui } from "@/lib/publication";
 import "../regles.css";
@@ -454,7 +455,7 @@ async function APropos() {
 
 export default function PageAPropos() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       <APropos />
     </Suspense>
   );

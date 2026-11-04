@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { ChoixDuFaceAFace } from "@/components/ChoixDuFaceAFace";
 import { QuestionsMoiContre, ScoreMoiContre, ThemesMoiContre, type QuestionMoiContre } from "@/components/MoiContre";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { Pioche } from "@/components/Pioche";
 import { lireThemes } from "@/lib/contenu";
 import { melanger } from "@/lib/melange";
@@ -94,5 +95,5 @@ async function MoiContre({ id }: { id: string }) {
 }
 
 export default function PageMoiContre({ params }: PageProps<"/moi-contre/[candidat]">) {
-  return <Suspense>{params.then(({ candidat }) => <MoiContre id={candidat} />)}</Suspense>;
+  return <Suspense fallback={<PageEnAttente />}>{params.then(({ candidat }) => <MoiContre id={candidat} />)}</Suspense>;
 }

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Fiche } from "@/components/Fiche";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { lireThemes } from "@/lib/contenu";
 import { lireQuestionsPubliees } from "@/lib/publication";
 
@@ -13,5 +14,5 @@ async function QuestionPubliee({ numero }: { numero: string }) {
 }
 
 export default function PageQuestion({ params }: PageProps<"/question/[numero]">) {
-  return <Suspense>{params.then(({ numero }) => <QuestionPubliee numero={numero} />)}</Suspense>;
+  return <Suspense fallback={<PageEnAttente />}>{params.then(({ numero }) => <QuestionPubliee numero={numero} />)}</Suspense>;
 }

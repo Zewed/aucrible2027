@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { CartesAPartager } from "@/components/Carte";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { lireThemes } from "@/lib/contenu";
 import { lireAujourdhui, lireCandidatsEnLice, lireQuestionsDuCalcul } from "@/lib/publication";
 import "./carte-story.css";
@@ -26,7 +27,7 @@ async function Carte() {
 
 export default function PageCarte() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       <Carte />
     </Suspense>
   );

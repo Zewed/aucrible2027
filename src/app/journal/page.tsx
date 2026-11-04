@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Fragment, Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { DeDesRegles, RayuresDesThemes } from "@/components/Regles";
 import { lireThemes, type Candidat, type CoteDeLaCorrection, type Correction } from "@/lib/contenu";
 import { lireAujourdhui, lireLesCandidats, lireLesCorrections } from "@/lib/publication";
@@ -238,7 +239,7 @@ async function Journal() {
 
 export default function PageJournal() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       <Journal />
     </Suspense>
   );

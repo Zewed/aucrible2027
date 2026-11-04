@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { EnvoyerMesReponses } from "@/components/EnvoyerMesReponses";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { RecupererMesReponses } from "@/components/RecupererMesReponses";
 import { lireAujourdhui } from "@/lib/publication";
 import "./appareil.css";
@@ -48,7 +49,7 @@ async function Appareil() {
 
 export default function PageAppareil() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       <Appareil />
     </Suspense>
   );

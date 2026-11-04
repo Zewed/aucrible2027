@@ -1,6 +1,7 @@
 import { Fragment, Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { AJour, ListeDeRattrapage, TuileARattraper } from "@/components/ListeDeRattrapage";
+import { PageEnAttente } from "@/components/PageEnAttente";
 import { PartDuTheme } from "@/components/PuceTheme";
 import { lireThemes, type Theme } from "@/lib/contenu";
 import { lireAujourdhui, lireNumeroDeDemain, lireQuestionsPubliees } from "@/lib/publication";
@@ -95,7 +96,7 @@ async function Rattrapage() {
 
 export default function PageRattrapage() {
   return (
-    <Suspense>
+    <Suspense fallback={<PageEnAttente />}>
       <Rattrapage />
     </Suspense>
   );
