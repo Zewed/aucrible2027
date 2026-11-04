@@ -1,0 +1,72 @@
+src/app/a-propos/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 4,458
+src/app/rattrapage/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 4,99
+src/components/Importer.tsx
+  s_a63a06aa16913d::t_dc4da9b32d39c9 6,72
+src/app/question/[numero]/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 4,17
+src/app/methode/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 4,716
+src/lib/publication.ts
+  s_a63a06aa16913d::t_dc4da9b32d39c9 3,131-145
+  s_a63a06aa16913d::t_ddc8e9e502ae91 146-147
+src/app/globals.css
+  s_a63a06aa16913d::t_8e442f22d5c93c 199-200
+src/app/face-a-face/[a]/[b]/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 6,106
+src/app/moi-contre/[candidat]/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 6,98
+src/app/questionnaire/page.tsx
+  s_a63a06aa16913d::t_dc4da9b32d39c9 5,11
+  s_a63a06aa16913d::t_c523e0a5c6b778 2,21
+src/app/appareil/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 4,52
+src/app/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 3,21
+src/components/Fiche.tsx
+  s_a63a06aa16913d::t_dc4da9b32d39c9 12,32,51,85
+src/components/Revelation.tsx
+  s_a63a06aa16913d::t_a4b7bf4dd6a789 7,87,92,98-100,109-113
+src/app/question/[numero]/revelation/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 3,27
+  s_a63a06aa16913d::t_a4b7bf4dd6a789 14-22
+src/lib/contenu.ts
+  s_a63a06aa16913d::t_e8c8b0574cbe64 1,103-118,126,129,155,158,190,192,196,204,210,229,231,233
+  s_a63a06aa16913d::t_dc4da9b32d39c9 99-100
+  s_a63a06aa16913d::t_d4de576a97bbc4 98
+src/app/journal/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 4,242
+src/app/carte/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 4,30
+src/components/PageEnAttente.tsx
+  s_a63a06aa16913d::t_662ebc30a12388 1-7
+src/app/carrousel/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 7,319
+src/app/resultats/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 7,65
+src/app/signaler/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 4,87
+src/app/candidat/[id]/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 6,248
+src/app/video/page.tsx
+  s_a63a06aa16913d::t_c523e0a5c6b778 4,89
+src/components/ProchaineQuestion.tsx
+  s_a63a06aa16913d::t_dc4da9b32d39c9 5-6,42,52-53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b905f63de67b7601d71b59b3a223929b0be5901b",
+  "prompts": {},
+  "sessions": {
+    "s_a63a06aa16913d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fbd4f039-b5a0-48da-846f-e97a5ed58504",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
