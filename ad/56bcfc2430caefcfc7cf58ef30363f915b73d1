@@ -1,0 +1,21 @@
+content/questions/023-loyers.yaml
+  s_3a17f1a7918e2d::t_9287cbfaea41f1 11
+content/videos-verrouillees.yaml
+  s_3a17f1a7918e2d::t_b7b17040015b68 26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ad56bcfc2430caefcfc7cf58ef30363f915b73d1",
+  "prompts": {},
+  "sessions": {
+    "s_3a17f1a7918e2d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d6cc8f28-f7ba-4fd1-8d64-c1b3c28cdc79",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
