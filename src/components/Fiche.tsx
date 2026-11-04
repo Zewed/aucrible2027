@@ -19,7 +19,7 @@ import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses, type Rep
 import { tenirALEcran } from "@/lib/tenir-a-l-ecran";
 
 /** Sur grand écran, chaque étape tient dans la fenêtre : son texte se resserre plutôt que d'être coupé. */
-const tenirLEcranPartage = tenirALEcran("(min-width: 1200px)", 1, ".scene");
+const tenirLEcranPartage = tenirALEcran("(min-width: 1200px)", 1, true);
 const tenirLaMosaique = tenirALEcran("(min-width: 1100px)");
 
 const IMPORTANCES = [
@@ -36,6 +36,16 @@ export function Bandeau({ jour, question }: { jour: string; question: Question |
       {question && <NumeroQuestion numero={question.numero} />}
     </div>
   );
+}
+
+/**
+ * Sur grand écran, la part de la largeur des faits qui revient au contexte : 48 % pour un contexte de 650 signes, plus
+ * s'il est long, moins s'il est court, de 44 à 60 %. Réglé sur les fiches de l'alpha pour que le contexte et les chiffres
+ * clés finissent à peu près ensemble, et que la question garde sa taille.
+ */
+function partDuContexte(question: Question) {
+  const signes = question.contexte.join(" ").length;
+  return Math.min(0.6, Math.max(0.44, 0.48 + (signes - 650) * 0.00042));
 }
 
 /** La couleur d'un thème, celle de sa part : `--trav` pour « theme-trav ». */
@@ -119,7 +129,12 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
     <Bandeau jour={jour} question={question} />
     <main className={`today ${theme.classe} etape-${etape}`}>
       {etape === "lire" ? (
-        <article className="ecran-partage" aria-labelledby="q" ref={tenirLEcranPartage}>
+        <article
+          className="ecran-partage"
+          aria-labelledby="q"
+          ref={tenirLEcranPartage}
+          style={{ "--contexte": partDuContexte(question).toFixed(2) } as React.CSSProperties}
+        >
           <div className="scene">
             <div className="bloc">
               <PuceTheme theme={theme} />
