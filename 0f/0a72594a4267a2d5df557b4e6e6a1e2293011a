@@ -1,0 +1,21 @@
+content/questions/031-russie.yaml
+  s_233f7b62c62f6a::t_833f53949a05cd 9
+content/videos-verrouillees.yaml
+  s_233f7b62c62f6a::t_22d8750609ed34 34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0f0a72594a4267a2d5df557b4e6e6a1e2293011a",
+  "prompts": {},
+  "sessions": {
+    "s_233f7b62c62f6a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f954930c-d27f-47ff-835e-e4c845307a09",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
