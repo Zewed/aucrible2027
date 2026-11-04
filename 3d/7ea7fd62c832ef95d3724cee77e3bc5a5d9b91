@@ -1,0 +1,21 @@
+content/questions/019-airbnb.yaml
+  s_49fa991f9c8830::t_f1911b0902d17f 9
+content/videos-verrouillees.yaml
+  s_49fa991f9c8830::t_865f2f988af7d0 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3d7ea7fd62c832ef95d3724cee77e3bc5a5d9b91",
+  "prompts": {},
+  "sessions": {
+    "s_49fa991f9c8830": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "938b883d-6ac3-4a48-9af5-2764c0617861",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
