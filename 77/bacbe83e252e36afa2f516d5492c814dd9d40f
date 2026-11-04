@@ -1,0 +1,21 @@
+content/questions/020-otan.yaml
+  s_f296eecf053afc::t_23146df718ff77 9
+content/videos-verrouillees.yaml
+  s_f296eecf053afc::t_31aaf8e42820c0 23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "77bacbe83e252e36afa2f516d5492c814dd9d40f",
+  "prompts": {},
+  "sessions": {
+    "s_f296eecf053afc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b30554fb-a8ee-488a-a1da-99d32f5a8567",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
