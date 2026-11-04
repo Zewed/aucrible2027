@@ -29,6 +29,8 @@ export type Option = {
   implique: string;
   defenseurs: string;
   critiques: string;
+  /** Tout ce qu'on sait d'elle, dans une fenêtre ouverte depuis sa carte. Autant d'arguments pour et contre, d'une option à l'autre. */
+  detail?: { chiffrage: { texte: string; source: Source }; defenseurs: Argument[]; critiques: Argument[] };
   /** L'option ne se range pas sur l'échelle des autres : elle compte tout ou rien dans le classement. */
   horsEchelle?: boolean;
   /** Ses notes sur le plateau, de −2 à +2, sur l'un des axes, les deux ou aucun. */
@@ -38,6 +40,8 @@ export type Option = {
 /** Les deux axes du plateau (SPEC.md, « Résultats ») : −2 pour plus de redistribution, ou progressiste ; +2 pour plus de marché, ou conservateur. */
 export type Axes = { economie?: number; societe?: number };
 export type Source = { organisme: string; document?: string; annee: number };
+/** Ce que dit un camp. Seul un chiffre a une source : aucun organisme ne reprend l'argument à son compte. */
+export type Argument = { texte: string; source?: Source };
 export type Chiffre = { valeur: string; unite?: string; legende: string; source: Source };
 export type Theme = { id: string; nom: string; classe: string };
 /** Ce qu'un candidat défend sur une fiche, et d'où on le sait. */

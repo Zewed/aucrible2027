@@ -7105,3 +7105,19 @@ test.describe("le bouton du mode passe le site en sombre, et l'appareil garde ce
     });
   });
 });
+
+test("le bouton « plus » d'une carte ouvre tout son détail, sans la choisir", async ({ page }) => {
+  await fixerLeJour(page, "2026-10-23T08:00:00+02:00");
+  await page.goto("/question/24");
+  await voirLesPropositions(page);
+
+  await page.getByRole("button", { name: "Tout savoir sur : 60 ans" }).click();
+  const fenetre = page.getByRole("dialog", { name: "60 ans" });
+  await expect(fenetre.getByText("Un point de cotisation en plus")).toBeVisible();
+  await expect(fenetre.getByText("Une hausse de 6 milliards")).toBeVisible();
+  await expect(optionsDeLaFiche(page).first()).not.toBeChecked();
+
+  await fenetre.getByRole("button", { name: "Fermer" }).click();
+  await expect(fenetre).toBeHidden();
+  await expect(optionsDeLaFiche(page).first()).not.toBeChecked();
+});

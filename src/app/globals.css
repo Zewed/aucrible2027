@@ -422,6 +422,36 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
   font: 800 12.5px/1.2 var(--display); text-transform: uppercase; letter-spacing: .06em;
 }
 .mq-argument b::before { content: ""; flex: none; width: 9px; height: 9px; background: var(--theme); transform: rotate(45deg); }
+/* Tout le détail d'une option : un rond plein sur sa carte, qui ouvre une fenêtre au-dessus de la page. */
+.mq-plus {
+  flex: none; font-size: .8em; width: max(36px, 1.42em); height: max(36px, 1.42em); margin-top: -.06em; padding: 0; display: grid; place-items: center; cursor: pointer;
+  border: 0; border-radius: 50%; background: var(--theme); color: var(--on-theme); transition: transform .2s var(--ease-out);
+}
+.mq-plus svg { width: 64%; height: 64%; }
+.mq-plus:hover { transform: rotate(90deg) scale(1.08); }
+.mq-plus:focus-visible, .mq-fermer:focus-visible { outline: 3px solid var(--eco); outline-offset: 2px; }
+.mq-tuile input:checked + .mq-face .mq-plus { background: var(--ink); color: var(--theme-text); }
+.mq-detail {
+  position: fixed; inset: 0; margin: auto; width: min(860px, calc(100vw - 24px)); height: fit-content; max-height: calc(100dvh - 24px);
+  overflow: auto; overscroll-behavior: contain; border: 0; border-radius: var(--r); padding: 20px 20px 24px; background: var(--card); color: var(--ink);
+}
+.mq-detail:popover-open { display: grid; gap: 16px; }
+.mq-detail::backdrop { background: rgb(0 0 0 / .62); }
+.mq-detail .mq-haut { font-size: 32px; align-items: center; }
+.mq-detail .mq-titre { margin: 0; }
+.mq-fermer { flex: none; width: 40px; height: 40px; padding: 0; display: grid; place-items: center; cursor: pointer; border: 0; border-radius: 50%; background: var(--ink); color: var(--card); }
+.mq-fermer svg { width: 20px; height: 20px; }
+.mq-detail .mq-implique { margin: 0; font-size: 18px; max-width: none; }
+.mq-chiffrage { margin: 0; padding: 14px 0; border-block: 2px solid var(--ink); font: 700 16px/1.4 var(--text); }
+.mq-detail-colonnes { display: grid; gap: 20px; }
+.mq-detail-colonnes h4 { margin: 0 0 10px; }
+.mq-detail ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.mq-detail li { font: 400 16px/1.4 var(--text); }
+.mq-detail cite { display: block; margin-top: 2px; color: var(--ink-soft); font: 600 13px/1.3 var(--text); }
+@media (min-width: 760px) {
+  .mq-detail { padding: 28px 32px 32px; }
+  .mq-detail-colonnes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+}
 /* L'option choisie prend la couleur du thème. */
 .mq-tuile input:checked + .mq-face { background: var(--theme); color: var(--on-theme); box-shadow: inset 0 0 0 3px var(--ink); }
 .mq-tuile input:checked + .mq-face .mq-lettre { background: var(--ink); color: var(--theme-text); }
