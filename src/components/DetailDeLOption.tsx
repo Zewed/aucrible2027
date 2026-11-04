@@ -18,11 +18,13 @@ function Arguments({ titre, liste }: { titre: string; liste: Argument[] }) {
   );
 }
 
-/** La fenêtre ouverte par le bouton « plus » d'une carte : tout ce qu'on sait de l'option, sourcé. */
+/**
+ * La fenêtre ouverte par le bouton « plus » d'une carte : tout ce qu'on sait de l'option, sourcé. Tant que l'option n'a
+ * pas de `detail`, elle reprend en grand ce que dit la carte : son argument de chaque camp, sans chiffrage.
+ */
 export function DetailDeLOption({ option, lettre }: { option: Option; lettre: string }) {
-  if (!option.detail) return null;
   const id = `detail-${option.id}`;
-  const { chiffrage, defenseurs, critiques } = option.detail;
+  const { chiffrage, defenseurs, critiques } = option.detail ?? { chiffrage: undefined, defenseurs: [{ texte: option.defenseurs }], critiques: [{ texte: option.critiques }] };
   return (
     <div className="mq-detail" id={id} popover="auto" role="dialog" aria-labelledby={`${id}-titre`}>
       <div className="mq-haut">
@@ -35,10 +37,12 @@ export function DetailDeLOption({ option, lettre }: { option: Option; lettre: st
         </button>
       </div>
       <p className="mq-implique">{option.implique}</p>
-      <p className="mq-chiffrage">
-        {chiffrage.texte}
-        <cite>Source : {nomDeLaSource(chiffrage.source)}</cite>
-      </p>
+      {chiffrage && (
+        <p className="mq-chiffrage">
+          {chiffrage.texte}
+          <cite>Source : {nomDeLaSource(chiffrage.source)}</cite>
+        </p>
+      )}
       <div className="mq-detail-colonnes">
         <Arguments titre="Ce qu'en disent ses défenseurs" liste={defenseurs} />
         <Arguments titre="Ce que lui reprochent ses critiques" liste={critiques} />

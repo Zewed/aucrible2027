@@ -24,7 +24,7 @@ const AUTOUR = `
   body { min-height: 100dvh; display: flex; flex-direction: column; }
   .jauge { display: none; }
   .site-foot { width: 100%; max-width: none; padding: 0 clamp(16px, 3.2vw, 64px) 6px; }
-  .site-foot nav { border: 0; padding: 0; }
+  .site-foot::before { display: none; }
 `;
 
 /** La taille d'une question suit sa longueur : la plus longue fait trois fois la plus courte. */

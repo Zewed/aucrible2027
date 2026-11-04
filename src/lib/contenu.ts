@@ -29,7 +29,7 @@ export type Option = {
   implique: string;
   defenseurs: string;
   critiques: string;
-  /** Tout ce qu'on sait d'elle, dans une fenêtre ouverte depuis sa carte. Autant d'arguments pour et contre, d'une option à l'autre. */
+  /** Tout ce qu'on sait d'elle, dans la fenêtre du « + » de sa carte ; sans lui, la fenêtre reprend la carte. Autant d'arguments pour et contre, d'une option à l'autre. */
   detail?: { chiffrage: { texte: string; source: Source }; defenseurs: Argument[]; critiques: Argument[] };
   /** L'option ne se range pas sur l'échelle des autres : elle compte tout ou rien dans le classement. */
   horsEchelle?: boolean;
