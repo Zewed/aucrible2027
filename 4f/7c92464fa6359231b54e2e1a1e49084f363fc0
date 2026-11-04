@@ -1,0 +1,21 @@
+content/questions/017-hopital.yaml
+  s_86dd16dc94f19d::t_dbb64848ec3925 10
+content/videos-verrouillees.yaml
+  s_86dd16dc94f19d::t_9491afaab280ab 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4f7c92464fa6359231b54e2e1a1e49084f363fc0",
+  "prompts": {},
+  "sessions": {
+    "s_86dd16dc94f19d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d23cca69-7538-44c2-819e-884ca76decc1",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
