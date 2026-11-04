@@ -1,0 +1,21 @@
+content/questions/006-franchises-medicales.yaml
+  s_840a305990610d::t_cb971eb9a092e0 9
+content/videos-verrouillees.yaml
+  s_840a305990610d::t_51c0732577ca83 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "72429d87e0963a83cc16c4d64996f1a2d79f895a",
+  "prompts": {},
+  "sessions": {
+    "s_840a305990610d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cddb5062-3b2e-4b52-ad62-48e5fa47a39a",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
