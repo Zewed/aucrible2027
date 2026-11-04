@@ -1,0 +1,21 @@
+content/questions/030-soldats-ukraine.yaml
+  s_452df6b59561e8::t_cc966f950beed3 10
+content/videos-verrouillees.yaml
+  s_452df6b59561e8::t_1129191451ee60 32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "060fc7da25d72773a74efc8b0aa04424daa972a9",
+  "prompts": {},
+  "sessions": {
+    "s_452df6b59561e8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fdaa05ec-f4fe-439c-bbfd-47753df2c028",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
