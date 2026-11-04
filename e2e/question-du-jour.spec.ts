@@ -6892,25 +6892,41 @@ test("au téléphone, « Voir les propositions » est visible dès l'ouverture, 
   expect(await page.evaluate(() => window.scrollY)).toBe(0);
 });
 
-test.describe("la première étape : l'écran partagé", () => {
+test.describe("la première étape : l'équerre", () => {
   for (const [largeur, hauteur] of [[1440, 900], [1920, 1080]]) {
     test.describe(`à ${largeur} × ${hauteur}`, () => {
       test.use({ viewport: { width: largeur, height: hauteur }, isMobile: false, hasTouch: false });
 
-      test("la question à gauche, le contexte et les chiffres à droite, et tout tient sans défiler", async ({ page }) => {
+      test("la vidéo debout à gauche, la question au-dessus du contexte et des chiffres côte à côte, et tout tient sans défiler", async ({ page }) => {
         await page.goto("/questionnaire");
         const bouton = page.getByRole("button", { name: "Voir les propositions" });
         await expect(bouton).toBeInViewport({ ratio: 1 });
+        const affiche = await page.getByRole("img", { name: /^Vidéo à venir/ }).boundingBox();
         const question = await page.getByRole("heading", { level: 1 }).boundingBox();
         const contexte = await page.getByRole("region", { name: "Le contexte" }).boundingBox();
         const chiffres = await page.getByRole("region", { name: "Chiffres clés" }).boundingBox();
-        expect(question!.x + question!.width).toBeLessThanOrEqual(contexte!.x);
-        expect(contexte!.y).toBeLessThan(chiffres!.y);
+        expect(affiche!.height).toBeGreaterThan(hauteur * 0.8);
+        expect(affiche!.height / affiche!.width).toBeCloseTo(16 / 9, 1);
+        expect(affiche!.x + affiche!.width).toBeLessThanOrEqual(question!.x);
+        expect(question!.y + question!.height).toBeLessThanOrEqual(contexte!.y);
+        expect(contexte!.x + contexte!.width).toBeLessThanOrEqual(chiffres!.x);
         await expect(page.getByRole("region", { name: "Chiffres clés" })).toBeInViewport({ ratio: 1 });
         expect(await page.evaluate(() => document.documentElement.scrollHeight <= window.innerHeight + 1)).toBe(true);
       });
     });
   }
+
+  test("au téléphone, l'affiche est à côté de la question ; la vidéo s'ouvre en plein écran, et en sortir ramène l'affiche", async ({ page }) => {
+    await page.goto("/question/9");
+    const affiche = page.getByRole("button", { name: /^Lire la vidéo/ });
+    const boite = await affiche.boundingBox();
+    const question = await page.getByRole("heading", { level: 1 }).boundingBox();
+    expect(question!.x + question!.width).toBeLessThanOrEqual(boite!.x);
+    await affiche.click();
+    await expect.poll(() => page.evaluate(() => document.fullscreenElement?.tagName)).toBe("VIDEO");
+    await page.evaluate(() => document.exitFullscreen());
+    await expect(affiche).toBeVisible();
+  });
 
   test("ni pied de page ni « Mes résultats » en bas de cette étape ; « Signaler une erreur » est au coin des chiffres", async ({ page }) => {
     await page.goto("/questionnaire");
