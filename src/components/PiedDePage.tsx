@@ -36,12 +36,18 @@ function LiensDeLaPage() {
  * « Rattraper les questions » de la maquette s'appelle « Toutes les questions », comme dans le menu, depuis que toutes
  * les questions se font d'un coup (décision du 25 octobre).
  */
-export function PiedDePage() {
+export function PiedDePage({ videosVerrouillees }: { videosVerrouillees: number }) {
   return (
     <footer className="site-foot">
       <Suspense fallback={<Liens chemin={null} />}>
         <LiensDeLaPage />
       </Suspense>
+      {/* Repère provisoire d'Antoine, à retirer avant le lancement avec la page /verrous. */}
+      <p className="repere-verrous">
+        <Link href="/verrous">
+          {videosVerrouillees} {videosVerrouillees > 1 ? "vidéos verrouillées" : "vidéo verrouillée"}
+        </Link>
+      </p>
     </footer>
   );
 }

@@ -549,3 +549,7 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
   .mq-niveau em { font-size: clamp(13px, 1.45 * var(--u), 15px); }
   .mq-valider { min-height: clamp(56px, 8.4 * var(--u), 92px); font-size: clamp(20px, min(2.9 * var(--u), 1.8vw), 32px); box-shadow: 0 6px 0 var(--theme); margin-bottom: 6px; }
 }
+
+/* Repère provisoire d'Antoine sous le pied de page : le nombre de vidéos verrouillées, qui mène à /verrous. */
+.repere-verrous { margin-top: 4px; font: 600 13px/1.2 var(--text); color: var(--muted); }
+.repere-verrous a { text-underline-offset: 3px; }

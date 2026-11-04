@@ -200,6 +200,11 @@ export function lireThemes(): Theme[] {
   return lireYaml(path.join(RACINE, "themes.yaml"));
 }
 
+/** Repère provisoire : les numéros des questions dont Antoine a verrouillé la vidéo (content/videos-verrouillees.yaml). */
+export function lireVideosVerrouillees(): number[] {
+  return lireYaml<number[]>(path.join(RACINE, "videos-verrouillees.yaml"));
+}
+
 /** La musique du reportage d'un thème : un morceau Pixabay, son tempo et la seconde de son premier temps fort. */
 export type Musique = { titre: string; auteur: string; page: string; mp3: string; tempo: number; premierTemps: number };
 

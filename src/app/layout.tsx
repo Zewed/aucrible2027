@@ -6,7 +6,7 @@ import { JaugeDesQuestions } from "@/components/JaugeDesQuestions";
 import { PiedDePage } from "@/components/PiedDePage";
 import { SansReseau } from "@/components/SansReseau";
 import { Visite } from "@/components/Visite";
-import { lireThemes } from "@/lib/contenu";
+import { lireThemes, lireVideosVerrouillees } from "@/lib/contenu";
 import { SCRIPT_DU_MODE } from "@/lib/mode";
 import { lireQuestionsPubliees } from "@/lib/publication";
 import "./kit.css";
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Jauge />
         </Suspense>
         {children}
-        <PiedDePage />
+        <PiedDePage videosVerrouillees={lireVideosVerrouillees().length} />
         <SansReseau />
         <Visite />
       </body>
