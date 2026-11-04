@@ -1,0 +1,21 @@
+content/questions/008-sru.yaml
+  s_fd8baca3a9cdf3::t_e7e301c36442b4 9
+content/videos-verrouillees.yaml
+  s_fd8baca3a9cdf3::t_ef6799768b0d56 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f8173a8b8a635822aae7c355b7fd468186a8df14",
+  "prompts": {},
+  "sessions": {
+    "s_fd8baca3a9cdf3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b0b4910e-c0b7-497c-8131-9c2df7602d9c",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
