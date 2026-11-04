@@ -1,0 +1,21 @@
+content/questions/010-ric.yaml
+  s_dd24adcb855433::t_06bf4a61778824 9
+content/videos-verrouillees.yaml
+  s_dd24adcb855433::t_5f9058c0c69f81 13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8d866a893f0154f755ece9be11094993034110b4",
+  "prompts": {},
+  "sessions": {
+    "s_dd24adcb855433": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1471bbd8-a831-4eb2-b7c4-d421372a36de",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
