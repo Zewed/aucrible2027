@@ -1,0 +1,21 @@
+content/questions/022-cannabis.yaml
+  s_8698391084197f::t_33823a34f8106d 9
+content/videos-verrouillees.yaml
+  s_8698391084197f::t_ac268c8925cf6f 25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4840e3ddb1f4fee76e4bf021213d45373c9fdb39",
+  "prompts": {},
+  "sessions": {
+    "s_8698391084197f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fd0d3da8-9fb3-477e-9268-e1d853582393",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
