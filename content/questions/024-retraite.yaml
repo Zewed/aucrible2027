@@ -30,24 +30,107 @@ options:
     defenseurs: Deux ans de retraite en bonne santé en plus, d'abord pour ceux qui ont commencé tôt.
     critiques: Un coût élevé, qui pèserait sur les salaires ou sur les entreprises.
     axes: { economie: -2 }
+    detail:
+      chiffrage:
+        texte: Ses défenseurs estiment à 27 milliards d'euros en 2027 le passage de 62 à 60 ans, payés par des cotisations. Aucun chiffrage public n'a été trouvé.
+        source:
+          organisme: Amendement à l'Assemblée nationale
+          annee: 2023
+      defenseurs:
+        - texte: "Beaucoup de gens arrivent usés en fin de carrière : un peu plus de 30 % des 55-69 ans déclarent des limitations d'activité."
+          source: &a10
+            organisme: Conseil d'orientation des retraites
+            annee: 2026
+        - texte: "Les plus modestes profitent moins longtemps de leur retraite : chez les hommes, 13 ans d'espérance de vie les séparent des plus aisés."
+          source:
+            organisme: Insee
+            annee: 2025
+        - texte: "L'argent peut venir des cotisations : un point de plus rapporterait 4,8 à 7,6 milliards d'euros par an."
+          source: &a9
+            organisme: Cour des comptes
+            annee: 2025
+      critiques:
+        - texte: "Le système manque déjà d'argent : environ 30 milliards en 2045, même à 64 ans. Revenir à 60 ans creuserait ce manque."
+          source: *a9
+        - texte: "Plus de cotisations coûteraient des emplois : 6 milliards de plus pour les employeurs en supprimeraient 10 000 à 50 000 à court terme, selon les modèles."
+          source: *a10
+        - texte: "La France s'éloignerait de ses voisins : l'âge normal de départ va de 64 à 67 ans dans les pays européens comparés."
+          source:
+            organisme: Centre finlandais des pensions
+            annee: 2026
   - id: B
     libelle: 62 ans
     implique: On revient à l'âge fixé par la réforme de 2010.
     defenseurs: Un repère connu, appliqué pendant dix ans, sans brutalité pour les carrières longues.
     critiques: Sans recette nouvelle, le déficit des caisses de retraite se creuse.
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: Revenir à 62 ans coûterait 12,6 milliards d'euros en 2030. Le financement varie selon les partis.
+        source:
+          organisme: Caisse nationale d'assurance vieillesse
+          annee: 2024
+      defenseurs:
+        - texte: Un même recul d'âge prend proportionnellement plus de retraite à ceux qui vivent le moins longtemps.
+        - texte: Les reculs passés ont moins allongé l'emploi des ouvriers, des personnes en mauvaise santé et des femmes.
+        - texte: "Reculer l'âge économise moins qu'annoncé : un quart à un tiers des économies repart en chômage, invalidité et minima sociaux."
+          source: &a1
+            organisme: Conseil d'orientation des retraites
+            annee: 2026
+      critiques:
+        - texte: "Sans recette nouvelle, le déficit se creuserait : équilibrer en 2045 avec l'âge seul demanderait un âge moyen de départ de 65,6 ans."
+          source: *a1
+        - texte: "On vit plus longtemps : à 60 ans, environ six ans de plus qu'au début des années 1980."
+          source:
+            organisme: Insee
+            annee: 2025
+        - texte: Les écarts se traitent mieux par des dispositifs ciblés, comme les carrières longues, que par un âge plus bas pour tous.
   - id: C
     libelle: 64 ans
     implique: On garde l'âge prévu par la réforme de 2023.
     defenseurs: Le système se rapproche de l'équilibre sans baisser les pensions.
     critiques: Les métiers pénibles et les carrières hachées en paient le prix.
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: Par rapport à 62 ans, partir à 64 ans rapporterait environ 10 milliards d'euros aux retraites en 2030. Ce chiffre date d'avant la suspension de fin 2025.
+        source:
+          organisme: Cour des comptes
+          annee: 2025
+      defenseurs:
+        - texte: C'est le seul levier qui ne baisse ni les pensions ni les salaires nets.
+        - texte: Reculer l'âge fait travailler plus de seniors, et la hausse de l'emploi dépasse celle du chômage.
+        - texte: La France a l'un des âges légaux les plus bas, et moins de 60-64 ans en emploi que la moyenne européenne.
+      critiques:
+        - texte: Le compte de pénibilité ne couvre ni le port de charges lourdes ni les postures pénibles.
+        - texte: Les femmes voient leur âge de départ reculer davantage que les hommes.
+        - texte: "L'équilibre annoncé pour 2030 n'est pas atteint : il manquerait encore 0,2 % de la richesse du pays."
+          source:
+            organisme: Conseil d'orientation des retraites
+            annee: 2026
   - id: D
     libelle: 65 ans ou plus
     implique: Un âge proche de celui de plusieurs voisins européens.
     defenseurs: "On vit plus longtemps : travailler un peu plus protège le niveau des pensions."
     critiques: Beaucoup de seniors sont déjà sans emploi bien avant cet âge.
     axes: { economie: 1 }
+    detail:
+      chiffrage:
+        texte: Passer de 64 à 65 ans rapporterait 8,4 milliards d'euros aux retraites en 2045.
+        source:
+          organisme: Cour des comptes
+          annee: 2025
+      defenseurs:
+        - texte: Sans nouvelle hausse, les années de vie gagnées après 2040 iraient entièrement à la retraite.
+        - texte: "Travailler plus longtemps crée de l'emploi : un an d'âge légal en plus en ajouterait 210 000 à 240 000 à long terme, selon les modèles."
+          source:
+            organisme: Conseil d'orientation des retraites
+            annee: 2026
+        - texte: "Plusieurs voisins lient déjà l'âge à l'espérance de vie : le Danemark, les Pays-Bas, l'Italie, la Suède, la Finlande et le Portugal."
+      critiques:
+        - texte: Beaucoup de seniors ne sont plus en emploi avant la retraite, souvent pour raison de santé.
+        - texte: Les gains d'espérance de vie ralentissent depuis 2014.
+        - texte: Quand le chômage remonte, l'économie peut avoir du mal à employer des seniors en plus.
   - id: E
     libelle: À la carte, avec un système à points
     implique: Chacun part quand il veut ; la pension dépend des points acquis.
@@ -55,6 +138,20 @@ options:
     critiques: "La valeur du point peut baisser : la pension devient moins prévisible."
     # Ne se range pas entre les âges (maquettes/methode.html) : compte 1 si la carte est la même, 0 sinon.
     horsEchelle: true
+    detail:
+      chiffrage:
+        texte: Aucun gain ni coût n'a été chiffré. Un système à points n'équilibre pas les comptes à lui seul.
+        source:
+          organisme: Conseil d'orientation des retraites
+          annee: 2010
+      defenseurs:
+        - texte: Chaque euro cotisé ouvrirait les mêmes droits, quel que soit le métier.
+        - texte: Chacun choisirait son moment, avec une pension qui dépend de son âge de départ.
+        - texte: Une règle imposerait d'équilibrer les comptes sur cinq ans.
+      critiques:
+        - texte: "Un conseil d'administration fixerait la valeur du point : la pension deviendrait moins prévisible."
+        - texte: Le Conseil d'État a jugé lacunaires les projections financières du projet de 2020.
+        - texte: "Le projet de 2020 gardait un âge légal de 62 ans et un âge d'équilibre : le choix n'était pas total."
 pourAllerPlusLoin:
   - titre: COR, rapport annuel 2025
     url: https://www.cor-retraites.fr/

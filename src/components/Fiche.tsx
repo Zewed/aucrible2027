@@ -10,6 +10,7 @@ import { PuceTheme } from "@/components/PuceTheme";
 import { StylesDeLaPage } from "@/components/StylesDeLaPage";
 import { VignetteVideo } from "@/components/VignetteVideo";
 import type { Question, Theme } from "@/lib/contenu";
+import { DetailDeLOption } from "@/components/DetailDeLOption";
 import { lettreOption } from "@/lib/lettres";
 import { tirerGraine } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
@@ -220,6 +221,13 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
                     <span className="mq-lettre" id={`lettre-${option.id}`} aria-hidden="true">{lettreOption(rang)}</span>
                     <span className="mq-titre" id={`titre-${option.id}`}>{option.libelle}</span>
                     <span className="mq-mienne">Ta carte</span>
+                    {option.detail && (
+                      <button type="button" className="mq-plus" popoverTarget={`detail-${option.id}`} aria-label={`Tout savoir sur : ${option.libelle}`}>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" />
+                        </svg>
+                      </button>
+                    )}
                   </span>
                   <span className="mq-implique" id={`implique-${option.id}`}>{option.implique}</span>
                   <span className="mq-arguments">
@@ -250,6 +258,10 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
               </span>
             </label>
           </div>
+          {/* Hors des cartes : chaque carte est un label, tout ce qu'on y touche la choisirait. */}
+          {question.options.map((option, rang) => (
+            <DetailDeLOption key={option.id} option={option} lettre={lettreOption(rang)} />
+          ))}
           <div className="mq-decision">
             <fieldset className="mq-importance">
               <legend>Ce sujet compte pour toi&nbsp;?</legend>
