@@ -1,0 +1,21 @@
+content/questions/029-israel.yaml
+  s_31d64589f6f384::t_5f682361ef81b8 11
+content/videos-verrouillees.yaml
+  s_31d64589f6f384::t_55118a12ae4d38 32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7c6bae2f501d7689f1ba80c81b9d1137343ee4d2",
+  "prompts": {},
+  "sessions": {
+    "s_31d64589f6f384": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4e35cb9e-8dfd-4e7f-bb89-84caa4971966",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
