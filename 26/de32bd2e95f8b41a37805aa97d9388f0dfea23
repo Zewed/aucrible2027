@@ -1,0 +1,21 @@
+content/questions/018-parcoursup.yaml
+  s_d91fbeb6590536::t_037e50841fcda4 9
+content/videos-verrouillees.yaml
+  s_d91fbeb6590536::t_1f8d397fb7e6e8 21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "26de32bd2e95f8b41a37805aa97d9388f0dfea23",
+  "prompts": {},
+  "sessions": {
+    "s_d91fbeb6590536": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f6402742-065f-40f1-8af2-bc85e324b1c2",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
