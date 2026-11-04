@@ -28,6 +28,12 @@ options:
     implique: Retour à l'âge légal d'avant 2010, financé par de nouvelles cotisations.
     defenseurs: Deux ans de retraite en bonne santé en plus, d'abord pour ceux qui ont commencé tôt.
     critiques: Un coût élevé, qui pèserait sur les salaires ou sur les entreprises.
+    detail:
+      chiffrage: { texte: "Le passage de 62 à 60 ans coûterait 27 milliards d'euros.", source: { organisme: Assemblée nationale, annee: 2023 } }
+      defenseurs:
+        - { texte: Un point de cotisation en plus rapporterait 4,8 à 7,6 milliards d'euros par an., source: { organisme: Cour des comptes, annee: 2025 } }
+      critiques:
+        - { texte: Une hausse de 6 milliards des cotisations supprimerait des emplois., source: { organisme: COR, annee: 2026 } }
   - id: B
     libelle: 62 ans
     implique: On revient à l'âge fixé par la réforme de 2010.

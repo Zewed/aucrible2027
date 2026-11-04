@@ -10,6 +10,7 @@ import { PuceTheme } from "@/components/PuceTheme";
 import { StylesDeLaPage } from "@/components/StylesDeLaPage";
 import { VignetteVideo } from "@/components/VignetteVideo";
 import type { Question, QuestionDeLaFiche, Theme } from "@/lib/contenu";
+import { DetailDeLOption } from "@/components/DetailDeLOption";
 import { lettreOption } from "@/lib/lettres";
 import { tirerGraine } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
@@ -19,7 +20,7 @@ import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses, type Rep
 import { tenirALEcran } from "@/lib/tenir-a-l-ecran";
 
 /** Sur grand écran, chaque étape tient dans la fenêtre : son texte se resserre plutôt que d'être coupé. */
-const tenirLEcranPartage = tenirALEcran("(min-width: 1200px)", 1, ".scene");
+const tenirLEcranPartage = tenirALEcran("(min-width: 1200px)", 1, true);
 const tenirLaMosaique = tenirALEcran("(min-width: 1100px)");
 
 const IMPORTANCES = [
@@ -36,6 +37,16 @@ export function Bandeau({ jour, question }: { jour: string; question: QuestionDe
       {question && <NumeroQuestion numero={question.numero} />}
     </div>
   );
+}
+
+/**
+ * Sur grand écran, la part de la largeur des faits qui revient au contexte : 48 % pour un contexte de 650 signes, plus
+ * s'il est long, moins s'il est court, de 44 à 60 %. Réglé sur les fiches de l'alpha pour que le contexte et les chiffres
+ * clés finissent à peu près ensemble, et que la question garde sa taille.
+ */
+function partDuContexte(question: QuestionDeLaFiche) {
+  const signes = question.contexte.join(" ").length;
+  return Math.min(0.6, Math.max(0.44, 0.48 + (signes - 650) * 0.00042));
 }
 
 /** La couleur d'un thème, celle de sa part : `--trav` pour « theme-trav ». */
@@ -119,7 +130,12 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
     <Bandeau jour={jour} question={question} />
     <main className={`today ${theme.classe} etape-${etape}`}>
       {etape === "lire" ? (
-        <article className="ecran-partage" aria-labelledby="q" ref={tenirLEcranPartage}>
+        <article
+          className="ecran-partage"
+          aria-labelledby="q"
+          ref={tenirLEcranPartage}
+          style={{ "--contexte": partDuContexte(question).toFixed(2) } as React.CSSProperties}
+        >
           <div className="scene">
             <div className="bloc">
               <PuceTheme theme={theme} />
@@ -220,6 +236,13 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
                     <span className="mq-lettre" id={`lettre-${option.id}`} aria-hidden="true">{lettreOption(rang)}</span>
                     <span className="mq-titre" id={`titre-${option.id}`}>{option.libelle}</span>
                     <span className="mq-mienne">Ta carte</span>
+                    {option.detail && (
+                      <button type="button" className="mq-plus" popoverTarget={`detail-${option.id}`} aria-label={`Tout savoir sur : ${option.libelle}`}>
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" />
+                        </svg>
+                      </button>
+                    )}
                   </span>
                   <span className="mq-implique" id={`implique-${option.id}`}>{option.implique}</span>
                   <span className="mq-arguments">
@@ -250,6 +273,10 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
               </span>
             </label>
           </div>
+          {/* Hors des cartes : chaque carte est un label, tout ce qu'on y touche la choisirait. */}
+          {question.options.map((option, rang) => (
+            <DetailDeLOption key={option.id} option={option} lettre={lettreOption(rang)} />
+          ))}
           <div className="mq-decision">
             <fieldset className="mq-importance">
               <legend>Ce sujet compte pour toi&nbsp;?</legend>
