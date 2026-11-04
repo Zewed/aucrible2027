@@ -1,0 +1,21 @@
+content/questions/016-majorite-penale.yaml
+  s_d91fbeb6590536::t_a16e1fa2bff0bf 9
+content/videos-verrouillees.yaml
+  s_d91fbeb6590536::t_fee2c5ef464399 19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0b34dbca7e942695858259a9b6dd2ea3b43978f6",
+  "prompts": {},
+  "sessions": {
+    "s_d91fbeb6590536": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f6402742-065f-40f1-8af2-bc85e324b1c2",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
