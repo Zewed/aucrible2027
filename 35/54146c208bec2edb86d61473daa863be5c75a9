@@ -1,0 +1,21 @@
+content/questions/011-fin-de-vie.yaml
+  s_31c2558960f40d::t_8c58ff16145404 10
+content/videos-verrouillees.yaml
+  s_31c2558960f40d::t_cdb35e77a83583 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3554146c208bec2edb86d61473daa863be5c75a9",
+  "prompts": {},
+  "sessions": {
+    "s_31c2558960f40d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4fe8124b-becf-4fc2-a530-057c3d5a8973",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
