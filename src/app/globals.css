@@ -94,7 +94,7 @@
 .mode svg { width: 16px; height: 16px; }
 .mode-soleil, [data-sombre] .mode-lune { display: none; }
 [data-sombre] .mode-soleil { display: block; }
-.site-foot .mode { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font: 600 14px/1.2 var(--text); white-space: nowrap; }
+.site-foot .mode { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font: 700 15px/1.1 var(--display); font-variation-settings: "wdth" 88; white-space: nowrap; }
 .topbar .mode { display: none; }
 
 /* Sur ordinateur, une colonne à gauche : le logo, les icônes, et le compte à rebours en bas. Le bandeau du haut
@@ -194,8 +194,6 @@
 .linkrow { min-width: 0; max-width: 100%; overflow: hidden; }
 .app-card .cam { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; background: var(--ink); }
 
-/* Le pied de page commun : le lien de la page en cours est marqué. */
-.site-foot a[aria-current] { color: var(--sur-table); text-decoration: underline; text-decoration-thickness: 2px; }
 /* Tant que la page arrive, sa place fait un écran : le pied de page attend en bas, hors de la vue. */
 .page-en-attente { min-height: 100dvh; }
 
@@ -550,6 +548,6 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
   .mq-valider { min-height: clamp(56px, 8.4 * var(--u), 92px); font-size: clamp(20px, min(2.9 * var(--u), 1.8vw), 32px); box-shadow: 0 6px 0 var(--theme); margin-bottom: 6px; }
 }
 
-/* Repère provisoire d'Antoine sous le pied de page : le nombre de vidéos verrouillées, qui mène à /verrous. */
-.repere-verrous { margin-top: 4px; font: 600 13px/1.2 var(--text); color: var(--muted); }
-.repere-verrous a { text-underline-offset: 3px; }
+/* Repère provisoire d'Antoine au bout du pied de page : le nombre de vidéos verrouillées, qui mène à /verrous. */
+.site-foot .repere-verrous { gap: 6px; font: 600 13.5px/1.2 var(--text); }
+.repere-verrous svg { flex: none; width: 15px; height: 15px; }

@@ -6825,17 +6825,29 @@ test.describe("le pied de page mène aux pages secondaires", () => {
     ["Méthode de calcul", "/methode"],
     ["À propos", "/a-propos"],
     ["Journal des corrections", "/journal"],
-    ["Changer d'appareil", "/appareil"],
   ];
   const pied = (page: Page) => page.getByRole("contentinfo").getByRole("navigation", { name: "Pied de page" });
 
   // Pas sur la première étape de la fiche (l'accueil), qui n'a pas de pied de page.
   for (const adresse of ["/resultats", "/a-propos", "/cette-page-n-existe-pas"]) {
-    test(`en bas de ${adresse}, les cinq liens sont là, dans l'ordre`, async ({ page }) => {
+    test(`en bas de ${adresse}, les quatre liens sont là, dans l'ordre, et plus « Changer d'appareil »`, async ({ page }) => {
       await page.goto(adresse);
       await expect(pied(page).getByRole("link")).toHaveText(LIENS.map(([nom]) => nom));
+      await expect(page.getByRole("contentinfo").getByRole("link", { name: "Changer d'appareil" })).toHaveCount(0);
     });
   }
+
+  test.describe("sur ordinateur", () => {
+    test.use({ viewport: { width: 1440, height: 900 }, isMobile: false, hasTouch: false });
+
+    test("il tient sur une ligne, le repère des vidéos verrouillées au bout", async ({ page }) => {
+      await page.goto("/a-propos");
+      const repere = page.getByRole("contentinfo").getByRole("link", { name: /vidéos? verrouillées?$/ });
+      await expect(repere).toHaveAttribute("href", "/verrous");
+      const hauts = await page.getByRole("contentinfo").locator("a").evaluateAll((liens) => liens.map((lien) => Math.round(lien.getBoundingClientRect().top)));
+      expect(new Set(hauts).size).toBe(1);
+    });
+  });
 
   test("chaque lien ouvre sa page, où il est marqué comme la page en cours", async ({ page }) => {
     await page.goto("/resultats");
@@ -7120,4 +7132,18 @@ test("le bouton « plus » d'une carte ouvre tout son détail, sans la choisir",
   await fenetre.getByRole("button", { name: "Fermer" }).click();
   await expect(fenetre).toBeHidden();
   await expect(optionsDeLaFiche(page).first()).not.toBeChecked();
+});
+
+test("sans détail écrit, chaque carte a quand même son « plus », qui reprend en grand ce qu'elle dit", async ({ page }) => {
+  await fixerLeJour(page, "2026-10-24T08:00:00+02:00");
+  await page.goto("/question/25");
+  await voirLesPropositions(page);
+  await expect(page.getByRole("button", { name: /^Tout savoir sur : / })).toHaveCount(4);
+
+  await page.getByRole("button", { name: "Tout savoir sur : Garder le parc actuel" }).click();
+  const fenetre = page.getByRole("dialog", { name: "Garder le parc actuel" });
+  await expect(fenetre.getByText("Les réacteurs existants produisent une électricité bas carbone déjà payée.")).toBeVisible();
+  await expect(fenetre.getByText("Prolonger ne fait que repousser le choix : les réacteurs finiront par fermer.")).toBeVisible();
+  await expect(fenetre.getByText(/^Source :/)).toHaveCount(0);
+  await expect(optionsDeLaFiche(page).nth(2)).not.toBeChecked();
 });
