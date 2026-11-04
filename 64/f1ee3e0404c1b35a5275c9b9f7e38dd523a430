@@ -1,0 +1,21 @@
+content/questions/013-chomage.yaml
+  s_6756241f9438aa::t_ac2fe846053736 9
+content/videos-verrouillees.yaml
+  s_6756241f9438aa::t_e7a080cf0789a5 16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "64f1ee3e0404c1b35a5275c9b9f7e38dd523a430",
+  "prompts": {},
+  "sessions": {
+    "s_6756241f9438aa": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f80e2252-f6fa-4b75-b8ab-5e88f7f65e01",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
