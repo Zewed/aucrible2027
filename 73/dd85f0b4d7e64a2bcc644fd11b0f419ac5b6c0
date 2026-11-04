@@ -1,0 +1,21 @@
+content/questions/021-proportionnelle.yaml
+  s_50fd9f9b41bcec::t_ffb49f3b1c3835 9
+content/videos-verrouillees.yaml
+  s_50fd9f9b41bcec::t_4bb35da6780f07 24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "73dd85f0b4d7e64a2bcc644fd11b0f419ac5b6c0",
+  "prompts": {},
+  "sessions": {
+    "s_50fd9f9b41bcec": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1180f802-cf94-4ee3-993b-407a44bd1ac4",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
