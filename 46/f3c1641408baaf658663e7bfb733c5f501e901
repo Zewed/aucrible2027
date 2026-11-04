@@ -1,0 +1,21 @@
+content/questions/014-eoliennes.yaml
+  s_d58a7fe628bfd6::t_38c3bf29dbda42 9
+content/videos-verrouillees.yaml
+  s_d58a7fe628bfd6::t_34872d0db7648f 17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "46f3c1641408baaf658663e7bfb733c5f501e901",
+  "prompts": {},
+  "sessions": {
+    "s_d58a7fe628bfd6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "bc9c6707-c130-478c-af0d-924edada6335",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
