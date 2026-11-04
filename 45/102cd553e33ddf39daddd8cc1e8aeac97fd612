@@ -1,0 +1,23 @@
+content/questions/001-isf.yaml
+  s_c6b62255f0bc19::t_2211cba53a4d12 9
+content/questions/002-smic.yaml
+  s_c6b62255f0bc19::t_a7e32020c6c197 9
+content/videos-verrouillees.yaml
+  s_c6b62255f0bc19::t_3e89fbd611d164 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "45102cd553e33ddf39daddd8cc1e8aeac97fd612",
+  "prompts": {},
+  "sessions": {
+    "s_c6b62255f0bc19": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-acfcc8f514beb303f",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
