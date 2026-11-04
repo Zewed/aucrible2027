@@ -1,0 +1,10 @@
+/* Repère provisoire : la liste des questions, celles dont la vidéo est verrouillée en couleur. */
+.verrous { max-width: var(--max); margin: 0 auto; padding: 0 16px 40px; }
+.verrous h1 { font: 800 clamp(44px, 9vw, 88px)/.95 var(--display); letter-spacing: -0.02em; }
+.verrous h1 span { color: var(--muted); }
+.verrous-compte { margin-top: 10px; font: 700 20px/1.3 var(--text); }
+.verrous ol { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 2px; }
+.verrous li { display: grid; grid-template-columns: 48px 1fr auto; gap: 12px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--table-2); color: var(--muted); }
+.verrous li.faite { color: var(--sur-table); font-weight: 700; }
+.verrous-num { font: 700 14px/1 var(--text); }
+.verrous-etat { font: 700 13px/1 var(--text); color: var(--eco-texte); white-space: nowrap; }
