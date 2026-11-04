@@ -1,0 +1,21 @@
+content/questions/032-ouighours.yaml
+  s_3bf2cefd61134f::t_fb267bf1397c33 9
+content/videos-verrouillees.yaml
+  s_3bf2cefd61134f::t_e86e98eefce489 35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "767c99cce7a149b0a5a63aefa506681933b517d5",
+  "prompts": {},
+  "sessions": {
+    "s_3bf2cefd61134f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1d9ef5fc-1f02-4489-9298-af22e2d757a8",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
