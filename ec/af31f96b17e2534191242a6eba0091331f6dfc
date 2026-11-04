@@ -1,0 +1,23 @@
+content/questions/003-voitures-thermiques.yaml
+  s_dbb42996e2ea34::t_def1d020df2d56 9
+content/questions/004-quotas-immigration.yaml
+  s_dbb42996e2ea34::t_8bf7d1ff97829f 9
+content/videos-verrouillees.yaml
+  s_dbb42996e2ea34::t_50abb45ec23fa1 6-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ecaf31f96b17e2534191242a6eba0091331f6dfc",
+  "prompts": {},
+  "sessions": {
+    "s_dbb42996e2ea34": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "65bd9640-262e-4d99-b283-9811b712e9ac",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
