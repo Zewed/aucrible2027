@@ -1,0 +1,21 @@
+content/questions/033-heritage.yaml
+  s_a5cba2a392d1f2::t_ce7eed7b490eae 9
+content/videos-verrouillees.yaml
+  s_a5cba2a392d1f2::t_281105e284cc1f 36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "81593d97e18183abcc6c25abee0c6b7ab20301b2",
+  "prompts": {},
+  "sessions": {
+    "s_a5cba2a392d1f2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c05a8c7e-d74f-4b7c-a9a1-0cdd0e4ba188",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
