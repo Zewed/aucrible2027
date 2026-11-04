@@ -1,0 +1,31 @@
+content/videos-verrouillees.yaml
+  s_a63a06aa16913d::t_7ffbfd223f2d78 1-5
+src/app/verrous/verrous.css
+  s_a63a06aa16913d::t_1d61eb8b41d102 1-10
+src/components/PiedDePage.tsx
+  s_a63a06aa16913d::t_1d61eb8b41d102 39,45-50
+src/app/verrous/page.tsx
+  s_a63a06aa16913d::t_1d61eb8b41d102 1-40
+src/lib/contenu.ts
+  s_a63a06aa16913d::t_7ffbfd223f2d78 203-207
+src/app/globals.css
+  s_a63a06aa16913d::t_1d61eb8b41d102 552-555
+src/app/layout.tsx
+  s_a63a06aa16913d::t_1d61eb8b41d102 9,43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "79278817a6de0dd75cb81f687c4b749a5a8499ce",
+  "prompts": {},
+  "sessions": {
+    "s_a63a06aa16913d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fbd4f039-b5a0-48da-846f-e97a5ed58504",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
