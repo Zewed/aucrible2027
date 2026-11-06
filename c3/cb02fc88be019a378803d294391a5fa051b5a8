@@ -1,0 +1,21 @@
+content/questions/044-depassements-honoraires.yaml
+  s_dd24adcb855433::t_4dd8489bdfe07e 9
+content/videos-verrouillees.yaml
+  s_dd24adcb855433::t_b4412518481f26 45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c3cb02fc88be019a378803d294391a5fa051b5a8",
+  "prompts": {},
+  "sessions": {
+    "s_dd24adcb855433": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1471bbd8-a831-4eb2-b7c4-d421372a36de",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
