@@ -1,0 +1,21 @@
+content/questions/056-voile-sport.yaml
+  s_55cd4d82dc7421::t_0ed1d44359fc18 12
+content/videos-verrouillees.yaml
+  s_55cd4d82dc7421::t_f7f1602eec35a7 59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4b7e2e00cc93e56ddd2dfb6bd604b46fb7d3b2cf",
+  "prompts": {},
+  "sessions": {
+    "s_55cd4d82dc7421": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d943a0ea-e4fa-4eae-8de1-1c0a7ac121cc",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
