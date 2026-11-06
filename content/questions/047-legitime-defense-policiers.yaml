@@ -38,18 +38,62 @@ options:
     defenseurs: "Selon une étude de chercheurs, les tirs mortels de policiers sur des voitures ont été multipliés par cinq après 2017, et la Cour européenne des droits de l'homme a condamné la France en 2018 pour un tir de 2008 sur une voiture déjà en fuite."
     critiques: "Les refus de s'arrêter qui mettent des vies en danger ont doublé en dix ans, et les députés chargés d'évaluer la loi n'ont pas établi qu'elle ait fait tirer davantage : la part des refus suivis d'un tir est revenue dès 2019 à son niveau d'avant 2017."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "En 2023, les policiers ont tiré 79 fois sur des voitures en mouvement, et 3 personnes en sont mortes."
+        source: { organisme: "Ministère de l'Intérieur", annee: 2024 }
+      defenseurs:
+        - texte: "Les tirs mortels sur des voitures ont bondi après 2017 : 25 morts de mars 2017 à octobre 2022, contre 4 de juillet 2011 à février 2017."
+          source: { organisme: "Revue Esprit", annee: 2022 }
+        - texte: "La France a été condamnée par la Cour européenne des droits de l'homme pour un tir sur une voiture déjà en fuite, qui avait tué un passager."
+        - texte: "L'année de la loi a battu un record : 202 tirs de policiers sur des voitures en mouvement en 2017."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2024 }
+      critiques:
+        - texte: "Rapportés au nombre de refus de s'arrêter, les tirs n'ont pas augmenté : 0,6 à 0,7 % avant 2017, et le même niveau dès 2019."
+          source: { organisme: "Assemblée nationale", annee: 2024 }
+        - texte: "Les tirs de la police sur des voitures ont baissé depuis le pic : 32 % de moins entre 2017 et 2022."
+          source: { organisme: "Assemblée nationale", annee: 2024 }
+        - texte: "La plupart des tirs se font en légitime défense, une règle bien antérieure à 2017 : la loi n'explique pas les morts."
   - id: B
     libelle: "Garder les règles actuelles"
     implique: "Les cinq cas de tir fixés en 2017 restent tels quels, sans présomption : après un tir, la justice vérifie au cas par cas qu'il était nécessaire. L'effort porte sur la formation et le matériel pour arrêter les voitures."
     defenseurs: "La loi protège déjà le policier qui respecte ses règles, alors qu'une présomption risquerait, selon le Défenseur des droits, de faire peser la preuve sur les victimes et de banaliser l'usage des armes."
     critiques: "Pour les uns, la loi de 2017 a été comprise comme des règles plus souples et doit être resserrée ; pour les autres, des policiers qui ont respecté la loi restent traités d'emblée comme des suspects."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé pour la formation et le matériel. Policiers et gendarmes font face à environ 25 700 refus de s'arrêter par an, en moyenne de 2016 à 2023."
+        source: { organisme: "Ministère de l'Intérieur", annee: 2024 }
+      defenseurs:
+        - texte: "Un policier qui tire par nécessité, et sans excès, n'est déjà pas responsable pénalement : il n'a pas besoin d'une présomption."
+        - texte: "Les forces de l'ordre sont déjà contrôlées : l'inspection de la police mène 1 065 enquêtes judiciaires par an."
+          source: { organisme: "Inspection générale de la police nationale", annee: 2023 }
+        - texte: "Mieux vaut former et équiper : apprendre à faire baisser la tension, poser des herses commandées à distance, suivre le fuyard pour l'arrêter plus tard."
+      critiques:
+        - texte: "Même sans changer les conditions de tir, la loi de 2017 a été lue sur le terrain comme un feu vert : il faut la resserrer."
+        - texte: "Les refus de s'arrêter qui mettent des vies en danger ont presque doublé, de 2 520 en 2012 à 4 905 en 2022, et les règles n'ont pas suivi."
+          source: { organisme: "Assemblée nationale", annee: 2024 }
+        - texte: "Par peur des poursuites, des agents risquent d'hésiter, et la police d'intervenir trop tard."
   - id: C
     libelle: "Présumer que le tir respecte la loi"
     implique: "Quand un policier ou un gendarme tire, il est présumé avoir agi dans l'un des cinq cas prévus et avec l'absolue nécessité exigée. Toute preuve contraire, une vidéo par exemple, peut renverser cette présomption à tout moment."
     defenseurs: "Les agents décident en quelques secondes, face à des refus de s'arrêter plus dangereux : quand ils ont agi dans le cadre de la loi, ils ne doivent pas être traités d'emblée comme des suspects. Chacun est déjà présumé en légitime défense dans deux cas."
     critiques: "La présomption dépendrait du métier de celui qui tire et non des circonstances, et le Défenseur des droits comme les avocats craignent qu'elle affaiblisse le contrôle du juge et fasse peser la preuve sur les victimes."
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "Votée par l'Assemblée nationale le 7 juillet 2026, par 313 voix contre 199, elle doit encore être examinée par le Sénat."
+        source: { organisme: "Assemblée nationale", annee: 2026 }
+      defenseurs:
+        - texte: "Un agent qui a tiré dans les règles ne doit pas être traité ensuite en suspect, placé en garde à vue ou suspendu."
+        - texte: "Chacun est déjà présumé en légitime défense face à une intrusion de nuit ou un vol avec violence, sans que le juge cesse de vérifier."
+        - texte: "Les agents décident en quelques secondes face à des refus de plus en plus dangereux : 21 % mettaient des vies en danger en 2023, contre 16 % en 2016."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2024 }
+      critiques:
+        - texte: "Elle protégerait quelqu'un pour son métier, et non plus pour ce qui s'est passé au moment du tir."
+        - texte: "Ce serait aux victimes et à leurs familles de prouver que le tir était injustifié, et l'usage des armes risquerait de devenir banal."
+        - texte: "Le danger vise surtout les autres usagers : dans 90 % des refus de s'arrêter dangereux, ce sont eux qui sont menacés, les agents dans 10 %."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2024 }
 pourAllerPlusLoin:
   - titre: "Légifrance, article L. 435-1 du code de la sécurité intérieure"
     url: https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000034107970

@@ -34,18 +34,66 @@ options:
     critiques: "Des compagnies, notamment à bas prix, pourraient rouvrir des lignes où l'avion émet près de 80 fois plus de CO2 par passager que le train."
     # Moins de règles, plus de place au marché ; note modérée, car la mesure actuelle vise trois lignes.
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "Supprimer l'interdiction permettrait de rouvrir trois lignes ; leur fermeture évite environ 55 000 tonnes de CO2 par an, selon une estimation."
+        source: { organisme: "Direction générale de l'aviation civile", annee: 2023 }
+      defenseurs:
+        - texte: "Les vols intérieurs pèsent peu dans le bilan du pays : 0,5 % des émissions nationales."
+          source: { organisme: "Ministère de la Transition écologique", annee: 2023 }
+        - texte: "Les voyageurs choisissent déjà le train d'eux-mêmes : le trafic intérieur en métropole reste 26,6 % sous son niveau de 2019."
+          source: { organisme: "Direction générale de l'aviation civile", annee: 2026 }
+        - texte: "Interdire un mode de transport entrave la liberté d'entreprendre et laisse le train sans concurrence."
+      critiques:
+        - texte: "Par passager, l'avion émet bien plus que le train : 22,5 kg de CO2 pour 100 km, contre 0,29 kg en TGV."
+          source: { organisme: "Ademe", annee: 2026 }
+        - texte: "La loi sert justement à empêcher d'autres compagnies, notamment à bas prix, de reprendre les lignes qu'Air France a quittées."
+        - texte: "Les Français soutiennent l'interdiction : 69 % voulaient interdire les vols intérieurs quand le train fait le trajet dans le même temps."
+          source: { organisme: "Elabe", document: "sondage pour BFMTV", annee: 2019 }
   - id: B
     libelle: "La garder à 2 h 30"
     implique: "Le décret est reconduit : les vols sont interdits quand le train relie les deux villes sans changement en moins de 2 h 30, et les vols depuis Roissy restent permis pour les correspondances."
     defenseurs: "Une « interdiction raisonnable », selon le rapporteur de la loi au Sénat, qui laisse faire l'aller-retour dans la journée et ne coupe pas les correspondances vers l'étranger depuis Roissy."
     critiques: "Pour les uns, un « coup d'épée dans l'eau » qui vise trois lignes déjà suspendues ; pour les autres, une entrave à la liberté d'entreprendre."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "La garder ne change rien : trois lignes restent interdites, toutes au départ de Paris-Orly, et les vols depuis Roissy restent permis."
+        source: { organisme: "Ministère de la Transition écologique", annee: 2023 }
+      defenseurs:
+        - texte: "C'est une interdiction raisonnable : elle laisse faire l'aller-retour dans la journée et préserve les lignes de service public."
+        - texte: "Les émissions baissent déjà sans interdiction nouvelle, avec des avions plus sobres : 116,2 g de CO2 par passager et par kilomètre en 2024, contre 126,0 g en 2019."
+          source: { organisme: "Direction générale de l'aviation civile", annee: 2024 }
+        - texte: "Le droit européen ne permet pas d'aller beaucoup plus loin : la Commission n'a validé la mesure que pour trois lignes et trois ans."
+      critiques:
+        - texte: "La loi n'a fait qu'empêcher la réouverture de lignes qu'Air France avait déjà fermées : elle n'a supprimé aucun vol existant."
+        - texte: "Le seuil de 2 h 30 touche peu de vols : il ne visait que 5 lignes et 12 % des passagers des vols intérieurs en métropole."
+          source: { organisme: "UFC-Que Choisir", annee: 2021 }
+        - texte: "Protéger les vols de Roissy revient à ne pas compter les correspondances, alors que le train dessert la gare de l'aéroport."
   - id: C
     libelle: "L'étendre à moins de 4 heures de train"
     implique: "Comme le proposait la Convention citoyenne pour le climat : 18 à 23 lignes seraient concernées, et environ 30 % des passagers des vols intérieurs en métropole selon l'UFC-Que Choisir ; ces estimations d'associations favorables à ce seuil reposent sur le trafic d'avant le Covid."
     defenseurs: "Sur ces trajets, le train fait perdre environ 40 minutes et émet près de 80 fois moins de CO2 par passager ; l'effet sur les émissions serait trois fois celui du seuil de 2 h 30, selon deux associations."
     critiques: "Les TGV sont déjà remplis à 77 % en moyenne, des voyageurs en correspondance pourraient passer par des aéroports étrangers, et l'aérien régional a déjà perdu des emplois."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "Ses partisans estiment que les émissions des vols en métropole baisseraient de 33,2 %, contre 11,2 % au seuil de 2 h 30. Cette estimation date de 2021, avant la baisse du trafic."
+        source: { organisme: "Réseau Action Climat", annee: 2021 }
+      defenseurs:
+        - texte: "Sur ces trajets, le train fait perdre peu de temps : 40 minutes en moyenne, attente à l'aéroport comprise."
+          source: { organisme: "UFC-Que Choisir", annee: 2021 }
+        - texte: "Le réseau existe déjà : sur les 23 lignes concernées, 21 ne demanderaient aucun changement de l'offre de train."
+          source: { organisme: "Réseau Action Climat", annee: 2021 }
+        - texte: "La concurrence entre compagnies de train augmente l'offre : sur Paris–Lyon–Marseille, le nombre de trains proposés a grimpé de plus de 20 %."
+          source: { organisme: "Autorité de régulation des transports", annee: 2026 }
+      critiques:
+        - texte: "Les TGV sont déjà très remplis : 77 % des places occupées en moyenne en 2025, un record, avec moins de départs qu'en 2019."
+          source: { organisme: "Autorité de régulation des transports", annee: 2026 }
+        - texte: "Beaucoup de ces vols servent aux correspondances : au seuil de 2 h 30, 67 % des passagers concernés passaient par Roissy."
+          source: { organisme: "UFC-Que Choisir", annee: 2021 }
+        - texte: "Le train n'est pas toujours à l'heure : 25 % des trains à grande vitesse arrivent avec plus de 5 minutes de retard."
+          source: { organisme: "Autorité de régulation des transports", annee: 2026 }
   - id: D
     libelle: "Aller au-delà de 4 heures"
     implique: "Interdire aussi les vols quand le train met jusqu'à 6 heures, comme le demande Greenpeace, avec plus de trains de nuit ou très tôt le matin."
@@ -53,6 +101,22 @@ options:
     critiques: "Plus le seuil monte, plus le train fait perdre de temps face à l'avion, et des régions éloignées de Paris, dont l'État finance des lignes aériennes, pourraient perdre leur liaison rapide."
     # Même sens que C, plus loin ; laissé à −1 pour ne pas pousser le plateau vers les bords (à −2 si l'auteur veut les distinguer).
     axes: { societe: -2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Tous les vols intérieurs en métropole ont émis 1,5 million de tonnes de CO2 en 2024."
+        source: { organisme: "Direction générale de l'aviation civile", annee: 2024 }
+      defenseurs:
+        - texte: "Les lignes intérieures qui émettent le plus, comme Paris–Nice, Paris–Toulouse ou Paris–Marseille, échappent au seuil actuel : il faut viser plus loin."
+        - texte: "Avec un train direct, le train est déjà moins cher : 64 euros en moyenne au prix le plus bas, contre 106 euros pour l'avion."
+          source: { organisme: "UFC-Que Choisir", annee: 2025 }
+        - texte: "Un seuil plus haut a ses partisans : 58 % des sondés approuvaient en 2020 de supprimer les vols quand le train met moins de 6 heures."
+          source: { organisme: "BVA", document: "sondage commandé par Greenpeace", annee: 2020 }
+      critiques:
+        - texte: "Avec un changement, le train coûte plus cher : 113 euros en moyenne au prix le plus bas, contre 102 euros pour l'avion."
+          source: { organisme: "UFC-Que Choisir", annee: 2025 }
+        - texte: "Des villes éloignées de Paris perdraient leur liaison rapide, alors que l'État a consacré 22 millions d'euros en 2023 à ces lignes aériennes de service public."
+          source: { organisme: "Gouvernement", document: "réponse à une question écrite", annee: 2024 }
+        - texte: "Aller plus loin demanderait des trains très tôt le matin, des trains de nuit ou un réseau plus rapide."
 pourAllerPlusLoin:
   - titre: "Légifrance, décret n° 2023-385 du 22 mai 2023"
     url: https://www.legifrance.gouv.fr/loda/id/JORFTEXT000047571222/

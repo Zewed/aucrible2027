@@ -37,18 +37,66 @@ options:
     # ce que défend le Medef : +1. Aucune option à ±2 : ni la suppression de la TVA (N. Arthaud, rangée en A) ni
     # la TVA sociale ne sont jugées plus redistributives ou plus libérales que cela par les sources de l'étude.
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Pour une TVA à 5,5 % sur l'énergie et les carburants, le gouvernement, qui s'y oppose, avance 12 à 15 milliards d'euros par an. Aucun chiffrage n'a été trouvé pour l'alimentation et l'hygiène de base."
+        source: { organisme: "Gouvernement", annee: 2026 }
+      defenseurs:
+        - texte: "Les ménages modestes y laissent une plus grande part de leur revenu : 13,1 % pour les 10 % les plus modestes, contre 7,4 % pour les 10 % les plus aisés."
+          source: { organisme: "Insee", annee: 2021 }
+        - texte: "Quand la loi oblige à baisser les prix, la baisse arrive en rayon : en Espagne, en 2023, la TVA supprimée sur le pain, le lait ou les fruits a presque entièrement profité aux clients."
+        - texte: "Les taxes font 50,1 % du prix du sans-plomb, et la TVA se paie même sur les autres taxes du carburant."
+          source: { organisme: "Agence France-Presse", annee: 2026 }
+      critiques:
+        - texte: "Les plus aisés y gagneraient le plus en euros, car ils paient le plus de TVA : 32 % pour les 20 % les plus aisés, 12 % pour les 20 % les plus modestes."
+          source: { organisme: "Insee", annee: 2021 }
+        - texte: "Sans obligation de baisser les prix, une partie de la baisse reste aux vendeurs : en 2009, les restaurateurs en ont gardé plus de 55 %."
+          source: { organisme: "American Economic Journal", annee: 2019 }
+        - texte: "Le droit européen interdit un taux réduit sur les carburants : la France ne peut pas le décider seule."
   - id: B
     libelle: "Ne pas y toucher, aider de façon ciblée"
     implique: "Les taux restent les mêmes. Pour le pouvoir d'achat, l'État verse des aides réservées à ceux qui en ont besoin, comme le chèque énergie ou l'aide carburant de 100 euros versée en 2026 à des travailleurs modestes."
     defenseurs: "Le chèque énergie protège mieux les ménages vulnérables qu'une baisse de TVA, pour un coût moindre, selon le Conseil des prélèvements obligatoires. La TVA, premier impôt avec 212 milliards d'euros en 2025, finance aussi la Sécurité sociale et les collectivités."
     critiques: "Une aide réservée n'atteint pas tous ceux qui y ont droit : à une semaine de la date limite, un travailleur sur deux qui y avait droit n'avait pas demandé l'aide carburant. Et la TVA reste plus lourde, en part du revenu, pour les ménages modestes."
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Les taux et les recettes ne changent pas : la TVA a rapporté 211,7 milliards d'euros en 2025, ce qui en fait le premier impôt."
+        source: { organisme: "Direction générale des finances publiques", annee: 2026 }
+      defenseurs:
+        - texte: "Mieux vaut aider ceux qui en ont besoin : un chèque ciblé protège davantage les ménages fragiles qu'une baisse pour tous, et pour moins cher."
+        - texte: "Les taux réduits coûtent déjà beaucoup : au moins 47 milliards d'euros par an, près d'un quart de ce que rapporte la TVA."
+          source: { organisme: "Conseil des prélèvements obligatoires", annee: 2023 }
+        - texte: "Baisser la TVA relance peu l'activité : 2 points de moins ajouteraient 0,16 % à la richesse du pays en un an, contre 0,39 % si l'État dépensait la même somme."
+          source: { organisme: "Conseil des prélèvements obligatoires", annee: 2023 }
+      critiques:
+        - texte: "Beaucoup passent à côté des aides réservées : 1,5 million de travailleurs n'avaient pas demandé l'aide carburant à une semaine de la date limite."
+          source: { organisme: "Gouvernement", annee: 2026 }
+        - texte: "Une aide ponctuelle ne suffit pas quand les prix flambent : le litre de gazole a atteint 2,38 euros en septembre 2026."
+          source: { organisme: "Direction générale de l'énergie et du climat", annee: 2026 }
+        - texte: "Ne rien changer, c'est garder la hausse d'août 2025, qui a fait passer l'abonnement d'électricité et de gaz au taux normal de TVA."
   - id: C
     libelle: "L'augmenter pour baisser les cotisations"
     implique: "Le taux de la TVA augmente de quelques points, et la recette sert à baisser les cotisations prélevées sur les salaires, pour augmenter le salaire net ou baisser le coût du travail. C'est la « TVA sociale », votée en 2012 puis abrogée avant d'entrer en vigueur."
     defenseurs: "La protection sociale repose surtout sur les salaires ; la financer aussi par la consommation fait contribuer les produits importés. Une note du ministère de l'Économie attendait en 2007 jusqu'à 300 000 emplois si la baisse vise les bas salaires, et la France taxe moins la consommation que ses voisins."
     critiques: "Une hausse de TVA passe vite dans les prix, à 70 ou 80 % en France. Selon une simulation de l'Insee, qui ne compte pas la baisse des cotisations, trois points de plus ôteraient 1,4 % de pouvoir d'achat aux 10 % les plus modestes, même après la hausse du Smic et des aides, et en Allemagne la consommation a baissé de 1,8 % au trimestre de la hausse de 2007."
     axes: { economie: 1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé pour les projets de 2026. En 2012, 1,6 point de TVA en plus devait rapporter 10,6 milliards d'euros par an pour baisser les cotisations des employeurs."
+        source: { organisme: "Sénat", annee: 2012 }
+      defenseurs:
+        - texte: "Si la baisse des cotisations vise les bas salaires, l'emploi y gagne : jusqu'à 300 000 emplois de plus dans une simulation de 2007."
+          source: { organisme: "Ministère de l'Économie", annee: 2007 }
+        - texte: "La consommation est moins taxée en France qu'ailleurs en Europe : 65 % des achats paient le taux normal, contre 71 % en moyenne dans l'Union européenne."
+          source: { organisme: "Conseil des prélèvements obligatoires", annee: 2023 }
+        - texte: "Les produits importés paieraient leur part : les entreprises françaises, qui paieraient moins de cotisations, n'auraient pas à monter leurs prix."
+      critiques:
+        - texte: "Une hausse de TVA se retrouve vite dans les prix : à 80 % après celle de 1995, à 75 % après celle de 2012."
+          source: { organisme: "Insee", annee: 2021 }
+        - texte: "Les 10 % les plus modestes perdraient 1,4 % de pouvoir d'achat avec trois points de TVA en plus, malgré la hausse du Smic et des aides, hors baisse des cotisations."
+          source: { organisme: "Insee", annee: 2021 }
+        - texte: "En Allemagne, la consommation a reculé au trimestre où la TVA a augmenté, en 2007."
 pourAllerPlusLoin:
   - titre: "Conseil des prélèvements obligatoires, La TVA, un impôt à recentrer sur son objectif de rendement, 2023"
     url: https://www.vie-publique.fr/files/rapport/pdf/288177.pdf

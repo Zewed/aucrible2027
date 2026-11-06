@@ -31,24 +31,84 @@ options:
     defenseurs: "Un logement loué aux touristes n'est plus loué aux habitants : limiter fortement ces locations rend des logements aux familles, aux étudiants et aux saisonniers."
     critiques: "Cela prive les propriétaires d'un revenu et les touristes d'une offre, avec des règles très contraignantes qui touchent aussi les petits propriétaires."
     axes: { economie: -2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Il supprimerait l'avantage fiscal des meublés de tourisme, déjà ramené de 50 % à 30 % d'abattement pour les non classés depuis les revenus de 2025."
+        source: { organisme: "Ministère du Logement", annee: 2025 }
+      defenseurs:
+        - texte: "Dans les centres, le phénomène est massif : à Paris Centre, 9,6 % des logements sont des logements entiers proposés sur Airbnb."
+          source: { organisme: "Apur", annee: 2026 }
+        - texte: "L'activité se professionnalise : 41 % des logements entiers sur Airbnb à Paris sont proposés par des loueurs à plusieurs annonces, contre 19 % en 2015."
+          source: { organisme: "Apur", annee: 2026 }
+        - texte: "Là où les annonces se multiplient, les loyers montent, surtout quand les loueurs sont des professionnels."
+      critiques:
+        - texte: "À l'échelle de Paris, le phénomène reste limité : 3,5 % des logements sont des logements entiers proposés sur Airbnb."
+          source: { organisme: "Apur", annee: 2026 }
+        - texte: "La plupart des loueurs sont des particuliers : 59 % des logements entiers sur Airbnb à Paris sont proposés par quelqu'un qui n'a qu'une annonce."
+          source: { organisme: "Apur", annee: 2026 }
+        - texte: "Un plafond aussi bas toucherait aussi ceux qui louent leur résidence principale pendant leurs vacances."
   - id: B
     libelle: "Oui, en durcissant les règles actuelles"
     implique: "Les outils de la loi de 2024 sont appliqués plus largement, avec des autorisations, des quotas et des contrôles plus systématiques là où le logement manque."
     defenseurs: "Les règles ne valent que si elles sont appliquées : les durcir là où le logement manque protège les habitants sans tout interdire."
     critiques: "Les outils sont déjà nombreux et varient d'une commune à l'autre, ce qui les rend complexes pour les propriétaires et les touristes."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Il s'appuierait sur des sanctions déjà alourdies : jusqu'à 100 000 euros d'amende pour un loueur sans autorisation, contre 50 000 euros avant novembre 2024."
+        source: { organisme: "Ministère du Logement", annee: 2025 }
+      defenseurs:
+        - texte: "Les autorisations restent l'exception : à Paris, seules 248 ont été accordées avec compensation depuis 2010, pour 548 logements."
+          source: { organisme: "Ville de Paris", document: "données citées par l'Apur", annee: 2026 }
+        - texte: "Rendre l'autorisation et les contrôles systématiques là où le logement manque protège les habitants sans interdire la location ailleurs."
+        - texte: "Saint-Malo, Annecy, Cancale ou Chamonix ont déjà fixé des quotas ou réservé des zones aux habitants : il faut généraliser."
+      critiques:
+        - texte: "Les règles existantes n'ont pas suffi : à Paris, l'offre de logements entiers sur Airbnb a augmenté de 68 % entre 2015 et 2025."
+          source: { organisme: "Apur", annee: 2026 }
+        - texte: "Les outils sont déjà nombreux et changent d'une commune à l'autre : propriétaires et touristes s'y perdent."
+        - texte: "Durcir les contrôles n'a pas de sens tant que le portail national d'enregistrement n'est pas ouvert, prévu au quatrième trimestre 2026."
   - id: C
     libelle: "Non, le cadre de 2024 suffit"
     implique: "Les règles de 2024 sont conservées et les communes les appliquent ; on évalue leurs effets avant d'aller plus loin."
     defenseurs: "Les communes connaissent leur terrain et leur population : laissons-leur le temps d'utiliser des règles qui viennent d'être complétées."
     critiques: "Chaque commune décide de s'en servir ou non : là où elle ne le fait pas, rien ne change."
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Il garde les outils de 2024 : chaque commune peut, par exemple, ramener de 120 à 90 jours par an la location d'une résidence principale."
+        source: { organisme: "Ministère du Logement", annee: 2025 }
+      defenseurs:
+        - texte: "Les règles commencent à marcher : à Paris, l'offre de logements entiers sur Airbnb a baissé de 14 % depuis le passage à 90 jours, en janvier 2025."
+          source: { organisme: "Apur", annee: 2026 }
+        - texte: "La loi de 2024 a été votée largement : 168 voix contre 54 à l'Assemblée, à l'unanimité au Sénat."
+          source: { organisme: "Assemblée nationale", annee: 2024 }
+        - texte: "La loi vient d'être complétée et aucun bilan n'existe encore : il faut l'évaluer avant d'aller plus loin."
+      critiques:
+        - texte: "Les règles sont contournées : à Paris, 6 759 logements entiers sur Airbnb, un sur sept, sont proposés en bail mobilité, que ces règles ne visent pas."
+          source: { organisme: "Apur", annee: 2026 }
+        - texte: "La limite de jours est difficile à faire respecter : à Paris, 35 633 logements entiers sont ouverts à la réservation plus de 90 jours par an."
+          source: { organisme: "Apur", annee: 2026 }
+        - texte: "Chaque commune choisit de s'en servir ou non : là où elle ne fait rien, rien ne change."
   - id: D
     libelle: "Non, alléger les règles"
     implique: "Les contraintes et la fiscalité ajoutées en 2024 sont assouplies, pour laisser les propriétaires louer plus librement."
     defenseurs: "Un propriétaire doit pouvoir louer son bien comme il l'entend : ces règles pénalisent surtout les petits propriétaires, qui complètent ainsi leurs revenus."
     critiques: "Sans limites, ces locations peuvent évincer les habitants du logement dans les zones tendues et gêner le voisinage."
     axes: { economie: 1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Il concernerait une activité de 213 millions de nuitées réservées chez des particuliers en France en 2025, 22,3 % de toute l'Union européenne."
+        source: { organisme: "Insee", annee: 2026 }
+      defenseurs:
+        - texte: "Ce ne sont pas que des touristes étrangers : 64 % des nuitées chez des particuliers étaient réservées par des Français en 2022."
+          source: { organisme: "Insee", annee: 2024 }
+        - texte: "Un propriétaire doit pouvoir louer son bien comme il l'entend, surtout pour compléter ses revenus."
+        - texte: "La fiscalité de ces locations a changé plusieurs fois en 2024 : les propriétaires ne peuvent plus rien prévoir."
+      critiques:
+        - texte: "Ces locations retirent des logements aux habitants : environ 20 000 appartements parisiens auraient quitté la location à l'année, selon une estimation de 2018."
+          source: { organisme: "Sénat", annee: 2018 }
+        - texte: "Sans limites, le voisinage en pâtit : bruit des arrivées tardives, fêtes, commerces de quartier remplacés par des boutiques de souvenirs."
+        - texte: "Sans enregistrement ni contrôle, les communes ne savent même pas combien de logements sont loués aux touristes."
 pourAllerPlusLoin:
   - titre: "Ministère du Logement, guide pratique 2025 de la réglementation des meublés de tourisme"
     url: https://www.ecologie.gouv.fr/sites/default/files/documents/25113_GuidePratique2025MeubleTourisme.pdf

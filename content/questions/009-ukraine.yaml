@@ -29,21 +29,83 @@ options:
     implique: La France cesse d'armer l'Ukraine et mise sur la négociation.
     defenseurs: Les finances publiques ne le permettent plus, et la logique du « toujours plus d'armes » n'amène pas la paix.
     critiques: Relâcher l'aide fragiliserait l'Ukraine dans d'éventuelles négociations.
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage de l'économie n'a été trouvé. L'aide militaire directe de la France a coûté 5,9 milliards d'euros de février 2022 à fin 2024."
+        source: { organisme: "Ministère des Armées", annee: 2025 }
+      defenseurs:
+        - texte: "La France a déjà beaucoup donné : 26,2 milliards d'euros depuis 2022, en comptant sa part de l'aide européenne."
+          source: { organisme: "Institut de Kiel", annee: 2026 }
+        - texte: "Cette guerre n'est pas la nôtre : la France n'a pas à armer l'un des deux camps."
+        - texte: "Une négociation, c'est ce que veulent les Ukrainiens : 66 % souhaitent négocier la fin de la guerre au plus vite."
+          source: { organisme: "Gallup", annee: 2026 }
+      critiques:
+        - texte: "Sans armes, l'Ukraine ne pourrait plus tenir le front : la Russie contrôle déjà 19 % de son territoire."
+          source: { organisme: "DeepState", annee: 2026 }
+        - texte: "Abandonner l'Ukraine encouragerait la Russie, qui ne s'arrêtera pas là."
+        - texte: "La France se retirerait d'un effort que l'Europe porte désormais : 201,4 milliards d'euros d'aide européenne fin 2025, contre 115,3 venus des États-Unis."
+          source: { organisme: "Institut de Kiel", annee: 2026 }
   - id: B
     libelle: Les limiter au matériel de défense
     implique: Formation et armes de défense seulement, sans nouveau financement et sans arme permettant de frapper en territoire russe.
     defenseurs: On aide l'Ukraine à se défendre sans que la France devienne cobelligérante ni qu'elle s'endette davantage.
     critiques: Une aide plafonnée laisse l'Ukraine en position de faiblesse dans d'éventuelles négociations.
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. La formation continuerait : plus de 20 000 soldats ukrainiens ont été formés par la France depuis 2022."
+        source: { organisme: "Ministère des Armées", annee: 2026 }
+      defenseurs:
+        - texte: "La France ne peut plus payer au niveau actuel : sa dette publique atteint 119 % de la richesse du pays."
+          source: { organisme: "Insee", annee: 2026 }
+        - texte: "Des armes pour se défendre, oui ; des armes pour frapper le territoire russe, non : la France ne doit pas entrer dans la guerre."
+        - texte: "La paix passera par la diplomatie : il faut réunir une conférence de paix sous l'égide de l'ONU."
+      critiques:
+        - texte: "L'aide pèse peu dans le budget : environ 1,3 % des dépenses annuelles de l'État, part européenne comprise."
+          source: { organisme: "franceinfo", annee: 2026 }
+        - texte: "Avec une aide plafonnée, l'Ukraine arriverait affaiblie à la table des négociations."
+        - texte: "Livrer des armes, même défensives, prolonge la guerre au lieu d'y mettre fin."
   - id: C
     libelle: Les poursuivre au niveau actuel
     implique: Les livraisons et la formation continuent, dans le cadre de l'accord de sécurité conclu en 2024 pour dix ans.
     defenseurs: "Il faut continuer de former les soldats ukrainiens et de livrer des armes : l'Ukraine est la sentinelle de la sécurité de l'Europe."
     critiques: Certains jugent l'effort trop lourd pour les finances publiques, d'autres insuffisant pour que l'Ukraine négocie en position de force.
+    detail:
+      chiffrage:
+        texte: "Poursuivre garde le rythme actuel : selon une estimation, 6,2 milliards d'euros d'aide militaire de février 2022 à juin 2026."
+        source: { organisme: "Institut de Kiel", annee: 2026 }
+      defenseurs:
+        - texte: "Ce n'est pas de la charité : soutenir l'Ukraine, c'est aussi investir dans notre propre sécurité."
+        - texte: "La France tient parole : l'accord signé en 2024 l'engage à soutenir l'armée ukrainienne pendant dix ans."
+          source: { organisme: "Élysée", annee: 2024 }
+        - texte: "Livrer n'épuise pas l'armée : en deux ans, le fabricant du canon Caesar a triplé sa production et réduit ses délais de moitié."
+          source: { organisme: "Ministère des Armées", annee: 2025 }
+      critiques:
+        - texte: "L'effort pèse lourd pour un pays en déficit : environ 6 milliards d'euros par an, part européenne comprise."
+          source: { organisme: "Le Monde", annee: 2026 }
+        - texte: "Au niveau actuel, la France fait moins que beaucoup de ses voisins : 0,3 % de sa richesse, au 13e rang européen."
+          source: { organisme: "Institut de Kiel", annee: 2025 }
+        - texte: "Les quantités livrées restent secrètes : les Français ne savent pas exactement ce qu'ils financent."
   - id: D
     libelle: Les renforcer
     implique: Plus de livraisons, notamment de défense aérienne, plus de financement et, pour certains, des armes de longue portée.
     defenseurs: Relâcher le soutien fragiliserait l'Ukraine ; il faut l'aider à tenir et à négocier en position de force.
     critiques: Le coût pèse sur des finances publiques tendues, et la France risque d'être entraînée dans une escalade face à une puissance nucléaire.
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. L'aide militaire européenne ralentit : environ 2 milliards d'euros par mois début 2026, contre 2,4 milliards en moyenne en 2025."
+        source: { organisme: "Institut de Kiel", annee: 2026 }
+      defenseurs:
+        - texte: "Les Ukrainiens refusent une paix à tout prix : 61 % jugent inacceptable de céder tout le Donbass, même contre des garanties de sécurité."
+          source: { organisme: "Institut international de sociologie de Kiev", annee: 2026 }
+        - texte: "Il faut accélérer les livraisons, en priorité de défense aérienne, face aux frappes de drones qui continuent."
+        - texte: "L'Europe doit assurer elle-même sa sécurité, sans dépendre des États-Unis : elle a mobilisé 48,3 milliards d'euros d'aide militaire pour l'Ukraine de 2022 à début 2025."
+          source: { organisme: "Commission européenne", annee: 2025 }
+      critiques:
+        - texte: "Le budget ne le permet pas : l'aide représente déjà près de 4 % des déficits publics de chaque année, part européenne comprise."
+          source: { organisme: "franceinfo", annee: 2026 }
+        - texte: "Face à une puissance nucléaire, chaque pas de plus risque d'entraîner la France dans une escalade."
+        - texte: "Livrer plus viderait les stocks de l'armée : en 2022, elle avait déjà donné 18 de ses 76 canons Caesar."
+          source: { organisme: "Agence Belga", annee: 2022 }
 pourAllerPlusLoin:
   - titre: Ministère des Armées, Ukraine, la France poursuit son soutien, 2026
     url: https://www.defense.gouv.fr/actualites/ukraine-france-poursuit-son-soutien

@@ -30,21 +30,83 @@ options:
     implique: "La France demande la fin des sanctions européennes, y compris sur l'énergie, et relance la coopération avec Moscou."
     defenseurs: "Les sanctions coûtent plus cher aux Européens qu'à la Russie, qui vend ailleurs, et la paix en Europe passe par un partenariat avec elle."
     critiques: "Les lever sans accord de paix rendrait à Moscou ses revenus européens et priverait l'Europe d'un levier pour négocier la paix."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé de ce que rapporterait une levée. En 2025, la France a vendu 1,89 milliard d'euros de biens à la Russie, 70,9 % de moins qu'en 2021."
+        source: { organisme: "Direction générale du Trésor", annee: 2026 }
+      defenseurs:
+        - texte: "Les sanctions font plus de tort aux Européens qu'à la Russie, qui a trouvé d'autres clients."
+        - texte: "Elles n'empêchent pas l'effort de guerre : en 2025, l'industrie russe de l'armement a grandi de 3,6 %, plus vite que l'économie du pays."
+          source: { organisme: "Direction générale du Trésor", annee: 2026 }
+        - texte: "La paix en Europe passe par un partenariat avec la Russie, tant nos intérêts sont communs."
+      critiques:
+        - texte: "Même le plan américain de 2025 ne levait les sanctions que par étapes, et prévoyait de les rétablir en cas de nouvelle invasion."
+        - texte: "Les lever rendrait l'Europe de nouveau dépendante : la Russie ne fournit plus que 4 % de l'énergie importée par la France, contre 15 % en 2021."
+          source: { organisme: "Direction générale du Trésor", annee: 2026 }
+        - texte: "Les lever rendrait à Moscou l'argent de sa banque centrale bloqué en Europe, dont les intérêts aident aujourd'hui l'Ukraine."
   - id: B
     libelle: "Garder les sanctions ciblées, lever les autres"
     implique: "On lève les sanctions sur l'énergie et le commerce, mais on garde celles qui visent des dirigeants, des proches du pouvoir et le matériel militaire."
     defenseurs: "On vise les responsables de la guerre sans faire payer aux ménages et aux entreprises la hausse de l'énergie et la perte de marchés."
     critiques: "Rouvrir le commerce de l'énergie rendrait à l'État russe des recettes qui, pour ses critiques, financent sa guerre."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. En 2023, les produits sanctionnés pesaient environ 6,5 milliards d'euros d'importations, moins de 2 % de ce que la France achète."
+        source: { organisme: "Observatoire français des conjonctures économiques", annee: 2023 }
+      defenseurs:
+        - texte: "Le gaz russe reste utile en pleine crise de l'énergie : en 2025, la Russie était encore le 2e fournisseur de gaz de la France."
+          source: { organisme: "Direction générale du Trésor", annee: 2026 }
+        - texte: "Les sanctions qui comptent visent les responsables : 1 569 acteurs de l'industrie militaire russe ont encore été ajoutés aux listes en octobre 2026."
+          source: { organisme: "Toute l'Europe", annee: 2026 }
+        - texte: "On peut faire pression sur Moscou sans prendre des sanctions qui se retournent contre la France."
+      critiques:
+        - texte: "L'énergie est ce qui rapporte le plus à Moscou : le gaz fait 77,5 % de ce que la France achète à la Russie."
+          source: { organisme: "Direction générale du Trésor", annee: 2026 }
+        - texte: "La France peut s'en passer : en 2024, 38 % de son gaz liquéfié venait des États-Unis et 17 % d'Algérie."
+          source: { organisme: "Institute for Energy Economics and Financial Analysis", annee: 2025 }
+        - texte: "Viser seulement des personnes ne suffit pas : pour affaiblir Moscou, il faut le toucher au portefeuille."
   - id: C
     libelle: Les maintenir
     implique: "Les sanctions actuelles restent en place jusqu'à un accord de paix ; l'argent russe reste bloqué et seuls ses intérêts servent à l'Ukraine."
     defenseurs: "Elles gardent la pression sur Moscou et un levier pour négocier la paix, sans le risque juridique et financier d'une saisie de l'argent russe."
     critiques: "Pour les uns, elles pèsent sur l'énergie et les entreprises sans arrêter la guerre ; pour les autres, elles laissent aux Européens la charge de financer l'Ukraine."
+    detail:
+      chiffrage:
+        texte: "Les maintenir ne change rien au budget : près de 4 600 personnes et organisations restent sanctionnées, et l'argent russe reste bloqué."
+        source: { organisme: "Toute l'Europe", annee: 2026 }
+      defenseurs:
+        - texte: "Elles restent un levier pour négocier : leur levée peut s'échanger contre un accord de paix durable."
+        - texte: "Elles pèsent sur la Russie : son gouvernement ne prévoit plus que 0,4 % de croissance en 2026, et en accuse notamment les sanctions."
+          source: { organisme: "Gouvernement russe", annee: 2026 }
+        - texte: "Elles tiennent dans la durée : l'Europe a adopté 21 séries de sanctions depuis 2022, chacune à l'unanimité des 27."
+          source: { organisme: "Toute l'Europe", annee: 2026 }
+      critiques:
+        - texte: "Elles pèsent sur des entreprises françaises sans avoir arrêté la guerre : une cinquantaine sont directement touchées."
+          source: { organisme: "Observatoire français des conjonctures économiques", annee: 2023 }
+        - texte: "Elles laissent aux Européens la charge de l'Ukraine : faute d'accord sur l'argent russe, l'Union emprunte elle-même 90 milliards d'euros pour 2026 et 2027."
+          source: { organisme: "Toute l'Europe", annee: 2026 }
+        - texte: "Elles laissent des brèches : des produits raffinés à partir de pétrole russe arrivent encore en Europe par la Turquie et l'Inde."
   - id: D
     libelle: Les durcir
     implique: "La France demande de nouvelles séries de sanctions, l'arrêt de tout achat d'énergie russe et l'utilisation de l'argent russe bloqué pour financer l'Ukraine."
     defenseurs: "Il faut frapper Moscou au portefeuille : ses ventes de gaz financent sa guerre, et c'est à la Russie, pas aux Européens, de payer pour l'Ukraine."
     critiques: "Saisir l'argent d'un État heurte, pour ses critiques, le droit international, expose les entreprises européennes à des représailles et peut renchérir l'énergie."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé du coût de nouvelles sanctions. Pour l'argent russe bloqué, la Commission proposait en 2025 de prêter à l'Ukraine environ 165 milliards d'euros adossés à ces fonds."
+        source: { organisme: "Toute l'Europe", annee: 2026 }
+      defenseurs:
+        - texte: "Ses ventes de gaz financent sa guerre : en 2025, la France a encore acheté pour 3,17 milliards d'euros de gaz à la Russie."
+          source: { organisme: "Direction générale du Trésor", annee: 2026 }
+        - texte: "C'est à la Russie de réparer : plus de 86 000 réclamations ukrainiennes ont déjà été déposées auprès de la commission créée par le Conseil de l'Europe."
+          source: { organisme: "Institut Jacques Delors", annee: 2026 }
+        - texte: "Geler l'argent russe sans s'en servir laisse l'Europe impuissante : seuls ses intérêts aident aujourd'hui l'Ukraine."
+      critiques:
+        - texte: "Saisir l'argent d'une banque centrale n'a pas de base juridique sûre, faute de décision d'un tribunal international sur ce que doit la Russie."
+        - texte: "Une saisie exposerait les Européens à des représailles : Euroclear fait déjà l'objet de plus de 170 procès devant des tribunaux russes."
+          source: { organisme: "Institut Jacques Delors", annee: 2026 }
+        - texte: "Arrêter tout achat d'énergie russe en pleine crise ferait encore monter les prix : en octobre 2026, le gaz dépassait 93 euros le mégawattheure en Europe, au plus haut depuis 2022."
+          source: { organisme: "Trading Economics", annee: 2026 }
 pourAllerPlusLoin:
   - titre: "DG Trésor, relations économiques France-Russie, 2026"
     url: https://www.tresor.economie.gouv.fr/Pays/RU/les-relations-commerciales-bilaterales-franco-russes-juin-2018

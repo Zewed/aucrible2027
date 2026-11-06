@@ -34,24 +34,86 @@ options:
     defenseurs: "Faire payer chaque boîte ou chaque consultation revient à faire payer la maladie : c'est un impôt sur la maladie."
     critiques: Il faudrait financer ce que rapportent ces sommes, environ 2,5 milliards d'euros par an de dépenses en moins pour les régimes de base, par d'autres recettes ou des économies.
     axes: { economie: -2 }
+    detail:
+      chiffrage:
+        texte: "Les supprimer priverait l'Assurance maladie de ce qu'elles lui font économiser : environ 2,5 milliards d'euros en 2025."
+        source: { organisme: "Cour des comptes", annee: 2026 }
+      defenseurs:
+        - texte: "Se soigner ne devrait rien coûter de sa poche : il faut prolonger l'acquis de la Sécurité sociale jusqu'au remboursement intégral des soins prescrits."
+        - texte: "Les malades chroniques paient le plus : 78 euros par an en moyenne pour les patients en affection de longue durée, contre 41 euros pour les autres."
+          source: { organisme: "Cour des comptes", annee: 2026 }
+        - texte: "Faire payer les soins pèse plus lourd sur les ménages modestes : rapportées au revenu, ces sommes leur coûtent environ deux fois plus qu'aux ménages aisés."
+          source: { organisme: "Direction de la recherche, des études, de l'évaluation et des statistiques", annee: 2026 }
+      critiques:
+        - texte: "La France dépense déjà beaucoup pour sa santé : 11,8 % de sa richesse, parmi les trois pays de l'Union qui y consacrent le plus."
+          source: { organisme: "Direction de la recherche, des études, de l'évaluation et des statistiques", annee: 2026 }
+        - texte: "Il faudrait plus d'impôts ou de cotisations, déjà parmi les plus lourds d'Europe : 45,3 % de la richesse du pays en 2024, le 2e taux de l'Union."
+          source: { organisme: "Eurostat", annee: 2025 }
+        - texte: "Mieux vaut des franchises qu'un déremboursement : elles ne font pas monter les cotisations des complémentaires santé de tous les assurés."
   - id: B
     libelle: Ne pas les augmenter
     implique: Les montants, 1 euro par boîte et 2 euros par consultation, restent inchangés et le plafond annuel revient à 100 euros, comme avant octobre 2026.
     defenseurs: "Ceux qui en paient le plus sont les plus malades : une hausse pénalise davantage les ménages en mauvaise santé et peut conduire à renoncer à des soins."
     critiques: Sans nouvelle recette, il faut trouver ailleurs les économies d'une dépense de santé qui progresse de 3,3 % par an.
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé de ce que rapporte le plafond à 140 euros, auquel ce choix renoncerait. Le plafond reviendrait à 100 euros par an, son niveau de 2008 à septembre 2026."
+        source: { organisme: "Direction de la recherche, des études, de l'évaluation et des statistiques", annee: 2026 }
+      defenseurs:
+        - texte: "Une hausse peut faire renoncer les plus modestes : en 2008, la franchise de 50 centimes a changé les achats de médicaments de 14,3 % des plus modestes, contre 8,4 % des plus aisés."
+          source: { organisme: "Institut de recherche et documentation en économie de la santé", annee: 2010 }
+        - texte: "Les complémentaires santé n'en remboursent rien : chaque hausse retombe tout entière sur les patients."
+        - texte: "Mieux vaut chercher des économies ailleurs, par exemple sur l'aide médicale d'État, que faire payer davantage les malades."
+      critiques:
+        - texte: "La dépense de santé continue de monter : 353,2 milliards d'euros en 2025, 3,3 % de plus qu'en 2024."
+          source: { organisme: "Direction de la recherche, des études, de l'évaluation et des statistiques", annee: 2026 }
+        - texte: "Trouver l'argent par des impôts ou des cotisations pèserait davantage sur ceux qui travaillent, et pourrait coûter des emplois."
+        - texte: "Prélevées après coup, les franchises se voient peu, ce qui limite leur effet sur le recours aux soins."
   - id: C
     libelle: Les relever progressivement
     implique: Le plafond passe à 140 euros par an, puis une nouvelle étape est prévue en 2028 et une revalorisation selon l'inflation.
     defenseurs: Une hausse mesurée, qui laisse environ 18 millions de personnes exemptées, dont les mineurs et les bénéficiaires de la complémentaire santé solidaire.
     critiques: "Les plus gros consommateurs de soins paient le plus : les patients en affection de longue durée paient en moyenne 78 euros par an, contre 41 pour les autres."
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Le plafond est passé de 100 à 140 euros par an le 1er octobre 2026, et une nouvelle hausse est prévue en 2028."
+        source: { organisme: "Journal officiel", annee: 2026 }
+      defenseurs:
+        - texte: "La hausse reste mesurée : ses défenseurs l'estiment à environ 2 euros de plus par mois pour les malades de longue durée."
+          source: { organisme: "Ministère de la Santé", annee: 2026 }
+        - texte: "Les plus fragiles ne paient rien : les mineurs, les bénéficiaires de la complémentaire santé solidaire et certaines femmes enceintes, environ 18 millions de personnes."
+          source: { organisme: "Ministère de la Santé", annee: 2026 }
+        - texte: "Relever le plafond ne change rien pour ceux qui ne l'atteignent pas."
+      critiques:
+        - texte: "La hausse du plafond frappe d'abord les plus âgés : près d'un tiers de ceux qui l'atteignent ont plus de 68 ans."
+          source: { organisme: "Cour des comptes", annee: 2026 }
+        - texte: "Pour la même somme, une hausse des impôts et cotisations coûterait moins aux plus modestes : 0,06 % de leur revenu, contre 0,13 % pour une hausse des franchises."
+          source: { organisme: "Direction de la recherche, des études, de l'évaluation et des statistiques", annee: 2026 }
+        - texte: "Faire payer davantage les patients revient à taxer la maladie."
   - id: D
     libelle: Les doubler
     implique: Les plafonds sont doublés, à 200 euros par an, et les franchises s'étendent aux soins dentaires et aux dispositifs médicaux, comme proposé en 2025 et en 2026.
     defenseurs: "L'assurance maladie doit maîtriser ses dépenses : le doublement rapporterait 750 millions d'euros par an, pour continuer à investir dans l'hôpital."
     critiques: C'est un impôt sur la maladie, dont le coût rapporté au revenu est environ deux fois plus élevé pour les ménages modestes que pour les aisés, et qui peut faire renoncer à des soins.
     axes: { economie: 1 }
+    detail:
+      chiffrage:
+        texte: "Doubler les plafonds rapporterait 630 à 700 millions d'euros par an, selon les estimations. Aucun chiffrage n'a été trouvé pour l'extension aux soins dentaires et aux dispositifs médicaux."
+        source: { organisme: "Direction de la recherche, des études, de l'évaluation et des statistiques", annee: 2026 }
+      defenseurs:
+        - texte: "Les franchises rapportent : le doublement des montants par boîte et par consultation, en 2024, a été estimé à 700 millions d'euros par an."
+          source: { organisme: "Direction de la recherche, des études, de l'évaluation et des statistiques", annee: 2026 }
+        - texte: "Les Français paient peu de leur poche : 9,8 % des dépenses de santé en 2024, le troisième taux le plus bas de l'Union."
+          source: { organisme: "Direction de la recherche, des études, de l'évaluation et des statistiques", annee: 2026 }
+        - texte: "Ce que paient les patients aide l'Assurance maladie à tenir ses dépenses et à garder de quoi investir dans l'hôpital."
+      critiques:
+        - texte: "Les Français n'en veulent pas : 72 % s'opposaient au doublement envisagé à l'été 2025."
+          source: { organisme: "Elabe", annee: 2025 }
+        - texte: "Les députés l'ont déjà rejetée : en novembre 2025, l'Assemblée a supprimé leur extension et leur hausse par 197 voix contre 23."
+          source: { organisme: "Assemblée nationale", annee: 2025 }
+        - texte: "Elle ferait aussi payer les soins dentaires et le matériel médical, jusqu'ici épargnés par les franchises."
 pourAllerPlusLoin:
   - titre: DREES, Déremboursement de soins, qui paie ?, 2026
     url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/les-dossiers-de-la-drees/260218_DD_%C3%A9valuation-impact-m%C3%A9nages-d%C3%A9remboursement-partiel-soins

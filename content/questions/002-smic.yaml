@@ -33,18 +33,66 @@ options:
     defenseurs: 2 200 euros est un minimum pour vivre décemment.
     critiques: Une hausse de cette ampleur pèserait lourd sur les petites entreprises, où travaille près d'un salarié au SMIC sur quatre, et menacerait des emplois peu qualifiés.
     axes: { economie: -2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Le SMIC passerait d'environ 1 478 à 2 200 euros nets par mois, près de 50 % de plus."
+        source: { organisme: "Service-Public", annee: 2026 }
+      defenseurs:
+        - texte: "Le SMIC net dépasse à peine le seuil de pauvreté : pour une personne seule, ce seuil en vaut près de 94 %."
+          source: { organisme: "Groupe d'experts sur le SMIC", annee: 2025 }
+        - texte: "Une hausse profiterait d'abord aux femmes : elles sont 59,2 % des salariés qui touchent la hausse du SMIC, contre 45,3 % de l'ensemble des salariés."
+          source: { organisme: "Direction de l'animation de la recherche, des études et des statistiques", annee: 2025 }
+        - texte: "Une hausse du salaire minimum ne détruit pas forcément d'emplois : des travaux menés au New Jersey n'ont trouvé aucun effet négatif."
+      critiques:
+        - texte: "Elle pèserait d'abord sur les très petites entreprises : 19,4 % de leurs salariés touchent la hausse du SMIC, contre 10,8 % dans les entreprises de 10 salariés ou plus."
+          source: { organisme: "Direction de l'animation de la recherche, des études et des statistiques", annee: 2025 }
+        - texte: "Les fortes hausses coûtent des emplois : en Espagne, après 22 % de hausse en 2019, l'emploi a reculé de 4,5 points en un an dans les établissements les plus exposés."
+          source: { organisme: "Groupe d'experts sur le SMIC", annee: 2025 }
+        - texte: "Une hausse de cette ampleur écraserait l'échelle des salaires : ceux qui gagnent un peu plus que le SMIC seraient rattrapés par lui."
   - id: B
     libelle: 1 600 euros nets
     implique: Le SMIC passe à 1 600 euros nets, près de 2 000 euros bruts, soit environ 8 % de plus qu'aujourd'hui.
     defenseurs: "Ceux qui travaillent au minimum doivent pouvoir vivre de leur salaire : la hausse soutient leur pouvoir d'achat et la consommation."
     critiques: "En 2024, quand cette mesure faisait 14 % de hausse, l'Institut Montaigne la chiffrait à 19 milliards d'euros par an et à environ 300 000 emplois en moins."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Une estimation de 2024 la chiffrait à 19 milliards d'euros par an pour les finances publiques, quand elle faisait 14 % de hausse. Aucun chiffrage n'a été trouvé pour la hausse d'aujourd'hui, plus petite."
+        source: { organisme: "Institut Montaigne", annee: 2024 }
+      defenseurs:
+        - texte: "Elle coûterait peu d'emplois : pour un SMIC à 1 600 euros nets, une autre estimation de 2024 chiffrait la perte à 29 000 en un an."
+          source: { organisme: "Observatoire français des conjonctures économiques", annee: 2024 }
+        - texte: "Nos voisins paient plus : en Allemagne, le salaire minimum atteint 13,90 euros bruts de l'heure en 2026, au-dessus du SMIC, et 14,60 euros en 2027."
+          source: { organisme: "Gouvernement allemand", annee: 2025 }
+        - texte: "Mieux payer les salariés modestes soutient la consommation, donc l'activité : le SMIC peut aider à relancer l'économie."
+      critiques:
+        - texte: "Elle coûterait des emplois dès la première année : au moins 200 000, selon une estimation de 2024, quand la hausse était de 14 %."
+          source: { organisme: "Institut Montaigne", annee: 2024 }
+        - texte: "Elle coûterait aussi à l'argent public : chaque point de hausse du SMIC dégrade les comptes publics d'environ 240 millions d'euros."
+          source: { organisme: "Groupe d'experts sur le SMIC", annee: 2017 }
+        - texte: "Le moment est mal choisi : alourdir le coût du travail quand l'emploi ralentit le fragiliserait davantage."
   - id: C
     libelle: Pas de coup de pouce
     implique: Le SMIC continue d'être relevé automatiquement avec les prix et une part du gain de pouvoir d'achat des ouvriers et employés.
     defenseurs: Une règle connue, qui suit le coût de la vie sans alourdir le coût du travail ni fragiliser l'emploi.
     critiques: "La règle suit les prix : elle donne peu de pouvoir d'achat supplémentaire aux salariés les moins payés."
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Rien ne change par rapport à aujourd'hui : le SMIC suit sa règle automatique, qui l'a relevé de 1,18 % en janvier 2026 puis de 2,41 % en juin."
+        source: { organisme: "La finance pour tous", annee: 2026 }
+      defenseurs:
+        - texte: "La règle protège déjà le pouvoir d'achat : de 2021 à 2025, le SMIC a augmenté de 17 %, plus que les prix, en hausse de 14,2 %."
+          source: { organisme: "Groupe d'experts sur le SMIC", annee: 2025 }
+        - texte: "Le SMIC est déjà haut par rapport aux autres salaires : il valait 62,5 % du salaire médian en 2024, l'un des niveaux les plus élevés d'Europe."
+          source: { organisme: "OCDE", annee: 2025 }
+        - texte: "La règle suit déjà les prix payés par les ménages les plus modestes, et une part des gains de salaire des ouvriers et employés."
+      critiques:
+        - texte: "Depuis juillet 2012, aucun gouvernement n'a donné de coup de pouce au SMIC : les moins payés n'ont eu que la règle."
+        - texte: "Sans coup de pouce, le SMIC a pris un peu de retard : de 2012 à 2025, il a augmenté de 28,8 %, contre 29,4 % pour le salaire mensuel de base."
+          source: { organisme: "Groupe d'experts sur le SMIC", annee: 2025 }
+        - texte: "Le salaire minimum français est celui qui a le moins augmenté dans l'Union : 2,4 % par an en moyenne de 2016 à 2026, avant inflation."
+          source: { organisme: "Eurostat", annee: 2026 }
   - id: D
     libelle: Faire monter le net par les cotisations
     implique: Le SMIC brut reste revalorisé comme aujourd'hui ; des baisses de cotisations font monter le salaire net, sans hausse du coût pour l'employeur.
@@ -53,6 +101,22 @@ options:
     # Ne se range pas entre les niveaux de SMIC : il change le levier (cotisations plutôt que SMIC).
     horsEchelle: true
     axes: { economie: 1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage indépendant n'a été trouvé. L'un de ses partisans propose de rendre au moins 30 milliards d'euros par an aux salariés et aux entreprises, moitié en pouvoir d'achat, moitié en baisse du coût du travail."
+        source: { organisme: "Les Républicains", annee: 2026 }
+      defenseurs:
+        - texte: "Les baisses de cotisations protègent l'emploi : supprimer celles des employeurs détruirait 1,3 à 1,9 million d'emplois, surtout près du SMIC, selon une simulation."
+          source: { organisme: "Groupe d'experts sur le SMIC", annee: 2025 }
+        - texte: "Le SMIC est devenu un salaire plafond : entre 1,2 et 2 SMIC, 75 à 80 % d'une hausse de salaire est absorbée par la baisse des aides et des allègements, et par l'impôt."
+          source: { organisme: "Groupe d'experts sur le SMIC", annee: 2025 }
+        - texte: "Les cotisations ont en partie perdu leur rôle d'assurance : le financement du modèle social ne doit plus reposer sur le seul travail."
+      critiques:
+        - texte: "Les baisses de cotisations coûtent déjà cher : celles des employeurs ont coûté 75,4 milliards d'euros aux finances publiques en 2024."
+          source: { organisme: "Commission des comptes de la Sécurité sociale", annee: 2025 }
+        - texte: "Faire monter le revenu sans toucher au salaire finit payé par l'État : la hausse de 100 euros de 2018-2019 est surtout passée par la prime d'activité."
+          source: { organisme: "La finance pour tous", annee: 2026 }
+        - texte: "Moins de cotisations, c'est moins de recettes pour la protection sociale, qui devra réduire ses dépenses ou trouver d'autres ressources."
 pourAllerPlusLoin:
   - titre: Service-Public, Salaire minimum de croissance (Smic)
     url: https://www.service-public.gouv.fr/particuliers/vosdroits/F2300

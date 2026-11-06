@@ -34,18 +34,66 @@ options:
     defenseurs: "Un service de dix mois limité au territoire national a une utilité militaire réduite pour 2,3 milliards d'euros de 2026 à 2030 : mieux vaut renforcer la réserve et le service civique, qui reçoit trois fois plus de demandes que de missions."
     critiques: "Selon le rapporteur du texte à l'Assemblée, les régiments sont « ravis d'avoir un renfort » pour défendre le territoire, et un service choisi permet aux jeunes qui le veulent de s'engager sans rien imposer aux autres."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "L'arrêter éviterait la dépense prévue : environ 2,3 milliards d'euros de 2026 à 2030, sans compter la paie des encadrants."
+        source: { organisme: "Sénat", annee: 2026 }
+      defenseurs:
+        - texte: "Les jeunes veulent déjà s'engager : le service civique reçoit trois fois plus de demandes qu'il n'a de missions."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Des appelés qui ne partent jamais en opération et restent dix mois en France apportent peu aux armées."
+        - texte: "La réserve opérationnelle est un levier bien plus utile : elle doit passer à 80 000 volontaires en 2030."
+          source: { organisme: "Sénat", annee: 2026 }
+      critiques:
+        - texte: "Ces appelés renforcent les régiments qui défendent le territoire, et ceux-ci s'en félicitent."
+        - texte: "Les jeunes répondent présent : 3 000 ont rejoint la première promotion à la fin de l'été 2026."
+          source: { organisme: "Ministère des Armées", annee: 2026 }
+        - texte: "Les Français y tiennent : 86 % sont favorables au retour d'un service militaire."
+          source: { organisme: "Ipsos", annee: 2025 }
   - id: B
     libelle: "Non, garder le volontariat"
     implique: "Le service militaire de dix mois, ouvert aux 18-25 ans et payé au moins 800 euros brut par mois, monte en charge jusqu'à 10 000 jeunes en 2030, à côté du service civique ; en cas de crise majeure, le Parlement pourrait appeler au-delà des volontaires."
     defenseurs: "Les armées n'ont plus vocation à encadrer toute une génération : un service choisi et sélectif répond à leurs besoins sans contraindre ceux qui n'en veulent pas."
     critiques: "Le volontariat attire plus de jeunes déjà proches des métiers en uniforme : au service national universel, 26 % avaient un parent militaire, policier ou pompier, contre 2 % de la population, et ce service n'a atteint ni ses objectifs de participants ni celui de mixité sociale."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Le garder coûte ce qui est prévu : environ 2,3 milliards d'euros de 2026 à 2030, pour 29 500 jeunes accueillis en tout."
+        source: { organisme: "Sénat", annee: 2026 }
+      defenseurs:
+        - texte: "Encadrer toute une génération n'est plus le rôle des armées : elles ont besoin de quelques milliers de renforts choisis, pas d'appelés en masse."
+        - texte: "Même les pays qui ont rétabli l'obligation choisissent peu de jeunes : la Suède n'en retient qu'environ 8 % d'une génération."
+          source: { organisme: "France Stratégie", annee: 2025 }
+        - texte: "Il monte en charge au rythme de ce que les armées peuvent encadrer : 10 000 jeunes prévus en 2030."
+          source: { organisme: "Ministère des Armées", annee: 2026 }
+      critiques:
+        - texte: "Le volontariat ne mélange pas les milieux : au service national universel, 5 % des jeunes venaient d'un quartier prioritaire, contre 9 % des 15-17 ans."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "Le volontariat a déjà échoué : le service national universel n'a jamais attiré autant de jeunes que prévu."
+        - texte: "C'est un service mal payé, à partir de 800 euros brut par mois, qui ajoute à la précarité des jeunes."
+          source: { organisme: "Ministère des Armées", annee: 2026 }
   - id: C
     libelle: "Oui, un service civique obligatoire"
     implique: "Chaque jeune consacre plusieurs mois, de trois à dix selon les projets, à des missions d'intérêt général (écoles, maisons de retraite, secours, environnement) ; servir dans l'armée reste un choix."
     defenseurs: "Un temps commun à toute une génération, quel que soit son milieu, utile aux autres et face aux crises comme les canicules ou les inondations, sans obliger quiconque à porter les armes."
     critiques: "Une obligation civile sans lien avec la défense a une base constitutionnelle incertaine, et il faudrait des centaines de milliers de missions : 3,5 milliards d'euros par an selon France Stratégie, 18,5 milliards pour neuf mois payés au Smic selon l'Institut Montaigne (7,4 milliards nets selon ceux qui le proposent)."
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "Pour 600 000 jeunes, il coûterait de 1,7 milliard d'euros par an pour douze jours à 3,5 milliards pour une mission de service civique, hors bâtiments nouveaux."
+        source: { organisme: "France Stratégie", annee: 2025 }
+      defenseurs:
+        - texte: "Le volontariat attire surtout des jeunes déjà proches de l'uniforme : au service national universel, 26 % avaient un parent militaire, policier ou pompier, contre 2 % de la population."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "Toute une génération donnerait quelques mois aux écoles, aux maisons de retraite ou aux secours lors des canicules et des inondations."
+        - texte: "Une mission d'intérêt général sert aussi les jeunes : 73 % des volontaires du service civique la jugent utile pour leur avenir."
+          source: { organisme: "Sénat", annee: 2025 }
+      critiques:
+        - texte: "Obliger à un service civil, hors motif de défense, pourrait être censuré sans changer la Constitution."
+        - texte: "Encadrer toute une génération est un défi : un service national universel pour tous aurait demandé 482 centres et 7 712 encadrants à chaque session."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "Imposer fait moins adhérer : parmi les jeunes à qui le séjour a été imposé, 43 % se disent très satisfaits, contre 69 % des volontaires."
+          source: { organisme: "Cour des comptes", annee: 2024 }
   # D garde le pôle de l'échelle : aucun candidat n'y est rangé avec une source vérifiée (étude, § 4), mais l'option est
   # défendue dans le débat (président du RN, scénario chiffré de France Stratégie).
   - id: D
@@ -54,6 +102,22 @@ options:
     defenseurs: "Former toute une génération à la défense donne au pays des réserves nombreuses (la Finlande, 5,7 millions d'habitants, peut mobiliser 285 000 réservistes entraînés) et réunit les jeunes de tous les milieux sous la même règle."
     critiques: "Six mois pour 600 000 jeunes coûteraient 14,5 milliards d'euros par an selon France Stratégie, pour qui il semblerait impossible à organiser en moins de cinq ans et risquerait d'affaiblir l'armée de métier."
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Six mois de service pour 600 000 filles et garçons coûteraient 14,5 milliards d'euros par an, hors casernes nouvelles."
+        source: { organisme: "France Stratégie", annee: 2025 }
+      defenseurs:
+        - texte: "Un pays qui forme tous ses jeunes peut compter sur eux en cas de guerre : la Finlande, 5,7 millions d'habitants, peut mobiliser 285 000 réservistes entraînés."
+          source: { organisme: "France Stratégie", annee: 2025 }
+        - texte: "La défense ne peut pas reposer sur la seule armée de métier, et un volontariat trié ne fait pas participer toute la nation."
+        - texte: "Nos voisins y reviennent : 10 pays de l'Union sur 27 ont un service militaire obligatoire, dont la Suède et la Croatie, qui l'ont rétabli."
+          source: { organisme: "France Stratégie", annee: 2025 }
+      critiques:
+        - texte: "Il faudrait plus de cinq ans pour l'organiser, et il prendrait à l'armée de métier les cadres dont elle a besoin."
+        - texte: "Le service militaire n'aide pas toujours les jeunes : en Suède, il a augmenté la délinquance entre 23 et 30 ans."
+          source: { organisme: "The Economic Journal", annee: 2019 }
+        - texte: "Les jeunes ne le demandent pas : seuls 41 % des moins de 35 ans veulent qu'il soit obligatoire."
+          source: { organisme: "Ipsos", annee: 2025 }
 pourAllerPlusLoin:
   - titre: "Cour des comptes, Le service national universel, un premier bilan, 2024"
     url: https://www.vie-publique.fr/files/rapport/pdf/295374.pdf

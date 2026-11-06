@@ -34,24 +34,86 @@ options:
     defenseurs: "Seule une peine de prison permet la garde à vue, qui donnait à la police le temps d'identifier les étrangers à renvoyer ; la retenue actuelle, 24 heures sans accès à leur téléphone, n'y suffit pas, et la prison ferme dissuade de rester."
     critiques: "En 2011, la Cour de justice de l'Union a jugé la prison contraire au droit européen tant que la procédure de renvoi n'est pas allée à son terme, et en 2012, la Cour de cassation a exclu la garde à vue pour ce motif ; avant 2012, 500 à 600 étrangers par an étaient condamnés pour ce seul délit."
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage de son coût n'a été trouvé. Avant 2012, environ deux condamnés sur trois pour ce seul délit l'étaient à de la prison, ferme pour moins de la moitié d'entre eux."
+        source: { organisme: "Sénat", annee: 2012 }
+      defenseurs:
+        - texte: "La prison rouvre la garde à vue, jusqu'à 48 heures, pour identifier un étranger qui ne coopère pas ; la retenue actuelle s'arrête au bout de 24 heures."
+          source: { organisme: "Assemblée nationale", annee: 2025 }
+        - texte: "Entrer en France sans papiers est déjà puni de prison : rester sans titre doit pouvoir l'être aussi."
+        - texte: "En 2025, les pays de l'Union se sont accordés pour permettre la prison des étrangers qui refusent de coopérer à leur renvoi."
+      critiques:
+        - texte: "La prison pour ce seul motif est contraire au droit européen tant que la procédure de renvoi n'est pas allée à son terme."
+        - texte: "La prison existe déjà pour ceux qui restent après une rétention qui n'a pas abouti : 214 condamnations en 2024."
+          source: { organisme: "Assemblée nationale", annee: 2025 }
+        - texte: "On ne quitte pas son pays en lisant le code pénal, et aucune étude n'a montré que la fin du délit en 2012 ait attiré plus d'étrangers."
   - id: B
     libelle: "Le rétablir, avec une amende"
     implique: "Rester en France sans titre de séjour redevient un délit puni de 3 750 euros d'amende, et le juge peut interdire le territoire pendant trois ans, comme l'avait voté le Parlement en 2023 ; la garde à vue reste impossible."
     defenseurs: "Une règle sans sanction n'est pas respectée : moins de 1,5 % des étrangers qui reçoivent l'ordre de partir le font d'eux-mêmes. Le droit européen permet l'amende, et la plupart des pays de l'Union sanctionnaient ce séjour en 2013."
     critiques: "Ses opposants, dont le ministre de l'Intérieur en 2025, y voient un symbole : sans prison, la police n'a aucun pouvoir de plus, l'amende viserait des personnes souvent sans ressources et des milliers de dossiers encombreraient les tribunaux."
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage de son coût n'a été trouvé. Voté par le Parlement en 2023 puis censuré pour une raison de procédure, il a été rejeté par les députés en 2025, par 209 voix contre 169."
+        source: { organisme: "Assemblée nationale", annee: 2025 }
+      defenseurs:
+        - texte: "L'ordre de partir est ignoré quand rien ne l'accompagne : moins de 1,5 % des étrangers qui le reçoivent partent d'eux-mêmes."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "La plupart de nos voisins sanctionnent ce séjour : 25 pays de l'Union sur 28 le faisaient en 2013, mais pas la France."
+          source: { organisme: "Agence des droits fondamentaux de l'Union européenne", annee: 2014 }
+        - texte: "L'amende est permise par le droit européen, tant qu'elle n'empêche pas le renvoi de l'étranger."
+      critiques:
+        - texte: "C'est un symbole : une simple amende n'ouvre pas la garde à vue et ne donne à la police aucun moyen nouveau."
+        - texte: "La police n'a pas besoin de ce délit pour agir : 150 000 interpellations d'étrangers sans titre en 2024, un record."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "L'amende viserait des personnes souvent sans ressources, alors que moins de 20 % des amendes forfaitaires délictuelles seraient déjà payées."
+          source: { organisme: "Sénat", annee: 2025 }
   - id: C
     libelle: "Renvoyer plus, sans délit"
     implique: "Pas de délit : l'État mise sur plus de places en centre de rétention (de moins de 2 000 à 3 000 en 2029), sur la pression envers les pays qui refusent de reprendre leurs ressortissants et sur de nouveaux moyens d'identifier les étrangers."
     defenseurs: "Ce qui bloque les départs, ce sont les pays d'origine, l'identification et le manque de places : la rétention est le moyen le plus sûr de renvoyer, selon le Sénat, alors qu'un délit puni d'une amende ne donnerait aucun pouvoir de plus à la police."
     critiques: "Pour les uns, sans sanction l'ordre de partir reste ignoré, et en 2024, six étrangers sur dix sont sortis de rétention sans être renvoyés ; pour les autres, enfermer coûte cher (16 200 euros par séjour en 2022) et la pression sur les visas a eu une efficacité « en demi-teinte »."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage d'ensemble n'a été trouvé. Pour 2026, l'État a prévu 94,8 millions d'euros pour investir dans les centres de rétention."
+        source: { organisme: "Sénat", annee: 2025 }
+      defenseurs:
+        - texte: "Ce qui bloque les départs, ce sont d'abord les pays d'origine, qui refusent souvent de reconnaître leurs ressortissants."
+        - texte: "Il faut mieux identifier : la police ne parvient pas à établir avec certitude l'identité de 20 à 30 % des étrangers qu'elle cherche à renvoyer."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "Les renvois progressent déjà sans délit : 15 569 renvois forcés en 2025, 21 % de plus qu'un an plus tôt."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+      critiques:
+        - texte: "Même la rétention échoue souvent : en 2024, seuls 38,8 % des étrangers retenus ont été renvoyés à leur sortie."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "La rétention revient cher : 16 200 euros en moyenne par séjour, qui dure 27 jours."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "La pression sur les visas a abîmé les relations avec le Maghreb sans que ces pays reprennent davantage leurs ressortissants."
   - id: D
     libelle: "Régulariser plutôt qu'expulser"
     implique: "Pas de délit et moins d'enfermement : les étrangers installés ou qui travaillent obtiennent un titre de séjour, et ceux qui doivent partir sont aidés à rentrer chez eux plutôt que placés en rétention."
     defenseurs: "Être sans titre est une situation administrative, pas une faute, parfois créée par l'attente en préfecture ; un titre sort ces personnes de l'exploitation, et un départ aidé coûte quatre fois moins qu'un renvoi forcé."
     critiques: "Des étrangers sous ordre de partir resteraient sans sanction et pourraient espérer un titre, ce qui attirerait d'autres arrivées selon ses opposants ; en 2024, 6 909 personnes sont parties avec une aide au retour, en dessous de l'objectif de 8 000."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. En 2025, 28 610 étrangers ont été régularisés, un chiffre encore provisoire."
+        source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+      defenseurs:
+        - texte: "Un titre sort ces personnes de l'exploitation : sans titre, un travailleur gagne au moins 4 à 8 % de moins, à travail égal."
+          source: { organisme: "Centre d'études prospectives et d'informations internationales", annee: 2024 }
+        - texte: "Perdre son titre n'est pas une faute : des étrangers en règle le perdent faute d'obtenir un rendez-vous en préfecture pour le renouveler."
+        - texte: "Aider au départ coûte bien moins cher qu'expulser : 1 120 euros en moyenne, contre 4 414 euros pour un renvoi forcé."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+      critiques:
+        - texte: "Les étrangers sans titre sont déjà environ 700 000 : en régulariser encouragerait d'autres à venir en espérant un titre."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2025 }
+        - texte: "Les départs aidés restent rares : 6 909 en 2024, quand l'État en visait 8 000."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Sans rétention, l'ordre de partir perd sa force : c'est le moyen le plus sûr de faire partir ceux qui doivent quitter la France."
 pourAllerPlusLoin:
   - titre: "Cour des comptes, La politique de lutte contre l'immigration irrégulière, 2024"
     url: https://www.ccomptes.fr/fr/publications/la-politique-de-lutte-contre-limmigration-irreguliere

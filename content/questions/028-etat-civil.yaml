@@ -31,24 +31,80 @@ options:
     defenseurs: "Un diagnostic évite que des personnes changent d'état civil à la légère : la Cour européenne a jugé en 2017 qu'un pays pouvait l'exiger."
     critiques: "Exiger des pièces médicales porte atteinte à la vie privée, selon la Défenseure des droits, et traite comme un trouble mental ce que l'OMS et la Haute autorité de santé ne considèrent plus comme tel."
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "En 2017, la grande majorité des 40 pays européens qui permettaient ce changement exigeaient un diagnostic ; 4 seulement y avaient renoncé. Aucune proposition récente en ce sens n'a été trouvée en France."
+        source: { organisme: "Cour européenne des droits de l'homme", annee: 2017 }
+      defenseurs:
+        - texte: "Un diagnostic évite qu'on s'engage à la légère : en 2017, les 7 juges de la Cour européenne des droits de l'homme ont admis qu'un pays l'exige."
+          source: { organisme: "Cour européenne des droits de l'homme", annee: 2017 }
+        - texte: "Plusieurs voisins exigent encore un avis médical, comme l'Italie, l'Autriche ou le Royaume-Uni."
+        - texte: "On ne dispose pas librement de son état civil, dont le sexe est un élément fondamental : un avis médical garantit le sérieux de la demande."
+      critiques:
+        - texte: "Exiger des pièces médicales oblige à dévoiler sa santé pour obtenir un papier d'identité : c'est une atteinte à la vie privée."
+        - texte: "Ce serait revenir sur la loi de 2016, voulue entièrement sans condition médicale."
+        - texte: "La médecine ne voit plus la transidentité comme un trouble mental : les recommandations françaises de 2025, écrites avec 128 experts, écartent une évaluation psychiatrique spécifique."
+          source: { organisme: "Haute autorité de santé", annee: 2025 }
   - id: B
     libelle: "Garder le juge, sans condition médicale"
     implique: "On garde la loi de 2016 : le juge vérifie, sur témoignages et documents, que la personne vit et est connue sous ce sexe ; les mineurs non émancipés restent exclus."
     defenseurs: "Le juge, impartial, protège la stabilité de l'état civil et accepte 99 % des demandes, gratuitement et sans avocat obligatoire."
     critiques: "Il faut se justifier devant un tribunal et attendre près de cinq mois ; des juges demandent encore des pièces médicales ou s'attachent à l'apparence."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Garder la loi de 2016 ne change rien : le juge a reçu 11 212 demandes de 2018 à 2024."
+        source: { organisme: "Ministère de la Justice", annee: 2025 }
+      defenseurs:
+        - texte: "Le juge accepte presque toutes les demandes : 99,1 % de 2018 à 2024, sans frais et sans avocat obligatoire."
+          source: { organisme: "Ministère de la Justice", annee: 2025 }
+        - texte: "Un juge, tenu à l'impartialité, protège mieux les libertés qu'un agent de mairie, et ses décisions peuvent faire l'objet d'un recours."
+        - texte: "Les difficultés viennent de l'application de la loi, pas du juge : une circulaire de janvier 2026 interdit de nouveau d'exiger des pièces médicales."
+      critiques:
+        - texte: "Il faut attendre la décision 4,9 mois en moyenne, et près de 7 mois dans certaines régions."
+          source: { organisme: "Ministère de la Justice", annee: 2025 }
+        - texte: "Même si presque tous l'obtiennent, il faut se justifier devant un tribunal, ce que personne d'autre n'a jamais à faire."
+        - texte: "Des juges demandent encore des pièces médicales ou des photos, et jugent sur l'apparence."
   - id: C
     libelle: "Une simple déclaration, pour les adultes"
     implique: "Un adulte déclare le changement en mairie, sans témoins ni pièces médicales ; les mineurs ne peuvent pas le faire par simple déclaration."
     defenseurs: "Personne ne connaît mieux son identité que soi-même : une déclaration évite d'avoir à prouver sa vie intime, comme en Espagne, en Allemagne ou en Belgique."
     critiques: "Sans juge pour vérifier, l'état civil, qui sert à identifier chacun, devient moins stable, et des changements faits à la légère ou détournés deviennent possibles."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "En 2024, environ un adulte sur 20 000 a demandé à changer la mention de son sexe."
+        source: { organisme: "Ministère de la Justice", annee: 2025 }
+      defenseurs:
+        - texte: "Ceux dont l'état civil correspond n'ont jamais rien eu à prouver : imposer cette épreuve aux seules personnes trans crée une inégalité."
+        - texte: "Un état civil qui ne correspond pas expose aux discriminations : 7 personnes trans sur 10 en France disent en avoir subi dans l'année, dans une enquête européenne en ligne."
+          source: { organisme: "Agence des droits fondamentaux de l'Union européenne", annee: 2023 }
+        - texte: "Une déclaration peut avoir ses garde-fous sans juge : un délai de réflexion, puis un délai avant tout nouveau changement, comme en Allemagne."
+      critiques:
+        - texte: "L'état civil sert à identifier chacun et touche la filiation et les actes des proches : on ne doit pas pouvoir en changer sans contrôle."
+        - texte: "Sans contrôle, rien n'empêche des changements faits à la légère ou détournés, comme ceux signalés en Espagne."
+        - texte: "Une déclaration toucherait les espaces réservés aux femmes : au Royaume-Uni, les 5 juges de la Cour suprême ont décidé que la loi sur l'égalité vise le sexe biologique."
+          source: { organisme: "Cour suprême du Royaume-Uni", annee: 2025 }
   - id: D
     libelle: "Une simple déclaration, aussi pour les mineurs"
     implique: "Comme pour les adultes, et aussi pour les mineurs : seuls dès 15 ans, et avant par l'un de leurs parents, comme le propose un texte déposé en 2024."
     defenseurs: "Les jeunes trans subissent souvent harcèlement et discriminations à l'école : reconnaître leur identité les protège, comme le permet l'Espagne dès 16 ans."
     critiques: "Un mineur est en développement et les médecins n'ont pas de consensus sur son accompagnement ; la Défenseure des droits préfère pour eux un juge saisi par les parents."
     axes: { societe: -2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffre ne dit combien de mineurs le demanderaient. En 2020, 294 mineurs avaient une prise en charge de longue durée de l'Assurance maladie pour transidentité."
+        source: { organisme: "Assurance maladie", annee: 2022 }
+      defenseurs:
+        - texte: "Les jeunes trans sont souvent harcelés, y compris à l'école, au point que certains cessent d'aller en cours."
+        - texte: "Plusieurs voisins l'ont fait : en Espagne, un mineur peut faire seul la déclaration dès 16 ans, et en Allemagne dès 14 ans avec l'accord de ses parents."
+          source: { organisme: "Ministère de la Justice", annee: 2025 }
+        - texte: "Exclure tous les mineurs crée des inégalités entre eux : une cour d'appel a déjà fait exception pour un jeune soutenu par ses parents."
+      critiques:
+        - texte: "Un enfant est un être en développement : l'école doit continuer à respecter son état civil, prénom et sexe."
+        - texte: "Les médecins n'ont pas de consensus sur les mineurs : faute de données solides, leurs recommandations nationales sont repoussées à fin 2027."
+        - texte: "La prudence domine pour les mineurs : en 2024, le Sénat a voté l'interdiction des hormones et de la chirurgie avant 18 ans."
+          source: { organisme: "Sénat", annee: 2024 }
 pourAllerPlusLoin:
   - titre: "Ministère de la Justice, évaluation de la loi de 2016 sur la mention du sexe à l'état civil, 2025"
     url: https://www.justice.gouv.fr/sites/default/files/2026-09/rapport_dacs_evaluation_j21.pdf

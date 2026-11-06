@@ -35,24 +35,88 @@ options:
     defenseurs: La loi n'a manifestement pas fait ses preuves ; il faut redonner aux maires leur liberté d'action.
     critiques: Les communes les plus aisées pourraient cesser d'accueillir des logements sociaux, qui se concentreraient ailleurs.
     axes: { economie: 2 }
+    detail:
+      chiffrage:
+        texte: "La supprimer mettrait fin au prélèvement sur les communes en retard : 141 millions d'euros en 2024, destinés au logement social."
+        source: { organisme: "Ministère du Logement", annee: 2024 }
+      defenseurs:
+        - texte: "La loi n'atteint pas son but : en 2024, 1 276 des 2 196 communes qui y sont soumises restaient sous leur taux légal."
+          source: { organisme: "Ministère du Logement", annee: 2024 }
+        - texte: "Elle a peu mélangé les habitants : de 2000 à 2008, elle n'a ajouté que 6 % de ménages très modestes aux communes visées."
+          source: { organisme: "G. Chapelle, L. Gobillon et B. Vignolles", annee: 2025 }
+        - texte: "Chaque maire connaît sa commune : c'est à lui de choisir la part de logements sociaux, pas à une règle nationale identique pour tous."
+      critiques:
+        - texte: "Sans obligation, beaucoup de communes cesseraient d'en construire : la loi a fait produire près d'un million de logements sociaux depuis 2000."
+          source: { organisme: "Ministère du Logement", annee: 2024 }
+        - texte: "Les communes aisées n'auraient plus à accueillir de ménages modestes, qui resteraient regroupés dans les mêmes villes."
+        - texte: "La plupart des ménages modestes n'ont pas de logement social : 60 % d'entre eux vivent dans le parc privé."
+          source: { organisme: "Sénat", annee: 2021 }
   - id: B
     libelle: L'assouplir
     implique: Une partie des logements intermédiaires compte dans le rattrapage, et les objectifs tiennent compte des contraintes de chaque territoire.
     defenseurs: Il faut soutenir les communes qui font des efforts et adapter l'objectif aux contraintes locales, comme les zones inondables ou les couloirs aériens.
     critiques: Le logement intermédiaire est trop cher pour la plupart des demandeurs, et il permettrait de contourner la loi.
     axes: { economie: 1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage de son effet sur la construction n'a été trouvé. Selon une estimation de 2024, 656 communes pourraient compter des logements intermédiaires, dans la limite d'un quart de leur rattrapage."
+        source: { organisme: "Sénat", annee: 2026 }
+      defenseurs:
+        - texte: "Un quota national crée des effets de seuil brutaux : à Marignier, un décret de 2023 a relevé l'objectif de 117 logements et doublé la pénalité."
+          source: { organisme: "Sénat", annee: 2026 }
+        - texte: "Le logement intermédiaire loge en partie le même public : la moitié de ses locataires ont des revenus sous les plafonds du logement social."
+          source: { organisme: "Sénat", annee: 2026 }
+        - texte: "Une commune en zone inondable ou sous un couloir aérien ne peut pas construire comme les autres : son objectif doit en tenir compte."
+      critiques:
+        - texte: "Le logement intermédiaire reste trop cher pour la plupart des demandeurs : son loyer n'est que 10 à 15 % sous celui du privé."
+          source: { organisme: "Sénat", annee: 2026 }
+        - texte: "Ce serait un détricotage de la loi : les communes réticentes rempliraient une partie de leur objectif sans construire de logement social."
+        - texte: "Il n'est pas réservé aux ménages modestes : près de 80 % des ménages pourraient y prétendre."
+          source: { organisme: "Sénat", annee: 2026 }
   - id: C
     libelle: La maintenir telle quelle
     implique: Taux de 25 % ou 20 %, rattrapage de 33 % du déficit par période de trois ans, exemptions pour les communes qui ne peuvent pas construire.
     defenseurs: La loi produit des logements sociaux et prévoit déjà des exemptions pour les communes qui ne peuvent pas construire.
     critiques: Un millier de communes restent sous le seuil, et d'autres jugent un quota national uniforme trop rigide.
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "La maintenir garde l'objectif fixé aux communes en retard : environ 195 000 logements sociaux à produire en 2023-2025."
+        source: { organisme: "Ministère du Logement", annee: 2024 }
+      defenseurs:
+        - texte: "Elle fait construire : les communes soumises à la loi ont produit 186 000 logements sociaux de 2020 à 2022."
+          source: { organisme: "Ministère du Logement", annee: 2024 }
+        - texte: "Elle tient déjà compte des communes qui ne peuvent pas construire : 121 en sont exemptées pour 2026-2028."
+          source: { organisme: "Ministère du Logement", annee: 2026 }
+        - texte: "Elle répartit mieux les logements sociaux, entre les communes comme entre les quartiers d'une même commune."
+      critiques:
+        - texte: "Telle quelle, elle ne suffit pas : de 2020 à 2022, sept communes en retard sur dix n'ont pas tenu tous les objectifs fixés par l'État."
+          source: { organisme: "Ministère du Logement", annee: 2024 }
+        - texte: "Le rattrapage a été ralenti : une commune en retard doit en combler un tiers par période de trois ans, contre la moitié en 2020-2022."
+          source: { organisme: "Sénat", annee: 2026 }
+        - texte: "Une commune qui laisse construire beaucoup de logements privés voit sa part de logements sociaux baisser, et paie davantage."
   - id: D
     libelle: La durcir
     implique: Le taux passe à 30 % et les sanctions des communes en retard sont alourdies.
     defenseurs: Sans sanction lourde, les communes qui ne jouent pas le jeu ne construisent pas ; l'État doit faire appliquer la loi.
     critiques: "Beaucoup de communes manquent de foncier ou de moyens : relever le taux et les pénalités les frapperait sans les aider à construire."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage d'un taux de 30 % n'a été trouvé. Au taux actuel, il restait déjà environ 600 000 logements sociaux à produire en 2023, dans 1 111 communes en retard."
+        source: { organisme: "Ministère du Logement", annee: 2023 }
+      defenseurs:
+        - texte: "Trop de communes ne font pas l'effort demandé : à l'issue de 2020-2022, 341 ont été déclarées en carence par le préfet."
+          source: { organisme: "Ministère du Logement", annee: 2024 }
+        - texte: "Les demandeurs attendent : 2,8 millions de demandes de logement social étaient en attente fin 2024."
+          source: { organisme: "Cour des comptes", annee: 2026 }
+        - texte: "Pour les communes les plus riches, l'amende est trop faible : elles préfèrent payer plutôt que construire des logements sociaux."
+      critiques:
+        - texte: "Les sanctions sont déjà lourdes : 112 communes en carence se sont vu retirer le droit de délivrer des permis de construire dans certains secteurs."
+          source: { organisme: "Sénat", annee: 2026 }
+        - texte: "Même au taux actuel, les objectifs sont souvent revus : 213 contrats signés entre communes et préfets les abaissent."
+          source: { organisme: "Sénat", annee: 2026 }
+        - texte: "Des pénalités plus lourdes ne créent pas de terrain à bâtir : une commune sans foncier libre ne construira pas davantage."
 pourAllerPlusLoin:
   - titre: Ministère de la Transition écologique, l'article 55 de la loi SRU
     url: https://www.ecologie.gouv.fr/politiques-publiques/larticle-55-loi-solidarite-renouvellement-urbain-sru

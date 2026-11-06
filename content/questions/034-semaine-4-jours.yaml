@@ -33,24 +33,86 @@ options:
     critiques: "Sans droit ni aide, rien ne se fait si l'employeur ne le veut pas, et les salariés qui voudraient travailler moins ne peuvent pas l'exiger."
     # +1 et non +2 : l'option ne va pas au-delà de la règle actuelle.
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Ne rien imposer ne coûte rien à l'État. En 2023, 150 accords d'entreprise organisaient déjà la semaine de quatre jours, dont 133 à heures égales."
+        source: { organisme: "Centre d'études de l'emploi et du travail", annee: 2024 }
+      defenseurs:
+        - texte: "Le droit permet déjà tout : une entreprise peut passer à quatre jours, à heures égales ou réduites, par simple accord."
+        - texte: "Les Français ne demandent pas à travailler moins : 54 % jugent qu'une semaine de 38,7 heures, c'est juste ce qu'il faut."
+          source: { organisme: "Elabe", document: "sondage pour Les Échos et l'Institut Montaigne", annee: 2024 }
+        - texte: "Chaque métier est différent : un hôpital, un commerce ou des transports ne peuvent pas fermer un jour par semaine."
+      critiques:
+        - texte: "Sans droit nouveau, tout dépend de l'employeur : un salarié ne peut même pas demander à passer à quatre jours."
+        - texte: "Beaucoup de salariés le voudraient sans pouvoir l'obtenir : 77 % des actifs sont favorables à 32 heures payées 35."
+          source: { organisme: "Ifop", document: "sondage pour Politis", annee: 2024 }
+        - texte: "Quand seuls certains salariés en profitent, cela crée des tensions et de la frustration dans les équipes."
   - id: B
     libelle: "Quatre jours, à heures égales"
     implique: "La durée reste de 35 heures, réparties sur quatre journées de 8 h 45 ; l'État la développe dans ses services et la favorise dans les entreprises, par exemple avec un droit de la demander, comme en Belgique depuis 2022."
     defenseurs: "Un jour libre de plus chaque semaine, sans baisse de salaire ni coût pour l'employeur : à Lyon, 93 % des agents de l'essai qui ont répondu voulaient la garder."
     critiques: "Des journées plus longues fatiguent : un tiers des actifs pensent qu'elles seraient trop fatigantes, et en Belgique, moins de 1 % des salariés du privé l'ont choisie."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Le coût salarial ne change pas : 35 heures réparties sur quatre journées de 8 h 45 au lieu de cinq."
+        source: { organisme: "Assemblée nationale", document: "rapport d'information n° 460", annee: 2024 }
+      defenseurs:
+        - texte: "Les salariés gagnent un jour de repos par semaine, sans perdre de salaire et sans rien coûter à l'employeur."
+        - texte: "Beaucoup d'actifs y gagneraient : 49 % seraient plus satisfaits avec les mêmes heures sur moins de jours, contre 22 % moins satisfaits."
+          source: { organisme: "Crédoc", annee: 2024 }
+        - texte: "Elle aide des salariés à temps partiel à passer à temps plein : c'était le but à la Métropole de Lyon, où 90 % d'entre eux sont des femmes."
+          source: { organisme: "Assemblée nationale", document: "rapport d'information n° 460", annee: 2024 }
+      critiques:
+        - texte: "Des journées plus longues fatiguent davantage et augmentent le risque d'accidents dans les emplois physiques ou stressants."
+        - texte: "Peu de salariés la choisissent quand ils le peuvent : en Belgique, 0,75 % des salariés du privé en CDI l'ont adoptée."
+          source: { organisme: "Acerta", annee: 2024 }
+        - texte: "Les petites entreprises s'en méfient, de peur de mal servir clients et fournisseurs : seuls 28 % de leurs dirigeants y sont favorables."
+          source: { organisme: "Ifop", document: "sondage pour Fiducial", annee: 2024 }
   - id: C
     libelle: "Aller vers les 32 heures, par étapes"
     implique: "La durée légale reste de 35 heures ; l'État baisse les cotisations des entreprises qui passent à 32 heures en quatre jours sans baisse de salaire et embauchent, ou impose d'abord les 32 heures pour le travail de nuit et les métiers pénibles."
     defenseurs: "Partager le travail crée des emplois : avec des aides, les 35 heures en ont créé près de 350 000 selon l'Insee."
     critiques: "Les aides pèsent sur les finances publiques, celles des 35 heures coûtant 11 à 13 milliards d'euros par an au début des années 2010, et les petites entreprises ont plus de mal à s'organiser."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. La proposition de loi déposée au Sénat baisserait les cotisations patronales de 40 % la première année, puis de 30 % pendant trois ans."
+        source: { organisme: "Sénat", document: "proposition de loi n° 938", annee: 2026 }
+      defenseurs:
+        - texte: "Une aide réservée aux entreprises qui embauchent crée plus d'emplois : sans condition, la même somme aurait créé 124 000 emplois au lieu de 320 000 avec les 35 heures."
+          source: { organisme: "OFCE", annee: 2014 }
+        - texte: "Les aides reviennent en bonne partie à l'État : une fois comptés les impôts et cotisations des emplois créés, les 35 heures coûtaient 2,5 milliards d'euros net par an, selon un modèle."
+          source: { organisme: "OFCE", annee: 2014 }
+        - texte: "Avec les aides et les gains de productivité, les lois Aubry n'ont pas rendu le travail plus cher pour les entreprises."
+      critiques:
+        - texte: "Les aides pèsent lourd sur les finances publiques : celles des 35 heures coûtaient 11,5 à 13 milliards d'euros par an à partir de 2007."
+          source: { organisme: "Direction du Budget", annee: 2014 }
+        - texte: "Les emplois promis ne viennent pas toujours : les 35 heures en ont créé 320 000 à 350 000, pour 700 000 annoncés."
+          source: { organisme: "Assemblée nationale", document: "commission d'enquête sur la réduction du temps de travail", annee: 2014 }
+        - texte: "Embaucher pour compenser est difficile : à l'hôpital, les lois Aubry ont créé de fortes tensions, faute de recrutements à temps."
   - id: D
     libelle: "32 heures pour tous"
     implique: "La durée légale passe de 35 à 32 heures par semaine, sans baisse de salaire ; au-delà, les heures sont payées en heures supplémentaires."
     defenseurs: "Les gains de productivité doivent rendre du temps aux salariés, et partager le travail entre tous fait reculer le chômage, à 8,3 % en 2026."
     critiques: "Payer 35 heures pour 32 renchérit l'heure de travail d'environ 9 % avant gains de productivité, et l'État devrait embaucher : 6,2 milliards d'euros par an selon l'Institut Montaigne."
     axes: { economie: -2 }
+    detail:
+      chiffrage:
+        texte: "Passer à 32 heures coûterait 6,2 milliards d'euros par an aux finances publiques, surtout pour embaucher dans la fonction publique."
+        source: { organisme: "Institut Montaigne", annee: 2022 }
+      defenseurs:
+        - texte: "Les gains de productivité des dernières décennies doivent aussi revenir aux salariés, en temps libre."
+        - texte: "Là où on l'a essayée, la semaine courte tient : au Royaume-Uni, 56 entreprises sur 61 l'ont gardée après l'essai."
+          source: { organisme: "Autonomy", annee: 2023 }
+        - texte: "Répartir le travail entre tous, sans baisser les salaires, ferait reculer le chômage, qui touche 8,3 % des actifs."
+          source: { organisme: "Insee", annee: 2026 }
+      critiques:
+        - texte: "La productivité ne compenserait qu'une partie des heures en moins : 20 à 50 % dans le privé, selon une estimation."
+          source: { organisme: "Institut Montaigne", annee: 2022 }
+        - texte: "Les essais réussis portent sur des entreprises volontaires : au Royaume-Uni, le chiffre d'affaires n'a été suivi que dans 23 entreprises sur 61."
+          source: { organisme: "Autonomy", annee: 2023 }
+        - texte: "Un travail plus cher frapperait d'abord les moins qualifiés, dont les emplois seraient les plus menacés."
 pourAllerPlusLoin:
   - titre: "Assemblée nationale, rapport d'information sur la semaine de quatre jours, 2024"
     url: https://questions.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b0460_rapport-information.pdf

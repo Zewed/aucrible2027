@@ -33,24 +33,86 @@ options:
     # Même note que l'option B de la fiche 001, qui décrit le même impôt ; B et C à 0, comme les deux scénarios
     # du Conseil des prélèvements obligatoires qui les rapprochent (étude § 2g) ; D, le statu quo, à +1 comme dans 001.
     axes: { economie: -2 }
+    detail:
+      chiffrage:
+        texte: "Ses partisans en attendent 15 à 25 milliards d'euros par an. Cette estimation est contestée, et l'administration n'a publié aucun chiffrage."
+        source: { organisme: "Amendement à l'Assemblée nationale", annee: 2026 }
+      defenseurs:
+        - texte: "Au sommet, l'impôt baisse : les 75 foyers les plus riches paient en impôts 26 % de leur revenu, bénéfices de leurs sociétés compris, contre 46 % pour le 0,1 % le plus aisé."
+          source: { organisme: "Institut des politiques publiques", annee: 2023 }
+        - texte: "Les plus riches partent rarement : chaque année, 0,2 % des Français aux plus hauts revenus du capital s'installent à l'étranger, contre 0,38 % de l'ensemble de la population."
+          source: { organisme: "Conseil d'analyse économique", annee: 2025 }
+        - texte: "Payer ne force pas à vendre son entreprise : on peut emprunter, ou payer en parts de sociétés dont l'État rend les droits de vote."
+      critiques:
+        - texte: "La recette est surestimée : si l'on déduit l'impôt déjà payé par les entreprises détenues, elle tomberait à 2 ou 3 milliards d'euros par an."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Elle reposerait sur quelques familles : si les trois plus grandes fortunes partaient, la recette baisserait de moitié environ."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Sans plafond lié aux revenus, elle risque d'être censurée : le Conseil constitutionnel n'a validé l'ancien ISF qu'avec un plafonnement."
   - id: B
     libelle: "Taxer la fortune, pas les entreprises"
     implique: "Pas de taxe Zucman, mais un impôt sur le patrimoine des plus riches dont sont exclues les parts des entreprises qu'ils détiennent ou dirigent, par exemple 0,5 % par an comme le propose la Cour des comptes, ou un impôt sur la fortune qui épargne les entreprises et la résidence principale."
     defenseurs: "Les plus riches contribuent davantage sans que l'on taxe l'activité des entreprises ni que leurs propriétaires doivent vendre des parts pour payer ; la Cour des comptes chiffre sa version à 1,4 milliard d'euros par an."
     critiques: "Les très grandes fortunes sont surtout faites de parts d'entreprises : le rapporteur du Sénat juge que les exclure dénaturerait l'impôt, et la recette attendue serait plus faible que celle de la taxe Zucman."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Dans la version de la Cour des comptes, 0,5 % par an sans compter les entreprises, il rapporterait 1,4 milliard d'euros par an. Aucun chiffrage des autres versions n'a été trouvé."
+        source: { organisme: "Cour des comptes", annee: 2026 }
+      defenseurs:
+        - texte: "Taxer les entreprises peut prendre l'essentiel de ce qu'elles rapportent : 2 % par an, c'est les deux tiers du rendement d'un patrimoine qui rapporte 3 %, et tout s'il rapporte 2 %."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Les placements des plus riches échappent aujourd'hui à tout impôt sur la fortune, puisque seul l'immobilier est taxé."
+        - texte: "Taxer les parts des fondateurs dissuaderait de créer des entreprises : elles peuvent valoir des milliards sans leur verser le moindre revenu."
+      critiques:
+        - texte: "Au sommet, la fortune est faite d'entreprises : en exclure les parts laisserait de côté l'essentiel de ce que possèdent les plus riches."
+        - texte: "Un impôt qui épargne les entreprises manquerait sa cible : pour les 75 foyers les plus riches, l'impôt personnel ne fait qu'environ 2 % de leur revenu, le reste venant de leurs sociétés."
+          source: { organisme: "Institut des politiques publiques", annee: 2023 }
+        - texte: "Ce serait le retour de l'ISF sous un autre nom, avec ses effets de bord : le gouvernement a renoncé à un tel impôt."
   - id: C
     libelle: "Viser les façons d'éviter l'impôt"
     implique: "Pas d'impôt sur le patrimoine. On resserre les règles qui permettent aux plus riches de garder leurs bénéfices dans des sociétés de détention, les holdings, sans payer d'impôt sur le revenu, et l'on corrige l'impôt minimum de 20 % sur les très hauts revenus."
     defenseurs: "Le problème vient de ces sociétés, pas du patrimoine : un dividende versé à une personne est taxé à 31,4 %, contre 1,25 % s'il reste dans une holding. C'est la voie retenue en 2026 par la commission d'enquête de l'Assemblée."
     critiques: "Ces outils rapportent peu : l'impôt minimum sur les hauts revenus devait rapporter 2 milliards d'euros, 388 millions sont attendus pour 2025, et la taxe sur les holdings rapporte environ 100 millions."
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage d'ensemble n'a été trouvé. La taxe sur les holdings rapporte environ 100 millions d'euros ; l'étendre à tous leurs biens hors activité, comme prévu au départ, rapporterait environ 1 milliard de plus."
+        source: { organisme: "Cour des comptes", annee: 2026 }
+      defenseurs:
+        - texte: "Garder ses bénéfices dans une holding fait presque disparaître l'impôt : 1,25 % sur un dividende qui y remonte, contre 31,4 % s'il est versé à la personne."
+          source: { organisme: "Assemblée nationale", annee: 2026 }
+        - texte: "C'est l'évitement qu'il faut viser : en Scandinavie, sur un euro attendu d'un impôt sur la fortune, les montages et les placements en ont effacé 54 centimes, les départs 20."
+          source: { organisme: "Conseil d'analyse économique", annee: 2025 }
+        - texte: "On n'a pas à évaluer chaque année des biens dont la valeur est incertaine, comme les parts de sociétés non cotées."
+      critiques:
+        - texte: "Les plus aisés ajustent leurs revenus : l'impôt minimum sur les hauts revenus devait rapporter 2 milliards d'euros, 388 millions sont attendus pour 2025."
+          source: { organisme: "Sénat", annee: 2026 }
+        - texte: "Fermer les montages ne suffira pas à redresser les comptes : le déficit public atteignait 152,5 milliards d'euros en 2025."
+          source: { organisme: "Insee", annee: 2026 }
+        - texte: "Seul un plancher sur le patrimoine ne dépend pas de ce que les plus riches choisissent de se verser."
   - id: D
     libelle: "Ne rien ajouter"
     implique: "Aucun nouvel impôt ni hausse pour les plus riches ; l'effort passe par la baisse des dépenses, et certains veulent même alléger la fiscalité du patrimoine."
     defenseurs: "La France est le deuxième pays de l'Union où l'on prélève le plus d'impôts et de cotisations, 45,3 % de la richesse produite en 2024 ; un nouvel impôt reposant sur quelques familles perdrait la moitié de sa recette avec trois départs, selon le Sénat."
     critiques: "Les plus grandes fortunes continueraient de payer, selon une estimation, une part de leur revenu plus faible que d'autres foyers très aisés, et l'État renoncerait à des recettes alors que le déficit atteignait 5,1 % de la richesse produite en 2025."
     axes: { economie: 1 }
+    detail:
+      chiffrage:
+        texte: "Ne rien ajouter ne change pas les recettes : l'impôt sur la fortune immobilière a rapporté 2,3 milliards d'euros en 2025."
+        source: { organisme: "Direction générale des finances publiques", annee: 2025 }
+      defenseurs:
+        - texte: "La France prélève déjà parmi les plus lourds impôts d'Europe : impôts et cotisations font 45,3 % de la richesse du pays en 2024, contre 40,4 % en moyenne dans l'Union."
+          source: { organisme: "Eurostat", annee: 2025 }
+        - texte: "Les foyers aisés portent déjà l'impôt sur le revenu : les 10 % les plus aisés en paient 74 %."
+          source: { organisme: "Sénat", annee: 2026 }
+        - texte: "Le déficit doit se réduire en baissant les dépenses, sans aucun impôt nouveau pendant le quinquennat."
+      critiques:
+        - texte: "Les plus aisés se sont beaucoup enrichis : le revenu des 0,1 % de foyers les plus aisés a augmenté de 119 % entre 2003 et 2022, contre 46 % pour les autres."
+          source: { organisme: "Assemblée nationale", annee: 2026 }
+        - texte: "Alléger encore l'impôt sur la fortune coûte cher : la suppression de l'ISF en 2018 a fait perdre 3 à 4,5 milliards d'euros de recettes."
+          source: { organisme: "Conseil d'analyse économique", annee: 2025 }
+        - texte: "La fiscalité du patrimoine est aujourd'hui complexe, inégale et peu efficace : la laisser telle quelle ne règle rien."
 pourAllerPlusLoin:
   - titre: "Sénat, rapport sur l'impôt plancher de 2 % sur le patrimoine, n° 689, juin 2025"
     url: https://www.senat.fr/rap/l24-689/l24-689_mono.html

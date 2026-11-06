@@ -30,18 +30,66 @@ options:
     defenseurs: "Le RIP et ses contrôles suffisent : un RIC irait trop loin dans la remise en cause de la démocratie représentative."
     critiques: "Selon ses critiques, le RIP ne fonctionne pas : sur sept demandes, une seule a été validée, et elle a recueilli moins du quart des signatures requises."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Garder les règles, c'est garder les seuils actuels : 185 parlementaires, puis environ 4,7 millions d'électeurs inscrits."
+        source: { organisme: "Conseil constitutionnel", annee: 2020 }
+      defenseurs:
+        - texte: "Les contrôles actuels empêchent qu'un vote populaire remette en cause la Constitution ou les droits de chacun."
+        - texte: "Les Français font encore confiance aux élus qu'ils connaissent : 58 % à leur conseil municipal."
+          source: { organisme: "CEVIPOF", annee: 2026 }
+        - texte: "Le référendum existe déjà, il suffit que le Président ose en proposer : dix ont eu lieu de 1958 à 2005."
+          source: { organisme: "Sénat", annee: 2016 }
+      critiques:
+        - texte: "Les Français ne sont plus consultés : aucun référendum national n'a eu lieu depuis 2005."
+        - texte: "La défiance envers ceux qui votent les lois est profonde : 20 % des Français font confiance à l'Assemblée nationale."
+          source: { organisme: "CEVIPOF", annee: 2026 }
+        - texte: "Même quand assez d'électeurs ont signé, l'Assemblée et le Sénat peuvent éviter le vote en examinant le texte dans les six mois."
+          source: { organisme: "Loi organique", annee: 2013 }
   - id: B
     libelle: Alléger le référendum d'initiative partagée
     implique: Moins de signatures (2,5 millions au lieu de 5 millions dans l'un des projets) et des sujets élargis ; les parlementaires gardent un rôle.
     defenseurs: Il faut alléger les contraintes du RIP et élargir ses sujets pour qu'il soit enfin praticable.
     critiques: "Le RIP reste « partagé » : sans l'accord d'un cinquième des parlementaires, les citoyens ne peuvent pas déclencher un référendum."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "Un projet de 2026 abaisse le seuil à 2,5 millions de signatures au lieu de 5 millions, et l'ouvre à toute question législative."
+        source: { organisme: "Public Sénat", annee: 2026 }
+      defenseurs:
+        - texte: "Le seuil actuel est hors d'atteinte : la seule collecte organisée n'a réuni que 1,09 million de signatures, moins du quart du nombre requis."
+          source: { organisme: "Conseil constitutionnel", annee: 2020 }
+        - texte: "Ses sujets sont trop étroits : six des sept demandes déposées ont été écartées, notamment parce qu'elles sortaient du champ prévu."
+          source: { organisme: "Conseil constitutionnel", annee: 2026 }
+        - texte: "On garde les contrôles qui protègent la démocratie représentative, sans aller jusqu'à un RIC."
+      critiques:
+        - texte: "Les citoyens ne décideraient toujours pas seuls : sans le soutien de parlementaires, aucune demande ne pourrait partir."
+        - texte: "Même allégé, le seuil resterait bien plus haut qu'en Italie, où 500 000 électeurs suffisent à demander un vote."
+          source: { organisme: "Sénat", annee: 2016 }
+        - texte: "Il faudrait l'accord du Sénat, qui l'a déjà refusé : en 2019, un projet abaissant le seuil à 1 million d'électeurs a échoué."
+          source: { organisme: "Public Sénat", annee: 2022 }
   - id: C
     libelle: Créer un RIC
     implique: À partir d'un seuil de signatures (de 500 000 à 1 million selon les projets), des citoyens peuvent faire voter une loi ou en abroger une ; certains projets y ajoutent la révision de la Constitution ou la révocation d'élus.
     defenseurs: "« On ne veut pas participer, on veut décider » : le RIC complète le Parlement et rend la parole au peuple."
     critiques: Un RIC pourrait servir à revenir systématiquement sur les décisions de la démocratie représentative.
     axes: { societe: -2 }
+    detail:
+      chiffrage:
+        texte: "En Suisse, l'exemple le plus proche, 50 000 électeurs peuvent demander dans les 100 jours qu'une loi votée par le Parlement soit soumise au peuple."
+        source: { organisme: "Parlement suisse", annee: 2024 }
+      defenseurs:
+        - texte: "Les citoyens ne veulent plus seulement être consultés : entre deux élections, ils veulent pouvoir décider."
+        - texte: "Il ne remplacerait pas le Parlement : en Suisse, de 2019 à 2023, les électeurs n'ont rejeté que 8 des 244 textes qu'ils pouvaient contester."
+          source: { organisme: "Parlement suisse", annee: 2024 }
+        - texte: "Les Français le demandent : 79 % veulent recourir plus souvent au référendum pour décider de lois importantes."
+          source: { organisme: "CEVIPOF", annee: 2026 }
+      critiques:
+        - texte: "Il pourrait servir à défaire des lois tout juste votées : en Suisse, de 2019 à 2023, les électeurs ont rejeté 8 des 21 textes soumis au vote."
+          source: { organisme: "Parlement suisse", annee: 2024 }
+        - texte: "Le vote risque de ne mobiliser qu'une minorité : en Italie, depuis 1997, moins de la moitié des électeurs ont voté neuf fois sur dix."
+          source: { organisme: "Ministère de l'Intérieur italien", annee: 2025 }
+        - texte: "C'est un leurre : aucun référendum ne remplace la mobilisation des travailleurs."
 pourAllerPlusLoin:
   - titre: Conseil constitutionnel, déclaration du 26 mars 2020 sur la proposition de loi Aéroports de Paris
     url: https://www.conseil-constitutionnel.fr/decision/2020/201918RIP.htm

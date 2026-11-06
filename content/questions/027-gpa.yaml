@@ -32,24 +32,80 @@ options:
     defenseurs: "Interdire en France sans punir le recours à l'étranger revient à laisser faire : la GPA porte atteinte à la dignité des femmes et des enfants, il faut la combattre partout."
     critiques: "Des juristes jugent difficile de punir un acte légal là où il a lieu, et ce sont les enfants déjà nés qui en subiraient les conséquences."
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "Une proposition de loi déposée au Sénat en 2024 punirait le recours à l'étranger et porterait la peine de l'intermédiaire à 5 ans de prison et 75 000 euros d'amende."
+        source: { organisme: "Proposition de loi au Sénat", annee: 2024 }
+      defenseurs:
+        - texte: "Tant que le recours à l'étranger reste impuni, l'interdiction se contourne facilement : il suffit de partir dans un pays où la GPA est légale."
+        - texte: "L'Italie montre que c'est possible : depuis 2024, y recourir est puni de jusqu'à 2 ans de prison, même dans un pays où la GPA est légale."
+          source: { organisme: "Loi italienne", annee: 2024 }
+        - texte: "La GPA porte atteinte à la dignité des femmes et des enfants : ce qui est interdit en France ne devient pas acceptable de l'autre côté d'une frontière."
+      critiques:
+        - texte: "Notre droit ne punit un délit commis à l'étranger que s'il l'est aussi sur place : punir un acte légal là où il a lieu serait difficile à appliquer."
+        - texte: "Les enfants en paieraient le prix : la France a déjà été condamnée dans 5 affaires pour avoir privé des enfants nés de GPA de tout lien légal avec leur père."
+          source: { organisme: "Sénat", annee: 2023 }
+        - texte: "Le Parlement a déjà écarté cette idée : en 2016, une proposition de loi pour punir le recours à l'étranger a été rejetée."
   - id: B
     libelle: Garder l'interdiction actuelle
     implique: "La GPA reste interdite en France et l'intermédiaire est puni ; le recours à l'étranger n'est pas puni, et le juge reconnaît au cas par cas les parents des enfants qui en sont nés."
     defenseurs: "L'enfant n'est pas un droit et le corps des femmes n'est pas une marchandise ; mais l'enfant né à l'étranger n'a pas à payer le choix de ses parents."
     critiques: "Les uns y voient une interdiction contournée sans risque à l'étranger, les autres un refus d'encadrer en France une pratique qui existe déjà."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "L'intermédiaire risque jusqu'à 1 an de prison et 15 000 euros d'amende. Recourir à la GPA dans un pays où elle est légale n'est pas puni."
+        source: { organisme: "Ministère de la Justice", annee: 2024 }
+      defenseurs:
+        - texte: "Le désir d'enfant, si fort soit-il, ne donne aucun droit sur le corps d'une autre femme : l'enfant n'est pas un droit."
+        - texte: "La loi actuelle tient les deux bouts : la GPA reste interdite en France, et le juge reconnaît les parents après avoir vérifié le consentement de la femme qui a porté l'enfant."
+        - texte: "Les instances d'éthique et de droit consultées par l'État, en 2017 puis en 2018, ont toutes conclu qu'il fallait garder l'interdiction."
+      critiques:
+        - texte: "L'interdiction se contourne sans risque : des plaintes déposées contre des agences américaines de GPA n'ont donné lieu à aucune poursuite."
+        - texte: "Elle laisse le juge décider à la place de la loi : depuis 2026, il reconnaît des parents d'enfants nés de GPA sans qu'aucune procédure ne soit prévue par la loi."
+        - texte: "Elle laisse des Français passer des contrats à l'étranger, alors qu'un cadre fixé en France protégerait mieux la femme qui porte l'enfant."
   - id: C
     libelle: L'autoriser sans paiement
     implique: "Une femme peut porter un enfant pour d'autres sans être payée, ses frais étant remboursés, dans un cadre strict fixé par la loi, comme au Royaume-Uni ou au Canada."
     defenseurs: "Des couples infertiles et des couples d'hommes partent déjà à l'étranger : mieux vaut une GPA encadrée et non lucrative en France, qui protège la femme et l'enfant."
     critiques: "« Il n'y a pas de GPA éthique » : la femme engage son corps, l'enfant est séparé d'elle à la naissance, et le remboursement des frais peut cacher un paiement."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "Sans paiement, la GPA est autorisée au Royaume-Uni depuis 1985 et au Canada depuis 2004 ; le Québec l'encadre depuis 2023."
+        source: { organisme: "Sénat", annee: 2023 }
+      defenseurs:
+        - texte: "Des couples partent déjà à l'étranger : chaque année, la justice traite une centaine de dossiers d'état civil d'enfants nés de GPA hors de France."
+          source: { organisme: "Europe 1", annee: 2018 }
+        - texte: "La plupart de ces grossesses se passent bien : au Canada, 92 femmes sur 100 qui ont porté un enfant pour d'autres n'ont eu aucune complication grave."
+          source: { organisme: "Annals of Internal Medicine", annee: 2024 }
+        - texte: "Depuis 2021, la PMA est ouverte aux couples de femmes : pour un couple d'hommes, la GPA reste la seule façon d'avoir un enfant biologique."
+      critiques:
+        - texte: "Il n'y a pas de GPA éthique : le remboursement des frais peut cacher un paiement, et la frontière entre les deux est souvent floue."
+        - texte: "Porter un enfant pour d'autres est plus risqué : au Canada, 7,8 % de complications graves, contre 2,3 % pour une grossesse sans aide médicale."
+          source: { organisme: "Annals of Internal Medicine", annee: 2024 }
+        - texte: "On connaît mal le devenir de ces enfants : l'étude qui les a suivis jusqu'à l'âge adulte ne compte que 22 familles nées de GPA, sans résultat publié pour elles seules."
+          source: { organisme: "Université de Cambridge", annee: 2023 }
   - id: D
     libelle: "L'autoriser, même payée"
     implique: "La femme qui porte l'enfant peut être payée, dans un contrat encadré par la loi, comme en Californie."
     defenseurs: "Porter un enfant pour d'autres demande du temps et comporte des risques : le rémunérer le reconnaît, dans un cadre qui protège les droits de chacun."
     critiques: "Payer une grossesse fait du corps des femmes et de l'enfant un objet de marché, et attire d'abord les femmes les plus pauvres."
     axes: { societe: -2 }
+    detail:
+      chiffrage:
+        texte: "Aucun sondage récent n'a mesuré l'avis des Français sur une GPA payée. Elle est autorisée notamment en Californie, dans un contrat encadré par la loi."
+        source: { organisme: "Sénat", annee: 2023 }
+      defenseurs:
+        - texte: "Payer la femme qui porte l'enfant, ce n'est pas acheter son corps : c'est rétribuer son engagement et son savoir-faire."
+        - texte: "Quand chacun consent librement et en connaissance de cause, une grossesse pour autrui ne fait de tort à personne."
+        - texte: "Les enfants ne s'en portent pas plus mal : suivis jusqu'à 20 ans, ceux nés de GPA ou de dons vont aussi bien que les autres."
+          source: { organisme: "Université de Cambridge", annee: 2023 }
+      critiques:
+        - texte: "Payer une grossesse revient à mettre un prix sur le corps d'une femme et sur un enfant."
+        - texte: "Ce sont les femmes les plus vulnérables qui acceptent, souvent pour survivre."
+        - texte: "Même les pays qui l'autorisent refusent souvent qu'elle soit payée : au Canada, payer une femme pour porter un enfant est puni de jusqu'à 10 ans de prison."
+          source: { organisme: "Sénat", annee: 2023 }
 pourAllerPlusLoin:
   - titre: "Sénat, La gestation pour autrui, étude de législation comparée n° 327, 2023"
     url: https://www.senat.fr/lc/lc327/lc327.html

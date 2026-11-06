@@ -42,6 +42,20 @@ options:
     # défend au nom de la laïcité et de l'égalité (§ 2d) : 12 des 18 sénateurs communistes ont voté l'article 1er
     # (§ 1.4, [3]) et 66 % des proches du PS y sont favorables dans le sondage CSA (§ 2g, [21]).
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage du coût n'a été trouvé, et le texte n'en prévoit pas. La règle s'appliquerait aux compétitions des 120 fédérations agréées, de leurs ligues professionnelles et de leurs clubs."
+        source: { organisme: "Sénat", annee: 2024 }
+      defenseurs:
+        - texte: "Une règle nationale protège les arbitres et les clubs : beaucoup de fédérations demandent un cadre clair pour appuyer leurs décisions sur le terrain."
+        - texte: "Le sport, comme l'école, apprend la règle commune : sur le terrain, la citoyenneté passe avant toute autre appartenance."
+        - texte: "Le repli communautaire existe dans le sport : de 25 à 130 associations à visée séparatiste, dans les hypothèses les plus basses."
+          source: { organisme: "Assemblée nationale", annee: 2025 }
+      critiques:
+        - texte: "La laïcité oblige l'État et ses agents : une joueuse amateur ne représente en rien la puissance publique."
+        - texte: "Elle écarterait des femmes de la compétition, même amateur, et creuserait l'écart de pratique sportive avec les hommes."
+        - texte: "Les clubs repérés comme liés à une mouvance séparatiste sont rares : 127 sur 380 000 associations sportives en 2019."
+          source: { organisme: "Ministère des Sports", document: "cité par le Sénat", annee: 2024 }
   - id: B
     libelle: Laisser chaque fédération décider
     implique: "Les sélectionnés en équipe de France restent neutres. Pour les autres, chaque fédération fixe sa règle sous le contrôle du juge, qui exige qu'une interdiction soit nécessaire au bon déroulement des matchs."
@@ -50,18 +64,60 @@ options:
     # 0 et non +1 : c'est la règle actuelle, le point milieu, défendue à gauche comme au centre (J.-L. Mélenchon,
     # É. Borne, étude § 1.4 et § 4) ; +1 la rangeait du côté conservateur.
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "La garder ne change rien : 14 fédérations sur 80 étudiées interdisent aujourd'hui un signe ou une tenue religieuse en compétition."
+        source: { organisme: "Ministère des Sports", annee: 2025 }
+      defenseurs:
+        - texte: "Le football n'est pas le handball : chaque fédération juge des risques de son sport, sous le contrôle du juge."
+        - texte: "L'État a déjà les moyens d'agir contre les clubs qui dérivent : depuis 2019, 592 contrôles ont conduit à 9 fermetures."
+          source: { organisme: "Sénat", annee: 2024 }
+        - texte: "La laïcité de l'État n'est pas en cause : c'est à chaque fédération de dire si un signe gêne le jeu."
+      critiques:
+        - texte: "Des règles qui changent d'un sport à l'autre sèment la confusion, chez les joueurs comme chez les arbitres."
+        - texte: "Les interdictions déjà prises écartent des joueuses au football et au basket, sans examen au cas par cas."
+        - texte: "Les outils actuels servent peu : depuis la loi de 2021, un seul club a perdu son agrément pour manquement aux principes de la République."
+          source: { organisme: "Sénat", annee: 2024 }
   - id: C
     libelle: "L'autoriser, sauf en équipe de France"
     implique: "Les sélectionnés en équipe de France restent neutres. Pour tous les autres, une fédération ne peut plus interdire un couvre-chef religieux adapté au sport, sauf pour une raison de sécurité."
     defenseurs: "La neutralité s'impose à ceux qui représentent la France, pas aux amateurs, qui ne représentent pas l'État : les écarter les prive de sport."
     critiques: "Le terrain deviendrait un lieu d'affichage religieux, et chaque club serait exposé seul aux pressions de ceux qui veulent y imposer leurs règles."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. La règle changerait pour tous les licenciés hors équipe de France : 15,4 millions de licences ont été délivrées en 2022, pas toutes pour la compétition."
+        source: { organisme: "Sénat", document: "d'après l'Injep", annee: 2024 }
+      defenseurs:
+        - texte: "La neutralité vaut pour ceux qui représentent la France, pas pour les amateurs, qui jouent pour leur club et non pour l'État."
+        - texte: "Les personnes musulmanes, ou perçues comme telles, sont déjà plus souvent discriminées dans les loisirs : 18 % disent l'avoir été, contre 8 % de la population."
+          source: { organisme: "Défenseur des droits", annee: 2025 }
+        - texte: "Seule la sécurité justifie d'interdire : un vêtement trop long ou qui s'accroche, pas un couvre-chef adapté au sport."
+      critiques:
+        - texte: "Les clubs se retrouveraient seuls face à ceux qui veulent imposer leurs règles sur le terrain : plus de 500 ont déjà connu des comportements communautaristes."
+          source: { organisme: "Assemblée nationale", annee: 2025 }
+        - texte: "Le juge a validé l'interdiction au football pour prévenir les affrontements sans lien avec le sport : la loi retirerait cet outil aux fédérations."
+        - texte: "Le terrain deviendrait un lieu où l'on affiche sa religion, alors qu'il doit rester neutre pour tous."
   - id: D
     libelle: "L'autoriser partout, équipe de France comprise"
     implique: "Aucune fédération ne peut interdire un couvre-chef religieux adapté au sport, et les athlètes de l'équipe de France peuvent le porter, comme le permettent les règles mondiales du basket ou du football."
     defenseurs: "Les fédérations internationales et le Comité international olympique l'autorisent : une athlète qui porte le voile doit pouvoir représenter son pays, comme ailleurs en Europe."
     critiques: "Une équipe nationale représente un État laïque : ses membres doivent rester neutres, comme l'a jugé le Conseil d'État."
     axes: { societe: -2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Une ONG qui conteste ces interdictions compte la France comme le seul de 38 pays européens étudiés à interdire le voile au football, au basket ou au volley."
+        source: { organisme: "Amnesty International", annee: 2024 }
+      defenseurs:
+        - texte: "Les règles mondiales l'autorisent : une athlète voilée doit pouvoir représenter la France, comme les sportives des autres pays aux Jeux."
+        - texte: "Les jeunes ne veulent pas de l'interdiction : en mars 2025, 57 % des 18-24 ans s'opposaient à l'interdiction du voile en compétition."
+          source: { organisme: "CSA pour CNews, Europe 1 et Le JDD", annee: 2025 }
+        - texte: "Ces interdictions sont discriminatoires : elles écartent des femmes du sport à cause de leur religion."
+      critiques:
+        - texte: "Une équipe nationale représente un État laïque : ses membres participent à un service public et doivent rester neutres."
+        - texte: "La plupart des Français veulent l'interdire : en mars 2025, 73 % étaient favorables à l'interdiction du voile en compétition."
+          source: { organisme: "CSA pour CNews, Europe 1 et Le JDD", annee: 2025 }
+        - texte: "Même le sport mondial veut des terrains neutres : la Charte olympique interdit toute démonstration religieuse sur les sites des Jeux."
 pourAllerPlusLoin:
   - titre: "Sénat, proposition de loi visant à assurer le respect du principe de laïcité dans le sport, dossier législatif, 2025"
     url: https://www.senat.fr/dossier-legislatif/ppl23-376.html

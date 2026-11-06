@@ -32,24 +32,88 @@ options:
     defenseurs: "Ces personnes vivent et travaillent déjà ici : leur donner un titre les sort de l'exploitation et fait entrer des cotisations, au moins 4 000 euros par travailleur et par an en Espagne, où une étude n'a pas trouvé de hausse des arrivées après 2005."
     critiques: "Une régularisation générale récompense un séjour illégal et peut attirer d'autres arrivées, selon ses opposants ; les pays de l'Union se sont engagés en 2008 à régulariser au cas par cas, et l'Espagne a reçu en 2026 plus d'un million de demandes, plus du double de sa prévision."
     axes: { societe: -2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage français n'a été trouvé. En Espagne, chaque travailleur régularisé en 2005 a fait rentrer au moins 4 000 euros de cotisations par an."
+        source: { organisme: "F. Elias, J. Monras et J. Vázquez-Grenno", document: "Journal of Labor Economics", annee: 2025 }
+      defenseurs:
+        - texte: "Régulariser a profité à toute l'économie : la régularisation de 1981 aurait augmenté d'environ 1 % la richesse par habitant."
+          source: { organisme: "CEPII", annee: 2024 }
+        - texte: "Régulariser n'attire pas forcément : après près de 600 000 régularisations en Espagne en 2005, aucune hausse des arrivées n'a été trouvée."
+          source: { organisme: "F. Elias, J. Monras et J. Vázquez-Grenno", document: "Journal of Labor Economics", annee: 2025 }
+        - texte: "Ces personnes vivent et travaillent déjà ici : un titre leur permet de déclarer leur travail et d'apprendre le français."
+      critiques:
+        - texte: "Régulariser en appelle d'autres : vingt ans après avoir régularisé, l'Espagne a reçu 1 174 978 nouvelles demandes en 2026."
+          source: { organisme: "Ministère espagnol de l'Inclusion", annee: 2026 }
+        - texte: "Les études qui trouvent des gains portent sur d'autres pays ou d'autres époques : rien ne dit qu'elles valent pour la France d'aujourd'hui."
+        - texte: "Les étrangers sans titre sont de plus en plus nombreux : l'aide médicale qui leur est réservée comptait 463 866 bénéficiaires en 2024, contre 311 310 en 2016."
+          source: { organisme: "Sénat", annee: 2025 }
   - id: B
     libelle: "Un titre pour ceux qui travaillent"
     implique: "L'étranger sans titre qui a travaillé un certain temps obtient de plein droit un titre de séjour, sans dépendre de la décision du préfet ni de son employeur, comme le prévoyait le projet du gouvernement en 2023 (8 mois de travail sur 24 et trois ans en France)."
     defenseurs: "Des critères clairs plutôt que des décisions inégales d'une préfecture à l'autre : le travailleur ne dépend plus d'un employeur ou d'un guichet, et l'on met fin à ce que le ministre de l'Intérieur appelait en 2023 un « servage moderne »."
     critiques: "Le Sénat a retiré ce titre automatique de la loi en 2023 : ses opposants veulent que l'État garde le dernier mot, refusent de récompenser un séjour illégal et craignent d'attirer d'autres arrivées."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. En 2023, le gouvernement estimait qu'un tel titre pourrait concerner 10 000 personnes par an."
+        source: { organisme: "Ministère du Travail", annee: 2023 }
+      defenseurs:
+        - texte: "Sans titre, le travailleur dépend de son employeur : à travail égal, il gagne au moins 4 à 8 % de moins qu'un étranger en règle."
+          source: { organisme: "CEPII", annee: 2024 }
+        - texte: "Des critères fixés par la loi mettent fin aux écarts entre préfectures, dont certaines refusent même d'instruire les demandes."
+        - texte: "Une majorité l'approuvait : en 2023, 68 % des Français voulaient un titre pour qui vit ici depuis 3 ans et a travaillé 8 mois sur 24 dans un métier qui manque de bras."
+          source: { organisme: "Elabe", annee: 2023 }
+      critiques:
+        - texte: "L'État doit garder le dernier mot : le Sénat a rejeté un titre automatique en 2023, par 191 voix contre 138."
+          source: { organisme: "Sénat", annee: 2023 }
+        - texte: "Seul un examen au cas par cas permet de vérifier le français, l'intégration et le respect de l'ordre public."
+        - texte: "Une majorité s'y opposait : en 2023, 55 % des Français rejetaient la régularisation des étrangers sans titre employés dans les métiers qui manquent de bras."
+          source: { organisme: "CSA", annee: 2023 }
   - id: C
     libelle: "Au cas par cas, par le préfet"
     implique: "La régularisation reste exceptionnelle et décidée par le préfet, qui regarde le travail, l'intégration (sept ans de présence comme repère), le français et l'ordre public ; la voie des métiers qui manquent de bras peut être prolongée après 2026."
     defenseurs: "L'État garde le dernier mot : on régularise ceux qui sont intégrés et utiles, sans créer de droit automatique, en vérifiant leur travail, leur maîtrise du français et le respect de l'ordre public."
     critiques: "Les uns jugent la voie trop étroite et inégale selon les préfectures (1 655 titres pour les métiers qui manquent de bras en 2025, la moitié des dossiers non instruits) ; les autres jugent que régulariser, même au cas par cas, récompense un séjour illégal."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "En 2025, 28 610 étrangers ont été régularisés, chiffre provisoire, contre 34 724 en 2023, avant la circulaire de janvier 2025."
+        source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+      defenseurs:
+        - texte: "Le préfet écarte ceux qui menacent l'ordre public : 8 834 titres ont été refusés ou retirés pour cette raison en 2025."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+        - texte: "On combat le travail illégal en punissant les employeurs : 1 984 procédures d'amende ont été engagées en 2025, 46 % de plus qu'en 2024."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+        - texte: "Le cas par cas évite les régularisations massives, qui pèsent aussi sur les pays voisins."
+      critiques:
+        - texte: "La voie des métiers qui manquent de bras a peu servi : 1 655 titres en 2025, et la moitié des dossiers n'avaient pas été instruits."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+        - texte: "Les refus se multiplient : les refus de séjour ont augmenté de 40 % entre 2024 et 2025."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+        - texte: "Un étranger qui n'a pas quitté la France malgré l'obligation de le faire peut encore être régularisé : cela ne devrait jamais arriver."
   - id: D
     libelle: "Ne plus régulariser"
     implique: "Un étranger entré ou resté sans titre ne peut plus en obtenir un, sauf exception décidée en Conseil des ministres pour un motif d'intérêt national ; il doit repartir, et les besoins de main-d'œuvre passent par d'autres voies, comme le recrutement à l'étranger ou la formation des chômeurs."
     defenseurs: "Entrer ou rester sans titre ne doit ouvrir aucun droit : chaque régularisation crée un « appel d'air », selon ses partisans, et il faut d'abord mieux payer ces métiers et y former des chômeurs, qui sont 2,7 millions."
     critiques: "Les quelque 700 000 étrangers sans titre estimés par le ministère ne pourraient plus en obtenir et resteraient à la merci d'employeurs, alors qu'environ une obligation de quitter la France sur dix est exécutée ; des études étrangères trouvent des gains à régulariser."
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Il fermerait la porte aux quelque 700 000 étrangers sans titre que le ministère de l'Intérieur estime présents en France."
+        source: { organisme: "Ministère de l'Intérieur", annee: 2025 }
+      defenseurs:
+        - texte: "Entrer ou rester sans titre ne doit jamais être récompensé par un titre de séjour."
+        - texte: "Il y a d'abord des chômeurs à former : 2,7 millions de personnes cherchent un emploi en France."
+          source: { organisme: "Insee", annee: 2026 }
+        - texte: "Les renvois sont possibles : 24 985 étrangers ont été éloignés en 2025, 15,7 % de plus qu'en 2024."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+      critiques:
+        - texte: "Ils ne partiraient pas pour autant : seules 8,3 % des obligations de quitter la France ont été exécutées en 2024."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Fermer toute régularisation pousserait plus de gens dans la clandestinité, sans droits ni protection."
+        - texte: "Des métiers difficiles dépendent des immigrés : ils sont 38,8 % des employés de maison, contre 10,2 % de l'ensemble des emplois."
+          source: { organisme: "Dares", annee: 2021 }
 pourAllerPlusLoin:
   - titre: "Ministère de l'Intérieur, circulaire du 23 janvier 2025 sur l'admission exceptionnelle au séjour"
     url: https://www.legifrance.gouv.fr/circulaire/id/45584

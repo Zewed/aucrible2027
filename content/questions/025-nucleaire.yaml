@@ -27,21 +27,85 @@ options:
     implique: "Plus de nouveaux réacteurs (ni EPR2 ni petits réacteurs) et fermeture des réacteurs actuels au fil des années, sur une vingtaine d'années pour les uns, jusqu'à une électricité 100 % renouvelable en 2050 pour les autres."
     defenseurs: "On supprime le risque d'accident et les nouveaux déchets, dangereux des centaines de milliers d'années ; en 2021, le gestionnaire du réseau a jugé possible une électricité 100 % renouvelable en 2050, et le devis des six réacteurs prévus a augmenté de 41 % depuis 2022, à prix constants."
     critiques: "Selon la même étude de 2021, que le gestionnaire du réseau met à jour fin 2026, se passer de nouveaux réacteurs coûterait environ 10 milliards d'euros de plus par an vers 2060 et demanderait de construire les renouvelables plus vite que les pays européens les plus rapides ; l'Allemagne, sortie en 2023, a tiré 38 % de son électricité du charbon et du gaz en 2025."
+    detail:
+      chiffrage:
+        texte: "Selon une étude de 2021, une électricité sans nouveaux réacteurs coûterait 71 à 80 milliards d'euros par an vers 2060, contre 59 à 66 avec. Cette étude est en cours de mise à jour."
+        source: { organisme: "Réseau de transport d'électricité", annee: 2021 }
+      defenseurs:
+        - texte: "Les renouvelables sont devenus compétitifs : on peut bâtir l'électricité de demain sans nouveaux réacteurs."
+        - texte: "Les déchets les plus radioactifs restent dangereux des centaines de milliers d'années, et le stockage prévu pour 83 000 m³ n'est toujours pas autorisé."
+          source: { organisme: "Agence nationale pour la gestion des déchets radioactifs", annee: 2026 }
+        - texte: "Un accident majeur serait ruineux : un accident du type de Fukushima coûterait à la France environ 430 milliards d'euros, selon une estimation de 2013."
+          source: { organisme: "Institut de radioprotection et de sûreté nucléaire", annee: 2013 }
+      critiques:
+        - texte: "L'Allemagne, sortie du nucléaire, achète désormais plus d'électricité qu'elle n'en vend : 19,4 milliards de kWh importés en net en 2025."
+          source: { organisme: "Office fédéral allemand de la statistique", annee: 2026 }
+        - texte: "La Belgique, qui devait sortir du nucléaire, y a renoncé en 2025 : il fait environ 42 % de son électricité."
+          source: { organisme: "Agence France-Presse", annee: 2025 }
+        - texte: "Fermer des réacteurs avant d'avoir assez de renouvelables ferait monter les émissions de carbone."
   - id: B
     libelle: "Réduire sa part, sans en sortir"
     implique: "On garde tout ou partie des réacteurs actuels, tant que l'autorité de sûreté l'autorise, mais on construit moins que les six réacteurs prévus, voire aucun ; les renouvelables prennent une part croissante. C'était l'objectif de la loi de 2015 à 2023 : 50 % de nucléaire."
     defenseurs: "Ne pas dépendre d'une seule technologie, comme en 2022 quand jusqu'à près de 65 % du parc était à l'arrêt, tout en gardant une production stable et sans engager des dizaines de milliards dans des réacteurs attendus vers 2038 au lieu de 2035."
     critiques: "Près de la moitié de la puissance nucléaire aura 60 ans d'ici 2045 : sans assez de réacteurs neufs, il faudra la remplacer vite ; pour les partisans de la sortie, c'est garder le risque et les déchets."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. La programmation de l'énergie précédente, qui allait dans ce sens, prévoyait de fermer 14 réacteurs."
+        source: { organisme: "Gouvernement", annee: 2026 }
+      defenseurs:
+        - texte: "Tout miser sur une technologie expose à une panne commune : en 2022, des fissures ont fait tomber la production nucléaire à 279 milliards de kWh, au plus bas depuis 1988."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Les nouveaux réacteurs produiraient cher : leur coût estimé a atteint 79,9 euros le mégawattheure fin 2023, aux prix de 2020."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Les réacteurs actuels peuvent encore servir : leur sûreté est jugée satisfaisante, et leur prolongation est permise sous conditions."
+      critiques:
+        - texte: "Il faudra remplacer beaucoup de réacteurs : 30 des quelque 63 gigawatts du parc atteindront 60 ans d'ici 2045."
+          source: { organisme: "Réseau de transport d'électricité", annee: 2023 }
+        - texte: "En construire moins coûterait plus cher : garder environ 40 gigawatts de nucléaire en 2050, avec de nouveaux réacteurs, revient moins cher qu'une électricité toute renouvelable."
+          source: { organisme: "Réseau de transport d'électricité", annee: 2021 }
+        - texte: "Garder des réacteurs, c'est garder le risque d'accident et continuer à produire des déchets à vie très longue."
   - id: C
     libelle: "Le relancer avec les renouvelables"
     implique: "C'est le plan de l'État : faire durer les réacteurs 50 ou 60 ans, construire six EPR2 (le premier vers 2038) et peut-être huit de plus, tout en continuant à développer l'éolien et le solaire."
     defenseurs: "Selon une étude de 2021 du gestionnaire du réseau, construire de nouveaux réacteurs « est pertinent du point de vue économique » et coûte moins cher à long terme qu'une électricité 100 % renouvelable ; le parc actuel produit pour environ 60 euros le mégawattheure une électricité bas carbone qu'on règle selon les besoins."
     critiques: "Le devis des six réacteurs est passé de 51,7 à 72,8 milliards d'euros aux prix de 2020, le premier est attendu vers 2038 au lieu de 2035, et le stockage des déchets les plus radioactifs n'est pas encore autorisé ; d'autres jugent l'aide aux renouvelables trop coûteuse."
+    detail:
+      chiffrage:
+        texte: "Les six nouveaux réacteurs coûteraient 72,8 milliards d'euros aux prix de 2020, hors intérêts, selon le devis d'EDF de fin 2025."
+        source: { organisme: "EDF", annee: 2025 }
+      defenseurs:
+        - texte: "Le parc actuel produit une électricité bon marché : 60,3 euros le mégawattheure pour 2026-2028."
+          source: { organisme: "Commission de régulation de l'énergie", annee: 2025 }
+        - texte: "D'ici 2030, il faut à la fois développer les renouvelables au plus vite et faire durer les réacteurs existants : les deux se complètent."
+        - texte: "Le prix des nouveaux réacteurs est encadré : leur électricité serait garantie à 100 euros le mégawattheure au plus, aux prix de 2024."
+          source: { organisme: "Présidence de la République", annee: 2025 }
+      critiques:
+        - texte: "Le dernier chantier a dérapé : Flamanville, annoncé à 3,3 milliards d'euros, en a coûté 13,2 à construire, aux prix de 2015."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Faire durer les vieux réacteurs coûte cher : leur rénovation demande 4 à 4,5 milliards d'euros par an."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "L'argent public versé à l'éolien et au solaire serait mieux employé à construire des réacteurs."
   - id: D
     libelle: "Miser d'abord sur le nucléaire"
     implique: "Faire durer les réacteurs le plus longtemps possible, en construire de nouveaux, souvent plus que les six prévus, et arrêter l'aide publique à l'éolien et au solaire."
     defenseurs: "Une électricité bas carbone, produite en France et qu'on règle selon les besoins, sans payer d'aides à des énergies qui dépendent du vent et du soleil ; la France a déjà mis en service 32 réacteurs entre 1978 et 1987."
     critiques: "Le premier nouveau réacteur est attendu vers 2038 et le dernier chantier a pris douze ans de retard ; d'ici 2030, le gestionnaire du réseau recommande de développer les renouvelables « le plus rapidement possible », et miser sur une seule technologie expose à un défaut commun, comme les fissures de 2022."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Ses partisans veulent souvent plus que les six réacteurs prévus : jusqu'à 20 nouveaux EPR dans un programme de 2022."
+        source: { organisme: "Institut Montaigne", annee: 2022 }
+      defenseurs:
+        - texte: "La France a déjà su construire vite : 32 réacteurs de même puissance mis en service en dix ans, tous encore en fonctionnement."
+          source: { organisme: "Autorité de sûreté nucléaire et de radioprotection", annee: 2025 }
+        - texte: "Les déchets les plus dangereux tiennent dans un petit volume : environ 3 % du total, pour presque toute la radioactivité."
+          source: { organisme: "Agence nationale pour la gestion des déchets radioactifs", annee: 2023 }
+        - texte: "Le nucléaire produit quand on en a besoin, alors que l'éolien et le solaire dépendent de la météo."
+      critiques:
+        - texte: "Les EPR construits en Europe ont accumulé les retards : en Finlande, celui d'Olkiluoto a démarré avec 13 ans de retard."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Le neuf coûte de plus en plus cher : le devis des six réacteurs prévus a augmenté d'environ 40 % entre 2022 et fin 2025, à prix constants."
+          source: { organisme: "Agence France-Presse", annee: 2025 }
+        - texte: "Le nucléaire n'est pas une énergie tout à fait nationale : la France importe la totalité de son uranium."
 pourAllerPlusLoin:
   - titre: "RTE, bilan électrique 2025 : la production nucléaire"
     url: https://analysesetdonnees.rte-france.com/bilan-electrique-2025/production

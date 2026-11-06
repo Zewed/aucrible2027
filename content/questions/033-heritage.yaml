@@ -29,30 +29,110 @@ options:
     defenseurs: "Douze millions d'euros, c'est cent fois le patrimoine médian selon ses partisans : au-delà, l'héritage décide de la place de chacun dès la naissance."
     critiques: "Prendre tout au-delà d'un seuil risque d'être jugé confiscatoire, et les plus fortunés peuvent répartir leurs dons dans le temps et entre héritiers, ou s'installer ailleurs."
     axes: { economie: -2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Selon une estimation, les 0,1 % qui héritent le plus reçoivent environ 13 millions d'euros chacun sur toute leur vie."
+        source: { organisme: "Conseil d'analyse économique", annee: 2021 }
+      defenseurs:
+        - texte: "Les héritages sont bien plus inégaux que les revenus du travail : les 0,1 % qui héritent le plus reçoivent 180 fois l'héritage médian, contre 10 fois pour le travail."
+          source: { organisme: "Conseil d'analyse économique", annee: 2021 }
+        - texte: "Pour atteindre le sommet des fortunes, il faut désormais presque toujours avoir eu la chance d'hériter."
+        - texte: "Compter tout ce qu'on reçoit dans sa vie empêche de payer moins en donnant un peu tous les quinze ans."
+      critiques:
+        - texte: "Prendre tout au-delà d'un seuil revient à confisquer, et une telle mesure risque d'être censurée par le Conseil constitutionnel."
+        - texte: "Les plus fortunés peuvent étaler leurs dons dans le temps et les répartir entre plusieurs héritiers pour rester sous le plafond."
+        - texte: "La France taxe déjà lourdement les plus gros héritages : jusqu'à 45 % entre parents et enfants, contre 15 % en moyenne dans les pays de l'OCDE."
+          source: { organisme: "Cour des comptes", annee: 2024 }
   - id: B
     libelle: Taxer davantage les gros héritages
     implique: "Les droits augmentent sur les plus gros héritages, par exemple au-delà de 4 millions d'euros, et des avantages comme l'assurance-vie ou le pacte Dutreil sont réduits ; les petits héritages ne paient pas plus."
     defenseurs: "Selon une estimation, les plus gros héritiers, un sur mille, paient environ 10 % d'impôt, loin du taux affiché de 45 % ; ses partisans annoncent 15 milliards d'euros de recettes en plus par an."
     critiques: "Les entreprises familiales coûteraient plus cher à transmettre, au risque d'être vendues, et les recettes annoncées, qu'aucune administration n'a chiffrées, dépendent de patrimoines peu nombreux qui peuvent s'organiser."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Ses partisans en attendent 15 milliards d'euros par an. Aucune administration n'a chiffré ces recettes."
+        source: { organisme: "Les Écologistes", annee: 2026 }
+      defenseurs:
+        - texte: "Les plus gros héritages échappent en partie à l'impôt : les 0,1 % d'héritiers qui reçoivent le plus paient à peine 10 % de droits."
+          source: { organisme: "Conseil d'analyse économique", annee: 2021 }
+        - texte: "L'allègement des entreprises familiales coûte cher pour peu d'effet : plus de 5,5 milliards d'euros en 2024, sans effet mesuré sur l'investissement ni sur l'emploi."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Les Français y sont favorables : 73 % approuvent une contribution à part sur les très hauts patrimoines quand ils sont transmis."
+          source: { organisme: "Elabe", document: "sondage pour Les Echos", annee: 2025 }
+      critiques:
+        - texte: "L'allègement garde les entreprises dans la famille : dix ans après, 40 % de celles qui en ont profité ont changé de mains, contre 48 % des autres."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Sans allègement, payer les droits sur une entreprise familiale prendrait 4 à 8 ans de tous ses bénéfices : les héritiers devraient vendre."
+          source: { organisme: "Medef", annee: 2025 }
+        - texte: "Les Français tiennent à l'assurance-vie : 62 % refusent que son impôt soit aligné sur celui des héritages."
+          source: { organisme: "Elabe", document: "sondage pour Les Echos", annee: 2025 }
   - id: C
     libelle: Garder le même total
     implique: "Les héritiers ne paient ni plus ni moins au total ; on garde les règles, ou l'on baisse les taux en réduisant les avantages, comme le propose la Cour des comptes."
     defenseurs: "Les finances publiques interdisent une baisse non financée, et la France est déjà le pays qui taxe le plus les héritages parmi 39 pays comparés : mieux vaut un impôt plus juste à recette égale."
     critiques: "Les uns y voient un impôt toujours trop lourd pour les familles ; les autres, des milliards que les plus gros héritages pourraient apporter et qu'on laisse de côté."
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Le total ne change pas : les droits de succession et de donation ont rapporté 20,8 milliards d'euros en 2023."
+        source: { organisme: "Fipeco", annee: 2024 }
+      defenseurs:
+        - texte: "Mieux vaut réduire les régimes à part pour baisser les taux : entre parents et enfants, au-delà de 2,5 millions d'euros, ils font baisser le taux moyen de 15 points."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "La France est déjà le pays qui taxe le plus les héritages et les dons : 0,74 % de la richesse du pays en 2021, au premier rang de 39 pays."
+          source: { organisme: "Conseil des prélèvements obligatoires", annee: 2023 }
+        - texte: "La dernière enquête de l'administration sur les héritages date de 2010 : changer le total sans données nouvelles, ce serait réformer à l'aveugle."
+      critiques:
+        - texte: "Garder le même total, c'est figer un impôt qui a déjà fortement monté : 7 milliards d'euros de droits de succession en 2011, 16,6 milliards en 2023."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "Réduire les avantages sans rien demander de plus, c'est renoncer à des milliards : l'avantage de l'assurance-vie coûte à lui seul 4 à 5 milliards d'euros par an."
+          source: { organisme: "Conseil d'analyse économique", annee: 2021 }
+        - texte: "Baisser tous les taux profiterait aussi aux plus gros héritages, au lieu de les faire payer davantage."
   - id: D
     libelle: Alléger les droits
     implique: "La part reçue sans impôt augmente, par exemple 300 000 euros de logement exonérés ou des dons de 100 000 euros tous les dix ans au lieu de quinze ; les dons aux jeunes sont facilités."
     defenseurs: "On hérite en moyenne vers 50 ans : il faut aider les parents à transmettre plus tôt aux jeunes, sans obliger des familles à vendre la maison pour payer l'impôt."
     critiques: "Cela coûterait plusieurs milliards d'euros par an, 3,8 milliards pour exonérer 300 000 euros de logement selon l'Institut Montaigne, et profiterait d'abord à ceux qui reçoivent plus que la part aujourd'hui sans impôt."
     axes: { economie: 1 }
+    detail:
+      chiffrage:
+        texte: "Exonérer 300 000 euros de logement par héritier coûterait environ 3,8 milliards d'euros par an, et permettre des dons de 100 000 euros tous les dix ans, 0,96 milliard."
+        source: { organisme: "Institut Montaigne", annee: 2022 }
+      defenseurs:
+        - texte: "Les Français jugent cet impôt trop lourd : 71 % trouvent les droits de succession trop élevés."
+          source: { organisme: "Elabe", document: "sondage pour Les Echos", annee: 2025 }
+        - texte: "L'héritage arrive trop tard pour aider à démarrer dans la vie : on hérite en moyenne vers 50 ans, contre 30 ans au début du XXe siècle."
+          source: { organisme: "Conseil d'analyse économique", annee: 2021 }
+        - texte: "Le logement de la famille doit pouvoir passer aux enfants sans impôt, pour qu'ils n'aient pas à le vendre."
+      critiques:
+        - texte: "Beaucoup de successions ne paient déjà rien : en 2022, seules 47 % des successions déclarées ont donné lieu à des droits."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "Relever la part sans impôt profiterait surtout aux gros héritages, qui restent rares : moins d'une personne sur dix hérite de plus de 500 000 euros dans sa vie."
+          source: { organisme: "Conseil d'analyse économique", annee: 2021 }
+        - texte: "Donner sans impôt tous les dix ans au lieu de quinze profiterait surtout à ceux qui ont assez pour donner plusieurs fois."
   - id: E
     libelle: Les supprimer entre parents et enfants
     implique: "Plus aucun impôt n'est dû quand des parents transmettent à leurs enfants, de leur vivant ou au décès ; les autres héritiers continuent de payer."
     defenseurs: "Cet argent a déjà été taxé quand il a été gagné, et douze pays riches, dont la Norvège, ont supprimé l'impôt sur les successions."
     critiques: "L'État perdrait une grande partie des 16,6 milliards d'euros de droits de succession, les plus gros héritiers y gagneraient le plus, et une part des biens transmis n'a jamais été taxée, comme les gains des placements gardés jusqu'au décès."
     axes: { economie: 2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Douze pays de l'OCDE ont supprimé l'impôt sur les successions, dont la Norvège en 2014."
+        source: { organisme: "Cour des comptes", annee: 2024 }
+      defenseurs:
+        - texte: "Cet argent a déjà été imposé quand il a été gagné : le taxer encore quand il passe aux enfants, c'est l'imposer une seconde fois."
+        - texte: "La France taxe le patrimoine plus que tout autre pays de l'Union : 4,1 % de la richesse du pays en 2022, contre 2,1 % en moyenne."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "Transmettre à ses enfants concerne une grande partie des familles : 40 % des ménages ont déjà reçu un héritage."
+          source: { organisme: "Insee", annee: 2024 }
+      critiques:
+        - texte: "Les plus gros héritiers y gagneraient le plus : le 1 % qui hérite le plus reçoit en moyenne plus de 4,2 millions d'euros."
+          source: { organisme: "Conseil d'analyse économique", annee: 2021 }
+        - texte: "Tout n'a pas déjà été taxé : les gains des placements gardés jusqu'au décès n'ont jamais payé d'impôt sur les plus-values, effacées à la mort."
+        - texte: "Entre parents et enfants, l'impôt est déjà léger : il prend en moyenne 5 à 10 % de ce qui est transmis."
+          source: { organisme: "France Stratégie", annee: 2017 }
 pourAllerPlusLoin:
   - titre: "Cour des comptes, Les droits de succession, 25/09/2024"
     url: https://www.ccomptes.fr/fr/publications/les-droits-de-succession

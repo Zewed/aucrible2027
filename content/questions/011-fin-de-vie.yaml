@@ -36,18 +36,63 @@ options:
     defenseurs: "La société a besoin de soins palliatifs, pas d'une légalisation de l'euthanasie : il deviendrait plus facile de demander la mort que d'être soigné."
     critiques: Des malades peuvent vouloir arrêter de souffrir et demandent la liberté de choisir leur fin de vie.
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "L'abroger ramènerait au cadre de 2016 et aux soins palliatifs. L'écart entre leurs besoins et leur offre était estimé à 4 000 lits spécialisés."
+        source: { organisme: "Cour des comptes", annee: 2023 }
+      defenseurs:
+        - texte: "Il faut d'abord pouvoir être soigné : les soins palliatifs ne couvraient que la moitié des besoins estimés."
+          source: { organisme: "Cour des comptes", annee: 2023 }
+        - texte: "La loi divise profondément : le Sénat l'avait rejetée par 181 voix contre 122."
+          source: { organisme: "Sénat", annee: 2026 }
+        - texte: "Autoriser un acte qui donne la mort serait un basculement majeur pour notre société."
+      critiques:
+        - texte: "Des malades veulent arrêter de souffrir : certaines souffrances, notamment réfractaires, restaient sans réponse dans le cadre de 2016."
+        - texte: "Des citoyens tirés au sort l'ont demandée : 76 % des votants de la Convention citoyenne ont soutenu une aide active à mourir."
+          source: { organisme: "Convention citoyenne sur la fin de vie", annee: 2023 }
+        - texte: "Aider à mourir n'empêche pas d'être soigné : dans l'Oregon, 9 malades aidés à mourir sur 10 étaient suivis en soins palliatifs."
+          source: { organisme: "Oregon Health Authority", annee: 2026 }
   - id: B
     libelle: La garder telle quelle
     implique: Aide à mourir pour les majeurs, français ou résidents, atteints d'une maladie grave et incurable en phase avancée ou terminale ; le patient s'administre le produit, un soignant n'agit que s'il ne le peut pas.
     defenseurs: "Si nul ne souhaite mourir, certains peuvent vouloir arrêter de souffrir : la loi leur donne ce choix, avec des garde-fous (collège de soignants, délai de réflexion de deux jours)."
     critiques: Les uns y voient un « basculement anthropologique majeur », les autres un texte affaibli par les amendements.
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage du nombre de malades concernés n'a été trouvé. Le médecin répond sous quinze jours, et le malade confirme après au moins deux jours de réflexion."
+        source: { organisme: "Conseil constitutionnel", annee: 2026 }
+      defenseurs:
+        - texte: "Ses limites peuvent tenir : au Canada, en 2024, 96 % des aides à mourir respectaient la condition d'origine de la loi, une mort prévisible."
+          source: { organisme: "Santé Canada", annee: 2025 }
+        - texte: "Elle protège les plus fragiles : un collège de soignants examine chaque demande, et toute pression signalée est transmise au procureur."
+        - texte: "L'État investit en même temps dans les soins palliatifs : un plan de dix ans leur consacre 1,1 milliard d'euros."
+          source: { organisme: "Ministère de la Santé", annee: 2026 }
+      critiques:
+        - texte: "Les soins palliatifs manquent encore : en 2023, 20 départements sur 101 n'avaient aucune unité spécialisée."
+          source: { organisme: "Ministère de la Santé", annee: 2023 }
+        - texte: "Des malades pourraient demander à mourir pour ne pas peser : dans l'Oregon, 4 malades aidés à mourir sur 10 citent la peur d'être un poids pour leurs proches."
+          source: { organisme: "Oregon Health Authority", annee: 2026 }
+        - texte: "Elle reste trop étroite : un malade qui peut prendre le produit lui-même ne peut pas demander à un soignant de le lui donner."
   - id: C
     libelle: L'étendre à l'euthanasie
     implique: Le patient peut demander qu'un médecin ou un infirmier lui administre le produit, sans devoir d'abord être dans l'incapacité de le faire lui-même.
     defenseurs: Une liberté supplémentaire donnée aux êtres humains pour choisir leur fin de vie.
     critiques: "« L'euthanasie est une boîte de Pandore : une fois ouverte, vous n'arrivez plus à la refermer. »"
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "À la Convention citoyenne, une majorité voulait ouvrir aussi l'euthanasie : 39,9 % des votants au choix du malade, 28,2 % en exception au suicide assisté."
+        source: { organisme: "Convention citoyenne sur la fin de vie", annee: 2023 }
+      defenseurs:
+        - texte: "Le choix doit revenir au malade : prendre lui-même le produit, ou le recevoir d'un médecin ou d'un infirmier."
+        - texte: "Choisir sa fin de vie est une liberté fondamentale, qui mérite d'être inscrite dans la Constitution."
+        - texte: "D'autres pays l'autorisent depuis longtemps, comme les Pays-Bas depuis 2001 et la Belgique depuis 2002."
+      critiques:
+        - texte: "Une fois la porte ouverte, elle ne se referme plus : au Canada, les aides à mourir ont triplé de 2019 à 2024."
+          source: { organisme: "Santé Canada", annee: 2025 }
+        - texte: "Une partie des soignants refuse de donner la mort elle-même : la loi actuelle ne le leur demande que si le malade ne peut pas agir."
+        - texte: "On ne peut pas élargir une loi qui n'est même pas encore appliquée."
 pourAllerPlusLoin:
   - titre: Légifrance, loi n° 2026-794 du 18 août 2026 relative au droit à l'aide à mourir
     url: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054706877

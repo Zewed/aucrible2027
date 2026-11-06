@@ -32,6 +32,22 @@ options:
     defenseurs: "Le RSA est un minimum pour vivre, pas un salaire : la Commission nationale consultative des droits de l'homme juge que ces heures portent atteinte aux droits humains, et l'évaluation officielle ne trouve pas d'emploi en plus au total."
     critiques: "Avant la loi, six allocataires sur dix n'avaient pas de contrat d'accompagnement valide selon la Cour des comptes, et huit Français sur dix approuvaient ces heures dans un sondage de 2022."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Les démarches d'insertion demandées depuis 2009 resteraient dues par 97 % des allocataires, soit 2 millions de personnes."
+        source: { organisme: "Drees", annee: 2025 }
+      defenseurs:
+        - texte: "Au total, les heures ne créent pas d'emploi : dans l'essai, ce que les participants ont gagné, des allocataires voisins l'ont perdu."
+        - texte: "Toute condition de plus risque d'éloigner du RSA ceux qui y ont droit : 33 à 37 % des foyers éligibles ne le percevaient déjà pas fin 2021."
+          source: { organisme: "Drees", annee: 2026 }
+        - texte: "Un minimum pour vivre n'a pas à se mériter : la Constitution le garantit à qui ne trouve pas d'emploi, et le chômage atteint 8,3 % au printemps 2026."
+          source: { organisme: "Insee", annee: 2026 }
+      critiques:
+        - texte: "Avant la réforme, le RSA menait peu à l'emploi : sept ans après leur entrée, 34 % des allocataires avaient un emploi, et 42 % touchaient encore le RSA."
+          source: { organisme: "Cour des comptes", annee: 2022 }
+        - texte: "L'accompagnement est devenu plus rapide : 39 jours entre l'inscription et le premier entretien en 2025, contre 67 jours en 2024."
+          source: { organisme: "France Travail", annee: 2025 }
+        - texte: "Le devoir de travailler est inscrit dans la Constitution, à côté du droit à des moyens d'existence, et les juges ont validé la loi."
   - id: B
     libelle: "Garder la règle actuelle"
     implique: "15 heures par semaine en principe, réduites selon la situation, ou aucune pour raison de santé, de handicap ou pour un parent isolé sans garde ; au premier manquement, au moins 30 % du RSA est retenu un à deux mois, puis rendu si la personne reprend ses démarches."
@@ -39,18 +55,66 @@ options:
     critiques: "Pour les uns, l'évaluation de l'essai ne trouve pas d'emploi en plus au total et les sanctions varient d'un département à l'autre ; pour les autres, la règle reste trop souple pour que le travail rapporte toujours plus que les aides."
     # 0 et non une absence de note : c'est le point milieu entre la suppression et le durcissement.
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "La garder ne change pas la dépense. Depuis 2025, la loi a fait inscrire d'office à France Travail 1 million d'allocataires du RSA."
+        source: { organisme: "France Travail", annee: 2025 }
+      defenseurs:
+        - texte: "Dans l'essai, les participants ont plus souvent trouvé un emploi salarié : 3,2 points de plus dans l'année que des allocataires semblables d'autres territoires."
+          source: { organisme: "Dares et Institut des politiques publiques", annee: 2026 }
+        - texte: "Les emplois trouvés tiennent : 65 à 75 % de l'effet vient de contrats de plus de six mois, sans plus de temps partiel ni salaire plus bas."
+          source: { organisme: "Dares et Institut des politiques publiques", annee: 2026 }
+        - texte: "La règle s'adapte à chacun : moins d'heures, ou aucune, pour raison de santé ou de handicap, et l'argent retenu est rendu dès la reprise des démarches."
+      critiques:
+        - texte: "L'effet repose sur des contrats aidés en nombre limité : ils expliquent près des deux tiers du gain d'emploi durable."
+          source: { organisme: "Dares et Institut des politiques publiques", annee: 2026 }
+        - texte: "Les sanctions dépendent du département : en août 2025, leur taux dépassait 65 % dans la Manche ou le Lot, et restait sous 30 % dans le Cher."
+          source: { organisme: "Assemblée nationale", annee: 2025 }
+        - texte: "Sans écart plus grand entre les aides et le salaire, la règle actuelle n'incite pas assez à reprendre un travail."
   - id: C
     libelle: "Les durcir : 15 heures pour tous, moins d'aide sans activité"
     implique: "Le RSA est fusionné avec d'autres aides : une part est versée sans condition, 300 euros par mois dans la proposition des Républicains, le reste à condition de justifier 15 heures d'activité, et le total des aides est plafonné à 70 % du Smic net."
     defenseurs: "Le travail doit toujours rapporter plus que les aides : une allocation plus haute pour ceux qui se forment ou cherchent un emploi récompense l'effort, et deux allocataires sur trois sont orientés vers un parcours qui vise l'emploi."
     critiques: "Ceux qui ne peuvent pas faire 15 heures vivraient avec moins, alors que huit allocataires sur dix ont au moins une difficulté de transport, de santé, d'argent ou de logement, et aucune économie n'est chiffrée par l'administration."
     axes: { economie: 1 }
+    detail:
+      chiffrage:
+        texte: "En 2022, Valérie Pécresse attendait 5 milliards d'euros d'économies de 15 heures obligatoires. Aucune administration n'a chiffré ce que rapporterait ce durcissement."
+        source: { organisme: "Fondation iFRAP", annee: 2022 }
+      defenseurs:
+        - texte: "La plupart des allocataires peuvent faire ces heures : 68 % sont orientés vers un parcours qui vise l'emploi."
+          source: { organisme: "État et France Travail", annee: 2025 }
+        - texte: "Nos voisins durcissent aussi : en 2026, l'Allemagne a décidé que refuser de candidater ou de se former coûterait 30 % de l'aide pendant trois mois."
+          source: { organisme: "Bundestag", annee: 2026 }
+        - texte: "Celui qui se forme ou cherche un emploi doit toucher plus que celui qui ne fait aucune démarche : l'aide doit récompenser l'effort."
+      critiques:
+        - texte: "Les parents seuls seraient les premiers touchés : 24 % des foyers au RSA sont des familles monoparentales."
+          source: { organisme: "Drees", annee: 2025 }
+        - texte: "Il faut lever les difficultés avant d'exiger des heures : à leur entrée, 43 % des allocataires ont un problème de transport."
+          source: { organisme: "État et France Travail", annee: 2025 }
+        - texte: "Baisser l'aide de ceux qui ne font pas d'activité, c'est retirer une part d'un minimum vital à des personnes déjà pauvres."
   - id: D
     libelle: "Le RSA contre un travail pour la collectivité"
     implique: "En échange du RSA, l'allocataire travaille, par exemple une journée par semaine, pour une commune, un hôpital ou une maison de retraite, comme le proposait Nicolas Dupont-Aignan en 2022 ; il ne s'agit plus d'heures d'accompagnement mais d'un travail, sans autre paie que le RSA."
     defenseurs: "Recevoir une aide de la collectivité, c'est lui rendre un peu de son temps : un travail utile redonne un rythme et des contacts, et le Conseil d'État a admis en 2018 du bénévolat dans le contrat d'un allocataire."
     critiques: "Un travail sans salaire ni contrat concurrence les emplois payés, ce que ses opposants appellent du « travail gratuit », et le gouvernement rappelle que la loi n'oblige en aucun cas à travailler bénévolement."
     axes: { economie: 2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. En 2016, le Haut-Rhin avait demandé 7 heures de bénévolat par semaine aux allocataires du RSA, ce que le Conseil d'État a admis en 2018 dans un contrat personnalisé."
+        source: { organisme: "Conseil d'État", annee: 2018 }
+      defenseurs:
+        - texte: "Qui reçoit de la collectivité peut lui rendre un peu de son temps : une journée par semaine dans une commune, un hôpital ou une maison de retraite."
+        - texte: "Beaucoup restent longtemps sans emploi : 39 % des allocataires touchent le RSA depuis cinq ans ou plus. Un travail utile redonne un rythme et des contacts."
+          source: { organisme: "Drees", annee: 2025 }
+        - texte: "D'autres pays exigent davantage : depuis 2025, le Danemark demande jusqu'à 37 heures d'activité par semaine à une partie des bénéficiaires de l'aide sociale."
+          source: { organisme: "Gouvernement danois", annee: 2024 }
+      critiques:
+        - texte: "Ce serait du travail gratuit : un emploi sans salaire ni contrat, qui prendrait la place d'emplois payés."
+        - texte: "Imposer un travail à tous oublie ceux qui ne le peuvent pas : à leur entrée, 30 % des allocataires ont un problème de santé."
+          source: { organisme: "État et France Travail", annee: 2025 }
+        - texte: "Ce qu'il leur faut d'abord, c'est une formation : 63 % des allocataires ont un diplôme inférieur au bac."
+          source: { organisme: "État et France Travail", annee: 2025 }
 pourAllerPlusLoin:
   - titre: "Dares et IPP, évaluation de l'accompagnement rénové des allocataires du RSA, 2026"
     url: https://www.ipp.eu/wp-content/uploads/2026/07/Synthese_Rapport_IPP_evaluation_accompagnement_renove_bRSA-1.pdf

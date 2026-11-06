@@ -32,16 +32,60 @@ options:
     implique: "Les bulletins blancs restent comptés à part et publiés dans les résultats, sans entrer dans les suffrages exprimés : les pourcentages, la majorité et les seuils se calculent sur les seuls votes pour un candidat, une liste ou une réponse."
     defenseurs: "Une élection sert à choisir quelqu'un : le vote blanc « agrège les rejets » sans désigner personne (Emmanuel Macron, 2019). Le compter rendrait aussi plus durs les seuils de voix qui donnent des sièges ou le remboursement des campagnes, au détriment des petites listes."
     critiques: "Plus de deux millions de bulletins blancs au second tour de 2022 n'ont rien changé au résultat ; tant que le vote blanc reste sans effet, « les électeurs seront toujours plus tentés par l'abstention » (le député Pacôme Rupin, 2021)."
+    detail:
+      chiffrage:
+        texte: "Le garder ne change rien : au second tour de la présidentielle de 2022, 2,2 millions de bulletins blancs ont été publiés à part, hors des suffrages exprimés."
+        source: { organisme: "Conseil constitutionnel", annee: 2022 }
+      defenseurs:
+        - texte: "Une élection sert à choisir : un bulletin blanc refuse sans désigner personne, ni dire quel autre choix l'électeur voudrait."
+        - texte: "Le vote blanc mêle des refus opposés : 64 % des votants blancs du second tour de 2017 avaient voté Mélenchon ou Fillon au premier tour."
+          source: { organisme: "OpinionWay", annee: 2017 }
+        - texte: "Les électeurs préfèrent choisir : 53 % jugent préférable de voter pour le candidat le moins déplaisant plutôt que de voter blanc."
+          source: { organisme: "OpinionWay", annee: 2017 }
+      critiques:
+        - texte: "Au second tour de 2017, 3 millions d'électeurs ont voté blanc, 8,5 % des votants, sans aucun effet sur le résultat."
+          source: { organisme: "Conseil constitutionnel", annee: 2017 }
+        - texte: "Voter blanc est un choix réfléchi : 81 % des votants blancs du second tour de 2017 disaient qu'aucun candidat ne leur convenait."
+          source: { organisme: "OpinionWay", annee: 2017 }
+        - texte: "Sans effet, le vote blanc pousse ceux qui ne se retrouvent dans aucun candidat à rester chez eux."
   - id: B
     libelle: "Oui, sans pouvoir annuler l'élection"
     implique: "Les blancs entrent dans les suffrages exprimés : les pourcentages et les seuils se calculent avec eux, mais il y a toujours un élu, par exemple le candidat arrivé en tête du second tour même sous la moitié des voix, ou en ne les comptant qu'au premier tour de la présidentielle. Pour la présidentielle, il faut changer la Constitution."
     defenseurs: "Celui qui se déplace pour voter blanc s'exprime : son vote doit peser dans les pourcentages, sans bloquer les institutions. En comptant les blancs, le président élu aurait encore eu 60,3 % des voix en 2017 et 54,7 % en 2022."
     critiques: "Un président pourrait être élu sans la majorité absolue que demande la Constitution : selon une estimation de l'Assemblée nationale, le gagnant de 2012 aurait eu 49,45 % des voix en comptant les blancs. Pour les partisans de l'annulation, un vote blanc sans effet reste symbolique."
+    detail:
+      chiffrage:
+        texte: "Aucun coût n'a été chiffré. En comptant les blancs, le président élu en 2022 aurait eu 54,7 % des voix au lieu de 58,6 %."
+        source: { organisme: "Conseil constitutionnel", document: "calcul d'après ses résultats", annee: 2022 }
+      defenseurs:
+        - texte: "Compter les blancs ne bloquerait pas l'élection : en 2017, le président élu aurait encore eu 60,3 % des voix."
+          source: { organisme: "Conseil constitutionnel", document: "calcul d'après ses résultats", annee: 2017 }
+        - texte: "Depuis 2014, le vote blanc est séparé des bulletins nuls : il faut aller au bout, et le faire peser dans les pourcentages."
+        - texte: "Il peut peser sans bloquer les institutions : on peut ne le compter qu'au premier tour, ou élire au second le candidat arrivé en tête."
+      critiques:
+        - texte: "Un président pourrait être élu sans la majorité absolue que demande la Constitution : en 2012, le gagnant aurait eu 49,45 % des voix, d'après une estimation."
+          source: { organisme: "Assemblée nationale", annee: 2021 }
+        - texte: "Les seuils de voix qui donnent des sièges ou le remboursement des campagnes monteraient, au détriment des petites listes."
+        - texte: "Des règles différentes d'une élection à l'autre rendraient le vote blanc encore moins clair pour les électeurs."
   - id: C
     libelle: "Oui, et refaire l'élection au-delà d'un seuil"
     implique: "Les blancs entrent dans les suffrages exprimés et, au-delà d'un seuil fixé par la loi (blancs majoritaires, aucun candidat à la moitié des voix ou trop peu d'électeurs exprimés, selon les projets), l'élection est annulée et refaite, parfois sans les mêmes candidats. Pour la présidentielle, il faut changer la Constitution."
     defenseurs: "Pour que le refus compte, il doit pouvoir changer le résultat : « si le vote blanc est majoritaire, le scrutin est reporté et les candidats battus ne peuvent pas se représenter » (Debout la France). La Colombie refait ainsi l'élection quand les blancs sont majoritaires."
     critiques: "Une élection pourrait ne désigner personne et devoir être recommencée, au risque d'instabilité : le jour du second tour de 2017, 32 % des votants disaient dans un sondage qu'ils auraient voté blanc si ce vote avait compté."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage du coût ni des délais d'une élection refaite n'a été trouvé. Une proposition de 2021 prévoyait de revoter dans les 35 jours."
+        source: { organisme: "Proposition de loi à l'Assemblée nationale", annee: 2021 }
+      defenseurs:
+        - texte: "Aujourd'hui, même un vote blanc majoritaire ne changerait rien : pour que le refus compte, il doit pouvoir faire refaire l'élection."
+        - texte: "La Colombie le fait : quand les blancs sont majoritaires, l'élection est refaite une seule fois, et les candidats battus ne peuvent pas se représenter."
+        - texte: "Les Français l'acceptent : en 2017, 86 % voulaient compter le vote blanc à la présidentielle, même s'il pouvait faire annuler l'élection."
+          source: { organisme: "Ifop pour Synopia", annee: 2017 }
+      critiques:
+        - texte: "Une élection pourrait ne désigner personne, et se répéter sans fin, ou jusqu'à ce que les électeurs se résignent à choisir."
+        - texte: "Les électeurs voteraient autrement : le jour du second tour de 2017, 32 % des votants disaient qu'ils auraient voté blanc s'il avait compté."
+          source: { organisme: "OpinionWay", annee: 2017 }
+        - texte: "Une petite part d'électeurs pourrait remettre en cause le choix de la majorité qui a voté pour un candidat."
 pourAllerPlusLoin:
   - titre: "Assemblée nationale, rapport n° 4039 sur la reconnaissance du vote blanc pour l'élection présidentielle, 2021"
     url: https://www.assemblee-nationale.fr/dyn/15/rapports/cion_lois/l15b4039_rapport-fond.pdf
