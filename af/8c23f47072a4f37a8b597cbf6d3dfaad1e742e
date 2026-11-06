@@ -1,0 +1,21 @@
+content/questions/052-zan.yaml
+  s_d0e42bd0e092d2::t_1cf5d292599e7a 11
+content/videos-verrouillees.yaml
+  s_d0e42bd0e092d2::t_7f59fd7c60efd1 55
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "af8c23f47072a4f37a8b597cbf6d3dfaad1e742e",
+  "prompts": {},
+  "sessions": {
+    "s_d0e42bd0e092d2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-aec9c0d9be1812ae9",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
