@@ -235,7 +235,6 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
                   <span className="mq-haut">
                     <span className="mq-lettre" id={`lettre-${option.id}`} aria-hidden="true">{lettreOption(rang)}</span>
                     <span className="mq-titre" id={`titre-${option.id}`}>{option.libelle}</span>
-                    <span className="mq-mienne">Ta carte</span>
                     <button type="button" className="mq-plus" popoverTarget={`detail-${option.id}`} aria-label={`Tout savoir sur : ${option.libelle}`}>
                       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" />
