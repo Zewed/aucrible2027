@@ -1,0 +1,21 @@
+content/questions/034-semaine-4-jours.yaml
+  s_3bf2cefd61134f::t_988536335718d9 10
+content/videos-verrouillees.yaml
+  s_3bf2cefd61134f::t_361459e6b99e37 37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ca4c25196c7b11b255bc4cec66908fe9fdc0c55b",
+  "prompts": {},
+  "sessions": {
+    "s_3bf2cefd61134f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1d9ef5fc-1f02-4489-9298-af22e2d757a8",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
