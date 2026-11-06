@@ -1,0 +1,21 @@
+content/questions/043-prisons.yaml
+  s_cd72db4165f977::t_7654972a0999f3 12
+content/videos-verrouillees.yaml
+  s_cd72db4165f977::t_28d5ca97ad002e 45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f43e6a8b8cbb3a4b353ae1baef0953e665fce060",
+  "prompts": {},
+  "sessions": {
+    "s_cd72db4165f977": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "49a5cced-9a23-48cb-8425-a595cb2b9869",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
