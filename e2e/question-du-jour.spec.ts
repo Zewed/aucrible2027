@@ -4593,7 +4593,7 @@ test.describe("l'en-tête mène aux deux écrans principaux", () => {
           await page.goto(adresse);
           await page.getByRole("banner").getByRole("link", { name: "Au crible 2027" }).click();
           await page.waitForURL(/\/$/);
-          await expect(page.getByRole("link", { name: "Commencer le questionnaire" })).toBeVisible();
+          await expect(page.getByRole("link", { name: "Commencer le questionnaire" }).first()).toBeVisible();
         }
       });
     });
@@ -6967,13 +6967,15 @@ test.describe("la première étape : l'équerre", () => {
   });
 });
 
-test.describe("l'accueil propose de commencer le questionnaire, ou de le continuer là où on en est", () => {
+test.describe("l'accueil montre la landing à un appareil sans réponse, et propose aux autres de continuer là où ils en sont", () => {
   const compte = (page: Page) => page.getByRole("heading", { level: 1 });
 
-  test("sans réponse, « Commencer le questionnaire » ouvre la première question de l'appareil", async ({ page }) => {
+  test("sans réponse, l'accueil est la landing, sans menu, et « Commencer le questionnaire » ouvre la première question de l'appareil", async ({ page }) => {
     await page.goto("/");
+    await expect(compte(page)).toHaveText("Les sujets de la présidentielle, un par un.");
+    await expect(page.getByRole("navigation")).toHaveCount(0);
     await expect(page.getByRole("link", { name: "Continuer le questionnaire" })).toHaveCount(0);
-    await page.getByRole("link", { name: "Commencer le questionnaire" }).click();
+    await page.getByRole("link", { name: "Commencer le questionnaire" }).first().click();
     await expect(page).toHaveURL(/\/questionnaire$/);
     await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
   });
@@ -6989,9 +6991,9 @@ test.describe("l'accueil propose de commencer le questionnaire, ou de le continu
     await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
   });
 
-  test("une réponse donnée compte dès le retour à l'accueil : le bouton n'est plus « Commencer »", async ({ page }) => {
+  test("une réponse donnée compte dès le retour à l'accueil : la landing laisse place à « Continuer »", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: "Commencer le questionnaire" }).click();
+    await page.getByRole("link", { name: "Commencer le questionnaire" }).first().click();
     await choisir(page, "62 ans");
     await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
@@ -6999,6 +7001,7 @@ test.describe("l'accueil propose de commencer le questionnaire, ou de le continu
     await page.waitForURL(/\/$/);
     await expect(compte(page)).toHaveText("1 sur 24 questions");
     await expect(page.getByRole("link", { name: "Continuer le questionnaire" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Commencer le questionnaire" })).toHaveCount(0);
   });
 
   test("toutes les questions répondues, l'accueil le dit et mène à « Mes résultats »", async ({ page }) => {
@@ -7010,12 +7013,13 @@ test.describe("l'accueil propose de commencer le questionnaire, ou de le continu
   });
 
   test("en revenant de la fiche, l'accueil retrouve son pied de page, sans la jauge", async ({ page }) => {
+    await premieresReponses(page, 1);
     await page.goto("/");
-    await page.getByRole("link", { name: "Commencer le questionnaire" }).click();
+    await page.getByRole("link", { name: "Continuer le questionnaire" }).click();
     await expect(page.getByRole("navigation", { name: "Pied de page" })).toBeHidden();
     await page.getByRole("banner").getByRole("link", { name: "Au crible 2027" }).click();
     await page.waitForURL(/\/$/);
-    await expect(page.getByRole("link", { name: "Commencer le questionnaire" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Continuer le questionnaire" })).toBeVisible();
     await expect(page.getByRole("navigation", { name: "Pied de page" })).toBeVisible();
     await expect(page.getByRole("navigation", { name: "Questions" })).toBeHidden();
   });
@@ -7038,10 +7042,11 @@ test.describe("l'accueil propose de commencer le questionnaire, ou de le continu
   });
 
   test("l'accueil dit lui-même où on en est : la jauge des questions n'y est pas, elle revient sur le questionnaire", async ({ page }) => {
+    await premieresReponses(page, 1);
     await page.goto("/");
-    await expect(page.getByRole("link", { name: "Commencer le questionnaire" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Continuer le questionnaire" })).toBeVisible();
     await expect(page.getByRole("navigation", { name: "Questions" })).toBeHidden();
-    await page.getByRole("link", { name: "Commencer le questionnaire" }).click();
+    await page.getByRole("link", { name: "Continuer le questionnaire" }).click();
     await expect(page.getByRole("navigation", { name: "Questions" })).toBeVisible();
   });
 });
@@ -7075,7 +7080,7 @@ test.describe("le bouton du mode passe le site en sombre, et l'appareil garde ce
   const fondDeLaPage = (page: Page) => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
 
   test("au téléphone, il est dans le pied de page ; le choix survit au rechargement et se défait", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/methode");
     const pied = page.getByRole("contentinfo");
     await expect(page.getByRole("banner").getByRole("button", { name: "Passer en mode sombre" })).toBeHidden();
     await pied.getByRole("button", { name: "Passer en mode sombre" }).click();
@@ -7088,16 +7093,16 @@ test.describe("le bouton du mode passe le site en sombre, et l'appareil garde ce
   });
 
   test("le mode choisi s'applique sans attendre le code de la page, donc sans passer par le clair", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/methode");
     await page.evaluate(() => localStorage.setItem("aucrible:mode", "sombre"));
     await page.route("**/_next/static/**/*.js", (route) => route.abort());
-    await page.goto("/");
+    await page.goto("/methode");
     expect(await fondDeLaPage(page)).toBe(TABLE_SOMBRE);
     await expect(page.locator(".site-foot .mode-soleil")).toBeVisible();
   });
 
   test("le choix suit dans les autres onglets", async ({ page, context }) => {
-    await page.goto("/");
+    await page.goto("/a-propos");
     const autreOnglet = await context.newPage();
     await autreOnglet.goto("/methode");
     await expect(autreOnglet.getByRole("contentinfo").getByRole("button", { name: "Passer en mode sombre" })).toBeVisible();
@@ -7109,7 +7114,7 @@ test.describe("le bouton du mode passe le site en sombre, et l'appareil garde ce
     test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
 
     test("il est dans la colonne du menu, pas dans le pied de page", async ({ page }) => {
-      await page.goto("/");
+      await page.goto("/methode");
       await expect(page.getByRole("contentinfo").getByRole("button", { name: "Passer en mode sombre" })).toBeHidden();
       await page.getByRole("banner").getByRole("button", { name: "Passer en mode sombre" }).click();
       await expect.poll(() => fondDeLaPage(page)).toBe(TABLE_SOMBRE);

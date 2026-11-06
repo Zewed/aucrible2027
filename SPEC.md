@@ -31,6 +31,7 @@ Nom : **Au crible 2027** — domaine `aucrible2027.fr`, comptes `@aucrible2027` 
 - **Jauge des questions (27/10/2026)** : en haut de chaque page, « X sur N questions » (N : les questions publiées) et une barre d'une seule couleur. Le détail par thème (réponses sur questions du thème) ne s'ouvre qu'au survol, ou d'une touche au téléphone.
 - **Répondre thème par thème (27/10/2026)** : depuis ce détail, un thème qui a encore des questions sans réponse les enchaîne, dans l'ordre de l'appareil ; le thème fini, l'ordre de toutes les questions reprend.
 - **Accueil et questionnaire (02/11/2026)** : l'accueil ne pose plus de question. Il propose de commencer le questionnaire, ou de le continuer en disant où en est l'électeur ; le questionnaire a sa propre adresse, `/questionnaire`.
+- **Landing (06/11/2026)** : un appareil sans réponse voit à l'accueil la landing, aussi à `/presentation`. Elle n'a pas de menu : la promesse, une vidéo constat verrouillée dans un téléphone, le bandeau des questions, trois étapes illustrées par une vraie fiche, les garanties et le bouton pour commencer. Aucun candidat n'y est nommé ; l'exemple et l'ordre des questions sont tirés au hasard. Dès la première réponse, l'accueil redevient celui du questionnaire.
 
 Avant cette décision :
 
@@ -213,7 +214,7 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 
 Maquettes statiques de tous les écrans, dans la direction « Jeu de société » : `maquettes/` (ouvrir `maquettes/index.html`).
 
-1. **Accueil** (02/11/2026) : l'écran partagé de la fiche. À gauche, dans la couleur de son thème, la prochaine question et « Continuer le questionnaire » ; à droite, le nombre de réponses et les 11 thèmes, écrits en entier, chacun menant à ses questions. Pour un nouveau venu, « De quels candidats es-tu proche ? » et « Commencer le questionnaire » ; quand tout a une réponse, « Voir mes résultats ». Compte à rebours avant le 1er tour. La jauge des questions ne s'y répète pas.
+1. **Accueil** (02/11/2026) : l'écran partagé de la fiche. À gauche, dans la couleur de son thème, la prochaine question et « Continuer le questionnaire » ; à droite, le nombre de réponses et les 11 thèmes, écrits en entier, chacun menant à ses questions. ~~Pour un nouveau venu, « De quels candidats es-tu proche ? » et « Commencer le questionnaire »~~ un nouveau venu voit la landing (06/11/2026) ; quand tout a une réponse, « Voir mes résultats ». Compte à rebours avant le 1er tour. La jauge des questions ne s'y répète pas.
    **Questionnaire** : la prochaine question de l'électeur, jauge des questions (c'était l'accueil jusqu'au 02/11/2026 ; progression vers le prochain palier jusqu'au 27/10/2026 ; avant le 25/10/2026 : question du jour et série).
 2. **Fiche** : question, contexte, chiffres, options (sans noms), réponse + importance. Un seul point fort (27/10/2026) : la question et la vidéo ; à droite, le contexte et les chiffres clés restent au calme, en lignes, sans fond de couleur.
 3. **Révélation** : qui défend quoi, alignement, classement mis à jour.

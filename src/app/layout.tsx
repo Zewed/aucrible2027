@@ -9,6 +9,7 @@ import { Visite } from "@/components/Visite";
 import { lireThemes, lireVideosVerrouillees } from "@/lib/contenu";
 import { SCRIPT_DU_MODE } from "@/lib/mode";
 import { lireQuestionsPubliees } from "@/lib/publication";
+import { SCRIPT_DU_NOUVEAU_VENU } from "@/lib/reponses";
 import "./kit.css";
 import "./globals.css";
 
@@ -32,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="fr" className={`${affiche.variable} ${texte.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: SCRIPT_DU_MODE }} />
+        <script dangerouslySetInnerHTML={{ __html: SCRIPT_DU_MODE + SCRIPT_DU_NOUVEAU_VENU }} />
       </head>
       <body>
         <EnTete />
