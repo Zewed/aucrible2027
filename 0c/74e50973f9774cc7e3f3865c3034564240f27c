@@ -1,0 +1,21 @@
+content/questions/055-vote-blanc.yaml
+  s_0f54a5cc25d1a3::t_21b61e20dfc953 13
+content/videos-verrouillees.yaml
+  s_0f54a5cc25d1a3::t_a79d7ea1db7533 58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0c74e50973f9774cc7e3f3865c3034564240f27c",
+  "prompts": {},
+  "sessions": {
+    "s_0f54a5cc25d1a3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ed8be350-e805-469c-a420-8f5d14316391",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
