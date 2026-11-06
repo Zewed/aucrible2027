@@ -8,7 +8,7 @@ date: 2026-09-18
 theme: travail-retraites
 question: "Faut-il conditionner le RSA à 15 heures d'activité par semaine ?"
 titreCourt: "Les 15 heures du RSA"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/040-rsa-constat-8NwLtpmj4ZsxgxW2Vemqj8lx8KvvPS.mp4", duree: "4 min 26" }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/040-rsa-constat-8NwLtpmj4ZsxgxW2Vemqj8lx8KvvPS.mp4", duree: "4 min 26", ecrans: [0, 13.77, 27.5, 41.27, 55.64, 69.37, 81.87, 94.37, 108.14, 121.87, 135.64, 148.77, 162.5, 176.27, 187.5, 200.64, 215, 229.37, 243.77, 258.14] }
 contexte:
   - "Depuis le 1er janvier 2025, les allocataires du RSA, 1,84 million de foyers fin 2024, sont inscrits d'office à France Travail et signent un contrat qui prévoit en principe au moins 15 heures d'activité par semaine, comme une formation, des démarches ou un stage en entreprise."
   - "Ces heures peuvent être réduites selon la situation, ou supprimées pour raison de santé, de handicap ou pour un parent isolé sans solution de garde. Depuis juin 2025, un premier manquement peut entraîner une retenue d'au moins 30 % du RSA pendant un à deux mois, rendue si la personne reprend ses démarches ; en cas de récidive, elle peut durer jusqu'à quatre mois et ne plus être rendue."
