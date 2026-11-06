@@ -79,9 +79,10 @@ export type Reportage = {
 /**
  * La vidéo explicative de la fiche, montrée à la première étape quand elle existe. Pour une vidéo constat, `ecrans` donne
  * le début de chaque écran, en secondes, la question comprise (le script ecrans.mts du skill make-2027-videos) : la vidéo
- * se lit alors comme une story, d'écran en écran.
+ * se lit alors comme une story, d'écran en écran. `images` est le dossier de la dernière image de chaque écran (01.webp,
+ * 02.webp…, le script images.mts du même skill) : on peut alors faire défiler ces images au lieu de la vidéo.
  */
-export type VideoExplicative = { url: string; duree: string; ecrans?: number[] };
+export type VideoExplicative = { url: string; duree: string; ecrans?: number[]; images?: string };
 export type Question = {
   numero: number;
   date: string;

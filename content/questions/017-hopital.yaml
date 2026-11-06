@@ -7,7 +7,7 @@ date: 2026-10-16
 theme: sante
 question: "Faut-il en finir avec la tarification à l'activité à l'hôpital public ?"
 titreCourt: "Le financement de l'hôpital"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/017-hopital-constat-th8KgvRgg1gD55upC0FKCgkZ0m7Wr1.mp4", duree: "3 min 04", ecrans: [0, 8.04, 19.77, 27.8, 41.7, 56.34, 68.77, 82.67, 96.6, 109.77, 123.67, 137.57, 150.74, 160.97, 176.34] }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/017-hopital-constat-th8KgvRgg1gD55upC0FKCgkZ0m7Wr1.mp4", duree: "3 min 04", ecrans: [0, 8.04, 19.77, 27.8, 41.7, 56.34, 68.77, 82.67, 96.6, 109.77, 123.67, 137.57, 150.74, 160.97, 176.34], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/017-hopital-constat-th8KgvRgg1gD55upC0FKCgkZ0m7Wr1/" }
 contexte:
   - "Depuis 2004, la plupart des soins de médecine, de chirurgie et d'obstétrique sont payés à l'hôpital à l'activité (T2A), selon le nombre et la nature des séjours, alors que les hôpitaux publics étaient financés auparavant par une dotation globale."
   - "Depuis 2022, les urgences et la psychiatrie reçoivent des dotations selon la population, et une refonte de 2025 mêle T2A et dotations, avec pour cible la moitié des ressources hors T2A."

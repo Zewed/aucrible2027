@@ -8,7 +8,7 @@ date: 2026-10-22
 theme: logement
 question: Faut-il encadrer les loyers dans les grandes villes ?
 titreCourt: "L'encadrement des loyers"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/023-loyers-constat-DTRVNh8Q86EnGscK7D5OuOKkNjRDiD.mp4", duree: "3 min 26", ecrans: [0, 13.4, 27.54, 39.54, 53.64, 67.07, 79.77, 92.47, 105.87, 120, 132.7, 146.14, 158.84, 172.24, 185.64, 199.07] }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/023-loyers-constat-DTRVNh8Q86EnGscK7D5OuOKkNjRDiD.mp4", duree: "3 min 26", ecrans: [0, 13.4, 27.54, 39.54, 53.64, 67.07, 79.77, 92.47, 105.87, 120, 132.7, 146.14, 158.84, 172.24, 185.64, 199.07], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/023-loyers-constat-DTRVNh8Q86EnGscK7D5OuOKkNjRDiD/" }
 contexte:
   - "Depuis 2019 à Paris, et aujourd'hui dans 70 communes dont Lille, Lyon, Bordeaux et Montpellier, le loyer d'un nouveau bail ne peut pas dépasser de plus de 20 % le loyer habituel du quartier, sauf supplément justifié par le confort ou l'emplacement."
   - "C'est un essai prévu par la loi Élan de 2018, qui s'arrête le 23 novembre 2026 sans nouvelle loi : le Sénat a voté le 21 octobre une prolongation de deux ans sans nouvelles villes, et les députés doivent se prononcer le 18 novembre."

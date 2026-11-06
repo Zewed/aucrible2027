@@ -8,7 +8,7 @@ date: 2026-10-25
 theme: sante
 question: Faut-il réguler l'installation des médecins ?
 titreCourt: "L'installation des médecins"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/026-medecins-constat-Jdo7D2mEBhT4i9Rk4xluekiqrx5Mqe.mp4", duree: "3 min 30", ecrans: [0, 11.7, 26.34, 36.6, 51.24, 64.4, 73.17, 87.8, 100.97, 115.6, 129.5, 143.4, 157.34, 172.67, 187.34, 202.67] }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/026-medecins-constat-Jdo7D2mEBhT4i9Rk4xluekiqrx5Mqe.mp4", duree: "3 min 30", ecrans: [0, 11.7, 26.34, 36.6, 51.24, 64.4, 73.17, 87.8, 100.97, 115.6, 129.5, 143.4, 157.34, 172.67, 187.34, 202.67], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/026-medecins-constat-Jdo7D2mEBhT4i9Rk4xluekiqrx5Mqe/" }
 contexte:
   - "Un médecin libéral peut s'installer où il veut, une liberté inscrite dans la loi depuis 1971, alors que les infirmiers, les kinésithérapeutes, les sages-femmes et les dentistes ont des règles d'installation."
   - "En 2025, 6,4 millions d'assurés n'avaient pas de médecin traitant ; aujourd'hui, trois Français sur quatre vivent dans une zone où l'accès aux médecins est jugé insuffisant, et les écarts entre territoires se creusent."

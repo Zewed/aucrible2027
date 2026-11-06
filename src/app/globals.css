@@ -264,8 +264,7 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
   width: clamp(36px, 12cqw, 56px); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;
   background: var(--chalk); box-shadow: 0 3px 0 var(--ink-deep); opacity: 0; transition: opacity .15s;
 }
-.story-video .fleche svg, .story-video .fermer svg { width: 46%; height: 46%; fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-.story-video .fleche svg { stroke: var(--ink); }
+.story-video .fleche svg { width: 46%; height: 46%; fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
 @media (hover: hover) { .story-video .cote:hover .fleche { opacity: 1; } }
 .story-video .cote:focus-visible { outline: none; }
 .story-video .cote:focus-visible .fleche { opacity: 1; outline: 3px solid var(--chalk); outline-offset: 3px; }
@@ -279,12 +278,26 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
 .affiche.story-video.en-vignette {
   position: fixed; inset: 0; z-index: 100; width: auto; height: auto; aspect-ratio: auto; border-radius: 0; box-shadow: none;
 }
-.story-video .fermer {
-  position: absolute; top: max(12px, env(safe-area-inset-top)); right: 12px; width: 44px; height: 44px; padding: 0;
-  border: 0; border-radius: 50%; background: color-mix(in srgb, var(--ink-deep) 70%, transparent);
-  display: grid; place-items: center; cursor: pointer;
+/* En haut à droite : le son, le défilement, et en vignette la croix. */
+.story-video .commandes { position: absolute; top: max(12px, env(safe-area-inset-top)); right: 12px; display: flex; gap: 8px; }
+.story-video .outil {
+  width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%;
+  background: color-mix(in srgb, var(--ink-deep) 70%, transparent); display: grid; place-items: center; cursor: pointer;
 }
-.story-video .fermer svg { stroke: var(--chalk); }
+.story-video .outil svg { width: 54%; height: 54%; fill: none; stroke: var(--chalk); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.story-video .outil .plein { fill: var(--chalk); }
+.story-video .fermer svg { width: 46%; height: 46%; stroke-width: 3; }
+.story-video .outil:focus-visible { outline: 3px solid var(--chalk); outline-offset: 2px; }
+/* Le défilement : la dernière image de chaque écran, l'une sous l'autre, chacune à la taille du cadre. Un geste passe
+   une image, pas plus. */
+.story-video .defilement {
+  position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; scroll-snap-type: y mandatory;
+  scroll-behavior: smooth; scrollbar-width: none; background: var(--ink-deep);
+}
+.story-video .defilement::-webkit-scrollbar { display: none; }
+.story-video .defilement img {
+  display: block; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: start; scroll-snap-stop: always;
+}
 .ecran-partage .faits { padding: clamp(26px, 4 * var(--u), 48px) var(--padX) 0; display: flex; flex-direction: column; --ctx: 17px; }
 .ecran-partage .ctx { counter-reset: phrase; display: grid; gap: calc(var(--ctx) * .8); }
 .ecran-partage .ctx p {
@@ -400,7 +413,10 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
   .actionbar { grid-column: 2; grid-row: 3; position: static; padding: 0; background: none; box-shadow: none; margin-top: clamp(18px, 3 * var(--u), 36px); }
   .actionbar .go { font-size: clamp(22px, min(1.8vw, 3.2 * var(--u)), 34px); padding: clamp(18px, 2.9 * var(--u), 34px) 18px; box-shadow: 0 8px 0 var(--theme-edge); }
 }
-@media (prefers-reduced-motion: reduce) { button.affiche, .story-video .fleche { transition: none; } }
+@media (prefers-reduced-motion: reduce) {
+  button.affiche, .story-video .fleche { transition: none; }
+  .story-video .defilement { scroll-behavior: auto; }
+}
 
 /* Étape « répondre » : la mosaïque. La question en bandeau, une tuile par option (toutes du même poids), et la
    tuile pour décider : « Je ne sais pas », l'importance, « Valider ma réponse ». Au téléphone, les options forment un
