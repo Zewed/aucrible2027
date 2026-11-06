@@ -30,24 +30,80 @@ options:
     defenseurs: "Une interdiction se contourne et oblige chacun, adultes compris, à prouver son âge : mieux vaut apprendre aux jeunes à s'en servir et aider les parents à les guider."
     critiques: "La limite de 13 ans n'est pas respectée, puisque 58 % des 11-12 ans avaient un compte en 2021, et l'éducation ne change pas la conception des applications."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "Ne rien interdire ne coûte rien. Sans âge fixé par la loi, les jeunes ouvrent leur premier compte vers 8 ans et demi en moyenne, malgré la limite de 13 ans des plateformes."
+        source: { organisme: "CNIL", annee: 2020 }
+      defenseurs:
+        - texte: "Le lien de cause n'est pas démontré, et l'effet moyen mesuré est faible : le numérique explique au plus 0,4 % des écarts de bien-être des adolescents."
+          source: { organisme: "Université d'Oxford", annee: 2019 }
+        - texte: "Interdire obligerait chacun, adultes compris, à prouver son âge pour aller sur un réseau social : l'anonymat en ligne serait menacé."
+        - texte: "Les réseaux servent d'abord à parler avec ses proches : c'est le principal usage pour 78 % des 11-18 ans."
+          source: { organisme: "Commission d'experts sur les écrans", annee: 2024 }
+      critiques:
+        - texte: "La limite actuelle de 13 ans n'est pas respectée : 58 % des 11-12 ans avaient déjà un compte en 2021."
+          source: { organisme: "Génération numérique", annee: 2021 }
+        - texte: "Attendre une preuve parfaite, c'est laisser toute une génération exposée."
+        - texte: "L'usage problématique progresse : 11 % des jeunes Européens de 11 à 15 ans en 2022, contre 7 % en 2018."
+          source: { organisme: "OMS Europe", annee: 2024 }
   - id: B
     libelle: Interdire les fonctions jugées addictives
     implique: "Les moins de 15 ans gardent accès aux réseaux sociaux, mais la loi leur interdit une liste de fonctions : lecture automatique des vidéos, défilement sans fin, notifications la nuit, messages d'inconnus."
     defenseurs: "On vise ce qui nuit, la façon dont les applications sont conçues, sans couper les adolescents de leurs amis ni interdire des services dont les risques ne sont pas établis."
     critiques: "Les plateformes n'ont pas fait respecter leur propre limite de 13 ans, et il faudrait tout de même vérifier l'âge de chacun pour savoir à qui appliquer ces règles."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Le règlement proposé par la Commission européenne interdirait ces fonctions aux mineurs, avec des amendes allant jusqu'à 6 % du chiffre d'affaires mondial des plateformes."
+        source: { organisme: "Commission européenne", annee: 2026 }
+      defenseurs:
+        - texte: "On s'attaque à ce qui nuit le plus sûrement, le manque de sommeil : notifications la nuit, vidéos qui s'enchaînent, défilement sans fin."
+        - texte: "Les applications sont conçues pour retenir les adolescents le plus longtemps possible : c'est leur conception qu'il faut changer."
+        - texte: "Les adolescents gardent le lien avec leurs amis, et les jeunes isolés la communauté qu'ils trouvent en ligne."
+      critiques:
+        - texte: "Les plateformes n'ont pas fait respecter leur propre limite d'âge : rien ne garantit qu'elles respecteraient ces nouvelles règles."
+        - texte: "Il faudrait tout de même vérifier l'âge de chacun pour savoir à qui appliquer ces règles."
+        - texte: "Les risques ne viennent pas que des fonctions : il y a aussi les contenus sur les troubles alimentaires ou l'automutilation, et la cyberviolence."
   - id: C
     libelle: Interdire avant 15 ans, sauf accord des parents
     implique: "Pas de compte avant 15 ans sans l'accord d'un parent, qui peut le donner service par service, comme le prévoyaient la loi de 2023 et la version votée par le Sénat en mars 2026."
     defenseurs: "Les parents décident selon la maturité de leur enfant, ce que le Conseil d'État et le Conseil constitutionnel reprochaient à l'interdiction générale de ne pas permettre."
     critiques: "La loi de 2023, fondée sur l'accord des parents, a été bloquée par le droit européen, et il faudrait vérifier à la fois l'âge de l'enfant et l'identité du parent."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Le règlement proposé par la Commission européenne va dans ce sens : entre 13 et 15 ans, un compte limité ouvert par un parent, une heure par jour au plus."
+        source: { organisme: "Commission européenne", annee: 2026 }
+      defenseurs:
+        - texte: "Les parents connaissent la maturité de leur enfant : c'est à eux de décider, service par service."
+        - texte: "C'est ce qui manquait à la loi censurée : faute de permettre aux parents de lever l'interdiction, elle a été jugée disproportionnée."
+        - texte: "La règle protège quand même : sans l'accord d'un parent, aucun compte n'est possible."
+      critiques:
+        - texte: "La loi de 2023, fondée sur l'accord des parents, n'est jamais entrée en vigueur : le droit européen l'a bloquée."
+        - texte: "Il faudrait vérifier à la fois l'âge de l'enfant et l'identité du parent qui donne son accord."
+        - texte: "Les enfants dont les parents ne peuvent pas ou ne savent pas les encadrer resteraient exposés : seule une règle commune les protège tous."
   - id: D
     libelle: Interdire strictement avant 15 ans
     implique: "Aucun compte sur un réseau social avant 15 ans, sans dérogation, et vérification de l'âge de tous les utilisateurs, comme dans la loi votée en juillet 2026 ; l'Australie a choisi 16 ans."
     defenseurs: "Les réseaux sociaux abîment le sommeil et l'image de soi des adolescents, selon l'agence de sécurité sanitaire. Une règle claire et la même pour tous les enfants les en protège ; 69 % des 10-14 ans la jugent eux-mêmes une bonne idée."
     critiques: "Le Conseil constitutionnel l'a censurée en 2026 pour atteinte à la liberté d'expression et à la vie privée, et en Australie, la plupart des enfants qui avaient un compte l'ont gardé ou en ont ouvert un autre."
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "En Australie, qui interdit les comptes avant 16 ans, la part des moins de 16 ans ayant un compte est passée de 52,4 % à 42,1 % en trois mois."
+        source: { organisme: "eSafety Commissioner", annee: 2026 }
+      defenseurs:
+        - texte: "La santé mentale des adolescents se dégrade, surtout chez les filles : 15 % des lycéens présentent un risque important de dépression."
+          source: { organisme: "Santé publique France", annee: 2024 }
+        - texte: "Les études qui approchent une cause vont dans ce sens : réduire le temps passé sur les réseaux fait baisser les symptômes dépressifs."
+        - texte: "Les parents la demandent : 74 % des parents d'enfants de 6 à 16 ans sont favorables à l'interdiction avant 15 ans."
+          source: { organisme: "Observatoire de la parentalité numérique", annee: 2026 }
+      critiques:
+        - texte: "Une interdiction générale a été censurée en 2026, pour atteinte à la liberté d'expression et à la vie privée de tous."
+        - texte: "En Australie, l'interdiction n'empêche pas l'usage : 81,5 % des moins de 16 ans utilisent encore un réseau, avec ou sans compte."
+          source: { organisme: "eSafety Commissioner", annee: 2026 }
+        - texte: "Beaucoup d'enfants comptent la contourner : 33 % des 10-14 ans disent qu'ils trouveraient un moyen."
+          source: { organisme: "Arcom", annee: 2026 }
 pourAllerPlusLoin:
   - titre: Conseil constitutionnel, décision n° 2026-911 DC du 14 août 2026
     url: https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm

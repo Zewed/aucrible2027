@@ -30,21 +30,83 @@ options:
     implique: "Parcoursup disparaît ; tout bachelier peut s'inscrire dans la formation de son choix, et l'État crée les places nécessaires."
     defenseurs: "Le bac doit suffire pour entrer dans la formation de son choix : sans tri sur dossier, plus d'opacité ni d'attente, et chacun a sa chance quel que soit son lycée."
     critiques: "Beaucoup de formations ont moins de places que de candidats : il faudrait en créer beaucoup, ce qui coûte et prend du temps, ou le tri se ferait autrement."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage des places à créer n'a été trouvé. Pour repère, une année d'études supérieures coûte en moyenne 13 350 euros par étudiant en 2025."
+        source: { organisme: "Ministère de l'Éducation nationale", annee: 2026 }
+      defenseurs:
+        - texte: "Le tri pénalise les lycéens professionnels : 79,1 % ont reçu une proposition en 2026, contre 96,3 % en bac général."
+          source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
+        - texte: "Le baccalauréat doit suffire pour entrer dans la formation de son choix, quel que soit son lycée."
+        - texte: "Le manque de places est un choix : c'est à l'État d'en créer, pas aux lycéens d'être triés."
+      critiques:
+        - texte: "Les candidats sont toujours plus nombreux : 129 000 de plus en 2026 qu'en 2023, à qui il faudrait garantir une place."
+          source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
+        - texte: "Garantir une place à chacun demanderait d'en créer beaucoup, ce qui coûte cher et prend des années."
+        - texte: "Sans tri sur dossier, il faudrait départager autrement les formations trop demandées, comme avec le tirage au sort d'avant Parcoursup."
   - id: B
     libelle: "Oui, et le remplacer par un nouvel outil"
     implique: "Parcoursup est abandonné pour une nouvelle procédure d'admission, dont les règles restent à définir."
     defenseurs: "La confiance dans Parcoursup est entamée : un outil conçu avec les lycéens, les familles et les établissements peut offrir des règles plus claires et une attente plus courte."
     critiques: "Un nouvel outil prendra des années et pourrait reproduire les mêmes défauts, au risque de désorganiser les admissions."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Le nouvel outil devrait traiter autant de demandes qu'aujourd'hui : 14 millions de vœux en 2026."
+        source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
+      defenseurs:
+        - texte: "La confiance s'effrite : 67 % des nouveaux bacheliers disent que Parcoursup a facilité leur entrée dans le supérieur, contre 81 % en 2020."
+          source: { organisme: "Institut CSA", annee: 2026 }
+        - texte: "Le contrôle continu n'est pas noté pareil partout : un tri sur dossier avantage les élèves des lycées réputés."
+        - texte: "Son système informatique était déjà jugé fragile en 2020 : mieux vaut le reconstruire que le rapiécer."
+      critiques:
+        - texte: "Un nouvel outil ne crée pas une place de plus : le manque de places existait déjà avant Parcoursup."
+        - texte: "Ses règles restent à écrire, et rien ne garantit qu'il évite les défauts de l'ancien."
+        - texte: "Changer d'outil d'un coup risque de désorganiser les admissions : 1 046 000 candidats ont confirmé un vœu en 2026."
+          source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
   - id: C
     libelle: "Non, mais le réformer"
     implique: "La plateforme reste, avec des critères de sélection publics, un calendrier et un accompagnement revus."
     defenseurs: "Parcoursup fonctionne pour la plupart des candidats : mieux vaut corriger ses défauts que repartir de zéro."
     critiques: "Des corrections ne changent pas le fond : les formations restent maîtres du tri et le sentiment d'arbitraire demeure."
+    detail:
+      chiffrage:
+        texte: "Elle garderait la plateforme et ses plus de 25 000 formations, avec des règles revues dès la campagne 2027."
+        source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
+      defenseurs:
+        - texte: "Le système corrige déjà des inégalités : près de 19 400 lycéens boursiers ont été admis grâce aux quotas de boursiers, selon une estimation."
+          source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
+        - texte: "Ses défauts se corrigent sans tout reconstruire : publier les critères des formations, cacher le lycée d'origine des candidats."
+        - texte: "La procédure reste claire pour la plupart : 70 % des nouveaux bacheliers le disent."
+          source: { organisme: "Institut CSA", annee: 2026 }
+      critiques:
+        - texte: "Des corrections ne changent pas le fond : les formations restent maîtres du tri."
+        - texte: "Le sentiment d'injustice demeure : seuls 29 % des nouveaux bacheliers jugent qu'il traite tous les candidats de manière équitable."
+          source: { organisme: "Institut CSA", annee: 2026 }
+        - texte: "Il reste perçu comme opaque : 49 % des nouveaux bacheliers le jugent transparent, contre 53 % en 2025."
+          source: { organisme: "Institut CSA", annee: 2026 }
   - id: D
     libelle: "Non, le garder tel quel"
     implique: "Le fonctionnement actuel est conservé."
     defenseurs: "Il organise chaque année l'entrée de près d'un million de candidats, avec des millions de propositions envoyées dès le premier jour : un système éprouvé."
     critiques: "Il laisse des candidats dans l'attente et sans comprendre les critères retenus."
+    detail:
+      chiffrage:
+        texte: "Le garder ne change rien au fonctionnement : 4,3 millions de propositions d'admission ont été envoyées en 2026."
+        source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
+      defenseurs:
+        - texte: "Presque tous les lycéens reçoivent une proposition : 91,4 % des élèves de Terminale en 2026."
+          source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
+        - texte: "Les réponses arrivent vite : 66,5 % des lycéens en avaient au moins une dès le premier jour."
+          source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
+        - texte: "La plupart des admis sont contents : 72 % se disent satisfaits des formations obtenues."
+          source: { organisme: "Institut CSA", annee: 2026 }
+      critiques:
+        - texte: "La procédure angoisse : 82 % des nouveaux bacheliers la trouvent stressante."
+          source: { organisme: "Institut CSA", annee: 2026 }
+        - texte: "Des candidats restent sans place : 32 202 sans proposition ont demandé l'aide de leur rectorat l'été 2026."
+          source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
+        - texte: "Beaucoup restent seuls face aux réponses : 53 % des nouveaux bacheliers n'ont pas été accompagnés par leur lycée à ce moment."
+          source: { organisme: "Institut CSA", annee: 2026 }
 pourAllerPlusLoin:
   - titre: "Ministère de l'Enseignement supérieur, bilan Parcoursup 2025"
     url: https://www.enseignementsup-recherche.gouv.fr/sites/default/files/2025-10/bilan-de-la-proc-dure-d-admission-2025-38034.pdf

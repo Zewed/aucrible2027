@@ -28,18 +28,64 @@ options:
     defenseurs: "Près de la moitié des arrivées relèvent de droits reconnus par la Constitution, la famille et l'asile ; pour une partie de la gauche, chacun doit aussi pouvoir circuler et s'installer librement."
     critiques: Sans plafond, l'État ne peut pas choisir le nombre ni les profils des arrivées pour répondre aux besoins du pays.
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Rien ne change : aucun quota ne s'applique. En 2025, la France a délivré 377 462 premiers titres de séjour à des étrangers venus de hors de l'Union."
+        source: { organisme: "Eurostat", annee: 2026 }
+      defenseurs:
+        - texte: "Mieux vaut ouvrir des voies légales d'immigration de travail, avec des accords passés avec les pays de départ, que fixer des plafonds."
+        - texte: "Par habitant, la France accueille moins que ses voisins : 5,5 premiers titres de séjour pour 1 000 habitants en 2025, contre 8,6 dans l'Union."
+          source: { organisme: "Eurostat", annee: 2026 }
+        - texte: "La France choisit déjà une grande part des arrivées : 44,8 % des premiers titres de 2025 demandaient l'accord d'une école ou d'un employeur, puis de l'État."
+          source: { organisme: "Eurostat", annee: 2026 }
+      critiques:
+        - texte: "Les arrivées ont doublé sans que personne en décide le nombre : deux fois plus de premiers titres de séjour en 2025 qu'en 2008."
+          source: { organisme: "Eurostat", annee: 2026 }
+        - texte: "Les Français veulent que leurs élus décident : 75 % approuvaient en 2023 un débat annuel au Parlement pouvant fixer des quotas."
+          source: { organisme: "Elabe", annee: 2023 }
+        - texte: "Sans plafond, l'État subit le nombre d'arrivées au lieu de le choisir."
   - id: B
     libelle: Oui, pour l'immigration de travail
     implique: Les besoins de main-d'œuvre sont évalués, par exemple tous les deux ans avec les partenaires sociaux, et le Parlement vote des quotas pour l'immigration de travail seulement.
     defenseurs: Choisir notre immigration économique selon les besoins réels du marché du travail, évalués avec les partenaires sociaux.
     critiques: "En France, 13,5 % des premiers titres de 2025 ont été délivrés pour un emploi : des quotas de travail laisseraient de côté les autres motifs."
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "Ils porteraient sur les titres délivrés pour un emploi : 13,5 % des premiers titres de séjour en France en 2025, contre 33,6 % dans l'Union."
+        source: { organisme: "Eurostat", annee: 2026 }
+      defenseurs:
+        - texte: "Les employeurs peinent à recruter : en 2026, ils jugeaient difficiles 43,8 % de leurs projets d'embauche."
+          source: { organisme: "France Travail", annee: 2026 }
+        - texte: "Des quotas pour les métiers qui manquent de bras ont un large soutien : 64 % des sondés y étaient favorables en 2019."
+          source: { organisme: "Elabe", annee: 2019 }
+        - texte: "Les quotas porteraient sur les compétences, pas sur la nationalité, avec une fourchette plutôt qu'un chiffre exact."
+      critiques:
+        - texte: "L'immigration de travail a plus que doublé sans quota : 21 784 premiers titres pour un emploi en 2008, 50 848 en 2025."
+          source: { organisme: "Eurostat", annee: 2026 }
+        - texte: "Si les employeurs peinent à recruter, c'est aussi à cause des salaires jugés trop faibles, de l'image du métier ou de sa pénibilité."
+        - texte: "Un objectif fixé d'en haut n'a pas suffi : en 2012, cinq ans après celui de 2007, le travail ne pesait que 8 % des premiers titres."
+          source: { organisme: "Eurostat", annee: 2026 }
   - id: C
     libelle: Oui, un plafond pour toutes les catégories
     implique: Un plafond migratoire s'applique à toutes les catégories d'immigration.
     defenseurs: C'est aux Français et à leurs représentants de décider combien d'étrangers sont accueillis, quitte à réviser la Constitution.
     critiques: Le Conseil constitutionnel a déjà censuré en 2024 la fixation d'objectifs chiffrés imposée par la loi au Parlement, et un plafond global soulève la question des droits liés à l'asile et à la famille.
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffre de plafond n'a été avancé. Il porterait sur tous les motifs, y compris les études, premier motif en 2025 avec 118 404 premiers titres."
+        source: { organisme: "Eurostat", annee: 2026 }
+      defenseurs:
+        - texte: "Un objectif global peut être tenu : le Canada visait 485 000 nouveaux résidents permanents en 2024, il en a admis 483 640."
+          source: { organisme: "Gouvernement du Canada", annee: 2025 }
+        - texte: "Les Français doivent pouvoir trancher eux-mêmes, par référendum, quitte à réviser la Constitution."
+        - texte: "En matière d'immigration, le droit français doit primer sur le droit européen, pour que la France décide qui entre."
+      critiques:
+        - texte: "Un plafond buterait sur la vie familiale et l'asile, deux droits garantis par la Constitution, qui ont compté pour 46,5 % des premiers titres en 2025."
+          source: { organisme: "Eurostat", annee: 2026 }
+        - texte: "Ses défenseurs n'ont avancé ni chiffre ni mécanisme : on ne sait pas comment le plafond s'appliquerait à l'asile et à la famille."
+        - texte: "Même le Canada ne plafonne pas tout : son objectif laissait de côté les permis temporaires d'études ou de travail."
 pourAllerPlusLoin:
   - titre: Conseil constitutionnel, décision n° 2023-863 DC du 25 janvier 2024
     url: https://www.conseil-constitutionnel.fr/decision/2024/2023863DC.htm

@@ -31,21 +31,79 @@ options:
     defenseurs: "Les sanctions de 2021 ont valu des représailles le jour même, alors que le dialogue a obtenu que la Chine ratifie les deux traités internationaux contre le travail forcé."
     # La 38e session du dialogue date du 17/02/2023 (§ 1.4) : après l'évaluation de 2022, d'où « des années de dialogue » (§ 2e).
     critiques: "Après des années de dialogue entre l'Europe et la Chine, les Nations unies jugeaient en 2022 que les lois à l'origine des détentions restaient en vigueur."
+    detail:
+      chiffrage:
+        texte: "Rien ne change : les sanctions européennes de 2021, contre 4 responsables chinois et 1 service de police du Xinjiang, restent en place."
+        source: { organisme: "Conseil de l'Union européenne", annee: 2021 }
+      defenseurs:
+        - texte: "Le dialogue a obtenu des engagements : la Chine a ratifié les deux conventions internationales contre le travail forcé, condition posée par Paris."
+          source: { organisme: "Gouvernement français", annee: 2023 }
+        - texte: "Un dialogue exigeant permet de soulever le sujet à chaque rencontre, jusqu'au plus haut niveau, sans rompre avec Pékin."
+        - texte: "La Chine est un partenaire exigeant, pas un ennemi : une guerre froide avec elle ne servirait personne."
+      critiques:
+        - texte: "Les discussions n'ont pas changé les lois : après 38 sessions de dialogue entre l'Europe et la Chine, celles à l'origine des détentions restaient en vigueur en 2022."
+          source: { organisme: "Gouvernement français", annee: 2023 }
+        - texte: "Les intimidations visent aussi les Ouïghours vivant à l'étranger, que l'Assemblée nationale a demandé de protéger en France."
+        - texte: "Le Xinjiang reste fermé : la Chine n'a pas accordé aux Nations unies l'accès sans restriction qu'elles demandaient."
   - id: B
     libelle: "Appliquer l'interdiction européenne des produits du travail forcé"
     implique: "Dès décembre 2027, les produits fabriqués avec du travail forcé sont interdits en Europe, enquête par enquête et quel que soit le pays ; pas de nouvelle sanction."
     defenseurs: "La loi vise le travail forcé partout, sans cibler un pays, et permet d'interdire un produit sans preuve absolue, sans rupture avec Pékin."
     critiques: "Elle ne s'appliquera pas avant décembre 2027, et ce sera aux autorités de réunir les preuves, alors que les contrôles sont entravés au Xinjiang."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Déjà adoptée, par 555 voix contre 6 au Parlement européen, elle s'appliquera à partir du 14 décembre 2027."
+        source: { organisme: "Parlement européen", annee: 2024 }
+      defenseurs:
+        - texte: "La loi vise tout le travail forcé, sans cibler un pays : il touchait 28 millions de personnes dans le monde en 2021."
+          source: { organisme: "Organisation internationale du travail", annee: 2022 }
+        - texte: "Elle permet d'interdire un produit même sans preuve absolue qu'il vient du travail forcé."
+        - texte: "Sans viser la Chine nommément, elle placera inévitablement le Xinjiang en haut de la liste des risques."
+      critiques:
+        - texte: "Le travail forcé au Xinjiang vient d'une politique d'État : il mérite mieux qu'une enquête produit par produit."
+        - texte: "Ce sera aux autorités, et non aux entreprises, de prouver le travail forcé, enquête par enquête."
+        - texte: "Elle tarde : applicable seulement en décembre 2027, elle n'avait fin septembre 2026 d'autorité désignée que dans 10 États membres."
+          source: { organisme: "Osborne Clarke", annee: 2026 }
   - id: C
     libelle: "Sanctions ciblées et produits du Xinjiang bloqués"
     implique: "En plus de la loi européenne, la France pousse l'Union à sanctionner d'autres responsables et des entreprises, et à bloquer les produits du Xinjiang sauf preuve qu'ils sont sans travail forcé, comme les États-Unis depuis 2022."
     defenseurs: "On vise les auteurs et ceux qui profitent du travail forcé, pas le peuple chinois ; c'est aux entreprises de prouver que leurs produits sont sans travail forcé."
     critiques: "Prouver qu'aucun travail forcé n'entre dans un produit serait presque impossible pour les petites entreprises, et Pékin a riposté aux sanctions de 2021 en sanctionnant dix Européens."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Les États-Unis appliquent déjà ce blocage depuis juin 2022 : tout produit fait même en partie au Xinjiang est refusé, sauf preuve qu'il est sans travail forcé."
+        source: { organisme: "Douanes américaines", annee: 2022 }
+      defenseurs:
+        - texte: "Des sanctions ciblées frappent les responsables des détentions et les entreprises complices, pas la population chinoise."
+        - texte: "Les contrôles sont entravés au Xinjiang, où des salariés chargés de les mener sont menacés : c'est donc à l'entreprise de prouver que son produit est sans travail forcé."
+        - texte: "Le risque est massif : de 2014 à 2019, 2,76 millions de personnes par an ont fait l'objet de « transferts de main-d'œuvre », des programmes qui peuvent comporter de la contrainte."
+          source: { organisme: "Gouvernement chinois", annee: 2020 }
+      critiques:
+        - texte: "Pékin riposte aussitôt : le jour des sanctions de 2021, la Chine a sanctionné 10 Européens, dont 5 députés européens, et 4 institutions."
+          source: { organisme: "Parlement européen", annee: 2025 }
+        - texte: "Prouver qu'aucun travail forcé n'entre dans un produit serait presque impossible, surtout pour les petites entreprises."
+        - texte: "Bloquer les produits de toute une région priverait le Xinjiang de tout débouché économique."
   - id: D
     libelle: "Des sanctions commerciales plus larges"
     implique: "En plus, la France pousse l'Union à restreindre le commerce ou les investissements avec la Chine, par exemple par des droits de douane, tant que la situation ne change pas."
     defenseurs: "Les sanctions ciblées n'ont pas fait changer les lois du Xinjiang ; l'Europe achète à la Chine 305 milliards d'euros de plus qu'elle ne lui vend, un moyen de pression."
     critiques: "En 2024, la France a vendu 24 milliards d'euros à la Chine, qui a visé le cognac français ; une rupture pèserait sur ces ventes, sans garantie pour les Ouïghours."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé du coût d'une rupture pour la France. En 2024, la Chine pesait 46 % de son déficit commercial."
+        source: { organisme: "Direction générale des douanes et droits indirects", annee: 2025 }
+      defenseurs:
+        - texte: "Les sanctions ciblées restent bien modestes au regard des faits : il faut viser aussi le commerce."
+        - texte: "L'Europe a un moyen de pression : elle achète à la Chine 305 milliards d'euros de plus qu'elle ne lui vend."
+          source: { organisme: "Direction générale du Trésor", annee: 2025 }
+        - texte: "Les faits sont graves : en 2018, le Xinjiang comptait 243 stérilisations pour 100 000 habitants, contre 32,1 dans toute la Chine."
+          source: { organisme: "Haut-Commissariat des Nations unies aux droits de l'homme", annee: 2022 }
+      critiques:
+        - texte: "Une rupture menacerait nos ventes : en 2024, la France a vendu 24 milliards d'euros à la Chine, dont 5 en avions et 5 en luxe."
+          source: { organisme: "Direction générale des douanes et droits indirects", annee: 2025 }
+        - texte: "La Chine a déjà visé des produits français : ses achats de cognac ont baissé de 23 % en 2024, sous le coup d'une enquête chinoise."
+          source: { organisme: "Direction générale des douanes et droits indirects", annee: 2025 }
+        - texte: "Restreindre tout le commerce avec la Chine relèverait d'une logique de guerre économique, sans garantie pour les Ouïghours."
 pourAllerPlusLoin:
   - titre: "Nations unies (HCDH), évaluation sur le Xinjiang, 2022"
     url: https://www.ohchr.org/en/documents/country-reports/ohchr-assessment-human-rights-concerns-xinjiang-uyghur-autonomous-region

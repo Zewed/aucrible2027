@@ -33,18 +33,64 @@ options:
     defenseurs: Une égalité de façade, à l'effet limité sur les apprentissages, pendant que les inégalités se déplacent vers les coiffures, les chaussures et les sacs.
     critiques: "75 % des directeurs d'école constatent une évolution positive du sentiment d'appartenance avec la tenue commune."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "Rien ne change pour l'État, qui ne reconduit pas l'essai : il lui avait coûté 1,6 million d'euros pour 2024-2025."
+        source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+      defenseurs:
+        - texte: "Les élèves n'en veulent pas : 57 % des écoliers interrogés n'aiment pas porter la tenue, et 69 % en CM2."
+          source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+        - texte: "Elle change peu ce qui compte à l'école : 7 % seulement des directeurs d'école voient un progrès sur ce que les élèves apprennent."
+          source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+        - texte: "C'est une égalité de façade, qui ne règle ni les classes surchargées ni le manque de professeurs."
+      critiques:
+        - texte: "Elle soude l'établissement : 13 chefs d'établissement sur 16 voient les élèves plus attachés à leur collège ou lycée."
+          source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+        - texte: "Elle allège la pression sur les familles : 50 % des parents de collégiens en sentent moins sur la façon de s'habiller."
+          source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+        - texte: "Sans tenue commune, la course aux marques continue dans la cour."
   - id: B
     libelle: Laisser chaque établissement décider
     implique: Le règlement intérieur, voté avec la communauté éducative, peut inscrire une tenue commune ; l'État ne l'impose pas.
     defenseurs: Chaque communauté éducative choisit ce qui lui convient, au rythme de ce que sa collectivité peut payer.
     critiques: "Sans l'État, des collectivités comme Reims disent ne pas pouvoir financer les tenues ; seule une règle nationale vaudrait pour tous."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé : le coût dépendrait des écoles qui choisiraient une tenue. Dans l'essai, elle coûtait environ 180 euros par élève, selon les directeurs d'école."
+        source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+      defenseurs:
+        - texte: "Là où elle a été essayée, on veut souvent continuer : 7 directeurs d'école sur 10 étaient favorables à la poursuite après un an."
+          source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+        - texte: "Le droit le permet déjà : chaque école peut inscrire une tenue dans son règlement intérieur, voté avec les enseignants et les parents."
+        - texte: "Chaque commune avance selon ses choix et ses moyens : Béziers a étendu la tenue à toutes ses écoles, d'autres villes ont arrêté."
+      critiques:
+        - texte: "Le choix local dépend de l'argent des communes : Reims a arrêté la tenue en 2026, faute de soutien financier de l'État."
+        - texte: "Chaque école doit tout organiser : la logistique, des commandes à la distribution, était un frein pour 63 % des directeurs d'école."
+          source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+        - texte: "Une règle nationale serait la même pour tous les élèves, quelle que soit leur commune."
   - id: C
     libelle: L'imposer à tous les élèves du public
     implique: Une loi rend la tenue obligatoire dans les écoles et collèges publics (certains textes vont jusqu'au lycée) ; chaque établissement en fixe la coupe et la couleur.
     defenseurs: Une tenue commune réduit les inégalités sociales, aide à lutter contre le harcèlement et donne un cadre clair sur les signes religieux.
     critiques: Les effets sur les comportements et les apprentissages restent limités, et les élèves du second degré y adhèrent peu.
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage officiel n'a été trouvé. Un ordre de grandeur pour tous les élèves, calculé sur 200 euros chacun et environ 12 millions d'élèves, donne 2,4 milliards d'euros."
+        source: { organisme: "Banque des Territoires", annee: 2026 }
+      defenseurs:
+        - texte: "Elle aide contre le harcèlement : 10 chefs d'établissement sur 16 voient un progrès depuis la tenue."
+          source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+        - texte: "Elle réduit les moqueries sur les vêtements : 43 % des écoliers trouvent qu'on critique moins ceux des autres, 32 % non."
+          source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+        - texte: "Une tenue unique donne aux chefs d'établissement une règle simple pour faire respecter la laïcité."
+      critiques:
+        - texte: "Elle ne fait pas reculer le harcèlement dans la plupart des écoles : 71 % des directeurs n'y voient pas de changement notable."
+          source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+        - texte: "Les élèves se comparent autrement : 64 % des parents d'écoliers trouvent que la tenue n'empêche pas les jugements entre eux."
+          source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
+        - texte: "Une loi encadre déjà depuis 2004 les signes religieux à l'école publique."
 pourAllerPlusLoin:
   - titre: DEPP, évaluation des expérimentations du port de la tenue commune, 2026
     url: https://www.education.gouv.fr/depp/evaluation-des-experimentations-du-port-de-la-tenue-commune-l-ecole-504773

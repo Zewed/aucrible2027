@@ -28,21 +28,79 @@ options:
     implique: "Tous les députés sont élus à la proportionnelle, sans prime majoritaire : chaque liste obtient des sièges à proportion de ses voix."
     defenseurs: "Chaque voix pèse autant et toutes les sensibilités sont représentées : l'Assemblée reflète le pays, et les majorités se construisent par le compromis."
     critiques: "Sans prime, il devient plus difficile de dégager une majorité, et le lien entre l'électeur et son député se distend."
+    detail:
+      chiffrage:
+        texte: "Selon une simulation sur les voix de 2024, une proportionnelle nationale sans prime aurait donné 192 sièges au plus gros bloc, sans atteindre les 289 de la majorité."
+        source: { organisme: "Fondation pour l'innovation politique", annee: 2026 }
+      defenseurs:
+        - texte: "Avec le scrutin actuel, des voix comptent moins que d'autres : en 2024, le bloc arrivé en tête avait 33 % des voix au premier tour, mais 25 % des sièges."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2024 }
+        - texte: "Elle oblige à la clarification et au compromis : sans majorité automatique, les partis doivent s'entendre pour gouverner."
+        - texte: "Presque tous nos voisins européens élisent leurs députés à la proportionnelle, et la France l'a déjà fait, en 1986 comme sous la IVe République."
+      critiques:
+        - texte: "La IVe République l'a montré : de 1951 à 1958, avec une Assemblée élue à la proportionnelle, 12 gouvernements se sont succédé."
+          source: { organisme: "Assemblée nationale", annee: 2026 }
+        - texte: "Avec des listes, les candidats viendraient surtout des grandes villes, au détriment des territoires ruraux."
+        - texte: "Nos voisins à la proportionnelle ont une culture de la coalition que n'a pas la Ve République, où le président nomme le gouvernement."
   - id: B
     libelle: "Oui, avec une prime majoritaire"
     implique: "Les députés sont élus à la proportionnelle, avec un bonus de sièges pour la liste arrivée en tête afin de lui donner une majorité."
     defenseurs: "L'Assemblée est plus représentative qu'aujourd'hui et le pays garde une majorité claire pour gouverner."
     critiques: "La prime donne à la liste arrivée en tête plus de sièges que de voix, ce qui réduit la représentation des autres."
+    detail:
+      chiffrage:
+        texte: "Aucune simulation n'a été trouvée. La prime viserait à donner à la liste arrivée en tête la majorité absolue : 289 sièges sur 577."
+        source: { organisme: "Ministère de l'Intérieur", annee: 2024 }
+      defenseurs:
+        - texte: "Le scrutin actuel ne donne plus de stabilité : 4 gouvernements ont été nommés en 13 mois, de septembre 2024 à octobre 2025."
+          source: { organisme: "Journal officiel", annee: 2025 }
+        - texte: "La prime donne à la liste arrivée en tête de quoi gouverner : le vote désigne une majorité claire."
+        - texte: "Toutes les sensibilités politiques seraient représentées à l'Assemblée, ce que le scrutin actuel ne permet pas."
+      critiques:
+        - texte: "Une proportionnelle avec prime n'est plus réellement proportionnelle : une liste minoritaire en voix peut obtenir la majorité des sièges."
+        - texte: "En 1951, donner tous les sièges d'un département aux listes alliées majoritaires a faussé le résultat : les communistes, avec 26 % des voix, ont eu autant de sièges que les socialistes, avec un peu plus de 15 %."
+          source: { organisme: "Assemblée nationale", annee: 2015 }
+        - texte: "Des listes remplaceraient les circonscriptions : le lien direct entre chaque électeur et son député se distendrait."
   - id: C
     libelle: "Oui, mais seulement pour une partie des députés"
     implique: "Une partie de l'Assemblée est élue à la proportionnelle (par exemple 15 % des sièges), le reste étant élu comme aujourd'hui."
     defenseurs: "On corrige une partie de l'écart entre les voix et les sièges sans perdre le lien avec un député local ni la majorité."
     critiques: "Une simple dose ne change l'équilibre qu'à la marge : les courants minoritaires restent sous-représentés."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage officiel de ses effets n'a été trouvé. Le projet de 2018 prévoyait d'élire ainsi 15 % des députés."
+        source: { organisme: "Gouvernement", annee: 2018 }
+      defenseurs:
+        - texte: "La plupart des députés resteraient élus dans leur circonscription : chaque territoire garderait son élu."
+        - texte: "Elle ouvrirait l'Assemblée aux courants peu représentés, tout en gardant un mode de scrutin qui pousse aux majorités."
+        - texte: "Les Français sont prêts au changement : 75 % se disent favorables à l'élection des députés à la proportionnelle."
+          source: { organisme: "Odoxa", annee: 2025 }
+      critiques:
+        - texte: "Une dose ne changerait rien sur le fond : l'essentiel des sièges resterait attribué comme aujourd'hui, et les petits courants resteraient à la porte."
+        - texte: "Le projet de 2018 l'accompagnait d'une baisse du nombre de députés, de 577 à 404 : moins d'élus pour chaque territoire."
+          source: { organisme: "Gouvernement", annee: 2018 }
+        - texte: "Même partielle, la proportionnelle rendrait plus difficile de dégager une majorité, dans une Assemblée déjà divisée."
   - id: D
     libelle: "Non, garder le scrutin actuel"
     implique: "Les députés restent élus dans leur circonscription, au scrutin majoritaire à deux tours."
     defenseurs: "Chaque territoire a son député et le vote tranche : le scrutin majoritaire favorise une majorité claire, que la proportionnelle risque d'empêcher."
     critiques: "Il écarte de l'Assemblée des courants qui rassemblent des millions de voix et donne des sièges éloignés des voix, comme en 2024."
+    detail:
+      chiffrage:
+        texte: "Le garder ne change rien : en 2024, avec ce scrutin, le plus gros bloc a eu 178 sièges, sans atteindre la majorité."
+        source: { organisme: "Ministère de l'Intérieur", annee: 2024 }
+      defenseurs:
+        - texte: "La plupart des députés ont la majorité chez eux : en 2024, plus de huit sur dix ont dépassé la moitié des voix de leur circonscription."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2024 }
+        - texte: "Les Français veulent un député de terrain : 70 % disent qu'il doit d'abord s'occuper des problèmes de son territoire."
+          source: { organisme: "CSA", annee: 2021 }
+        - texte: "Une élection doit d'abord donner une majorité pour gouverner, pas une photographie exacte des voix."
+      critiques:
+        - texte: "Le lien local est déjà faible : 49 % des Français ne savent pas qui est leur député."
+          source: { organisme: "CSA", annee: 2021 }
+        - texte: "Les sièges se jouent sur les retraits entre les deux tours : en 2024, 229 candidats qualifiés se sont désistés."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2024 }
+        - texte: "Ce mode de scrutin barre la route aux courants minoritaires, même quand ils pèsent dans le pays."
 pourAllerPlusLoin:
   - titre: "Ministère de l'Intérieur, résultats définitifs des législatives 2024 (1er tour)"
     url: https://www.data.gouv.fr/datasets/elections-legislatives-des-30-juin-et-7-juillet-2024-resultats-definitifs-du-1er-tour

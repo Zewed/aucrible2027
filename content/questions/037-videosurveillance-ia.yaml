@@ -32,24 +32,86 @@ options:
     defenseurs: "L'essai a peu servi sur le terrain (huit interventions selon le Sénat), et chaque prolongation habitue à une surveillance plus intrusive, un risque que soulignent la CNIL et le comité d'évaluation."
     critiques: "Ceux qui l'ont testé veulent le garder, et les agents ne peuvent pas regarder en même temps des dizaines de milliers de caméras : un agent suit environ quatre écrans à la fois."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "L'arrêter supprime le coût des logiciels : l'essai de 2024 a coûté 885 626 euros, avancés par le ministère de l'Intérieur et remboursés par ses utilisateurs."
+        source: { organisme: "Comité d'évaluation", annee: 2025 }
+      defenseurs:
+        - texte: "L'essai a très peu servi sur le terrain : 8 interventions en tout, 1 pour la préfecture de police et 7 pour la SNCF."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Analyser en continu les images de la rue en tire bien plus d'informations, et habitue peu à peu à une surveillance plus intrusive."
+        - texte: "L'utilité des caméras classiques elles-mêmes n'est pas démontrée : dans 58 communes, aucun lien d'ensemble avec le niveau de la délinquance n'a été relevé."
+          source: { organisme: "Cour des comptes", annee: 2020 }
+      critiques:
+        - texte: "Les agents ne peuvent pas tout regarder : un opérateur suit environ 4 écrans à la fois, pour une douzaine de caméras."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2020 }
+        - texte: "Tous les services qui l'ont testé demandent à le garder, ou au moins à le prolonger."
+        - texte: "Pour certaines situations, il marche : à la RATP, pendant les Jeux, 1 222 alertes d'intrusion étaient justes, pour 324 fausses."
+          source: { organisme: "Comité d'évaluation", annee: 2025 }
   - id: B
     libelle: Continuer l'essai jusqu'en 2030
     implique: "On applique la loi de 2026 : l'essai continue pour les grands événements et des lieux exposés au terrorisme ou à des violences graves, sans reconnaissance faciale, et le Parlement décide après le rapport d'évaluation attendu en 2030."
     defenseurs: "Les résultats ne sont « pas suffisamment probants pour justifier une pérennisation ou au contraire un abandon » selon le Sénat : il faut tester hors des Jeux, plus longtemps et avec d'autres logiciels."
     critiques: "Pour les uns, un essai relancé deux fois en 2026 devient permanent sans le dire ; pour les autres, il prive le reste du territoire d'un outil que demandent ses utilisateurs."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Aucun coût pour l'État n'a été chiffré pour la suite de l'essai. Celui de 2024 a porté sur environ 800 caméras, lors d'une trentaine d'événements."
+        source: { organisme: "Comité d'évaluation", annee: 2025 }
+      defenseurs:
+        - texte: "Les résultats ne permettent encore de trancher ni dans un sens ni dans l'autre : il faut tester plus longtemps avant de décider."
+        - texte: "Décider après le rapport de 2030, c'est décider sur des preuves avant de rendre l'outil définitif."
+        - texte: "L'essai a été trop court et trop étroit pour juger : quelques semaines, et 2 logiciels seulement, imposés aux utilisateurs."
+          source: { organisme: "Comité d'évaluation", annee: 2025 }
+      critiques:
+        - texte: "Un essai prolongé jusqu'en 2030 et élargi à de nouveaux lieux devient permanent sans qu'on ose le dire."
+        - texte: "Il réserve l'outil aux grands événements et à quelques lieux, alors qu'il serait utile partout où les policiers manquent."
+        - texte: "Prolonger un essai décevant ne l'améliore pas : au Festival de Cannes, 37 194 alarmes n'ont mené à aucune intervention d'un agent."
+          source: { organisme: "Comité d'évaluation", annee: 2025 }
   - id: C
     libelle: "La généraliser, sans reconnaissance faciale"
     implique: "Le dispositif devient permanent et s'ouvre à davantage de lieux, de situations et de villes, toujours sans identifier les personnes et sous le contrôle d'un agent."
     defenseurs: "Les caméras sont trop nombreuses pour être regardées par des humains : le logiciel signale où regarder, et le comité d'évaluation n'a relevé aucune atteinte au cadre légal pendant l'essai."
     critiques: "Aucune étude n'a mesuré l'effet de ces logiciels sur la délinquance, près de quatre alertes sur cinq étaient fausses pour les objets abandonnés, et la CNIL met en garde contre une surveillance généralisée."
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Il pourrait s'étendre à des dizaines de milliers de caméras : 60 674 dans les rues fin 2018, selon un décompte jugé approximatif."
+        source: { organisme: "Cour des comptes", annee: 2020 }
+      defenseurs:
+        - texte: "Les caméras sont bien trop nombreuses pour des yeux humains : la SNCF en compte environ 70 000, pour quelques dizaines d'opérateurs."
+          source: { organisme: "Comité d'évaluation", annee: 2025 }
+        - texte: "Le logiciel coûte peu face aux agents qu'il faudrait : faire regarder les images par des humains coûte environ 3 000 euros par caméra et par an."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2020 }
+        - texte: "Personne n'est identifié, un agent décide toujours, et aucune atteinte au cadre légal n'a été relevée pendant l'essai."
+      critiques:
+        - texte: "Aucune étude n'a mesuré l'effet de ces logiciels sur la délinquance : on généraliserait sans preuve."
+        - texte: "Pour les objets abandonnés, cas clé contre le terrorisme, les fausses alertes dominent : 151 fausses pour 42 justes à la RATP pendant les Jeux."
+          source: { organisme: "Comité d'évaluation", annee: 2025 }
+        - texte: "Les Français en craignent les dérives : 59 % pensent que ces caméras risquent d'être mal utilisées."
+          source: { organisme: "Verian", document: "sondage pour le comité d'évaluation", annee: 2024 }
   - id: D
     libelle: Aller jusqu'à la reconnaissance faciale
     implique: "En plus, la police peut reconnaître le visage de personnes recherchées (terrorisme, crimes graves, personnes disparues) avec l'autorisation d'un juge, dans les limites du règlement européen."
     defenseurs: "Retrouver un terroriste ou un enfant disparu dans une foule justifie un outil ciblé et autorisé par un juge, que le droit européen permet ; dans un sondage de 2024, 76 % des Français sont favorables à des caméras qui reconnaissent une personne précise."
     critiques: "Chacun deviendrait identifiable partout : le comité d'évaluation recommande d'interdire la reconnaissance faciale hors des enquêtes judiciaires, et le Parlement européen avait voté en 2023 pour l'interdire en direct."
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Le règlement européen l'interdit en principe à la police depuis le 2 février 2025, sauf exceptions qu'une loi nationale doit organiser."
+        source: { organisme: "CNIL", annee: 2026 }
+      defenseurs:
+        - texte: "Retrouver un terroriste, le suspect d'un crime grave ou un enfant disparu dans une foule justifie un outil ciblé, autorisé par un juge."
+        - texte: "Les Français y sont favorables : 76 % approuvent des caméras capables de reconnaître une personne précise."
+          source: { organisme: "Verian", document: "sondage pour le comité d'évaluation", annee: 2024 }
+        - texte: "Le Parlement peut l'encadrer strictement : le Sénat a voté en 2023 un essai de trois ans, par 226 voix contre 117."
+          source: { organisme: "Sénat", annee: 2023 }
+      critiques:
+        - texte: "Le visage ne se change pas : reconnaître chacun partout mettrait fin à l'anonymat dans l'espace public."
+        - texte: "Les Français en voient aussi le risque : 62 % pensent que ces caméras vont banaliser la surveillance générale."
+          source: { organisme: "Verian", document: "sondage pour le comité d'évaluation", annee: 2024 }
+        - texte: "L'Europe a hésité à l'autoriser : en 2023, le Parlement européen avait voté pour l'interdire totalement en direct, par 335 voix contre 235."
+          source: { organisme: "Parlement européen", annee: 2023 }
 pourAllerPlusLoin:
   - titre: "Comité d'évaluation, rapport sur l'expérimentation des traitements algorithmiques, janvier 2025"
     url: https://www.interieur.gouv.fr/sites/minint/files/medias/documents/2025-01/Rapport1701_v200125%20avecannexes1a%CC%806.pdf

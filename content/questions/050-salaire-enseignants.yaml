@@ -30,24 +30,90 @@ options:
     defenseurs: "En milieu de carrière, un enseignant français gagne 18 % de moins que la moyenne de l'OCDE, et son pouvoir d'achat a baissé de 2002 à 2022 : le rattrapage doit concerner tous les enseignants."
     critiques: "Une hausse de 10 % pour tous coûterait de l'ordre de 4 à 5 milliards d'euros par an, payés par l'impôt ou par des économies ailleurs, alors que le déficit public atteint 5,1 % du PIB."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Le coût dépend de l'ampleur de la hausse. Pour ordre de grandeur, la hausse de 5 % du point d'indice de 2022-2023 coûte 2,5 milliards d'euros par an à l'enseignement scolaire."
+        source: { organisme: "Sénat", annee: 2023 }
+      defenseurs:
+        - texte: "Le retard se creuse avec l'ancienneté : en milieu de carrière, l'écart avec la moyenne des pays de l'OCDE atteint 18 %."
+          source: { organisme: "OCDE", annee: 2026 }
+        - texte: "Tous ont perdu du pouvoir d'achat : de 2002 à 2022, le salaire moyen a baissé de 8 % après inflation à l'école primaire et de 5 % au collège et au lycée."
+          source: { organisme: "Sénat", annee: 2023 }
+        - texte: "Les hausses de 2023 ont surtout profité aux débutants : pour un professeur des écoles, 9 à 12 % les huit premières années, 4 à 5,5 % ensuite."
+          source: { organisme: "Sénat", annee: 2023 }
+      critiques:
+        - texte: "Le pays n'en a pas les moyens : le déficit public atteint 5,1 % de sa richesse, et une hausse pour tous se paierait en milliards chaque année."
+          source: { organisme: "Insee", annee: 2026 }
+        - texte: "Le retard est faible en début de carrière : 2 % de moins que la moyenne des pays de l'OCDE."
+          source: { organisme: "OCDE", annee: 2026 }
+        - texte: "Les manques se concentrent dans quelques matières, qu'une hausse uniforme ne vise pas : en 2025, 74,4 % des postes de mathématiques ont été pourvus au concours du collège et du lycée."
+          source: { organisme: "Ministère de l'Éducation nationale", annee: 2025 }
   - id: B
     libelle: "Augmenter ceux qui font des missions en plus"
     implique: "Le pacte de 2023 est gardé ou élargi : chaque mission acceptée, comme remplacer un collègue absent ou aider des élèves en difficulté, est payée en plus, ou la hausse est donnée contre plus de présence dans l'établissement."
     defenseurs: "Payer le travail fait en plus améliore aussi l'école : en un an, le pacte a multiplié par 2,5 le remplacement des absences de quelques jours."
     critiques: "Moins d'un tiers des enseignants du public l'avaient choisi à la rentrée 2024, la Cour des comptes juge la participation « encore fragile », et son budget est passé de 780 à 480 millions d'euros entre 2025 et 2026."
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Le pacte actuel devrait coûter environ 480 millions d'euros en 2026. Aucun chiffrage n'a été trouvé pour l'élargir."
+        source: { organisme: "Sénat", annee: 2025 }
+      defenseurs:
+        - texte: "Le pacte rend service aux élèves : en un an, il a multiplié par 2,5 le remplacement des professeurs absents quelques jours."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Il paie vraiment ceux qui s'engagent : 2 408 euros par an en moyenne pour chaque enseignant qui y adhère."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "La hausse va au travail fait en plus, pas à tous sans distinction."
+      critiques:
+        - texte: "Peu d'enseignants l'ont choisi : 27,8 % de ceux du public à la rentrée 2024."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Il ne profite qu'à ceux qui peuvent travailler plus : 14 % seulement cumulent plusieurs missions."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "C'est une paie incertaine, qui dépend du budget de chaque année et a déjà été réduite."
   - id: C
     libelle: "Payer selon le mérite ou l'établissement"
     implique: "Une part du salaire dépend de l'évaluation de chaque enseignant, des résultats de son équipe ou des choix de son établissement, qui recrute ses professeurs ; l'ancienneté compte moins."
     defenseurs: "Une carrière fondée sur l'ancienneté paie pareil celui qui s'investit et celui qui ne le fait pas ; selon une synthèse de 44 études, surtout américaines, les primes au mérite améliorent un peu les résultats des élèves, davantage quand elles récompensent une équipe."
     critiques: "Le travail d'un enseignant se mesure mal, et d'un pays à l'autre l'OCDE ne trouve pas de lien d'ensemble entre primes au mérite et résultats des élèves ; les études favorables viennent surtout des États-Unis."
     axes: { economie: 1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Aujourd'hui, les primes font 16 % du salaire brut à l'école primaire et 21 % au collège et au lycée ; le reste suit surtout l'ancienneté."
+        source: { organisme: "Ministère de l'Éducation nationale", annee: 2026 }
+      defenseurs:
+        - texte: "Avec l'ancienneté seule, celui qui s'investit et celui qui en fait le moins finissent payés pareil."
+        - texte: "Les primes au mérite font un peu progresser les élèves : environ quatre semaines et demie d'apprentissage en plus, deux fois plus quand elles récompensent une équipe."
+          source: { organisme: "Université Vanderbilt", annee: 2017 }
+        - texte: "Un établissement qui choisit et paie ses professeurs peut attirer là où les postes restent vides."
+      critiques:
+        - texte: "Comparés entre eux, les pays qui paient au mérite n'ont pas de meilleurs élèves, et en ont même de moins bons là où les enseignants gagnent plus de 15 % au-dessus du revenu moyen."
+          source: { organisme: "OCDE", annee: 2012 }
+        - texte: "Juger le travail d'un professeur est difficile, et rien ne dit qui le ferait : l'inspection, le chef d'établissement ou les notes des élèves."
+        - texte: "Les études qui trouvent un effet portent surtout sur des écoles américaines, et cet effet reste faible."
   - id: D
     libelle: "Pas de nouvelle hausse"
     implique: "On garde les hausses de 2023 et la grille actuelle ; l'argent va d'abord à la réduction du déficit, à des classes moins chargées et à la formation payée des futurs professeurs."
     defenseurs: "Les hausses décidées depuis 2022 coûtent déjà 4,2 milliards d'euros par an, le salaire moyen a augmenté de 4,3 % de plus que les prix en 2024, et 97 % des postes de professeurs des écoles ont été pourvus en 2026, première année du concours dès la licence."
     critiques: "En milieu de carrière, l'écart avec la moyenne de l'OCDE reste de 18 %, et le bond des candidats en 2026 tient en partie à deux concours organisés la même année."
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Pas de dépense nouvelle : les hausses décidées depuis 2022 continuent de coûter 4,2 milliards d'euros par an."
+        source: { organisme: "Sénat", annee: 2025 }
+      defenseurs:
+        - texte: "Le salaire moyen a déjà progressé : 4,3 % de plus que les prix en 2024."
+          source: { organisme: "Ministère de l'Éducation nationale", annee: 2026 }
+        - texte: "La formation payée dès la licence a suffi à remplir les postes : 97,1 % de ceux de professeur des écoles du public l'ont été en 2026."
+          source: { organisme: "Ministère de l'Éducation nationale", annee: 2026 }
+        - texte: "La France a peu de postes vides : 0,4 % n'étaient pas pourvus avant la rentrée 2024, l'un des taux les plus bas des pays comparables."
+          source: { organisme: "OCDE", annee: 2026 }
+      critiques:
+        - texte: "Les enseignants restent peu satisfaits de leur salaire : 27 % au collège, contre 39 % en moyenne dans l'OCDE."
+          source: { organisme: "OCDE", annee: 2024 }
+        - texte: "Les candidats au concours des écoles sont passés de 23 736 en 2025 à plus de 50 800 en 2026, mais cette année-là, deux concours coexistaient."
+          source: { organisme: "Ministère de l'Éducation nationale", annee: 2026 }
+        - texte: "Les jeunes professeurs partent plus souvent : 4 % des stagiaires ont démissionné en 2023-2024, contre 0,9 % en 2008."
+          source: { organisme: "Sénat", annee: 2025 }
 pourAllerPlusLoin:
   - titre: "DEPP, L'évolution du salaire des enseignants entre 2023 et 2024, Note d'information n° 26.36, août 2026"
     url: https://www.education.gouv.fr/sites/default/files/document/depp-ni-2026-36pdf-519727.pdf

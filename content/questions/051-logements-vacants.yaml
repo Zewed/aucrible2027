@@ -29,24 +29,84 @@ options:
     defenseurs: "Des gens dorment dehors quand des logements restent vides : la réquisition ne prive pas le propriétaire de son bien, il est payé, et sa seule menace pousse à relouer."
     critiques: "C'est une atteinte au droit de propriété, coûteuse et exposée aux recours en justice ; beaucoup de logements vides sont à rénover, et l'outil n'a presque plus servi depuis 2001."
     axes: { economie: -2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Aujourd'hui, un logement réquisitionné et confié à un organisme est occupé six ans, douze en cas de gros travaux, contre un loyer garanti par l'État."
+        source: { organisme: "Assemblée nationale", annee: 2026 }
+      defenseurs:
+        - texte: "Des gens dorment dehors pendant que des logements restent vides : 1,1 million de logements privés l'étaient depuis plus de deux ans en 2022."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Ce n'est ni une expropriation ni une sanction : le propriétaire garde son bien, peut le vendre, et l'organisme qui le loue paie les travaux."
+        - texte: "Sa seule menace suffit souvent : en 2014, plusieurs centaines de logements vides ont été remis sur le marché avant toute procédure."
+      critiques:
+        - texte: "C'est une atteinte au droit de propriété, que garantit la Déclaration des droits de l'homme et du citoyen."
+        - texte: "Elle n'a jamais fait ses preuves : en 2001, 48 logements ont été réquisitionnés, sur 300 annoncés."
+          source: { organisme: "Assemblée nationale", annee: 2026 }
+        - texte: "La procédure est longue, fragile en justice, et coûterait cher aux communes en indemnités, en procès et en remise en état."
   - id: B
     libelle: "Les taxer plus fort"
     implique: "Sans réquisition, la taxe payée par les propriétaires de logements vides augmente, par exemple plus fort si le logement reste vide longtemps ou si son propriétaire en possède plusieurs."
     defenseurs: "Garder un logement vide là où des familles cherchent un toit doit coûter cher : une taxe plus lourde pousse à louer ou à vendre, et une étude a mesuré son effet."
     critiques: "Près de la moitié de la taxe réclamée en 2022 a été rendue à des propriétaires qui ne pouvaient pas louer, et la Cour des comptes juge son effet non démontré."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Dans les communes où le logement manque, la taxe actuelle a rapporté 271 millions d'euros en 2023, contre 80 millions en 2014."
+        source: { organisme: "Cour des comptes", annee: 2025 }
+      defenseurs:
+        - texte: "La taxe marche : quand elle a été créée, la part de logements vides a baissé de 13 % dans les villes taxées."
+          source: { organisme: "M. Segú", annee: 2019 }
+        - texte: "Les logements vides se multiplient : entre 2005 et 2019, leur nombre a augmenté 3,1 fois plus vite que celui de l'ensemble des logements."
+          source: { organisme: "Insee", annee: 2026 }
+        - texte: "Une taxe qui monte avec le nombre de logements vides et la durée du vide vise ceux qui spéculent, pas les petits propriétaires."
+      critiques:
+        - texte: "Une grande partie de la taxe est rendue, car le logement ne trouvait pas preneur : 95 millions d'euros sur 201 millions réclamés en 2022."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Elle repose sur des fichiers qui se trompent : sur le terrain, environ 25 % des logements réputés vides ne le sont pas ou plus."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Plus lourde et plus étendue, la taxe n'a pas fait reculer les logements vides de longue durée : rien ne montre qu'elle pousse à louer."
   - id: C
     libelle: "Aider à les remettre en location"
     implique: "La taxe et les règles actuelles restent ; l'État et les communes financent des travaux, garantissent les loyers et accordent des avantages fiscaux aux propriétaires qui louent."
     defenseurs: "Beaucoup de logements vides sont vieux, petits ou en mauvais état, et leurs propriétaires âgés ou modestes : mieux vaut les aider à faire les travaux que les sanctionner."
     critiques: "Les aides se paient avec l'argent public et touchent peu de logements ; là où le logement manque, peu de propriétaires répondent quand la mairie les contacte."
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage d'ensemble n'a été trouvé. La prime de 5 000 euros pour remettre en état un logement vide à la campagne coûte, à elle seule, 37,5 millions d'euros sur trois ans."
+        source: { organisme: "Cour des comptes", annee: 2025 }
+      defenseurs:
+        - texte: "Beaucoup de logements vides ont d'abord besoin de travaux : 45 % de ceux qui le sont depuis longtemps sont trop vieux, trop petits ou de faible qualité."
+          source: { organisme: "Service des données et études statistiques", annee: 2023 }
+        - texte: "Les garanties de loyer et les avantages fiscaux donnent des résultats : environ 40 000 logements auraient été remis sur le marché entre 2017 et 2022."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Leurs propriétaires sont souvent âgés, ou n'ont pas les moyens des travaux : mieux vaut les accompagner que les sanctionner."
+      critiques:
+        - texte: "Les aides attirent de moins en moins de propriétaires : 150 000 logements loués moins cher sous convention en 2017, 100 000 en 2022."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Contacter les propriétaires en ramène peu : sur 102 000 logements vides signalés à leur propriétaire, 6 700 ne le sont plus."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Les aides se paient avec l'argent public, et aucun indicateur ne permet de mesurer ce qu'elles rapportent."
   - id: D
     libelle: "Alléger les règles pour les louer"
     implique: "Les interdictions de louer les logements les plus mal isolés sont levées ou assouplies, pour que ceux qui sont vides puissent être loués, et les propriétaires qui louent paient moins d'impôts ; ni réquisition, ni taxe nouvelle."
     defenseurs: "Aucun propriétaire n'a intérêt à garder un bien vide : les logements vides sont plus souvent mal isolés que les autres, et alléger les normes et les impôts les remettrait sur le marché."
     critiques: "Des logements mal isolés seraient reloués avec de lourdes factures de chauffage, et aucune étude n'a mesuré l'effet de ces interdictions sur les logements vides."
     axes: { economie: 1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Début 2025, 13,8 % des logements loués par des propriétaires privés étaient classés F ou G, les plus mal isolés."
+        source: { organisme: "Service des données et études statistiques", annee: 2025 }
+      defenseurs:
+        - texte: "Les logements vides sont plus souvent mal isolés que ceux où l'on vit : 18,4 % sont classés F ou G, contre 12,7 %."
+          source: { organisme: "Service des données et études statistiques", annee: 2025 }
+        - texte: "Personne ne laisse vide un bien qu'il pourrait louer : si un logement reste vide, ce sont les normes, les travaux ou les impôts qui bloquent."
+        - texte: "Un logement que la loi interdit de louer ne devrait pas être taxé comme s'il était laissé vide par choix."
+      critiques:
+        - texte: "Relouer en l'état un logement mal isolé, c'est laisser au locataire de lourdes factures de chauffage."
+        - texte: "Les locataires de ces logements sont souvent modestes : 23 % des locataires du privé sont parmi les 20 % les plus pauvres, contre 18 % de l'ensemble des ménages."
+          source: { organisme: "Service des données et études statistiques", annee: 2025 }
+        - texte: "Rien ne prouve que ces interdictions vident des logements : la part des logements vides montait déjà avant elles, et baisse depuis 2019."
 pourAllerPlusLoin:
   - titre: "Cour des comptes, La lutte contre les logements vacants dans le parc privé, 2025"
     url: https://www.ccomptes.fr/sites/default/files/2025-05/20250522-S2025-0608-Lutte-contre-logements-vacants-dans-le-parc-prive.pdf

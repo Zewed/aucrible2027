@@ -34,16 +34,60 @@ options:
     implique: "Une nouvelle Constitution remplace celle de 1958 : selon les projets, une assemblée constituante, élue, tirée au sort ou les deux, l'écrit, puis le peuple l'approuve par référendum. Le gouvernement dépend de l'Assemblée et le président perd son rôle central."
     defenseurs: "Le pouvoir est trop concentré entre les mains du président : une Constitution écrite avec les citoyens rendrait le premier rôle au Parlement, comme en Allemagne, et pourrait rétablir une confiance au plus bas, 20 % pour l'Assemblée."
     critiques: "Réécrire toute la Constitution ouvre des années d'incertitude quand le pays cherche de la stabilité ; lancer le processus par un référendum, sans le vote du Parlement, est contesté en droit, et au Chili, deux projets écrits par des assemblées élues ont été rejetés."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage du coût n'a été trouvé. Une proposition déposée à l'Assemblée nationale prévoit deux ans de travaux pour l'assemblée constituante, puis un référendum."
+        source: { organisme: "Proposition de résolution à l'Assemblée nationale", annee: 2025 }
+      defenseurs:
+        - texte: "Une majorité veut tourner la page : 58 % des Français disent qu'il faudrait changer de Constitution et de régime."
+          source: { organisme: "CEVIPOF, OpinionWay", annee: 2026 }
+        - texte: "Une Constitution écrite par une assemblée élue peut rassembler : en 1978, 88 % des votants espagnols ont approuvé la leur."
+          source: { organisme: "Larousse", annee: 1979 }
+        - texte: "Un régime où le Parlement gouverne peut être stable : en Allemagne, les députés ne peuvent renverser le chancelier qu'en élisant son successeur."
+      critiques:
+        - texte: "Le résultat est incertain : au Chili, 62 % des votants ont rejeté en 2022 le projet écrit par une assemblée élue, et le suivant a été rejeté en 2023."
+          source: { organisme: "Service électoral du Chili", annee: 2022 }
+        - texte: "La Constitution de 1958 ne prévoit pas d'assemblée constituante : la lancer par un référendum, sans le vote du Parlement, est contesté en droit."
+        - texte: "Changer de texte n'a jamais garanti la stabilité : la France a eu 14 Constitutions de 1791 à 1946."
+          source: { organisme: "Conseil constitutionnel", annee: 2026 }
   - id: B
     libelle: "La réviser pour renforcer le Parlement"
     implique: "La Constitution de 1958 reste, mais elle est révisée : le 49.3 est supprimé ou limité, le Premier ministre est investi par l'Assemblée, et les pouvoirs propres du président, comme les nominations, sont réduits."
     defenseurs: "On peut rééquilibrer les pouvoirs sans tout réécrire : de 2022 à 2024, le 49.3 a fait adopter des textes sans vote 23 fois, et les députés doivent retrouver le dernier mot sur les lois et les nominations."
     critiques: "Sans 49.3 ni majorité stable, un gouvernement peut ne plus réussir à faire voter son budget ; et toute révision doit passer par le Sénat, qui a rejeté en 2026 un texte réduisant les pouvoirs du président."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Le 49.3, que cette révision supprimerait ou limiterait, a servi 23 fois de 2022 à 2024, contre une fois de 2017 à 2022."
+        source: { organisme: "Assemblée nationale", annee: 2024 }
+      defenseurs:
+        - texte: "Les Français le demandent : 65 % veulent que le rôle du Parlement soit renforcé durablement face au gouvernement."
+          source: { organisme: "CEVIPOF, OpinionWay", annee: 2026 }
+        - texte: "Une loi doit être votée : avec le 49.3, des textes sont adoptés sans que les députés se prononcent, sauf à renverser le gouvernement."
+        - texte: "Les députés et les sénateurs doivent pouvoir s'opposer, à la majorité simple, aux nominations décidées par le président."
+      critiques:
+        - texte: "Sans majorité, le 49.3 est parfois le seul moyen d'adopter un budget : ceux de 2025 et de 2026 sont passés grâce à lui."
+        - texte: "Toute révision doit passer par le Sénat, qui a rejeté en février 2026 un texte transférant la dissolution au Premier ministre."
+        - texte: "Le 49.3 n'échappe pas au contrôle des députés : après l'un d'eux, ils ont renversé le gouvernement en décembre 2024, par 331 voix."
+          source: { organisme: "Assemblée nationale", annee: 2024 }
   - id: C
     libelle: "La réviser pour renforcer le référendum"
     implique: "La Constitution de 1958 reste et le président garde ses pouvoirs, mais le peuple est plus souvent consulté : référendum ouvert à tous les sujets, y compris la Constitution ; selon les projets, mandat de sept ans et référendum pour passer outre une censure du Conseil constitutionnel."
     defenseurs: "« La souveraineté nationale appartient au peuple » : quand l'Assemblée ne parvient plus à trancher, c'est au peuple de décider, alors qu'aucun référendum national n'a eu lieu depuis 2005 et que 79 % des Français veulent y recourir plus souvent."
     critiques: "Passer outre le juge constitutionnel affaiblirait la protection des libertés, selon des constitutionnalistes ; et réviser la Constitution par référendum sans le vote du Sénat est une pratique contestée en droit depuis 1962."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Depuis 1958, le Parlement réuni en Congrès a approuvé 21 révisions de la Constitution, et le peuple une seule, en 2000."
+        source: { organisme: "Assemblée nationale", annee: 2024 }
+      defenseurs:
+        - texte: "Les Français veulent être consultés : 79 % souhaitent recourir plus souvent au référendum pour décider des lois importantes."
+          source: { organisme: "CEVIPOF, OpinionWay", annee: 2026 }
+        - texte: "La Constitution le dit : le peuple exerce la souveraineté par ses représentants et par le référendum. Quand l'Assemblée est bloquée, c'est à lui de trancher."
+        - texte: "Un mandat de sept ans rendrait du recul au président : le quinquennat, voulu moderne, a dénaturé sa fonction."
+      critiques:
+        - texte: "Réviser la Constitution par référendum, sans le vote du Sénat, est une pratique contestée en droit, abandonnée depuis 1969."
+        - texte: "Passer outre le juge constitutionnel affaiblirait la protection des libertés et de la minorité : depuis 1974, 60 députés ou 60 sénateurs peuvent lui soumettre une loi."
+          source: { organisme: "Assemblée nationale", annee: 2024 }
+        - texte: "Le président ne pourrait pas tout soumettre au peuple : le Conseil constitutionnel peut bloquer une question contraire à la Constitution."
   # Aucun candidat n'y est rangé avec une source (étude, § 4), mais l'option est défendue dans le débat
   # (« moins on la touche, mieux on se porte », J.-P. Raffarin) et 32 % des sondés du CEVIPOF ne veulent pas changer.
   - id: D
@@ -51,6 +95,22 @@ options:
     implique: "L'équilibre des pouvoirs ne change pas : le président, le gouvernement et l'Assemblée gardent leurs règles ; on change les pratiques et les lois ordinaires, comme le mode de scrutin, pas la Constitution."
     defenseurs: "« Moins on la touche, mieux on se porte » : la Constitution de 1958 a tenu face à une Assemblée sans majorité et à la censure d'un gouvernement en 2024 ; la crise vient des divisions politiques, qu'aucun texte ne fera disparaître."
     critiques: "Garder le texte tel quel ne répond pas à une défiance record : 20 % des Français font confiance à l'Assemblée, 22 % à l'institution présidentielle, et 58 % disent qu'il faudrait changer de Constitution."
+    detail:
+      chiffrage:
+        texte: "La garder ne change rien : depuis 1958, elle a été révisée 25 fois, la dernière en 2024."
+        source: { organisme: "Assemblée nationale", annee: 2024 }
+      defenseurs:
+        - texte: "Elle donne des gouvernements solides : depuis 1958, deux seulement ont été renversés par une motion de censure, en 1962 et en 2024."
+          source: { organisme: "Assemblée nationale", annee: 2024 }
+        - texte: "La dissolution rend la parole aux électeurs, qui ne donnent pas toujours raison au président : son camp n'a pas gagné après deux des six dissolutions."
+          source: { organisme: "Public Sénat", annee: 2024 }
+        - texte: "Le blocage vient de la division du pays, et aucune Constitution ne la fera disparaître à elle seule."
+      critiques:
+        - texte: "Ne rien changer ignore une défiance record : 20 % des Français font confiance à l'Assemblée nationale."
+          source: { organisme: "CEVIPOF, OpinionWay", annee: 2026 }
+        - texte: "Les Français veulent être associés aux décisions : 71 % sont favorables à des conventions de citoyens tirés au sort."
+          source: { organisme: "CEVIPOF, OpinionWay", annee: 2026 }
+        - texte: "Le président garde des pouvoirs trop larges, qu'il exerce sans l'accord du gouvernement : dissoudre l'Assemblée, ou décider seul en cas de menace grave."
 pourAllerPlusLoin:
   - titre: "Conseil constitutionnel, texte intégral de la Constitution du 4 octobre 1958"
     url: https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur

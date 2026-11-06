@@ -33,21 +33,83 @@ options:
     implique: "Rattraper le retard de l'électrification en construisant plus que prévu, en mer comme à terre ; les plus ambitieux visent un mix 100 % renouvelable à terme."
     defenseurs: "L'éolien est une électricité bas carbone, plus rapide à mettre en service (5 à 8 ans) que de nouveaux réacteurs (2037 au mieux), et il réduit la dépendance aux énergies fossiles importées (64 milliards d'euros en 2024)."
     critiques: "Le vent est variable (facteur de charge de 21,4 % à terre en 2025), le soutien public et le réseau coûtent cher (6,2 milliards d'euros de soutien aux renouvelables en métropole en 2025) et les parcs suscitent des oppositions locales."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Il irait au-delà de la programmation actuelle, qui prévoit déjà 2,7 milliards d'euros d'aide à l'éolien en 2027."
+        source: { organisme: "Commission de régulation de l'énergie", annee: 2026 }
+      defenseurs:
+        - texte: "Il faut sortir vite des énergies fossiles : le pétrole, le gaz et le charbon font encore 58 % de l'énergie consommée en France en 2023."
+          source: { organisme: "Gouvernement", annee: 2026 }
+        - texte: "En mer, les éoliennes produisent bien plus : en 2025, les parcs déjà en service ont fourni 38,8 % de ce qu'ils auraient donné à pleine puissance toute l'année."
+          source: { organisme: "RTE", annee: 2026 }
+        - texte: "Après 2040, seuls le solaire et l'éolien pourront fournir en abondance l'électricité bas carbone dont le pays aura besoin."
+      critiques:
+        - texte: "À terre, le vent fait souvent défaut : en 2025, les éoliennes n'ont fourni que 21,4 % de ce qu'elles auraient donné à pleine puissance, le plus bas depuis dix ans."
+          source: { organisme: "RTE", annee: 2026 }
+        - texte: "Le pays a déjà de l'électricité en trop : en 2025, il en a vendu à ses voisins 92,3 TWh de plus qu'il ne leur en a acheté, un record."
+          source: { organisme: "RTE", annee: 2026 }
+        - texte: "Plus de parcs obligent à adapter le réseau électrique à une production qui varie avec le vent, ce qui coûte cher."
   - id: B
     libelle: "Poursuivre au rythme de la programmation de l'énergie"
     implique: "35 à 40 GW à terre et 15 GW en mer en 2035, surtout par le renouvellement des parcs existants, en complément d'un nucléaire relancé (six EPR2)."
     defenseurs: "Une trajectoire fixée après consultation, qui donne de la visibilité aux investisseurs et équilibre éolien, solaire et nucléaire sans bouleverser le mix."
     critiques: "Pour les uns, ces objectifs, déjà revus à la baisse, sont insuffisants face au retard d'électrification ; pour les autres, ils engagent trop d'argent public (114 milliards d'euros d'engagements de soutien déjà pris, tous renouvelables confondus)."
+    detail:
+      chiffrage:
+        texte: "Suivre la programmation fait monter l'aide publique à l'éolien : 1,6 milliard d'euros en 2025, 2,7 milliards prévus en 2027."
+        source: { organisme: "Commission de régulation de l'énergie", annee: 2026 }
+      defenseurs:
+        - texte: "Elle prévoit l'électricité dont le pays aura besoin : 120 TWh bas carbone de plus par an en 2035, en combinant éolien, solaire et nucléaire."
+          source: { organisme: "Gouvernement", annee: 2026 }
+        - texte: "Fixée après une consultation publique, elle donne aux entreprises la visibilité dont elles ont besoin pour investir."
+        - texte: "Elle privilégie le renouvellement des parcs existants avec des turbines plus puissantes, pour produire plus en limitant l'impact sur les paysages."
+      critiques:
+        - texte: "Ses objectifs ont déjà été revus à la baisse : 15 GW d'éolien en mer en 2035, contre 18 GW dans la version précédente."
+          source: { organisme: "Gouvernement", annee: 2026 }
+        - texte: "Elle laisse la France en retard sur l'électrification de ses usages, alors qu'il faudrait accélérer."
+        - texte: "Elle engage encore beaucoup d'argent public dans des aides garanties pendant de longues années."
   - id: C
     libelle: "Arrêter les aides publiques et ne plus lancer d'appels d'offres"
     implique: "Fin des subventions à l'éolien et au solaire (12 milliards d'euros d'économies annoncées dans un plan), annulation des appels d'offres non attribués, priorité au nucléaire et à l'hydroélectricité."
     defenseurs: "L'électricité éolienne est intermittente et subventionnée : l'argent public doit aller aux sources pilotables comme le nucléaire et l'hydroélectricité, ce qui doit faire baisser la facture."
     critiques: "Arrêter les appels d'offres envoie un signal négatif aux investisseurs et, selon la filière, menacerait 80 000 emplois."
+    detail:
+      chiffrage:
+        texte: "Ses partisans annoncent 12 milliards d'euros d'économies sur les aides à l'éolien et au solaire. Aucun chiffrage indépendant n'a été trouvé."
+        source: { organisme: "Debout la France", document: "projet « Économie et travail »", annee: 2026 }
+      defenseurs:
+        - texte: "L'électricité vaut de plus en plus souvent moins que rien : les prix ont été négatifs pendant 513 heures en 2025, contre 352 en 2024."
+          source: { organisme: "RTE", annee: 2026 }
+        - texte: "Les aides grimpent vite : celles à l'éolien en mer doivent passer de 656 millions d'euros en 2025 à 1,3 milliard en 2027."
+          source: { organisme: "Commission de régulation de l'énergie", annee: 2026 }
+        - texte: "L'argent public doit aller aux sources qui produisent à la demande, comme le nucléaire et les barrages, pour faire baisser la facture."
+      critiques:
+        - texte: "Quand les prix flambent, les parcs aidés rendent de l'argent à l'État : l'éolien à terre lui a rapporté 3,4 milliards d'euros en 2023."
+          source: { organisme: "Commission de régulation de l'énergie", annee: 2024 }
+        - texte: "Arrêter mettrait des emplois en danger : la filière estime à 80 000 ceux que menacerait un moratoire."
+          source: { organisme: "France Renouvelables", annee: 2025 }
+        - texte: "Annuler des appels d'offres déjà lancés ferait fuir les investisseurs, qui ont besoin de règles stables."
   - id: D
     libelle: "Ne plus construire d'éoliennes et démanteler les parcs en fin de vie"
     implique: "Plus aucun nouveau projet, à terre comme en mer, et démantèlement progressif des parcs existants quand ils arrivent en fin de vie."
     defenseurs: "Les éoliennes pèsent sur les paysages et la biodiversité, produisent par intermittence et coûtent cher : le nucléaire suffit à décarboner l'électricité."
     critiques: "Il faudrait remplacer 9,1 % de l'électricité, alors que les objectifs de 2035 (moins 70 % de pétrole et moins 50 % de gaz) demandent plus d'électricité décarbonée que de nouveaux réacteurs ne pourraient fournir avant 2037 au mieux."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Il faudrait remplacer peu à peu ce que produit l'éolien : 49,6 TWh en 2025, soit 9,1 % de l'électricité du pays."
+        source: { organisme: "RTE", annee: 2026 }
+      defenseurs:
+        - texte: "L'électricité française est déjà presque entièrement bas carbone : 95,2 % de la production en 2025."
+          source: { organisme: "RTE", annee: 2026 }
+        - texte: "Le nucléaire relancé suffit : six réacteurs EPR2 sont prévus, et une décision sur huit autres est attendue."
+          source: { organisme: "Gouvernement", annee: 2026 }
+        - texte: "Les éoliennes abîment les paysages et nuisent à la biodiversité."
+      critiques:
+        - texte: "La plupart des Français soutiennent les énergies renouvelables : 84 % en ont une bonne opinion."
+          source: { organisme: "Ifop", annee: 2025 }
+        - texte: "Ne plus en construire arrêterait une filière en plein essor : l'éolien en mer a produit 43 % de plus en 2025 qu'en 2024."
+          source: { organisme: "RTE", annee: 2026 }
+        - texte: "Sans éoliennes, il manquerait de l'électricité bas carbone jusqu'à l'arrivée des nouveaux réacteurs, pas avant 2037 au mieux."
 pourAllerPlusLoin:
   - titre: "RTE, bilan électrique 2025"
     url: https://www.rte-france.com/

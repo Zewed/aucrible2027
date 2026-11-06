@@ -30,16 +30,58 @@ options:
     implique: "La France quitte le commandement intégré, puis l'Alliance atlantique elle-même, et cherche un autre cadre de sécurité en Europe."
     defenseurs: "L'OTAN met la France dans la dépendance des intérêts américains et nourrit les tensions : en sortir rend sa liberté de décision et permet un nouveau cadre de sécurité collective en Europe."
     critiques: "Quitter l'Alliance priverait la France de la solidarité de ses alliés (article 5) alors que la menace russe persiste aux frontières de l'Europe."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. La France quitterait une alliance qui compte 32 pays, dont elle n'est jamais sortie."
+        source: { organisme: "OTAN", annee: 2024 }
+      defenseurs:
+        - texte: "L'OTAN place la France sous la dépendance des États-Unis : en 2025, ils ont fait 60 % des dépenses de défense des alliés, missions hors d'Europe comprises."
+          source: { organisme: "OTAN", annee: 2026 }
+        - texte: "La paix en Europe passe par un nouveau traité de sécurité collective, ouvert à tous les pays du continent, Russie comprise."
+        - texte: "Mieux vaut investir dans les écoles et les hôpitaux que dans les bombes, au lieu de s'aligner derrière l'OTAN."
+      critiques:
+        - texte: "Hors de l'Alliance, la France perdrait la promesse que se font ses membres : attaquer l'un d'eux, c'est les attaquer tous."
+        - texte: "La France s'isolerait de ses voisins : 23 pays de l'Union sont membres de l'OTAN, qui reste le fondement de leur défense."
+          source: { organisme: "Institut français des relations internationales", annee: 2025 }
+        - texte: "Sortir de l'Alliance irait plus loin que le général de Gaulle, qui avait quitté le commandement en 1966 mais était resté dans l'Alliance."
   - id: B
     libelle: "Oui, mais rester dans l'Alliance"
     implique: "Comme de 1966 à 2009, la France quitte les commandements communs mais reste membre de l'Alliance."
     defenseurs: "La France retrouve la maîtrise de l'emploi de ses forces et une voix indépendante, tout en restant dans l'Alliance : elle l'a fait pendant 43 ans."
     critiques: "Elle perdrait ses postes de commandement et son influence sur les décisions de l'Alliance, et fragiliserait sa crédibilité auprès de ses alliés."
+    detail:
+      chiffrage:
+        texte: "Quitter le seul commandement ne change pas l'effort promis aux alliés : 5 % de la richesse du pays pour la défense et la sécurité d'ici 2035."
+        source: { organisme: "OTAN", annee: 2025 }
+      defenseurs:
+        - texte: "Dans le commandement, la France ne dirige pas les opérations : depuis 75 ans, le chef militaire de l'OTAN en Europe est toujours un Américain."
+          source: { organisme: "OTAN", annee: 2025 }
+        - texte: "La protection des alliés tient à l'adhésion, pas au commandement : en restant dans l'Alliance, la France la garde tout entière."
+        - texte: "L'indépendance des décisions de la France, y compris nucléaires, se défend mieux hors d'une structure où les États-Unis pèsent le plus."
+      critiques:
+        - texte: "Elle perdrait un grand poste : depuis 2009, un Français dirige l'un des deux commandements suprêmes de l'OTAN, celui qui prépare ses armées de demain."
+          source: { organisme: "Institut français des relations internationales", annee: 2025 }
+        - texte: "Ce n'est pas le moment de défaire l'organisation militaire commune : la menace russe persiste aux frontières de l'Europe."
+        - texte: "Sortir affaiblirait le rôle de la France en Europe et sa crédibilité auprès de ses alliés."
   - id: C
     libelle: "Non, y rester"
     implique: "La France garde sa place dans la structure militaire intégrée, où elle est revenue en 2009, et développe la défense européenne en lien avec l'OTAN."
     defenseurs: "Elle y pèse plus qu'en dehors, avec des postes de commandement, sans rien céder de son indépendance : sa dissuasion nucléaire reste hors du groupe des plans nucléaires."
     critiques: "L'influence tient aux moyens militaires plus qu'aux postes de commandement, et, pour ses critiques, la structure fait perdre à la France une part de son autonomie stratégique à l'égard des États-Unis."
+    detail:
+      chiffrage:
+        texte: "Rester ne change rien aux dépenses : l'effort de défense de la France est estimé à 2,22 % de la richesse du pays en 2026."
+        source: { organisme: "OTAN", annee: 2026 }
+      defenseurs:
+        - texte: "Les Européens prennent de plus en plus de place dans l'OTAN : en 2025, avec le Canada, ils ont augmenté leurs dépenses de défense de plus de 19 %, inflation déduite."
+          source: { organisme: "OTAN", annee: 2026 }
+        - texte: "Dans le commandement, la France a sa voix dans les décisions militaires de l'Alliance, ce qu'elle n'aurait pas en restant dehors."
+        - texte: "Le retour de 2009 a laissé sa dissuasion nucléaire à part : la France n'est pas entrée dans le groupe des plans nucléaires de l'Alliance."
+      critiques:
+        - texte: "Les États-Unis ne sont pas un allié sûr : en janvier 2026, ils ont menacé de taxer 8 alliés, dont la France, pour obtenir le Groenland, avant d'y renoncer."
+          source: { organisme: "Encyclopædia Universalis", annee: 2026 }
+        - texte: "Les commandements obtenus en 2009 sont secondaires : ce sont ses moyens militaires qui font le poids d'un pays dans l'Alliance."
+        - texte: "Une défense européenne indépendante ne peut pas naître dans une structure dominée par les États-Unis : le retour de 2009 l'a affaiblie."
 pourAllerPlusLoin:
   - titre: "OTAN, la France et l'OTAN"
     url: https://www.nato.int/cps/en/natohq/topics_52044.htm

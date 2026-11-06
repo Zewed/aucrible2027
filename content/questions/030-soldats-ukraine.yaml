@@ -32,16 +32,56 @@ options:
     implique: "La France n'envoie aucun soldat sur le sol ukrainien, même après un cessez-le-feu, et soutient la paix par d'autres moyens."
     defenseurs: "La Russie, puissance nucléaire, dit qu'elle traiterait toute unité occidentale en Ukraine comme une cible : y envoyer des soldats exposerait la France à une guerre."
     critiques: "Sans force alliée sur place, un cessez-le-feu reposerait sur l'armée ukrainienne et sur la parole de la Russie."
+    detail:
+      chiffrage:
+        texte: "L'Allemagne et l'Italie ont fait ce choix : la première n'enverrait des soldats que dans un pays de l'OTAN voisin de l'Ukraine, la seconde refuse d'en envoyer au sol."
+        source: { organisme: "franceinfo", annee: 2026 }
+      defenseurs:
+        - texte: "La France et la Russie ont toutes deux l'arme nucléaire : envoyer des soldats face à elle, c'est risquer une guerre entre puissances nucléaires."
+        - texte: "La paix ne doit pas se payer du sang de nos soldats, dans une guerre qui n'est pas la nôtre."
+        - texte: "Une majorité de Français n'en veut pas : en mars 2025, 65 % refusaient l'envoi de militaires français dans la coalition des volontaires."
+          source: { organisme: "CSA", annee: 2025 }
+      critiques:
+        - texte: "C'est aux Européens de garantir eux-mêmes la sécurité et la défense de l'Europe."
+        - texte: "Une majorité l'approuve une fois la paix signée : en mars 2025, 67 % des Français étaient pour l'envoi de soldats afin de garantir un accord de paix."
+          source: { organisme: "Elabe", annee: 2025 }
+        - texte: "Ce serait renier la parole donnée : en janvier 2026, la France a signé avec le Royaume-Uni et l'Ukraine une déclaration d'intention sur cette force."
   - id: B
     libelle: "Seulement sous mandat de l'ONU"
     implique: "Des soldats français pourraient partir dans une force de paix des Nations unies, acceptée par les deux camps, mais pas dans la force de la coalition."
     defenseurs: "Une force de l'ONU garantirait la paix sans faire entrer la France dans la guerre, et sans dépendre des promesses de Donald Trump."
     critiques: "La Russie peut bloquer tout mandat au Conseil de sécurité, où elle a un droit de veto, et des forces d'observation, comme au Liban, ont peu garanti la paix."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Une force de l'ONU demanderait un mandat du Conseil de sécurité."
+        source: { organisme: "Club des juristes", annee: 2025 }
+      defenseurs:
+        - texte: "Une force de l'ONU, acceptée par les deux camps, garantirait la paix sans faire de la France une partie au conflit."
+        - texte: "Des Casques bleus pourraient aussi protéger les centrales nucléaires ukrainiennes dès l'accord de paix."
+        - texte: "La Russie n'acceptera pas des soldats de pays de l'OTAN comme garantie : une force neutre a plus de chances d'aboutir."
+      critiques:
+        - texte: "La Russie, qui a un droit de veto au Conseil de sécurité, peut empêcher tout mandat de l'ONU."
+        - texte: "Les forces d'observation, comme au Liban ou dans les Balkans, n'ont pas vraiment garanti la paix."
+        - texte: "Des Casques bleus supposent l'accord de la Russie : elle aurait son mot à dire sur la force qui protège l'Ukraine."
   - id: C
     libelle: "Oui, après un cessez-le-feu"
     implique: "La France participe à la force de la coalition des volontaires : plusieurs milliers de soldats, loin de la ligne de front, une fois les combats arrêtés."
     defenseurs: "Des soldats alliés sur place dissuadent la Russie de reprendre la guerre : pour garantir un cessez-le-feu, « la seule solution c'est l'envoi de troupes sur le terrain »."
     critiques: "La Russie dit qu'elle en ferait des cibles, et le soutien américain est « proposé », sans précision : sans garantie ferme, des soldats français seraient exposés face à une puissance nucléaire."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé pour la France. Le Royaume-Uni consacre 200 millions de livres à équiper ses soldats pour cette force."
+        source: { organisme: "Kyiv Independent", annee: 2026 }
+      defenseurs:
+        - texte: "Des soldats européens sur place dissuaderaient la Russie de toute nouvelle attaque une fois la paix revenue."
+        - texte: "Ils ne seraient pas au combat : l'armée ukrainienne, prévue à 800 000 soldats, resterait en première ligne, et la force se tiendrait loin du front."
+          source: { organisme: "Élysée", annee: 2026 }
+        - texte: "La force ne serait pas seule : les États-Unis conduiraient la surveillance du cessez-le-feu."
+      critiques:
+        - texte: "Moscou a prévenu, en janvier puis en juillet 2026, que ces soldats seraient des cibles, même après un accord de paix."
+        - texte: "Le soutien américain reste flou : Donald Trump a exclu d'envoyer des soldats au sol, et le plan parle d'un soutien « proposé », sans dire lequel."
+        - texte: "La force serait mince : il faudrait au moins 4 ou 5 brigades européennes en permanence pour une zone de contact de quelque 1 500 km."
+          source: { organisme: "Le Grand Continent", annee: 2026 }
   # D garde le pôle de l'échelle ; l'étude ne lui trouve aucun candidat en 2026 et la fonde sur les déclarations
   # gouvernementales de février 2024 (§ 1.2, [19]), d'où la date dans « implique ». À retirer si aucun candidat ne la porte.
   - id: D
@@ -49,6 +89,18 @@ options:
     implique: "Comme l'évoquait le gouvernement en 2024, des soldats français iraient dès maintenant en Ukraine pour des missions sans combat : déminage, cyberdéfense, production d'armes."
     defenseurs: "Ces missions aideraient l'Ukraine tout de suite sans faire entrer la France en guerre, et laisseraient la Russie dans l'incertitude : « rien ne doit être exclu »."
     critiques: "Selon Vladimir Poutine, toute force occidentale présente pendant les combats serait une « cible légitime » : la France risquerait d'entrer en guerre avec une puissance nucléaire."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Évoquées par le gouvernement en février 2024, ces missions ne figurent pas dans le plan de la coalition, qui attend un cessez-le-feu."
+        source: { organisme: "LCP", annee: 2024 }
+      defenseurs:
+        - texte: "Des soldats français pourraient aider l'Ukraine dès maintenant, en déminant, en protégeant ses réseaux informatiques ou en produisant des armes."
+        - texte: "Ces missions ne franchiraient pas le seuil de la guerre : il n'est pas question de combattre la Russie."
+        - texte: "Dire qu'on n'exclut rien n'est « ni être faible, ni être escalatoire » : l'incertitude pèse sur les calculs de la Russie."
+      critiques:
+        - texte: "Des soldats présents pendant la guerre seraient exposés : Moscou a promis de viser toute force occidentale déployée pendant les combats."
+        - texte: "Les alliés ne suivent pas : dès 2024, le gouvernement reconnaissait qu'aucun consensus n'existait pour envoyer des troupes au sol."
+        - texte: "Le gouvernement lui-même s'en est écarté : en 2025, il jugeait « trop tôt » d'envoyer des troupes et excluait toute troupe de combat."
 pourAllerPlusLoin:
   - titre: "Élysée, déclaration de Paris sur les garanties de sécurité pour l'Ukraine, 6 janvier 2026"
     url: https://www.elysee.fr/emmanuel-macron/2026/01/06/des-garanties-de-securite-robustes-pour-une-paix-solide-et-durable-en-ukraine

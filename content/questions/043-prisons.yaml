@@ -38,24 +38,88 @@ options:
     defenseurs: "Condamnée en 2020 par la Cour européenne des droits de l'homme, la France laisse 8 347 détenus dormir au sol : seule une règle obligatoire garantit un lit à chacun, car les places ne rattrapent pas le nombre de détenus."
     critiques: "La peine dépendrait des places libres et non de la décision du juge, des condamnés sortiraient avant la fin de leur peine, et deux condamnés à la même peine ne la feraient pas de la même façon."
     axes: { societe: -2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Un plafond toucherait d'abord les maisons d'arrêt, qui comptent 63 151 détenus pour 35 863 places."
+        source: { organisme: "Ministère de la Justice", annee: 2026 }
+      defenseurs:
+        - texte: "Les places ne rattraperont pas le nombre de détenus : en dix ans, les prisons ont gagné 4 761 places et 21 767 détenus."
+          source: { organisme: "Ministère de la Justice", annee: 2026 }
+        - texte: "Des sorties encadrées font vite baisser le nombre de détenus : en 2020, avec aussi moins d'audiences, il a chuté de près de 20 % en quelques mois."
+          source: { organisme: "Cour des comptes", annee: 2023 }
+        - texte: "Sans obligation, rien ne bouge : depuis 2020, juges et prisons se coordonnent localement, sans que la surpopulation recule."
+      critiques:
+        - texte: "Les sorties anticipées ne règlent rien durablement : après la baisse de 2020, le nombre de détenus est remonté à 66 500 dès juin 2021."
+          source: { organisme: "Cour des comptes", annee: 2023 }
+        - texte: "L'égalité devant la peine serait rompue : la même condamnation se ferait en cellule ou à la maison, selon que la prison voisine est pleine ou non."
+        - texte: "Les Français veulent plus de prison, pas moins : 59 % jugent la prison ferme pas assez fréquente pour les délits."
+          source: { organisme: "Harris Interactive", annee: 2018 }
   - id: B
     libelle: Punir davantage hors de la prison
     implique: "Les courtes peines se font d'abord hors de la prison : bracelet, travail d'intérêt général, sursis avec obligations et suivi. On rénove les prisons et on finit les places déjà lancées, sans plafond obligatoire."
     defenseurs: "Une journée sous bracelet coûte dix fois moins qu'une journée en prison, et ceux qui finissent leur peine sous bracelet récidivent moins, même à profil égal, selon la Cour des comptes."
     critiques: "Depuis vingt ans, ces peines ont augmenté en même temps que le nombre de détenus sans le faire baisser, et le travail d'intérêt général ne réduit pas plus la récidive que la prison."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage d'ensemble n'a été trouvé. Une mesure coûte en moyenne 1 862 euros pour un travail d'intérêt général et 2 788 euros pour un bracelet."
+        source: { organisme: "Cour des comptes", annee: 2025 }
+      defenseurs:
+        - texte: "Finir sa peine sous bracelet fait moins récidiver : à profil égal, 13,5 points de récidive en moins qu'une sortie sans aucun suivi."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Ailleurs aussi, c'est bien moins cher : en Allemagne, une journée de probation coûterait 2,50 euros, contre 100 euros en détention."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Ces peines doivent devenir plus fréquentes, exécutées plus vite et mieux suivies, au lieu d'enfermer pour quelques mois."
+      critiques:
+        - texte: "Elles n'ont pas vidé les prisons : les personnes suivies hors de prison sont passées de 71 000 en 1980 à 174 000 en 2022, sans faire baisser le nombre de détenus."
+          source: { organisme: "Cour des comptes", annee: 2023 }
+        - texte: "Le travail d'intérêt général ne fait pas moins récidiver que la courte prison : à profil égal, l'écart n'est que de 0,1 point."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Elles s'imposent mal comme de vraies sanctions, et pas davantage comme de vrais outils de réinsertion."
   - id: C
     libelle: Construire et punir aussi hors de la prison
     implique: "On construit plus vite, y compris en modules préfabriqués, et les courtes peines continuent de se faire souvent sous bracelet ou en travail d'intérêt général, sans changer leurs règles ni fixer de plafond."
     defenseurs: "Aucun levier ne suffit seul : les places manquent et se construisent lentement, et les peines hors de la prison coûtent moins cher pour ceux qui n'ont pas besoin d'être enfermés."
     critiques: "Pour les uns, construire coûte cher et n'a jamais suivi la hausse du nombre de détenus ; pour les autres, des condamnés à la prison ferme continuent de faire leur peine chez eux."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Les 1 500 places de semi-liberté en modules préfabriqués, prévues d'ici fin 2027, visent un coût de moins de 200 000 euros par place."
+        source: { organisme: "Cour des comptes", annee: 2025 }
+      defenseurs:
+        - texte: "Les modules préfabriqués vont vite : 18 mois pour les livrer, contre près de sept ans pour une prison classique."
+          source: { organisme: "Ministère de la Justice", annee: 2026 }
+        - texte: "Les Français veulent des places : 86 % sont pour la construction de nouvelles prisons."
+          source: { organisme: "CSA", annee: 2022 }
+        - texte: "Chacun à sa place : la prison pour ceux qui doivent être enfermés, le bracelet ou le travail d'intérêt général pour les autres."
+      critiques:
+        - texte: "Construire coûte de plus en plus cher : le plan de 15 000 places est passé de 3,9 à 5,7 milliards d'euros entre 2019 et 2025."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Construire ne soulagera pas les prisons à temps : la fin du plan lancé en 2018 est repoussée à 2031 ou 2032."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Il faut aussi des surveillants pour ouvrir ces places, et leur recrutement reste difficile."
   - id: D
     libelle: Construire et faire purger les peines en prison
     implique: "On construit bien au-delà du plan actuel, et les peines de prison ferme se font en prison : fin de l'aménagement automatique des courtes peines et des réductions de peine automatiques."
     defenseurs: "Une peine prononcée doit être exécutée : 17 400 condamnés à de la prison ferme font aujourd'hui leur peine hors de la prison, et la sanction perd son sens si elle dépend des places."
     critiques: "Le plan lancé en 2018 avait livré 35 % de ses places en 2025, pour un coût passé de 3,9 à 5,7 milliards d'euros, et enfermer plus de courtes peines remplirait encore des prisons pleines."
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Chaque journée de détention coûte 142 euros par détenu, d'après le calcul le plus large."
+        source: { organisme: "Cour des comptes", annee: 2025 }
+      defenseurs:
+        - texte: "Il manque des places : en 2025, 5 000 de plus auraient été nécessaires pour donner une cellule à soi à 80 % des détenus."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Les mêmes reviennent : 58 % des sortants de prison de 2016 y étaient déjà passés. Il faut une sanction certaine dès les premiers délits."
+          source: { organisme: "Cour des comptes", annee: 2023 }
+        - texte: "Les réductions et aménagements automatiques vident la peine de son sens : celle qui est prononcée doit être faite."
+      critiques:
+        - texte: "Aucun plan de construction n'a été tenu : celui de 2011 n'a livré que 32 % des places annoncées."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Les maisons d'arrêt, où vont les courtes peines, sont déjà occupées à 176 % : y enfermer plus de monde les remplirait encore."
+          source: { organisme: "Ministère de la Justice", annee: 2026 }
+        - texte: "La surpopulation nourrit la violence et la récidive, en regroupant des détenus d'un même réseau."
 pourAllerPlusLoin:
   - titre: "Ministère de la Justice, la mesure de l'incarcération au 1er septembre 2026"
     url: https://www.justice.gouv.fr/sites/default/files/2026-10/mesure_mensuelle_01092026.pdf

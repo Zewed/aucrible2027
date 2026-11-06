@@ -32,18 +32,66 @@ options:
     defenseurs: "Les prélèvements sont déjà à 43,6 % du PIB : c'est la dépense, à 57,3 %, qu'il faut réduire, et chaque euro d'intérêts de la dette (77,4 milliards d'euros prévus en 2026) ne finance plus un service."
     critiques: "Un effort de cette ampleur touche les services publics et la protection sociale, et pèse sur une croissance déjà faible."
     axes: { economie: 2 }
+    detail:
+      chiffrage:
+        texte: "Ses partisans prévoient de 140 à 200 milliards d'euros d'économies d'ici 2032, selon les plans, dont une partie rendue en baisses d'impôts. Aucun chiffrage indépendant n'a été trouvé."
+        source: { organisme: "Programmes des candidats", annee: 2026 }
+      defenseurs:
+        - texte: "La France dépense bien plus que ses voisins : 57,3 % de sa richesse en 2025, contre 49,4 % en moyenne dans l'Union européenne."
+          source: { organisme: "Eurostat", annee: 2026 }
+        - texte: "Les impôts sont déjà parmi les plus lourds : 45,3 % de la richesse du pays en 2024, le 2e taux de l'Union européenne."
+          source: { organisme: "Eurostat", annee: 2026 }
+        - texte: "La dette coûte de plus en plus cher : ses intérêts atteindraient 100 milliards d'euros par an en 2029, selon une prévision."
+          source: { organisme: "Cour des comptes", annee: 2026 }
+      critiques:
+        - texte: "Économiser freine la croissance dans l'année : chaque euro économisé en 2026 retirerait 70 à 80 centimes de richesse, selon un modèle."
+          source: { organisme: "OFCE", annee: 2026 }
+        - texte: "Les économies toucheraient d'abord les retraites, la santé et les aides sociales : elles font les deux tiers de l'écart de dépenses avec l'Union, selon un calcul."
+          source: { organisme: "Eurostat", annee: 2026 }
+        - texte: "Une partie des économies ne réduirait pas le déficit : un des plans rend 51 de ses 197 milliards d'euros en baisses d'impôts."
+          source: { organisme: "LCP", annee: 2026 }
   - id: B
     libelle: "Mêler économies ciblées et nouvelles recettes sur les plus aisés"
     implique: "Revoir l'utilité des plus de 200 milliards d'euros d'aides aux entreprises, réduire certaines dépenses, et taxer davantage les plus hauts patrimoines, les héritages ou les multinationales."
     defenseurs: "L'effort doit reposer sur ceux qui peuvent le plus : on n'équilibre pas les comptes en rognant les services publics, mais en triant les aides et en faisant contribuer les plus aisés."
     critiques: "Le rendement des impôts sur les plus hauts patrimoines est incertain et ils peuvent inciter à l'exil fiscal ; trier plus de 200 milliards d'euros d'aides ne se fait pas d'un trait."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage indépendant n'a été trouvé. Un des plans de cette option, chiffré par ses auteurs, prévoit 28,5 milliards d'euros de recettes en plus et 16,6 milliards d'économies."
+        source: { organisme: "Les Écologistes", annee: 2025 }
+      defenseurs:
+        - texte: "L'effort est trop grand pour un seul levier : il faudrait encore réduire le déficit de 89,6 milliards d'euros pour stabiliser la dette."
+          source: { organisme: "Cour des comptes", annee: 2026 }
+        - texte: "Les plus aisés doivent contribuer d'abord, avant qu'on demande des efforts à tous."
+        - texte: "Les aides publiques aux entreprises doivent être triées, pour ne garder que celles qui servent vraiment."
+      critiques:
+        - texte: "Les impôts ont déjà beaucoup augmenté : 37 milliards d'euros de hausses en 2025 et 2026."
+          source: { organisme: "Cour des comptes", annee: 2026 }
+        - texte: "Taxer les plus grandes fortunes risque de les faire partir, tant que les pays européens n'agissent pas ensemble."
+        - texte: "Trier les aides aux entreprises prendrait des années, alors qu'il faut réduire le déficit dès maintenant."
   - id: C
     libelle: "Augmenter les impôts des plus riches et des grandes entreprises, sans baisser les dépenses"
     implique: "Un peu plus de 100 milliards d'euros de recettes en plus dès 2027 selon le plan le plus chiffré (impôt sur la fortune rétabli, flat tax supprimée, niches rabotées), dont plus de 80 milliards financent des dépenses nouvelles ; le reste réduit le déficit."
     defenseurs: "Les baisses d'impôts des dernières années ont coûté plus de 60 milliards d'euros de recettes et ont surtout profité aux plus riches et aux grandes entreprises : les corriger réduit le déficit sans toucher aux services publics."
     critiques: "Une hausse massive de la fiscalité sur le capital et les entreprises risque de freiner l'investissement, alors que les prélèvements sont déjà à 43,6 % du PIB."
     axes: { economie: -2 }
+    detail:
+      chiffrage:
+        texte: "Ses partisans en attendent un peu plus de 100 milliards d'euros de recettes en plus dès 2027, dont plus de 80 financeraient des dépenses nouvelles. Aucun chiffrage indépendant n'a été trouvé."
+        source: { organisme: "La France insoumise", annee: 2026 }
+      defenseurs:
+        - texte: "Les baisses d'impôts ont creusé le déficit : décidées de 2018 à 2023, elles coûtaient 62 milliards d'euros en 2023, sans économies en face."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "Taxer les grandes entreprises et les revenus financiers freine peu l'économie : les impôts nouveaux de 2026 lui retireraient 0,1 point de croissance, selon un modèle."
+          source: { organisme: "OFCE", annee: 2026 }
+        - texte: "Couper dans les dépenses est une impasse : ce sont les services publics et la protection sociale qui en paieraient le prix."
+      critiques:
+        - texte: "Les hausses d'impôts pèsent sur l'économie : dans 14 pays riches, de 1978 à 2007, un plan d'impôts de 1 % de la richesse l'a réduite de 2 % en trois ans."
+          source: { organisme: "Alesina et al.", annee: 2015 }
+        - texte: "La France paie déjà cher pour emprunter : 4,47 % sur dix ans en septembre 2026, le taux le plus élevé de la zone euro."
+          source: { organisme: "franceinfo", annee: 2026 }
+        - texte: "La dépense a encore progressé plus vite que l'activité en 2025 : sans la freiner, aucun impôt n'y suffira."
   - id: D
     libelle: "Ni baisser les dépenses ni augmenter les impôts : miser sur la croissance"
     implique: "Relancer l'activité et l'emploi pour que les recettes progressent d'elles-mêmes, sans plan d'économies ni hausse de taux."
@@ -52,6 +100,22 @@ options:
     # Ne se range pas entre « baisser les dépenses » et « augmenter les impôts » : c'est un troisième levier.
     horsEchelle: true
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Pour 2026, la prévision de croissance du gouvernement a été ramenée de 0,9 % à 0,5 %."
+        source: { organisme: "franceinfo", annee: 2026 }
+      defenseurs:
+        - texte: "Couper ou taxer freine l'activité : les mesures du budget 2026 retireraient 0,5 point de croissance, selon un modèle."
+          source: { organisme: "OFCE", annee: 2026 }
+        - texte: "La dette vient d'abord de ce que la France ne produit plus assez : relancer l'industrie ferait rentrer des recettes."
+        - texte: "La charge de la dette reste supportable : ses intérêts pèsent 2,2 % de la richesse du pays en 2025, contre 3,6 % en 1996."
+          source: { organisme: "Eurostat", annee: 2026 }
+      critiques:
+        - texte: "La croissance n'est pas au rendez-vous : l'activité a reculé de 0,2 % au début de 2026, puis a stagné."
+          source: { organisme: "Insee", annee: 2026 }
+        - texte: "La croissance seule ne suffira pas : pour passer sous 3 % en 2029, il faudrait réduire le déficit de 0,7 point de richesse chaque année dès 2027."
+          source: { organisme: "Haut Conseil des finances publiques", annee: 2026 }
+        - texte: "Les comptes publics sont en déficit chaque année depuis 1995 : la croissance n'a jamais suffi à les équilibrer."
 pourAllerPlusLoin:
   - titre: "Insee, comptes des administrations publiques 2025"
     url: https://www.insee.fr/fr/statistiques/8997691

@@ -34,18 +34,66 @@ options:
     defenseurs: "Soigner tôt éviterait des dépenses d'hôpital, selon un rapport d'inspection de l'État (2019), et les hôpitaux publics défendent l'aide ; la dépense moyenne par bénéficiaire (2 699 euros) est inférieure à celle de la population générale (3 659 euros)."
     critiques: "La dépense a augmenté de 68,5 % en dix ans et dépasse chaque année le budget voté ; le dispositif français est jugé plus généreux que ceux de nos voisins, ce que ses opposants lisent comme un facteur d'attractivité."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. L'AME coûte aujourd'hui environ 1,3 milliard d'euros par an, hors soins urgents (estimation pour 2025)."
+        source: { organisme: "Sénat", annee: 2025 }
+      defenseurs:
+        - texte: "Un bénéficiaire coûte moins cher qu'un habitant moyen : 2 699 euros de soins en 2024, contre 3 659 euros pour l'ensemble de la population en 2023."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Beaucoup n'y accèdent même pas : dans une enquête à Paris et Bordeaux, seules 51 % des personnes qui y avaient droit en bénéficiaient."
+          source: { organisme: "Irdes", annee: 2019 }
+        - texte: "Faire attendre des soins programmés laisse des maladies s'aggraver, jusqu'à des séjours lourds et coûteux à l'hôpital."
+      critiques:
+        - texte: "La dépense grimpe vite : 68,5 % de plus en dix ans, de 2014 à 2024."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Le budget voté ne suffit jamais : il a manqué 177 millions d'euros en 2025."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Ouvrir tous les soins dès l'entrée rendrait l'aide encore plus large que chez nos voisins, qui couvrent en général moins de soins."
   - id: B
     libelle: "Garder l'AME en durcissant ses conditions"
     implique: "Contrôles renforcés, accord préalable de l'Assurance maladie étendu à tous les soins non urgents, justificatifs plus stricts, comme le proposent le rapport Évin-Stefanini (2023) et le Sénat (2025)."
     defenseurs: "Garder un filet de santé publique tout en maîtrisant la dépense : le Sénat chiffre à 200 millions d'euros l'économie d'un accord préalable généralisé, et de 138 à 275 millions celle d'un contrôle strict des justificatifs."
     critiques: "Les contrôles sont déjà nombreux (15,5 % des dossiers en 2024, 2,3 % d'anomalies) ; des restrictions de plus peuvent retarder des soins, quand d'autres jugent qu'elles ne vont pas assez loin."
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "Ses partisans au Sénat en attendent 138 à 275 millions d'euros d'économie en écartant l'extrait d'acte de naissance des justificatifs, et 200 millions de plus avec l'accord préalable pour tous."
+        source: { organisme: "Sénat", annee: 2025 }
+      defenseurs:
+        - texte: "Les justificatifs sont trop faciles à fournir : en Guyane, 41 % des demandeurs présentaient un simple extrait d'acte de naissance, sans photo."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "D'autres pays encadrent déjà ces soins : l'Allemagne demande un accord préalable pour les soins hospitaliers non urgents pendant les 18 premiers mois."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Resserrer l'aide plutôt que la supprimer garde un filet de soins pour tous, tout en maîtrisant la dépense."
+      critiques:
+        - texte: "La fraude détectée pèse peu : 0,91 million d'euros de préjudice, avec environ 2,3 % d'anomalies dans les dossiers contrôlés."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Les restrictions déjà prises n'ont pas empêché la hausse : 47,3 % de bénéficiaires en plus entre 2017 et 2024."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Exiger un accord préalable pour tous retarderait des soins qui ne peuvent pas toujours attendre."
   - id: C
     libelle: "La remplacer par une aide médicale d'urgence limitée aux soins vitaux"
     implique: "Seuls les soins urgents et vitaux seraient pris en charge pour les étrangers en situation irrégulière ; les soins programmés ne le seraient plus."
     defenseurs: "L'argent public doit d'abord soigner les assurés : on garde les soins vitaux, mais plus de prise en charge complète des personnes en situation irrégulière, ce qui, selon eux, économiserait une partie des 1,3 milliard d'euros actuels."
     critiques: "Les hôpitaux publics estiment que tout recul aggraverait la situation sanitaire des plus précaires et désorganiserait les services hospitaliers."
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Une estimation de 2022, sans méthode publiée, en attend 0,7 milliard d'euros d'économie par an. Aucun chiffrage officiel n'a été trouvé."
+        source: { organisme: "Institut Montaigne", annee: 2022 }
+      defenseurs:
+        - texte: "Certains viennent pour se soigner : sur 99 dossiers de dialyse étudiés dans des hôpitaux, 43 patients étaient déjà dialysés dans leur pays."
+          source: { organisme: "Inspections générales des affaires sociales et des finances", annee: 2019 }
+        - texte: "Les assurés paient une part de leurs soins : 495 euros par an en moyenne en 2025, quand les bénéficiaires de l'AME ne paient rien."
+          source: { organisme: "Drees", annee: 2026 }
+        - texte: "Les soins urgents et vitaux resteraient garantis à tous, comme dans tous les pays européens étudiés."
+      critiques:
+        - texte: "Restreindre les soins peut coûter plus cher : en Allemagne, des demandeurs d'asile aux soins limités coûtaient 39 % de plus par personne."
+          source: { organisme: "PLOS ONE", document: "étude de K. Bozorgmehr et O. Razum", annee: 2015 }
+        - texte: "Les soins de ville basculeraient vers l'hôpital, bien plus cher : 1 468 euros par bénéficiaire pour les séjours, contre 212 euros en ville."
+          source: { organisme: "Rapport Évin-Stefanini", annee: 2023 }
+        - texte: "L'Espagne, qui avait limité ces soins aux urgences en 2012, est revenue en arrière en 2018 pour désengorger ses urgences."
 pourAllerPlusLoin:
   - titre: "Sénat, rapport sur le budget de la santé 2026 (AME)"
     url: https://www.senat.fr/rap/l25-139-327/l25-139-3273.html

@@ -32,22 +32,86 @@ options:
     implique: "Les onze vaccins des enfants restent obligatoires et de nouvelles obligations s'ajoutent, d'abord la grippe chaque année pour les soignants, comme le recommande la Haute Autorité de santé depuis juillet 2026, voire la rougeole pour les soignants non protégés."
     defenseurs: "Dans les établissements de santé, un soignant sur cinq est vacciné contre la grippe malgré des années d'incitations ; là où l'obligation existe, comme en Finlande, la couverture dépasse 90 %, et elle protège des malades qui ne peuvent pas se défendre."
     critiques: "Le bénéfice pour les patients repose sur des études jugées peu solides, et selon la Haute Autorité de santé, l'expérience du Covid montre qu'une obligation perçue comme stigmatisante peut créer des tensions."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage de son coût n'a été trouvé. Elle viserait d'abord les soignants, dont 20 % étaient vaccinés contre la grippe dans les établissements de santé en 2024-2025."
+        source: { organisme: "Haute Autorité de santé", annee: 2026 }
+      defenseurs:
+        - texte: "En maison de retraite, les soignants se vaccinent de moins en moins contre la grippe : 37,2 % l'étaient en 2007-2008, 24,2 % en 2024-2025."
+          source: { organisme: "Haute Autorité de santé", annee: 2026 }
+        - texte: "L'obligation fait monter la vaccination : en Finlande, la part de soignants vaccinés est passée de 41 % en 2014 à plus de 90 %."
+          source: { organisme: "Haute Autorité de santé", annee: 2026 }
+        - texte: "Un soignant doit protéger des malades fragiles qui ne peuvent pas se défendre : c'est une question de responsabilité professionnelle."
+      critiques:
+        - texte: "Le bénéfice pour les patients est mal prouvé : les grippes des résidents passent de 5 % à 4 % quand les soignants sont vaccinés, avec des preuves jugées faibles."
+          source: { organisme: "Cochrane", annee: 2025 }
+        - texte: "Convaincre marche aussi : en maison de retraite, la vaccination gratuite sur place porte à 26,1 % les soignants vaccinés, contre 17,2 % sans."
+          source: { organisme: "Haute Autorité de santé", annee: 2026 }
+        - texte: "Le Covid l'a montré : quand l'obligation est vécue comme une mise à l'index, elle crée des tensions et abîme la confiance."
   - id: B
     libelle: Garder les obligations actuelles
     implique: "Onze vaccins restent obligatoires pour les enfants, et l'hépatite B, la diphtérie, le tétanos et la polio pour les soignants ; la grippe et le papillomavirus restent conseillés, avec des campagnes comme la vaccination au collège."
     defenseurs: "L'obligation de 2018 a fait passer la vaccination des bébés contre le méningocoque C de 36 % à 76 % en un an, sans alerte de sécurité ; pour les autres vaccins, l'incitation progresse : 62 % des filles de 15 ans ont reçu une première dose contre le papillomavirus en 2025."
     critiques: "Pour les uns, c'est trop peu : la rougeole revient, avec 873 cas en 2025, et les soignants restent peu vaccinés contre la grippe ; pour les autres, c'est trop : onze vaccins imposés ne laissent aucun choix aux parents."
+    detail:
+      chiffrage:
+        texte: "Rien ne change. En 2025, 95,5 % des enfants avaient reçu à 2 ans leur première dose de vaccin contre la rougeole."
+        source: { organisme: "Santé publique France", annee: 2026 }
+      defenseurs:
+        - texte: "L'obligation de 2018 fonctionne : contre l'hépatite B, 95,2 % des enfants nés en 2018 étaient vaccinés, contre 91,8 % de ceux nés en 2017."
+          source: { organisme: "Ministère de la Santé", annee: 2022 }
+        - texte: "Les vaccins devenus obligatoires en 2018 n'ont donné lieu à aucune alerte de sécurité."
+        - texte: "Pour les vaccins conseillés, l'incitation progresse : au collège, les garçons de 15 ans vaccinés contre le papillomavirus sont passés de 36,9 % à 46 % en un an."
+          source: { organisme: "Santé publique France", annee: 2026 }
+      critiques:
+        - texte: "La rougeole revient : 873 cas en 2025, contre 117 en 2023."
+          source: { organisme: "Santé publique France", annee: 2026 }
+        - texte: "Les parents n'ont plus le choix : sans ses onze vaccins, l'enfant n'entre ni à la crèche ni à l'école."
+        - texte: "Sans obligation, la vaccination contre le papillomavirus reste loin du but : 61,6 % des filles de 15 ans en 2025, pour 80 % visés en 2030."
+          source: { organisme: "Santé publique France", annee: 2026 }
   - id: C
     libelle: Revenir aux trois vaccins d'avant 2018
     implique: "Seuls la diphtérie, le tétanos et la polio restent obligatoires pour les enfants ; les huit autres vaccins, dont la rougeole et l'hépatite B, redeviennent conseillés et remboursés, et aucune nouvelle obligation n'est créée."
     defenseurs: "Obliger n'est pas convaincre : l'approbation de l'extension de 2018 est passée de 66 % à 59 % entre 2020 et 2022 selon des sondages, et 17 pays européens sur 30 n'imposent aucun vaccin aux enfants, comme le Portugal, où 96 % ont leurs deux doses contre la rougeole."
     critiques: "Avant 2018, les vaccins conseillés étaient moins faits : 36 % des bébés étaient vaccinés contre le méningocoque C, 76 % un an après l'obligation, et pour le Conseil d'État, l'obligation a une incidence directe sur la couverture."
+    detail:
+      chiffrage:
+        texte: "En France, la part d'enfants ayant leurs deux doses contre la rougeole est passée de 80 % en 2017 à 93 % en 2024, depuis l'obligation ; au Portugal, sans aucune obligation, elle atteint 96 %."
+        source: { organisme: "OMS et Unicef", annee: 2024 }
+      defenseurs:
+        - texte: "L'obligation passe de moins en moins : 59 % des Français approuvaient son extension en 2022, contre 66 % en 2020."
+          source: { organisme: "Ministère de la Santé", annee: 2022 }
+        - texte: "Une partie de la hausse aurait pu venir de l'information et du remboursement, qui font aussi vacciner, sans contraindre."
+        - texte: "Imposer plus ne garantit pas de faire mieux : l'Italie, qui a étendu ses obligations en 2017, n'a que 84 % d'enfants avec leurs deux doses contre la rougeole."
+          source: { organisme: "OMS et Unicef", annee: 2024 }
+      critiques:
+        - texte: "L'obligation a fait bondir les vaccins jusque-là seulement conseillés : contre le méningocoque C, 35,5 % des bébés vaccinés en 2017, 75,8 % un an après."
+          source: { organisme: "Haute Autorité de santé", annee: 2026 }
+        - texte: "La rougeole revient chez les non-vaccinés : 60,3 % des malades de 2025 n'étaient pas ou mal vaccinés."
+          source: { organisme: "Santé publique France", annee: 2026 }
+        - texte: "L'obligation a aussi fait monter la vaccination contre des maladies qui n'étaient pas concernées : revenir en arrière risque de tout faire reculer."
   - id: D
     libelle: Ne plus imposer aucun vaccin
     implique: "Toutes les vaccinations deviennent conseillées et restent remboursées comme aujourd'hui ; l'entrée à la crèche ou à l'école n'exige plus de preuve de vaccination."
     defenseurs: "Chaque parent doit pouvoir décider pour son enfant après une information complète : la liberté de choix est un motif de réticence de plus en plus cité, par 40 % des réticents en 2021 contre 31 % en 2020, et selon l'OMS, une obligation perçue comme autoritaire peut entamer la confiance."
     # Le tétanos : § 2b, [38].
     critiques: "Le tétanos ne se transmet pas d'une personne à l'autre : seul son propre vaccin protège ; et les bébés trop jeunes pour être vaccinés dépendent des autres, alors que 62 d'entre eux ont eu la rougeole en 2025."
+    detail:
+      chiffrage:
+        texte: "Parmi 30 pays européens, 17 n'imposent aucun vaccin aux enfants, dont la Suède, le Danemark et le Portugal."
+        source: { organisme: "Revue Vaccines", annee: 2024 }
+      defenseurs:
+        - texte: "Chaque parent doit pouvoir décider pour son enfant, après une information complète."
+        - texte: "La liberté de choix compte de plus en plus : 40 % des réticents la citent en 2021, contre 31 % en 2020."
+          source: { organisme: "Ministère de la Santé", annee: 2022 }
+        - texte: "Des pays sans aucune obligation protègent aussi bien que la France : au Danemark, 93 % des enfants ont leurs deux doses contre la rougeole."
+          source: { organisme: "OMS et Unicef", annee: 2024 }
+      critiques:
+        - texte: "Contre le tétanos, l'entourage ne protège pas : la maladie ne se transmet pas, seul son propre vaccin compte."
+        - texte: "Les bébés de moins d'un an, trop jeunes pour être vaccinés contre la rougeole, dépendent des autres : 62 l'ont attrapée en 2025."
+          source: { organisme: "Santé publique France", annee: 2026 }
+        - texte: "Sans obligation, la France risque de moins vacciner que ses voisins : en 2018, 33 % des Français ne jugeaient pas les vaccins sûrs, record sur 144 pays."
+          source: { organisme: "Wellcome Global Monitor", annee: 2018 }
 pourAllerPlusLoin:
   - titre: "Santé publique France, la couverture vaccinale en 2025, avril 2026"
     url: https://www.santepubliquefrance.fr/vaccination/bulletin-national/vaccination-des-enfants-adolescents-et-jeunes-adultes-en-france-bilan-de-la-couverture-vaccinale-en

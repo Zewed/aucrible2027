@@ -35,24 +35,90 @@ options:
     defenseurs: "La formation des médecins est payée par la collectivité : quelques années là où les patients attendent en sont la contrepartie, et cela agit plus vite que les médecins formés en plus, attendus dans dix ans."
     critiques: "Selon une synthèse de la Drees citée par le Sénat, les médecins installés en contrepartie d'un engagement restent moins longtemps que ceux qui choisissent la campagne, et les syndicats d'internes et d'étudiants jugent que « la coercition n'est pas une solution »."
     axes: { economie: -2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. La proposition de loi de 2021 prévoyait deux ans d'exercice obligatoire là où les médecins manquent, après le diplôme, sans contrepartie financière."
+        source: { organisme: "Proposition de loi à l'Assemblée nationale", annee: 2021 }
+      defenseurs:
+        - texte: "Un médecin formé aux frais de tous peut rendre quelques années au pays, là où les patients ne trouvent plus de médecin."
+        - texte: "C'est plus rapide que d'attendre : former plus de médecins met 5 à 10 ans à produire ses effets."
+          source: { organisme: "Direction de la recherche, des études, de l'évaluation et des statistiques", annee: 2021 }
+        - texte: "Il faut envoyer des médecins là où tout manque : 8 % des habitants vivent dans des communes au plus faible accès à tous les soins de proximité."
+          source: { organisme: "Institut de recherche et documentation en économie de la santé", annee: 2026 }
+      critiques:
+        - texte: "Un médecin qui choisit la campagne y reste plus longtemps qu'un médecin venu en contrepartie d'un engagement."
+        - texte: "Les jeunes vont déjà davantage là où l'on manque de médecins : 891 premières installations de généralistes en zone prioritaire en 2025, 45 % de plus qu'en 2024."
+          source: { organisme: "Assurance maladie", annee: 2026 }
+        - texte: "Mieux vaut recruter à la campagne : augmenter de 5 % la part d'étudiants venus des zones rurales accroît d'environ 13 % la part d'internes prêts à y exercer."
+          source: { organisme: "Cour des comptes", annee: 2025 }
   - id: B
     libelle: Limiter les installations là où les médecins sont nombreux
     implique: "Hors des zones qui manquent de médecins, un médecin s'installe avec l'accord de l'agence régionale de santé, à la place d'un médecin de même spécialité qui cesse son activité : c'est la loi votée par les députés en 2025."
     defenseurs: "Les infirmiers, les kinésithérapeutes, les sages-femmes et les dentistes ont déjà des règles d'installation ; chez les infirmières, l'écart de densité entre territoires a diminué de moitié de 2006 à 2016, et chez les sages-femmes, la Cour des comptes note une « nette réduction des inégalités territoriales » de 2016 à 2022."
     critiques: "La règle toucherait les nouvelles installations, pas les médecins déjà installés ; chez les infirmières, l'écart s'est réduit pendant que leur nombre augmentait de 55 %, alors que les généralistes libéraux diminuent ; chez les kinésithérapeutes, régulés depuis 2018, les nouveaux sont surtout allés dans les zones voisines bien pourvues."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun coût direct n'a été chiffré. Les députés l'ont votée en avril 2025, par 155 voix contre 85 ; elle n'est pas en vigueur."
+        source: { organisme: "Assemblée nationale", annee: 2025 }
+      defenseurs:
+        - texte: "Les règles réduisent les écarts : de 2019 à 2022, les inégalités d'accès aux infirmières, régulées, ont baissé de 7,6 %, quand celles d'accès aux généralistes montaient de 11,4 %."
+          source: { organisme: "Institut de recherche et documentation en économie de la santé", annee: 2026 }
+        - texte: "L'Allemagne régule l'installation par zone depuis des décennies : 99,8 % des habitants y ont un généraliste à moins de dix minutes en voiture."
+          source: { organisme: "Sénat", document: "législation comparée", annee: 2024 }
+        - texte: "Les médecins, payés par l'Assurance maladie, ne devraient pas être les seuls soignants de ville à s'installer sans aucune règle."
+      critiques:
+        - texte: "Une règle répartit des soignants qui arrivent : les infirmières libérales ont augmenté de 54,8 % de 2006 à 2016, sous leur règle ; les médecins, eux, manquent presque partout."
+          source: { organisme: "Institut de recherche et documentation en économie de la santé", annee: 2022 }
+        - texte: "Chez les kinésithérapeutes, en deux ans de règle, plus de 1 000 se sont installés dans les zones très bien pourvues, contre moins de 400 là où ils manquaient."
+          source: { organisme: "Sénat", annee: 2026 }
+        - texte: "Les jeunes médecins iraient dans les grandes villes classées en manque, au détriment des campagnes."
   - id: C
     libelle: S'installer librement, mais donner du temps aux zones qui manquent de médecins
     implique: "Dans une zone très bien pourvue, un généraliste s'installe à condition d'exercer aussi à temps partiel là où les médecins manquent, comme dans la version votée par le Sénat en 2026 ; tous peuvent être appelés en renfort jusqu'à deux jours par mois, comme le proposait le gouvernement en 2025."
     defenseurs: "Aucune zone n'est fermée aux jeunes médecins, et l'effort est partagé entre tous pour aider vite les territoires les plus en difficulté, où vivent plus de 2,5 millions d'habitants."
     critiques: "Pour l'association de patients France Assos Santé, la mesure est « vidée de sa substance » ; pour le syndicat de médecins CSMF, elle garde « une logique de contrainte », et la mission volontaire lancée en 2025 réunissait 250 généralistes fin 2025."
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun coût n'a été chiffré pour la règle. Le renfort volontaire lancé en 2025 paie 200 euros par jour en plus des honoraires."
+        source: { organisme: "Direction générale de l'offre de soins", annee: 2025 }
+      defenseurs:
+        - texte: "Un jeune médecin garde le choix de son lieu d'installation : il donne seulement une partie de son temps là où l'on manque de médecins."
+        - texte: "Elle vise d'abord les territoires les plus en difficulté : 151 intercommunalités, où vivent plus de 2,5 millions d'habitants."
+          source: { organisme: "Direction générale de l'offre de soins", annee: 2025 }
+        - texte: "En renfort, les médecins pourraient ajouter jusqu'à 30 millions de consultations par an, d'après l'estimation du gouvernement en 2025."
+          source: { organisme: "Gouvernement", annee: 2025 }
+      critiques:
+        - texte: "Elle ne limite plus rien : un médecin pourra toujours s'installer là où ils sont déjà nombreux, pourvu qu'il exerce un peu ailleurs."
+        - texte: "Elle reste une contrainte : un médecin désigné qui refuserait d'aller en renfort pourrait payer jusqu'à 1 000 euros par jour refusé."
+          source: { organisme: "Sénat", annee: 2025 }
+        - texte: "Le volontariat a peu mobilisé : fin 2025, 250 généralistes inscrits intervenaient dans près de 100 lieux."
+          source: { organisme: "Direction générale de l'offre de soins", annee: 2025 }
   - id: D
     libelle: Garder la liberté d'installation et attirer les médecins
     implique: "Chaque médecin choisit où il s'installe ; on l'attire avec des maisons de santé, des assistants médicaux et des aides, et on forme plus de médecins, dont les futurs généralistes de quatrième année, incités à commencer là où les médecins manquent."
     defenseurs: "Le problème est le nombre de médecins, pas leur répartition : trois Français sur quatre vivent dans une zone jugée sous-dotée, et en 2025, deux fois plus de généralistes qu'en 2012 se sont installés en libéral pour la première fois."
     critiques: "La Cour des comptes juge « non démontrée » l'efficacité des aides, 205 millions d'euros en 2023, et la Drees compte dix ans avant que former plus de médecins produise ses effets."
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Le garder ne change pas la dépense : les aides à l'installation ont coûté environ 205 millions d'euros en 2023, sans compter celles des collectivités."
+        source: { organisme: "Cour des comptes", annee: 2025 }
+      defenseurs:
+        - texte: "Ce qui attire les jeunes médecins, c'est l'organisation : une maison de santé en fait venir en moyenne 16 de plus pour 100 000 habitants."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Former plus porte déjà ses fruits : 2 810 généralistes se sont installés pour la première fois en libéral en 2025, 32 % de plus qu'en 2024."
+          source: { organisme: "Assurance maladie", annee: 2026 }
+        - texte: "L'accès s'améliore : la part de malades chroniques sans médecin traitant est passée de 5,6 % fin 2022 à 4,3 % fin 2025."
+          source: { organisme: "Assurance maladie", annee: 2026 }
+      critiques:
+        - texte: "Les médecins sont mal répartis : Paris compte 240 généralistes pour 100 000 habitants, l'Eure-et-Loir 84."
+          source: { organisme: "Insee", annee: 2025 }
+        - texte: "Les aides coûtent sans preuve d'effet : 3 000 médecins en reçoivent près de 60 %, et les baisses d'impôts par zone n'ont pas augmenté le nombre de jeunes généralistes."
+          source: { organisme: "Cour des comptes", annee: 2025 }
+        - texte: "Les Français veulent agir : 63 % jugent qu'il faut encadrer davantage l'installation des médecins, contre 34 %."
+          source: { organisme: "Elabe", annee: 2026 }
 pourAllerPlusLoin:
   - titre: "Cour des comptes, Les aides à l'installation des médecins libéraux, novembre 2025"
     url: https://www.ccomptes.fr/fr/publications/les-aides-linstallation-des-medecins-liberaux

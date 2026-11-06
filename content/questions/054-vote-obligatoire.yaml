@@ -31,16 +31,62 @@ options:
     implique: "Voter reste un droit que chacun est libre de ne pas exercer ; la participation passe par d'autres moyens : inscription automatique, procurations plus simples, éducation civique."
     defenseurs: "Ne pas voter est aussi une liberté, et parfois un message : une obligation ne répond pas à la défiance envers la politique, et une amende pèserait d'abord sur les plus modestes, qui s'abstiennent le plus."
     critiques: "Sans obligation, les jeunes et les plus modestes votent beaucoup moins : en 2022, un inscrit modeste sur quatre n'a voté à aucun tour, et les élus sont choisis par ceux qui votent, plus âgés et plus aisés."
+    detail:
+      chiffrage:
+        texte: "Le garder ne change rien : au premier tour de la présidentielle de 2022, 26,3 % des inscrits n'ont pas voté."
+        source: { organisme: "Conseil constitutionnel", annee: 2022 }
+      defenseurs:
+        - texte: "Chacun a le droit de vote, et celui de ne pas en user : refuser de voter est aussi une façon de s'exprimer."
+        - texte: "Les électeurs se déplacent quand l'enjeu compte : en 2022, 82,6 % des inscrits ont voté à au moins un tour de la présidentielle."
+          source: { organisme: "Insee", annee: 2022 }
+        - texte: "Mieux vaut d'abord lever les obstacles : environ 3 millions de personnes en âge de voter ne sont même pas inscrites."
+          source: { organisme: "Insee", annee: 2021 }
+      critiques:
+        - texte: "Les plus modestes votent beaucoup moins : en 2022, 24,9 % d'entre eux n'ont voté à aucun tour, contre 8,2 % des plus aisés."
+          source: { organisme: "Insee", annee: 2022 }
+        - texte: "Les jeunes décrochent : aux législatives, la participation des 18-29 ans est passée de 50,7 % en 2002 à 27,9 % en 2022."
+          source: { organisme: "Insee", annee: 2022 }
+        - texte: "Inscription facilitée, procurations élargies : ces mesures n'ont pas enrayé la hausse de l'abstention depuis les années 1980."
   - id: B
     libelle: "Oui, mais sans amende"
     implique: "La loi fait du vote un devoir : qui s'abstient sans motif valable reçoit d'abord un rappel à la loi, puis doit suivre un stage de citoyenneté, comme le prévoyaient des propositions de loi de 2021 et 2023."
     defenseurs: "Affirmer que voter est un devoir civique, comme l'écrit déjà la carte électorale, sans faire payer ceux qui ont le moins : en Belgique, personne n'est sanctionné depuis 2003, et environ neuf inscrits sur dix votent."
     critiques: "Pour les partisans de l'amende, une obligation sans sanction financière change peu la participation ; pour ses opposants, c'est une contrainte de plus, qu'il faudra bien faire respecter."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé, ni de son coût ni de son effet sur la participation. Une proposition de loi de 2021 prévoyait un rappel à la loi, puis un stage civique de trois jours."
+        source: { organisme: "Proposition de loi à l'Assemblée nationale", annee: 2021 }
+      defenseurs:
+        - texte: "La carte électorale le dit déjà : voter est « un devoir civique ». La loi doit simplement l'affirmer."
+        - texte: "Pas besoin de faire payer : en Belgique, aucun électeur n'est sanctionné depuis 2003, et 90 % votent aux élections nationales."
+          source: { organisme: "Assemblée nationale", annee: 2023 }
+        - texte: "Un rappel à la loi puis un stage de citoyenneté font comprendre l'enjeu du vote, sans appauvrir ceux qui ont le moins."
+      critiques:
+        - texte: "Sans amende, l'obligation risque de rester lettre morte : là où aucune sanction n'est prévue, la participation ne change guère."
+        - texte: "Elle stigmatiserait et infantiliserait les abstentionnistes, d'abord les jeunes et les classes populaires."
+        - texte: "Les Français ne la réclament pas : dans un sondage de 2023, 56 % ne retenaient pas le vote obligatoire parmi les remèdes à l'abstention."
+          source: { organisme: "Ifop-Fiducial pour Sud Radio", annee: 2023 }
   - id: C
     libelle: "Oui, avec une amende"
     implique: "Qui s'abstient sans motif valable paie une amende, comme le prévoit la loi en Belgique, au Luxembourg ou en Australie ; une proposition de loi de 2023 prévoyait 11 euros, et jusqu'à 38 euros en cas de retard."
     defenseurs: "Là où l'amende existe, environ neuf inscrits sur dix votent : presque tout le monde, jeunes et modestes compris, participe au choix, et les candidats doivent s'adresser à tous."
     critiques: "L'amende frapperait d'abord ceux qui votent le moins, souvent les plus modestes ; elle est difficile à appliquer (la Belgique n'a sanctionné personne depuis 2003) et fait voter des électeurs peu intéressés."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage du coût n'a été trouvé. Là où le vote est obligatoire, la participation est en moyenne 7 à 15 points plus élevée, selon les études qui comparent les pays."
+        source: { organisme: "Bechtel, Hangartner et Schmid", document: "American Journal of Political Science", annee: 2016 }
+      defenseurs:
+        - texte: "Là où l'amende existe, presque tout le monde vote : 90,7 % des inscrits australiens ont voté en 2025."
+          source: { organisme: "Commission électorale australienne", annee: 2026 }
+        - texte: "Quand l'obligation revient, les électeurs aussi : au Chili, 56 % ont voté en 2021, sans obligation, et 86 % en 2022, avec."
+          source: { organisme: "Centre d'études publiques du Chili", annee: 2023 }
+        - texte: "Les candidats devraient enfin parler à tout le monde, jeunes et modestes compris, et pas seulement à ceux qui votent déjà."
+      critiques:
+        - texte: "L'amende frapperait d'abord les citoyens les plus défavorisés, qui sont aussi ceux qui s'abstiennent le plus."
+        - texte: "Elle fait voter sans convaincre : au Chili, 43 % de ceux qui ne votaient jamais sont venus en 2022 surtout pour éviter l'amende."
+          source: { organisme: "Centre d'études publiques du Chili", annee: 2023 }
+        - texte: "Forcer à voter ne fait pas forcément choisir : en Australie, 5,5 % des bulletins n'ont pas été comptés en 2025, parce que blancs ou mal remplis."
+          source: { organisme: "Commission électorale australienne", annee: 2026 }
 pourAllerPlusLoin:
   - titre: "Assemblée nationale, rapport de la mission d'information sur les ressorts de l'abstention, 2021"
     url: https://www.assemblee-nationale.fr/dyn/15/rapports/micpelec/l15b4790_rapport-information.pdf

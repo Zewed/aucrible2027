@@ -34,18 +34,64 @@ options:
     defenseurs: "L'interdit n'empêche ni la consommation ni le trafic : un marché légal et contrôlé protège les mineurs, affaiblit les trafics, libère la police et la justice et rapporte des recettes."
     critiques: "Un marché légal banalise l'usage, avec des risques pour la santé des jeunes, et un marché noir peut subsister."
     axes: { societe: -2 }
+    detail:
+      chiffrage:
+        texte: "Un marché légal rapporterait environ 2 milliards d'euros de recettes fiscales par an, pour 500 tonnes vendues à 9 euros le gramme. Ce chiffrage date de 2019."
+        source: { organisme: "Conseil d'analyse économique", annee: 2019 }
+      defenseurs:
+        - texte: "Un marché légal assèche le trafic : au Canada, 3 % des consommateurs achetaient d'habitude au marché illégal en 2024, contre 28 % en 2018."
+          source: { organisme: "Santé Canada", annee: 2024 }
+        - texte: "Un marché légal contrôle ce qu'on vend : la résine illégale contenait en moyenne 29 % de THC en 2023, contre 12,3 % en 2011."
+          source: { organisme: "Observatoire français des drogues et des tendances addictives", annee: 2025 }
+        - texte: "Légaliser ne fait pas forcément consommer les jeunes : au Colorado, 26,3 % des lycéens en avaient déjà pris en 2023, dix points de moins qu'en 2013."
+          source: { organisme: "Université du Colorado", annee: 2024 }
+      critiques:
+        - texte: "Légaliser fait consommer davantage : au Canada, 26 % des 16 ans et plus en avaient pris dans l'année en 2024, contre 22 % en 2018, avant la légalisation."
+          source: { organisme: "Santé Canada", annee: 2024 }
+        - texte: "La part des troubles graves liés au cannabis monte : en Ontario, elle est passée de 3,7 % des nouveaux cas de schizophrénie avant 2015 à 10,3 % après 2018, selon une estimation."
+          source: { organisme: "JAMA Network Open", annee: 2025 }
+        - texte: "Le marché légal ne s'impose pas toujours : en Californie, 60 % du cannabis consommé en 2024 ne venait pas des magasins autorisés."
+          source: { organisme: "Département du cannabis de l'État de Californie", annee: 2025 }
   - id: B
     libelle: "Dépénaliser l'usage, sans légaliser la vente"
     implique: "Consommer n'est plus un délit, mais la production et la vente restent interdites."
     defenseurs: "On cesse de traiter les consommateurs comme des délinquants et on soigne plutôt que de punir, sans rendre le produit commercial."
     critiques: "La dépénalisation laisse le marché aux trafiquants et ne rapporte aucune recette."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. La répression de l'usage simple a occupé plus d'un million d'heures de travail des forces de l'ordre en 2016."
+        source: { organisme: "Conseil d'analyse économique", annee: 2019 }
+      defenseurs:
+        - texte: "L'usage relève de la santé, pas de la justice : un consommateur en difficulté doit être soigné plutôt que poursuivi."
+        - texte: "Le besoin de soins est réel : environ 54 000 personnes ont été accueillies en 2022 en addictologie pour un problème lié au cannabis."
+          source: { organisme: "Observatoire français des drogues et des tendances addictives", annee: 2023 }
+        - texte: "On cesse de punir sans banaliser : la vente reste interdite, et l'État n'en tire aucun profit."
+      critiques:
+        - texte: "Le marché reste aux trafiquants : le commerce de détail du cannabis, estimé à 1,2 milliard d'euros en 2017, leur resterait entièrement."
+          source: { organisme: "Observatoire français des drogues et des tendances addictives", annee: 2023 }
+        - texte: "Ne plus sanctionner, c'est encourager : l'État enverrait le signal qu'il n'y a pas de sanction."
+        - texte: "Les consommateurs font vivre le trafic : pour qu'il y ait une offre, il faut des consommateurs."
   - id: C
     libelle: "Non, maintenir l'interdiction"
     implique: "L'usage et la vente restent interdits et sanctionnés, avec la prévention et la lutte contre les trafics en priorité."
     defenseurs: "Le cannabis est dangereux, surtout pour les jeunes, et le légaliser enverrait le signal que sa consommation est acceptable : mieux vaut renforcer la prévention et combattre le trafic."
     critiques: "L'interdit n'empêche ni la consommation ni le trafic, et coûte cher à la police et à la justice sans rapporter de recettes."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Le maintenir ne change pas la dépense : la lutte contre le cannabis coûte environ 568 millions d'euros par an, selon une estimation de 2019."
+        source: { organisme: "Conseil d'analyse économique", annee: 2019 }
+      defenseurs:
+        - texte: "Les jeunes s'en éloignent : en 2022, 29,9 % des jeunes de 17 ans en avaient déjà pris, le niveau le plus bas depuis 2000."
+          source: { organisme: "Observatoire français des drogues et des tendances addictives", annee: 2023 }
+        - texte: "À l'adolescence, il peut nuire durablement à la mémoire et à l'attention, et précipiter des troubles psychotiques."
+        - texte: "Autoriser la vente banaliserait l'usage : ce serait un signal dramatique, surtout pour les plus jeunes."
+      critiques:
+        - texte: "La France consomme plus que ses voisins malgré l'interdit : en 2021, 21,8 % des 15-34 ans en avaient pris dans l'année, le niveau le plus haut de l'Union."
+          source: { organisme: "Agence européenne des drogues", annee: 2023 }
+        - texte: "L'interdiction profite au crime organisé, et poursuivre les consommateurs détourne la police et la justice d'autres missions."
+        - texte: "Les dealers ne vérifient pas l'âge : seul un marché légal permet d'interdire vraiment la vente aux mineurs."
 pourAllerPlusLoin:
   - titre: "OFDT, cannabis"
     url: https://www.ofdt.fr/produits-et-addictions/de-z/cannabis/

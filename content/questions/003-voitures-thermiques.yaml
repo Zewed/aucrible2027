@@ -31,18 +31,66 @@ options:
     defenseurs: Une échéance claire donne de la visibilité aux constructeurs et aux ménages, et agit sur le premier secteur émetteur de gaz à effet de serre.
     critiques: Elle impose une seule technologie, et des États de l'Union où les ventes d'électriques sont encore faibles demandent un objectif moins strict.
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "En 2025, 19,9 % des voitures neuves vendues en France étaient électriques ; en 2035, toutes devraient être sans CO2 à l'échappement."
+        source: { organisme: "Service des données et études statistiques", annee: 2026 }
+      defenseurs:
+        - texte: "Il faut agir là où l'on émet le plus : les transports font 34 % des émissions de gaz à effet de serre de la France, plus que tout autre secteur."
+          source: { organisme: "Service des données et études statistiques", annee: 2026 }
+        - texte: "Sur toute sa vie, batterie comprise, une voiture électrique roulant en France émet environ deux fois moins de CO2 qu'une thermique ou une hybride."
+          source: { organisme: "Agence de la transition écologique", annee: 2026 }
+        - texte: "Une règle stable permet aux constructeurs d'investir sans craindre qu'elle change en cours de route."
+      critiques:
+        - texte: "À l'achat, l'électrique reste plus chère : avant les aides, environ 5 200 euros de plus pour une citadine neuve en 2025."
+          source: { organisme: "Agence de la transition écologique", annee: 2026 }
+        - texte: "Si la règle ne change pas, l'industrie automobile française aurait environ 56 000 emplois de moins en 2035, selon une estimation commandée par la filière et l'État."
+          source: { organisme: "Xerfi", annee: 2025 }
+        - texte: "Les pays où l'électrique se vend encore peu, comme l'Allemagne, jugent l'objectif trop strict et demandent à l'assouplir."
   - id: B
     libelle: L'assouplir à 90 %
     implique: L'objectif passe à 90 % de réduction ; les 10 % restants sont compensés par de l'acier bas carbone ou des carburants durables, et 27 à 29 % des voitures neuves pourraient encore avoir un moteur thermique après 2035, selon les projets en discussion.
     defenseurs: Garder la direction tout en laissant du temps à l'industrie et aux ménages, avec des hybrides, des carburants durables et des petites voitures électriques abordables.
     critiques: Elle affaiblit la visibilité de l'échéance et laisse des voitures thermiques neuves vendues après 2035.
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "En octobre 2026, deux commissions du Parlement européen ont voté une version voisine : 95 % de CO2 en moins en 2035, dont jusqu'à 7,5 points compensés par de l'acier produit en Europe. Le texte n'est pas encore adopté."
+        source: { organisme: "electrive", annee: 2026 }
+      defenseurs:
+        - texte: "Fabriquer une compacte électrique émet deux fois plus qu'une hybride : elle ne rattrape ce retard qu'après environ 70 000 km."
+          source: { organisme: "Agence de la transition écologique", annee: 2026 }
+        - texte: "Le passage à l'électrique prend du temps : début 2026, 3,5 % seulement des voitures en circulation étaient électriques."
+          source: { organisme: "Service des données et études statistiques", annee: 2026 }
+        - texte: "Mieux vaut fixer un objectif de baisse des émissions et laisser les constructeurs choisir comment l'atteindre : électrique, hydrogène ou biocarburants."
+      critiques:
+        - texte: "Des voitures thermiques neuves resteraient en vente après 2035 : 27 à 29 % des voitures neuves, dans les projets discutés."
+          source: { organisme: "electrive", annee: 2026 }
+        - texte: "Le marché suit déjà : en septembre 2026, 41,1 % des voitures neuves vendues étaient électriques, un record."
+          source: { organisme: "Service des données et études statistiques", annee: 2026 }
+        - texte: "Les compensations par l'acier ou les carburants compliquent la règle et la rendent moins lisible qu'une échéance unique."
   - id: C
     libelle: Supprimer l'interdiction
     implique: "Il n'y a plus d'échéance de fin de vente des voitures thermiques neuves : les consommateurs et le marché décident."
     defenseurs: "Laisser les Français choisir : les problèmes écologiques seront résolus par le progrès technique, pas par la contrainte."
     critiques: "Les voitures représentent 53 % des émissions des transports, premier secteur émetteur : sans échéance, la baisse de ces émissions serait moins sûre et les constructeurs perdraient en visibilité."
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Plus aucune date ne s'imposerait. En 2025, 26,7 % des voitures neuves vendues en France étaient thermiques et 42,5 % hybrides non rechargeables."
+        source: { organisme: "Service des données et études statistiques", annee: 2026 }
+      defenseurs:
+        - texte: "Ce n'est pas à l'Union européenne d'interdire un moteur : chacun doit pouvoir choisir sa voiture selon ses besoins et son budget."
+        - texte: "Une règle sur le neuf touche peu les ménages : 77 % des achats de voitures se font d'occasion."
+          source: { organisme: "Service des données et études statistiques", annee: 2026 }
+        - texte: "Tout miser sur l'électrique rend dépendant de la Chine : près des deux tiers des batteries importées en France en 2024 en venaient."
+          source: { organisme: "Assemblée nationale", annee: 2025 }
+      critiques:
+        - texte: "Les voitures font 53 % des émissions des transports : sans échéance, rien ne garantit que ces émissions baissent."
+          source: { organisme: "Service des données et études statistiques", annee: 2026 }
+        - texte: "Le recul de l'industrie a commencé bien avant la règle : la France fabrique trois fois moins de voitures qu'au début des années 2000."
+          source: { organisme: "Assemblée nationale", annee: 2025 }
+        - texte: "Avec les aides de l'État, une citadine électrique coûte déjà presque le prix d'une thermique."
 pourAllerPlusLoin:
   - titre: Commission européenne, paquet automobile, 16/12/2025
     url: https://transport.ec.europa.eu/transport-themes/action-plan-future-automotive-sector/automotive-package_en

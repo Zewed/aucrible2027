@@ -28,24 +28,80 @@ options:
     defenseurs: "Un enfant né en France est un enfant de la République : le faire français dès la naissance, comme aux États-Unis, l'aide à s'intégrer et met fin aux règles à part de Mayotte."
     critiques: "La nationalité serait donnée sans exiger d'avoir vécu en France, y compris à des enfants qui partiront ensuite ; ses opposants y voient un facteur d'attraction pour l'immigration irrégulière, en particulier à Mayotte."
     axes: { societe: -1 }
+    detail:
+      chiffrage:
+        texte: "En 2025, 87 936 enfants sont nés en France de deux parents étrangers, 13,7 % des naissances ; une partie d'entre eux est déjà française à la naissance."
+        source: { organisme: "Insee", annee: 2026 }
+      defenseurs:
+        - texte: "Être citoyen dès la naissance aide à réussir à l'école : en Allemagne, les enfants concernés ont eu 39 % de chances en plus d'entrer au lycée général."
+          source: { organisme: "CESifo", annee: 2020 }
+        - texte: "Les États-Unis garantissent ce droit dans leur Constitution, et leur Cour suprême l'a encore confirmé en 2026."
+        - texte: "Un enfant né en France ne doit pas dépendre de la situation de ses parents pour devenir français, à Mayotte non plus."
+      critiques:
+        - texte: "La nationalité serait donnée à la naissance sans exiger d'avoir vécu en France, y compris à des enfants qui partiront ensuite."
+        - texte: "Les voisins qui donnent la nationalité à la naissance exigent un séjour légal des parents : en Allemagne, au moins 5 ans."
+          source: { organisme: "Ministère allemand des Affaires étrangères", annee: 2024 }
+        - texte: "La nationalité de l'enfant ouvre un droit au séjour à ses parents : la donner dès la naissance attirerait davantage l'immigration irrégulière."
   - id: B
     libelle: "Le garder tel qu'il est"
     implique: "Les règles actuelles restent : un enfant né en France de parents étrangers devient français à 18 ans s'il y a vécu au moins cinq ans depuis ses 11 ans, ou dès 13 ans sur demande."
     defenseurs: "La règle, en place depuis 1998, demande déjà cinq ans de vie en France, et 94 % des enfants de deux parents immigrés se sentent français : rien ne justifie de la durcir."
     critiques: "La nationalité reste acquise sans démarche à 18 ans et, hors Mayotte, sans condition sur la situation des parents, ce que ses opposants jugent trop large face à l'immigration irrégulière."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Le garder ne change rien : en 2025, 98 139 personnes sont devenues françaises, dont 34 904 par le droit du sol."
+        source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+      defenseurs:
+        - texte: "Les enfants d'immigrés nés en France se sentent français : 94 % de ceux qui ont deux parents immigrés, presque autant que les personnes sans origine immigrée, 97 %."
+          source: { organisme: "Ined et Insee", annee: 2026 }
+        - texte: "Presque tous les jeunes concernés font déjà la démarche avant leur majorité : l'acquisition automatique ne sert que de filet."
+        - texte: "L'Allemagne a fait le chemin inverse : elle a créé un droit du sol en 2000, puis l'a assoupli en 2024 pour mieux intégrer."
+      critiques:
+        - texte: "On devient français à sa majorité de façon automatique, sans l'avoir demandé."
+        - texte: "Hors de Mayotte, la situation des parents ne compte pas, même s'ils sont en séjour irrégulier."
+        - texte: "Le droit du sol n'exige aucun niveau de français, alors que la naturalisation demande désormais le niveau B2."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
   - id: C
     libelle: "Le restreindre"
     implique: "Le droit du sol reste, avec des conditions plus strictes : une démarche obligatoire du jeune, comme de 1993 à 1998, ou un séjour régulier des parents à la naissance, comme à Mayotte."
     defenseurs: "On ne devient pas français par hasard : la nationalité doit être un choix exprimé et ne pas profiter d'un séjour irrégulier des parents ; le Conseil constitutionnel a admis la démarche en 1993 et la condition sur les parents à Mayotte."
     critiques: "De 1993 à 1998, la démarche obligatoire a laissé de côté des jeunes mal informés, et les filles la demandaient moins souvent ; hors de Mayotte, une condition sur les parents n'a jamais été jugée et ses opposants y voient une atteinte à l'égalité."
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. En 2025, 1 981 jeunes sont devenus français à 18 ans sans démarche, et 32 923 avant 18 ans sur demande."
+        source: { organisme: "Ministère de la Justice", annee: 2026 }
+      defenseurs:
+        - texte: "La France l'a déjà fait : de 1993 à 1998, les jeunes nés en France devaient demander la nationalité, une règle jugée conforme à la Constitution."
+        - texte: "La nationalité de l'enfant ouvre des papiers à ses parents : à Mayotte, 56 % des titres de séjour sont délivrés à des parents d'enfant français."
+          source: { organisme: "Ministère de l'Intérieur", document: "cité par le rapport n° 864 de l'Assemblée nationale", annee: 2025 }
+        - texte: "D'autres pays l'ont fait : l'Irlande a restreint son droit du sol par référendum en 2004, en exigeant un séjour légal des parents."
+      critiques:
+        - texte: "De 1993 à 1998, la démarche obligatoire a laissé de côté des jeunes mal informés, qui se croyaient français, et les filles la demandaient moins."
+        - texte: "Hors de Mayotte, une condition sur les parents n'a jamais été jugée, et pourrait être contraire au principe d'égalité."
+        - texte: "Une condition sur les parents ne freine pas forcément les arrivées : à Mayotte, la part des bébés de deux parents étrangers a continué de monter, jusqu'à 46 % en 2024."
+          source: { organisme: "Insee", annee: 2025 }
   - id: D
     libelle: "Le supprimer"
     implique: "Naître et grandir en France ne donne plus droit à la nationalité : il faut un parent français ou une naturalisation ; ses partisans proposent de le décider par référendum."
     defenseurs: "La nationalité se demande et se mérite : elle doit couronner une assimilation vérifiée, par la naturalisation, et non découler du lieu de naissance ; la plupart des pays européens appliquent le droit du sang."
     critiques: "Des enfants nés et élevés en France resteraient étrangers s'ils ne sont pas naturalisés, ce qui rompt avec une règle appliquée depuis 1889 ; ses opposants y voient une inégalité entre enfants nés au même endroit."
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé, ni du coût ni des naturalisations qui suivraient. Au niveau de 2025, environ 35 000 jeunes par an ne deviendraient plus français par le droit du sol."
+        source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+      defenseurs:
+        - texte: "Devenir français doit se mériter : par la naturalisation, après avoir montré qu'on a adopté la langue et les valeurs du pays."
+        - texte: "La plupart des pays européens n'ont pas de droit du sol : sur 30 pays, 21 appliquent un droit du sang strict."
+          source: { organisme: "iFRAP", annee: 2025 }
+        - texte: "Le droit du sol n'est pas inscrit dans la Constitution : c'est au peuple d'en décider, par référendum."
+      critiques:
+        - texte: "Des jeunes nés et élevés en France devraient passer par une naturalisation de plus en plus rare : 40 064 décrets en 2023, contre 75 249 en 2021."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+        - texte: "Ce serait rompre avec une règle républicaine appliquée depuis 1889, et depuis 1851 pour les enfants d'un parent né en France."
+        - texte: "Un référendum échapperait au contrôle du Conseil constitutionnel, qui protège les droits de chacun."
 pourAllerPlusLoin:
   - titre: "Conseil constitutionnel, décision n° 2025-881 DC du 7 mai 2025 (Mayotte)"
     url: https://www.conseil-constitutionnel.fr/decision/2025/2025881DC.htm

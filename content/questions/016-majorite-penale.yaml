@@ -31,24 +31,86 @@ options:
     defenseurs: "À 16 ans, on est encore en construction : le droit prévoit une réponse adaptée à l'âge et tournée vers le relèvement éducatif, un principe que le Conseil constitutionnel rattache aux lois fondamentales de la République."
     critiques: "Pour ses détracteurs, la sanction intervient trop tard et envoie un message d'impunité."
     axes: { societe: 0 }
+    detail:
+      chiffrage:
+        texte: "Le garder ne change pas le droit : en 2024, sur 46 884 peines et mesures prononcées contre des mineurs, 2 680 étaient de la prison ferme, en tout ou en partie."
+        source: { organisme: "Ministère de la Justice", annee: 2025 }
+      defenseurs:
+        - texte: "La délinquance des mineurs recule dans l'ensemble : 131 572 mineurs soupçonnés d'un crime ou délit en 2024, contre 165 638 en 2016."
+          source: { organisme: "Inspection générale de la justice", annee: 2025 }
+        - texte: "La justice répond déjà presque toujours : 86,4 % des mineurs dans des affaires pouvant être poursuivies ont reçu une réponse pénale en 2024."
+          source: { organisme: "Ministère de la Justice", annee: 2025 }
+        - texte: "Un adolescent est encore en construction : chercher d'abord à le relever par l'éducation est un principe fondamental de la République."
+      critiques:
+        - texte: "Les faits les plus graves augmentent : 119 mineurs soupçonnés d'homicide en 2024, contre 34 en 2016."
+          source: { organisme: "Inspection générale de la justice", annee: 2025 }
+        - texte: "La réponse actuelle n'empêche pas la récidive : 54 % des mineurs condamnés une première fois en 2012 ont récidivé dans les cinq ans."
+          source: { organisme: "Ministère de la Justice", annee: 2022 }
+        - texte: "La sanction arrive trop tard et laisse croire au mineur qu'il ne risque rien."
   - id: B
     libelle: "Garder 18 ans, mais répondre plus vite et plus fermement"
     implique: "Comparution immédiate, courtes peines dès le premier délit, excuse de minorité levée ou atténuée pour certains faits (récidive, narcotrafic)."
     defenseurs: "Une sanction rapide et certaine est la meilleure prévention : on durcit la réponse pour les faits graves et les récidivistes, sans abandonner le droit des mineurs."
     critiques: "Le Conseil constitutionnel a censuré en 2025 deux de ces mesures telles qu'elles étaient écrites ; ses opposants y voient surtout plus d'enfermement de mineurs."
     axes: { societe: 1 }
+    detail:
+      chiffrage:
+        texte: "Il faut aujourd'hui 12,1 mois en moyenne entre la saisine du parquet et la condamnation d'un mineur, contre 17 mois avant la réforme de 2021."
+        source: { organisme: "Inspection générale de la justice", annee: 2025 }
+      defenseurs:
+        - texte: "Juger vite est possible : en audience unique, la condamnation tombait en 2,4 mois en moyenne en 2024."
+          source: { organisme: "Inspection générale de la justice", annee: 2025 }
+        - texte: "Trop de mineurs échappent au procès : 63 % des réponses de la justice aux mineurs se faisaient sans procès en 2020, contre 46 % pour les majeurs."
+          source: { organisme: "Ministère de la Justice", annee: 2022 }
+        - texte: "Garder une justice propre aux mineurs n'empêche pas de punir vite et fermement les faits graves et la récidive."
+      critiques:
+        - texte: "La comparution immédiate dès seize ans a déjà été censurée en 2025 comme contraire à la Constitution."
+        - texte: "La justice des mineurs est déjà plus sévère : la prison ferme prononcée est passée de 5,5 mois en moyenne en 2010 à 9 mois en 2020."
+          source: { organisme: "Ministère de la Justice", annee: 2022 }
+        - texte: "Elle enfermerait davantage de mineurs, alors que la plupart des détenus attendent encore leur jugement : 451, contre 288 condamnés, au 1er janvier 2025."
+          source: { organisme: "Ministère de la Justice", annee: 2025 }
   - id: C
     libelle: "Abaisser la majorité pénale à 16 ans"
     implique: "Les 16 et 17 ans seraient jugés comme des majeurs. Le Conseil constitutionnel ayant jugé en 2025 que l'atténuation de la responsabilité selon l'âge est un principe fondamental de la République, une telle réforme poserait la question d'une révision de la Constitution."
     defenseurs: "À 16 ans, on mesure la portée de ses actes : juger les 16-17 ans comme des adultes protège mieux les victimes et rend la sanction plus dissuasive."
     critiques: "Selon ses opposants, cela supposerait de réviser la Constitution, et des adolescents encourraient des peines d'adultes sans accompagnement éducatif."
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Elle viserait les 16 et 17 ans, qui font 89 % des 810 mineurs suivis en milieu fermé au 1er janvier 2025."
+        source: { organisme: "Ministère de la Justice", annee: 2025 }
+      defenseurs:
+        - texte: "Les mineurs réagissent aux sanctions comme les adultes : aux États-Unis, des peines adoucies expliqueraient 60 % de la hausse plus rapide de leur violence de 1978 à 1993."
+          source: { organisme: "Steven Levitt", document: "Journal of Political Economy", annee: 1998 }
+        - texte: "Les mineurs pèsent de plus en plus dans les vols avec arme : 33 % des personnes soupçonnées en 2025, 6 points de plus qu'en 2016."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+        - texte: "Les victimes ont droit à la même justice, que l'auteur ait seize ou dix-huit ans."
+      critiques:
+        - texte: "Juger des mineurs comme des adultes les fait récidiver davantage : 34 % de crimes ou délits en plus ensuite, d'après six études américaines."
+          source: { organisme: "Agence de santé publique des États-Unis", annee: 2007 }
+        - texte: "La plupart des voisins gardent dix-huit ans : sur 11 pays européens étudiés en 2007, seuls le Danemark et le Portugal faisaient autrement."
+          source: { organisme: "Sénat", annee: 2007 }
+        - texte: "Elle se heurterait à un principe fondamental de la République, l'atténuation de la peine en fonction de l'âge, et supposerait de réviser la Constitution."
   - id: D
     libelle: "Abaisser la majorité pénale à 16 ans et faire de l'excuse de minorité l'exception dès 13 ans"
     implique: "Majorité pénale à 16 ans ; dès 13 ans, la peine d'adulte devient la règle et l'excuse de minorité une exception accordée par le juge ; comparution immédiate dès 13 ans pour les cas graves."
     defenseurs: "Un adolescent de 13 ans qui commet un fait grave doit répondre de ses actes : l'excuse de minorité devient une exception accordée au cas par cas."
     critiques: "C'est la rupture la plus nette avec le droit des mineurs, qui fixe la majorité pénale à 18 ans depuis 1906 : des enfants de 13 ans encourraient des peines d'adultes."
     axes: { societe: 2 }
+    detail:
+      chiffrage:
+        texte: "Elle s'étendrait aux moins de 16 ans, qui font 11 % des mineurs suivis en milieu fermé au 1er janvier 2025."
+        source: { organisme: "Ministère de la Justice", annee: 2025 }
+      defenseurs:
+        - texte: "Les plus jeunes commettent aussi des faits très graves : en 2024, un tiers des mineurs soupçonnés d'homicide avaient moins de 16 ans."
+          source: { organisme: "Inspection générale de la justice", annee: 2025 }
+        - texte: "Dès treize ans, la loi présume déjà qu'un mineur comprend ce qu'il fait : il doit répondre de ses actes graves."
+        - texte: "Une excuse de minorité accordée au cas par cas laisse au juge la clémence pour ceux qui la méritent."
+      critiques:
+        - texte: "La part des mineurs parmi les personnes soupçonnées baisse pour 10 des 18 types de faits suivis par la police et la gendarmerie."
+          source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
+        - texte: "Rien ne montre que les auteurs soient de plus en plus jeunes : ce rajeunissement n'a jamais pu être vraiment établi."
+        - texte: "Des enfants de treize ans encourraient des peines d'adultes, une rupture avec plus d'un siècle de droit des mineurs."
 pourAllerPlusLoin:
   - titre: "Conseil constitutionnel, décision n° 2025-886 DC du 19 juin 2025"
     url: https://www.conseil-constitutionnel.fr/decision/2025/2025886DC.htm
