@@ -288,16 +288,42 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
 .story-video .outil .plein { fill: var(--chalk); }
 .story-video .fermer svg { width: 46%; height: 46%; stroke-width: 3; }
 .story-video .outil:focus-visible { outline: 3px solid var(--chalk); outline-offset: 2px; }
-/* Le défilement : la dernière image de chaque écran, l'une sous l'autre, chacune à la taille du cadre. Un geste passe
-   une image, pas plus. */
+/* Le défilement : la dernière image de chaque écran, l'une à côté de l'autre, chacune à la taille du cadre, dans le sens
+   des tirets. Un geste passe une image, pas plus. Toucher fait comme sur la vidéo : les côtés, dessous, ne servent plus
+   qu'au clavier, et la flèche paraît sous la souris. */
 .story-video .defilement {
-  position: absolute; inset: 0; overflow-y: auto; overscroll-behavior: contain; scroll-snap-type: y mandatory;
-  scroll-behavior: smooth; scrollbar-width: none; background: var(--ink-deep);
+  position: absolute; inset: 0; display: flex; overflow-x: auto; overflow-y: hidden; overscroll-behavior: contain;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; background: var(--ink-deep); cursor: pointer;
 }
 .story-video .defilement::-webkit-scrollbar { display: none; }
 .story-video .defilement img {
-  display: block; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: start; scroll-snap-stop: always;
+  flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: start; scroll-snap-stop: always;
 }
+.story-video .defilement ~ .cote { pointer-events: none; }
+.story-video .cote.survole .fleche { opacity: 1; }
+/* Les tirets gravés en haut de la vidéo et de ses images : dans l'image de 1 080 × 1 920, à 234 px du haut, 8 px de
+   haut, de 80 à 960 px, 10 px entre deux. Par-dessus chacun, un bouton invisible, aussi large que son tiret et ses
+   deux demi-espaces, assez haut pour le doigt ; la souris l'épaissit. Le cadre est l'image dans la story. */
+.affiche.story-video { container-type: size; }
+.story-video .cadre {
+  position: absolute; inset: 0; margin: auto; width: min(100cqw, 56.25cqh); height: min(100cqh, 177.78cqw);
+  pointer-events: none;
+}
+.story-video .tirets {
+  position: absolute; left: 6.944%; right: 10.648%; top: 12.396%; height: max(40px, 4%); translate: 0 -50%;
+  display: flex; container-type: inline-size;
+}
+.story-video .tiret {
+  flex: 1; position: relative; padding: 0; border: 0; background: none; cursor: pointer; pointer-events: auto;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.story-video .tiret::after {
+  content: ""; position: absolute; left: .56cqw; right: .56cqw; top: 50%; height: 1.8cqw; translate: 0 -50%;
+  border-radius: 1cqw; background: var(--chalk); opacity: 0; transition: opacity .15s;
+}
+@media (hover: hover) { .story-video .tiret:hover::after { opacity: 1; } }
+.story-video .tiret:focus-visible { outline: none; }
+.story-video .tiret:focus-visible::after { opacity: 1; outline: 2px solid var(--chalk); outline-offset: 3px; }
 .ecran-partage .faits { padding: clamp(26px, 4 * var(--u), 48px) var(--padX) 0; display: flex; flex-direction: column; --ctx: 17px; }
 .ecran-partage .ctx { counter-reset: phrase; display: grid; gap: calc(var(--ctx) * .8); }
 .ecran-partage .ctx p {
@@ -414,7 +440,7 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
   .actionbar .go { font-size: clamp(22px, min(1.8vw, 3.2 * var(--u)), 34px); padding: clamp(18px, 2.9 * var(--u), 34px) 18px; box-shadow: 0 8px 0 var(--theme-edge); }
 }
 @media (prefers-reduced-motion: reduce) {
-  button.affiche, .story-video .fleche { transition: none; }
+  button.affiche, .story-video .fleche, .story-video .tiret::after { transition: none; }
   .story-video .defilement { scroll-behavior: auto; }
 }
 
