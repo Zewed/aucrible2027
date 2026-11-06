@@ -1,0 +1,21 @@
+content/questions/053-sixieme-republique.yaml
+  s_9391bd418365d9::t_8d62724d8a7e8f 14
+content/videos-verrouillees.yaml
+  s_9391bd418365d9::t_b20fd6a40a7c62 56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "31cfd1bd073bfa1e7971d2f5b7b2efe080742793",
+  "prompts": {},
+  "sessions": {
+    "s_9391bd418365d9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5324a816-2627-4245-9c29-f4f14c0f3cd0",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
