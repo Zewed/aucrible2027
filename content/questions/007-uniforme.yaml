@@ -112,27 +112,27 @@ story:
     precision: "ou choix local"
 positions:
   # Programme 2022 : https://www.france24.com/fr/france/20220323-pr%C3%A9sidentielle-que-proposent-les-candidats-en-mati%C3%A8re-d-%C3%A9ducation ; proposition de loi RN : https://lcp.fr/actualites/uniforme-ecole-rassemblement-national-echoue-rendre-obligatoire-160476
-  le-pen: { option: C, source: "Programme 2022, 23/03/2022 ; proposition de loi RN, 12/01/2023", statut: deduite }
+  le-pen: { option: C, source: "Programme 2022, 23/03/2022 ; proposition de loi RN, 12/01/2023", statut: deduite, citation: "rétablir le port d'un uniforme à l'école primaire et au collège", lien: "https://www.france24.com/fr/france/20220323-pr%C3%A9sidentielle-que-proposent-les-candidats-en-mati%C3%A8re-d-%C3%A9ducation" }
   # Vote contre la proposition de loi RN : https://lcp.fr/actualites/uniforme-ecole-rassemblement-national-echoue-rendre-obligatoire-160476
-  melenchon: { option: A, source: "Groupe LFI contre la proposition de loi RN, 12/01/2023", statut: deduite }
+  melenchon: { option: A, source: "Groupe LFI contre la proposition de loi RN, 12/01/2023", statut: deduite, lien: "https://lcp.fr/actualites/uniforme-ecole-rassemblement-national-echoue-rendre-obligatoire-160476" }
   # https://www.publicsenat.fr/actualites/politique/presidentielle-2027-que-proposent-les-candidats-pour-lecole
-  philippe: { option: B, source: "Public Sénat, 31/08/2026", statut: officielle }
+  philippe: { option: B, source: "Public Sénat, 31/08/2026", statut: officielle, lien: "https://www.publicsenat.fr/actualites/politique/presidentielle-2027-que-proposent-les-candidats-pour-lecole" }
   # Proposition de loi cosignée au Sénat : https://www.publicsenat.fr/actualites/politique/uniformes-obligatoires-a-l-ecole-une-proposition-de-loi-deposee-au-senat-231733
-  retailleau: { option: C, source: "Proposition de loi LR au Sénat, 05/01/2023", statut: deduite }
+  retailleau: { option: C, source: "Proposition de loi LR au Sénat, 05/01/2023", statut: deduite, lien: "https://www.publicsenat.fr/actualites/politique/uniformes-obligatoires-a-l-ecole-une-proposition-de-loi-deposee-au-senat-231733" }
   # https://connexionfrance.com/French-news/Far-right-French-election-candidate-calls-for-state-school-uniforms
-  zemmour: { option: C, source: "Conférence de presse, 10/01/2022", statut: deduite }
+  zemmour: { option: C, source: "Conférence de presse, 10/01/2022", statut: deduite, lien: "https://connexionfrance.com/French-news/Far-right-French-election-candidate-calls-for-state-school-uniforms" }
   # https://www.france24.com/fr/france/20220323-pr%C3%A9sidentielle-que-proposent-les-candidats-en-mati%C3%A8re-d-%C3%A9ducation
-  dupont-aignan: { option: B, source: "Programme 2022, 23/03/2022", statut: deduite }
+  dupont-aignan: { option: B, source: "Programme 2022, 23/03/2022", statut: deduite, citation: "autoriser le port de l'uniforme", lien: "https://www.france24.com/fr/france/20220323-pr%C3%A9sidentielle-que-proposent-les-candidats-en-mati%C3%A8re-d-%C3%A9ducation" }
   # https://www.lutte-ouvriere.org/breves/uniforme-scolaire-cachez-ces-inegalites-que-je-ne-saurais-voir-468155.html
-  arthaud: { option: A, source: "Lutte ouvrière, 13/01/2023", statut: deduite }
+  arthaud: { option: A, source: "Lutte ouvrière, 13/01/2023", statut: deduite, lien: "https://www.lutte-ouvriere.org/breves/uniforme-scolaire-cachez-ces-inegalites-que-je-ne-saurais-voir-468155.html" }
   # Ministre de l'Éducation, annonce de l'expérimentation de la tenue commune, 2023 (L'Info durable, AFP) ; mesures École et jeunesse, attalpresident.fr, 25/08 et 11/10/2026 : https://www.linfodurable.fr/uniforme-lecole-une-experimentation-de-grande-ampleur-annoncee-sous-peu-dit-attal-42583
-  attal: { option: B, source: "Ministre de l'Éducation, annonce de l'expérimentation de la tenue commune, 2023 (L'Info durable, AFP) ; mesures École et jeunesse, attalpresident.fr, 25/08 et 11/10/2026", statut: estimee }
+  attal: { option: B, source: "Ministre de l'Éducation, annonce de l'expérimentation de la tenue commune, 2023 (L'Info durable, AFP) ; mesures École et jeunesse, attalpresident.fr, 25/08 et 11/10/2026", statut: estimee, lien: "https://www.linfodurable.fr/uniforme-lecole-une-experimentation-de-grande-ampleur-annoncee-sous-peu-dit-attal-42583" }
   # LCI, 30/08/2023, cité par la FAQ de Nouvelle Énergie « Quel candidat veut donner leur autonomie aux établissements scolaires ? » (2026) : https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-donner-leur-autonomie-aux-etablissements-scolaires/
-  lisnard: { option: B, source: "LCI, 30/08/2023, cité par la FAQ de Nouvelle Énergie « Quel candidat veut donner leur autonomie aux établissements scolaires ? » (2026)", statut: officielle }
+  lisnard: { option: B, source: "LCI, 30/08/2023, cité par la FAQ de Nouvelle Énergie « Quel candidat veut donner leur autonomie aux établissements scolaires ? » (2026)", statut: officielle, citation: "c'est au chef d'établissement de décider et ensuite de rendre des comptes à l'autorité de l'état", lien: "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-donner-leur-autonomie-aux-etablissements-scolaires/" }
   # Télématin (France 2), 18/12/2023, rapporté par ÉlyséeScope [source secondaire] : https://www.elyseescope.com/candidat/fabien-roussel/education-q25-
-  roussel: { option: A, source: "Télématin (France 2), 18/12/2023, rapporté par ÉlyséeScope [source secondaire]", statut: estimee }
+  roussel: { option: A, source: "Télématin (France 2), 18/12/2023, rapporté par ÉlyséeScope [source secondaire]", statut: estimee, lien: "https://www.elyseescope.com/candidat/fabien-roussel/education-q25-" }
   # Assemblée nationale, question écrite n° 1439 de S. Regol (groupe écologiste), 29/10/2024, réponse au JO du 11/02/2025 : https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE1439
-  tondelier: { option: A, source: "Assemblée nationale, question écrite n° 1439 de S. Regol (groupe écologiste), 29/10/2024, réponse au JO du 11/02/2025", statut: estimee }
+  tondelier: { option: A, source: "Assemblée nationale, question écrite n° 1439 de S. Regol (groupe écologiste), 29/10/2024, réponse au JO du 11/02/2025", statut: estimee, lien: "https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE1439" }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   accroche:

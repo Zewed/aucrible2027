@@ -130,25 +130,25 @@ story:
 positions:
   # La France insoumise, 13/01/2026 : https://lafranceinsoumise.fr/2026/01/13/pour-la-suspension-de-laccord-dassociation-ue-israel-et-la-fin-de-la-complicite-de-leurope-dans-le-genocide-en-palestine/ ; groupe LFI, 02/04/2024 : https://lafranceinsoumise.fr/2024/04/02/israel-gaza-les-paroles-ne-suffisent-pas-il-faut-passer-aux-actes/
   # L'Avenir en commun, édition 2025, chap. 16 : https://melenchon2027.fr/programme2025/livre/chapitre16/s4/
-  melenchon: { option: D, source: "L'Avenir en commun, édition 2025, chap. 16", statut: officielle }
+  melenchon: { option: D, source: "L'Avenir en commun, édition 2025, chap. 16", statut: officielle, citation: "Mettre en place des sanctions contre le gouvernement Netanyahou, interrompre les accords de coopération économique avec Israël et décréter un embargo sur les armes", lien: "https://melenchon2027.fr/programme2025/livre/" }
   # Place publique, 21/08/2026 : https://place-publique.eu/posts/2i0gWFYaKIzY29qXbIwzpP/l-europe-doit-s-elever-contre-la-colonisation-israelienne
-  glucksmann: { option: D, source: "Place publique, 21/08/2026", statut: deduite }
+  glucksmann: { option: D, source: "Place publique, 21/08/2026", statut: deduite, citation: "Conditionner la coopération avec Israël au respect du droit international et suspendre l'accord d'association UE-Israël.", lien: "https://place-publique.eu/posts/2i0gWFYaKIzY29qXbIwzpP/l-europe-doit-s-elever-contre-la-colonisation-israelienne" }
   # Discours, université d'été du PCF, 26/08/2025 : https://www.pcf.fr/ue_25_discours_fr
-  roussel: { option: D, source: "Discours, université d'été du PCF, 26/08/2025", statut: officielle }
+  roussel: { option: D, source: "Discours, université d'été du PCF, 26/08/2025", statut: officielle, citation: "Nous appelons au boycott militaire et commercial dès maintenant avec ce régime raciste, criminel !", lien: "https://www.pcf.fr/ue_25_discours_fr" }
   # francoisruffin.fr, 05/12/2024 : https://francoisruffin.fr/gaza-est-ce-un-genocide/
-  ruffin: { option: D, source: "francoisruffin.fr, 05/12/2024", statut: deduite }
+  ruffin: { option: D, source: "francoisruffin.fr, 05/12/2024", statut: deduite, citation: "Nous aurions pu demander la suspension de l’accord commercial entre l’Union européenne et Israël.", lien: "https://francoisruffin.fr/gaza-est-ce-un-genocide/" }
   # Lettre à Emmanuel Macron cosignée, 27/07/2025 : https://www.pcf.fr/lettre-au-president-palestine-2025
-  tondelier: { option: D, source: "Lettre à Emmanuel Macron cosignée, 27/07/2025", statut: officielle }
+  tondelier: { option: D, source: "Lettre à Emmanuel Macron cosignée, 27/07/2025", statut: officielle, citation: "l'exigence de sanctions contre le gouvernement israélien, en particulier la suspension de l'accord d'association entre l'Union Européenne et l'Etat d'Israël", lien: "https://www.pcf.fr/lettre-au-president-palestine-2025" }
   # Lutte ouvrière, brève « Un geste contre leur sale guerre », 09/06/2025 : https://www.lutte-ouvriere.org/portail/breves/geste-contre-sale-guerre-184948.html
-  arthaud: { option: D, source: "Lutte ouvrière, brève « Un geste contre leur sale guerre », 09/06/2025", statut: estimee }
+  arthaud: { option: D, source: "Lutte ouvrière, brève « Un geste contre leur sale guerre », 09/06/2025", statut: estimee, lien: "https://www.lutte-ouvriere.org/portail/breves/geste-contre-sale-guerre-184948.html" }
   # Premier ministre, sanctions françaises contre 28 colons israéliens violents (interdiction du territoire), ministère des Affaires étrangères, 13/02/2024 : https://www.diplomatie.gouv.fr/en/country-files/israel-palestinian-territories/news/2024/article/israel-palestinian-territories-france-adopts-sanctions-against-violent-israeli
-  attal: { option: C, source: "Premier ministre, sanctions françaises contre 28 colons israéliens violents (interdiction du territoire), ministère des Affaires étrangères, 13/02/2024", statut: estimee }
+  attal: { option: C, source: "Premier ministre, sanctions françaises contre 28 colons israéliens violents (interdiction du territoire), ministère des Affaires étrangères, 13/02/2024", statut: estimee, lien: "https://www.diplomatie.gouv.fr/en/country-files/israel-palestinian-territories/news/2024/article/israel-palestinian-territories-france-adopts-sanctions-against-violent-israeli" }
   # Vote nominatif au Parlement européen, 11/09/2025, résolution « Gaza at breaking point » (RC-B10-0372/2025) : 28 eurodéputés RN sur 29 s'abstiennent : https://howtheyvote.eu/votes/179048
-  le-pen: { option: B, source: "Vote nominatif au Parlement européen, 11/09/2025, résolution « Gaza at breaking point » (RC-B10-0372/2025) : 28 eurodéputés RN sur 29 s'abstiennent", statut: estimee }
+  le-pen: { option: B, source: "Vote nominatif au Parlement européen, 11/09/2025, résolution « Gaza at breaking point » (RC-B10-0372/2025) : 28 eurodéputés RN sur 29 s'abstiennent", statut: estimee, lien: "https://howtheyvote.eu/votes/179048" }
   # Vote nominatif au Parlement européen, 11/09/2025, résolution « Gaza at breaking point » (RC-B10-0372/2025), qui demande de sanctionner deux ministres israéliens et de suspendre le volet commercial de l'accord d'association : les eurodéputés LR Bellamy, Gomart et Morano votent contre : https://howtheyvote.eu/votes/179048
-  retailleau: { option: B, source: "Vote nominatif au Parlement européen, 11/09/2025, résolution « Gaza at breaking point » (RC-B10-0372/2025), qui demande de sanctionner deux ministres israéliens et de suspendre le volet commercial de l'accord d'association : les eurodéputés LR Bellamy, Gomart et Morano votent contre", statut: estimee }
+  retailleau: { option: B, source: "Vote nominatif au Parlement européen, 11/09/2025, résolution « Gaza at breaking point » (RC-B10-0372/2025), qui demande de sanctionner deux ministres israéliens et de suspendre le volet commercial de l'accord d'association : les eurodéputés LR Bellamy, Gomart et Morano votent contre", statut: estimee, lien: "https://howtheyvote.eu/votes/179048" }
   # Vote de S. Knafo (Reconquête) contre la résolution du Parlement européen « Gaza at breaking point », 11/09/2025 (communiqué du Parlement) : https://howtheyvote.eu/votes/179048
-  zemmour: { option: B, source: "Vote de S. Knafo (Reconquête) contre la résolution du Parlement européen « Gaza at breaking point », 11/09/2025 (communiqué du Parlement)", statut: estimee }
+  zemmour: { option: B, source: "Vote de S. Knafo (Reconquête) contre la résolution du Parlement européen « Gaza at breaking point », 11/09/2025 (communiqué du Parlement)", statut: estimee, lien: "https://howtheyvote.eu/votes/179048" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/029-israel.md (chaque chiffre y a sa source
 # numérotée, voir l'annexe de l'étude). Le fil : depuis le cessez-le-feu, la France a déjà pris des mesures ; faut-il
 # aller plus loin ou revenir en arrière ? Pas de « mécanisme » (aucun rapport « X pour 1 ») ni d'« écart » ; aucun

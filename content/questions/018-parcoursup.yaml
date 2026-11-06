@@ -128,31 +128,31 @@ story:
     precision: "en le réformant"
 positions:
   # https://www.sudradio.fr/societe/a-clermont-ferrand-melenchon-fait-salle-comble-pour-denoncer-lignominie-parcoursup
-  melenchon: { option: A, source: "Meeting à Cournon-d'Auvergne, 11/10/2026", statut: officielle }
+  melenchon: { option: A, source: "Meeting à Cournon-d'Auvergne, 11/10/2026", statut: officielle, citation: "nous ne sommes pas pour la sélection à l'université", lien: "https://www.sudradio.fr/societe/a-clermont-ferrand-melenchon-fait-salle-comble-pour-denoncer-lignominie-parcoursup" }
   # https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la
-  roussel: { option: A, source: "Propos rapportés par LCP, 26/10/2026", statut: officielle }
+  roussel: { option: A, source: "Propos rapportés par LCP, 26/10/2026", statut: officielle, citation: "pour ouvrir les études à toutes et à tous", lien: "https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la" }
   # https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la
-  tondelier: { option: A, source: "France 2, 26/10/2026", statut: officielle }
+  tondelier: { option: A, source: "France 2, 26/10/2026", statut: officielle, lien: "https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la" }
   # https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la
-  glucksmann: { option: B, source: "TF1, 26/10/2026", statut: officielle }
+  glucksmann: { option: B, source: "TF1, 26/10/2026", statut: officielle, citation: "le supprimer pour le remplacer", lien: "https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la" }
   # https://www.publicsenat.fr/actualites/politique/crise-lyceenne-bruno-retailleau-veut-une-selection-a-luniversite
-  retailleau: { option: B, source: "Public Sénat, 14/10/2026", statut: officielle }
+  retailleau: { option: B, source: "Public Sénat, 14/10/2026", statut: officielle, citation: "Il faut une nouvelle plateforme, Parcoursup c'est une boîte noire", lien: "https://www.publicsenat.fr/actualites/politique/crise-lyceenne-bruno-retailleau-veut-une-selection-a-luniversite" }
   # https://www.titrespresse.com/24959422603/parcoursup-david-lisnard
-  lisnard: { option: B, source: "BFMTV, 13/10/2026", statut: officielle }
+  lisnard: { option: B, source: "BFMTV, 13/10/2026", statut: officielle, lien: "https://www.titrespresse.com/24959422603/parcoursup-david-lisnard" }
   # https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la
-  le-pen: { option: C, source: "CNews, 15/10/2026", statut: officielle }
+  le-pen: { option: C, source: "CNews, 15/10/2026", statut: officielle, lien: "https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la" }
   # https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la
-  attal: { option: C, source: "Meeting à Lyon, 10/10/2026", statut: officielle }
+  attal: { option: C, source: "Meeting à Lyon, 10/10/2026", statut: officielle, lien: "https://lcp.fr/actualites/parcoursup-suppression-remplacement-reforme-ce-que-proposent-les-candidats-a-la" }
   # https://www.publicsenat.fr/actualites/politique/parcoursup-que-proposent-les-candidats-sur-l-affectation-postbac-200502
-  zemmour: { option: C, source: "Campagne 2022, Public Sénat, 29/03/2022", statut: deduite }
+  zemmour: { option: C, source: "Campagne 2022, Public Sénat, 29/03/2022", statut: deduite, citation: "il faut rendre transparents les algorithmes de sélection", lien: "https://www.publicsenat.fr/actualites/politique/parcoursup-que-proposent-les-candidats-sur-l-affectation-postbac-200502" }
   # Cahier « Éducation : une école de tous les savoirs », octobre 2026, proposition 4 : https://nouspresident.fr/education-une-ecole-de-tous-les-savoirs/
-  ruffin: { option: B, source: "Cahier « Éducation : une école de tous les savoirs », octobre 2026, proposition 4", statut: officielle }
+  ruffin: { option: B, source: "Cahier « Éducation : une école de tous les savoirs », octobre 2026, proposition 4", statut: officielle, citation: "il faut remplacer Parcoursup par un système plus juste, plus transparent, et qui traite les jeunes comme des humains", lien: "https://nouspresident.fr/education-une-ecole-de-tous-les-savoirs/" }
   # Lutte ouvrière, « Parcoursup : non à la lutte des places », 14/10/2026 ; « Lecornu rend sa copie : très insuffisant », 28/10/2026 : https://lutte-ouvriere.org/journal/article/parcoursup-non-lutte-places-205845.html
-  arthaud: { option: A, source: "Lutte ouvrière, « Parcoursup : non à la lutte des places », 14/10/2026 ; « Lecornu rend sa copie : très insuffisant », 28/10/2026", statut: estimee }
+  arthaud: { option: A, source: "Lutte ouvrière, « Parcoursup : non à la lutte des places », 14/10/2026 ; « Lecornu rend sa copie : très insuffisant », 28/10/2026", statut: estimee, lien: "https://lutte-ouvriere.org/journal/article/parcoursup-non-lutte-places-205845.html" }
   # Debout la France, projet « Éducation » (instruction publique), mesure 51 (2026) : https://www.debout-la-france.fr/projet/instruction-publique/
-  dupont-aignan: { option: C, source: "Debout la France, projet « Éducation » (instruction publique), mesure 51 (2026)", statut: officielle }
+  dupont-aignan: { option: C, source: "Debout la France, projet « Éducation » (instruction publique), mesure 51 (2026)", statut: officielle, citation: "Réformer le système Parcoursup afin de le rendre équitable et transparent", lien: "https://www.debout-la-france.fr/projet/instruction-publique/" }
   # franceinfo, interview d'É. Philippe dans « L'Heure de vérité » (France 2), 08/10/2026 ; programme « Pour une France plus attentive à ses enfants » : https://www.franceinfo.fr/politique/edouard-philippe/immigration-retraites-allocations-familiales-parcoursup-ce-qu-il-faut-retenir-de-l-interview-d-edouard-philippe-dans-l-emission-l-heure-de-verite_8228416.html
-  philippe: { option: C, source: "franceinfo, interview d'É. Philippe dans « L'Heure de vérité » (France 2), 08/10/2026 ; programme « Pour une France plus attentive à ses enfants »", statut: estimee }
+  philippe: { option: C, source: "franceinfo, interview d'É. Philippe dans « L'Heure de vérité » (France 2), 08/10/2026 ; programme « Pour une France plus attentive à ses enfants »", statut: estimee, lien: "https://www.franceinfo.fr/politique/edouard-philippe/immigration-retraites-allocations-familiales-parcoursup-ce-qu-il-faut-retenir-de-l-interview-d-edouard-philippe-dans-l-emission-l-heure-de-verite_8228416.html" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/018-parcoursup.md (chaque chiffre y a sa source
 # numérotée ; compléments C1 à C3 et annexe). Chiffres de la session 2026, publiés en octobre 2026 [19] [20], plus
 # récents que ceux de la fiche (2025). Le fil : un outil qui reçoit toujours plus de candidats, que le gouvernement

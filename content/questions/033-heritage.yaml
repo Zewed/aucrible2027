@@ -155,31 +155,31 @@ story:
 positions:
   # https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election (programme du RN, 27/08/2026) ; https://www.institutmontaigne.org/presidentielle-2022/marine-le-pen/sortir-les-biens-immobiliers-de-lassiette-de-calcul-des-droits-de-succession-a-hauteur-de-300-000-euros (2022) ; vote RN pour l'amendement n° 665 : https://datan.fr/votes/legislature-17/vote_8854
   # Programme du RN, 2024 ; vote du groupe RN, 16/10/2026 : https://rassemblementnational.fr/documents/202406-programme.pdf
-  le-pen: { option: D, source: "Programme du RN, 2024 ; vote du groupe RN, 16/10/2026", statut: deduite }
+  le-pen: { option: D, source: "Programme du RN, 2024 ; vote du groupe RN, 16/10/2026", statut: deduite, citation: "Supprimer les impôts sur l'héritage direct pour les familles modestes et les classes moyennes", lien: "https://rassemblementnational.fr/documents/202406-programme.pdf" }
   # L'Avenir en commun, édition 2025, chap. 6 : https://melenchon2027.fr/programme2025/livre/chapitre6/s5/
-  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, chap. 6", statut: officielle }
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, chap. 6", statut: officielle, citation: "créer un héritage maximal de 12 millions d'euros", lien: "https://melenchon2027.fr/programme2025/livre/" }
   # Programme, edouardphilippe.fr, 2026 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants
-  philippe: { option: D, source: "Programme, edouardphilippe.fr, 2026", statut: officielle }
+  philippe: { option: D, source: "Programme, edouardphilippe.fr, 2026", statut: officielle, citation: "Augmenter massivement les plafonds de donation du vivant aux enfants et petits-enfants pendant les trois premières années du quinquennat.", lien: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-attentive-a-ses-enfants" }
   # Public Sénat, 24/08/2026 : https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann
-  glucksmann: { option: B, source: "Public Sénat, 24/08/2026", statut: officielle }
+  glucksmann: { option: B, source: "Public Sénat, 24/08/2026", statut: officielle, citation: "Nous augmenterons la rémunération nette des travailleurs français et nous le financerons en taxant les méga héritages, les 1% des plus gros héritages.", lien: "https://www.publicsenat.fr/actualites/politique/fiscalite-ecole-immigration-ce-que-propose-raphael-glucksmann" }
   # L'Opinion, 26/08/2026 : https://www.lopinion.fr/politique/bruno-retailleau-je-serai-le-president-qui-baissera-les-impots-de-succession
-  retailleau: { option: D, source: "L'Opinion, 26/08/2026", statut: officielle }
+  retailleau: { option: D, source: "L'Opinion, 26/08/2026", statut: officielle, citation: "Je ne serai pas le président qui augmentera les droits de succession mais celui qui les baissera.", lien: "https://www.lopinion.fr/politique/bruno-retailleau-je-serai-le-president-qui-baissera-les-impots-de-succession" }
   # BFMTV, 27/08/2026 : https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election
-  attal: { option: D, source: "BFMTV, 27/08/2026", statut: officielle }
+  attal: { option: D, source: "BFMTV, 27/08/2026", statut: officielle, lien: "https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election" }
   # Programme présidentiel 2022 : https://web.archive.org/web/20220527160820/https://programme.ericzemmour.fr/famille
-  zemmour: { option: D, source: "Programme présidentiel 2022", statut: deduite }
+  zemmour: { option: D, source: "Programme présidentiel 2022", statut: deduite, citation: "Exonérer 95% des familles françaises de droit de succession en mettant en place une franchise de 200 000 euros par enfant", lien: "https://web.archive.org/web/20220527160820/https://programme.ericzemmour.fr/famille" }
   # Conférence de presse des Écologistes, rapportée par LCP, 27/08/2026 : https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election
-  tondelier: { option: B, source: "Conférence de presse des Écologistes, rapportée par LCP, 27/08/2026", statut: officielle }
+  tondelier: { option: B, source: "Conférence de presse des Écologistes, rapportée par LCP, 27/08/2026", statut: officielle, citation: "La “grande transmission” doit financer la “grande transition”", lien: "https://lcp.fr/actualites/heritages-et-droits-de-succession-que-proposent-les-candidats-a-l-election" }
   # Proposition de loi n° 5095, 22/02/2022 : https://www.assemblee-nationale.fr/dyn/15/textes/l15b5095_proposition-loi.pdf
-  roussel: { option: B, source: "Proposition de loi n° 5095, 22/02/2022", statut: deduite }
+  roussel: { option: B, source: "Proposition de loi n° 5095, 22/02/2022", statut: deduite, citation: "faire payer aux plus aisés leur juste part d’impôt, grâce à un système progressif qui supprime les dispositifs d’optimisation", lien: "https://www.assemblee-nationale.fr/dyn/15/textes/l15b5095_proposition-loi.pdf" }
   # Projet Économie de Debout la France, mesure 17, 2026 : https://www.debout-la-france.fr/projet/economie-travail/
-  dupont-aignan: { option: D, source: "Projet Économie de Debout la France, mesure 17, 2026", statut: officielle }
+  dupont-aignan: { option: D, source: "Projet Économie de Debout la France, mesure 17, 2026", statut: officielle, citation: "Supprimer les droits de succession sur la résidence principale et sur les 100 premiers hectares de terres agricoles, doubler les plafonds d'exonération des donations", lien: "https://www.debout-la-france.fr/projet/economie-travail/" }
   # Atlantico, tribune, 13/04/2026 : https://www.unenouvelleenergie.fr/changer-de-logiciel-fiscal/
-  lisnard: { option: E, source: "Atlantico, tribune, 13/04/2026", statut: officielle }
+  lisnard: { option: E, source: "Atlantico, tribune, 13/04/2026", statut: officielle, citation: "Je propose ainsi la suppression des droits de succession en ligne directe", lien: "https://www.unenouvelleenergie.fr/changer-de-logiciel-fiscal/" }
   # Plan de redressement, nouspresident.fr, 21/10/2026 : https://nouspresident.fr/plan-de-redressement/
-  ruffin: { option: B, source: "Plan de redressement, nouspresident.fr, 21/10/2026", statut: officielle }
+  ruffin: { option: B, source: "Plan de redressement, nouspresident.fr, 21/10/2026", statut: officielle, citation: "refondre l’assiette et le barème des droits de succession avec une progressivité renforcée pour le top 1 %", lien: "https://nouspresident.fr/plan-de-redressement/" }
   # Lutte ouvrière, « Héritage : la poule aux œufs d'or », 25/09/2024 ; « Budget : tout le monde paiera… sauf les riches », 02/07/2025 : https://www.lutte-ouvriere.org/journal/article/budget-monde-paiera-sauf-riches-185500.html
-  arthaud: { option: B, source: "Lutte ouvrière, « Héritage : la poule aux œufs d'or », 25/09/2024 ; « Budget : tout le monde paiera… sauf les riches », 02/07/2025", statut: estimee }
+  arthaud: { option: B, source: "Lutte ouvrière, « Héritage : la poule aux œufs d'or », 25/09/2024 ; « Budget : tout le monde paiera… sauf les riches », 02/07/2025", statut: estimee, lien: "https://www.lutte-ouvriere.org/journal/article/budget-monde-paiera-sauf-riches-185500.html" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/033-heritage.md (chaque chiffre y a sa source
 # numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : l'impôt rapporte plus, l'héritage pèse plus,
 # et trois leviers permettent de le changer ; les camps s'opposent sur le niveau.

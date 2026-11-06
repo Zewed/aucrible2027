@@ -133,27 +133,27 @@ positions:
   # Euronews, 17/10/2026 : https://fr.euronews.com/2026/10/17/moins-de-fonds-pour-lukraine-et-budget-de-lue-en-baisse-que-changerait-une-victoire-de-le-
   le-pen: { option: A, source: "Euronews, 17/10/2026", statut: officielle }
   # Le Grand Continent, 06/10/2026 : https://legrandcontinent.eu/fr/2026/10/06/quelle-geopolitique-pour-la-primaire-socialiste/
-  glucksmann: { option: D, source: "Le Grand Continent, 06/10/2026", statut: officielle }
+  glucksmann: { option: D, source: "Le Grand Continent, 06/10/2026", statut: officielle, lien: "https://legrandcontinent.eu/fr/2026/10/06/quelle-geopolitique-pour-la-primaire-socialiste/" }
   # Vote du groupe Horizons, 12/03/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/988
-  philippe: { option: D, source: "Vote du groupe Horizons, 12/03/2025", statut: deduite }
+  philippe: { option: D, source: "Vote du groupe Horizons, 12/03/2025", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/988" }
   # Vote des députés Droite républicaine (LR), 12/03/2025 : https://questions.assemblee-nationale.fr/dyn/17/rapports/cion_afetr/l17b1001_rapport-fond.pdf
-  retailleau: { option: D, source: "Vote des députés Droite républicaine (LR), 12/03/2025", statut: deduite }
+  retailleau: { option: D, source: "Vote des députés Droite républicaine (LR), 12/03/2025", statut: deduite, lien: "https://questions.assemblee-nationale.fr/dyn/17/rapports/cion_afetr/l17b1001_rapport-fond.pdf" }
   # Débat à l'Assemblée nationale, 03/03/2025 : https://lcp.fr/actualites/situation-en-ukraine-et-securite-en-europe-que-retenir-du-debat-qui-a-eu-lieu-a-l
-  attal: { option: D, source: "Débat à l'Assemblée nationale, 03/03/2025", statut: officielle }
+  attal: { option: D, source: "Débat à l'Assemblée nationale, 03/03/2025", statut: officielle, citation: "Utilisons ces près de 300 milliards d'avoirs russes pour aider l'Ukraine", lien: "https://lcp.fr/actualites/situation-en-ukraine-et-securite-en-europe-que-retenir-du-debat-qui-a-eu-lieu-a-l" }
   # Projet 2027 des Écologistes, juillet 2026 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
-  tondelier: { option: D, source: "Projet 2027 des Écologistes, juillet 2026", statut: officielle }
+  tondelier: { option: D, source: "Projet 2027 des Écologistes, juillet 2026", statut: officielle, citation: "Consacrer les 140 milliards d'avoirs gelés russes bloqués dans les banques européennes à des réparations de guerre et au remboursement du prêt européen", lien: "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027" }
   # Public Sénat, 08/03/2022 : https://www.publicsenat.fr/actualites/politique/guerre-en-ukraine-que-le-camp-occidental-se-pose-en-sauveur-me-revolte-denonce
-  arthaud: { option: A, source: "Public Sénat, 08/03/2022", statut: deduite }
+  arthaud: { option: A, source: "Public Sénat, 08/03/2022", statut: deduite, citation: "On tue avec des bombes, mais on tue aussi en fomentant la misère, c'est la raison pour laquelle je suis contre les sanctions.", lien: "https://www.publicsenat.fr/actualites/politique/guerre-en-ukraine-que-le-camp-occidental-se-pose-en-sauveur-me-revolte-denonce" }
   # É. Zemmour, « Petit déjeuner politique », Sud Radio, 25/03/2022 : https://www.sudradio.fr/politique/remigration-une-fois-de-plus-jexprime-ce-que-pensent-les-francais-affirme-eric-zemmour
-  zemmour: { option: B, source: "É. Zemmour, « Petit déjeuner politique », Sud Radio, 25/03/2022", statut: deduite }
+  zemmour: { option: B, source: "É. Zemmour, « Petit déjeuner politique », Sud Radio, 25/03/2022", statut: deduite, citation: "Je pense que nous devons faire des sanctions pour amener à la paix, mais pas des sanctions qui se retournent contre nous", lien: "https://www.sudradio.fr/politique/remigration-une-fois-de-plus-jexprime-ce-que-pensent-les-francais-affirme-eric-zemmour" }
   # Debout la France, plan de paix pour l'Ukraine, point 7, 2022 (repris le 20/09/2025) ; projet « Affaires étrangères » : https://www.debout-la-france.fr/actualite/plan-de-paix-pour-lukraine-conference-de-presse/
-  dupont-aignan: { option: C, source: "Debout la France, plan de paix pour l'Ukraine, point 7, 2022 (repris le 20/09/2025) ; projet « Affaires étrangères »", statut: estimee }
+  dupont-aignan: { option: C, source: "Debout la France, plan de paix pour l'Ukraine, point 7, 2022 (repris le 20/09/2025) ; projet « Affaires étrangères »", statut: estimee, citation: "Retrait des sanctions au terme du processus de paix", lien: "https://www.debout-la-france.fr/actualite/plan-de-paix-pour-lukraine-conference-de-presse/" }
   # Sud Radio, 29/02/2024, cité par la FAQ de Nouvelle Énergie sur l'Ukraine (16/10/2026) ; « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026 : https://www.unenouvelleenergie.fr/questions/quelle-est-la-position-de-david-lisnard-sur-la-guerre-en-ukraine/
-  lisnard: { option: C, source: "Sud Radio, 29/02/2024, cité par la FAQ de Nouvelle Énergie sur l'Ukraine (16/10/2026) ; « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026", statut: estimee }
+  lisnard: { option: C, source: "Sud Radio, 29/02/2024, cité par la FAQ de Nouvelle Énergie sur l'Ukraine (16/10/2026) ; « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026", statut: estimee, lien: "https://www.unenouvelleenergie.fr/questions/quelle-est-la-position-de-david-lisnard-sur-la-guerre-en-ukraine/" }
   # AFP via Connaissance des énergies, 19/09/2026 ; vote du groupe GDR contre la résolution du 12/03/2025 (scrutin n° 988) : https://www.connaissancedesenergies.org/afp/carburants-sur-un-peage-dautoroute-fabien-roussel-pcf-appelle-a-la-mobilisation-260919
-  roussel: { option: B, source: "AFP via Connaissance des énergies, 19/09/2026 ; vote du groupe GDR contre la résolution du 12/03/2025 (scrutin n° 988)", statut: estimee }
+  roussel: { option: B, source: "AFP via Connaissance des énergies, 19/09/2026 ; vote du groupe GDR contre la résolution du 12/03/2025 (scrutin n° 988)", statut: estimee, lien: "https://www.connaissancedesenergies.org/afp/carburants-sur-un-peage-dautoroute-fabien-roussel-pcf-appelle-a-la-mobilisation-260919" }
   # Tribune « Pour une déclaration d'indépendance », Le Grand Continent, 25/02/2026 ; abstention sur la résolution européenne de soutien à l'Ukraine (saisie des avoirs russes), scrutin n° 988, 12/03/2025 : https://legrandcontinent.eu/fr/2026/02/25/pour-une-declaration-dindependance-la-doctrine-ruffin-sur-leurope/
-  ruffin: { option: C, source: "Tribune « Pour une déclaration d'indépendance », Le Grand Continent, 25/02/2026 ; abstention sur la résolution européenne de soutien à l'Ukraine (saisie des avoirs russes), scrutin n° 988, 12/03/2025", statut: estimee }
+  ruffin: { option: C, source: "Tribune « Pour une déclaration d'indépendance », Le Grand Continent, 25/02/2026 ; abstention sur la résolution européenne de soutien à l'Ukraine (saisie des avoirs russes), scrutin n° 988, 12/03/2025", statut: estimee, lien: "https://legrandcontinent.eu/fr/2026/02/25/pour-une-declaration-dindependance-la-doctrine-ruffin-sur-leurope/" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/031-russie.md (chaque chiffre y a sa source
 # numérotée). Le fil : des sanctions toujours plus nombreuses ; l'Europe achète beaucoup moins de gaz russe ;
 # quatre choix possibles ; les deux camps s'opposent sur l'effet, le coût, l'argent bloqué et l'énergie.

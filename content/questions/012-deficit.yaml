@@ -135,32 +135,32 @@ story:
     precision: "à augmenter d'abord"
 positions:
   # https://www.moneyvox.fr/impot/actualites/110673/140-milliards-economies-ce-quil-faut-retenir-de-intervention-de-marine-le-pen
-  le-pen: { option: A, source: "Contre-budget, 06/10/2026", statut: officielle }
+  le-pen: { option: A, source: "Contre-budget, 06/10/2026", statut: officielle, lien: "https://www.moneyvox.fr/impot/actualites/110673/140-milliards-economies-ce-quil-faut-retenir-de-intervention-de-marine-le-pen" }
   # https://melenchon2027.fr/wp-content/uploads/2026/10/Comment-nous-allons-remettre-de-l-ordre-dans-les-comptes-publics.pdf
-  melenchon: { option: C, source: "Plan « comptes publics », LFI, 10/2026", statut: officielle }
+  melenchon: { option: C, source: "Plan « comptes publics », LFI, 10/2026", statut: officielle, citation: "uniquement en faisant contribuer les plus riches", lien: "https://melenchon2027.fr/wp-content/uploads/2026/10/Comment-nous-allons-remettre-de-l-ordre-dans-les-comptes-publics.pdf" }
   # https://fr.euronews.com/2026/10/09/presidentielle-2027-edouard-philippe-mise-sur-le-travail-et-la-reduction-des-depenses-publ
-  philippe: { option: A, source: "Interview France 2, 09/10/2026", statut: officielle }
+  philippe: { option: A, source: "Interview France 2, 09/10/2026", statut: officielle, lien: "https://fr.euronews.com/2026/10/09/presidentielle-2027-edouard-philippe-mise-sur-le-travail-et-la-reduction-des-depenses-publ" }
   # https://www.publicsenat.fr/actualites/politique/dette-retraites-fiscalite-que-retenir-du-premier-debat-des-candidats-a-lelection-presidentielle
-  glucksmann: { option: B, source: "Débat du Medef, 27/08/2026", statut: officielle }
+  glucksmann: { option: B, source: "Débat du Medef, 27/08/2026", statut: officielle, citation: "par des économies et une taxation des plus hauts patrimoines", lien: "https://www.publicsenat.fr/actualites/politique/dette-retraites-fiscalite-que-retenir-du-premier-debat-des-candidats-a-lelection-presidentielle" }
   # https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de
-  retailleau: { option: A, source: "Plan d'économies, 12/10/2026", statut: officielle }
+  retailleau: { option: A, source: "Plan d'économies, 12/10/2026", statut: officielle, citation: "sans aucune hausse d'impôts", lien: "https://lcp.fr/actualites/face-a-une-france-quasiment-en-faillite-bruno-retailleau-presente-un-plan-d-economies-de" }
   # https://fr.finance.yahoo.com/actualites/dimp%C3%B4t-tue-contribuable-david-lisnard-154004603.html
-  lisnard: { option: A, source: "BFMTV-RMC, 13/10/2026", statut: officielle }
+  lisnard: { option: A, source: "BFMTV-RMC, 13/10/2026", statut: officielle, lien: "https://fr.finance.yahoo.com/actualites/dimp%C3%B4t-tue-contribuable-david-lisnard-154004603.html" }
   # https://www.publicsenat.fr/actualites/politique/dette-retraites-fiscalite-que-retenir-du-premier-debat-des-candidats-a-lelection-presidentielle
-  attal: { option: A, source: "Débat du Medef, 27/08/2026", statut: officielle }
+  attal: { option: A, source: "Débat du Medef, 27/08/2026", statut: officielle, lien: "https://www.publicsenat.fr/actualites/politique/dette-retraites-fiscalite-que-retenir-du-premier-debat-des-candidats-a-lelection-presidentielle" }
   # https://www.franceinfo.fr/economie/budget/c-est-faire-les-poches-des-francais-et-continuer-d-exonerer-les-plus-riches-juge-fabien-roussel-concernant-le-budget-2027_8202554.html
   # https://www.ifrap.org/comparateurs/presidentielles-2027
-  roussel: { option: C, source: "France Inter, 21/09/2026", statut: officielle }
+  roussel: { option: C, source: "France Inter, 21/09/2026", statut: officielle, lien: "https://www.franceinfo.fr/economie/budget/c-est-faire-les-poches-des-francais-et-continuer-d-exonerer-les-plus-riches-juge-fabien-roussel-concernant-le-budget-2027_8202554.html" }
   # https://www.debout-la-france.fr/projet/economie-travail/
-  dupont-aignan: { option: B, source: "Projet économie et travail, 2026", statut: officielle }
+  dupont-aignan: { option: B, source: "Projet économie et travail, 2026", statut: officielle, lien: "https://www.debout-la-france.fr/projet/economie-travail/" }
   # https://www.ici.fr/emissions/l-invite-d-ici-matin-ici-picardie/francois-ruffin-depute-de-la-somme-et-candidat-a-l-election-presidentielle-3905071
-  ruffin: { option: B, source: "ICI Picardie, 30/09/2026", statut: officielle }
+  ruffin: { option: B, source: "ICI Picardie, 30/09/2026", statut: officielle, lien: "https://www.ici.fr/emissions/l-invite-d-ici-matin-ici-picardie/francois-ruffin-depute-de-la-somme-et-candidat-a-l-election-presidentielle-3905071" }
   # Programme présidentiel 2022 d'É. Zemmour, « La Reconquête chiffrée et financée » ; plan « 140 milliards d'économies » de S. Knafo (Reconquête), budget2027.fr, 2026 : https://www.budget2027.fr/
-  zemmour: { option: A, source: "Programme présidentiel 2022 d'É. Zemmour, « La Reconquête chiffrée et financée » ; plan « 140 milliards d'économies » de S. Knafo (Reconquête), budget2027.fr, 2026", statut: deduite }
+  zemmour: { option: A, source: "Programme présidentiel 2022 d'É. Zemmour, « La Reconquête chiffrée et financée » ; plan « 140 milliards d'économies » de S. Knafo (Reconquête), budget2027.fr, 2026", statut: deduite, lien: "https://www.budget2027.fr/" }
   # Lutte ouvrière, « Plan Bayrou : quelle riposte ? », 30/07/2025 ; brochure de campagne de N. Arthaud, juin 2026, p. 6 : https://www.lutte-ouvriere.org/journal/article/plan-bayrou-riposte-186056.html
-  arthaud: { option: C, source: "Lutte ouvrière, « Plan Bayrou : quelle riposte ? », 30/07/2025 ; brochure de campagne de N. Arthaud, juin 2026, p. 6", statut: estimee }
+  arthaud: { option: C, source: "Lutte ouvrière, « Plan Bayrou : quelle riposte ? », 30/07/2025 ; brochure de campagne de N. Arthaud, juin 2026, p. 6", statut: estimee, citation: "Quant au budget de l'État et à la dette, ils doivent être payés intégralement par les profits patronaux.", lien: "https://www.lutte-ouvriere.org/journal/article/plan-bayrou-riposte-186056.html" }
   # Les Écologistes, « plan de sortie de crise » budgétaire, Public Sénat, 04/09/2025 : https://www.publicsenat.fr/actualites/politique/les-ecologistes-presentent-leur-plan-de-sortie-de-crise-et-preparent-la-cohabitation
-  tondelier: { option: B, source: "Les Écologistes, « plan de sortie de crise » budgétaire, Public Sénat, 04/09/2025", statut: deduite }
+  tondelier: { option: B, source: "Les Écologistes, « plan de sortie de crise » budgétaire, Public Sénat, 04/09/2025", statut: deduite, lien: "https://www.publicsenat.fr/actualites/politique/les-ecologistes-presentent-leur-plan-de-sortie-de-crise-et-preparent-la-cohabitation" }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   accroche:

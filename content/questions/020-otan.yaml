@@ -103,27 +103,27 @@ story:
     precision: "dans l'OTAN"
 positions:
   # https://melenchon2027.fr/programme2025/livre/
-  melenchon: { option: A, source: "L'Avenir en commun, édition 2025", statut: officielle }
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025", statut: officielle, lien: "https://melenchon2027.fr/programme2025/livre/" }
   # https://www.pcf.fr/rompre_avec_l_otan_pour_assurer_la_securit_collective
-  roussel: { option: A, source: "PCF, Rompre avec l'OTAN, 2022", statut: deduite }
+  roussel: { option: A, source: "PCF, Rompre avec l'OTAN, 2022", statut: deduite, lien: "https://www.pcf.fr/rompre_avec_l_otan_pour_assurer_la_securit_collective" }
   # https://actu.orange.fr/videos/politique/marine-le-pen-je-pense-qu-il-faut-sortir-du-commandement-integre-de-l-otan-CNT000002pxmsf.html
-  le-pen: { option: B, source: "BFMTV, 22/05/2026", statut: officielle }
+  le-pen: { option: B, source: "BFMTV, 22/05/2026", statut: officielle, citation: "Je pense qu'il faut sortir du commandement intégré de l'Otan", lien: "https://actu.orange.fr/videos/politique/marine-le-pen-je-pense-qu-il-faut-sortir-du-commandement-integre-de-l-otan-CNT000002pxmsf.html" }
   # https://www.europe1.fr/politique/otan-ce-que-proposent-les-principaux-candidats-a-la-presidentielle-4100861
-  zemmour: { option: B, source: "Programme 2022, Europe 1, 23/03/2022", statut: deduite }
+  zemmour: { option: B, source: "Programme 2022, Europe 1, 23/03/2022", statut: deduite, citation: "sortir du commandement militaire intégré", lien: "https://www.europe1.fr/politique/otan-ce-que-proposent-les-principaux-candidats-a-la-presidentielle-4100861" }
   # https://www.debout-la-france.fr/wp-content/uploads/2022/07/100-Decisions-pour-la-France_VFIN.pdf
-  dupont-aignan: { option: B, source: "100 décisions pour la France, décision 11, 2022", statut: deduite }
+  dupont-aignan: { option: B, source: "100 décisions pour la France, décision 11, 2022", statut: deduite, citation: "Sortie du commandement militaire intégré de l'OTAN", lien: "https://www.debout-la-france.fr/wp-content/uploads/2022/07/100-Decisions-pour-la-France_VFIN.pdf" }
   # https://www.europe1.fr/politique/otan-ce-que-proposent-les-principaux-candidats-a-la-presidentielle-4100861
-  retailleau: { option: C, source: "Programme 2022 de LR, Europe 1, 23/03/2022", statut: deduite }
+  retailleau: { option: C, source: "Programme 2022 de LR, Europe 1, 23/03/2022", statut: deduite, citation: "faire demeurer la France dans le commandement intégré de l'Otan", lien: "https://www.europe1.fr/politique/otan-ce-que-proposent-les-principaux-candidats-a-la-presidentielle-4100861" }
   # https://www.europe1.fr/politique/otan-ce-que-proposent-les-principaux-candidats-a-la-presidentielle-4100861
-  attal: { option: C, source: "Programme 2022 de la majorité, Europe 1, 23/03/2022", statut: deduite }
+  attal: { option: C, source: "Programme 2022 de la majorité, Europe 1, 23/03/2022", statut: deduite, lien: "https://www.europe1.fr/politique/otan-ce-que-proposent-les-principaux-candidats-a-la-presidentielle-4100861" }
   # Vote de R. Glucksmann pour la résolution du Parlement européen sur le livre blanc sur l'avenir de la défense européenne, 12/03/2025 (RC-B10-0146/2025), § 6 : https://howtheyvote.eu/votes/172867
-  glucksmann: { option: C, source: "Vote de R. Glucksmann pour la résolution du Parlement européen sur le livre blanc sur l'avenir de la défense européenne, 12/03/2025 (RC-B10-0146/2025), § 6", statut: estimee }
+  glucksmann: { option: C, source: "Vote de R. Glucksmann pour la résolution du Parlement européen sur le livre blanc sur l'avenir de la défense européenne, 12/03/2025 (RC-B10-0146/2025), § 6", statut: estimee, lien: "https://howtheyvote.eu/votes/172867" }
   # D. Lisnard, « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026 : https://www.unenouvelleenergie.fr/le-grand-entretien-avec-david-lisnard-quelle-strategie-pour-la-france-dans-le-nouveau-desordre-mondial/
-  lisnard: { option: C, source: "D. Lisnard, « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026", statut: estimee }
+  lisnard: { option: C, source: "D. Lisnard, « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026", statut: estimee, lien: "https://www.unenouvelleenergie.fr/le-grand-entretien-avec-david-lisnard-quelle-strategie-pour-la-france-dans-le-nouveau-desordre-mondial/" }
   # La Gazette France (AFP), « Le candidat à la présidentielle française Édouard Philippe rencontre Zelensky à Kiev », 26/05/2026 : https://www.lagazettefrance.fr/article/le-candidat-a-la-presidentielle-francaise-edouard-philippe-rencontre-zelensky-a-kiev
-  philippe: { option: C, source: "La Gazette France (AFP), « Le candidat à la présidentielle française Édouard Philippe rencontre Zelensky à Kiev », 26/05/2026", statut: estimee }
+  philippe: { option: C, source: "La Gazette France (AFP), « Le candidat à la présidentielle française Édouard Philippe rencontre Zelensky à Kiev », 26/05/2026", statut: estimee, lien: "https://www.lagazettefrance.fr/article/le-candidat-a-la-presidentielle-francaise-edouard-philippe-rencontre-zelensky-a-kiev" }
   # Les Écologistes, projet 2027, juillet 2026, p. 192 (cité par MonVote2027) ; programme 2022 d'EELV (Y. Jadot), Europe 1, 23/03/2022 : https://monvote2027.fr/candidat/tondelier
-  tondelier: { option: C, source: "Les Écologistes, projet 2027, juillet 2026, p. 192 (cité par MonVote2027) ; programme 2022 d'EELV (Y. Jadot), Europe 1, 23/03/2022", statut: estimee }
+  tondelier: { option: C, source: "Les Écologistes, projet 2027, juillet 2026, p. 192 (cité par MonVote2027) ; programme 2022 d'EELV (Y. Jadot), Europe 1, 23/03/2022", statut: estimee, lien: "https://monvote2027.fr/candidat/tondelier" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/020-otan.md (chaque chiffre y a sa source numérotée,
 # et l'annexe de l'étude dit d'où vient chacun). Le fil : 43 ans hors du commandement, 17 ans dedans ; ce que l'Alliance
 # demande désormais à ses membres ; trois choix ; puis qui commande, qui dépense, qui protège l'Europe, et la parole

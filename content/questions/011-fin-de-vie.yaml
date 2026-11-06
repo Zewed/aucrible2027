@@ -114,29 +114,29 @@ story:
     precision: "soins palliatifs d'abord"
 positions:
   # Vote contre la loi, lecture définitive du 15/07/2026 : https://datan.fr/votes/legislature-17/vote_8280 ; programme 2022 : https://www.ici.fr/infos/societe/fin-de-vie-quelles-sont-les-propositions-des-candidats-a-la-presidentielle-1649101440
-  le-pen: { option: A, source: "Vote contre la loi, 15/07/2026", statut: deduite }
+  le-pen: { option: A, source: "Vote contre la loi, 15/07/2026", statut: deduite, lien: "https://datan.fr/votes/legislature-17/vote_8280" }
   # JDD, 10/05/2025 (relayé par franceinfo, 11/05/2025) : https://www.franceinfo.fr/societe/euthanasie/aide-a-mourir-bruno-retailleau-s-oppose-au-texte-line-renaud-et-gabriel-attal-le-defendent_7240641.html
-  retailleau: { option: A, source: "JDD, 10/05/2025", statut: deduite }
+  retailleau: { option: A, source: "JDD, 10/05/2025", statut: deduite, lien: "https://www.franceinfo.fr/societe/euthanasie/aide-a-mourir-bruno-retailleau-s-oppose-au-texte-line-renaud-et-gabriel-attal-le-defendent_7240641.html" }
   # Déclaration vers le 12/01/2025 : https://video-streaming.orange.fr/actu-politique/david-lisnard-contre-un-droit-a-l-aide-active-a-mourir-CNT000002gYwMd.html
-  lisnard: { option: A, source: "Déclaration, janvier 2025", statut: deduite }
+  lisnard: { option: A, source: "Déclaration, janvier 2025", statut: deduite, lien: "https://video-streaming.orange.fr/actu-politique/david-lisnard-contre-un-droit-a-l-aide-active-a-mourir-CNT000002gYwMd.html" }
   # Programme 2022 (France Bleu, 05/04/2022) : https://www.ici.fr/infos/societe/fin-de-vie-quelles-sont-les-propositions-des-candidats-a-la-presidentielle-1649101440
-  zemmour: { option: A, source: "Programme 2022, 05/04/2022", statut: deduite }
+  zemmour: { option: A, source: "Programme 2022, 05/04/2022", statut: deduite, lien: "https://www.ici.fr/infos/societe/fin-de-vie-quelles-sont-les-propositions-des-candidats-a-la-presidentielle-1649101440" }
   # Intervention à l'Assemblée, 27/05/2024 : https://www.debout-la-france.fr/actualite/euthanasie-et-suicide-assiste-pourquoi-je-vote-contre-%C2%B7-assemblee-nationale-27-05-24/
-  dupont-aignan: { option: A, source: "Assemblée nationale, 27/05/2024", statut: deduite }
+  dupont-aignan: { option: A, source: "Assemblée nationale, 27/05/2024", statut: deduite, lien: "https://www.debout-la-france.fr/actualite/euthanasie-et-suicide-assiste-pourquoi-je-vote-contre-%C2%B7-assemblee-nationale-27-05-24/" }
   # Vote du groupe socialiste, lecture définitive du 15/07/2026 : https://datan.fr/votes/legislature-17/vote_8280
-  glucksmann: { option: B, source: "Vote du groupe socialiste, 15/07/2026", statut: deduite }
+  glucksmann: { option: B, source: "Vote du groupe socialiste, 15/07/2026", statut: deduite, lien: "https://datan.fr/votes/legislature-17/vote_8280" }
   # Vote pour la loi, 15/07/2026 : https://datan.fr/votes/legislature-17/vote_8280 ; tribune du 11/05/2025 : https://www.franceinfo.fr/societe/euthanasie/aide-a-mourir-bruno-retailleau-s-oppose-au-texte-line-renaud-et-gabriel-attal-le-defendent_7240641.html
-  attal: { option: B, source: "Vote pour la loi, 15/07/2026", statut: deduite }
+  attal: { option: B, source: "Vote pour la loi, 15/07/2026", statut: deduite, lien: "https://datan.fr/votes/legislature-17/vote_8280" }
   # Programme de juillet 2026, p. 130 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
-  tondelier: { option: B, source: "Programme 2027, juillet 2026, p. 130", statut: officielle }
+  tondelier: { option: B, source: "Programme 2027, juillet 2026, p. 130", statut: officielle, citation: "Instaurer un droit à mourir dans la dignité par l'adoption des deux lois sur la fin de vie", lien: "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027" }
   # Programme 2022 (France Bleu, 05/04/2022) : https://www.ici.fr/infos/societe/fin-de-vie-quelles-sont-les-propositions-des-candidats-a-la-presidentielle-1649101440
-  roussel: { option: B, source: "Programme 2022, 05/04/2022", statut: deduite }
+  roussel: { option: B, source: "Programme 2022, 05/04/2022", statut: deduite, lien: "https://www.ici.fr/infos/societe/fin-de-vie-quelles-sont-les-propositions-des-candidats-a-la-presidentielle-1649101440" }
   # Vote pour la loi, 15/07/2026 : https://datan.fr/votes/legislature-17/vote_8280
-  ruffin: { option: B, source: "Vote pour la loi, 15/07/2026", statut: deduite }
+  ruffin: { option: B, source: "Vote pour la loi, 15/07/2026", statut: deduite, lien: "https://datan.fr/votes/legislature-17/vote_8280" }
   # Programme 2022 (France Bleu, 05/04/2022) : https://www.ici.fr/infos/societe/fin-de-vie-quelles-sont-les-propositions-des-candidats-a-la-presidentielle-1649101440
-  arthaud: { option: B, source: "Programme 2022, 05/04/2022", statut: deduite }
+  arthaud: { option: B, source: "Programme 2022, 05/04/2022", statut: deduite, lien: "https://www.ici.fr/infos/societe/fin-de-vie-quelles-sont-les-propositions-des-candidats-a-la-presidentielle-1649101440" }
   # Proposition de loi LFI, 01/02/2018 : https://melenchon.fr/2018/02/02/droit-a-leuthanasie-suicide-assiste/
-  melenchon: { option: C, source: "Proposition de loi LFI, 01/02/2018", statut: deduite }
+  melenchon: { option: C, source: "Proposition de loi LFI, 01/02/2018", statut: deduite, lien: "https://melenchon.fr/2018/02/02/droit-a-leuthanasie-suicide-assiste/" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/011-fin-de-vie.md (chaque chiffre y a sa source
 # numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : de la loi de 2016 à celle de 2026, puis trois
 # choix, et quatre questions où chaque camp avance son meilleur fait. Sujet de conscience : aucune carte ne dit ni ne

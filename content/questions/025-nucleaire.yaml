@@ -129,37 +129,37 @@ story:
 positions:
   # Programme 2022 (Institut Montaigne) : https://www.institutmontaigne.org/presidentielle-2022/marine-le-pen/construire-6-epr-rouvrir-fessenheim-et-demanteler-toutes-les-eoliennes
   # RN au colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
-  le-pen: { option: D, source: "Programme 2022 (20 EPR, fin des éoliennes) ; RN, colloque de l'UFE, 23/06/2026", statut: deduite }
+  le-pen: { option: D, source: "Programme 2022 (20 EPR, fin des éoliennes) ; RN, colloque de l'UFE, 23/06/2026", statut: deduite, lien: "https://www.institutmontaigne.org/presidentielle-2022/marine-le-pen/construire-6-epr-rouvrir-fessenheim-et-demanteler-toutes-les-eoliennes" }
   # Livret programme LFI : https://programme.lafranceinsoumise.fr/livrets/energie/ ; https://melenchon2027.fr/construction-programme/
   # LFI au colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
   # Amendement de sortie voté par tout le groupe LFI, 18/06/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/2549
-  melenchon: { option: A, source: "Programme LFI (sortie du nucléaire, 100 % renouvelables) ; scrutin du 18/06/2025", statut: officielle }
+  melenchon: { option: A, source: "Programme LFI (sortie du nucléaire, 100 % renouvelables) ; scrutin du 18/06/2025", statut: officielle, citation: "planifier la sortie du nucléaire", lien: "https://programme.lafranceinsoumise.fr/livrets/energie/" }
   # Horizons au colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
-  philippe: { option: C, source: "Horizons (C. Béchu), colloque de l'UFE, 23/06/2026", statut: deduite }
+  philippe: { option: C, source: "Horizons (C. Béchu), colloque de l'UFE, 23/06/2026", statut: deduite, lien: "https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/" }
   # Programme climat relevé par votons-2027.fr : https://votons-2027.fr/candidats/glucksmann/programme/climat
   # LCP, 25/08/2026 : https://lcp.fr/actualites/presidentielle-2027-s-il-gagne-raphael-glucksmann-engagera-les-100-jours-de-la
-  glucksmann: { option: C, source: "Programme (« conforter le rôle du nucléaire ») ; LCP, 25/08/2026", statut: deduite }
+  glucksmann: { option: C, source: "Programme (« conforter le rôle du nucléaire ») ; LCP, 25/08/2026", statut: deduite, lien: "https://votons-2027.fr/candidats/glucksmann/programme/climat" }
   # Colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
   # Nogent-sur-Seine, 07/05/2026 : https://www.parlons-politique.fr/elections/a-quel-prix-la-fin-des-subventions-renouvelables-pour-leolien-et-le-solaire-retailleau-relance-le-bras-de-fer-sur-lenergie_15456/
-  retailleau: { option: D, source: "Colloque de l'UFE, 23/06/2026 ; Nogent-sur-Seine, 07/05/2026", statut: officielle }
+  retailleau: { option: D, source: "Colloque de l'UFE, 23/06/2026 ; Nogent-sur-Seine, 07/05/2026", statut: officielle, citation: "Je poursuis le programme EPR2, déjà avec la première tranche de 6 réacteurs", lien: "https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/" }
   # LCP, 23/06/2025 : https://lcp.fr/actualites/gabriel-attal-denonce-un-axe-anti-ecologie-lr-rn-a-l-assemblee-nationale-384529
   # Renaissance au colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
-  attal: { option: C, source: "Message du 23/06/2025 ; Renaissance, colloque de l'UFE, 23/06/2026", statut: deduite }
+  attal: { option: C, source: "Message du 23/06/2025 ; Renaissance, colloque de l'UFE, 23/06/2026", statut: deduite, citation: "conforme au seul mix énergétique responsable : celui qui inclut nucléaire et renouvelables", lien: "https://lcp.fr/actualites/gabriel-attal-denonce-un-axe-anti-ecologie-lr-rn-a-l-assemblee-nationale-384529" }
   # Programme 2022 (Institut Montaigne) : https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/investir-dans-le-nucleaire-en-construisant-14-nouveaux-epr-a-lhorizon-2050/
   # Programme 2027 relevé par l'iFRAP : https://www.ifrap.org/comparateurs/presidentielles-2027
-  zemmour: { option: D, source: "Programme 2022 (14 EPR, plus d'éoliennes) ; programme 2027 relevé par l'iFRAP", statut: deduite }
+  zemmour: { option: D, source: "Programme 2022 (14 EPR, plus d'éoliennes) ; programme 2027 relevé par l'iFRAP", statut: deduite, lien: "https://www.institutmontaigne.org/presidentielle-2022/eric-zemmour/investir-dans-le-nucleaire-en-construisant-14-nouveaux-epr-a-lhorizon-2050/" }
   # Colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
   # Programme des Écologistes relevé par l'iFRAP : https://www.ifrap.org/comparateurs/presidentielles-2027
-  tondelier: { option: A, source: "Colloque de l'UFE, 23/06/2026 ; programme des Écologistes (arrêt sur 20 ans)", statut: officielle }
+  tondelier: { option: A, source: "Colloque de l'UFE, 23/06/2026 ; programme des Écologistes (arrêt sur 20 ans)", statut: officielle, citation: "Pour nous, le nucléaire n'est pas une option viable, ni une alternative crédible", lien: "https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/" }
   # Colloque de l'UFE, 23/06/2026 : https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/
   # Programme 2022 (Effy, 10/03/2022) : https://www.effy.fr/magazine/presidentielle-2022-le-projet-fabien-roussel-en-matiere-de-politique-energetique
-  roussel: { option: C, source: "Colloque de l'UFE, 23/06/2026 ; programme 2022 (6 EPR minimum et renouvelables)", statut: deduite }
+  roussel: { option: C, source: "Colloque de l'UFE, 23/06/2026 ; programme 2022 (6 EPR minimum et renouvelables)", statut: deduite, citation: "Le nucléaire est la possibilité pour la France de multiplier l'atout que nous avons déjà aujourd'hui", lien: "https://www.sfen.org/rgn/presidentielle-2027-au-colloque-de-lufe-les-grands-partis-listent-leurs-positions-sur-le-nucleaire/" }
   # Projet « Économie et travail », mesures 1b et 25 : https://www.debout-la-france.fr/projet/economie-travail/
-  dupont-aignan: { option: D, source: "Projet de Debout la France, mesures 1b et 25, 2026", statut: officielle }
+  dupont-aignan: { option: D, source: "Projet de Debout la France, mesures 1b et 25, 2026", statut: officielle, citation: "le nucléaire est l'avenir de l'électricité", lien: "https://www.debout-la-france.fr/projet/economie-travail/" }
   # Cahier « Travaillisme écologique », septembre 2026 : https://nouspresident.fr/travaillisme-ecologique/
-  ruffin: { option: C, source: "Cahier « Travaillisme écologique », septembre 2026", statut: officielle }
+  ruffin: { option: C, source: "Cahier « Travaillisme écologique », septembre 2026", statut: officielle, citation: "Nous poursuivrons aussi la construction des six réacteurs EPR2", lien: "https://nouspresident.fr/travaillisme-ecologique/" }
   # Nouvelle Énergie, programme, axe « Générer un renouveau civique », section écologie (consulté le 28/10/2026) : https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/
-  lisnard: { option: D, source: "Nouvelle Énergie, programme, axe « Générer un renouveau civique », section écologie (consulté le 28/10/2026)", statut: officielle }
+  lisnard: { option: D, source: "Nouvelle Énergie, programme, axe « Générer un renouveau civique », section écologie (consulté le 28/10/2026)", statut: officielle, citation: "réinvestir les sommes ainsi économisées dans des projets d’avenir, en particulier les nouvelles technologies nucléaires", lien: "https://www.unenouvelleenergie.fr/notre-programme/generer-un-renouveau-civique/" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/025-nucleaire.md (chaque chiffre y a sa source
 # numérotée, et l'annexe de l'étude dit d'où vient chacun). Le fil : un parc qui vieillit (les plus vieux réacteurs
 # auront 60 ans en 2038, quand le premier neuf est attendu), un devis qui monte, quatre choix, puis quatre questions où

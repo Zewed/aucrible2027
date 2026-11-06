@@ -76,10 +76,7 @@ test("valider « À la carte, avec un système à points » révèle Nicolas Dup
   await validerMaReponse(page);
 
   await expect(page).toHaveURL(/\/revelation$/);
-  const defenseurs = page.getByRole("list", { name: "Sur ce sujet, tu es aligné·e avec" });
-  await expect(defenseurs.getByRole("listitem")).toHaveCount(2);
-  await expect(defenseurs.getByText("Nicolas Dupont-Aignan")).toBeVisible();
-  await expect(defenseurs.getByText("Édouard Philippe")).toBeVisible();
+  expect(await nomsDe(taColonne(page))).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
 });
 
 test("valider « 62 ans » révèle Marine Le Pen, Marine Tondelier et Raphaël Glucksmann", async ({ page }) => {
@@ -87,12 +84,7 @@ test("valider « 62 ans » révèle Marine Le Pen, Marine Tondelier et Raphaël 
   await choisir(page, "62 ans");
   await validerMaReponse(page);
 
-  const defenseurs = page.getByRole("list", { name: "Sur ce sujet, tu es aligné·e avec" });
-  await expect(defenseurs.getByRole("listitem")).toHaveCount(3);
-  for (const nom of ["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]) {
-    await expect(defenseurs.getByText(nom)).toBeVisible();
-  }
-  await expect(defenseurs.getByText("Édouard Philippe")).toHaveCount(0);
+  expect(await nomsDe(taColonne(page))).toEqual(["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]);
 });
 
 test("la carte de la question n° 24 affiche la puce « Travail & retraites » au-dessus de la question", async ({ page }) => {
@@ -187,12 +179,14 @@ test.describe("sur ordinateur, le menu est une colonne d'icônes à gauche, et l
     expect((await compte.boundingBox())!.y).toBeGreaterThan(400);
   });
 
-  test("la révélation aussi commence en haut, sans bandeau", async ({ page }) => {
+  test("la révélation aussi commence en haut, sans bandeau, sous le titre de sa question", async ({ page }) => {
     await page.goto("/questionnaire");
     await choisir(page, "62 ans");
     await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
-    await expect(page.getByRole("heading", { level: 1, name: "La révélation" }).filter({ visible: true })).toBeVisible();
+    const titre = page.getByRole("heading", { level: 1 }).filter({ visible: true });
+    await expect(titre).toHaveText("À quel âge devrait-on pouvoir partir à la retraite ?");
+    expect((await titre.boundingBox())!.y).toBeLessThan(150);
     await expect(page.locator(".strip").filter({ visible: true })).toHaveCount(0);
   });
 });
@@ -587,9 +581,7 @@ test("après A puis B et validation, la révélation nomme les défenseurs de B,
   await choisir(page, "62 ans");
   await validerMaReponse(page);
   await expect(page).toHaveURL(/\/revelation$/);
-  const defenseurs = page.getByRole("list", { name: "Sur ce sujet, tu es aligné·e avec" });
-  for (const nom of ["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]) await expect(defenseurs.getByText(nom)).toBeVisible();
-  for (const nom of ["Jean-Luc Mélenchon", "Fabien Roussel", "Nathalie Arthaud"]) await expect(defenseurs.getByText(nom)).toHaveCount(0);
+  expect(await nomsDe(taColonne(page))).toEqual(["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]);
 });
 
 /**
@@ -724,8 +716,15 @@ async function repondre(page: Page, libelle: string) {
 }
 
 const quiDefendQuoi = (page: Page) => page.getByRole("region", { name: "Qui défend quoi" });
-/** Les blocs des options A à E, sans celui des positions inconnues. */
+/** Les colonnes des options A à E, sans celle des positions inconnues. */
 const blocsDOption = (page: Page) => quiDefendQuoi(page).getByRole("article", { name: /^Option / });
+/** La colonne de l'option choisie, marquée « Ta réponse » (6 novembre 2026 : elle remplace « aligné·e avec »). */
+const taColonne = (page: Page) => quiDefendQuoi(page).getByRole("article").filter({ has: page.getByText("Ta réponse", { exact: true }) });
+/** Les noms d'une colonne, triés, une fois la colonne affichée. */
+async function nomsDe(colonne: import("@playwright/test").Locator) {
+  await expect(colonne.locator(".def-name").first()).toBeVisible();
+  return (await colonne.locator(".def-name").allInnerTexts()).map((t) => t.trim()).sort();
+}
 
 /** Les noms posés sous un bloc d'option de la révélation, triés (l'ordre affiché est l'affaire du ticket 025). */
 async function nomsSous(page: Page, option: string) {
@@ -764,27 +763,24 @@ test("quelle que soit la réponse, les cinq blocs s'affichent, annoncent leur no
 
 test.describe("la révélation rappelle l'option choisie", () => {
   for (const [lettre, libelle] of [["E", "À la carte, avec un système à points"], ["B", "62 ans"]]) {
-    test(`après ${lettre} (${libelle}), l'encart « Ta réponse » l'affiche et « Ta carte » est sur le bloc ${lettre}, nulle part ailleurs`, async ({ page }) => {
+    test(`après ${lettre} (${libelle}), la colonne ${lettre} porte « Ta réponse », et elle seule`, async ({ page }) => {
       await repondre(page, libelle);
-      const encart = page.getByRole("region", { name: `Ta réponse : ${lettre} · ${libelle}` });
-      await expect(encart).toBeVisible();
-      await expect(encart.getByText(lettre, { exact: true })).toBeVisible();
-      await expect(encart.getByText(libelle, { exact: true })).toBeVisible();
       const bloc = quiDefendQuoi(page).getByRole("article", { name: `Option ${lettre} : ${libelle}` });
-      await expect(bloc.getByText("Ta carte", { exact: true })).toBeVisible();
-      await expect(quiDefendQuoi(page).getByText("Ta carte", { exact: true })).toHaveCount(1);
+      await expect(bloc.getByText("Ta réponse", { exact: true })).toBeVisible();
+      await expect(bloc.getByText(lettre, { exact: true })).toBeVisible();
+      await expect(quiDefendQuoi(page).getByText("Ta réponse", { exact: true })).toHaveCount(1);
     });
   }
 });
 
 test.describe("la révélation rappelle l'importance donnée", () => {
   for (const [poids, pleines] of [["×1", 1], ["×2", 2], ["×3", 3]] as const) {
-    test(`après validation avec ${poids}, l'encart affiche « Importance ${poids} » avec ${pleines} pastille(s) pleine(s) sur 3`, async ({ page }) => {
+    test(`après validation avec ${poids}, la colonne de ta réponse affiche « Importance ${poids} » avec ${pleines} pastille(s) pleine(s) sur 3`, async ({ page }) => {
       await page.goto("/questionnaire");
       await choisir(page, "62 ans");
       await peser(page, poids);
       await validerMaReponse(page);
-      const encart = page.getByRole("region", { name: `Ta réponse : B · 62 ans. Importance ${poids}` });
+      const encart = quiDefendQuoi(page).getByRole("article", { name: "Option B : 62 ans" });
       await expect(encart.getByText(`Importance ${poids}`, { exact: true })).toBeVisible();
       const pastilles = encart.locator(".chips i");
       await expect(pastilles).toHaveCount(3);
@@ -793,11 +789,13 @@ test.describe("la révélation rappelle l'importance donnée", () => {
   }
 });
 
-/** La ligne de source posée sous le nom d'un candidat révélé. */
-const sourceDe = (page: Page, nom: string) =>
-  quiDefendQuoi(page).getByRole("listitem").filter({ has: page.getByText(nom, { exact: true }) }).locator(".def-doc");
+/** La ligne d'un candidat révélé, sous son option. */
+const ligneDe = (page: Page, nom: string) =>
+  quiDefendQuoi(page).getByRole("listitem").filter({ has: page.getByText(nom, { exact: true }) });
+/** La pastille du statut de sa position, au bout de sa ligne (6 novembre 2026). */
+const pastilleDe = (page: Page, nom: string) => ligneDe(page, nom).getByRole("button", { name: /^Position / });
 
-test("sur la révélation n° 24, chaque nom est suivi de la source datée de sa position", async ({ page }) => {
+test("sur la révélation n° 24, toucher la pastille d'un candidat ouvre la source datée de sa position", async ({ page }) => {
   await repondre(page, "62 ans");
   const attendues = {
     "Fabien Roussel": "Interview franceinfo, 21/09/2026",
@@ -806,50 +804,55 @@ test("sur la révélation n° 24, chaque nom est suivi de la source datée de sa
     "Bruno Retailleau": "Discours de rentrée, 12/09/2026",
   };
   for (const [nom, source] of Object.entries(attendues)) {
-    await expect(sourceDe(page, nom)).toHaveText(source);
-    const [n, s] = await Promise.all([quiDefendQuoi(page).getByText(nom, { exact: true }).boundingBox(), sourceDe(page, nom).boundingBox()]);
-    expect(s!.y).toBeGreaterThan(n!.y);
+    const bulle = ligneDe(page, nom).locator(".rev-bulle");
+    await expect(bulle).toBeHidden();
+    await pastilleDe(page, nom).tap();
+    await expect(bulle).toBeVisible();
+    await expect(bulle.locator(".rev-bulle-source")).toHaveText(source);
+    await page.keyboard.press("Escape");
+    await expect(bulle).toBeHidden();
   }
 });
 
-test("les 11 candidats rangés sous une option ont tous une source, lisible en entier", async ({ page }) => {
+test("les 11 candidats rangés sous une option ont chacun une pastille et une source", async ({ page }) => {
   await repondre(page, "62 ans");
   const lignes = blocsDOption(page).getByRole("listitem");
   await expect(lignes).toHaveCount(11);
   for (const ligne of await lignes.all()) {
-    const source = ligne.locator(".def-doc");
-    await expect(source).toBeVisible();
-    expect((await source.innerText()).trim().length).toBeGreaterThan(3);
-    expect(await source.evaluate((el) => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
+    await expect(ligne.getByRole("button", { name: /^Position / })).toHaveCount(1);
+    expect((await ligne.locator(".rev-bulle-source").textContent())!.trim().length).toBeGreaterThan(3);
   }
 });
 
-/** La ligne d'un candidat révélé, sous son option. */
-const ligneDe = (page: Page, nom: string) =>
-  quiDefendQuoi(page).getByRole("listitem").filter({ has: page.getByText(nom, { exact: true }) });
-
-test("sur la révélation n° 24, Roussel porte « position officielle », Arthaud et Le Pen « position déduite »", async ({ page }) => {
+test("sur la révélation n° 24, la pastille de Roussel dit « Position officielle », celles d'Arthaud et Le Pen « Position déduite »", async ({ page }) => {
   await repondre(page, "62 ans");
-  await expect(ligneDe(page, "Fabien Roussel").getByText("position officielle", { exact: true })).toBeVisible();
+  await expect(pastilleDe(page, "Fabien Roussel")).toHaveAccessibleName(/^Position officielle/);
   for (const nom of ["Nathalie Arthaud", "Marine Le Pen"]) {
-    await expect(ligneDe(page, nom).getByText("position déduite", { exact: true })).toBeVisible();
+    await expect(pastilleDe(page, nom)).toHaveAccessibleName(/^Position déduite/);
   }
 });
 
-test("les 11 candidats sourcés portent l'un ou l'autre badge, jamais les deux : 5 officielles, 6 déduites", async ({ page }) => {
+test("les 11 candidats sourcés portent une pastille, officielle ou déduite : 5 officielles, 6 déduites", async ({ page }) => {
   await repondre(page, "62 ans");
-  const lignes = blocsDOption(page).getByRole("listitem");
-  await expect(lignes).toHaveCount(11);
-  let officielles = 0;
-  let deduites = 0;
-  for (const ligne of await lignes.all()) {
-    const o = await ligne.getByText("position officielle", { exact: true }).filter({ visible: true }).count();
-    const d = await ligne.getByText("position déduite", { exact: true }).filter({ visible: true }).count();
-    expect(o + d).toBe(1);
-    officielles += o;
-    deduites += d;
+  const pastilles = blocsDOption(page).getByRole("button", { name: /^Position / });
+  await expect(pastilles).toHaveCount(11);
+  await expect(blocsDOption(page).getByRole("button", { name: /^Position officielle/ })).toHaveCount(5);
+  await expect(blocsDOption(page).getByRole("button", { name: /^Position déduite/ })).toHaveCount(6);
+});
+
+test("sous la légende « Position », une pastille par statut : officielle, déduite, estimée", async ({ page }) => {
+  await repondre(page, "62 ans");
+  const legende = page.locator(".rev-legende").filter({ visible: true });
+  await expect(legende).toHaveText(/^Position\s*officielle\s*déduite\s*estimée$/);
+  await expect(legende.locator(".rev-point")).toHaveCount(3);
+});
+
+test("dans chaque option, les positions officielles d'abord : Roussel en tête de A, Tondelier en tête de B", async ({ page }) => {
+  await repondre(page, "62 ans");
+  for (const [option, premier] of [["Option A : 60 ans", "Fabien Roussel"], ["Option B : 62 ans", "Marine Tondelier"], ["Option C : 64 ans", "Gabriel Attal"]]) {
+    const noms = await quiDefendQuoi(page).getByRole("article", { name: option }).locator(".def-name").allInnerTexts();
+    expect(noms[0].trim()).toBe(premier);
   }
-  expect({ officielles, deduites }).toEqual({ officielles: 5, deduites: 6 });
 });
 
 test("sur la révélation n° 24, Ruffin et Lisnard sont rangés sous « Position inconnue », « Pas de source à ce jour », sans badge", async ({ page }) => {
@@ -858,7 +861,7 @@ test("sur la révélation n° 24, Ruffin et Lisnard sont rangés sous « Positio
   await expect(bloc.getByText("2 candidats", { exact: true })).toBeVisible();
   await expect(bloc.getByText("Pas de source à ce jour", { exact: true })).toBeVisible();
   expect(await nomsSous(page, "Position inconnue")).toEqual(["David Lisnard", "François Ruffin"]);
-  await expect(bloc.locator(".badge")).toHaveCount(0);
+  await expect(bloc.getByRole("button", { name: /^Position / })).toHaveCount(0);
 });
 
 test("les candidats sans source n'apparaissent sous aucune option : 11 sous les options, 2 inconnus, 13 en tout", async ({ page }) => {
@@ -871,7 +874,7 @@ test("les candidats sans source n'apparaissent sous aucune option : 11 sous les 
   for (const nom of inconnus) expect(sousOptions).not.toContain(nom);
 });
 
-test("d'un appareil à l'autre, l'ordre des défenseurs de A change, sans suivre l'alphabet ni les partis", async ({ browser }) => {
+test("d'un appareil à l'autre, Mélenchon et Arthaud, tous deux en position déduite, changent d'ordre sous A, derrière Roussel", async ({ browser }) => {
   // Seize appareils l'un après l'autre : 20 à 30 s, au bord des 30 s d'un test ordinaire quand la suite tourne.
   test.slow();
   const ordres = new Set<string>();
@@ -886,8 +889,9 @@ test("d'un appareil à l'autre, l'ordre des défenseurs de A change, sans suivre
     ordres.add((await bloc.locator(".def-name").allInnerTexts()).join(" / "));
     await contexte.close();
   }
-  // Six ordres possibles : au moins trois différents, donc au moins un qui n'est ni alphabétique ni celui des partis.
-  expect(ordres.size).toBeGreaterThanOrEqual(3);
+  // Roussel, seul en position officielle, toujours en tête ; derrière lui, les deux ordres possibles des positions déduites.
+  for (const ordre of ordres) expect(ordre.startsWith("Fabien Roussel / ")).toBe(true);
+  expect(ordres.size).toBe(2);
 });
 
 const INITIALES = {
@@ -943,62 +947,25 @@ test("les initiales distinguent les candidats qui se ressemblent : FRo pour Fabi
   expect(new Set(Object.values(pions).map((p) => p.initiales)).size).toBe(13);
 });
 
-const alignes = (page: Page) => page.getByRole("list", { name: "Sur ce sujet, tu es aligné·e avec" });
-const nomsDe = async (liste: import("@playwright/test").Locator) =>
-  (await liste.getByRole("listitem").allInnerTexts()).map((t) => t.replace(/^\S+\s+/, "").trim()).sort();
-
-test("après E, la révélation dit « Sur ce sujet, tu es aligné·e avec » Nicolas Dupont-Aignan et Édouard Philippe", async ({ page }) => {
+test("après E, la colonne « Ta réponse » liste Nicolas Dupont-Aignan et Édouard Philippe", async ({ page }) => {
   await repondre(page, "À la carte, avec un système à points");
-  await expect(page.getByRole("heading", { name: "Sur ce sujet, tu es aligné·e avec" })).toBeVisible();
-  expect(await nomsDe(alignes(page))).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
+  await expect(taColonne(page)).toHaveAccessibleName("Option E : À la carte, avec un système à points");
+  expect(await nomsDe(taColonne(page))).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
 });
 
-test("après B, aligné·e avec Le Pen, Tondelier et Glucksmann ; Ruffin et Lisnard n'y figurent jamais", async ({ page }) => {
+test("après B, la colonne « Ta réponse » liste Le Pen, Tondelier et Glucksmann ; Ruffin et Lisnard n'y figurent jamais", async ({ page }) => {
   await repondre(page, "62 ans");
-  expect(await nomsDe(alignes(page))).toEqual(["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]);
+  expect(await nomsDe(taColonne(page))).toEqual(["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]);
   for (const libelle of ["60 ans", "62 ans", "64 ans", "65 ans ou plus", "À la carte, avec un système à points"]) {
     await repondre(page, libelle);
-    await expect(alignes(page).getByRole("listitem").first()).toBeVisible();
-    for (const nom of ["François Ruffin", "David Lisnard"]) await expect(alignes(page).getByText(nom)).toHaveCount(0);
+    await expect(taColonne(page).getByRole("listitem").first()).toBeVisible();
+    for (const nom of ["François Ruffin", "David Lisnard"]) await expect(taColonne(page).getByText(nom, { exact: true })).toHaveCount(0);
   }
 });
 
-test("sous les listes, pas de note qui définit « aligné·e », « proche » et « opposé·e » : les titres se lisent seuls", async ({ page }) => {
-  await repondre(page, "62 ans");
-  await expect(page.getByRole("heading", { name: "Sur ce sujet, tu es aligné·e avec" })).toBeVisible();
-  await expect(page.getByText(/même carte que toi/)).toHaveCount(0);
-  await expect(page.locator(".align-note")).toHaveCount(0);
-});
-
-const proches = (page: Page) => page.getByRole("list", { name: "et proche de" });
-
-test("après E, la révélation dit « et proche de » Bruno Retailleau (D, voisine de E)", async ({ page }) => {
+test("la révélation ne dit plus « aligné·e avec », « proche de » ni « opposé·e à » : le tableau suffit", async ({ page }) => {
   await repondre(page, "À la carte, avec un système à points");
-  await expect(page.getByRole("heading", { name: "et proche de" })).toBeVisible();
-  expect(await nomsDe(proches(page))).toEqual(["Bruno Retailleau"]);
-});
-
-test("après A, la révélation dit « et proche de » Le Pen, Tondelier et Glucksmann (B, voisine de A)", async ({ page }) => {
-  await repondre(page, "60 ans");
-  expect(await nomsDe(proches(page))).toEqual(["Marine Le Pen", "Marine Tondelier", "Raphaël Glucksmann"]);
-});
-
-const opposes = (page: Page) => page.getByRole("list", { name: "opposé·e à" });
-
-test("après E, la révélation dit « opposé·e à » Mélenchon, Roussel et Arthaud (A), avec des pions clairs", async ({ page }) => {
-  await repondre(page, "À la carte, avec un système à points");
-  await expect(page.getByRole("heading", { name: "opposé·e à" })).toBeVisible();
-  expect(await nomsDe(opposes(page))).toEqual(["Fabien Roussel", "Jean-Luc Mélenchon", "Nathalie Arthaud"]);
-  const [clair, sombre] = await Promise.all([
-    opposes(page).locator(".pawn").first().evaluate((el) => getComputedStyle(el).backgroundColor),
-    alignes(page).locator(".pawn").first().evaluate((el) => getComputedStyle(el).backgroundColor),
-  ]);
-  expect(clair).not.toBe(sombre);
-});
-
-test("après A, la révélation dit « opposé·e à » Nicolas Dupont-Aignan et Édouard Philippe (E)", async ({ page }) => {
-  await repondre(page, "60 ans");
-  expect(await nomsDe(opposes(page))).toEqual(["Nicolas Dupont-Aignan", "Édouard Philippe"]);
+  for (const texte of ["aligné·e avec", "et proche de", "opposé·e à"]) await expect(page.getByText(texte)).toHaveCount(0);
 });
 
 test("après « Je ne sais pas », la révélation montre les cinq options, leurs candidats et « Position inconnue »", async ({ page }) => {
@@ -1009,13 +976,10 @@ test("après « Je ne sais pas », la révélation montre les cinq options, leur
   expect(await nomsSous(page, "Position inconnue")).toEqual(["David Lisnard", "François Ruffin"]);
 });
 
-test("après « Je ne sais pas », la révélation n'affiche ni aligné·e, ni proche, ni opposé·e", async ({ page }) => {
+test("après « Je ne sais pas », aucune colonne ne porte « Ta réponse »", async ({ page }) => {
   await repondre(page, "Je ne sais pas");
   await expect(blocsDOption(page).first()).toBeVisible();
-  for (const texte of ["Sur ce sujet, tu es aligné·e avec", "et proche de", "opposé·e à"]) {
-    await expect(page.getByText(texte)).toHaveCount(0);
-  }
-  await expect(page.getByRole("region", { name: "Alignement sur ce sujet" })).toHaveCount(0);
+  await expect(quiDefendQuoi(page).getByText("Ta réponse", { exact: true })).toHaveCount(0);
 });
 
 /** Le minutage du retournement de chaque bloc de « Qui défend quoi », dans l'ordre de la page. */
@@ -1061,11 +1025,18 @@ test("avec « réduire les animations », les blocs sont posés d'emblée, sans 
   expect(poses).toEqual(["1", "1", "1", "1", "1", "1"]);
 });
 
-const pourAllerPlusLoin = (page: Page) => page.getByRole("region", { name: "Pour aller plus loin" });
+/** La fenêtre « Sources », ouverte par « Voir les sources » sous le tableau (6 novembre 2026). */
+async function ouvrirLesSources(page: Page) {
+  await page.getByRole("button", { name: "Voir les sources" }).filter({ visible: true }).click();
+  const fenetre = page.getByRole("dialog", { name: "Sources" });
+  await expect(fenetre).toBeVisible();
+  return fenetre;
+}
 
-test("la révélation n° 24 propose sous « Pour aller plus loin » trois liens vers le COR, la DREES et la Cour des comptes", async ({ page }) => {
+test("sur la révélation n° 24, « Voir les sources » ouvre une fenêtre de trois liens vers le COR, la DREES et la Cour des comptes", async ({ page }) => {
   await repondre(page, "62 ans");
-  const liens = pourAllerPlusLoin(page).getByRole("link");
+  await expect(page.getByRole("dialog", { name: "Sources" })).toBeHidden();
+  const liens = (await ouvrirLesSources(page)).getByRole("link");
   await expect(liens).toHaveCount(3);
   for (const [rang, nom] of ["COR, rapport annuel 2025", "DREES, Les retraités et les retraites, 2025", "Cour des comptes, retraites, 2025"].entries()) {
     await expect(liens.nth(rang)).toHaveAccessibleName(new RegExp(`^${nom}`));
@@ -1073,13 +1044,14 @@ test("la révélation n° 24 propose sous « Pour aller plus loin » trois liens
   }
 });
 
-test("toucher un lien « Pour aller plus loin » ouvre le site de l'organisme dans un nouvel onglet ; la révélation reste ouverte", async ({ page, context }) => {
+test("toucher un lien de la fenêtre « Sources » ouvre le site de l'organisme dans un nouvel onglet ; la révélation reste ouverte", async ({ page, context }) => {
   // Pas de vrai réseau : le site de l'organisme est simulé.
   await context.route("https://www.cor-retraites.fr/**", (route) => route.fulfill({ contentType: "text/html", body: "<title>COR</title>" }));
   await repondre(page, "62 ans");
+  const fenetre = await ouvrirLesSources(page);
   const [onglet] = await Promise.all([
     page.waitForEvent("popup"),
-    pourAllerPlusLoin(page).getByRole("link", { name: /^COR, rapport annuel 2025/ }).click(),
+    fenetre.getByRole("link", { name: /^COR, rapport annuel 2025/ }).click(),
   ]);
   await onglet.waitForLoadState();
   expect(onglet.url()).toMatch(/^https:\/\/www\.cor-retraites\.fr\//);
@@ -1111,7 +1083,7 @@ test.describe("une question déjà répondue rouvre sur sa révélation", () => 
     const rouverte = await rouvrir(page);
     await expect(rouverte).toHaveURL(/\/question\/24\/revelation$/);
     await expect(blocsDOption(rouverte)).toHaveCount(5);
-    await expect(rouverte.getByRole("region", { name: "Alignement sur ce sujet" })).toHaveCount(0);
+    await expect(quiDefendQuoi(rouverte).getByText("Ta réponse", { exact: true })).toHaveCount(0);
   });
 
   test("sur un autre téléphone, la même question s'ouvre sur une fiche vierge", async ({ page, browser }) => {
@@ -1150,7 +1122,7 @@ test.describe("l'importance donnée est retrouvée en revenant", () => {
     return rouverte;
   }
 
-  const pleines = (page: Page) => page.getByRole("region", { name: /^Ta réponse/ }).locator(".chips i:not(.off)");
+  const pleines = (page: Page) => taColonne(page).locator(".chips i:not(.off)");
 
   test("après E en ×3, fermer puis rouvrir la question : la révélation n° 24 affiche « Importance ×3 », trois pastilles pleines", async ({ page }) => {
     await repondreLe(page, "2026-10-23T09:00:00+02:00", "À la carte, avec un système à points", "×3");
@@ -2846,14 +2818,14 @@ test.describe("un nom révélé ouvre la fiche du candidat", () => {
     await ouvrirLaFiche(page, quiDefendQuoi(page), "Marine Tondelier");
   });
 
-  test("toucher un nom de « Sur ce sujet, tu es aligné·e avec » (Édouard Philippe) ouvre sa fiche", async ({ page }) => {
+  test("toucher un nom de la colonne « Ta réponse » (Édouard Philippe) ouvre sa fiche", async ({ page }) => {
     await repondre(page, "À la carte, avec un système à points");
-    await ouvrirLaFiche(page, alignes(page), "Édouard Philippe");
+    await ouvrirLaFiche(page, taColonne(page), "Édouard Philippe");
   });
 
   test("toucher un nom rangé sous « Position inconnue » (François Ruffin) ouvre aussi sa fiche", async ({ page }) => {
     await repondre(page, "À la carte, avec un système à points");
-    await ouvrirLaFiche(page, quiDefendQuoi(page).locator(".ropt.unknown"), "François Ruffin");
+    await ouvrirLaFiche(page, quiDefendQuoi(page).getByRole("article", { name: "Position inconnue" }), "François Ruffin");
   });
 });
 
@@ -6268,7 +6240,6 @@ test.describe("la révélation n'affiche pas de bloc vide", () => {
     await validerMaReponse(page);
     await expect(page).toHaveURL(/\/question\/26\/revelation$/);
     await expect(quiDefendQuoi(page)).toBeVisible();
-    await expect(page.getByRole("region", { name: "Alignement sur ce sujet" })).toHaveCount(0);
   });
 });
 
@@ -6626,9 +6597,8 @@ test.describe("scanner le QR code importe les réponses", () => {
     await autre.waitForURL(/\/resultats$/);
     await autre.goto("/question/24");
     await autre.waitForURL(/\/question\/24\/revelation$/);
-    await expect(autre.getByRole("region", { name: /^Ta réponse : E/ })).toBeVisible();
+    await expect(autre.getByRole("article", { name: "Option E : À la carte, avec un système à points" }).getByText("Ta réponse", { exact: true })).toBeVisible();
     await expect(autre.getByText("Importance ×2", { exact: true })).toBeVisible();
-    await expect(autre.getByRole("article", { name: "Option E : À la carte, avec un système à points" }).getByText("Ta carte")).toBeVisible();
     await nouveau.close();
   });
 });
@@ -6664,7 +6634,7 @@ test.describe("coller le lien importe les réponses", () => {
     const { nouveau, autre } = await collerSurUnNouvelAppareil(browser, await adresseDeLAppareil(page));
     await autre.goto("/question/24");
     await autre.waitForURL(/\/question\/24\/revelation$/);
-    await expect(autre.getByRole("region", { name: /^Ta réponse : E/ })).toBeVisible();
+    await expect(autre.getByRole("article", { name: "Option E : À la carte, avec un système à points" }).getByText("Ta réponse", { exact: true })).toBeVisible();
     await expect(autre.getByText("Importance ×2", { exact: true })).toBeVisible();
     await nouveau.close();
   });
