@@ -6,7 +6,7 @@ date: 2026-10-17
 theme: education-jeunesse
 question: "Faut-il supprimer Parcoursup ?"
 titreCourt: "Parcoursup"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/018-parcoursup-constat-uWAgZemK24ZKW9YBGxZPekmAS45ZoA.mp4", duree: "3 min 01" }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/018-parcoursup-constat-uWAgZemK24ZKW9YBGxZPekmAS45ZoA.mp4", duree: "3 min 01", ecrans: [0, 12.57, 24.44, 37.67, 49.54, 62.1, 74.67, 87.2, 96.97, 109.54, 120, 132.57, 145.8, 158.37, 173.04] }
 contexte:
   - "Depuis 2018, Parcoursup recueille les vœux des lycéens, des étudiants en réorientation et des personnes qui reprennent des études, puis les formations, qui examinent elles-mêmes les candidatures, leur envoient des propositions d'admission."
   - "Ses critiques lui reprochent son opacité, l'attente et la sélection à l'entrée des études ; ses défenseurs soulignent que la plupart des lycéens reçoivent une proposition."

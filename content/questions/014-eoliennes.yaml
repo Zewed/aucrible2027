@@ -6,7 +6,7 @@ date: 2026-10-13
 theme: ecologie-energie
 question: "Faut-il construire davantage d'éoliennes ?"
 titreCourt: "Les éoliennes"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/014-eoliennes-constat-uwn06Y7xT5ohqS1frrJN182hDe4enN.mp4", duree: "2 min 56" }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/014-eoliennes-constat-uwn06Y7xT5ohqS1frrJN182hDe4enN.mp4", duree: "2 min 56", ecrans: [0, 9.3, 17.07, 26.9, 42.4, 56.37, 68.27, 81.74, 91.04, 104.47, 118.44, 128.27, 141.74, 155.17, 169.14] }
 contexte:
   - "En 2025, l'éolien a produit 9,1 % de l'électricité française, avec 23,9 GW installés à terre et 1,9 GW en mer."
   - "La programmation de l'énergie de février 2026 vise 35 à 40 GW à terre et 15 GW en mer en 2035, en privilégiant le renouvellement des parcs existants."
