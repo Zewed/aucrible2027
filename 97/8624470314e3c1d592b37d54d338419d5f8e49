@@ -1,0 +1,21 @@
+content/questions/048-vaccins.yaml
+  s_46a5f8fced5b84::t_e9928d488d4317 12
+content/videos-verrouillees.yaml
+  s_46a5f8fced5b84::t_04451392411264 51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "978624470314e3c1d592b37d54d338419d5f8e49",
+  "prompts": {},
+  "sessions": {
+    "s_46a5f8fced5b84": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a9440e75-54ab-4449-bed3-9bbb6b991ebb",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
