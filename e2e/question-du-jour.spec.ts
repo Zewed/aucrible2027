@@ -7178,14 +7178,18 @@ test.describe("la première étape : l'équerre", () => {
       expect(await arretee(page)).toBe(true);
       await expect(histoire(page).getByRole("img")).toHaveCount(4);
       await expect(page.getByRole("img", { name: "Écran 2 sur 4" })).toBeInViewport({ ratio: 0.9 });
-      await expect(page.getByRole("button", { name: "Écran suivant" })).toHaveCount(0);
       await expect(page.getByRole("button", { name: "Couper le son" })).toHaveCount(0);
+      // Toucher les images fait comme sur la vidéo : à droite la suivante, à gauche la précédente.
+      const boite = (await histoire(page).boundingBox())!;
+      await page.mouse.click(boite.x + boite.width * 0.8, boite.y + boite.height / 2);
+      await expect(page.getByRole("img", { name: "Écran 3 sur 4" })).toBeInViewport({ ratio: 0.9 });
+      await page.mouse.click(boite.x + boite.width * 0.1, boite.y + boite.height / 2);
+      await expect(page.getByRole("img", { name: "Écran 2 sur 4" })).toBeInViewport({ ratio: 0.9 });
       // Les flèches du clavier et la molette passent d'une image à l'autre.
       await page.keyboard.press("ArrowDown");
       await expect(page.getByRole("img", { name: "Écran 3 sur 4" })).toBeInViewport({ ratio: 0.9 });
       await page.keyboard.press("ArrowLeft");
       await expect(page.getByRole("img", { name: "Écran 2 sur 4" })).toBeInViewport({ ratio: 0.9 });
-      const boite = (await histoire(page).boundingBox())!;
       await page.mouse.move(boite.x + boite.width / 2, boite.y + boite.height / 2);
       await page.mouse.wheel(0, boite.height / 2);
       await expect(page.getByRole("img", { name: "Écran 3 sur 4" })).toBeInViewport({ ratio: 0.9 });
@@ -7195,6 +7199,33 @@ test.describe("la première étape : l'équerre", () => {
       expect(await instant(page)).toBeGreaterThanOrEqual(20);
       expect(await instant(page)).toBeLessThan(25);
       await expect(page.getByRole("button", { name: "Écran suivant" })).toBeVisible();
+    });
+
+    test("toucher un tiret en haut mène à son écran, en vidéo comme en images ; la question n'a pas de tirets", async ({ page }) => {
+      await servirLaVideoDeTest(page);
+      await servirLesImagesDeTest(page);
+      await page.goto("/question/9");
+      await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+      await expect.poll(() => instant(page)).toBeGreaterThan(0);
+      // Un tiret par écran, la question à part, posé sur celui de la vidéo : à 238 px du haut de 1 920, à partir de
+      // 80 px sur 1 080 (75 avec le demi-espace avant lui).
+      const tirets = page.getByRole("button", { name: /^Aller à l'écran/ });
+      await expect(tirets).toHaveCount(3);
+      const boite = (await histoire(page).boundingBox())!;
+      const premier = (await tirets.first().boundingBox())!;
+      expect(Math.abs(premier.x - (boite.x + (boite.width * 75) / 1080))).toBeLessThan(2);
+      expect(Math.abs(premier.y + premier.height / 2 - (boite.y + (boite.height * 238) / 1920))).toBeLessThan(2);
+      await page.getByRole("button", { name: "Aller à l'écran 3" }).click();
+      await expect.poll(() => instant(page)).toBeGreaterThanOrEqual(20);
+      expect(await instant(page)).toBeLessThan(25);
+      await page.getByRole("button", { name: "Faire défiler les images" }).click();
+      await expect(page.getByRole("img", { name: "Écran 3 sur 4" })).toBeInViewport({ ratio: 0.9 });
+      await page.keyboard.press("ArrowRight");
+      await expect(page.getByRole("img", { name: "Écran 4 sur 4" })).toBeInViewport({ ratio: 0.9 });
+      await expect(tirets).toHaveCount(0);
+      await page.keyboard.press("ArrowLeft");
+      await page.getByRole("button", { name: "Aller à l'écran 1" }).click();
+      await expect(page.getByRole("img", { name: "Écran 1 sur 4" })).toBeInViewport({ ratio: 0.9 });
     });
 
     test("la vidéo suivante s'ouvre comme on a laissé la précédente : en images, sans se lancer", async ({ page }) => {

@@ -151,6 +151,10 @@ const retenir = (cle: string, oui: boolean) => {
 
 /** Dans le défilement, les quatre flèches du clavier passent à l'image suivante ou reviennent à la précédente. */
 const FLECHES: Record<string, 1 | -1> = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+/** La part de la largeur, à gauche, où toucher revient en arrière : celle du bouton « Écran précédent ». */
+const COTE_PRECEDENT = 0.3;
+/** Un geste de la molette passe une image : les crans qui suivent de moins de ce temps, en millisecondes, n'y ajoutent rien. */
+const GESTE_DE_MOLETTE = 200;
 
 /** L'écran où l'on est à cet instant de la vidéo, en secondes. */
 const ecranA = (ecrans: number[], t: number) => {
@@ -162,9 +166,10 @@ const ecranA = (ecrans: number[], t: number) => {
 /**
  * La vidéo constat lue comme une story, sans les commandes du navigateur : toucher à droite passe à l'écran suivant, à
  * gauche revient au précédent, rester appuyé met en pause, et les flèches du clavier font de même. Les tirets en haut de
- * la vidéo disent déjà où l'on en est. En haut à droite, on coupe le son, et, quand la fiche a les images de ses écrans,
- * on passe au défilement : la dernière image de chaque écran, l'une sous l'autre, le schéma fini et tout le texte. En
- * vignette, elle couvre l'écran ; la croix, Échap, la sortie du plein écran ou la fin de la vidéo ramènent l'affiche.
+ * la vidéo disent déjà où l'on en est ; toucher l'un d'eux mène à son écran. En haut à droite, on coupe le son, et,
+ * quand la fiche a les images de ses écrans, on passe au défilement : la dernière image de chaque écran, l'une à côté de
+ * l'autre, le schéma fini et tout le texte, qui se touchent comme la vidéo et glissent aussi sous le doigt. En vignette,
+ * elle couvre l'écran ; la croix, Échap, la sortie du plein écran ou la fin de la vidéo ramènent l'affiche.
  */
 function Story({
   titre,
@@ -196,11 +201,19 @@ function Story({
   const [defilement, setDefilement] = useState(() => Boolean(video.images) && retenu(EN_DEFILEMENT));
   /** L'image où s'ouvre le défilement : l'écran où en était la vidéo. */
   const [depuis, setDepuis] = useState(() => ecranA(ecrans, depart));
+  /** L'écran que l'on regarde, en vidéo ou en images : sur la question, il n'y a plus de tirets à toucher. */
+  const [vu, setVu] = useState(depuis);
+  /** Le côté du défilement sous la souris, où paraît la flèche : -1 à gauche, 1 à droite, 0 ailleurs. */
+  const [survol, setSurvol] = useState<-1 | 0 | 1>(0);
 
   /** L'image que l'on regarde dans le défilement. */
   const imageVue = () => {
     const l = liste.current;
-    return l && l.clientHeight ? Math.min(ecrans.length - 1, Math.round(l.scrollTop / l.clientHeight)) : depuis;
+    return l && l.clientWidth ? Math.min(ecrans.length - 1, Math.round(l.scrollLeft / l.clientWidth)) : depuis;
+  };
+  const glisserA = (i: number) => {
+    const l = liste.current;
+    l?.scrollTo({ left: Math.max(0, i) * l.clientWidth });
   };
 
   const fermer = () => {
@@ -235,6 +248,14 @@ function Story({
 
   const changerDEcran = (sens: 1 | -1) => {
     const v = lecteur.current;
+    if (defilement) {
+      const i = imageVue();
+      // Après la question, en vignette, on revient à la fiche, comme à la fin de la vidéo.
+      if (sens > 0 && i === ecrans.length - 1) {
+        if (enVignette) refermer(0);
+      } else glisserA(i + sens);
+      return;
+    }
     if (!v) return;
     const t = v.currentTime;
     const i = ecranA(ecrans, t);
@@ -249,6 +270,16 @@ function Story({
     }
     v.currentTime = sens > 0 ? ecrans[i + 1] : t - ecrans[i] > REPRENDRE_L_ECRAN || i === 0 ? ecrans[i] : ecrans[i - 1];
     v.play().catch(() => {});
+  };
+
+  /** Toucher un tiret : son écran, du début en vidéo. */
+  const allerA = (i: number) => {
+    const v = lecteur.current;
+    if (defilement) glisserA(i);
+    else if (v) {
+      v.currentTime = ecrans[i];
+      lire(v);
+    }
   };
 
   const appuyer = () => {
@@ -274,12 +305,17 @@ function Story({
     else changerDEcran(sens);
   };
 
+  /** Où l'on touche le défilement : sur sa gauche, le précédent ; ailleurs, le suivant. */
+  const coteDe = (evenement: { currentTarget: Element; clientX: number }) => {
+    const boite = evenement.currentTarget.getBoundingClientRect();
+    return evenement.clientX - boite.left < boite.width * COTE_PRECEDENT ? -1 : 1;
+  };
+
   const surTouche = useEffectEvent((evenement: KeyboardEvent) => {
     const sens = FLECHES[evenement.key];
-    const l = liste.current;
-    if (defilement && sens && l) {
+    if (defilement && sens) {
       evenement.preventDefault();
-      l.scrollTo({ top: (imageVue() + sens) * l.clientHeight });
+      changerDEcran(sens);
     } else if (evenement.key === "ArrowRight" || evenement.key === "ArrowLeft") {
       evenement.preventDefault();
       changerDEcran(evenement.key === "ArrowRight" ? 1 : -1);
@@ -292,10 +328,31 @@ function Story({
     if (!defilement) lire(v);
   });
 
+  // Les images glissent de côté : la molette, qui monte et descend, passe donc elle-même à l'image voisine, un geste
+  // pour une image ; le glissé de côté du pavé tactile, lui, fait défiler de lui-même.
+  const molette = useRef({ minuteur: 0, prete: true });
+  const surMolette = useEffectEvent((evenement: WheelEvent) => {
+    if (Math.abs(evenement.deltaY) <= Math.abs(evenement.deltaX)) return;
+    evenement.preventDefault();
+    const m = molette.current;
+    clearTimeout(m.minuteur);
+    m.minuteur = window.setTimeout(() => (m.prete = true), GESTE_DE_MOLETTE);
+    if (!m.prete) return;
+    m.prete = false;
+    glisserA(imageVue() + Math.sign(evenement.deltaY));
+  });
+  useEffect(() => {
+    const l = liste.current;
+    if (!defilement || !l) return;
+    const tourner = (evenement: WheelEvent) => surMolette(evenement);
+    l.addEventListener("wheel", tourner, { passive: false });
+    return () => l.removeEventListener("wheel", tourner);
+  }, [defilement]);
+
   // Le défilement s'ouvre sur l'écran où en était la vidéo, sans glisser jusqu'à lui.
   useLayoutEffect(() => {
     const l = liste.current;
-    if (defilement && l) l.scrollTo({ top: depuis * l.clientHeight, behavior: "instant" });
+    if (defilement && l) l.scrollTo({ left: depuis * l.clientWidth, behavior: "instant" });
   }, [defilement, depuis]);
 
   useEffect(() => {
@@ -339,12 +396,26 @@ function Story({
         onLoadedMetadata={(evenement) => {
           evenement.currentTarget.currentTime = reprise.current;
         }}
+        onTimeUpdate={(evenement) => {
+          if (!defilement) setVu(ecranA(ecrans, evenement.currentTarget.currentTime));
+        }}
         onEnded={() => {
           if (enVignette) fermer();
         }}
       />
-      {defilement && video.images ? (
-        <div ref={liste} className="defilement">
+      {defilement && video.images && (
+        // Le doigt fait glisser les images ; toucher sans glisser fait comme sur la vidéo, que les côtés, laissés
+        // dessous, ne reçoivent plus : ils ne gardent que le clavier.
+        <div
+          ref={liste}
+          className="defilement"
+          onScroll={() => setVu(imageVue())}
+          onClick={(evenement) => changerDEcran(coteDe(evenement))}
+          onPointerMove={(evenement) => {
+            if (evenement.pointerType === "mouse") setSurvol(coteDe(evenement));
+          }}
+          onPointerLeave={() => setSurvol(0)}
+        >
           {ecrans.map((_, i) => (
             // Les images sont déjà à la taille de la vidéo, en WebP : rien à faire passer par next/image.
             // eslint-disable-next-line @next/next/no-img-element
@@ -357,28 +428,29 @@ function Story({
             />
           ))}
         </div>
-      ) : (
+      )}
+      {([-1, 1] as const).map((sens) => (
+        <button
+          key={sens}
+          type="button"
+          className={`cote ${sens < 0 ? "precedent" : "suivant"}${defilement && survol === sens ? " survole" : ""}`}
+          aria-label={sens < 0 ? "Écran précédent" : "Écran suivant"}
+          onPointerDown={appuyer}
+          onPointerUp={relacher}
+          onPointerLeave={relacher}
+          onPointerCancel={relacher}
+          onContextMenu={(evenement) => evenement.preventDefault()}
+          onClick={() => toucher(sens)}
+        >
+          <span className="fleche" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d={sens < 0 ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"} />
+            </svg>
+          </span>
+        </button>
+      ))}
+      {!defilement && (
         <>
-          {([-1, 1] as const).map((sens) => (
-            <button
-              key={sens}
-              type="button"
-              className={sens < 0 ? "cote precedent" : "cote suivant"}
-              aria-label={sens < 0 ? "Écran précédent" : "Écran suivant"}
-              onPointerDown={appuyer}
-              onPointerUp={relacher}
-              onPointerLeave={relacher}
-              onPointerCancel={relacher}
-              onContextMenu={(evenement) => evenement.preventDefault()}
-              onClick={() => toucher(sens)}
-            >
-              <span className="fleche" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d={sens < 0 ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"} />
-                </svg>
-              </span>
-            </button>
-          ))}
           {enPause && (
             <span className="en-pause" aria-hidden="true">
               <span className="rond">
@@ -407,6 +479,23 @@ function Story({
             </button>
           )}
         </>
+      )}
+      {/* Par-dessus les tirets de la vidéo et des images, un bouton par écran ; la question n'a pas de tiret. */}
+      {vu < ecrans.length - 1 && (
+        <div className="cadre">
+          <div className="tirets">
+            {ecrans.slice(0, -1).map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                className="tiret"
+                aria-label={`Aller à l'écran ${i + 1}`}
+                aria-current={i === vu ? "step" : undefined}
+                onClick={() => allerA(i)}
+              />
+            ))}
+          </div>
+        </div>
       )}
       <div className="commandes">
         {!defilement && (
