@@ -1,0 +1,126 @@
+content/questions/001-isf.yaml
+  h_1294ab5999dad1 9
+content/questions/002-smic.yaml
+  h_1294ab5999dad1 9
+content/questions/003-voitures-thermiques.yaml
+  h_1294ab5999dad1 9
+content/questions/004-quotas-immigration.yaml
+  h_1294ab5999dad1 9
+content/questions/005-peines-planchers.yaml
+  h_1294ab5999dad1 9
+content/questions/006-franchises-medicales.yaml
+  h_1294ab5999dad1 9
+content/questions/007-uniforme.yaml
+  h_1294ab5999dad1 9
+content/questions/008-sru.yaml
+  h_1294ab5999dad1 9
+content/questions/009-ukraine.yaml
+  h_1294ab5999dad1 9
+content/questions/010-ric.yaml
+  h_1294ab5999dad1 9
+content/questions/011-fin-de-vie.yaml
+  h_1294ab5999dad1 10
+content/questions/012-deficit.yaml
+  h_1294ab5999dad1 9
+content/questions/013-chomage.yaml
+  h_1294ab5999dad1 9
+content/questions/014-eoliennes.yaml
+  h_1294ab5999dad1 9
+content/questions/015-ame.yaml
+  h_1294ab5999dad1 9
+content/questions/016-majorite-penale.yaml
+  h_1294ab5999dad1 9
+content/questions/017-hopital.yaml
+  h_1294ab5999dad1 10
+content/questions/018-parcoursup.yaml
+  h_1294ab5999dad1 9
+content/questions/019-airbnb.yaml
+  h_1294ab5999dad1 9
+content/questions/020-otan.yaml
+  h_1294ab5999dad1 9
+content/questions/021-proportionnelle.yaml
+  h_1294ab5999dad1 9
+content/questions/022-cannabis.yaml
+  h_1294ab5999dad1 9
+content/questions/023-loyers.yaml
+  h_1294ab5999dad1 11
+content/questions/024-retraite.yaml
+  h_1294ab5999dad1 10
+content/questions/025-nucleaire.yaml
+  h_1294ab5999dad1 9
+content/questions/026-medecins.yaml
+  h_1294ab5999dad1 11
+content/questions/027-gpa.yaml
+  h_1294ab5999dad1 11
+content/questions/028-etat-civil.yaml
+  h_1294ab5999dad1 10
+content/questions/029-israel.yaml
+  h_1294ab5999dad1 11
+content/questions/030-soldats-ukraine.yaml
+  h_1294ab5999dad1 10
+content/questions/031-russie.yaml
+  h_1294ab5999dad1 9
+content/questions/032-ouighours.yaml
+  h_1294ab5999dad1 9
+content/questions/033-heritage.yaml
+  h_1294ab5999dad1 9
+content/questions/034-semaine-4-jours.yaml
+  h_1294ab5999dad1 10
+content/questions/035-vols-interieurs.yaml
+  h_1294ab5999dad1 11
+content/questions/036-droit-du-sol.yaml
+  h_1294ab5999dad1 9
+content/questions/037-videosurveillance-ia.yaml
+  h_1294ab5999dad1 11
+content/questions/038-reseaux-sociaux.yaml
+  h_1294ab5999dad1 11
+content/questions/039-taxe-zucman.yaml
+  h_1294ab5999dad1 10
+content/questions/040-rsa.yaml
+  h_1294ab5999dad1 11
+content/questions/041-pesticides.yaml
+  h_1294ab5999dad1 11
+content/questions/042-regularisation.yaml
+  h_1294ab5999dad1 11
+content/questions/043-prisons.yaml
+  h_1294ab5999dad1 12
+content/questions/044-depassements-honoraires.yaml
+  h_1294ab5999dad1 9
+content/questions/045-tva.yaml
+  h_1294ab5999dad1 10
+content/questions/046-delit-de-sejour.yaml
+  h_1294ab5999dad1 13
+content/questions/047-legitime-defense-policiers.yaml
+  h_1294ab5999dad1 13
+content/questions/048-vaccins.yaml
+  h_1294ab5999dad1 12
+content/questions/049-service-national.yaml
+  h_1294ab5999dad1 12
+content/questions/050-salaire-enseignants.yaml
+  h_1294ab5999dad1 9
+content/questions/051-logements-vacants.yaml
+  h_1294ab5999dad1 9
+content/questions/052-zan.yaml
+  h_1294ab5999dad1 11
+content/questions/053-sixieme-republique.yaml
+  h_1294ab5999dad1 14
+content/questions/054-vote-obligatoire.yaml
+  h_1294ab5999dad1 13
+content/questions/055-vote-blanc.yaml
+  h_1294ab5999dad1 13
+content/questions/056-voile-sport.yaml
+  h_1294ab5999dad1 12
+content/videos-verrouillees.yaml
+  h_1294ab5999dad1 45-46,48-59
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "da1de6f9fa92b64077073b3ab85362777e58313e",
+  "prompts": {},
+  "humans": {
+    "h_1294ab5999dad1": {
+      "author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
