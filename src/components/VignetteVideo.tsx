@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { VideoExplicative } from "@/lib/contenu";
 
 /** Sous cette largeur, l'affiche est une vignette à côté de la question : la vidéo s'ouvre en plein écran. */
@@ -10,12 +11,14 @@ const EN_VIGNETTE = "(max-width: 1199.98px)";
  * La vignette de la vidéo explicative, debout comme la vidéo (9:16) : la carte du thème, un gros bouton lecture, le sujet
  * en quelques mots et la durée. Avec une vidéo, toucher l'affiche la lance ; en vignette, elle s'ouvre en plein écran, et
  * en sortir ramène l'affiche, la vidéo reprenant où elle s'était arrêtée. Sans vidéo, l'affiche dit « Bientôt » et ne se
- * touche pas.
+ * touche pas. Une vidéo constat, dont on connaît les écrans, se lit comme une story ; une autre, avec les commandes du
+ * navigateur.
  */
 export function VignetteVideo({ titre, video }: { titre: string; video?: VideoExplicative }) {
   const [lecture, setLecture] = useState(false);
+  const [enVignette, setEnVignette] = useState(false);
   const lecteur = useRef<HTMLVideoElement>(null);
-  const reprise = useRef(0);
+  const [reprise, setReprise] = useState(0);
 
   useEffect(() => {
     const video = lecteur.current;
@@ -24,7 +27,7 @@ export function VignetteVideo({ titre, video }: { titre: string; video?: VideoEx
     const arreter = () => video.pause();
     window.addEventListener("pagehide", arreter);
     const refermer = () => {
-      reprise.current = video.ended ? 0 : video.currentTime;
+      setReprise(video.ended ? 0 : video.currentTime);
       setLecture(false);
     };
     const surPleinEcran = () => {
@@ -44,7 +47,16 @@ export function VignetteVideo({ titre, video }: { titre: string; video?: VideoEx
     };
   }, [lecture]);
 
-  if (video && lecture) {
+  /** La story refermée : l'affiche revient, et la vidéo reprendra là. */
+  const refermer = (ou: number) => {
+    setReprise(ou);
+    setLecture(false);
+  };
+
+  if (video?.ecrans && lecture && !enVignette) {
+    return <Story titre={titre} video={video} ecrans={video.ecrans} enVignette={false} depart={reprise} refermer={refermer} />;
+  }
+  if (video && !video.ecrans && lecture) {
     return (
       <video
         ref={lecteur}
@@ -53,7 +65,7 @@ export function VignetteVideo({ titre, video }: { titre: string; video?: VideoEx
         controls
         autoPlay
         onLoadedMetadata={(evenement) => {
-          evenement.currentTarget.currentTime = reprise.current;
+          evenement.currentTarget.currentTime = reprise;
         }}
         aria-label={`Vidéo : ${titre}, ${video.duree}`}
       />
@@ -90,12 +102,222 @@ export function VignetteVideo({ titre, video }: { titre: string; video?: VideoEx
   );
 
   return video ? (
-    <button type="button" className="affiche" onClick={() => setLecture(true)} aria-label={`Lire la vidéo : ${titre}, ${video.duree}`}>
-      {contenu}
-    </button>
+    <>
+      <button
+        type="button"
+        className="affiche"
+        onClick={() => {
+          setEnVignette(matchMedia(EN_VIGNETTE).matches);
+          setLecture(true);
+        }}
+        aria-label={`Lire la vidéo : ${titre}, ${video.duree}`}
+      >
+        {contenu}
+      </button>
+      {/* En vignette, la story couvre l'écran par-dessus la page, et l'affiche garde sa place dessous. */}
+      {video.ecrans && lecture && createPortal(
+        <Story titre={titre} video={video} ecrans={video.ecrans} enVignette depart={reprise} refermer={refermer} />,
+        document.body,
+      )}
+    </>
   ) : (
     <div className="affiche sans-video" role="img" aria-label={`Vidéo à venir : ${titre}`}>
       {contenu}
+    </div>
+  );
+}
+
+/** Au-delà d'une seconde et demie dans un écran, revenir en arrière le reprend à son début plutôt qu'au précédent. */
+const REPRENDRE_L_ECRAN = 1.5;
+/** Rester appuyé ce temps-là, en millisecondes, met en pause au lieu de changer d'écran. */
+const APPUI_LONG = 250;
+
+/**
+ * La vidéo constat lue comme une story, sans les commandes du navigateur : toucher à droite passe à l'écran suivant, à
+ * gauche revient au précédent, rester appuyé met en pause, et les flèches du clavier font de même. Les tirets en haut de
+ * la vidéo disent déjà où l'on en est. En vignette, elle couvre l'écran ; la croix, Échap, la sortie du plein écran ou la
+ * fin de la vidéo ramènent l'affiche.
+ */
+function Story({
+  titre,
+  video,
+  ecrans,
+  enVignette,
+  depart,
+  refermer,
+}: {
+  titre: string;
+  video: VideoExplicative;
+  /** Le début de chaque écran, en secondes, la question comprise. */
+  ecrans: number[];
+  enVignette: boolean;
+  /** Où reprendre la vidéo, en secondes. */
+  depart: number;
+  /** Refermer la story, en disant où la vidéo s'est arrêtée. */
+  refermer: (ou: number) => void;
+}) {
+  const cadre = useRef<HTMLDivElement>(null);
+  const lecteur = useRef<HTMLVideoElement>(null);
+  const appui = useRef({ minuteur: 0, tenu: false, ignorerLeClic: false });
+  const [enPause, setEnPause] = useState(false);
+  const [bloquee, setBloquee] = useState(false);
+
+  const fermer = () => {
+    const v = lecteur.current;
+    refermer(!v || v.ended ? 0 : v.currentTime);
+  };
+
+  const changerDEcran = (sens: 1 | -1) => {
+    const v = lecteur.current;
+    if (!v) return;
+    const t = v.currentTime;
+    let i = 0;
+    while (i < ecrans.length - 1 && ecrans[i + 1] <= t + 0.05) i++;
+    if (sens > 0 && i === ecrans.length - 1) {
+      // Après la question, il n'y a plus d'écran : en vignette, on revient à la fiche ; sinon la vidéo s'arrête sur elle.
+      if (enVignette) refermer(0);
+      else if (Number.isFinite(v.duration)) {
+        v.pause();
+        v.currentTime = v.duration;
+      }
+      return;
+    }
+    v.currentTime = sens > 0 ? ecrans[i + 1] : t - ecrans[i] > REPRENDRE_L_ECRAN || i === 0 ? ecrans[i] : ecrans[i - 1];
+    v.play().catch(() => {});
+  };
+
+  const appuyer = () => {
+    clearTimeout(appui.current.minuteur);
+    appui.current.ignorerLeClic = false;
+    appui.current.minuteur = window.setTimeout(() => {
+      appui.current.tenu = true;
+      lecteur.current?.pause();
+      setEnPause(true);
+    }, APPUI_LONG);
+  };
+  const relacher = () => {
+    clearTimeout(appui.current.minuteur);
+    if (!appui.current.tenu) return;
+    appui.current.tenu = false;
+    appui.current.ignorerLeClic = true;
+    lecteur.current?.play().catch(() => {});
+    setEnPause(false);
+  };
+  // Le clic qui suit un appui long ne change pas d'écran : il ne faisait que relâcher la pause.
+  const toucher = (sens: 1 | -1) => {
+    if (appui.current.ignorerLeClic) appui.current.ignorerLeClic = false;
+    else changerDEcran(sens);
+  };
+
+  const surTouche = useEffectEvent((evenement: KeyboardEvent) => {
+    if (evenement.key === "ArrowRight" || evenement.key === "ArrowLeft") {
+      evenement.preventDefault();
+      changerDEcran(evenement.key === "ArrowRight" ? 1 : -1);
+    } else if (evenement.key === "Escape" && enVignette) fermer();
+  });
+  const surPleinEcran = useEffectEvent(() => {
+    if (document.fullscreenElement !== cadre.current) fermer();
+  });
+
+  useEffect(() => {
+    const v = lecteur.current;
+    const c = cadre.current;
+    if (!v || !c) return;
+    // Quitter la page arrête la vidéo : le routeur garde parfois la page précédente en mémoire, cachée mais vivante.
+    // La lecture part du toucher de l'affiche ; un navigateur qui la refuse sans un toucher de plus montre le bouton lecture.
+    v.play().catch((erreur: DOMException) => {
+      if (erreur.name === "NotAllowedError") setBloquee(true);
+    });
+    const arreter = () => v.pause();
+    const touche = (evenement: KeyboardEvent) => surTouche(evenement);
+    const pleinEcran = () => surPleinEcran();
+    window.addEventListener("pagehide", arreter);
+    document.addEventListener("keydown", touche);
+    const html = document.documentElement;
+    const debordement = html.style.overflow;
+    if (enVignette) {
+      // La page ne défile plus sous la story ; là où le navigateur le permet, elle passe aussi en plein écran.
+      html.style.overflow = "hidden";
+      c.addEventListener("fullscreenchange", pleinEcran);
+      c.requestFullscreen?.().catch(() => c.removeEventListener("fullscreenchange", pleinEcran));
+    }
+    return () => {
+      window.removeEventListener("pagehide", arreter);
+      document.removeEventListener("keydown", touche);
+      c.removeEventListener("fullscreenchange", pleinEcran);
+      html.style.overflow = debordement;
+      if (document.fullscreenElement === c) document.exitFullscreen().catch(() => {});
+      arreter();
+    };
+  }, [enVignette]);
+
+  return (
+    <div ref={cadre} className={enVignette ? "affiche story-video en-vignette" : "affiche story-video"} role="group" aria-label={`Vidéo : ${titre}, ${video.duree}`}>
+      <video
+        ref={lecteur}
+        src={video.url}
+        playsInline
+        onLoadedMetadata={(evenement) => {
+          evenement.currentTarget.currentTime = depart;
+        }}
+        onEnded={() => {
+          if (enVignette) fermer();
+        }}
+      />
+      {([-1, 1] as const).map((sens) => (
+        <button
+          key={sens}
+          type="button"
+          className={sens < 0 ? "cote precedent" : "cote suivant"}
+          aria-label={sens < 0 ? "Écran précédent" : "Écran suivant"}
+          onPointerDown={appuyer}
+          onPointerUp={relacher}
+          onPointerLeave={relacher}
+          onPointerCancel={relacher}
+          onContextMenu={(evenement) => evenement.preventDefault()}
+          onClick={() => toucher(sens)}
+        >
+          <span className="fleche" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d={sens < 0 ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"} />
+            </svg>
+          </span>
+        </button>
+      ))}
+      {enPause && (
+        <span className="en-pause" aria-hidden="true">
+          <span className="rond">
+            <svg viewBox="0 0 24 24">
+              <rect x="5" y="4" width="5" height="16" rx="1" />
+              <rect x="14" y="4" width="5" height="16" rx="1" />
+            </svg>
+          </span>
+        </span>
+      )}
+      {bloquee && (
+        <button
+          type="button"
+          className="relancer"
+          aria-label="Lire la vidéo"
+          onClick={() => {
+            setBloquee(false);
+            lecteur.current?.play().catch(() => {});
+          }}
+        >
+          <span className="rond" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 2.8v18.4c0 .8.9 1.3 1.6.9l15-9.2a1 1 0 0 0 0-1.8l-15-9.2C5.9 1.5 5 2 5 2.8z" />
+            </svg>
+          </span>
+        </button>
+      )}
+      {enVignette && (
+        <button type="button" className="fermer" aria-label="Fermer la vidéo" onClick={fermer}>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }

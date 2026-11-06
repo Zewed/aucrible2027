@@ -6904,6 +6904,28 @@ test("au téléphone, « Voir les propositions » est visible dès l'ouverture, 
   expect(await page.evaluate(() => window.scrollY)).toBe(0);
 });
 
+/** La vidéo lue comme une story, à la place de l'affiche ou par-dessus la fiche. */
+const histoire = (page: Page) => page.getByRole("group", { name: /^Vidéo :/ });
+/** Où en est la vidéo de la story, en secondes. */
+const instant = (page: Page) => histoire(page).locator("video").evaluate((v: HTMLVideoElement) => v.currentTime);
+/**
+ * La vidéo de la fiche de test n° 9, servie depuis e2e/fiches : 40 s en WebM, que lit le Chromium des tests. Elle part
+ * par morceaux, comme d'un vrai serveur : sans quoi le navigateur ne saute pas dans la vidéo.
+ */
+const servirLaVideoDeTest = (page: Page) =>
+  page.route("**/video-de-test.webm", (route) => {
+    const video = readFileSync("e2e/fiches/video-de-test.webm");
+    const plage = /bytes=(\d+)-(\d*)/.exec(route.request().headers().range ?? "");
+    if (!plage) return route.fulfill({ body: video, headers: { "Content-Type": "video/webm", "Accept-Ranges": "bytes" } });
+    const debut = Number(plage[1]);
+    const fin = plage[2] ? Number(plage[2]) : video.length - 1;
+    return route.fulfill({
+      status: 206,
+      body: video.subarray(debut, fin + 1),
+      headers: { "Content-Type": "video/webm", "Accept-Ranges": "bytes", "Content-Range": `bytes ${debut}-${fin}/${video.length}` },
+    });
+  });
+
 test.describe("la première étape : l'équerre", () => {
   for (const [largeur, hauteur] of [[1440, 900], [1920, 1080]]) {
     test.describe(`à ${largeur} × ${hauteur}`, () => {
@@ -6935,9 +6957,41 @@ test.describe("la première étape : l'équerre", () => {
     const question = await page.getByRole("heading", { level: 1 }).boundingBox();
     expect(question!.x + question!.width).toBeLessThanOrEqual(boite!.x);
     await affiche.click();
-    await expect.poll(() => page.evaluate(() => document.fullscreenElement?.tagName)).toBe("VIDEO");
+    await expect.poll(() => page.evaluate(() => document.fullscreenElement?.getAttribute("aria-label"))).toMatch(/^Vidéo :/);
     await page.evaluate(() => document.exitFullscreen());
+    await expect(histoire(page)).toHaveCount(0);
     await expect(affiche).toBeVisible();
+  });
+
+  test("au téléphone, la vidéo couvre la fiche ; la croix ramène l'affiche, et la vidéo reprend là où elle s'était arrêtée", async ({ page }) => {
+    await servirLaVideoDeTest(page);
+    await page.goto("/question/9");
+    const affiche = page.getByRole("button", { name: /^Lire la vidéo/ });
+    await affiche.click();
+    const { width, height } = page.viewportSize()!;
+    expect(await histoire(page).boundingBox()).toEqual({ x: 0, y: 0, width, height });
+    await page.getByRole("button", { name: "Écran suivant" }).click();
+    await expect.poll(() => instant(page)).toBeGreaterThanOrEqual(10);
+    await page.getByRole("button", { name: "Fermer la vidéo" }).click();
+    await expect(histoire(page)).toHaveCount(0);
+    await affiche.click();
+    await expect.poll(() => instant(page)).toBeGreaterThanOrEqual(10);
+  });
+
+  test("au téléphone, passer la question ou finir la vidéo ramène à la fiche, et la vidéo repart alors du début", async ({ page }) => {
+    await servirLaVideoDeTest(page);
+    await page.goto("/question/9");
+    const affiche = page.getByRole("button", { name: /^Lire la vidéo/ });
+    await affiche.click();
+    await expect.poll(() => instant(page)).toBeGreaterThan(0);
+    await histoire(page).locator("video").evaluate((v: HTMLVideoElement) => (v.currentTime = 35));
+    await page.getByRole("button", { name: "Écran suivant" }).click();
+    await expect(histoire(page)).toHaveCount(0);
+    await affiche.click();
+    await expect.poll(() => instant(page)).toBeGreaterThan(0);
+    expect(await instant(page)).toBeLessThan(10);
+    await histoire(page).locator("video").evaluate((v: HTMLVideoElement) => (v.currentTime = 39.5));
+    await expect(histoire(page)).toHaveCount(0);
   });
 
   test("ni pied de page ni « Mes résultats » en bas de cette étape ; « Signaler une erreur » est au coin des chiffres", async ({ page }) => {
@@ -6964,6 +7018,93 @@ test.describe("la première étape : l'équerre", () => {
     await page.goto("/question/9");
     await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
     await expect(page.locator("video")).toBeVisible();
+  });
+
+  test("une vidéo dont on ne connaît pas les écrans se lit avec les commandes du navigateur", async ({ page }) => {
+    const dossier = "e2e/fiches/video-sans-ecrans";
+    mkdirSync(dossier, { recursive: true });
+    try {
+      writeFileSync(`${dossier}/009.yaml`, readFileSync("e2e/fiches/009-2026-10-08.yaml", "utf8").replace(/, ecrans: \[[^\]]*\]/, ""));
+      await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "video-sans-ecrans", url: "http://localhost:3127" }]);
+      await page.goto("/question/9");
+      await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+      await expect(page.locator("video")).toHaveAttribute("controls");
+      await expect(page.getByRole("button", { name: "Écran suivant" })).toHaveCount(0);
+    } finally {
+      rmSync(dossier, { recursive: true, force: true });
+    }
+  });
+
+  test.describe("sur grand écran, la vidéo se lit à sa place comme une story", () => {
+    test.use({ viewport: { width: 1440, height: 900 }, isMobile: false, hasTouch: false });
+
+    test("sans les commandes du navigateur : à droite l'écran suivant, à gauche le précédent, et les flèches du clavier de même", async ({ page }) => {
+      await servirLaVideoDeTest(page);
+      await page.goto("/question/9");
+      const affiche = page.getByRole("button", { name: /^Lire la vidéo/ });
+      const place = (await affiche.boundingBox())!;
+      await affiche.click();
+      const boite = (await histoire(page).boundingBox())!;
+      expect([boite.x, boite.y, boite.width, boite.height].map(Math.round)).toEqual([place.x, place.y, place.width, place.height].map(Math.round));
+      await expect(histoire(page).locator("video")).not.toHaveAttribute("controls");
+      await expect.poll(() => instant(page)).toBeGreaterThan(0);
+      const suivant = page.getByRole("button", { name: "Écran suivant" });
+      const precedent = page.getByRole("button", { name: "Écran précédent" });
+      // Le début de l'écran où l'on est, d'après les quatre écrans de la fiche (0, 10, 20 et 30 s).
+      const ecran = async () => Math.floor((await instant(page)) / 10) * 10;
+      await suivant.click();
+      await expect.poll(ecran).toBe(10);
+      await suivant.click();
+      await expect.poll(ecran).toBe(20);
+      await precedent.click();
+      await expect.poll(ecran).toBe(10);
+      await page.keyboard.press("ArrowRight");
+      await expect.poll(ecran).toBe(20);
+      await page.keyboard.press("ArrowLeft");
+      await expect.poll(ecran).toBe(10);
+    });
+
+    test("à gauche, passé une seconde et demie dans un écran, il reprend à son début ; après la question, la vidéo s'arrête sur elle", async ({ page }) => {
+      await servirLaVideoDeTest(page);
+      await page.goto("/question/9");
+      await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+      await expect.poll(() => instant(page)).toBeGreaterThan(0);
+      const video = histoire(page).locator("video");
+      // La vidéo arrêtée à cet instant, une fois le saut fini : le clic qui suit part bien de là.
+      const arreterA = (secondes: number) =>
+        video.evaluate(
+          (v: HTMLVideoElement, s) =>
+            new Promise((fini) => {
+              v.pause();
+              v.addEventListener("seeked", fini, { once: true });
+              v.currentTime = s;
+            }),
+          secondes,
+        );
+      await arreterA(25);
+      await page.getByRole("button", { name: "Écran précédent" }).click();
+      await expect.poll(() => instant(page)).toBeLessThan(25);
+      expect(await instant(page)).toBeGreaterThanOrEqual(20);
+      await arreterA(35);
+      await page.getByRole("button", { name: "Écran suivant" }).click();
+      await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.ended)).toBe(true);
+      await expect(histoire(page)).toBeVisible();
+    });
+
+    test("rester appuyé met en pause ; relâcher reprend, sans changer d'écran", async ({ page }) => {
+      await servirLaVideoDeTest(page);
+      await page.goto("/question/9");
+      await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+      await expect.poll(() => instant(page)).toBeGreaterThan(0);
+      const video = histoire(page).locator("video");
+      const suivant = (await page.getByRole("button", { name: "Écran suivant" }).boundingBox())!;
+      await page.mouse.move(suivant.x + suivant.width / 2, suivant.y + suivant.height / 2);
+      await page.mouse.down();
+      await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+      await page.mouse.up();
+      await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(false);
+      expect(await instant(page)).toBeLessThan(10);
+    });
   });
 });
 
