@@ -546,18 +546,15 @@ test.describe("les propositions en mosaïque", () => {
 const carteReponse = (page: Page, libelle: string) =>
   page.getByRole("radiogroup", { name: "Les options" }).locator("label").filter({ has: page.getByRole("radio", { name: libelle }) });
 
-test("toucher « 64 ans » colore la carte C et la marque « Ta carte » ; les autres restent blanches", async ({ page }) => {
+test("toucher « 64 ans » colore la carte C, sans étiquette « Ta carte » ; les autres restent blanches", async ({ page }) => {
   await page.goto("/questionnaire");
   await choisir(page, "64 ans");
-  const choisie = carteReponse(page, "64 ans");
-  await expect(choisie.getByText("Ta carte", { exact: true })).toBeVisible();
-  const face = choisie.locator(".mq-face");
+  const face = carteReponse(page, "64 ans").locator(".mq-face");
   await expect.poll(() => fond(face)).toBe(ORANGE);
+  await expect(page.getByText("Ta carte", { exact: true })).toHaveCount(0);
 
   for (const libelle of ["60 ans", "62 ans", "65 ans ou plus", "À la carte, avec un système à points"]) {
-    const autre = carteReponse(page, libelle);
-    expect(await fond(autre.locator(".mq-face"))).toBe("rgb(255, 255, 255)");
-    await expect(autre.getByText("Ta carte", { exact: true })).toBeHidden();
+    expect(await fond(carteReponse(page, libelle).locator(".mq-face"))).toBe("rgb(255, 255, 255)");
   }
 });
 
@@ -570,20 +567,17 @@ test("avec « réduire les animations », la carte choisie est marquée aussitô
   const etat = await choisie.evaluate((el) => ({
     animations: document.getAnimations().length,
     fond: getComputedStyle(el.querySelector(".mq-face")!).backgroundColor,
-    etiquette: getComputedStyle(el.querySelector(".mq-mienne")!).opacity,
   }));
-  expect(etat).toEqual({ animations: 0, fond: ORANGE, etiquette: "1" });
-  await expect(choisie.getByText("Ta carte", { exact: true })).toBeVisible();
+  expect(etat).toEqual({ animations: 0, fond: ORANGE });
 });
 
-test("choisir A puis B, sans valider, fait passer « Ta carte » de A à B", async ({ page }) => {
+test("choisir A puis B, sans valider, fait passer la couleur de A à B", async ({ page }) => {
   await page.goto("/questionnaire");
   await choisir(page, "60 ans");
-  await expect(carteReponse(page, "60 ans").getByText("Ta carte", { exact: true })).toBeVisible();
+  await expect.poll(() => fond(carteReponse(page, "60 ans").locator(".mq-face"))).toBe(ORANGE);
   await choisir(page, "62 ans");
-  await expect(carteReponse(page, "62 ans").getByText("Ta carte", { exact: true })).toBeVisible();
-  await expect(carteReponse(page, "60 ans").getByText("Ta carte", { exact: true })).toBeHidden();
-  await expect(page.getByText("Ta carte", { exact: true }).filter({ visible: true })).toHaveCount(1);
+  await expect.poll(() => fond(carteReponse(page, "62 ans").locator(".mq-face"))).toBe(ORANGE);
+  await expect.poll(() => fond(carteReponse(page, "60 ans").locator(".mq-face"))).toBe("rgb(255, 255, 255)");
   await expect(page.getByRole("radio", { checked: true })).toHaveCount(1);
 });
 
@@ -661,7 +655,6 @@ test("choisir « Je ne sais pas » après « 64 ans » décoche « 64 ans » : u
   await choisir(page, "Je ne sais pas");
   await expect(page.getByRole("radio", { name: "64 ans" })).not.toBeChecked();
   await expect(page.getByRole("radio", { checked: true })).toHaveCount(1);
-  await expect(page.getByText("Ta carte", { exact: true }).filter({ visible: true })).toHaveCount(0);
 });
 
 const importance = (page: Page) => page.getByRole("group", { name: "Ce sujet compte pour toi ?" });
@@ -694,14 +687,13 @@ test("toucher ×3 marque ×3 et décoche le choix précédent ; un seul est marq
   await expect(importance(page).getByRole("radio", { checked: true })).toHaveCount(1);
 });
 
-test("changer d'importance ne change pas l'option choisie : « Ta carte » reste sur la même carte", async ({ page }) => {
+test("changer d'importance ne change pas l'option choisie : la couleur reste sur la même carte", async ({ page }) => {
   await page.goto("/questionnaire");
   await choisir(page, "64 ans");
   await peser(page, "×2");
   await peser(page, "×3");
   await expect(page.getByRole("radio", { name: "64 ans" })).toBeChecked();
-  await expect(carteReponse(page, "64 ans").getByText("Ta carte", { exact: true })).toBeVisible();
-  await expect(page.getByText("Ta carte", { exact: true }).filter({ visible: true })).toHaveCount(1);
+  await expect.poll(() => fond(carteReponse(page, "64 ans").locator(".mq-face"))).toBe(ORANGE);
 });
 
 /**

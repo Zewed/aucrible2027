@@ -325,15 +325,16 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
 .story-video .tiret:focus-visible { outline: none; }
 .story-video .tiret:focus-visible::after { opacity: 1; outline: 2px solid var(--chalk); outline-offset: 3px; }
 .ecran-partage .faits { padding: clamp(26px, 4 * var(--u), 48px) var(--padX) 0; display: flex; flex-direction: column; --ctx: 17px; }
-.ecran-partage .ctx { counter-reset: phrase; display: grid; gap: calc(var(--ctx) * .8); }
+/* Les phrases du contexte : un losange, pas un numéro, qu'on ne les prenne pas pour les propositions. */
+.ecran-partage .ctx { display: grid; gap: calc(var(--ctx) * .8); }
 .ecran-partage .ctx p {
-  counter-increment: phrase; margin: 0;
-  display: grid; grid-template-columns: calc(var(--ctx) * 1.9) 1fr; column-gap: calc(var(--ctx) * .55); align-items: start;
+  margin: 0;
+  display: grid; grid-template-columns: calc(var(--ctx) * .5) 1fr; column-gap: calc(var(--ctx) * .8); align-items: start;
   font: 500 var(--ctx)/1.42 var(--text); color: var(--sur-table); text-wrap: pretty;
 }
 .ecran-partage .ctx p::before {
-  content: counter(phrase); font: 800 calc(var(--ctx) * 2.6)/0.78 var(--display);
-  font-variation-settings: "wdth" 80, "opsz" 96; color: var(--theme-text); padding-top: .04em;
+  content: ""; width: calc(var(--ctx) * .5); height: calc(var(--ctx) * .5); margin-top: calc(var(--ctx) * .46);
+  background: var(--theme); transform: rotate(45deg);
 }
 .ecran-partage .chiffres { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
 .chiffres-tete { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: clamp(14px, 2.4 * var(--u), 30px); }
@@ -487,10 +488,6 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
   background: var(--theme); color: var(--on-theme); font: 800 .68em/1 var(--display);
 }
 .mq-titre { flex: 1; min-width: 0; align-self: center; font: 800 1em/1 var(--display); font-variation-settings: "wdth" 82, "opsz" 96; letter-spacing: -0.02em; text-wrap: balance; }
-.mq-mienne {
-  display: none; flex: none; align-items: center; gap: 6px; background: var(--ink); color: var(--chalk);
-  font: 800 12.5px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; padding: 8px 11px 7px; border-radius: 999px; white-space: nowrap;
-}
 .mq-implique { display: block; font: 600 15.5px/1.35 var(--text); max-width: 58ch; }
 .mq-arguments { margin-top: 6px; display: grid; gap: 12px; }
 .mq-argument { display: block; font: 400 15px/1.4 var(--text); max-width: 60ch; }
@@ -532,7 +529,6 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
 /* L'option choisie prend la couleur du thème. */
 .mq-tuile input:checked + .mq-face { background: var(--theme); color: var(--on-theme); box-shadow: inset 0 0 0 3px var(--ink); }
 .mq-tuile input:checked + .mq-face .mq-lettre { background: var(--ink); color: var(--theme-text); }
-.mq-tuile input:checked + .mq-face .mq-mienne { display: inline-flex; }
 .mq-tuile input:checked + .mq-face .mq-argument b { color: var(--ink); }
 .mq-tuile input:checked + .mq-face .mq-argument b::before { background: var(--ink); }
 .mq-nsp > span {
@@ -598,7 +594,6 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
   .mq-pile { display: contents; }
   .mq-tuile { flex: none; }
   .mq-arguments { margin-top: auto; padding-top: 4px; }
-  .mq-mienne { font-size: clamp(12.5px, 1.35 * var(--u), 14px); }
   .mq-face { padding: calc(var(--fit, 1) * var(--py)) var(--px); gap: calc(var(--fit, 1) * clamp(6px, 1 * var(--u), 12px)); }
   .mq-haut { font-size: calc(var(--k) * clamp(24px, min(3.6 * var(--u) + 1vw - 14.4px, 2.4vw), 44px)); }
   .mq-implique { font-size: calc(var(--k) * clamp(14.5px, 1.95 * var(--u) + .44vw - 6.3px, 21px)); }
