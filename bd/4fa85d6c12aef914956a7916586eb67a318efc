@@ -1,0 +1,21 @@
+content/questions/047-legitime-defense-policiers.yaml
+  s_d2ce694d481d22::t_69b30b86c93bce 13
+content/videos-verrouillees.yaml
+  s_d2ce694d481d22::t_2d2fe0c1b96d70 50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bd4fa85d6c12aef914956a7916586eb67a318efc",
+  "prompts": {},
+  "sessions": {
+    "s_d2ce694d481d22": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-afa921749d31f266e",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
