@@ -1,0 +1,21 @@
+content/questions/037-videosurveillance-ia.yaml
+  s_f7a8da261347b4::t_4101c28ec73f90 11
+content/videos-verrouillees.yaml
+  s_f7a8da261347b4::t_60a41dfe88c931 40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "05f81d5a193f8d04be05e6e1c21353635a3e617b",
+  "prompts": {},
+  "sessions": {
+    "s_f7a8da261347b4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6531b062-a371-4462-9938-9e32ae9e3197",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
