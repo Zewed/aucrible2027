@@ -1,0 +1,22 @@
+e2e/fiches/009-2026-10-08.yaml
+  h_1294ab5999dad1 57-59
+e2e/question-du-jour.spec.ts
+  h_1294ab5999dad1 6907-6928,6960,6962,6966-6996,7022-7108
+src/app/globals.css
+  h_1294ab5999dad1 253-287,403
+src/components/VignetteVideo.tsx
+  h_1294ab5999dad1 3-4,14-15,19,21,30,50-59,68,105-122,129-323
+src/lib/contenu.ts
+  h_1294ab5999dad1 79-84
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8684664077966bf5d40294b124a6536d0400ad1a",
+  "prompts": {},
+  "humans": {
+    "h_1294ab5999dad1": {
+      "author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
