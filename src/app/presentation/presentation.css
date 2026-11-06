@@ -1,0 +1,180 @@
+/* La landing (/presentation) : une page qui défile, sans le menu de l'app. En haut, le produit dans un téléphone ; puis
+   le bandeau des questions, les trois étapes avec leur visuel, les garanties sur fond inversé et l'appel final. */
+.lp {
+  --bord: max(20px, calc((100% - 1240px) / 2));
+  --lp-bouton: var(--sur-table); --lp-bouton-texte: var(--table); --lp-bouton-tranche: color-mix(in srgb, var(--sur-table) 55%, #000);
+  padding: 0; overflow-x: clip;
+}
+.lp > section, .lp-tete { padding-inline: var(--bord); }
+.lp a:focus-visible, .lp button:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; border-radius: 6px; }
+
+.lp-tete { display: flex; align-items: center; padding-top: 18px; }
+.lp-marque {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: var(--sur-table);
+  font: 800 22px/1 var(--display); font-variation-settings: "wdth" 85; letter-spacing: -0.01em;
+}
+.lp-marque b { color: var(--eco-texte); font-weight: 800; }
+.lp-marque svg { width: 34px; height: 34px; }
+
+/* ---------- le haut : la promesse, le bouton, le téléphone ---------- */
+.lp-heros { display: grid; gap: 36px; padding-block: 28px 56px; }
+.lp-heros h1 {
+  font: 800 clamp(50px, 13.4vw, 140px)/0.88 var(--display); font-variation-settings: "wdth" 80, "opsz" 96;
+  letter-spacing: -0.03em; text-wrap: balance;
+}
+.lp-mot { white-space: nowrap; }
+.lp-accroche { margin-top: 22px; max-width: 26ch; font: 600 clamp(20px, 5.4vw, 30px)/1.25 var(--text); text-wrap: pretty; }
+.lp-actions { margin-top: 30px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.lp-go {
+  display: inline-flex; align-items: center; justify-content: center; gap: .45em; text-decoration: none;
+  background: var(--lp-bouton); color: var(--lp-bouton-texte); border-radius: 18px; box-shadow: 0 8px 0 var(--lp-bouton-tranche);
+  padding: 22px 30px; font: 800 clamp(20px, 5.6vw, 28px)/1 var(--display); font-variation-settings: "wdth" 84;
+  transition: transform .12s var(--ease-out), box-shadow .12s var(--ease-out);
+}
+.lp-go svg { width: 1.05em; height: 1.05em; flex: none; }
+.lp-go:hover { transform: translateY(-2px); box-shadow: 0 10px 0 var(--lp-bouton-tranche); }
+.lp-go:active { transform: translateY(6px); box-shadow: 0 2px 0 var(--lp-bouton-tranche); }
+.lp-rassure { font: 600 16px/1.3 var(--text); color: var(--muted); }
+
+/* Le téléphone, posé sur deux cartes de couleur qui dépassent. */
+.lp-scene { position: relative; justify-self: center; padding: 34px 26px; }
+.lp-scene::before, .lp-scene::after { content: ""; position: absolute; border-radius: 40px; }
+.lp-scene::before { inset: 4% 2%; background: var(--theme); transform: rotate(-8deg); }
+.lp-scene::after { inset: 10% 0 6% 10%; background: var(--eco); transform: rotate(6deg); }
+.lp-scene.theme-eco::after { background: var(--immi); }
+.lp-tel {
+  position: relative; z-index: 1; width: clamp(236px, 64vw, 340px); padding: 11px; border-radius: 46px;
+  background: #0B0919; box-shadow: inset 0 0 0 2px #3B3369, 0 40px 70px -30px rgba(11, 9, 25, .75);
+}
+.lp-tel::before {
+  content: ""; position: absolute; z-index: 2; top: 20px; left: 50%; width: 76px; height: 20px; border-radius: 12px;
+  background: #0B0919; transform: translateX(-50%);
+}
+.lp-tel video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 36px; background: #1D1838; }
+.lp-son {
+  position: absolute; z-index: 2; left: 50%; bottom: 26px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px 0 10px; white-space: nowrap;
+  border: 0; border-radius: 999px; background: rgba(11, 9, 25, .74); color: #fff; font: 700 14px/1 var(--text); cursor: pointer;
+}
+.lp-son svg { width: 20px; height: 20px; }
+
+/* ---------- le bandeau des questions, qui défile ---------- */
+.lp > .lp-defile { padding: 26px 0; overflow: hidden; background: var(--table-2); }
+.lp-defile-rail { display: flex; width: max-content; animation: lp-defile calc(var(--n) * 11s) linear infinite; }
+.lp-defile:hover .lp-defile-rail { animation-play-state: paused; }
+.lp-defile ul {
+  flex: none; display: flex; gap: 1.4em; margin: 0; padding: 0 1.4em 0 0; list-style: none; white-space: nowrap;
+  font: 800 clamp(24px, 3.4vw, 44px)/1 var(--display); font-variation-settings: "wdth" 80; letter-spacing: -0.015em;
+}
+.lp-defile li { display: flex; align-items: center; gap: .3em; color: var(--theme-text); }
+.lp-defile svg { flex: none; width: .62em; height: .62em; }
+@keyframes lp-defile { to { transform: translateX(-50%); } }
+
+/* ---------- les trois étapes, chacune avec son visuel ---------- */
+.lp-etapes { padding-block: 72px 24px; }
+.lp-etapes h2, .lp-gages h2 {
+  max-width: 13ch; font: 800 clamp(42px, 10.4vw, 100px)/0.9 var(--display); font-variation-settings: "wdth" 80, "opsz" 96;
+  letter-spacing: -0.025em; text-wrap: balance;
+}
+.lp-etape { display: grid; gap: 28px; padding-block: 44px; }
+.lp-etapes h2 + .lp-etape { margin-top: 20px; }
+.lp-n { display: block; font: 800 clamp(64px, 17vw, 128px)/0.8 var(--display); font-variation-settings: "wdth" 80; letter-spacing: -0.03em; color: var(--table-3); }
+.lp-etape h3 {
+  margin-top: 16px; font: 800 clamp(32px, 8vw, 60px)/0.95 var(--display); font-variation-settings: "wdth" 82;
+  letter-spacing: -0.02em; text-wrap: balance;
+}
+.lp-etape-texte p { margin-top: 16px; max-width: 34ch; font: 500 clamp(17px, 4.4vw, 21px)/1.45 var(--text); text-wrap: pretty; }
+.lp-visuel { display: grid; place-items: center; padding: clamp(28px, 6vw, 64px) clamp(18px, 5vw, 56px); border-radius: 28px; background: var(--table-2); }
+
+/* La carte d'une question, comme sur la fiche. */
+.lp-carte { width: min(100%, 520px); background: var(--card); color: var(--ink); border-radius: 22px; overflow: hidden; box-shadow: 0 24px 50px -26px rgba(11, 9, 25, .5); }
+.lp-carte-haut { background: var(--theme); color: var(--on-theme); padding: 18px 20px 22px; }
+.lp-carte-q {
+  margin-top: 14px; font: 800 clamp(26px, 6.6vw, 38px)/0.98 var(--display); font-variation-settings: "wdth" 82, "opsz" 96;
+  letter-spacing: -0.02em; text-wrap: balance;
+}
+.lp-chiffres { list-style: none; margin: 0; padding: 4px 20px 12px; }
+.lp-chiffres li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center; padding: 14px 0; border-top: 2px solid var(--slot); }
+.lp-chiffres li:first-child { border-top: 0; }
+.lp-chiffres b {
+  grid-row: 1 / span 2; white-space: nowrap; font-variant-numeric: tabular-nums;
+  font: 800 clamp(30px, 7.4vw, 44px)/0.9 var(--display); font-variation-settings: "wdth" 80; letter-spacing: -0.02em;
+}
+.lp-chiffres b small { font-size: .46em; letter-spacing: 0; }
+.lp-chiffres span, .lp-chiffres li > small { grid-column: 2; }
+.lp-chiffres span { font: 600 16px/1.3 var(--text); }
+.lp-chiffres li > small { margin-top: 4px; font: 600 13px/1.2 var(--text); color: var(--ink-soft); }
+
+.lp-pile { position: relative; width: min(100%, 520px); margin: 12px 12px 0 0; }
+.lp-pile::before, .lp-pile::after { content: ""; position: absolute; inset: 0; border-radius: 22px; }
+.lp-pile::before { background: var(--immi); transform: rotate(3.4deg) translate(10px, -12px); }
+.lp-pile::after { background: var(--eco); transform: rotate(1.6deg) translate(5px, -6px); }
+.lp-pile .lp-carte { position: relative; z-index: 1; width: 100%; }
+.lp-options { list-style: none; margin: 0; padding: 14px 14px 4px; display: grid; gap: 8px; }
+.lp-options a {
+  display: flex; align-items: center; gap: 12px; min-height: 54px; padding: 8px 14px 8px 8px; border-radius: 12px;
+  background: var(--theme-tint); color: var(--ink); text-decoration: none; font: 700 17px/1.2 var(--text);
+  transition: transform .12s var(--ease-out);
+}
+.lp-options a:hover { transform: translateX(4px); }
+.lp-lettre { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 9px; background: var(--ink); color: var(--chalk); font: 800 18px/1 var(--display); }
+.lp-pions { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 14px 18px; }
+.lp-pions .pawn { --size: 30px; font-size: 14px; }
+
+/* Le plateau, en illustration. */
+.lp-plateau { position: relative; width: min(100%, 500px); aspect-ratio: 1; border-radius: 22px; background: var(--card); color: var(--ink); box-shadow: 0 24px 50px -26px rgba(11, 9, 25, .5); }
+.lp-axe { position: absolute; background: var(--slot); border-radius: 1px; }
+.lp-axe-h { left: 6%; right: 6%; top: 50%; height: 2px; }
+.lp-axe-v { top: 6%; bottom: 6%; left: 50%; width: 2px; }
+.lp-bord { position: absolute; white-space: nowrap; font: 700 clamp(11px, 2.8vw, 13px)/1 var(--text); color: var(--ink-soft); }
+.lp-haut { top: 14px; left: 50%; transform: translateX(-50%); }
+.lp-bas { bottom: 14px; left: 50%; transform: translateX(-50%); }
+.lp-gauche { left: 14px; top: calc(50% + 9px); }
+.lp-droite { right: 14px; top: calc(50% + 9px); }
+.lp-plateau .pawn { position: absolute; --size: clamp(26px, 6.4vw, 34px); margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2); font-size: 14px; }
+.lp-plateau .lp-toi { --size: clamp(42px, 10vw, 54px); z-index: 2; font-size: 15px; box-shadow: 0 4px 0 var(--trav-edge); }
+
+/* ---------- les garanties, sur fond inversé ---------- */
+.lp-gages { --filet: color-mix(in srgb, var(--table) 18%, transparent); padding-block: 80px; background: var(--sur-table); color: var(--table); }
+.lp-gages dl { margin: 40px 0 0; }
+.lp-gages dl > div { display: grid; gap: 8px; padding: 24px 0; border-top: 2px solid var(--filet); }
+.lp-gages dt { font: 800 clamp(28px, 7vw, 52px)/0.95 var(--display); font-variation-settings: "wdth" 82; letter-spacing: -0.02em; }
+.lp-gages dd { margin: 0; max-width: 40ch; font: 500 clamp(17px, 4.4vw, 21px)/1.45 var(--text); color: var(--sur-inverse); }
+.lp-gages a { color: var(--table); font-weight: 700; text-underline-offset: 3px; }
+.lp-signe { margin-top: 36px; font: 600 clamp(16px, 4.2vw, 19px)/1.4 var(--text); color: var(--sur-inverse); }
+
+/* ---------- l'appel final ---------- */
+.lp-fin { --lp-bouton: var(--ink); --lp-bouton-texte: var(--chalk); --lp-bouton-tranche: var(--ink-deep); padding-block: 88px 96px; background: var(--theme); color: var(--on-theme); }
+.lp-fin h2 {
+  max-width: 12ch; font: 800 clamp(50px, 12.4vw, 156px)/0.88 var(--display); font-variation-settings: "wdth" 80, "opsz" 96;
+  letter-spacing: -0.03em; text-wrap: balance;
+}
+.lp-fin .lp-actions { margin-top: 40px; }
+.lp-autre { display: inline-flex; align-items: center; min-height: 44px; font: 700 18px/1.2 var(--text); color: inherit; text-underline-offset: 4px; }
+
+/* Au téléphone, le bouton prend la largeur et tient sur une ligne ; un chiffre clé passe au-dessus de sa légende. */
+@media (max-width: 599.98px) {
+  .lp-actions { align-items: stretch; }
+  .lp-go { padding: 22px 18px; font-size: clamp(18px, 5.4vw, 24px); }
+  .lp-autre { align-self: center; }
+  .lp-chiffres li { grid-template-columns: minmax(0, 1fr); }
+  .lp-chiffres b { grid-row: auto; margin-bottom: 6px; }
+  .lp-chiffres span, .lp-chiffres li > small { grid-column: 1; }
+}
+
+@media (min-width: 900px) {
+  .lp-heros { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; gap: 40px; min-height: calc(100svh - 62px); padding-block: 12px 56px; }
+  .lp-heros h1 { font-size: clamp(76px, 7.8vw, 144px); }
+  .lp-tel { width: clamp(270px, min(24vw, 40svh), 380px); }
+  .lp-etape { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: clamp(40px, 5vw, 88px); padding-block: 64px; }
+  .lp-etape:nth-of-type(even) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  .lp-etape:nth-of-type(even) .lp-etape-texte { order: 2; }
+  .lp-gages { padding-block: 112px; }
+  .lp-gages dl > div { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: baseline; gap: 48px; padding: 30px 0; }
+  .lp-fin { padding-block: 120px 128px; }
+  .lp-fin .lp-actions { flex-direction: row; align-items: center; gap: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lp-defile-rail { animation: none; }
+  .lp-go, .lp-options a { transition: none; }
+}
