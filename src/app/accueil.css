@@ -35,6 +35,7 @@
 .ac-mini { height: 6px; border-radius: 3px; background: var(--table-3); overflow: hidden; }
 .ac-mini i { display: block; height: 100%; border-radius: inherit; background: var(--theme); }
 .ac-c { text-align: right; font: 700 14px/1 var(--text); color: var(--muted); }
+.ac-etat :is(.recommencer, .recommencer-sur) { margin-top: 4px; font: 600 15px/1.15 var(--text); }
 
 /* Sur ordinateur, l'écran partagé, comme la fiche : rien ne défile. */
 @media (min-width: 900px) {
@@ -51,5 +52,6 @@
   .ac-themes { flex: 1; min-height: 0; display: grid; grid-auto-rows: 1fr; margin-top: clamp(4px, 1 * var(--u), 12px); }
   .ac-themes li { display: grid; min-height: 0; }
   .ac-themes a, .ac-themes li > span { min-height: 34px; font-size: clamp(14px, 1.9 * var(--u), 19px); }
+  .ac-etat :is(.recommencer, .recommencer-sur) { margin-top: 0; font-size: clamp(14px, 1.9 * var(--u), 19px); }
 }
 @media (prefers-reduced-motion: reduce) { .ac-action { transition: none; } }

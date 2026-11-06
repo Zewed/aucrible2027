@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CompteARebours } from "@/components/CompteARebours";
 import { Presentation, type DonneesDeLaPresentation } from "@/components/Presentation";
 import { PuceTheme } from "@/components/PuceTheme";
+import { Recommencer } from "@/components/Recommencer";
 import { StylesDeLaPage } from "@/components/StylesDeLaPage";
 import type { Question, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
@@ -143,6 +144,7 @@ export function Accueil({
               );
             })}
           </ul>
+          <Recommencer />
         </section>
       </main>
     </>

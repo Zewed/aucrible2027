@@ -32,6 +32,7 @@ Nom : **Au crible 2027** — domaine `aucrible2027.fr`, comptes `@aucrible2027` 
 - **Répondre thème par thème (27/10/2026)** : depuis ce détail, un thème qui a encore des questions sans réponse les enchaîne, dans l'ordre de l'appareil ; le thème fini, l'ordre de toutes les questions reprend.
 - **Accueil et questionnaire (02/11/2026)** : l'accueil ne pose plus de question. Il propose de commencer le questionnaire, ou de le continuer en disant où en est l'électeur ; le questionnaire a sa propre adresse, `/questionnaire`.
 - **Landing (06/11/2026)** : un appareil sans réponse voit à l'accueil la landing, aussi à `/presentation`. Elle n'a pas de menu : la promesse, une vidéo constat verrouillée dans un téléphone, le bandeau des questions, trois étapes illustrées par une vraie fiche, les garanties et le bouton pour commencer. Aucun candidat n'y est nommé ; l'exemple et l'ordre des questions sont tirés au hasard. Dès la première réponse, l'accueil redevient celui du questionnaire.
+- **Recommencer (06/11/2026)** : sous les thèmes de l'accueil et au pied de « Mes résultats », « Recommencer le questionnaire » demande sur place « Effacer tes N réponses ? ». Effacer vide l'appareil de ses réponses et tire un nouvel ordre des questions ; la première question s'ouvre.
 
 Avant cette décision :
 

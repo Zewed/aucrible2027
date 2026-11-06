@@ -6,6 +6,7 @@ import { Classement } from "@/components/Classement";
 import { Fiabilite } from "@/components/Fiabilite";
 import { PageEnAttente } from "@/components/PageEnAttente";
 import { Plateau } from "@/components/Plateau";
+import { Recommencer } from "@/components/Recommencer";
 import { GrandCamembert, TesThemes } from "@/components/Themes";
 import { lireThemes } from "@/lib/contenu";
 import { lireAujourdhui, lireCandidatsDeLaListe, lireCandidatsEnLice, lireQuestionsDuCalcul } from "@/lib/publication";
@@ -53,6 +54,7 @@ async function Resultats() {
           <span className="tag">Ce n&apos;est pas un sondage</span>
           <nav>
             <Link href="/questionnaire">Retour aux questions</Link>
+            <Recommencer />
           </nav>
         </footer>
       </main>
