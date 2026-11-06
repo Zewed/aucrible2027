@@ -1,0 +1,21 @@
+content/questions/039-taxe-zucman.yaml
+  s_ba518d83817b92::t_52a3840aaf3949 10
+content/videos-verrouillees.yaml
+  s_ba518d83817b92::t_152fd3c80fe667 42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4f1db16ad4c4f7654eca30a5e3b9c8087ab93035",
+  "prompts": {},
+  "sessions": {
+    "s_ba518d83817b92": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_ba518d83817b92",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
