@@ -1,0 +1,215 @@
+content/questions/003-voitures-thermiques.yaml
+  s_3a2afdd0999c9d::t_e03f441372fde8 78-93
+  s_3a2afdd0999c9d::t_b34bb4f43bd5ca 34-48
+  s_3a2afdd0999c9d::t_50da4e3a6e6e6e 67
+  s_3a2afdd0999c9d::t_dd677d800b7404 56-66,68-71
+  s_3a2afdd0999c9d::t_7d588886ba5d43 49
+content/questions/025-nucleaire.yaml
+  s_3a2afdd0999c9d::t_df99d308c5f40f 72-87
+  s_3a2afdd0999c9d::t_ddebb6a19b80c9 30-45
+  s_3a2afdd0999c9d::t_2f357f8b6928e9 64
+  s_3a2afdd0999c9d::t_388c91ae0972d0 93-108
+  s_3a2afdd0999c9d::t_bf9e3ecdfed822 51-63,65-66
+content/questions/006-franchises-medicales.yaml
+  s_3a2afdd0999c9d::t_55c353f686d030 101-102,104-116
+  s_3a2afdd0999c9d::t_55e368ed52a5db 37-41,43-52
+  s_3a2afdd0999c9d::t_e659833faefbb3 42
+  s_3a2afdd0999c9d::t_af6a97b05d9fbc 103
+  s_3a2afdd0999c9d::t_a70b5cd150cfa1 59-72
+  s_3a2afdd0999c9d::t_60c6fb5dfd5d72 79-94
+content/questions/015-ame.yaml
+  s_3a2afdd0999c9d::t_43219a5a1f8d2f 39
+  s_3a2afdd0999c9d::t_3e8f4cd4c8c1f3 37-38,40-52,59-74,81-96
+content/questions/008-sru.yaml
+  s_3a2afdd0999c9d::t_e7d368f6174b22 52,95
+  s_3a2afdd0999c9d::t_351b99ce9e35df 38-51,53,60-64,66-75,82-94,96-97,104-119
+  s_3a2afdd0999c9d::t_62c7762f393e89 65
+content/questions/052-zan.yaml
+  s_3a2afdd0999c9d::t_9c760eee065f63 36-44,46-51,58-73,81-91,93-94,103-116
+  s_3a2afdd0999c9d::t_f1bc43af829f5a 92
+  s_3a2afdd0999c9d::t_2e9bcd132b7309 45
+content/questions/044-depassements-honoraires.yaml
+  s_3a2afdd0999c9d::t_7a6b4ae8aeb939 32-47,54-67,74-89,96-111
+content/questions/048-vaccins.yaml
+  s_3a2afdd0999c9d::t_667babead88922 50,69,88
+  s_3a2afdd0999c9d::t_ed4e1fb2f0df93 35-49,56-68,70-71,77-87,89-92,99-114
+content/questions/007-uniforme.yaml
+  s_3a2afdd0999c9d::t_190b0e619e5220 78-93
+  s_3a2afdd0999c9d::t_0203c67dc857df 36-51
+  s_3a2afdd0999c9d::t_1d954076ec4817 63
+  s_3a2afdd0999c9d::t_787135053d06a7 58-62,64-71
+content/questions/009-ukraine.yaml
+  s_3a2afdd0999c9d::t_9a36c7f546af64 32-47,53-66,72-87,93-100,102-108
+  s_3a2afdd0999c9d::t_e7d368f6174b22 101
+content/questions/016-majorite-penale.yaml
+  s_3a2afdd0999c9d::t_87fb0a9097db12 93
+  s_3a2afdd0999c9d::t_3d5d63d3aea75d 34-49,56-71,78-92,100-113
+content/questions/050-salaire-enseignants.yaml
+  s_3a2afdd0999c9d::t_667babead88922 45,89,91-92,113
+  s_3a2afdd0999c9d::t_ed4e1fb2f0df93 33-44,46-50,57-72,79-88,90,99-112,114-116
+content/questions/054-vote-obligatoire.yaml
+  s_3a2afdd0999c9d::t_e207e78fc6b937 34-48,55-66,68,74-75,77-87,89
+  s_3a2afdd0999c9d::t_2e9bcd132b7309 88
+  s_3a2afdd0999c9d::t_f847d4e2652a44 49,67,76
+content/questions/053-sixieme-republique.yaml
+  s_3a2afdd0999c9d::t_e9201249b15ad3 37-52,58-71,77-90,98-113
+content/questions/012-deficit.yaml
+  s_3a2afdd0999c9d::t_27bec8591e065f 35-52,59-72,79-94,103-118
+content/questions/055-vote-blanc.yaml
+  s_3a2afdd0999c9d::t_61a8886b11a187 35-50,56-69,75-88
+content/questions/022-cannabis.yaml
+  s_3a2afdd0999c9d::t_6206b24fa816bc 61-74
+  s_3a2afdd0999c9d::t_320723047fa9e3 81-94
+  s_3a2afdd0999c9d::t_a1c97591a813c4 37-50,52-54
+  s_3a2afdd0999c9d::t_719a0ddf3e4b40 51
+content/questions/046-delit-de-sejour.yaml
+  s_3a2afdd0999c9d::t_ed4e1fb2f0df93 37-50,57-67,69-72,79-91,93-94,101-107,109-113,115-116
+  s_3a2afdd0999c9d::t_667babead88922 68,92,108,114
+content/questions/045-tva.yaml
+  s_3a2afdd0999c9d::t_667babead88922 45,51,67,73,91,97
+  s_3a2afdd0999c9d::t_ed4e1fb2f0df93 40-44,46-50,52-55,62-66,68-72,74-77,84-90,92-96,98-99
+content/questions/010-ric.yaml
+  s_3a2afdd0999c9d::t_857f37796aa526 33-48,55-70,77-92
+content/questions/041-pesticides.yaml
+  s_3a2afdd0999c9d::t_9a54ef66e51739 35-50
+  s_3a2afdd0999c9d::t_010bdf0784e12f 81-96
+  s_3a2afdd0999c9d::t_8b09047267bcab 58-73
+  s_3a2afdd0999c9d::t_afda6c113df54b 104-119
+content/questions/011-fin-de-vie.yaml
+  s_3a2afdd0999c9d::t_e7d368f6174b22 72,74
+  s_3a2afdd0999c9d::t_85a6d9e61bd033 39-54,61-71,73,75-76,83-95
+content/questions/023-loyers.yaml
+  s_3a2afdd0999c9d::t_ca3951ca23138a 31-46
+  s_3a2afdd0999c9d::t_7e65aaad1d0cc3 77-90
+  s_3a2afdd0999c9d::t_7ce7eeef25b34e 97-107,109-112
+  s_3a2afdd0999c9d::t_512764c5cada53 108
+  s_3a2afdd0999c9d::t_5faa38650745d1 53-70
+content/questions/005-peines-planchers.yaml
+  s_3a2afdd0999c9d::t_00d60e0f3bb714 79-85,87-92
+  s_3a2afdd0999c9d::t_57ab5748c7c6bf 86
+  s_3a2afdd0999c9d::t_54e6156b54c28e 62
+  s_3a2afdd0999c9d::t_626068531bf008 57-61,63-72
+  s_3a2afdd0999c9d::t_0668cb851a32cf 35-50
+content/questions/013-chomage.yaml
+  s_3a2afdd0999c9d::t_789fb1cdd31b9c 37-51,53,60-77,84-85,87-96,98-99,106-121
+  s_3a2afdd0999c9d::t_e7d368f6174b22 52,86,97
+content/questions/042-regularisation.yaml
+  s_3a2afdd0999c9d::t_cfbe92de0e9a08 79-80,82-94
+  s_3a2afdd0999c9d::t_f3e4f3d518e25f 35-48,50
+  s_3a2afdd0999c9d::t_9952abd6074232 101-116
+  s_3a2afdd0999c9d::t_e4d1d1b64b9124 65,71
+  s_3a2afdd0999c9d::t_950d381229bf53 49,81
+  s_3a2afdd0999c9d::t_7ee53de27f131d 57-64,66-70,72
+content/questions/018-parcoursup.yaml
+  s_3a2afdd0999c9d::t_43219a5a1f8d2f 60-65,71-86,92-106
+  s_3a2afdd0999c9d::t_442b14c65cd4ee 33-46,52-59,107-109
+content/questions/056-voile-sport.yaml
+  s_3a2afdd0999c9d::t_0d285b757d92ac 45-58,67-80,87-100,107-117,119-120
+  s_3a2afdd0999c9d::t_2e9bcd132b7309 118
+content/questions/032-ouighours.yaml
+  s_3a2afdd0999c9d::t_67318684446a92 34-38,41-47,53-66,72-85,91-106
+  s_3a2afdd0999c9d::t_8298fc215cea06 39-40
+content/questions/036-droit-du-sol.yaml
+  s_3a2afdd0999c9d::t_84f72c05c89d02 31-44,51-64,71-84,91-104
+content/questions/017-hopital.yaml
+  s_3a2afdd0999c9d::t_87fb0a9097db12 88
+  s_3a2afdd0999c9d::t_cbd1d8071fde4d 37-50,57-70,77-87,89-92
+content/questions/028-etat-civil.yaml
+  s_3a2afdd0999c9d::t_67318684446a92 34-47,54-67,74-87,94-107
+content/questions/004-quotas-immigration.yaml
+  s_3a2afdd0999c9d::t_f63c61737d9ad6 53-65,67-68
+  s_3a2afdd0999c9d::t_9602a12496adc3 66
+  s_3a2afdd0999c9d::t_94c1afbfcd0719 75-88
+  s_3a2afdd0999c9d::t_9b054782e1ecf1 31-46
+content/questions/002-smic.yaml
+  s_3a2afdd0999c9d::t_3dc9568322ba1c 104-119
+  s_3a2afdd0999c9d::t_19caf2a6d96fa7 80-95
+  s_3a2afdd0999c9d::t_32fe003d6779d7 36-51
+  s_3a2afdd0999c9d::t_f8d0faa9bd8706 58-73
+content/questions/051-logements-vacants.yaml
+  s_3a2afdd0999c9d::t_027f07e2a27b3c 52-66
+  s_3a2afdd0999c9d::t_2c7ce76b1961b9 74-89
+  s_3a2afdd0999c9d::t_d0779a6a7fc066 96-106,108-109
+  s_3a2afdd0999c9d::t_2e9bcd132b7309 34,67,107
+  s_3a2afdd0999c9d::t_d575997c6cdbbb 32-33,35-45
+content/questions/043-prisons.yaml
+  s_3a2afdd0999c9d::t_5e75363c015bc0 41-53,55-56
+  s_3a2afdd0999c9d::t_edd97338ae69cc 54,100
+  s_3a2afdd0999c9d::t_d4f9aab7bcc138 63-78
+  s_3a2afdd0999c9d::t_0d603bebf00d02 85-99
+  s_3a2afdd0999c9d::t_f771af1fe08d1b 107-122
+content/questions/021-proportionnelle.yaml
+  s_3a2afdd0999c9d::t_0ab1a1bf02a158 50-60,62-63
+  s_3a2afdd0999c9d::t_baa9985c30bb63 61
+  s_3a2afdd0999c9d::t_a298bcbd100b74 31-44
+  s_3a2afdd0999c9d::t_245cab5ff6626d 88-103
+  s_3a2afdd0999c9d::t_4edcd4ab46c7c8 69-82
+content/questions/038-reseaux-sociaux.yaml
+  s_3a2afdd0999c9d::t_84f72c05c89d02 33-48,55-66,73-84,91-106
+content/questions/026-medecins.yaml
+  s_3a2afdd0999c9d::t_0afa4f243bc4d0 65
+  s_3a2afdd0999c9d::t_eb1afc11c87532 60-64,66-75
+  s_3a2afdd0999c9d::t_83c19c05dc5c0d 38-53
+  s_3a2afdd0999c9d::t_ef7f7586bb0273 82-97
+  s_3a2afdd0999c9d::t_89df7029a4fe2f 104-121
+content/questions/031-russie.yaml
+  s_3a2afdd0999c9d::t_67318684446a92 33-46,52-67,73-88,94-109
+content/questions/030-soldats-ukraine.yaml
+  s_3a2afdd0999c9d::t_67318684446a92 35-48,54-65,71-84,92-103
+content/questions/020-otan.yaml
+  s_3a2afdd0999c9d::t_530d7835c93bea 71-84
+  s_3a2afdd0999c9d::t_b0cdf93981cb47 52-65
+  s_3a2afdd0999c9d::t_52bc57a9d8b3e4 33-46
+content/questions/049-service-national.yaml
+  s_3a2afdd0999c9d::t_ed4e1fb2f0df93 37-43,45-47,49-52,59-63,65-71,73-74,81-87,89-91,93-96,105-109,111-115,117-120
+  s_3a2afdd0999c9d::t_667babead88922 44,48,64,72,88,92,110,116
+content/questions/037-videosurveillance-ia.yaml
+  s_3a2afdd0999c9d::t_84f72c05c89d02 35-50,57-70,77-92,99-114
+content/questions/040-rsa.yaml
+  s_3a2afdd0999c9d::t_d00eeaf3bca8d8 102-117
+  s_3a2afdd0999c9d::t_e57029a287f881 58-73
+  s_3a2afdd0999c9d::t_8e98bac1f52011 80-95
+  s_3a2afdd0999c9d::t_6de0e8ddbfffde 35-50
+content/questions/029-israel.yaml
+  s_3a2afdd0999c9d::t_67318684446a92 34-47,53-68,74-87,93-108
+content/questions/033-heritage.yaml
+  s_3a2afdd0999c9d::t_84f72c05c89d02 32-45,52-69,76-91,98-113,120-135
+content/questions/027-gpa.yaml
+  s_3a2afdd0999c9d::t_67318684446a92 35-48,55-66,73-88,95-108
+content/questions/047-legitime-defense-policiers.yaml
+  s_3a2afdd0999c9d::t_7ad4822abbee12 65
+  s_3a2afdd0999c9d::t_ed4e1fb2f0df93 41-56,63-64,66-67,69-72,74-76,83-92,95-96
+  s_3a2afdd0999c9d::t_667babead88922 68,73,93-94
+content/questions/034-semaine-4-jours.yaml
+  s_3a2afdd0999c9d::t_5b769d8bb42ee4 93
+  s_3a2afdd0999c9d::t_595affb444b97b 67,87
+  s_3a2afdd0999c9d::t_84f72c05c89d02 36-49,56-66,68-71,78-86,88-92,100-115
+content/questions/035-vols-interieurs.yaml
+  s_3a2afdd0999c9d::t_84f72c05c89d02 37-52,59-72,79-96,104-119
+content/questions/039-taxe-zucman.yaml
+  s_3a2afdd0999c9d::t_8abc92b342e29d 58-62,64-71
+  s_3a2afdd0999c9d::t_fe84fa919c2711 36-51
+  s_3a2afdd0999c9d::t_a7a8944c844842 100-104,106,108-115
+  s_3a2afdd0999c9d::t_cb2ac3112724a7 78-93
+  s_3a2afdd0999c9d::t_3084ae28d5128e 63,105,107
+content/questions/014-eoliennes.yaml
+  s_3a2afdd0999c9d::t_bbc73e737d2c7e 36-51,57-70,76-91,97-112
+content/questions/019-airbnb.yaml
+  s_3a2afdd0999c9d::t_889d23b9cd009e 34-49,56-69,76-91,98-111
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8d9ffc3b43d4de1c4d487e5bc4467dd646b15568",
+  "prompts": {},
+  "sessions": {
+    "s_3a2afdd0999c9d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ddb5d8c1-5345-4e5a-a356-cbb4648eb92a",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
