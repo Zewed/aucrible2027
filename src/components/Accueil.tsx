@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { CompteARebours } from "@/components/CompteARebours";
+import { Presentation, type DonneesDeLaPresentation } from "@/components/Presentation";
 import { PuceTheme } from "@/components/PuceTheme";
 import { StylesDeLaPage } from "@/components/StylesDeLaPage";
 import type { Question, Theme } from "@/lib/contenu";
@@ -27,6 +28,12 @@ const AUTOUR = `
   .site-foot::before { display: none; }
 `;
 
+/** Tant qu'il n'a pas lu l'appareil, l'accueil d'un nouveau venu (SCRIPT_DU_NOUVEAU_VENU) cache déjà le menu de la landing. */
+const EN_ATTENDANT = `
+  :root[data-nouveau-venu] body { padding-left: 0; }
+  :root[data-nouveau-venu] :is(.topbar, .jauge, .site-foot, body > .strip) { display: none; }
+`;
+
 /** La taille d'une question suit sa longueur : la plus longue fait trois fois la plus courte. */
 const taille = (texte: string) => ({ "--k": Math.min(1, Math.sqrt(46 / texte.length)).toFixed(2) }) as React.CSSProperties;
 
@@ -34,18 +41,21 @@ const taille = (texte: string) => ({ "--k": Math.min(1, Math.sqrt(46 / texte.len
 export type QuestionDeLAccueil = Pick<Question, "numero" | "theme" | "question">;
 
 /**
- * L'accueil : commencer le questionnaire, ou le continuer là où on en est. À gauche, dans la couleur de son thème, la
- * prochaine question, celle que « Continuer » ouvre ; à droite, le compte et les thèmes, qui mènent à leurs questions.
- * Tout ce qu'il dit de l'électeur vient de l'appareil : il n'existe qu'une fois dans le navigateur.
+ * L'accueil. Un appareil sans réponse y voit la landing (décision d'Antoine du 6 novembre 2026). Les autres y continuent
+ * le questionnaire là où ils en sont : à gauche, dans la couleur de son thème, la prochaine question, celle que
+ * « Continuer » ouvre ; à droite, le compte et les thèmes, qui mènent à leurs questions. Tout ce qu'il dit de l'électeur
+ * vient de l'appareil : il n'existe qu'une fois dans le navigateur.
  */
 export function Accueil({
   questions,
   prochaineParution,
   themes,
+  presentation,
 }: {
   questions: QuestionDeLAccueil[];
   prochaineParution: string | null;
   themes: Theme[];
+  presentation: DonneesDeLaPresentation;
 }) {
   const jour = useCoteClient(() => aujourdhuiAParis());
   const numeros = questions.map((q) => q.numero);
@@ -57,6 +67,7 @@ export function Accueil({
     return (
       <>
         {autour}
+        <StylesDeLaPage>{EN_ATTENDANT}</StylesDeLaPage>
         <main className="accueil"></main>
       </>
     );
@@ -73,11 +84,11 @@ export function Accueil({
     );
 
   const faites = questions.filter((q) => q.numero in reponses).length;
+  if (faites === 0) return <Presentation {...presentation} />;
   const numero = prochaineQuestion(ordre, numeros, Object.keys(reponses).map(Number));
   const prochaine = questions.find((q) => q.numero === numero);
   const theme = prochaine && themes.find((t) => t.id === prochaine.theme);
-  // La couleur et la question de la carte ne viennent qu'une fois le questionnaire commencé.
-  const suite = faites > 0 && prochaine && theme ? { question: prochaine.question, theme } : null;
+  const suite = prochaine && theme ? { question: prochaine.question, theme } : null;
   const comptees = reponsesComptees(questions, reponses);
   const Compte = prochaine ? "h1" : "p";
 
@@ -95,38 +106,22 @@ export function Accueil({
               {suite.question}
             </p>
           ) : (
-            <h1 className="ac-grande">
-              {prochaine ? (
-                <>
-                  De quels candidats <span className="ac-mot">es-tu</span> proche&nbsp;?
-                </>
-              ) : (
-                "Tu as répondu à toutes les questions."
-              )}
-            </h1>
+            <h1 className="ac-grande">Tu as répondu à toutes les questions.</h1>
           )}
           <Link className="ac-action" href={prochaine ? "/questionnaire" : "/resultats"}>
-            {prochaine ? (faites > 0 ? "Continuer le questionnaire" : "Commencer le questionnaire") : "Voir mes résultats"}{" "}
+            {prochaine ? "Continuer le questionnaire" : "Voir mes résultats"}{" "}
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
             </svg>
           </Link>
         </section>
         <section className="ac-etat">
-          {faites > 0 ? (
-            <>
-              <Compte className="ac-compte">
-                <b>{faites}</b> sur {questions.length} questions
-              </Compte>
-              <span className="ac-barre" aria-hidden="true">
-                <i style={{ width: `${(100 * faites) / questions.length}%` }}></i>
-              </span>
-            </>
-          ) : (
-            <p className="ac-compte">
-              <b>{questions.length}</b> questions
-            </p>
-          )}
+          <Compte className="ac-compte">
+            <b>{faites}</b> sur {questions.length} questions
+          </Compte>
+          <span className="ac-barre" aria-hidden="true">
+            <i style={{ width: `${(100 * faites) / questions.length}%` }}></i>
+          </span>
           {comptees > 0 && comptees < SEUIL_DES_RESULTATS && <p className="ac-palier">Encore {SEUIL_DES_RESULTATS - comptees} pour ton classement.</p>}
           <ul className="ac-themes" aria-label="Par thème">
             {avancementParTheme(themes, questions, reponses).map(({ theme, total, faites }) => {

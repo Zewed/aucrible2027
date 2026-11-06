@@ -21,6 +21,13 @@ test("la landing ne nomme aucun candidat", async ({ page }) => {
   for (const nom of NOMS) expect(texte, nom).not.toContain(nom);
 });
 
+test("avant tout affichage, l'accueil d'un appareil sans réponse cache déjà le menu que la landing n'a pas", async ({ page }) => {
+  await page.route("**/_next/static/**/*.js", (route) => route.abort());
+  await page.goto("/");
+  await expect(page.getByRole("banner")).toBeHidden();
+  await expect(page.getByRole("contentinfo")).toBeHidden();
+});
+
 test("une option de la question en exemple ouvre sa fiche", async ({ page }) => {
   await page.goto("/presentation");
   await page.getByRole("link", { name: /^A / }).click();

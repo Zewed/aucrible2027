@@ -19,6 +19,12 @@ const CLE = "aucrible:reponses";
 /** Prévient la page qu'une réponse vient d'être enregistrée. */
 const NOUVELLE_REPONSE = "aucrible:nouvelle-reponse";
 
+/**
+ * Lu dans <head>, avant le premier affichage : un appareil sans réponse est marqué `data-nouveau-venu`, pour que l'accueil,
+ * qui n'apprend qu'une fois chargé s'il doit montrer la landing, cache d'emblée le menu qu'elle n'a pas.
+ */
+export const SCRIPT_DU_NOUVEAU_VENU = `try{var r=localStorage.getItem("${CLE}");if(!r||r==="{}")document.documentElement.dataset.nouveauVenu=""}catch(e){}`;
+
 export function enregistrerReponse(numero: number, reponse: Reponse) {
   const toutes = lesReponses(lireReponses());
   localStorage.setItem(CLE, JSON.stringify({ ...toutes, [numero]: reponse }));

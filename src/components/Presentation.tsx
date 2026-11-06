@@ -18,6 +18,15 @@ export type Exemple = Pick<Question, "numero" | "question"> & {
   video?: VideoExplicative;
 };
 
+/** Ce que la landing lit du contenu (src/lib/presentation.ts). */
+export type DonneesDeLaPresentation = {
+  jour: string;
+  candidats: number;
+  themes: Theme[];
+  questions: Pick<Question, "numero" | "theme" | "question">[];
+  exemple: Exemple | null;
+};
+
 /** Une landing n'a pas de menu : ni la colonne d'icônes, ni la jauge, ni le pied de page de l'app. */
 const SANS_MENU = `
   :root { --jauge-h: 0px; }
@@ -192,21 +201,9 @@ function PlateauDIllustration() {
 
 /**
  * La landing : ce que fait le site, montré plutôt qu'expliqué, et le bouton pour commencer. Sans menu : en haut, le seul
- * logo ; tout mène au questionnaire.
+ * logo ; tout mène au questionnaire. C'est l'accueil d'un appareil sans réponse, et la page /presentation.
  */
-export function Presentation({
-  jour,
-  candidats,
-  themes,
-  questions,
-  exemple,
-}: {
-  jour: string;
-  candidats: number;
-  themes: Theme[];
-  questions: Pick<Question, "numero" | "theme" | "question">[];
-  exemple: Exemple | null;
-}) {
+export function Presentation({ jour, candidats, themes, questions, exemple }: DonneesDeLaPresentation) {
   const classe = (id: string) => themes.find((t) => t.id === id)?.classe ?? "";
   const jours = joursEntre(jour, PREMIER_TOUR);
 
