@@ -76,8 +76,12 @@ export type Reportage = {
   camps?: { pour: string; contre: string; objet?: string };
   questions?: { question: string; pour: Reponse; contre: Reponse }[];
 };
-/** La vidéo explicative de la fiche, montrée à la première étape quand elle existe. */
-export type VideoExplicative = { url: string; duree: string };
+/**
+ * La vidéo explicative de la fiche, montrée à la première étape quand elle existe. Pour une vidéo constat, `ecrans` donne
+ * le début de chaque écran, en secondes, la question comprise (le script ecrans.mts du skill make-2027-videos) : la vidéo
+ * se lit alors comme une story, d'écran en écran.
+ */
+export type VideoExplicative = { url: string; duree: string; ecrans?: number[] };
 export type Question = {
   numero: number;
   date: string;
