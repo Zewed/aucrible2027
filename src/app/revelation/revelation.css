@@ -74,7 +74,9 @@ main.rev { --r: 8px; --f: 1; display: flex; flex-direction: column; gap: 22px; p
 .rev-col--sienne .def + .def { border-top-color: color-mix(in srgb, var(--on-theme) 18%, transparent); }
 .rev .def .pawn { --size: 36px; font-size: 11px; box-shadow: none; }
 .rev-qui { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; }
-.rev .def-name { font: 700 16.5px/1.2 var(--text); text-decoration: none; color: inherit; }
+.rev .def-name { font: 700 16.5px/1.2 var(--text); text-decoration: none; color: inherit; min-width: 0; }
+/* le prénom et le nom ne se coupent jamais : s'il faut deux lignes, c'est entre les deux */
+.rev-prenom, .rev-nom { white-space: nowrap; }
 .rev .def-name::after { content: ""; position: absolute; inset: 0; }
 .rev .def:hover:not(:has(.rev-conf:hover, .rev-bulle:hover)) .def-name { text-decoration: underline; text-underline-offset: 3px; }
 .rev .def-name:focus-visible { outline: 0; }
@@ -155,64 +157,73 @@ main.rev { --r: 8px; --f: 1; display: flex; flex-direction: column; gap: 22px; p
 .rev-sources a:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 2px; border-radius: 4px; }
 
 /* ==================== GRAND ÉCRAN : PLEIN ÉCRAN, RIEN NE DÉFILE ====================
-   Le texte se resserre (`--fit`, voir tenirALEcran) quand tout ne tient pas ; au pire la page défile. */
+   Le texte se resserre (`--fit`, voir tenirALEcran) quand tout ne tient pas, sans jamais grossir ; au pire la page
+   défile. Des tailles mesurées (7 novembre 2026 : « header trop gros, typo trop grosse ») : la question tient en deux
+   lignes moyennes, le tableau garde l'œil. */
 @media (min-width: 1100px) {
   main.rev {
-    --f: var(--fit, 1); --px: clamp(18px, 1.8vw, 36px); --py: clamp(14px, 2.4 * var(--u), 32px);
+    --f: var(--fit, 1); --px: clamp(18px, 1.8vw, 36px); --py: clamp(12px, 2 * var(--u), 24px);
     min-height: calc(100 * var(--u)); padding: clamp(6px, .5vw, 10px) var(--px);
     display: grid; grid-template-rows: auto 1fr auto; gap: clamp(6px, .5vw, 10px);
   }
   .rev-tete {
-    display: grid; grid-template-columns: minmax(0, 1fr) clamp(280px, 24vw, 400px); column-gap: calc(var(--px) * 1.5);
+    display: grid; grid-template-columns: minmax(0, 1fr) clamp(240px, 20vw, 320px); column-gap: calc(var(--px) * 1.5);
     align-items: end; padding: var(--py) 0 calc(var(--py) * .8); border-bottom: 3px solid var(--sur-table);
   }
-  .rev h1 { font-size: calc(var(--f) * clamp(34px, 7 * var(--u), 84px)); }
+  .rev h1 { font-size: calc(var(--f) * clamp(28px, 4.4 * var(--u), 52px)); }
   .rev-meta { justify-content: flex-start; gap: 18px; }
   .drapeau.rev-drapeau { min-height: 32px; }
   .rev-suite { gap: 4px; }
-  .rev-suite .go { padding: calc(var(--f) * clamp(14px, 2.2 * var(--u), 22px)) 18px; font-size: calc(var(--f) * clamp(18px, 2.6 * var(--u), 24px)); }
-  .rev-resultats { min-height: 36px; font-size: calc(var(--f) * 14.5px); }
+  .rev-suite .go { padding: calc(var(--f) * clamp(12px, 1.7 * var(--u), 17px)) 16px; font-size: calc(var(--f) * clamp(16px, 2 * var(--u), 20px)); box-shadow: 0 5px 0 var(--theme-edge); }
+  .rev-suite .go svg { width: 22px; height: 22px; }
+  .rev-resultats { min-height: 34px; font-size: calc(var(--f) * 14px); }
   .rev-gain { margin-top: calc(var(--f) * 6px); font-size: calc(var(--f) * 13.5px); }
   .rev-gain svg { width: calc(var(--f) * 40px); height: calc(var(--f) * 40px); }
   .rev-gain b { font-size: calc(var(--f) * 16px); }
 
   /* les en-têtes alignés, une ligne par candidat, des filets qui courent jusqu'en bas */
   .rev-tableau {
-    --ligne: calc(var(--f) * clamp(40px, 5.6 * var(--u), 58px));
+    --ligne: calc(var(--f) * clamp(38px, 5 * var(--u), 50px));
     display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); grid-template-rows: auto 1fr; gap: 0;
   }
   .rev-col { grid-row: 1 / span 2; display: grid; grid-template-rows: subgrid; gap: 0; padding: 0; border-top: 0; border-left: 1px solid var(--table-3); }
   .rev-col:first-of-type, .rev-col--sienne, .rev-col--sienne + .rev-col { border-left: 0; }
   .rev-col--sienne { padding: 0; border-radius: var(--r) var(--r) 0 0; }
-  .rev-col-tete { align-content: start; padding: calc(var(--f) * 12px) clamp(12px, 1.2vw, 20px) calc(var(--f) * 10px); border-bottom: 2px solid var(--sur-table); }
+  .rev-col-tete { align-content: start; padding: calc(var(--f) * 10px) clamp(12px, 1.1vw, 18px) calc(var(--f) * 9px); border-bottom: 2px solid var(--sur-table); }
   .rev-col--sienne .rev-col-tete { border-bottom-color: var(--on-theme); }
-  .rev-libelle { grid-column: 1 / -1; grid-row: 2; font-size: calc(var(--f) * clamp(17px, 2.3 * var(--u), 24px)); }
-  .rev-compte { grid-column: 2; grid-row: 1; justify-content: flex-end; font-size: calc(var(--f) * 12.5px); }
-  .rev-lettre { font-size: calc(var(--f) * 15px); }
+  .rev-libelle { grid-column: 1 / -1; grid-row: 2; font-size: calc(var(--f) * clamp(16px, 1.9 * var(--u), 20px)); }
+  .rev-compte { grid-column: 2; grid-row: 1; justify-content: flex-end; font-size: calc(var(--f) * 12px); }
+  .rev-lettre { font-size: calc(var(--f) * 14px); }
   .rev-tag { font-size: calc(var(--f) * 10.5px); }
   .rev-imp { font-size: calc(var(--f) * 12.5px); }
   /* la liste, pas la colonne, porte la requête de largeur : une colonne contenue ne suivrait plus la grille commune */
   .rev-defs {
     container-type: inline-size;
-    padding: 0 clamp(12px, 1.2vw, 20px);
+    padding: 0 clamp(12px, 1.1vw, 18px);
     background: repeating-linear-gradient(to bottom, transparent 0 calc(var(--ligne) - 1px), var(--table-3) calc(var(--ligne) - 1px) var(--ligne));
   }
   .rev-col--sienne .rev-defs {
     background: repeating-linear-gradient(to bottom, transparent 0 calc(var(--ligne) - 1px), color-mix(in srgb, var(--on-theme) 18%, transparent) calc(var(--ligne) - 1px) var(--ligne));
   }
-  .rev .def { display: grid; height: var(--ligne); padding: 0; border: 0; column-gap: 11px; }
+  .rev .def { display: grid; height: var(--ligne); padding: 0; border: 0; column-gap: 10px; }
   .rev .def + .def { border: 0; }
-  .rev .def .pawn { --size: calc(var(--f) * 32px); font-size: calc(var(--f) * 10.5px); }
-  .rev .def-name { font-size: calc(var(--f) * 16.5px); }
+  .rev .def .pawn { --size: calc(var(--f) * 28px); font-size: calc(var(--f) * 9.5px); }
+  .rev .def-name { font-size: calc(var(--f) * 15px); }
 
   .rev-pied { padding: calc(var(--f) * 12px) 0 2px; border-top: 2px solid var(--sur-table); }
 }
-/* une colonne étroite (cinq options ou plus) : le nom se resserre pour tenir sur sa ligne, en deux lignes au plus */
+/* Une colonne un peu étroite pour « Nicolas Dupont-Aignan », le plus long des noms, sur une ligne : les noms de la colonne
+   passent en un peu plus petit, toujours sur une ligne. Plus étroite encore, le prénom passe au-dessus du nom, et les
+   deux en plus petit. */
 @media (min-width: 1100px) {
-  @container (max-width: 210px) {
-    .rev .def .pawn { --size: calc(var(--f) * 26px); font-size: calc(var(--f) * 9px); }
-    .rev .def { column-gap: 8px; }
-    .rev-qui { gap: 5px; }
-    .rev .def-name { font-size: calc(var(--f) * 14px); line-height: 1.1; }
+  @container (max-width: 234px) {
+    .rev .def .pawn { --size: calc(var(--f) * 26px); }
+    .rev .def-name { font-size: calc(var(--f) * 14px); }
+  }
+  @container (max-width: 218px) {
+    .rev .def-name { line-height: 1.12; }
+    .rev-prenom, .rev-nom { display: block; }
+    .rev-prenom { font-size: calc(var(--f) * 12.5px); font-weight: 600; }
+    .rev-nom { font-size: calc(var(--f) * 14px); }
   }
 }

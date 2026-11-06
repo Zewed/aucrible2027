@@ -19,8 +19,11 @@ import { messageDuPalier } from "@/lib/paliers";
 import { JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
 import { tenirALEcran } from "@/lib/tenir-a-l-ecran";
 
-/** Sur grand écran, la révélation remplit la fenêtre sans la dépasser : son texte grandit ou se resserre pour tenir. */
-const tenirLaRevelation = tenirALEcran("(min-width: 1100px)", 1.3);
+/**
+ * Sur grand écran, la révélation tient dans la fenêtre : son texte se resserre s'il le faut, sans jamais grossir au-delà de
+ * sa taille (7 novembre 2026 : « typo trop grosse »).
+ */
+const tenirLaRevelation = tenirALEcran("(min-width: 1100px)");
 
 /**
  * Le statut d'une position, d'après sa source (SPEC.md, « Sources des positions des candidats ») : une petite pastille de
@@ -116,14 +119,19 @@ function Confiance({ position, id }: { position: Position; id: string }) {
   );
 }
 
-/** Une ligne du tableau : le pion du candidat, son nom, et au bout la pastille de sa position ; sans position, son nom seul. */
+/**
+ * Une ligne du tableau : le pion du candidat, son nom, et au bout la pastille de sa position ; sans position, son nom seul.
+ * Le nom tient sur une ligne, ou bien le prénom passe au-dessus du nom, en plus petit (7 novembre 2026) : il ne se coupe
+ * jamais ailleurs qu'entre les deux.
+ */
 function Defenseur({ candidat, position }: { candidat: Candidat; position?: Position }) {
+  const [prenom, ...nom] = candidat.nom.split(" ");
   return (
     <li className="def">
       <Pion candidat={candidat} clair={!position} />
       <span className="rev-qui">
         <Link className="def-name" href={`/candidat/${candidat.id}`}>
-          {candidat.nom}
+          <span className="rev-prenom">{prenom}</span> <span className="rev-nom">{nom.join(" ")}</span>
         </Link>
         {position && <Confiance position={position} id={`source-${candidat.id}`} />}
       </span>
