@@ -1,0 +1,21 @@
+content/questions/050-salaire-enseignants.yaml
+  s_7e8da32bc45f56::t_caa34047f62968 9
+content/videos-verrouillees.yaml
+  s_7e8da32bc45f56::t_f59bdf10572374 53
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e9b96f47e2e050147fef56b51ce51a5c8ed4cfb0",
+  "prompts": {},
+  "sessions": {
+    "s_7e8da32bc45f56": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e5f301fb-9453-4ff1-99a5-ca1a7f16d5d1",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
