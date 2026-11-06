@@ -33,24 +33,88 @@ options:
     defenseurs: "Selon l'Institut des politiques publiques, les milliardaires paient 26 % d'impôts sur leur revenu économique, contre 46 % pour les 0,1 % les plus aisés : les plus gros patrimoines doivent payer à proportion de ce qu'ils possèdent."
     critiques: Il peut faire partir les plus fortunés, et un impôt sur le patrimoine est difficile à évaluer et à contrôler.
     axes: { economie: -2 }
+    detail:
+      chiffrage:
+        texte: "Selon une estimation, l'ISF aurait rapporté 4,5 milliards d'euros de plus que l'IFI en 2022. Ce que rapporterait un ISF renforcé n'a pas été chiffré."
+        source: { organisme: "France Stratégie", annee: 2023 }
+      defenseurs:
+        - texte: "Sa suppression a surtout allégé l'impôt des plus aisés : deux anciens redevables de l'ISF sur trois ne paient plus d'impôt sur la fortune."
+          source: { organisme: "France Stratégie", annee: 2023 }
+        - texte: "Sa suppression n'a pas fait investir davantage : aucun effet n'a été mesuré sur l'investissement des entreprises dont les actionnaires le payaient."
+        - texte: "Il touchait des foyers bien plus aisés que la moyenne : 181 000 euros de revenus déclarés par an, contre 28 000 pour l'ensemble des foyers."
+          source: { organisme: "France Stratégie", annee: 2023 }
+      critiques:
+        - texte: "Sous l'ISF, bien plus de foyers imposés partaient à l'étranger qu'il n'en revenait : 950 départs contre 370 retours par an."
+          source: { organisme: "Direction générale des finances publiques", annee: 2023 }
+        - texte: "Il ne taxait pas toujours de hauts revenus : un foyer imposé sur dix déclarait moins de 30 000 euros par an."
+          source: { organisme: "France Stratégie", annee: 2023 }
+        - texte: "La plupart des pays riches y ont renoncé : 12 pays de l'OCDE taxaient chaque année la fortune en 1990, 4 en 2017."
+          source: { organisme: "OCDE", annee: 2018 }
   - id: B
     libelle: Un impôt minimum sur les très hauts patrimoines
     implique: Sans rétablir l'ISF, un impôt plancher vise les plus gros patrimoines, par exemple 2 % par an au-delà de 100 millions d'euros, parts d'entreprises comprises.
     defenseurs: Les plus grandes fortunes ne doivent pas échapper aux règles communes, et un plancher rapporterait, selon ses partisans, 15 à 25 milliards d'euros par an.
     critiques: Taxer des parts d'entreprises et des plus-values non réalisées pénaliserait l'innovation et poserait un risque constitutionnel ; les recettes annoncées sont contestées.
     axes: { economie: -1 }
+    detail:
+      chiffrage:
+        texte: "Ses partisans en attendent 15 à 25 milliards d'euros par an. Cette estimation est contestée, et aucun chiffrage indépendant n'a été trouvé."
+        source: { organisme: "Amendement à l'Assemblée nationale", annee: 2025 }
+      defenseurs:
+        - texte: "Les plus grandes fortunes paient proportionnellement moins d'impôts : 26 % de leur revenu économique pour les milliardaires, contre 46 % pour les 0,1 % les plus aisés."
+          source: { organisme: "Institut des politiques publiques", annee: 2023 }
+        - texte: "L'ISF les touchait à peine : grâce au plafonnement, les 0,001 % les plus fortunés payaient 0,1 % de leur patrimoine, pour un taux affiché de 1,5 %."
+          source: { organisme: "France Stratégie", annee: 2023 }
+        - texte: "Il ne viserait que les plus grandes fortunes : environ 1 800 foyers, au-delà de 100 millions d'euros."
+          source: { organisme: "Amendement à l'Assemblée nationale", annee: 2025 }
+      critiques:
+        - texte: "Taxer chaque année des parts d'entreprises et des plus-values pas encore touchées risque d'être jugé contraire à la Constitution."
+        - texte: "Quand l'actionnaire principal d'une entreprise part à l'étranger, l'entreprise a ensuite moins d'activité que les autres."
+        - texte: "Les recettes annoncées sont incertaines : elles dépendent des départs et de la valeur donnée à des biens difficiles à évaluer."
   - id: C
     libelle: Garder l'IFI
     implique: Seul le patrimoine immobilier de plus de 1,3 million d'euros reste imposé ; aucun nouvel impôt sur le patrimoine n'est créé, et l'IFI peut être allégé.
     defenseurs: Ne pas taxer les patrimoines professionnels ni créer de nouvel impôt, pour que l'activité et l'investissement restent en France.
     critiques: L'IFI ne frappe que l'immobilier et son seuil n'a jamais été réévalué, alors que les placements financiers y échappent.
     axes: { economie: 0 }
+    detail:
+      chiffrage:
+        texte: "Le garder ne change pas les recettes : l'IFI a rapporté 2,3 milliards d'euros en 2025, payés par près de 193 600 foyers."
+        source: { organisme: "Direction générale des finances publiques", annee: 2025 }
+      defenseurs:
+        - texte: "Depuis 2018, plus de foyers imposés reviennent en France qu'il n'en part : 380 retours contre 260 départs par an."
+          source: { organisme: "Direction générale des finances publiques", annee: 2023 }
+        - texte: "La France taxe déjà beaucoup le capital : 10,5 % de la richesse du pays, contre 8,5 % en moyenne dans l'Union européenne."
+          source: { organisme: "Commission européenne", annee: 2022 }
+        - texte: "Il épargne l'argent placé dans les entreprises, pour que l'activité et l'investissement restent en France."
+      critiques:
+        - texte: "Son seuil de 1,3 million d'euros n'a jamais été relevé : le nombre de foyers imposés a augmenté de 23 % entre 2018 et 2022."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "Les plus riches en paient moins : grâce au plafonnement, la moitié des foyers qui ont plus de 20 millions d'euros d'immobilier voient leur impôt réduit."
+          source: { organisme: "France Stratégie", annee: 2023 }
+        - texte: "Il est peu contrôlé : 2 % des foyers imposés l'ont été en 2022, et la fraude n'est pas mesurée."
+          source: { organisme: "Cour des comptes", annee: 2024 }
   - id: D
     libelle: Supprimer l'IFI
     implique: Plus aucun impôt annuel sur le patrimoine ne subsiste.
     defenseurs: Un impôt annuel sur le patrimoine n'a de sens qu'à l'échelle internationale, coûte cher à gérer et décourage l'investissement locatif.
     critiques: Les plus gros patrimoines contribueraient moins, alors que l'IFI rapporte plus de 2 milliards d'euros par an.
     axes: { economie: 2 }
+    detail:
+      chiffrage:
+        texte: "Le supprimer priverait l'État de ce qu'il rapporte : 2,3 milliards d'euros en 2025."
+        source: { organisme: "Direction générale des finances publiques", annee: 2025 }
+      defenseurs:
+        - texte: "Il coûte cher à gérer : 2,66 % de ce qu'il rapporte, contre 1,05 % pour l'impôt sur le revenu."
+          source: { organisme: "Cour des comptes", annee: 2024 }
+        - texte: "Il frappe des ménages dont le logement a simplement pris de la valeur : près de trois foyers imposés sur quatre ont entre 1,3 et 2,57 millions d'euros d'immobilier."
+          source: { organisme: "Direction générale des finances publiques", annee: 2024 }
+        - texte: "Un impôt sur la fortune n'a de sens qu'entre plusieurs pays : un pays qui le lève seul fait partir les capitaux."
+      critiques:
+        - texte: "Les plus gros patrimoines ne paieraient plus aucun impôt sur leur fortune."
+        - texte: "L'IFI rapporte de plus en plus : 42 % de plus entre 2018 et 2022."
+          source: { organisme: "France Stratégie", annee: 2023 }
+        - texte: "L'échange d'informations entre pays rend plus difficile d'échapper à un impôt sur la fortune."
   - id: E
     libelle: Taxer les placements plutôt que l'immobilier
     implique: L'IFI est remplacé par un impôt sur la fortune financière, qui vise les placements et non l'immobilier.
@@ -58,6 +122,18 @@ options:
     critiques: Évaluer et délimiter les placements et les biens professionnels est complexe, et les patrimoines professionnels risquent d'être pénalisés.
     # Ne se range pas entre les autres : il change la nature de ce qui est taxé.
     horsEchelle: true
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Il remplacerait l'IFI, qui rapporte 2,3 milliards d'euros en 2025."
+        source: { organisme: "Direction générale des finances publiques", annee: 2025 }
+      defenseurs:
+        - texte: "L'impôt doit viser la spéculation financière, pas ceux qui sont attachés à leur logement et à leur territoire."
+        - texte: "Aujourd'hui, les placements financiers échappent à tout impôt sur la fortune, même les plus gros."
+        - texte: "Taxer l'immobilier décourage d'acheter des logements pour les louer."
+      critiques:
+        - texte: "Évaluer les placements et les séparer des biens professionnels est complexe."
+        - texte: "Les parts d'entreprises risquent d'être taxées, au détriment de l'activité."
+        - texte: "Un impôt sur l'argent placé fait courir le risque que les capitaux partent à l'étranger."
 pourAllerPlusLoin:
   - titre: Cour des comptes, L'impôt sur la fortune immobilière, 2024
     url: https://www.ccomptes.fr/fr/publications/limpot-sur-la-fortune-immobiliere

@@ -2,6 +2,13 @@ import type { Argument, Option, Source } from "@/lib/contenu";
 
 const nomDeLaSource = (source: Source) => `${source.organisme}, ${source.document ? `${source.document} ` : ""}${source.annee}`;
 
+/** Les espaces insécables du français : « : », « % »… restent collés au mot d'avant, et les tranches d'un nombre (« 1 800 ») ensemble. */
+const insecable = (texte: string) =>
+  texte
+    .replace(/ ([?!:;»%€])/g, " $1")
+    .replace(/« /g, "« ")
+    .replace(/(\d) (?=\d{3}\b)/g, "$1 ");
+
 function Arguments({ titre, liste }: { titre: string; liste: Argument[] }) {
   return (
     <section>
@@ -9,7 +16,7 @@ function Arguments({ titre, liste }: { titre: string; liste: Argument[] }) {
       <ul>
         {liste.map((argument) => (
           <li key={argument.texte}>
-            {argument.texte}
+            {insecable(argument.texte)}
             {argument.source && <cite>Chiffre : {nomDeLaSource(argument.source)}</cite>}
           </li>
         ))}
@@ -36,10 +43,10 @@ export function DetailDeLOption({ option, lettre }: { option: Option; lettre: st
           </svg>
         </button>
       </div>
-      <p className="mq-implique">{option.implique}</p>
+      <p className="mq-implique">{insecable(option.implique)}</p>
       {chiffrage && (
         <p className="mq-chiffrage">
-          {chiffrage.texte}
+          {insecable(chiffrage.texte)}
           <cite>Source : {nomDeLaSource(chiffrage.source)}</cite>
         </p>
       )}
