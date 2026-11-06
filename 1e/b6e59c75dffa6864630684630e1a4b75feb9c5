@@ -1,0 +1,21 @@
+content/questions/041-pesticides.yaml
+  s_ee7cf61909d728::t_b25201ec49a1c5 11
+content/videos-verrouillees.yaml
+  s_ee7cf61909d728::t_cce43581a34eec 44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1eb6e59c75dffa6864630684630e1a4b75feb9c5",
+  "prompts": {},
+  "sessions": {
+    "s_ee7cf61909d728": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "eaf5369f-6a74-4cce-be2c-0771516cc0d3",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
