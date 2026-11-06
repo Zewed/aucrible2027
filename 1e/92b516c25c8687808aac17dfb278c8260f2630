@@ -1,0 +1,21 @@
+content/questions/054-vote-obligatoire.yaml
+  s_ee7ab257681b1d::t_6ab0455915ba06 13
+content/videos-verrouillees.yaml
+  s_ee7ab257681b1d::t_24fb4aaf545fd8 57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1e92b516c25c8687808aac17dfb278c8260f2630",
+  "prompts": {},
+  "sessions": {
+    "s_ee7ab257681b1d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4342a252-0a2b-4c69-b73c-cc3fccced7fc",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
