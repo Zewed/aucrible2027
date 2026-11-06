@@ -7,7 +7,7 @@ date: 2026-10-10
 theme: societe
 question: Jusqu'où faut-il autoriser l'aide à mourir ?
 titreCourt: "L'aide à mourir"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/011-fin-de-vie-constat-Iby4NYNJLKjHXCpvRAUzZmmBDVUbS3.mp4", duree: "3 min 34" }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/011-fin-de-vie-constat-Iby4NYNJLKjHXCpvRAUzZmmBDVUbS3.mp4", duree: "3 min 34", ecrans: [0, 13, 25.5, 38.5, 51.5, 65.5, 78.5, 91.5, 104, 117, 127.5, 141, 153, 166.5, 178.5, 192, 206.5] }
 contexte:
   - Depuis 2016, la loi Claeys-Leonetti ouvre le droit à la sédation profonde et continue, mais pas à l'aide à mourir.
   - Une loi promulguée le 18 août 2026 et adoptée par 291 voix contre 241 ouvre l'aide à mourir aux majeurs atteints d'une maladie grave et incurable en phase avancée ou terminale.
