@@ -1,0 +1,21 @@
+content/questions/049-service-national.yaml
+  s_117de382982068::t_f7689c55eb15ac 12
+content/videos-verrouillees.yaml
+  s_117de382982068::t_b665b1d3611db5 51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9975d4b10d25a1d3844a3e66f28c91709c1b6074",
+  "prompts": {},
+  "sessions": {
+    "s_117de382982068": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9a0db1e7-7ca4-4d88-944b-712a1dd228a0",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
