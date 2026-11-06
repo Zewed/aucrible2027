@@ -1,0 +1,21 @@
+content/questions/051-logements-vacants.yaml
+  s_a3148bc22588af::t_ec8251eae17d56 9
+content/videos-verrouillees.yaml
+  s_a3148bc22588af::t_404f4caaafdf84 54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b3bb9fdc8987eefc046ca29ca86f2c67847f1fb8",
+  "prompts": {},
+  "sessions": {
+    "s_a3148bc22588af": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c6a9a41e-cc8d-41a0-a27f-3a6407079b73",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
