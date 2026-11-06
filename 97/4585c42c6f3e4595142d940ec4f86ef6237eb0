@@ -1,0 +1,21 @@
+content/questions/038-reseaux-sociaux.yaml
+  s_931d9eb2e22def::t_afb4e51de9f2dc 11
+content/videos-verrouillees.yaml
+  s_931d9eb2e22def::t_3b991e08340f2e 41
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "974585c42c6f3e4595142d940ec4f86ef6237eb0",
+  "prompts": {},
+  "sessions": {
+    "s_931d9eb2e22def": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f9f7ea62-7d84-4d72-b42e-9497364b75d6",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
