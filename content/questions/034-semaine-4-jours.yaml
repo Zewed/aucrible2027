@@ -73,27 +73,27 @@ story:
 positions:
   # Programme « Travail et salaires » : https://attalpresident.fr/programme/travail-salaires (« la promotion, là où c'est possible, de la semaine en quatre jours ») ; déclaration de politique générale du 30/01/2024 : https://www.lalibre.be/international/europe/2024/01/30/attal-demande-a-ses-ministres-dexperimenter-la-semaine-en-4-jours-dans-leurs-administrations-JPGRGIYUYJDMPKFGSJF4MTOOLQ/
   # Programme Travail et salaires, 2026 : https://attalpresident.fr/programme/travail-salaires
-  attal: { option: B, source: "Programme Travail et salaires, 2026", statut: officielle }
+  attal: { option: B, source: "Programme Travail et salaires, 2026", statut: officielle, citation: "Cela passe par la promotion, là où c'est possible, de la semaine en quatre jours", lien: "https://attalpresident.fr/programme/travail-salaires" }
   # L'Avenir en commun, édition 2025, chap. 8 : https://melenchon2027.fr/programme2025/livre/chapitre8/s2/
-  melenchon: { option: C, source: "L'Avenir en commun, édition 2025, chap. 8", statut: officielle }
+  melenchon: { option: C, source: "L'Avenir en commun, édition 2025, chap. 8", statut: officielle, citation: "passer aux 32 heures dans les métiers pénibles ou de nuit", lien: "https://melenchon2027.fr/programme2025/livre/" }
   # Projet 2027 des Écologistes, p. 57, juillet 2026 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
-  tondelier: { option: C, source: "Projet 2027 des Écologistes, p. 57, juillet 2026", statut: officielle }
+  tondelier: { option: C, source: "Projet 2027 des Écologistes, p. 57, juillet 2026", statut: officielle, citation: "Passer aux 32 heures sans perte de salaire dans les métiers pénibles ou de nuit en y conditionnant les aides aux entreprises.", lien: "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027" }
   # Tribune, La Tribune Dimanche, 02/05/2026 : https://www.latribune.fr/article/la-tribune-dimanche/opinions/1253976204284314/opinion-instaurons-la-priorite-travail-par-bruno-retailleau-president-des-lr-et-candidat-a-la-presidentielle
-  retailleau: { option: A, source: "Tribune, La Tribune Dimanche, 02/05/2026", statut: officielle }
+  retailleau: { option: A, source: "Tribune, La Tribune Dimanche, 02/05/2026", statut: officielle, citation: "l’organisation du temps de travail soit laissée à la négociation collective dans chaque entreprise ou chaque branche", lien: "https://www.latribune.fr/article/la-tribune-dimanche/opinions/1253976204284314/opinion-instaurons-la-priorite-travail-par-bruno-retailleau-president-des-lr-et-candidat-a-la-presidentielle" }
   # Programme 2022, mesure 9 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
-  roussel: { option: D, source: "Programme 2022, mesure 9", statut: deduite }
+  roussel: { option: D, source: "Programme 2022, mesure 9", statut: deduite, citation: "La semaine de travail passera à 32 heures, sans diminution de salaires", lien: "https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf" }
   # Amendement n° 519 cosigné, 30/11/2025 : https://www.assemblee-nationale.fr/dyn/17/amendements/2141/AN/519.pdf
-  ruffin: { option: D, source: "Amendement n° 519 cosigné, 30/11/2025", statut: officielle }
+  ruffin: { option: D, source: "Amendement n° 519 cosigné, 30/11/2025", statut: officielle, citation: "Pour toutes ces raisons, le groupe écologiste et social propose une réduction du temps de travail à 32 heures hebdomadaires.", lien: "https://www.assemblee-nationale.fr/dyn/17/amendements/2141/AN/519.pdf" }
   # Meeting du 26/09/2026 : https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html
-  arthaud: { option: D, source: "Meeting du 26/09/2026", statut: deduite }
+  arthaud: { option: D, source: "Meeting du 26/09/2026", statut: deduite, citation: "Alors, nous disons qu'il faut répartir le travail entre tous, sans diminution de salaire.", lien: "https://www.lutte-ouvriere.org/portail/brochures/meeting-26-septembre-2026-discours-nathalie-arthaud-197446.html" }
   # Discours de rentrée, Cannes, 29/08/2026 : https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-assouplir-les-35-heures/
-  lisnard: { option: A, source: "Discours de rentrée, Cannes, 29/08/2026", statut: deduite }
+  lisnard: { option: A, source: "Discours de rentrée, Cannes, 29/08/2026", statut: deduite, citation: "Laisser les accords d'entreprise libérer le temps de travail, libérer la création de valeur.", lien: "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-assouplir-les-35-heures/" }
   # Programme, edouardphilippe.fr, 2026 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-  philippe: { option: A, source: "Programme, edouardphilippe.fr, 2026", statut: deduite }
+  philippe: { option: A, source: "Programme, edouardphilippe.fr, 2026", statut: deduite, citation: "Permettre aux entreprises de fixer librement le temps de travail pour sortir des 35h, de la manière la plus adaptée à leur activité", lien: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" }
   # Debout la France, projet « Économie et travail », mesure 16 (2026) : https://www.debout-la-france.fr/projet/economie-travail/
-  dupont-aignan: { option: A, source: "Debout la France, projet « Économie et travail », mesure 16 (2026)", statut: estimee }
+  dupont-aignan: { option: A, source: "Debout la France, projet « Économie et travail », mesure 16 (2026)", statut: estimee, lien: "https://www.debout-la-france.fr/projet/economie-travail/" }
   # Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. pouvoir d'achat : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
-  zemmour: { option: A, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. pouvoir d'achat", statut: estimee }
+  zemmour: { option: A, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. pouvoir d'achat", statut: estimee, lien: "https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/034-semaine-4-jours.md (chaque chiffre y a sa source
 # numérotée). Le fil : quatre jours, ce n'est pas forcément moins d'heures. Ni mécanisme ni écart : aucun ratio
 # « X pour 1 » ni aucune grandeur à deux dates n'éclaire ce débat mieux que les leviers.

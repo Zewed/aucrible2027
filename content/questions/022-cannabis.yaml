@@ -67,29 +67,29 @@ story:
     precision: "l'interdit"
 positions:
   # Programme de juillet 2026, p. 184, cité par https://monvote2027.fr/candidat/tondelier
-  tondelier: { option: A, source: "Programme de juillet 2026, p. 184", statut: officielle }
+  tondelier: { option: A, source: "Programme de juillet 2026, p. 184", statut: officielle, citation: "Légaliser et encadrer la production, la vente et la consommation de cannabis", lien: "https://monvote2027.fr/candidat/tondelier" }
   # https://www.assemblee-nationale.fr/dyn/15/textes/l15b4746_proposition-loi.pdf
-  melenchon: { option: A, source: "Proposition de loi n° 4746, 30/11/2021", statut: deduite }
+  melenchon: { option: A, source: "Proposition de loi n° 4746, 30/11/2021", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/15/textes/l15b4746_proposition-loi.pdf" }
   # https://www.assemblee-nationale.fr/dyn/15/textes/l15b4746_proposition-loi.pdf
-  ruffin: { option: A, source: "Proposition de loi n° 4746, 30/11/2021", statut: deduite }
+  ruffin: { option: A, source: "Proposition de loi n° 4746, 30/11/2021", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/15/textes/l15b4746_proposition-loi.pdf" }
   # https://www.publicsenat.fr/actualites/non-classe/cannabis-70-personnalites-appellent-a-legaliser-au-nom-du-pragmatisme-142235
-  glucksmann: { option: A, source: "Tribune de L'Obs, 19/06/2019", statut: deduite }
+  glucksmann: { option: A, source: "Tribune de L'Obs, 19/06/2019", statut: deduite, lien: "https://www.publicsenat.fr/actualites/non-classe/cannabis-70-personnalites-appellent-a-legaliser-au-nom-du-pragmatisme-142235" }
   # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
-  arthaud: { option: A, source: "Campagne 2022, Greenboyz", statut: deduite }
+  arthaud: { option: A, source: "Campagne 2022, Greenboyz", statut: deduite, citation: "Je suis plutôt pour", lien: "https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/" }
   # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
-  roussel: { option: B, source: "Campagne 2022, Greenboyz", statut: deduite }
+  roussel: { option: B, source: "Campagne 2022, Greenboyz", statut: deduite, citation: "je serais plutôt pour la dépénalisation", lien: "https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/" }
   # https://rassemblementnational.fr/documents/projet/projet-la-securite.pdf
-  le-pen: { option: C, source: "Projet 2022 du RN, la sécurité", statut: deduite }
+  le-pen: { option: C, source: "Projet 2022 du RN, la sécurité", statut: deduite, lien: "https://rassemblementnational.fr/documents/projet/projet-la-securite.pdf" }
   # https://www.europe1.fr/politique/legalisation-du-cannabis-ca-ne-marche-pas-estime-bruno-retailleau-396031
-  retailleau: { option: C, source: "TF1, 18/02/2025", statut: deduite }
+  retailleau: { option: C, source: "TF1, 18/02/2025", statut: deduite, citation: "Je suis contre. Totalement contre", lien: "https://www.europe1.fr/politique/legalisation-du-cannabis-ca-ne-marche-pas-estime-bruno-retailleau-396031" }
   # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
-  attal: { option: C, source: "Campagne 2022 d'Emmanuel Macron, Greenboyz", statut: deduite }
+  attal: { option: C, source: "Campagne 2022 d'Emmanuel Macron, Greenboyz", statut: deduite, lien: "https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/" }
   # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
-  zemmour: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite }
+  zemmour: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite, citation: "Après mûre réflexion, je suis contre", lien: "https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/" }
   # https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/
-  dupont-aignan: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite }
+  dupont-aignan: { option: C, source: "Campagne 2022, Greenboyz", statut: deduite, lien: "https://greenboyz.fr/cannabis-cbd-election-presidentielle-candidats-legalisation/" }
   # É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026) : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-  philippe: { option: C, source: "É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026)", statut: deduite }
+  philippe: { option: C, source: "É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026)", statut: deduite, citation: "Être intraitable avec les consommateurs : opérations « place nette » dans les boîtes de nuit et festivals", lien: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   # Les faits établis par les autorités de santé (l'Inserm) sont dans la chute des leviers, que les deux camps

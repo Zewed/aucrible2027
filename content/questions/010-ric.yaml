@@ -63,31 +63,31 @@ story:
     precision: "règles actuelles ou allégées"
 positions:
   # Programme 2022 : https://www.publicsenat.fr/actualites/politique/marine-le-pen-detaille-sa-revolution-referendaire-202358 ; https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
-  le-pen: { option: C, source: "Programme 2022, 12/04/2022", statut: deduite }
+  le-pen: { option: C, source: "Programme 2022, 12/04/2022", statut: deduite, lien: "https://www.publicsenat.fr/actualites/politique/marine-le-pen-detaille-sa-revolution-referendaire-202358" }
   # Programme 2027, « Le pouvoir au peuple » : https://avenir-en-commun.net/revolution-citoyenne
-  melenchon: { option: C, source: "Programme 2027, Le pouvoir au peuple", statut: officielle }
+  melenchon: { option: C, source: "Programme 2027, Le pouvoir au peuple", statut: officielle, lien: "https://avenir-en-commun.net/revolution-citoyenne" }
   # France Inter, 30/01/2019 : https://www.franceinfo.fr/economie/transports/gilets-jaunes/gilets-jaunes-le-ric-semble-aller-trop-loin-dans-la-remise-en-cause-de-la-democratie-representative-estime-edouard-philippe_3168399.html
-  philippe: { option: A, source: "France Inter, 30/01/2019", statut: deduite }
+  philippe: { option: A, source: "France Inter, 30/01/2019", statut: deduite, lien: "https://www.franceinfo.fr/economie/transports/gilets-jaunes/gilets-jaunes-le-ric-semble-aller-trop-loin-dans-la-remise-en-cause-de-la-democratie-representative-estime-edouard-philippe_3168399.html" }
   # Public Sénat, 03/09/2026 : https://www.publicsenat.fr/actualites/politique/presidentielle-2027-bruno-retailleau-propose-une-revolution-copernicienne-dans-laquelle-la-constitution-ne-serait-plus-le-bouclier-qui-prote
-  retailleau: { option: B, source: "Public Sénat, 03/09/2026", statut: officielle }
+  retailleau: { option: B, source: "Public Sénat, 03/09/2026", statut: officielle, lien: "https://www.publicsenat.fr/actualites/politique/presidentielle-2027-bruno-retailleau-propose-une-revolution-copernicienne-dans-laquelle-la-constitution-ne-serait-plus-le-bouclier-qui-prote" }
   # Discours de Bayeux, 17/06/2026 : https://nouvelle-energie-media-prod.s3.fr-par.scw.cloud/media/legacy/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf
-  lisnard: { option: C, source: "Discours de Bayeux, 17/06/2026", statut: officielle }
+  lisnard: { option: C, source: "Discours de Bayeux, 17/06/2026", statut: officielle, lien: "https://nouvelle-energie-media-prod.s3.fr-par.scw.cloud/media/legacy/2026/06/Discours-de-David-Lisnard-a-Bayeux-17062026.pdf" }
   # Programme 2022 : https://www.publicsenat.fr/actualites/non-classe/presidentielle-ric-rip-50-nuances-de-referendums-dans-les-programmes-des-candidats
-  zemmour: { option: A, source: "Programme 2022, 15/02/2022", statut: deduite }
+  zemmour: { option: A, source: "Programme 2022, 15/02/2022", statut: deduite, lien: "https://www.publicsenat.fr/actualites/non-classe/presidentielle-ric-rip-50-nuances-de-referendums-dans-les-programmes-des-candidats" }
   # Programme de juillet 2026, p. 161 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
-  tondelier: { option: C, source: "Programme 2027, juillet 2026, p. 161", statut: officielle }
+  tondelier: { option: C, source: "Programme 2027, juillet 2026, p. 161", statut: officielle, lien: "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027" }
   # Programme 2022 : https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
-  roussel: { option: C, source: "Programme 2022, 07/04/2022", statut: deduite }
+  roussel: { option: C, source: "Programme 2022, 07/04/2022", statut: deduite, lien: "https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html" }
   # Programme 2022 : https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
-  dupont-aignan: { option: C, source: "Programme 2022, 07/04/2022", statut: deduite }
+  dupont-aignan: { option: C, source: "Programme 2022, 07/04/2022", statut: deduite, lien: "https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html" }
   # Proposition de loi constitutionnelle n° 2081 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b2081_proposition-loi.pdf
-  ruffin: { option: C, source: "Proposition de loi constitutionnelle n° 2081, 18/11/2025", statut: officielle }
+  ruffin: { option: C, source: "Proposition de loi constitutionnelle n° 2081, 18/11/2025", statut: officielle, lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b2081_proposition-loi.pdf" }
   # Programme 2022 : https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html
-  arthaud: { option: A, source: "Programme 2022, 07/04/2022", statut: deduite }
+  arthaud: { option: A, source: "Programme 2022, 07/04/2022", statut: deduite, lien: "https://www.franceinfo.fr/elections/presidentielle/candidats/referendum-convention-citoyenne-ric-que-proposent-les-candidats-a-la-presidentielle-pour-reformer-la-vie-democratique_5055388.html" }
   # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 21, p. 47 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
-  glucksmann: { option: C, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 21, p. 47", statut: officielle }
+  glucksmann: { option: C, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 21, p. 47", statut: officielle, citation: "Instaurer un droit d’initiative citoyenne, permettant de déclencher des séquences démocratiques avec des référendums à l’échelle locale et nationale", lien: "https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing" }
   # « Dans le JDD : Gabriel Attal veut proposer la plus grande réforme institutionnelle depuis 1958 », attalpresident.fr, 02/08/2026 : https://attalpresident.fr/actualites/dans-le-jdd-gabriel-attal-veut-proposer-la-plus-grande-reforme-institutionnelle-depuis-1958
-  attal: { option: A, source: "« Dans le JDD : Gabriel Attal veut proposer la plus grande réforme institutionnelle depuis 1958 », attalpresident.fr, 02/08/2026", statut: estimee }
+  attal: { option: A, source: "« Dans le JDD : Gabriel Attal veut proposer la plus grande réforme institutionnelle depuis 1958 », attalpresident.fr, 02/08/2026", statut: estimee, lien: "https://attalpresident.fr/actualites/dans-le-jdd-gabriel-attal-veut-proposer-la-plus-grande-reforme-institutionnelle-depuis-1958" }
 reportage:
   # Écrit pour que tout le monde comprenne : des phrases complètes, des mots de tous les jours, le chiffre en preuve.
   accroche:

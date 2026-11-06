@@ -74,25 +74,25 @@ story:
 positions:
   # Programme 2022, rapporté par Têtu le 04/04/2022 : https://tetu.com/2022/04/04/presidentielle-candidats-proposition-lgbtqi-election/
   # Programme 2022, livret « La Famille » : https://rassemblementnational.fr/documents/projet/projet-la-famille.pdf
-  le-pen: { option: A, source: "Programme 2022, livret « La Famille »", statut: deduite }
+  le-pen: { option: A, source: "Programme 2022, livret « La Famille »", statut: deduite, lien: "https://rassemblementnational.fr/documents/projet/projet-la-famille.pdf" }
   # Proposition de loi n° 572 au Sénat, 03/05/2024 : https://www.senat.fr/leg/ppl23-572.html
-  retailleau: { option: A, source: "Proposition de loi n° 572 au Sénat, 03/05/2024", statut: officielle }
+  retailleau: { option: A, source: "Proposition de loi n° 572 au Sénat, 03/05/2024", statut: officielle, lien: "https://www.senat.fr/leg/ppl23-572.html" }
   # Programme 2022, mesure 11 ; projet Famille 2026, mesure 13 : https://www.lesprosdelapetiteenfance.fr/article/nicolas-dupont-aignan-candidat-souverainiste-debout-la-france/
-  dupont-aignan: { option: A, source: "Programme 2022, mesure 11 ; projet Famille 2026, mesure 13", statut: deduite }
+  dupont-aignan: { option: A, source: "Programme 2022, mesure 11 ; projet Famille 2026, mesure 13", statut: deduite, citation: "Renforcer l'interdiction pénale de la GPA (Gestation pour autrui)", lien: "https://www.lesprosdelapetiteenfance.fr/article/nicolas-dupont-aignan-candidat-souverainiste-debout-la-france/" }
   # L'Avenir en commun, édition 2025, chap. 4 : https://melenchon2027.fr/programme2025/livre/chapitre4/s1/
-  melenchon: { option: B, source: "L'Avenir en commun, édition 2025, chap. 4", statut: officielle }
+  melenchon: { option: B, source: "L'Avenir en commun, édition 2025, chap. 4", statut: officielle, citation: "refuser la gestation pour autrui (GPA), faire prévaloir l'intérêt supérieur de l'enfant comme principe premier, en toutes circonstances", lien: "https://melenchon2027.fr/programme2025/livre/" }
   # Discours, université d'été du PCF, 26/08/2025 : https://www.pcf.fr/ue_25_discours_fr
-  roussel: { option: B, source: "Discours, université d'été du PCF, 26/08/2025", statut: officielle }
+  roussel: { option: B, source: "Discours, université d'été du PCF, 26/08/2025", statut: officielle, citation: "La GPA, on n'en veut pas !", lien: "https://www.pcf.fr/ue_25_discours_fr" }
   # franceinfo, 21/08/2025 : https://www.franceinfo.fr/politique/la-republique-en-marche/gabriel-attal-fait-travailler-le-parti-renaissance-sur-la-legalisation-d-une-gpa-ethique_7446940.html
-  attal: { option: C, source: "franceinfo, 21/08/2025", statut: deduite }
+  attal: { option: C, source: "franceinfo, 21/08/2025", statut: deduite, lien: "https://www.franceinfo.fr/politique/la-republique-en-marche/gabriel-attal-fait-travailler-le-parti-renaissance-sur-la-legalisation-d-une-gpa-ethique_7446940.html" }
   # France 2, L'Heure de vérité, 08/10/2026 (franceinfo) : https://www.franceinfo.fr/politique/edouard-philippe/immigration-retraites-allocations-familiales-parcoursup-ce-qu-il-faut-retenir-de-l-interview-d-edouard-philippe-dans-l-emission-l-heure-de-verite_8228416.html
-  philippe: { option: B, source: "France 2, L'Heure de vérité, 08/10/2026 (franceinfo)", statut: deduite }
+  philippe: { option: B, source: "France 2, L'Heure de vérité, 08/10/2026 (franceinfo)", statut: deduite, citation: "Cela fait longtemps que je suis contre et je le suis encore. Et je pense que je vais l'être encore assez longtemps.", lien: "https://www.franceinfo.fr/politique/edouard-philippe/immigration-retraites-allocations-familiales-parcoursup-ce-qu-il-faut-retenir-de-l-interview-d-edouard-philippe-dans-l-emission-l-heure-de-verite_8228416.html" }
   # têtu·, 18/03/2025 : https://tetu.com/2025/03/18/interview-politique-depute-francois-ruffin-extreme-droite-argent-gpa-famille-transidentite-droits-lgbt/
-  ruffin: { option: B, source: "têtu·, 18/03/2025", statut: officielle }
+  ruffin: { option: B, source: "têtu·, 18/03/2025", statut: officielle, citation: "si j'étais un des citoyens de cette convention, mon point d'entrée serait défavorable, avec une crainte évidente de la marchandisation du corps des femmes", lien: "https://tetu.com/2025/03/18/interview-politique-depute-francois-ruffin-extreme-droite-argent-gpa-famille-transidentite-droits-lgbt/" }
   # Programme présidentiel 2022 : https://web.archive.org/web/20220527160820/https://programme.ericzemmour.fr/famille
-  zemmour: { option: A, source: Programme présidentiel 2022, statut: deduite }
+  zemmour: { option: A, source: Programme présidentiel 2022, statut: deduite, citation: "Interdire réellement la gestation pour autrui (GPA) en réprimant judiciairement le recours aux GPA à l'étranger", lien: "https://web.archive.org/web/20220527160820/https://programme.ericzemmour.fr/famille" }
   # Les Écologistes, projet 2027, juillet 2026, p. 141 (cité par MonVote2027) : https://monvote2027.fr/candidat/tondelier
-  tondelier: { option: B, source: "Les Écologistes, projet 2027, juillet 2026, p. 141 (cité par MonVote2027)", statut: estimee }
+  tondelier: { option: B, source: "Les Écologistes, projet 2027, juillet 2026, p. 141 (cité par MonVote2027)", statut: estimee, lien: "https://monvote2027.fr/candidat/tondelier" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/027-gpa.md (chaque chiffre y a sa source
 # numérotée, voir son annexe). Le fil : trois choix possibles ; la France applique le deuxième.
 # Ni mécanisme ni écart : aucun rapport « X pour 1 » ni aucune grandeur à deux dates ne sont sourcés pour ce sujet.

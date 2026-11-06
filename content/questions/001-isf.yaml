@@ -79,29 +79,29 @@ story:
     precision: "sur le patrimoine"
 positions:
   # https://rassemblementnational.fr/22-mesures (mesure 16 : « Supprimer l'IFI qui taxe l'enracinement et créer un IFF »)
-  le-pen: { option: E, source: "22 mesures pour 2022, mesure 16, 2022", statut: deduite }
+  le-pen: { option: E, source: "22 mesures pour 2022, mesure 16, 2022", statut: deduite, citation: "Supprimer l'IFI qui taxe l'enracinement et créer un IFF, impôt sur la fortune financière, pour taxer la spéculation", lien: "https://rassemblementnational.fr/22-mesures" }
   # https://votons-2027.fr/candidats/melenchon/programme/economie (reprend melenchon2027.fr/programme2025/livre/, mesure 45 ; page d'origine non lue)
-  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, mesure 45", statut: officielle }
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, mesure 45", statut: officielle, citation: "Rétablir et renforcer l'impôt de solidarité sur la fortune (ISF), incluant un volet climatique", lien: "https://votons-2027.fr/candidats/melenchon/programme/economie" }
   # https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing (« Effort fiscal nouveau, ciblé sur les très hauts patrimoines et les grands groupes »)
-  glucksmann: { option: B, source: "Place publique, Notre vision pour la France, Acte I, 23/06/2025", statut: deduite }
+  glucksmann: { option: B, source: "Place publique, Notre vision pour la France, Acte I, 23/06/2025", statut: deduite, citation: "Effort fiscal nouveau, ciblé sur les très hauts patrimoines et les grands groupes, pour contrer leur optimisation fiscale", lien: "https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing" }
   # https://www.moneyvox.fr/actu/87996/impot-quel-candidat-a-la-presidentielle-veut-le-retour-de-isf (« retirer la totalité de la valeur de la résidence principale de l'assiette de l'IFI »)
-  zemmour: { option: C, source: "Programme 2022, MoneyVox, 08/04/2022", statut: deduite }
+  zemmour: { option: C, source: "Programme 2022, MoneyVox, 08/04/2022", statut: deduite, citation: "retirer la totalité de la valeur de la résidence principale de l'assiette de l'IFI", lien: "https://www.moneyvox.fr/actu/87996/impot-quel-candidat-a-la-presidentielle-veut-le-retour-de-isf" }
   # https://votons-2027.fr/candidats/tondelier/programme/economie (reprend le Projet 2027 des Écologistes, mesure 5 ; page d'origine non lue)
-  tondelier: { option: A, source: "Projet 2027, mesure 5", statut: officielle }
+  tondelier: { option: A, source: "Projet 2027, mesure 5", statut: officielle, citation: "Rétablir la fiscalité sur la grande fortune", lien: "https://votons-2027.fr/candidats/tondelier/programme/economie" }
   # https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf (mesure 127)
-  roussel: { option: A, source: "La France des Jours heureux, mesure 127, 2022", statut: deduite }
+  roussel: { option: A, source: "La France des Jours heureux, mesure 127, 2022", statut: deduite, citation: "L'impôt sur la fortune sera rétabli, son taux et sa progressivité seront accentués, les niches fiscales qui minent son rendement seront supprimées", lien: "https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf" }
   # Site de campagne, « À La REF : Gabriel Attal, grand gagnant du premier débat de la présidentielle 2027 », débat du Medef diffusé sur LCI, 27/08/2026 : https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027
-  attal: { option: C, source: "Site de campagne, « À La REF : Gabriel Attal, grand gagnant du premier débat de la présidentielle 2027 », débat du Medef diffusé sur LCI, 27/08/2026", statut: deduite }
+  attal: { option: C, source: "Site de campagne, « À La REF : Gabriel Attal, grand gagnant du premier débat de la présidentielle 2027 », débat du Medef diffusé sur LCI, 27/08/2026", statut: deduite, citation: "baisse du taux d'impôt sur les sociétés de 33 % à 25 %, flat tax et suppression de l'ISF", lien: "https://attalpresident.fr/actualites/a-la-ref-gabriel-attal-grand-gagnant-du-premier-debat-de-la-presidentielle-2027" }
   # D. Lisnard, tribune « Changer de logiciel fiscal » (Atlantico), reprise par Nouvelle Énergie, 16/04/2026 : https://www.unenouvelleenergie.fr/changer-de-logiciel-fiscal/
-  lisnard: { option: D, source: "D. Lisnard, tribune « Changer de logiciel fiscal » (Atlantico), reprise par Nouvelle Énergie, 16/04/2026", statut: officielle }
+  lisnard: { option: D, source: "D. Lisnard, tribune « Changer de logiciel fiscal » (Atlantico), reprise par Nouvelle Énergie, 16/04/2026", statut: officielle, citation: "L’IFI et les droits de mutation seraient supprimés et remplacés par une fiscalité foncière assise sur des valeurs vénales actualisées.", lien: "https://www.unenouvelleenergie.fr/changer-de-logiciel-fiscal/" }
   # Plan de redressement, nouspresident.fr, octobre 2026 : https://nouspresident.fr/plan-de-redressement/
-  ruffin: { option: B, source: "Plan de redressement, nouspresident.fr, octobre 2026", statut: officielle }
+  ruffin: { option: B, source: "Plan de redressement, nouspresident.fr, octobre 2026", statut: officielle, lien: "https://nouspresident.fr/plan-de-redressement/" }
   # Debout la France, projet « Logement », mesure 6 (2026) : https://www.debout-la-france.fr/projet/logement/
-  dupont-aignan: { option: C, source: "Debout la France, projet « Logement », mesure 6 (2026)", statut: deduite }
+  dupont-aignan: { option: C, source: "Debout la France, projet « Logement », mesure 6 (2026)", statut: deduite, citation: "Exclure la résidence principale de l'Impôt sur la Fortune Immobilière (IFI).", lien: "https://www.debout-la-france.fr/projet/logement/" }
   # É. Philippe, « Pour une France plus prospère », edouardphilippe.fr (consulté le 29/10/2026) ; vote du groupe Horizons contre la taxe Zucman, 31/10/2025 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
-  philippe: { option: C, source: "É. Philippe, « Pour une France plus prospère », edouardphilippe.fr (consulté le 29/10/2026) ; vote du groupe Horizons contre la taxe Zucman, 31/10/2025", statut: estimee }
+  philippe: { option: C, source: "É. Philippe, « Pour une France plus prospère », edouardphilippe.fr (consulté le 29/10/2026) ; vote du groupe Horizons contre la taxe Zucman, 31/10/2025", statut: estimee, citation: "Sceller un moratoire normatif et fiscal : pas de nouvelle norme et de nouvel impôt sur le quinquennat", lien: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" }
   # Programme 2027, comparateur iFRAP, 10/2026 (« sans aucune hausse d'impôts ») ; réforme de l'IFI votée par la majorité LR-centriste du Sénat (amendement A. de Montgolfier, LR), Public Sénat, 29/11/2025 : https://www.publicsenat.fr/actualites/parlementaire/budget-2026-le-senat-reforme-limpot-sur-la-fortune-immobiliere-ifi-pour-un-manque-a-gagner-de-600-millions-deuros
-  retailleau: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026 (« sans aucune hausse d'impôts ») ; réforme de l'IFI votée par la majorité LR-centriste du Sénat (amendement A. de Montgolfier, LR), Public Sénat, 29/11/2025", statut: estimee }
+  retailleau: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026 (« sans aucune hausse d'impôts ») ; réforme de l'IFI votée par la majorité LR-centriste du Sénat (amendement A. de Montgolfier, LR), Public Sénat, 29/11/2025", statut: estimee, lien: "https://www.publicsenat.fr/actualites/parlementaire/budget-2026-le-senat-reforme-limpot-sur-la-fortune-immobiliere-ifi-pour-un-manque-a-gagner-de-600-millions-deuros" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/001-isf.md (chaque chiffre y a sa source numérotée,
 # et l'annexe de l'étude dit d'où vient chacun). Le fil : un impôt sur la fortune créé, supprimé, recréé, puis remplacé
 # par un impôt sur l'immobilier ; les cinq choix de la fiche ; les camps s'opposent sur une hausse de l'impôt sur la

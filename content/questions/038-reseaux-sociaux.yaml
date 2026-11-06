@@ -70,21 +70,21 @@ story:
 positions:
   # Vote contre du groupe LFI (63 voix), 21/07/2026 : https://nosparlementaires.fr/actualites/reseaux-sociaux-interdits-15-ans-adoption-definitive ; saisine du Conseil constitutionnel (M. Panot) : https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm
   # Vote du groupe Horizons, 21/07/2026 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8431
-  philippe: { option: D, source: "Vote du groupe Horizons, 21/07/2026", statut: deduite }
+  philippe: { option: D, source: "Vote du groupe Horizons, 21/07/2026", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/8431" }
   # Programme École, 2026 : https://attalpresident.fr/programme/education
-  attal: { option: D, source: "Programme École, 2026", statut: officielle }
+  attal: { option: D, source: "Programme École, 2026", statut: officielle, citation: "C'est pour cela que nous irons au bout de leur interdiction pour les moins de 15 ans, pour les protéger.", lien: "https://attalpresident.fr/programme/education" }
   # Communiqué de N. Dupont-Aignan, 22/07/2026 : https://www.debout-la-france.fr/actualite/communique-la-protection-de-nos-enfants-se-joue-sur-le-terrain/
-  dupont-aignan: { option: A, source: "Communiqué de N. Dupont-Aignan, 22/07/2026", statut: officielle }
+  dupont-aignan: { option: A, source: "Communiqué de N. Dupont-Aignan, 22/07/2026", statut: officielle, citation: "La sécurité des enfants mérite mieux que des effets d'annonce faisant croire qu'on les protégera en interdisant les réseaux sociaux", lien: "https://www.debout-la-france.fr/actualite/communique-la-protection-de-nos-enfants-se-joue-sur-le-terrain/" }
   # Place publique, Acte I, 23/06/2025 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view
-  glucksmann: { option: D, source: "Place publique, Acte I, 23/06/2025", statut: deduite }
+  glucksmann: { option: D, source: "Place publique, Acte I, 23/06/2025", statut: deduite, citation: "Interdire les réseaux sociaux pour les moins de 15 ans", lien: "https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view" }
   # Les Échos, tribune, 11/02/2026 : https://www.unenouvelleenergie.fr/reseaux-sociaux-linterdiction-est-le-dernier-refuge-de-limpuissance-publique/
-  lisnard: { option: B, source: "Les Échos, tribune, 11/02/2026", statut: officielle }
+  lisnard: { option: B, source: "Les Échos, tribune, 11/02/2026", statut: officielle, citation: "Ce n’est pas l’accès qu’il faut interdire, mais les mécanismes prédateurs — scroll infini, notifications intrusives, publicité ciblée — qui doivent être proscrits pour les mineurs", lien: "https://www.unenouvelleenergie.fr/reseaux-sociaux-linterdiction-est-le-dernier-refuge-de-limpuissance-publique/" }
   # X, 27/01/2026 : https://x.com/ZemmourEric/status/2016132150811119718
-  zemmour: { option: A, source: "X, 27/01/2026", statut: officielle }
+  zemmour: { option: A, source: "X, 27/01/2026", statut: officielle, citation: "La loi Attal sur l'interdiction des réseaux sociaux aux moins de 15 ans […] est le doigt dans l'engrenage de la surveillance générale.", lien: "https://x.com/ZemmourEric/status/2016132150811119718" }
   # Lutte ouvrière n° 2997, janvier 2026, « Réseaux sociaux et portables : le président veut rester à l'écran » : https://www.lutte-ouvriere.org/medias/journalnumero/fichiers/2026/01/2997-web.pdf
-  arthaud: { option: A, source: "Lutte ouvrière n° 2997, janvier 2026, « Réseaux sociaux et portables : le président veut rester à l'écran »", statut: estimee }
+  arthaud: { option: A, source: "Lutte ouvrière n° 2997, janvier 2026, « Réseaux sociaux et portables : le président veut rester à l'écran »", statut: estimee, citation: "Le mal-être de la jeunesse ne se résoudra pas à coups de décrets et d'interdiction.", lien: "https://www.lutte-ouvriere.org/medias/journalnumero/fichiers/2026/01/2997-web.pdf" }
   # Amendement n° 12 du groupe LFI (suppression de l'article 1er) à la proposition de loi n° 2341, 20/01/2026 ; vote contre du groupe (63 voix), 21/07/2026 : https://www.assemblee-nationale.fr/dyn/17/amendements/2341/AN/12.pdf
-  melenchon: { option: A, source: "Amendement n° 12 du groupe LFI (suppression de l'article 1er) à la proposition de loi n° 2341, 20/01/2026 ; vote contre du groupe (63 voix), 21/07/2026", statut: estimee }
+  melenchon: { option: A, source: "Amendement n° 12 du groupe LFI (suppression de l'article 1er) à la proposition de loi n° 2341, 20/01/2026 ; vote contre du groupe (63 voix), 21/07/2026", statut: estimee, citation: "seule une approche combinant la prévention (en milieu scolaire et en dehors) et une véritable politique publique d'accompagnement à la parentalité numérique ainsi qu'une véritable régulation des réseaux sociaux", lien: "https://www.assemblee-nationale.fr/dyn/17/amendements/2341/AN/12.pdf" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/038-reseaux-sociaux.md (chaque chiffre y a sa source
 # numérotée). Le fil : deux lois votées, aucune appliquée ; quatre façons de protéger les enfants, que l'Europe mélange.
 reportage:

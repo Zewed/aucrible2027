@@ -68,23 +68,23 @@ story:
 positions:
   # franceinfo, 23/03/2021 : https://www.franceinfo.fr/monde/chine/video-repression-des-ouighours-par-pekin-raphael-glucksmann-appelle-les-occidentaux-a-frapper-au-portefeuille_4343913.html ; RTBF, 17/08/2020 : https://www.rtbf.be/article/travail-force-des-ouighours-les-marques-devraient-etre-penalement-responsables-en-europe-estime-raphael-glucksmann-10563392
   # franceinfo, 23/03/2021 : https://www.franceinfo.fr/monde/chine/video-repression-des-ouighours-par-pekin-raphael-glucksmann-appelle-les-occidentaux-a-frapper-au-portefeuille_4343913.html
-  glucksmann: { option: C, source: "franceinfo, 23/03/2021", statut: deduite }
+  glucksmann: { option: C, source: "franceinfo, 23/03/2021", statut: deduite, lien: "https://www.franceinfo.fr/monde/chine/video-repression-des-ouighours-par-pekin-raphael-glucksmann-appelle-les-occidentaux-a-frapper-au-portefeuille_4343913.html" }
   # Résolution des sénateurs écologistes, 01/06/2023 : https://www.senat.fr/leg/tas22-124.html
-  tondelier: { option: C, source: "Résolution des sénateurs écologistes, 01/06/2023", statut: deduite }
+  tondelier: { option: C, source: "Résolution des sénateurs écologistes, 01/06/2023", statut: deduite, lien: "https://www.senat.fr/leg/tas22-124.html" }
   # Vote du groupe RDPI au Sénat, 01/06/2023 : https://www.senat.fr/scrutin-public/2022/scr2022-294.html
-  attal: { option: C, source: "Vote du groupe RDPI au Sénat, 01/06/2023", statut: deduite }
+  attal: { option: C, source: "Vote du groupe RDPI au Sénat, 01/06/2023", statut: deduite, lien: "https://www.senat.fr/scrutin-public/2022/scr2022-294.html" }
   # Abstention du groupe LR au Sénat, 01/06/2023 : https://www.senat.fr/cra/s20230601/s20230601_6.html
-  retailleau: { option: B, source: "Abstention du groupe LR au Sénat, 01/06/2023", statut: deduite }
+  retailleau: { option: B, source: "Abstention du groupe LR au Sénat, 01/06/2023", statut: deduite, citation: "La proposition de règlement européen sur l'interdiction des produits issus du travail forcé doit donc être saluée.", lien: "https://www.senat.fr/cra/s20230601/s20230601_6.html" }
   # Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote des eurodéputés RN) : https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1791968
-  le-pen: { option: C, source: "Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote des eurodéputés RN)", statut: deduite }
+  le-pen: { option: C, source: "Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote des eurodéputés RN)", statut: deduite, lien: "https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1791968" }
   # Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote des eurodéputés LFI) : https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1791968
-  melenchon: { option: C, source: "Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote des eurodéputés LFI)", statut: deduite }
+  melenchon: { option: C, source: "Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote des eurodéputés LFI)", statut: deduite, lien: "https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1791968" }
   # Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote de l'eurodéputé Horizons) : https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1791968
-  philippe: { option: C, source: "Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote de l'eurodéputé Horizons)", statut: deduite }
+  philippe: { option: C, source: "Parlement européen, résolution sur les Ouïghours, 10/10/2024 (vote de l'eurodéputé Horizons)", statut: deduite, lien: "https://oeil.europarl.europa.eu/oeil/fr/document-summary?id=1791968" }
   # Debout la France, projet « Économie et travail », mesure 7 (2026) : https://www.debout-la-france.fr/projet/economie-travail/
-  dupont-aignan: { option: B, source: "Debout la France, projet « Économie et travail », mesure 7 (2026)", statut: estimee }
+  dupont-aignan: { option: B, source: "Debout la France, projet « Économie et travail », mesure 7 (2026)", statut: estimee, lien: "https://www.debout-la-france.fr/projet/economie-travail/" }
   # D. Lisnard, « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026 : https://www.unenouvelleenergie.fr/le-grand-entretien-avec-david-lisnard-quelle-strategie-pour-la-france-dans-le-nouveau-desordre-mondial/
-  lisnard: { option: B, source: "D. Lisnard, « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026", statut: estimee }
+  lisnard: { option: B, source: "D. Lisnard, « Le Grand Entretien », Le Diplomate, repris par Nouvelle Énergie, 29/06/2026", statut: estimee, lien: "https://www.unenouvelleenergie.fr/le-grand-entretien-avec-david-lisnard-quelle-strategie-pour-la-france-dans-le-nouveau-desordre-mondial/" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/032-ouighours.md (chaque chiffre y a sa source
 # numérotée ; l'annexe de l'étude relie chaque écran à ses sources). Le fil : ce qu'on sait du Xinjiang, ce que la France
 # y engage, les quatre voies possibles, puis quatre questions où chaque camp donne sa meilleure preuve.

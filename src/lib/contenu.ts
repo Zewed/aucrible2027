@@ -44,8 +44,11 @@ export type Source = { organisme: string; document?: string; annee: number };
 export type Argument = { texte: string; source?: Source };
 export type Chiffre = { valeur: string; unite?: string; legende: string; source: Source };
 export type Theme = { id: string; nom: string; classe: string };
-/** Ce qu'un candidat défend sur une fiche, et d'où on le sait. */
-export type Position = { option: string; source: string; statut: "officielle" | "deduite" | "estimee" };
+/**
+ * Ce qu'un candidat défend sur une fiche, et d'où on le sait : la source, et, quand l'étude les a relevés, la phrase
+ * exacte qui fonde la position (`citation`, mot pour mot, sans guillemets) et l'adresse où la lire (`lien`).
+ */
+export type Position = { option: string; source: string; statut: "officielle" | "deduite" | "estimee"; citation?: string; lien?: string };
 export type Lien = { titre: string; url: string };
 /** Un côté du débat, pour l'image 5 du carrousel : son titre (« Pour relever l'âge ») et l'argument que ses défenseurs signeraient. */
 export type Cote = { titre: string; argument: string };

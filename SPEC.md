@@ -50,7 +50,7 @@ Lecture en 3 minutes maximum.
 3. **2 à 4 chiffres clés**, chacun avec source et date (INSEE, Cour des comptes, COR, DREES, Eurostat…).
 4. **3 à 5 options concrètes et chiffrées**, présentées **sans nom de candidat**. Pour chacune : ce que ça implique, ce qu'en disent ses défenseurs, ce que lui reprochent ses critiques.
 5. **Réponse** : une option, ou « je ne sais pas » ; plus l'importance du sujet pour soi (×1 / ×2 / ×3).
-6. **Révélation** : qui défend quelle option (avec sources et badge « position déduite » ou « position officielle »), alignement sur cette question, classement mis à jour.
+6. **Révélation** : ~~qui défend quelle option (avec sources et badge « position déduite » ou « position officielle »), alignement sur cette question, classement mis à jour.~~ Remplacé le 06/11/2026 : un tableau en colonnes, une par option, qui dit qui défend quoi ; la colonne de l'électeur est marquée « Ta réponse » (elle remplace « aligné·e avec », « proche de » et « opposé·e à ») ; dans chaque option, les candidats du plus sûr au moins sûr, avec au bout de leur ligne une pastille de couleur pour le statut de leur position (officielle, déduite, estimée), dont le survol ou le toucher ouvre la phrase exacte qui la fonde, sa source et le lien pour la lire ; « Pour aller plus loin » s'ouvre par « Voir les sources ».
 7. **Pour aller plus loin** : 2–3 liens.
 
 Bouton « Signaler une erreur » sur chaque fiche.
@@ -217,7 +217,7 @@ Maquettes statiques de tous les écrans, dans la direction « Jeu de société �
 1. **Accueil** (02/11/2026) : l'écran partagé de la fiche. À gauche, dans la couleur de son thème, la prochaine question et « Continuer le questionnaire » ; à droite, le nombre de réponses et les 11 thèmes, écrits en entier, chacun menant à ses questions. ~~Pour un nouveau venu, « De quels candidats es-tu proche ? » et « Commencer le questionnaire »~~ un nouveau venu voit la landing (06/11/2026) ; quand tout a une réponse, « Voir mes résultats ». Compte à rebours avant le 1er tour. La jauge des questions ne s'y répète pas.
    **Questionnaire** : la prochaine question de l'électeur, jauge des questions (c'était l'accueil jusqu'au 02/11/2026 ; progression vers le prochain palier jusqu'au 27/10/2026 ; avant le 25/10/2026 : question du jour et série).
 2. **Fiche** : question, contexte, chiffres, options (sans noms), réponse + importance. Un seul point fort (27/10/2026) : la question et la vidéo ; à droite, le contexte et les chiffres clés restent au calme, en lignes, sans fond de couleur.
-3. **Révélation** : qui défend quoi, alignement, classement mis à jour.
+3. **Révélation** : qui défend quoi, ~~alignement~~ dans un tableau en colonnes où la colonne de l'électeur est marquée « Ta réponse » (06/11/2026), classement mis à jour.
 4. **Toutes les questions** : la liste, pour en choisir une (avant le 25/10/2026 : rattrapage, trié par pouvoir de départage).
 5. **Mes résultats** : classement en %, fiabilité, carte 2 axes, détail par thème.
 6. **Face-à-face** et **Moi vs X**.

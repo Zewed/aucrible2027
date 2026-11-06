@@ -71,17 +71,17 @@ story:
 positions:
   # Proposition de loi n° 656 du groupe LFI (première signataire Danièle Obono, cosignée par Mathilde Panot), 03/12/2024 : https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0656_proposition-loi.pdf
   # L'Avenir en commun, édition 2025, chap. 4 : https://melenchon2027.fr/programme2025/livre/chapitre4/s1/
-  melenchon: { option: D, source: "L'Avenir en commun, édition 2025, chap. 4", statut: officielle }
+  melenchon: { option: D, source: "L'Avenir en commun, édition 2025, chap. 4", statut: officielle, citation: "Déjudiciariser le changement de sexe à l'état-civil en le rendant libre et gratuit devant un officier d'état civil, pour les mineurs, permettre cette modification avec l'accord d'un des parents", lien: "https://melenchon2027.fr/programme2025/livre/" }
   # Projet 2027, p. 141 ; proposition de loi cosignée par le groupe écologiste, 03/12/2024 : https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0656_proposition-loi.pdf
-  tondelier: { option: D, source: "Projet 2027, p. 141 ; proposition de loi cosignée par le groupe écologiste, 03/12/2024", statut: deduite }
+  tondelier: { option: D, source: "Projet 2027, p. 141 ; proposition de loi cosignée par le groupe écologiste, 03/12/2024", statut: deduite, citation: "Rendre le changement de mention de sexe à l'état civil libre, gratuit et simple, sans passer devant un juge.", lien: "https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0656_proposition-loi.pdf" }
   # Proposition de loi n° 656 cosignée, 03/12/2024 : https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0656_proposition-loi.pdf
-  ruffin: { option: D, source: "Proposition de loi n° 656 cosignée, 03/12/2024", statut: officielle }
+  ruffin: { option: D, source: "Proposition de loi n° 656 cosignée, 03/12/2024", statut: officielle, citation: "La déclaration mentionnée au premier alinéa de l’article 61-6 qui concerne un mineur âgé de plus de quinze ans révolus peut être remise par le mineur", lien: "https://questions.assemblee-nationale.fr/dyn/17/textes/l17b0656_proposition-loi.pdf" }
   # Programme 2022, mesure 90, p. 79 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
-  roussel: { option: C, source: "Programme 2022, mesure 90, p. 79", statut: deduite }
+  roussel: { option: C, source: "Programme 2022, mesure 90, p. 79", statut: deduite, citation: "Le changement d'état-civil sera libre et gratuit", lien: "https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf" }
   # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 39, p. 79 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
-  glucksmann: { option: C, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 39, p. 79", statut: estimee }
+  glucksmann: { option: C, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 39, p. 79", statut: estimee, citation: "Respecter les identités et garantir le droit à l’autodétermination de genre et encadrer les parcours de transition", lien: "https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing" }
   # Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. famille : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
-  zemmour: { option: A, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. famille", statut: estimee }
+  zemmour: { option: A, source: "Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. famille", statut: estimee, citation: "Ne reconnaître que la notion de sexe et non de « genre » dans le droit français", lien: "https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/028-etat-civil.md (chaque chiffre y a sa source
 # numérotée, annexe « Chiffres du reportage »). Le fil : trois façons de décider d'un changement (un médecin et un juge,
 # un juge seul, une simple déclaration) ; la question porte sur la troisième. Pas de mécanisme « X pour 1 » ni d'écart

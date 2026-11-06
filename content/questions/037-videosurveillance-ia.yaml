@@ -72,27 +72,27 @@ story:
 positions:
   # Programme 2026 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure (« allant jusqu'à l'utilisation ciblée de la reconnaissance faciale », dans un « état d'urgence narco »)
   # edouardphilippe.fr, Pour une France plus sûre, 2026 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-  philippe: { option: D, source: "edouardphilippe.fr, Pour une France plus sûre, 2026", statut: officielle }
+  philippe: { option: D, source: "edouardphilippe.fr, Pour une France plus sûre, 2026", statut: officielle, citation: "Créer un « état d'urgence narco » avec des moyens juridiques d'exception limités dans le temps et dans l'espace, allant jusqu'à l'utilisation ciblée de la reconnaissance faciale", lien: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" }
   # CNews et Europe 1, 01/06/2026 : https://www.centre-europe.com/retailleau-plaide-pour-la-reconnaissance-faciale-et-la-responsabilite-solidaire-des-casseurs/
-  retailleau: { option: D, source: "CNews et Europe 1, 01/06/2026", statut: officielle }
+  retailleau: { option: D, source: "CNews et Europe 1, 01/06/2026", statut: officielle, citation: "la reconnaissance faciale, pour pouvoir déterminer qui était là", lien: "https://www.centre-europe.com/retailleau-plaide-pour-la-reconnaissance-faciale-et-la-responsabilite-solidaire-des-casseurs/" }
   # Entretien sur RTL, 19/10/2026 : https://reclaimthenet.org/gabriel-attal-social-media-block-facial-recognition-riots
-  attal: { option: D, source: "Entretien sur RTL, 19/10/2026", statut: officielle }
+  attal: { option: D, source: "Entretien sur RTL, 19/10/2026", statut: officielle, lien: "https://reclaimthenet.org/gabriel-attal-social-media-block-facial-recognition-riots" }
   # Votes du groupe RN, 23/03/2023 et 10/07/2026 : https://datan.fr/votes/legislature-17/vote_8194
-  le-pen: { option: B, source: "Votes du groupe RN, 23/03/2023 et 10/07/2026", statut: deduite }
+  le-pen: { option: B, source: "Votes du groupe RN, 23/03/2023 et 10/07/2026", statut: deduite, lien: "https://datan.fr/votes/legislature-17/vote_8194" }
   # L'Avenir en commun, 2025 ; votes du groupe LFI, 2023 et 2026 : https://melenchon2027.fr/programme2025/livre/chapitre18/s5/
-  melenchon: { option: A, source: "L'Avenir en commun, 2025 ; votes du groupe LFI, 2023 et 2026", statut: deduite }
+  melenchon: { option: A, source: "L'Avenir en commun, 2025 ; votes du groupe LFI, 2023 et 2026", statut: deduite, citation: "Interdire dans la loi tout usage des technologies de reconnaissance faciale dans les espaces et établissements publics", lien: "https://melenchon2027.fr/programme2025/livre/" }
   # Projet 2027 et vote du groupe écologiste, 10/07/2026 : https://datan.fr/votes/legislature-17/vote_8194
-  tondelier: { option: A, source: "Projet 2027 et vote du groupe écologiste, 10/07/2026", statut: deduite }
+  tondelier: { option: A, source: "Projet 2027 et vote du groupe écologiste, 10/07/2026", statut: deduite, citation: "Interdire la reconnaissance faciale et évaluer de manière indépendante les dispositifs de vidéosurveillance en lien avec la Défenseure des droits.", lien: "https://datan.fr/votes/legislature-17/vote_8194" }
   # Vote du groupe socialiste, 10/07/2026 : https://datan.fr/votes/legislature-17/vote_8194
-  glucksmann: { option: A, source: "Vote du groupe socialiste, 10/07/2026", statut: deduite }
+  glucksmann: { option: A, source: "Vote du groupe socialiste, 10/07/2026", statut: deduite, lien: "https://datan.fr/votes/legislature-17/vote_8194" }
   # Vote du groupe écologiste, 10/07/2026 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8194
-  ruffin: { option: A, source: "Vote du groupe écologiste, 10/07/2026", statut: deduite }
+  ruffin: { option: A, source: "Vote du groupe écologiste, 10/07/2026", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/8194" }
   # Vote des sénateurs communistes, 24/01/2023 : https://www.senat.fr/scrutin-public/2022/scr2022-111.html
-  roussel: { option: A, source: "Vote des sénateurs communistes, 24/01/2023", statut: deduite }
+  roussel: { option: A, source: "Vote des sénateurs communistes, 24/01/2023", statut: deduite, lien: "https://www.senat.fr/scrutin-public/2022/scr2022-111.html" }
   # Amendement n° 692, Assemblée nationale, 16/03/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/0939/AN/692.pdf
-  dupont-aignan: { option: A, source: "Amendement n° 692, Assemblée nationale, 16/03/2023", statut: deduite }
+  dupont-aignan: { option: A, source: "Amendement n° 692, Assemblée nationale, 16/03/2023", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/16/amendements/0939/AN/692.pdf" }
   # franceinfo, 18/10/2023 : https://www.franceinfo.fr/faits-divers/attaque-au-couteau-dans-un-lycee-a-arras/securite-des-etablissements-scolaires-il-faut-dire-stop-selon-david-lisnard-qui-appelle-a-des-mesures-immediates_6129297.html
-  lisnard: { option: D, source: "franceinfo, 18/10/2023", statut: deduite }
+  lisnard: { option: D, source: "franceinfo, 18/10/2023", statut: deduite, citation: "Je crois qu'elle peut être utilisée avec des précautions, elle doit être toujours sous le contrôle du juge", lien: "https://www.franceinfo.fr/faits-divers/attaque-au-couteau-dans-un-lycee-a-arras/securite-des-etablissements-scolaires-il-faut-dire-stop-selon-david-lisnard-qui-appelle-a-des-mesures-immediates_6129297.html" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/037-videosurveillance-ia.md (chaque chiffre y a sa
 # source numérotée). Le fil : un essai né pour les Jeux, prolongé jusqu'en 2030 ; faut-il l'arrêter, le généraliser
 # ou aller jusqu'aux visages ?

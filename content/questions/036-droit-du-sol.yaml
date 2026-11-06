@@ -68,29 +68,29 @@ story:
 positions:
   # Programme 2025 (L'Avenir en commun), mesure 1 immigration, repris par https://votons-2027.fr/candidats/melenchon/programme/immigration (page d'origine https://melenchon2027.fr/programme2025/livre/ bloquée à la lecture)
   # L'Avenir en commun, édition 2025, chap. 10 : https://melenchon2027.fr/programme2025/livre/chapitre10/s2/
-  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, chap. 10", statut: officielle }
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, chap. 10", statut: officielle, citation: "Garantir le droit du sol intégral à tous les enfants nés en France, le rétablir sur l'ensemble du territoire national et faciliter l'accès à la nationalité française", lien: "https://melenchon2027.fr/programme2025/livre/" }
   # Projet 2027 des Écologistes, p. 178, juillet 2026 : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
-  tondelier: { option: B, source: "Projet 2027 des Écologistes, p. 178, juillet 2026", statut: officielle }
+  tondelier: { option: B, source: "Projet 2027 des Écologistes, p. 178, juillet 2026", statut: officielle, citation: "Garantir l'application du droit du sol pour les enfants nés en France indépendamment de la situation des parents", lien: "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027" }
   # La Nouvelle Revue Politique, 16/04/2026 : https://www.unenouvelleenergie.fr/ce-que-je-veux-construire-cest-une-alternative-et-non-pas-une-simple-alternance/
-  lisnard: { option: C, source: "La Nouvelle Revue Politique, 16/04/2026", statut: officielle }
+  lisnard: { option: C, source: "La Nouvelle Revue Politique, 16/04/2026", statut: officielle, citation: "Il convient de diviser par huit la délivrance de titres de séjour, mettre fin à l’automaticité du droit du sol", lien: "https://www.unenouvelleenergie.fr/ce-que-je-veux-construire-cest-une-alternative-et-non-pas-une-simple-alternance/" }
   # Le Figaro, 02/09/2026 : https://www.lefigaro.fr/elections/presidentielles/programmes/bruno-retailleau-au-figaro-en-france-la-seule-cour-supreme-c-est-le-peuple-je-lui-donnerai-le-dernier-mot-20260902
-  retailleau: { option: D, source: "Le Figaro, 02/09/2026", statut: officielle }
+  retailleau: { option: D, source: "Le Figaro, 02/09/2026", statut: officielle, citation: "abolir le droit du sol et revenir à l’assimilation pour qu’il n’y ait plus de naturalisations automatiques. Devenir français, cela se mérite.", lien: "https://www.lefigaro.fr/elections/presidentielles/programmes/bruno-retailleau-au-figaro-en-france-la-seule-cour-supreme-c-est-le-peuple-je-lui-donnerai-le-dernier-mot-20260902" }
   # Debout la France, projet Immigration, mesure 17, 2026 : https://www.debout-la-france.fr/projet/immigration-et-assimilation/
-  dupont-aignan: { option: D, source: "Debout la France, projet Immigration, mesure 17, 2026", statut: officielle }
+  dupont-aignan: { option: D, source: "Debout la France, projet Immigration, mesure 17, 2026", statut: officielle, citation: "Supprimer le droit du sol via un référendum, tout en maintenant la possibilité de devenir Français par naturalisation.", lien: "https://www.debout-la-france.fr/projet/immigration-et-assimilation/" }
   # Programme du RN, 2024 ; « 22 mesures » 2022 : https://rassemblementnational.fr/documents/202406-programme.pdf
-  le-pen: { option: D, source: "Programme du RN, 2024 ; « 22 mesures » 2022", statut: deduite }
+  le-pen: { option: D, source: "Programme du RN, 2024 ; « 22 mesures » 2022", statut: deduite, citation: "Suppression du droit du sol", lien: "https://rassemblementnational.fr/documents/202406-programme.pdf" }
   # France 2, 12/02/2024 : https://presseagence.fr/paris-eric-zemmour-sur-france-2-il-faut-supprimer-le-droit-du-sol-partout-en-france/
-  zemmour: { option: D, source: "France 2, 12/02/2024", statut: deduite }
+  zemmour: { option: D, source: "France 2, 12/02/2024", statut: deduite, citation: "je demande que le droit du sol soit supprimé partout en France", lien: "https://presseagence.fr/paris-eric-zemmour-sur-france-2-il-faut-supprimer-le-droit-du-sol-partout-en-france/" }
   # Journal Lutte ouvrière, 12/02/2025 : https://www.lutte-ouvriere.org/portail/journal/droit-sol-remise-cause-scandaleuse-181872.html
-  arthaud: { option: A, source: "Journal Lutte ouvrière, 12/02/2025", statut: deduite }
+  arthaud: { option: A, source: "Journal Lutte ouvrière, 12/02/2025", statut: deduite, lien: "https://www.lutte-ouvriere.org/portail/journal/droit-sol-remise-cause-scandaleuse-181872.html" }
   # Assemblée nationale, vote n° 738 du 06/02/2025, proposition de loi renforçant les conditions d'accès à la nationalité à Mayotte (Datan : G. Attal pour) ; Premier ministre, questions au gouvernement, 13/02/2024 : https://datan.fr/votes/legislature-17/vote_738
-  attal: { option: C, source: "Assemblée nationale, vote n° 738 du 06/02/2025, proposition de loi renforçant les conditions d'accès à la nationalité à Mayotte (Datan : G. Attal pour) ; Premier ministre, questions au gouvernement, 13/02/2024", statut: estimee }
+  attal: { option: C, source: "Assemblée nationale, vote n° 738 du 06/02/2025, proposition de loi renforçant les conditions d'accès à la nationalité à Mayotte (Datan : G. Attal pour) ; Premier ministre, questions au gouvernement, 13/02/2024", statut: estimee, lien: "https://datan.fr/votes/legislature-17/vote_738" }
   # É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026) : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
-  philippe: { option: C, source: "É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026)", statut: estimee }
+  philippe: { option: C, source: "É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026)", statut: estimee, citation: "Suspendre le droit du sol à Mayotte.", lien: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" }
   # F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesures 89 et 162 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
-  roussel: { option: B, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesures 89 et 162", statut: estimee }
+  roussel: { option: B, source: "F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesures 89 et 162", statut: estimee, lien: "https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf" }
   # Votes sur la proposition de loi « Renforcer les conditions d'accès à la nationalité française à Mayotte », 06/02/2025 : contre l'amendement n° 7 (datan, vote 697), pour l'amendement de repli n° 56 (vote 701) : https://datan.fr/votes/legislature-17/vote_697
-  ruffin: { option: B, source: "Votes sur la proposition de loi « Renforcer les conditions d'accès à la nationalité française à Mayotte », 06/02/2025 : contre l'amendement n° 7 (datan, vote 697), pour l'amendement de repli n° 56 (vote 701)", statut: estimee }
+  ruffin: { option: B, source: "Votes sur la proposition de loi « Renforcer les conditions d'accès à la nationalité française à Mayotte », 06/02/2025 : contre l'amendement n° 7 (datan, vote 697), pour l'amendement de repli n° 56 (vote 701)", statut: estimee, lien: "https://datan.fr/votes/legislature-17/vote_697" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/036-droit-du-sol.md (chaque chiffre y a sa source
 # numérotée, voir son annexe). Le fil : la règle a déjà changé plusieurs fois ; quatre choix sont sur la table.
 # Pas de mécanisme : aucun ratio « X pour 1 » ne résume le sujet. Pas d'écart : le chiffre de Mayotte sert à une question.

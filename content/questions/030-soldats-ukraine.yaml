@@ -71,21 +71,21 @@ story:
 positions:
   # LCP, débat à l'Assemblée nationale du 03/03/2025 : https://lcp.fr/actualites/situation-en-ukraine-et-securite-en-europe-que-retenir-du-debat-qui-a-eu-lieu-a-l
   # Assemblée nationale, débat du 03/03/2025 : https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2024-2025/seance-du-lundi-03-mars-2025.pdf
-  le-pen: { option: B, source: "Assemblée nationale, débat du 03/03/2025", statut: officielle }
+  le-pen: { option: B, source: "Assemblée nationale, débat du 03/03/2025", statut: officielle, citation: "l'envoi de troupes françaises combattantes sur le sol ukrainien est une folie. Seule une éventuelle participation à une opération sous le mandat de casques bleus pourrait être envisageable.", lien: "https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2024-2025/seance-du-lundi-03-mars-2025.pdf" }
   # France 3, 16/03/2025 ; LFI, 08/01/2026 : https://www.lagazettefrance.fr/article/ukraine-celui-qui-nous-menace-physiquement-c-est-monsieur-trump-lance-melenchon
-  melenchon: { option: B, source: "France 3, 16/03/2025 ; LFI, 08/01/2026", statut: deduite }
+  melenchon: { option: B, source: "France 3, 16/03/2025 ; LFI, 08/01/2026", statut: deduite, citation: "Dans l'accord, il faut qu'il y ait une protection immédiate des centrales nucléaires par des casques bleus", lien: "https://www.lagazettefrance.fr/article/ukraine-celui-qui-nous-menace-physiquement-c-est-monsieur-trump-lance-melenchon" }
   # AFP, Kyiv, 26/05/2026 : https://www.lagazettefrance.fr/article/le-candidat-a-la-presidentielle-francaise-edouard-philippe-rencontre-zelensky-a-kiev
-  philippe: { option: C, source: "AFP, Kyiv, 26/05/2026", statut: officielle }
+  philippe: { option: C, source: "AFP, Kyiv, 26/05/2026", statut: officielle, citation: "Je suis favorable à ce que des troupes européennes soient déployées en Ukraine une fois la paix revenue", lien: "https://www.lagazettefrance.fr/article/le-candidat-a-la-presidentielle-francaise-edouard-philippe-rencontre-zelensky-a-kiev" }
   # franceinfo, 01/03/2025 : https://x.com/franceinfo/status/1895752396816486489
-  glucksmann: { option: C, source: "franceinfo, 01/03/2025", statut: officielle }
+  glucksmann: { option: C, source: "franceinfo, 01/03/2025", statut: officielle, citation: "la seule solution c'est l'envoi de troupes sur le terrain", lien: "https://x.com/franceinfo/status/1895752396816486489" }
   # Meeting du 14/02/2026 : https://www.lutte-ouvriere.org/portail/brochures/meeting-14-fevrier-2026-discours-nathalie-arthaud-191591.html
-  arthaud: { option: A, source: Meeting du 14/02/2026, statut: officielle }
+  arthaud: { option: A, source: Meeting du 14/02/2026, statut: officielle, lien: "https://www.lutte-ouvriere.org/portail/brochures/meeting-14-fevrier-2026-discours-nathalie-arthaud-191591.html" }
   # Communiqué de N. Dupont-Aignan, 04/09/2025 : https://www.debout-la-france.fr/actualite/communique-envoyer-nos-soldats-en-ukraine-et-la-france-alors/
-  dupont-aignan: { option: A, source: "Communiqué de N. Dupont-Aignan, 04/09/2025", statut: officielle }
+  dupont-aignan: { option: A, source: "Communiqué de N. Dupont-Aignan, 04/09/2025", statut: officielle, citation: "le Président de la République a annoncé l'envoi imminent de troupes françaises en Ukraine, prétendument pour « garantir la paix » dans une guerre qui n'est pas la nôtre", lien: "https://www.debout-la-france.fr/actualite/communique-envoyer-nos-soldats-en-ukraine-et-la-france-alors/" }
   # Déclaration de Fabien Roussel, 20/02/2025 : https://fdgpierrebe.over-blog.com/2025/02/fabien-roussel-a-l-elysee-une-voix-pour-une-paix-juste-et-durable-en-ukraine.html
-  roussel: { option: B, source: "Déclaration de Fabien Roussel, 20/02/2025", statut: officielle }
+  roussel: { option: B, source: "Déclaration de Fabien Roussel, 20/02/2025", statut: officielle, citation: "le déploiement d'une force de maintien de la paix sous l'égide des seules Nations unies", lien: "https://fdgpierrebe.over-blog.com/2025/02/fabien-roussel-a-l-elysee-une-voix-pour-une-paix-juste-et-durable-en-ukraine.html" }
   # AFP, réunion des chefs de parti à l'Élysée sur la force en Ukraine, 09/01/2026 (Arab News en français) ; Les Écologistes, projet 2027, mesure Europe n° 2 : https://www.arabnews.fr/node/504954/france
-  tondelier: { option: C, source: "AFP, réunion des chefs de parti à l'Élysée sur la force en Ukraine, 09/01/2026 (Arab News en français) ; Les Écologistes, projet 2027, mesure Europe n° 2", statut: estimee }
+  tondelier: { option: C, source: "AFP, réunion des chefs de parti à l'Élysée sur la force en Ukraine, 09/01/2026 (Arab News en français) ; Les Écologistes, projet 2027, mesure Europe n° 2", statut: estimee, lien: "https://www.arabnews.fr/node/504954/france" }
 # Le reportage vidéo : un récit court, tiré de l'étude docs/etudes/030-soldats-ukraine.md (chaque chiffre y a sa source
 # numérotée). Le fil : la force est prête sur le papier mais attend un cessez-le-feu ; quatre réponses possibles.
 # Ni mécanisme (aucun rapport « X pour 1 » ne s'applique) ni écart (aucune grandeur à deux dates n'éclaire le débat).
