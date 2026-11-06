@@ -1,0 +1,24 @@
+src/components/DetailDeLOption.tsx
+  s_3a2afdd0999c9d::t_c8ce84e413a5d2 46,49
+  s_3a2afdd0999c9d::t_bb50cce47efaab 19
+  s_3a2afdd0999c9d::t_8be9e561e82a8f 5-11
+content/questions/001-isf.yaml
+  s_3a2afdd0999c9d::t_622c804ef6ea8f 36-48,50-52,59-73,80-96,103-111,113-117,125-136
+  s_3a2afdd0999c9d::t_aa5a52a55d7e92 49,112
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "271b7107a174c798fffd7be6e08b029e5217d8e4",
+  "prompts": {},
+  "sessions": {
+    "s_3a2afdd0999c9d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ddb5d8c1-5345-4e5a-a356-cbb4648eb92a",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
