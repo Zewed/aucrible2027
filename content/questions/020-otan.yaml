@@ -6,7 +6,7 @@ date: 2026-10-19
 theme: europe-international
 question: "La France doit-elle quitter le commandement intégré de l'OTAN ?"
 titreCourt: "Le commandement de l'OTAN"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/020-otan-constat-8yHP3Is1k6WKuGwnjljOOk57lwZReb.mp4", duree: "3 min 07", ecrans: [0, 12.57, 23.04, 34.2, 46.04, 59.3, 68.37, 76.74, 89.3, 102.57, 115.8, 129.07, 141.64, 154.2, 165.34, 179.3] }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/020-otan-constat-8yHP3Is1k6WKuGwnjljOOk57lwZReb.mp4", duree: "3 min 07", ecrans: [0, 12.57, 23.04, 34.2, 46.04, 59.3, 68.37, 76.74, 89.3, 102.57, 115.8, 129.07, 141.64, 154.2, 165.34, 179.3], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/020-otan-constat-8yHP3Is1k6WKuGwnjljOOk57lwZReb/" }
 contexte:
   - "La France a quitté en 1966 les commandements militaires communs de l'OTAN, sans quitter l'Alliance atlantique, puis y est revenue en 2009."
   - "Elle occupe des postes de commandement dans l'OTAN, mais n'a pas rejoint le groupe des plans nucléaires de l'Alliance."

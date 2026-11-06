@@ -56,4 +56,4 @@ positions:
   zemmour: { option: C, source: Source de test, statut: officielle }
 # Vidéo de test : la fiche montre son cadre vidéo à la première étape. Ses quatre écrans en font une story ; les tests
 # qui la lisent servent à cette adresse e2e/fiches/video-de-test.webm (40 s, un extrait réduit de la vidéo n° 44).
-video: { url: "/video-de-test.webm", duree: "1 min", ecrans: [0, 10, 20, 30] }
+video: { url: "/video-de-test.webm", duree: "1 min", ecrans: [0, 10, 20, 30], images: "/ecrans-de-test/" }

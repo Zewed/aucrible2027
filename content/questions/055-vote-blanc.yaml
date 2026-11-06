@@ -10,7 +10,7 @@ date: 2026-09-03
 theme: institutions-democratie
 question: "Faut-il compter le vote blanc dans les suffrages exprimés ?"
 titreCourt: "Le vote blanc"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/055-vote-blanc-constat-pb2D2Z43Dm315ksQxKgbb8ZjU7Cmly.mp4", duree: "3 min 50", ecrans: [0, 15.24, 28.6, 41.07, 51.24, 62.3, 73.84, 86.77, 101.07, 113.54, 127.4, 141.7, 153.24, 167.54, 180.94, 195.24, 209.07, 222.47] }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/055-vote-blanc-constat-pb2D2Z43Dm315ksQxKgbb8ZjU7Cmly.mp4", duree: "3 min 50", ecrans: [0, 15.24, 28.6, 41.07, 51.24, 62.3, 73.84, 86.77, 101.07, 113.54, 127.4, 141.7, 153.24, 167.54, 180.94, 195.24, 209.07, 222.47], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/055-vote-blanc-constat-pb2D2Z43Dm315ksQxKgbb8ZjU7Cmly/" }
 contexte:
   - "Depuis 2014, les bulletins blancs sont comptés à part des bulletins nuls et publiés dans les résultats, mais ils n'entrent pas dans les suffrages exprimés, sur lesquels se calculent les pourcentages et la majorité."
   - "Au second tour de la présidentielle, 3 millions d'électeurs ont voté blanc en 2017 et 2,2 millions en 2022, soit 8,5 % puis 6,4 % des votants, contre 1,5 % au premier tour de 2022."

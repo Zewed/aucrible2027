@@ -6,7 +6,7 @@ date: 2026-10-07
 theme: logement
 question: Que faire de l'obligation de 25 % de logements sociaux par commune (loi SRU) ?
 titreCourt: "La loi SRU"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/008-sru-constat-mE6McWKP5Y2mZXFM6jyRzl9HX0OwZH.mp4", duree: "3 min 08", ecrans: [0, 11.3, 24.7, 37.4, 50.14, 62.84, 76.24, 89.64, 103.07, 115.77, 127.77, 141.17, 153.17, 165.87, 180.7] }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/008-sru-constat-mE6McWKP5Y2mZXFM6jyRzl9HX0OwZH.mp4", duree: "3 min 08", ecrans: [0, 11.3, 24.7, 37.4, 50.14, 62.84, 76.24, 89.64, 103.07, 115.77, 127.77, 141.17, 153.17, 165.87, 180.7], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/008-sru-constat-mE6McWKP5Y2mZXFM6jyRzl9HX0OwZH/" }
 contexte:
   - "Depuis la loi SRU de 2000, les communes d'au moins 3 500 habitants (1 500 en Île-de-France), dans les agglomérations importantes, doivent compter des logements sociaux : 20 % à l'origine, 25 % depuis 2013, 20 % restant la règle dans les territoires moins tendus."
   - "Une commune en dessous du taux paie chaque année un prélèvement sur ses recettes, proportionnel à son retard ; si elle ne rattrape pas la part fixée pour trois ans, le préfet peut la déclarer « en carence » et majorer ce prélèvement."

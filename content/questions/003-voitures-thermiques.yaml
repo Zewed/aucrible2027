@@ -6,7 +6,7 @@ date: 2026-10-02
 theme: ecologie-energie
 question: Faut-il maintenir la fin de la vente des voitures thermiques neuves en 2035 ?
 titreCourt: "La fin du thermique en 2035"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/003-voitures-thermiques-constat-QhCKfnjyr5tO2uEIyZx3e87FDhF2xC.mp4", duree: "2 min 46", ecrans: [0, 12.94, 24.84, 38.27, 51.74, 61.04, 73.97, 81.74, 95.7, 108.64, 121.57, 134.47, 147.4, 158.8] }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/003-voitures-thermiques-constat-QhCKfnjyr5tO2uEIyZx3e87FDhF2xC.mp4", duree: "2 min 46", ecrans: [0, 12.94, 24.84, 38.27, 51.74, 61.04, 73.97, 81.74, 95.7, 108.64, 121.57, 134.47, 147.4, 158.8], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/003-voitures-thermiques-constat-QhCKfnjyr5tO2uEIyZx3e87FDhF2xC/" }
 contexte:
   - Le règlement européen de 2023 impose aux voitures neuves vendues en 2035 une réduction de 100 % de leurs émissions de CO2 par rapport à 2021, ce qui revient à mettre fin à la vente de voitures thermiques neuves.
   - En décembre 2025, la Commission européenne a proposé de ramener l'objectif à 90 %, les 10 % restants pouvant être compensés par de l'acier bas carbone ou des carburants durables ; le texte est encore en discussion au Parlement européen et au Conseil.

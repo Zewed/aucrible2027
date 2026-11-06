@@ -6925,6 +6925,15 @@ const servirLaVideoDeTest = (page: Page) =>
       headers: { "Content-Type": "video/webm", "Accept-Ranges": "bytes", "Content-Range": `bytes ${debut}-${fin}/${video.length}` },
     });
   });
+/** Les quatre images des écrans de la fiche de test n° 9 (une couleur chacune), servies depuis e2e/fiches/ecrans-de-test. */
+const servirLesImagesDeTest = (page: Page) =>
+  page.route("**/ecrans-de-test/*.webp", (route) =>
+    route.fulfill({ body: readFileSync(`e2e/fiches/ecrans-de-test/${route.request().url().split("/").pop()}`), headers: { "Content-Type": "image/webp" } }),
+  );
+/** Le son de la vidéo de la story est-il coupé ? */
+const sansSon = (page: Page) => histoire(page).locator("video").evaluate((v: HTMLVideoElement) => v.muted);
+/** La vidéo de la story est-elle arrêtée ? */
+const arretee = (page: Page) => histoire(page).locator("video").evaluate((v: HTMLVideoElement) => v.paused);
 
 test.describe("la première étape : l'équerre", () => {
   for (const [largeur, hauteur] of [[1440, 900], [1920, 1080]]) {
@@ -7020,6 +7029,40 @@ test.describe("la première étape : l'équerre", () => {
     await expect(page.locator("video")).toBeVisible();
   });
 
+  test("au téléphone, les images couvrent aussi la fiche ; la croix ramène l'affiche, qui rouvre les images là où on les a laissées", async ({ page }) => {
+    await servirLaVideoDeTest(page);
+    await servirLesImagesDeTest(page);
+    await page.goto("/question/9");
+    const affiche = page.getByRole("button", { name: /^Lire la vidéo/ });
+    await affiche.click();
+    await page.getByRole("button", { name: "Faire défiler les images" }).click();
+    const { width, height } = page.viewportSize()!;
+    expect(await histoire(page).boundingBox()).toEqual({ x: 0, y: 0, width, height });
+    await expect(page.getByRole("img", { name: "Écran 1 sur 4" })).toBeInViewport({ ratio: 0.9 });
+    await page.keyboard.press("ArrowDown");
+    await expect(page.getByRole("img", { name: "Écran 2 sur 4" })).toBeInViewport({ ratio: 0.9 });
+    await page.getByRole("button", { name: "Fermer la vidéo" }).click();
+    await expect(histoire(page)).toHaveCount(0);
+    await affiche.click();
+    await expect(page.getByRole("img", { name: "Écran 2 sur 4" })).toBeInViewport({ ratio: 0.9 });
+  });
+
+  test("une vidéo sans les images de ses écrans se lit en story, avec le son, sans le défilement", async ({ page }) => {
+    const dossier = "e2e/fiches/video-sans-images";
+    mkdirSync(dossier, { recursive: true });
+    try {
+      writeFileSync(`${dossier}/009.yaml`, readFileSync("e2e/fiches/009-2026-10-08.yaml", "utf8").replace(/, images: "[^"]*"/, ""));
+      await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "video-sans-images", url: "http://localhost:3127" }]);
+      await servirLaVideoDeTest(page);
+      await page.goto("/question/9");
+      await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+      await expect(page.getByRole("button", { name: "Couper le son" })).toBeVisible();
+      await expect(page.getByRole("button", { name: "Faire défiler les images" })).toHaveCount(0);
+    } finally {
+      rmSync(dossier, { recursive: true, force: true });
+    }
+  });
+
   test("une vidéo dont on ne connaît pas les écrans se lit avec les commandes du navigateur", async ({ page }) => {
     const dossier = "e2e/fiches/video-sans-ecrans";
     mkdirSync(dossier, { recursive: true });
@@ -7104,6 +7147,68 @@ test.describe("la première étape : l'équerre", () => {
       await page.mouse.up();
       await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(false);
       expect(await instant(page)).toBeLessThan(10);
+    });
+
+    test("le bouton du son le coupe et le remet, et la vidéo suivante s'en souvient", async ({ page }) => {
+      await servirLaVideoDeTest(page);
+      await page.goto("/question/9");
+      await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+      await expect.poll(() => instant(page)).toBeGreaterThan(0);
+      expect(await sansSon(page)).toBe(false);
+      await page.getByRole("button", { name: "Couper le son" }).click();
+      expect(await sansSon(page)).toBe(true);
+      expect(await arretee(page)).toBe(false);
+      await page.reload();
+      await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+      await expect.poll(() => instant(page)).toBeGreaterThan(0);
+      expect(await sansSon(page)).toBe(true);
+      await page.getByRole("button", { name: "Remettre le son" }).click();
+      expect(await sansSon(page)).toBe(false);
+    });
+
+    test("« Faire défiler les images » montre, au lieu de la vidéo, la dernière image de chaque écran, à partir de celui où l'on était", async ({ page }) => {
+      await servirLaVideoDeTest(page);
+      await servirLesImagesDeTest(page);
+      await page.goto("/question/9");
+      await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+      await expect.poll(() => instant(page)).toBeGreaterThan(0);
+      await page.getByRole("button", { name: "Écran suivant" }).click();
+      await expect.poll(() => instant(page)).toBeGreaterThanOrEqual(10);
+      await page.getByRole("button", { name: "Faire défiler les images" }).click();
+      expect(await arretee(page)).toBe(true);
+      await expect(histoire(page).getByRole("img")).toHaveCount(4);
+      await expect(page.getByRole("img", { name: "Écran 2 sur 4" })).toBeInViewport({ ratio: 0.9 });
+      await expect(page.getByRole("button", { name: "Écran suivant" })).toHaveCount(0);
+      await expect(page.getByRole("button", { name: "Couper le son" })).toHaveCount(0);
+      // Les flèches du clavier et la molette passent d'une image à l'autre.
+      await page.keyboard.press("ArrowDown");
+      await expect(page.getByRole("img", { name: "Écran 3 sur 4" })).toBeInViewport({ ratio: 0.9 });
+      await page.keyboard.press("ArrowLeft");
+      await expect(page.getByRole("img", { name: "Écran 2 sur 4" })).toBeInViewport({ ratio: 0.9 });
+      const boite = (await histoire(page).boundingBox())!;
+      await page.mouse.move(boite.x + boite.width / 2, boite.y + boite.height / 2);
+      await page.mouse.wheel(0, boite.height / 2);
+      await expect(page.getByRole("img", { name: "Écran 3 sur 4" })).toBeInViewport({ ratio: 0.9 });
+      // Revenir à la vidéo la reprend au début de l'écran que l'on regardait.
+      await page.getByRole("button", { name: "Revenir à la vidéo" }).click();
+      await expect.poll(() => arretee(page)).toBe(false);
+      expect(await instant(page)).toBeGreaterThanOrEqual(20);
+      expect(await instant(page)).toBeLessThan(25);
+      await expect(page.getByRole("button", { name: "Écran suivant" })).toBeVisible();
+    });
+
+    test("la vidéo suivante s'ouvre comme on a laissé la précédente : en images, sans se lancer", async ({ page }) => {
+      await servirLaVideoDeTest(page);
+      await servirLesImagesDeTest(page);
+      await page.goto("/question/9");
+      await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+      await page.getByRole("button", { name: "Faire défiler les images" }).click();
+      await page.reload();
+      await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+      await expect(page.getByRole("img", { name: "Écran 1 sur 4" })).toBeInViewport({ ratio: 0.9 });
+      expect(await arretee(page)).toBe(true);
+      await page.getByRole("button", { name: "Revenir à la vidéo" }).click();
+      await expect.poll(() => arretee(page)).toBe(false);
     });
   });
 });

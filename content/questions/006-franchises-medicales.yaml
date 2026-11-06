@@ -6,7 +6,7 @@ date: 2026-10-05
 theme: sante
 question: Faut-il augmenter les franchises médicales ?
 titreCourt: "Les franchises médicales"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/006-franchises-medicales-constat-MFPb0awtAS3AOLBEAJ0jZtNi9BbwVl.mp4", duree: "2 min 47", ecrans: [0, 11.7, 21.97, 35.14, 48.3, 61.47, 74.64, 86.34, 98.77, 111.24, 124.4, 137.57, 146.34, 159.5] }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/006-franchises-medicales-constat-MFPb0awtAS3AOLBEAJ0jZtNi9BbwVl.mp4", duree: "2 min 47", ecrans: [0, 11.7, 21.97, 35.14, 48.3, 61.47, 74.64, 86.34, 98.77, 111.24, 124.4, 137.57, 146.34, 159.5], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/006-franchises-medicales-constat-MFPb0awtAS3AOLBEAJ0jZtNi9BbwVl/" }
 contexte:
   - Les franchises (1 euro par boîte de médicaments) et la participation forfaitaire (2 euros par consultation) restent à la charge du patient ; chacune est plafonnée à 70 euros par an depuis le 1er octobre 2026, soit 140 euros au total contre 100 auparavant.
   - Le gouvernement avait annoncé en juillet 2026 un doublement des plafonds à 200 euros, pour 750 millions d'euros par an, avant d'y renoncer au profit de la hausse à 140 euros ; en novembre 2025, l'Assemblée avait déjà supprimé un article du budget de la Sécurité sociale qui étendait et alourdissait les franchises.

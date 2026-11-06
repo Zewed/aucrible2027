@@ -7,7 +7,7 @@ date: 2026-09-29
 theme: travail-retraites
 question: "Faut-il passer à la semaine de 4 jours ?"
 titreCourt: "La semaine de 4 jours"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/034-semaine-4-jours-constat-5tc7lojbZQcA7lQAOXjHVHDhZEREu1.mp4", duree: "4 min 01", ecrans: [0, 13.14, 26.87, 40, 52.5, 65.64, 80, 93.14, 106.87, 121.27, 134.37, 148.14, 161.87, 176.27, 190, 203.14, 218.14, 233.14] }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/034-semaine-4-jours-constat-5tc7lojbZQcA7lQAOXjHVHDhZEREu1.mp4", duree: "4 min 01", ecrans: [0, 13.14, 26.87, 40, 52.5, 65.64, 80, 93.14, 106.87, 121.27, 134.37, 148.14, 161.87, 176.27, 190, 203.14, 218.14, 233.14], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/034-semaine-4-jours-constat-5tc7lojbZQcA7lQAOXjHVHDhZEREu1/" }
 contexte:
   - "La durée légale du travail est de 35 heures par semaine depuis les lois Aubry de 1998 et 2000, et un salarié à temps plein travaille en moyenne 38,8 heures."
   - "La semaine de quatre jours est déjà possible par accord d'entreprise : en 2023, 9 de ces accords sur 10 gardaient les mêmes heures en allongeant les journées."

@@ -8,7 +8,7 @@ date: 2026-10-26
 theme: societe
 question: "Faut-il autoriser la gestation pour autrui (GPA) en France ?"
 titreCourt: "La GPA"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/027-gpa-constat-Mwc2XeFw8vVP0a0XCChZAS5DjYcXpP.mp4", duree: "2 min 20", ecrans: [0, 8.5, 18, 26, 37.5, 50.5, 63, 74.5, 85.5, 96.5, 102.5, 110.5, 122, 133] }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/027-gpa-constat-Mwc2XeFw8vVP0a0XCChZAS5DjYcXpP.mp4", duree: "2 min 20", ecrans: [0, 8.5, 18, 26, 37.5, 50.5, 63, 74.5, 85.5, 96.5, 102.5, 110.5, 122, 133], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/027-gpa-constat-Mwc2XeFw8vVP0a0XCChZAS5DjYcXpP/" }
 contexte:
   - "Depuis 1994, la loi interdit la gestation pour autrui (GPA) : un contrat par lequel une femme porte un enfant pour le remettre à d'autres est nul, et l'intermédiaire est puni."
   - "Recourir à la GPA dans un pays où elle est légale n'est pas puni. Le 3 juillet 2026, la Cour de cassation a reconnu deux pères d'enfants nés ainsi au Canada, tout en confirmant l'interdiction en France."
