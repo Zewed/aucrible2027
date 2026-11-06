@@ -1,0 +1,38 @@
+src/app/kit.css
+  s_0f30445ae952db::t_7ee26b1de5481c 686-699
+src/components/Recommencer.tsx
+  s_0f30445ae952db::t_4a063bd2e36a1d 1-36,39-49
+  s_0f30445ae952db::t_144b9ccdd00112 37-38
+src/components/Accueil.tsx
+  s_0f30445ae952db::t_9ef5f15b4c486b 147
+  s_0f30445ae952db::t_ba68eb5d1f8490 7
+src/app/accueil.css
+  s_0f30445ae952db::t_fcd5abdee4eb3e 38,55
+src/app/resultats/page.tsx
+  s_0f30445ae952db::t_42869f3baac19e 57
+  s_0f30445ae952db::t_640d42ebe9b757 9
+src/lib/reponses.ts
+  s_0f30445ae952db::t_d0fb58b7a06d08 40-47
+e2e/question-du-jour.spec.ts
+  s_0f30445ae952db::t_6c99d86a9fa9c3 7195-7235
+SPEC.md
+  s_0f30445ae952db::t_fcd5abdee4eb3e 35
+src/lib/ordre.ts
+  s_0f30445ae952db::t_9e56b5d6733e72 24-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d7d4b05f4c7e5882b7127c1b52d811e5160b6cd1",
+  "prompts": {},
+  "sessions": {
+    "s_0f30445ae952db": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "54ca677c-390a-4595-a766-83a66a9b5419",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
