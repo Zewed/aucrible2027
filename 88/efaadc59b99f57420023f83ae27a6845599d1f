@@ -1,0 +1,21 @@
+content/questions/042-regularisation.yaml
+  s_784b8e746e0a34::t_ebc3fb7eb5bd46 11
+content/videos-verrouillees.yaml
+  s_784b8e746e0a34::t_5a0e76251ec002 45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "88efaadc59b99f57420023f83ae27a6845599d1f",
+  "prompts": {},
+  "sessions": {
+    "s_784b8e746e0a34": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "377cd8fe-2962-4876-a75f-f4baf56aafc8",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
