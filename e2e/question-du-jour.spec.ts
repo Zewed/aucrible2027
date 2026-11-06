@@ -7192,6 +7192,47 @@ test.describe("l'accueil montre la landing à un appareil sans réponse, et prop
   });
 });
 
+test.describe("on peut recommencer le questionnaire, après une confirmation qui dit ce qui sera effacé", () => {
+  const reponsesDeLAppareil = (page: Page) => page.evaluate(() => Object.keys(JSON.parse(localStorage.getItem("aucrible:reponses") ?? "{}")).length);
+
+  test("depuis l'accueil, « Effacer » vide l'appareil et ouvre la première question", async ({ page }) => {
+    await premieresReponses(page, 3);
+    await page.goto("/");
+    await page.getByRole("button", { name: "Recommencer le questionnaire" }).click();
+    await page.getByRole("group", { name: "Effacer tes 3 réponses ?" }).getByRole("button", { name: "Effacer" }).click();
+    await expect(page).toHaveURL(/\/questionnaire$/);
+    await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
+    await expect(page.getByRole("navigation", { name: "Questions" })).toContainText("0 sur 24 questions");
+    expect(await reponsesDeLAppareil(page)).toBe(0);
+  });
+
+  test("« Annuler » ne touche à rien : les réponses restent, et le bouton reprend la main", async ({ page }) => {
+    await premieresReponses(page, 3);
+    await page.goto("/");
+    await page.getByRole("button", { name: "Recommencer le questionnaire" }).click();
+    await page.getByRole("button", { name: "Annuler" }).click();
+    await expect(page.getByRole("button", { name: "Recommencer le questionnaire" })).toBeFocused();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("3 sur 24 questions");
+    expect(await reponsesDeLAppareil(page)).toBe(3);
+  });
+
+  test("au pied de « Mes résultats » aussi, au singulier pour une seule réponse", async ({ page }) => {
+    await premieresReponses(page, 1);
+    await page.goto("/resultats");
+    const pied = page.locator("main footer").filter({ hasText: "Ce n'est pas un sondage" });
+    await pied.getByRole("button", { name: "Recommencer le questionnaire" }).click();
+    await pied.getByRole("group", { name: "Effacer ta réponse ?" }).getByRole("button", { name: "Effacer" }).click();
+    await expect(page).toHaveURL(/\/questionnaire$/);
+    expect(await reponsesDeLAppareil(page)).toBe(0);
+  });
+
+  test("sans réponse, rien à recommencer", async ({ page }) => {
+    await page.goto("/resultats");
+    await expect(page.getByRole("navigation", { name: "Questions" })).toContainText("0 sur 24 questions");
+    await expect(page.getByRole("button", { name: "Recommencer le questionnaire" })).toHaveCount(0);
+  });
+});
+
 test.describe("le site est en mode clair, même sur un appareil réglé en sombre", () => {
   test.use({ colorScheme: "dark" });
 

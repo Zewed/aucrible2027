@@ -683,6 +683,20 @@ h1, h2, h3, p { margin: 0; }
 }
 .res-foot nav { display: flex; gap: 16px; flex-wrap: wrap; }
 
+/* ==================== RECOMMENCER LE QUESTIONNAIRE ==================== */
+/* Une action de côté, qui se lit comme un lien ; sa confirmation tient sur la même ligne, seul « Effacer » est plein. */
+.recommencer {
+  align-self: flex-start; min-height: 44px; padding: 12px 0; border: 0; background: none; cursor: pointer;
+  font: inherit; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap;
+}
+.recommencer:hover, .recommencer-sur .non:hover { color: var(--sur-table); }
+.recommencer-sur { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; min-height: 44px; }
+.recommencer-sur p { font-weight: 700; color: var(--sur-table); white-space: nowrap; }
+.recommencer-sur button { min-height: 40px; border: 0; cursor: pointer; font: 800 15px/1 var(--display); font-variation-settings: "wdth" 88; }
+.recommencer-sur .oui { padding: 0 16px; border-radius: 10px; background: var(--sur-table); color: var(--table); box-shadow: 0 4px 0 var(--pawn-edge); margin-bottom: 4px; }
+.recommencer-sur .non { padding: 0 4px; background: none; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.recommencer:focus-visible, .recommencer-sur button:focus-visible { outline: 3px solid var(--sur-table); outline-offset: 3px; }
+
 /* ==================== PIED DE PAGE (commun à tous les écrans) ==================== */
 /* Au téléphone, les liens sur deux colonnes, puis le bouton du mode et le repère ; sur ordinateur, tout sur une ligne,
    le repère au bout. Un filet plein au-dessus, à la largeur du contenu. */

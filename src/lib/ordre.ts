@@ -21,6 +21,11 @@ export function lireOrdre(numeros: number[]): string {
   }
 }
 
+/** Oublie l'ordre de l'appareil, pour recommencer le questionnaire : la prochaine lecture en tire un nouveau. */
+export function oublierLOrdre() {
+  localStorage.removeItem(CLE);
+}
+
 /** La prochaine question sans réponse, dans l'ordre de l'appareil, ou undefined s'il n'en reste aucune. */
 export function prochaineQuestion(ordre: string, numeros: number[], repondues: number[]): number | undefined {
   return (JSON.parse(ordre) as number[]).find((n) => numeros.includes(n) && !repondues.includes(n));

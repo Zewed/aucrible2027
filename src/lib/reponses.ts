@@ -37,6 +37,14 @@ export function remplacerLesReponses(reponses: Record<number, Reponse>) {
   window.dispatchEvent(new Event(NOUVELLE_REPONSE));
 }
 
+/**
+ * Efface toutes les réponses de l'appareil, pour recommencer le questionnaire. Sans prévenir la page : celle qui efface
+ * se recharge aussitôt, et l'accueil ne montre pas la landing d'un appareil vide entre-temps.
+ */
+export function effacerLesReponses() {
+  localStorage.removeItem(CLE);
+}
+
 /** Pour `useCoteClient` : relire les réponses quand l'une est enregistrée, ici ou dans un autre onglet. */
 export function abonnerAuxReponses(relire: () => void) {
   window.addEventListener(NOUVELLE_REPONSE, relire);
