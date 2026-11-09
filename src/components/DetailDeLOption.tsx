@@ -1,9 +1,9 @@
 import type { Argument, Option, Source } from "@/lib/contenu";
 
-const nomDeLaSource = (source: Source) => `${source.organisme}, ${source.document ? `${source.document} ` : ""}${source.annee}`;
+export const nomDeLaSource = (source: Source) => `${source.organisme}, ${source.document ? `${source.document} ` : ""}${source.annee}`;
 
 /** Les espaces insécables du français : « : », « % »… restent collés au mot d'avant, et les tranches d'un nombre (« 1 800 ») ensemble. */
-const insecable = (texte: string) =>
+export const insecable = (texte: string) =>
   texte
     .replace(/ ([?!:;»%€])/g, " $1")
     .replace(/« /g, "« ")

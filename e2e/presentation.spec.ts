@@ -7,7 +7,7 @@ const NOMS: string[] = parse(readFileSync("content/candidats.yaml", "utf8")).map
 
 test("la landing n'a pas de menu : le logo en haut, et le bouton mène au questionnaire", async ({ page }) => {
   await page.goto("/presentation");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Les sujets de la présidentielle, un par un.");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Tout ça est dans les programmes.");
   await expect(page.getByRole("navigation")).toHaveCount(0);
   await expect(page.getByRole("link", { name: "Au crible 2027" })).toBeVisible();
   await page.getByRole("link", { name: "Commencer le questionnaire" }).first().click();

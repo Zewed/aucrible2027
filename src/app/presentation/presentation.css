@@ -1,5 +1,6 @@
-/* La landing (/presentation) : une page qui défile, sans le menu de l'app. En haut, le produit dans un téléphone ; puis
-   le bandeau des questions, les trois étapes avec leur visuel, les garanties sur fond inversé et l'appel final. */
+/* La landing (/presentation) : une page qui défile, sans le menu de l'app. En haut, ce que les programmes changent pour
+   chacun, en très grand ; puis le bandeau des questions, les trois étapes avec leur visuel (la vidéo dans un téléphone,
+   la carte d'une question, le plateau), les garanties sur fond inversé et l'appel final. */
 .lp {
   --bord: max(20px, calc((100% - 1240px) / 2));
   --lp-bouton: var(--sur-table); --lp-bouton-texte: var(--table); --lp-bouton-tranche: color-mix(in srgb, var(--sur-table) 55%, #000);
@@ -16,14 +17,18 @@
 .lp-marque b { color: var(--eco-texte); font-weight: 800; }
 .lp-marque svg { width: 34px; height: 34px; }
 
-/* ---------- le haut : la promesse, le bouton, le téléphone ---------- */
-.lp-heros { display: grid; gap: 36px; padding-block: 28px 56px; }
-.lp-heros h1 {
-  font: 800 clamp(50px, 13.4vw, 140px)/0.88 var(--display); font-variation-settings: "wdth" 80, "opsz" 96;
+/* ---------- le haut : les sujets en très grand, chacun dans sa couleur, puis la promesse et le bouton ---------- */
+.lp-heros { display: grid; gap: 36px; align-content: center; padding-block: 28px 56px; }
+.lp-sujets { list-style: none; margin: 0; padding: 0; }
+.lp-sujets li {
+  color: var(--theme-text); font: 800 clamp(46px, 12.4vw, 128px)/0.92 var(--display); font-variation-settings: "wdth" 76, "opsz" 96;
+  letter-spacing: -0.03em;
+}
+.lp-chute h1 {
+  max-width: 14ch; font: 800 clamp(34px, 8.6vw, 72px)/0.88 var(--display); font-variation-settings: "wdth" 80, "opsz" 96;
   letter-spacing: -0.03em; text-wrap: balance;
 }
-.lp-mot { white-space: nowrap; }
-.lp-accroche { margin-top: 22px; max-width: 26ch; font: 600 clamp(20px, 5.4vw, 30px)/1.25 var(--text); text-wrap: pretty; }
+.lp-accroche { margin-top: 22px; max-width: 30ch; font: 600 clamp(19px, 5vw, 26px)/1.3 var(--text); text-wrap: pretty; }
 .lp-actions { margin-top: 30px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
 .lp-go {
   display: inline-flex; align-items: center; justify-content: center; gap: .45em; text-decoration: none;
@@ -118,6 +123,19 @@
 }
 .lp-options a:hover { transform: translateX(4px); }
 .lp-lettre { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 9px; background: var(--ink); color: var(--chalk); font: 800 18px/1 var(--display); }
+/* L'option ouverte, comme dans sa fenêtre « + » : ce qu'elle implique, son chiffrage, puis un argument de chaque camp. */
+.lp-ouverte { border-radius: 14px; box-shadow: inset 0 0 0 2px var(--ink); }
+.lp-ouverte a { border-radius: 12px 12px 0 0; }
+.lp-detail { display: grid; gap: 12px; padding: 14px 16px 16px; font: 600 15.5px/1.4 var(--text); }
+.lp-chiffrage { padding-block: 12px; border-block: 2px solid var(--ink); font-weight: 700; }
+.lp-detail cite { display: block; margin-top: 3px; font: 600 13px/1.3 var(--text); font-style: normal; color: var(--ink-soft); }
+.lp-camps { display: grid; gap: 12px; margin: 0; }
+.lp-camps dt {
+  display: flex; align-items: center; gap: 8px; color: var(--ink-soft);
+  font: 800 12.5px/1.2 var(--display); text-transform: uppercase; letter-spacing: .06em;
+}
+.lp-camps dt::before { content: ""; flex: none; width: 9px; height: 9px; background: var(--theme); transform: rotate(45deg); }
+.lp-camps dd { margin: 4px 0 0; font-weight: 400; }
 .lp-pions { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 14px 18px; }
 .lp-pions .pawn { --size: 30px; font-size: 14px; }
 
@@ -163,12 +181,15 @@
 }
 
 @media (min-width: 900px) {
-  .lp-heros { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; gap: 40px; min-height: calc(100svh - 62px); padding-block: 12px 56px; }
-  .lp-heros h1 { font-size: clamp(76px, 7.8vw, 144px); }
+  .lp-heros { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: end; gap: 56px; min-height: calc(100svh - 62px); padding-block: 12px 56px; }
+  .lp-sujets li { font-size: clamp(46px, 7.6vw, 112px); }
+  .lp-heros .lp-go { white-space: nowrap; }
   .lp-tel { width: clamp(270px, min(24vw, 40svh), 380px); }
   .lp-etape { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: clamp(40px, 5vw, 88px); padding-block: 64px; }
   .lp-etape:nth-of-type(even) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
   .lp-etape:nth-of-type(even) .lp-etape-texte { order: 2; }
+  .lp-pile { width: min(100%, 580px); }
+  .lp-camps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .lp-gages { padding-block: 112px; }
   .lp-gages dl > div { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: baseline; gap: 48px; padding: 30px 0; }
   .lp-fin { padding-block: 120px 128px; }
