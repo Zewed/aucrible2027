@@ -1,6 +1,6 @@
 /* La landing (/presentation) : une page qui défile, sans le menu de l'app. En haut, ce que les programmes changent pour
    chacun, en très grand ; puis le bandeau des questions, les trois étapes avec leur visuel (la vidéo dans un téléphone,
-   la carte d'une question, le plateau), les garanties sur fond inversé et l'appel final. */
+   la carte d'une question, la grille), les garanties sur fond inversé et l'appel final. */
 .lp {
   --bord: max(20px, calc((100% - 1240px) / 2));
   --lp-bouton: var(--sur-table); --lp-bouton-texte: var(--table); --lp-bouton-tranche: color-mix(in srgb, var(--sur-table) 55%, #000);
@@ -139,18 +139,17 @@
 .lp-pions { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 14px 18px; }
 .lp-pions .pawn { --size: 30px; font-size: 14px; }
 
-/* Le plateau, en illustration. */
-.lp-plateau { position: relative; width: min(100%, 500px); aspect-ratio: 1; border-radius: 22px; background: var(--card); color: var(--ink); box-shadow: 0 24px 50px -26px rgba(11, 9, 25, .5); }
-.lp-axe { position: absolute; background: var(--slot); border-radius: 1px; }
-.lp-axe-h { left: 6%; right: 6%; top: 50%; height: 2px; }
-.lp-axe-v { top: 6%; bottom: 6%; left: 50%; width: 2px; }
-.lp-bord { position: absolute; white-space: nowrap; font: 700 clamp(11px, 2.8vw, 13px)/1 var(--text); color: var(--ink-soft); }
-.lp-haut { top: 14px; left: 50%; transform: translateX(-50%); }
-.lp-bas { bottom: 14px; left: 50%; transform: translateX(-50%); }
-.lp-gauche { left: 14px; top: calc(50% + 9px); }
-.lp-droite { right: 14px; top: calc(50% + 9px); }
-.lp-plateau .pawn { position: absolute; --size: clamp(26px, 6.4vw, 34px); margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2); font-size: 14px; }
-.lp-plateau .lp-toi { --size: clamp(42px, 10vw, 54px); z-index: 2; font-size: 15px; box-shadow: 0 4px 0 var(--trav-edge); }
+/* La grille, en illustration : les cases de « Mes résultats », en plus petit. */
+.lp-grille {
+  width: min(100%, 500px); display: grid; gap: 6px; padding: clamp(12px, 3vw, 20px);
+  border-radius: 22px; background: var(--card); color: var(--ink); box-shadow: 0 24px 50px -26px rgba(11, 9, 25, .5);
+}
+.lp-g-ligne { display: grid; grid-template-columns: clamp(26px, 6vw, 32px) repeat(11, minmax(0, 1fr)); align-items: center; justify-items: center; column-gap: 2px; }
+.lp-g-ligne:not(.lp-g-tete) { background: var(--slot); border-radius: 10px; padding: 4px 6px 4px 4px; }
+.lp-g-tete { padding: 0 6px 2px 4px; }
+.lp-g-tete svg { width: clamp(13px, 3.2vw, 20px); height: auto; }
+.lp-grille .pawn { --size: clamp(24px, 5.6vw, 30px); font-size: 13px; }
+.lp-grille .g-part { width: clamp(15px, 3.6vw, 26px); height: clamp(15px, 3.6vw, 26px); }
 
 /* ---------- les garanties, sur fond inversé ---------- */
 .lp-gages { --filet: color-mix(in srgb, var(--table) 18%, transparent); padding-block: 80px; background: var(--sur-table); color: var(--table); }

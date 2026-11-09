@@ -87,7 +87,7 @@ Bouton « Signaler une erreur » sur chaque fiche.
 - **Score par question** : options ordonnées sur une échelle → `1 − écart / écart max` ; options non ordonnées → 1 si identique, 0 sinon. Multiplié par l'importance (×1/×2/×3).
 - **Positions inconnues** : exclues du calcul pour ce candidat.
 - **Score global** : % du maximum possible.
-- **Carte** : chaque option reçoit une note de −2 à +2 sur l'axe économique, l'axe sociétal, ou aucun, à l'aveugle, d'après son seul texte (0 = règle actuelle, ±2 = rupture nette). Position de l'utilisateur = moyenne pondérée de ses options, chaque thème pesant autant ; même formule pour les candidats. Le plateau se cadre sur les candidats : sur chaque axe, il va du premier au dernier et son centre est le milieu entre eux, avec le même cadre pour l'électeur. Une option peut donc apparaître côté marché ou conservateur sans que sa note soit positive (décision d'Antoine, 30/10/2026).
+- ~~**Carte** : chaque option reçoit une note de −2 à +2 sur l'axe économique, l'axe sociétal, ou aucun, à l'aveugle, d'après son seul texte (0 = règle actuelle, ±2 = rupture nette). Position de l'utilisateur = moyenne pondérée de ses options, chaque thème pesant autant ; même formule pour les candidats. Le plateau se cadre sur les candidats : sur chaque axe, il va du premier au dernier et son centre est le milieu entre eux, avec le même cadre pour l'électeur. Une option peut donc apparaître côté marché ou conservateur sans que sa note soit positive (décision d'Antoine, 30/10/2026).~~ Le plateau est retiré de tout le site le 09/11/2026 (résultats, carte à partager, accueil, Méthode) ; les notes restent dans les fiches, plus affichées. La page Méthode numérote ses règles de 1 à 6.
 
 ## Sources des positions des candidats
 
@@ -186,7 +186,7 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 - ~~**Silence électoral** : la série de jours d'affilée est mise en pause, pas perdue.~~ (la série n'existe plus)
 - **Badges** : « position officielle » = programme 2027 ou déclaration du candidat ; « position déduite » = votes de son groupe ou programme 2022.
 - **Face-à-face** : il ne montre que les questions auxquelles l'électeur a déjà répondu, pour ne rien révéler avant sa réponse.
-- **Carte partageable** : l'électeur choisit de montrer son candidat le plus proche ou seulement son pion.
+- **Carte partageable** : l'électeur choisit de montrer son candidat le plus proche ou ~~seulement son pion~~ seulement son camembert, sans nom de candidat (09/11/2026).
 
 ## Décisions de l'auteur du 25/10/2026
 

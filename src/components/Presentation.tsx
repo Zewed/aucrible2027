@@ -48,9 +48,16 @@ const SUJETS = [
   ["theme-educ", "Ton entrée à la fac."],
 ];
 
-/** Les pions du plateau d'illustration : anonymes, retournés, posés sans rapport avec un vrai candidat. */
-const PIONS = [
-  [14, 30], [24, 62], [31, 18], [38, 78], [47, 50], [55, 24], [58, 66], [66, 46], [72, 14], [77, 80], [84, 36], [88, 62], [20, 84],
+/**
+ * Les cases de la grille d'illustration, ligne par ligne, dans l'ordre des thèmes : des proximités inventées, pour des pions
+ * retournés qui ne sont aucun candidat.
+ */
+const CASES = [
+  [90, 80, 65, 85, 70, 75, 60, 80, 55, 70, 85],
+  [75, 85, 50, 60, 80, 90, 55, 65, 70, 45, 60],
+  [60, 55, 90, 40, 45, 70, 85, 75, 50, 80, 65],
+  [45, 60, 70, 75, 55, 35, 65, 40, 85, 60, 50],
+  [30, 40, 55, 65, 85, 45, 35, 50, 60, 55, 40],
 ];
 
 const Fleche = () => (
@@ -221,24 +228,28 @@ function OptionsDeLExemple({ exemple, candidats }: { exemple: Exemple; candidats
   );
 }
 
-/** Le plateau à deux axes, en illustration : ton pion, et des pions retournés qui ne sont aucun candidat. */
-function PlateauDIllustration() {
+/** La grille de « Mes résultats », en illustration : une ligne par pion retourné, une colonne par thème. */
+function GrilleDIllustration({ themes }: { themes: Theme[] }) {
   return (
-    <div className="lp-plateau" role="img" aria-label="Une carte à deux axes, avec ton pion parmi ceux des candidats">
-      <span className="lp-axe lp-axe-h" />
-      <span className="lp-axe lp-axe-v" />
-      <span className="lp-bord lp-haut">↑ progressiste</span>
-      <span className="lp-bord lp-bas">↓ conservateur</span>
-      <span className="lp-bord lp-gauche">← plus de redistribution</span>
-      <span className="lp-bord lp-droite">plus de marché →</span>
-      {PIONS.map(([x, y]) => (
-        <span key={`${x}-${y}`} className="pawn pawn--paper" style={{ left: `${x}%`, top: `${y}%` }}>
-          ?
-        </span>
+    <div className="lp-grille" role="img" aria-label="Une grille : une ligne par candidat, une colonne par thème, et ta proximité dans chaque case">
+      <div className="lp-g-ligne lp-g-tete">
+        <span></span>
+        {themes.map((theme) => (
+          <span key={theme.id} className={theme.classe}>
+            <PartDuTheme />
+          </span>
+        ))}
+      </div>
+      {CASES.map((cases, ligne) => (
+        <div key={ligne} className="lp-g-ligne">
+          <span className="pawn pawn--paper">?</span>
+          {themes.map((theme, i) => (
+            <span key={theme.id} className={theme.classe}>
+              <i className="g-part" style={{ "--p": cases[i % cases.length] } as React.CSSProperties}></i>
+            </span>
+          ))}
+        </div>
       ))}
-      <span className="pawn pawn--you lp-toi" style={{ left: "40%", top: "34%" }}>
-        Toi
-      </span>
     </div>
   );
 }
@@ -318,11 +329,11 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
               <h3>Tu vois qui propose quoi.</h3>
               <p>
                 Dès ta réponse, tu vois quels candidats défendent chaque proposition, avec leurs sources. Au bout de {SEUIL_DES_RESULTATS}{" "}
-                réponses, tu as ton classement des {candidats} candidats et ta place sur une carte à deux axes.
+                réponses, tu as ton classement des {candidats} candidats, thème par thème.
               </p>
             </div>
             <div className="lp-visuel">
-              <PlateauDIllustration />
+              <GrilleDIllustration themes={themes} />
             </div>
           </article>
         </section>

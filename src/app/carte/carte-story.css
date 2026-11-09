@@ -5,7 +5,7 @@
    Les cartes sont dessinées à 360 × 640 px ; toutes leurs mesures passent par --u (1 u = 1 px à 360 px de large),
    pour que la carte garde ses proportions même sur un écran plus étroit.
    Classes : .sp (page) · .sp-cards > .sp-slot (.sp-cap) > .sc-deck > .sc.sc--a | .sc--b
-   · .sc-tiles .sc-k .sc-big .sc-t .sc-token .sc-f .sc-ask .sc-url .sc-h .sc-board · .sp-controls */
+   · .sc-tiles .sc-k .sc-big .sc-t .sc-token .sc-f .sc-ask .sc-url .sc-h .sc-gros · .sp-controls */
 
 .ic { fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -50,8 +50,8 @@
 
 /* le choix en cours : la carte choisie garde son éventail et son badge */
 .sp:has(#v-cand:checked) .sc-deck--a::before, .sp:has(#v-cand:checked) .sc-deck--a::after,
-.sp:has(#v-pion:checked) .sc-deck--b::before, .sp:has(#v-pion:checked) .sc-deck--b::after { opacity: 1; }
-.sp:has(#v-cand:checked) .sp-slot--a .sp-on, .sp:has(#v-pion:checked) .sp-slot--b .sp-on { display: inline-flex; }
+.sp:has(#v-camembert:checked) .sc-deck--b::before, .sp:has(#v-camembert:checked) .sc-deck--b::after { opacity: 1; }
+.sp:has(#v-cand:checked) .sp-slot--a .sp-on, .sp:has(#v-camembert:checked) .sp-slot--b .sp-on { display: inline-flex; }
 
 /* ---------- la carte : exactement 9:16 ---------- */
 .sc {
@@ -118,19 +118,16 @@
   border-radius: 999px; white-space: nowrap;
 }
 
-/* variante 2 : le pion sur le plateau */
+/* variante 2 : le camembert seul, en grand */
 .sc-h {
   margin-top: calc(var(--u) * 12);
   font: 800 calc(var(--u) * 52)/0.94 var(--display);
   font-variation-settings: "wdth" 80, "opsz" 96;
   letter-spacing: -0.03em; text-wrap: balance;
 }
-.sc-board { margin: auto; width: calc(var(--u) * 286); flex: none; }
-.sc--b .board { max-width: none; border-radius: calc(var(--u) * 16); box-shadow: 0 calc(var(--u) * 8) 0 var(--ink); }
-.sc--b .you { animation: none; width: calc(var(--u) * 56); height: calc(var(--u) * 56); margin: calc(var(--u) * -28) 0 0 calc(var(--u) * -28); }
-.sc--b .you span { font-size: max(12px, calc(var(--u) * 12)); top: calc(var(--u) * -21); }
-.sc--b .edge { font-size: max(12px, calc(var(--u) * 12)); }
-.sc-ask--col { margin-top: 0; display: grid; justify-items: start; gap: calc(var(--u) * 10); }
+.sc-gros { margin: auto; width: calc(var(--u) * 230); flex: none; }
+.sc-gros svg { display: block; width: 100%; height: auto; filter: drop-shadow(0 calc(var(--u) * 7) 0 rgba(29, 24, 56, .28)); }
+.sc-ask--col { margin-top: calc(var(--u) * 14); display: grid; justify-items: start; gap: calc(var(--u) * 10); }
 .sc-ask--col b { font-size: calc(var(--u) * 27); }
 
 /* ---------- ce que la carte montre + actions ---------- */

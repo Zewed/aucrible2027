@@ -1,7 +1,7 @@
 /* Copie de maquettes/methode.css. */
 
 /* Au crible 2027 — méthode de calcul et sources.
-   Chargé après style.css et regles.css. Les schémas des 8 règles. */
+   Chargé après style.css et regles.css. Les schémas des règles. */
 
 /* ---------- règle 1 : l'échelle ---------- */
 .demo-q { font: 700 15px/1.25 var(--text); margin-bottom: 14px; }
@@ -80,7 +80,7 @@
 .cards4 .void { background: transparent; border-style: dashed; }
 .cards4 .void b { font-weight: 700; font-size: 19px; color: var(--ink-soft); }
 
-/* ---------- règle 4 : le total ---------- */
+/* ---------- le total (règle 4 de la maquette, pas construite) ---------- */
 .calc { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 14.5px; }
 .calc col.c1 { width: auto; }
 .calc thead th {
@@ -120,52 +120,10 @@
 }
 .total-t { grid-column: 1 / -1; font: 600 14px/1.2 var(--text); color: var(--muted); }
 
-/* ---------- règle 5 : le plateau ---------- */
-.axes { list-style: none; margin: 12px 0; padding: 0; display: grid; gap: 8px; }
-.axes li {
-  background: var(--theme-tint);
-  border-radius: 10px; padding: 10px 12px;
-  display: grid; gap: 2px; font-size: 15.5px; line-height: 1.3;
-}
-.axes b { font: 800 13px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); }
-.axes em { font-style: normal; font-weight: 800; padding: 0 2px; }
-.nscale { position: relative; padding-top: 48px; }
-.nscale ol {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-.nscale li {
-  background: #fff; border: 2px solid var(--pawn-edge); border-right-width: 0;
-  padding: 9px 0 8px; text-align: center;
-  font: 800 17px/1 var(--display); font-variant-numeric: tabular-nums;
-}
-.nscale li:first-child { border-radius: 10px 0 0 10px; }
-.nscale li:last-child { border-radius: 0 10px 10px 0; border-right-width: 2px; }
-.nscale p { margin-top: 6px; display: flex; justify-content: space-between; font: 600 13px/1.2 var(--text); color: var(--ink-soft); }
-.nmark { position: absolute; top: 0; transform: translateX(-50%); }
-.nmark .pawn { --size: 36px; font-size: 12px; }
-.nmark::after {
-  content: ""; position: absolute; left: 50%; bottom: -7px; margin-left: -7px;
-  border: 7px solid transparent; border-top-color: var(--ink); border-bottom: 0;
-}
-.nrows { list-style: none; margin: 14px 0 0; padding: 0; }
-.nrows li {
-  display: grid; grid-template-columns: minmax(0, 1fr) 58px 34px; gap: 8px; align-items: center;
-  padding: 8px 0; border-top: 1px solid var(--slot);
-}
-.nrows .nm { font: 600 14.5px/1.2 var(--text); }
-.nrows b {
-  background: var(--ink); color: var(--chalk); border-radius: 8px;
-  text-align: center; padding: 5px 0 4px; font: 800 16px/1 var(--display);
-}
-.nrows .w { font: 800 15px/1 var(--display); color: var(--ink-soft); text-align: right; }
-.nrows .void b { background: transparent; border: 2px dashed var(--pawn-edge); color: var(--ink-soft); font: 600 12.5px/1 var(--text); padding: 4px 0 3px; }
-.nrows .void .nm { color: var(--ink-soft); }
-.nscale + .nrows { margin-top: 16px; }
+/* les égalités posées dans un exemple (règles 1 et 2) */
 .demo .eq { font-size: 24px; }
-.demo .board { max-width: 340px; border-radius: 14px; }
 
-/* ---------- règle 6 : les sources ---------- */
+/* ---------- règle 4 : les sources ---------- */
 .ladder { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .ladder li {
   background: var(--theme-tint); border-radius: 12px; padding: 10px 12px;
@@ -200,7 +158,7 @@
 .srclines li { background: #fff; border-radius: 10px; padding: 10px 12px; display: grid; gap: 7px; justify-items: start; }
 .srclines .s { font: 600 14px/1.3 var(--text); }
 
-/* ---------- règle 7 : les candidats ---------- */
+/* ---------- règle 5 : les candidats ---------- */
 .crit { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .crit li {
   background: var(--theme-tint); border-radius: 12px; padding: 12px 14px;
@@ -235,7 +193,7 @@
 .tl .when { font: 800 17px/1.2 var(--display); font-variation-settings: "wdth" 90; }
 .tl .what { font-size: 15.5px; line-height: 1.45; }
 
-/* ---------- règle 8 : les limites ---------- */
+/* ---------- règle 6 : les limites ---------- */
 .stamp { margin: 2px 0 14px; }
 .stamp span {
   display: inline-block; max-width: 100%;
@@ -245,7 +203,6 @@
 }
 
 @media (min-width: 900px) {
-  .demo .board { max-width: 100%; }
   .crit { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .crit li { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .roster { grid-template-columns: repeat(3, minmax(0, 1fr)); }

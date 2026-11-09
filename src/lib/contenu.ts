@@ -33,11 +33,14 @@ export type Option = {
   detail?: { chiffrage: { texte: string; source: Source }; defenseurs: Argument[]; critiques: Argument[] };
   /** L'option ne se range pas sur l'échelle des autres : elle compte tout ou rien dans le classement. */
   horsEchelle?: boolean;
-  /** Ses notes sur le plateau, de −2 à +2, sur l'un des axes, les deux ou aucun. */
+  /**
+   * Ses notes sur les deux axes, de −2 à +2, sur l'un, les deux ou aucun. Elles plaçaient l'électeur sur le plateau, retiré
+   * du site le 9 novembre 2026 : gardées dans les fiches, plus affichées nulle part.
+   */
   axes?: Axes;
 };
 
-/** Les deux axes du plateau (SPEC.md, « Résultats ») : −2 pour plus de redistribution, ou progressiste ; +2 pour plus de marché, ou conservateur. */
+/** Les deux axes de l'ancien plateau : −2 pour plus de redistribution, ou progressiste ; +2 pour plus de marché, ou conservateur. */
 export type Axes = { economie?: number; societe?: number };
 export type Source = { organisme: string; document?: string; annee: number };
 /** Ce que dit un camp. Seul un chiffre a une source : aucun organisme ne reprend l'argument à son compte. */

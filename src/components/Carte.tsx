@@ -3,13 +3,11 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Camembert } from "@/components/Camembert";
-import { PisteDuPlateau } from "@/components/PisteDuPlateau";
 import type { Candidat, Theme } from "@/lib/contenu";
 import { useCoteClient } from "@/lib/cote-client";
 import { dessinerLaCarte, enregistrer, lirePolices } from "@/lib/image-de-carte";
 import { classement, REPONSES_PAR_PART, reponsesComptees, reponsesParTheme, SEUIL_DES_RESULTATS, type QuestionDuCalcul } from "@/lib/proximite";
 import { abonnerAuxReponses, lesReponses, lireReponses } from "@/lib/reponses";
-import { cadreDuPlateau, placeDeLElecteur, surLeChamp } from "@/lib/plateau";
 
 /** La couleur d'un thème : `--eco` pour « theme-eco ». */
 const couleurDe = (theme: Theme) => `var(--${theme.classe.replace("theme-", "")})`;
@@ -158,29 +156,28 @@ function Coche() {
 }
 
 /**
- * Les deux cartes à partager de la page « Ta carte » : « avec mon candidat » et « seulement mon pion »,
+ * Les deux cartes à partager de la page « Ta carte » : « avec mon candidat » et « seulement mon camembert »,
  * et le choix entre elles. Comme dans la maquette, la carte choisie se marque sans script : c'est la
  * feuille de la page qui lit le bouton radio coché.
  */
 export function CartesAPartager({ questions, candidats, themes }: { questions: QuestionDuCalcul[]; candidats: Candidat[]; themes: Theme[] }) {
-  const reponses = lesReponses(useCoteClient(lireReponses, abonnerAuxReponses));
   const premier = usePremierDuClassement(questions, candidats);
   const pied = usePiedDeCarte(questions, themes);
   const gagnees = usePartsGagnees(questions, themes);
   const carteDuCandidat = useRef<HTMLElement>(null);
-  const carteDuPion = useRef<HTMLElement>(null);
+  const carteDuCamembert = useRef<HTMLElement>(null);
   const choix = useRef<HTMLFormElement>(null);
   // Les deux images sont dessinées d'avance, à l'arrivée : toucher « Partager » ouvre alors le partage
   // sans attendre, ce que certains téléphones exigent.
-  const images = useRef<Partial<Record<"candidat" | "pion", Promise<File>>>>({});
+  const images = useRef<Partial<Record<"candidat" | "camembert", Promise<File>>>>({});
   const affichee = premier ? `${premier.candidat.id}-${premier.pourcentage}-${pied}` : null;
   useEffect(() => {
-    if (!affichee || !carteDuCandidat.current || !carteDuPion.current) return;
-    const [candidat, pion] = [carteDuCandidat.current, carteDuPion.current];
+    if (!affichee || !carteDuCandidat.current || !carteDuCamembert.current) return;
+    const [candidat, camembert] = [carteDuCandidat.current, carteDuCamembert.current];
     const polices = lirePolices(candidat);
     images.current = {
       candidat: polices.then((p) => dessinerLaCarte(candidat, p, "au-crible-2027-ma-carte.png")),
-      pion: polices.then((p) => dessinerLaCarte(pion, p, "au-crible-2027-mon-pion.png")),
+      camembert: polices.then((p) => dessinerLaCarte(camembert, p, "au-crible-2027-mon-camembert.png")),
     };
   }, [affichee]);
   if (!premier) return null;
@@ -188,7 +185,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
   /** L'image de la version choisie, dessinée d'avance. */
   function imageChoisie() {
     const version = choix.current ? new FormData(choix.current).get("montre") : null;
-    return images.current[version === "pion" ? "pion" : "candidat"];
+    return images.current[version === "camembert" ? "camembert" : "candidat"];
   }
 
   async function partager() {
@@ -205,7 +202,6 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
   }
   const nombre = gagnees.filter(Boolean).length;
   const camembert = themes.map((theme, i) => (gagnees[i] ? couleurDe(theme) : null));
-  const { x, y } = surLeChamp(placeDeLElecteur(questions, reponses), cadreDuPlateau(questions, candidats));
   const frise = (
     <div className="sc-tiles" aria-hidden="true">
       {themes.map((theme) => (
@@ -249,34 +245,23 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
         </div>
         <div className="sp-slot sp-slot--b">
           <p className="sp-cap">
-            <span className="one">Version 2 · seulement mon pion</span>
+            <span className="one">Version 2 · sans candidat</span>
             <span className="sp-on">
               <Coche />
               Choisie
             </span>
           </p>
           <div className="sc-deck sc-deck--b">
-            <article ref={carteDuPion} className="sc sc--b" aria-label="Carte à partager : mon pion sur le plateau, sans nom de candidat">
+            <article ref={carteDuCamembert} className="sc sc--b" aria-label="Carte à partager : mon camembert, sans nom de candidat">
               {frise}
               <p className="sc-k">Au crible 2027 · mes réponses</p>
-              <h2 className="sc-h">Mon pion sur le plateau</h2>
-              <div className="sc-board">
-                <div className="board" role="img" aria-label="Plateau à deux axes, avec mon pion seulement">
-                  <PisteDuPlateau />
-                  <div className="field">
-                    <span className="you" style={{ "--x": `${x}%`, "--y": `${y}%` } as React.CSSProperties}>
-                      <Camembert couleurs={camembert} />
-                      <span>TOI</span>
-                    </span>
-                  </div>
-                  <span className="edge top">↑ progressiste</span>
-                  <span className="edge bottom">↓ conservateur</span>
-                  <span className="edge left">← plus de redistribution</span>
-                  <span className="edge right">plus de marché →</span>
-                </div>
+              <h2 className="sc-h">Mon camembert</h2>
+              <div className="sc-gros">
+                <Camembert interieur={34} couleurs={camembert} description={`Camembert : ${nombre} ${nombre > 1 ? "thèmes" : "thème"} sur ${themes.length}`} />
               </div>
+              <p className="sc-f">{pied}</p>
               <p className="sc-ask sc-ask--col">
-                <b>Et toi, tu te places où&nbsp;?</b>
+                <b>Et toi, tu en es où&nbsp;?</b>
                 <span className="sc-url">aucrible2027.fr</span>
               </p>
             </article>
@@ -298,16 +283,15 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
               </span>
             </label>
             <label className="opt">
-              <input type="radio" name="montre" id="v-pion" value="pion" />
+              <input type="radio" name="montre" id="v-camembert" value="camembert" />
               <span className="opt-face">
                 <span className="opt-letter" aria-hidden="true">
                   <svg className="ic" viewBox="0 0 24 24">
-                    <rect x="3" y="3" width="18" height="18" rx="3.5" />
-                    <path d="M12 3v18M3 12h18" />
-                    <circle cx="7.6" cy="7.6" r="1.9" style={{ fill: "currentColor" }} />
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 3v9l7.8 4.5M12 12l-7.8 4.5" />
                   </svg>
                 </span>
-                <span className="opt-title">Seulement mon pion</span>
+                <span className="opt-title">Seulement mon camembert</span>
                 <span className="opt-impl">Aucun nom de candidat</span>
               </span>
             </label>
