@@ -19,8 +19,11 @@ import { REPONSES_PAR_PART, reponsesParTheme } from "@/lib/proximite";
 import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses, type Reponse } from "@/lib/reponses";
 import { tenirALEcran } from "@/lib/tenir-a-l-ecran";
 
-/** Sur grand écran, chaque étape tient dans la fenêtre : son texte se resserre plutôt que d'être coupé. */
-const tenirLEcranPartage = tenirALEcran("(min-width: 1200px)", 1, true);
+/**
+ * Sur grand écran, chaque étape tient dans la fenêtre : son texte se resserre plutôt que d'être coupé. La une part d'un
+ * peu plus grand : une fiche courte remplit l'écran, une longue se resserre.
+ */
+const tenirLaUne = tenirALEcran("(min-width: 1200px)", 1.3, true);
 const tenirLaMosaique = tenirALEcran("(min-width: 1100px)");
 
 const IMPORTANCES = [
@@ -37,16 +40,6 @@ export function Bandeau({ jour, question }: { jour: string; question: QuestionDe
       {question && <NumeroQuestion numero={question.numero} />}
     </div>
   );
-}
-
-/**
- * Sur grand écran, la part de la largeur des faits qui revient au contexte : 48 % pour un contexte de 650 signes, plus
- * s'il est long, moins s'il est court, de 44 à 60 %. Réglé sur les fiches de l'alpha pour que le contexte et les chiffres
- * clés finissent à peu près ensemble, et que la question garde sa taille.
- */
-function partDuContexte(question: QuestionDeLaFiche) {
-  const signes = question.contexte.join(" ").length;
-  return Math.min(0.6, Math.max(0.44, 0.48 + (signes - 650) * 0.00042));
 }
 
 /** La couleur d'un thème, celle de sa part : `--trav` pour « theme-trav ». */
@@ -130,62 +123,56 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
     <Bandeau jour={jour} question={question} />
     <main className={`today ${theme.classe} etape-${etape}`}>
       {etape === "lire" ? (
-        <article
-          className="ecran-partage"
-          aria-labelledby="q"
-          ref={tenirLEcranPartage}
-          style={{ "--contexte": partDuContexte(question).toFixed(2) } as React.CSSProperties}
-        >
-          <div className="scene">
-            <div className="bloc">
-              <PuceTheme theme={theme} />
-              <h1 id="q">{question.question}</h1>
-            </div>
-            <div className="bobine">
-              <VignetteVideo titre={question.titreCourt ?? theme.nom} video={question.video} />
-            </div>
+        <article className="une" aria-labelledby="q" ref={tenirLaUne}>
+          <div className="bandeau">
+            <PuceTheme theme={theme} />
+            <h1 id="q">{question.question}</h1>
           </div>
-          <div className="faits">
-            <section aria-labelledby="contexte">
-              <h2 id="contexte" className="sr">Le contexte</h2>
-              <div className="context ctx">
-                {question.contexte.map((phrase) => (
-                  <p key={phrase}>{phrase}</p>
-                ))}
-              </div>
-            </section>
-            <section className="chiffres" aria-labelledby="chiffres">
-              <div className="chiffres-tete">
-                <h2 id="chiffres">Chiffres clés</h2>
-                <Link className="drapeau" href={`/signaler?question=${question.numero}`}>
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M5 2a1 1 0 0 1 1 1v.6c1.6-.7 3.5-.9 5.6.1 2.3 1.1 4.3.9 6.6-.3a1 1 0 0 1 1.4.9v9.4a1 1 0 0 1-.5.9c-2.8 1.5-5.6 1.8-8.4.5-1.8-.8-3.3-.7-4.7.1V21a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1z" />
-                  </svg>
-                  Signaler une erreur
-                </Link>
-              </div>
-              <ul className="figures">
-                {question.chiffres.map((chiffre, rang) => (
-                  // La source s'ouvre d'un geste, dans une bulle accrochée à son bouton (`--ancre`).
-                  <li key={chiffre.legende} className="fig" style={{ "--ancre": `--source-${rang}` } as React.CSSProperties}>
-                    <span className="fig-num">
-                      {chiffre.valeur}
-                      {chiffre.unite && <> <small>{chiffre.unite}</small></>}
-                    </span>
-                    <span className="fig-txt">{chiffre.legende}</span>
-                    <button type="button" className="fig-voir-source" popoverTarget={`source-${rang}`} aria-label="Source">
-                      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-                        <path d="M14 3v5h5M9.5 13h6M9.5 17h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </button>
-                    <span className="fig-src" id={`source-${rang}`} popover="auto">
-                      Source : <b>{chiffre.source.organisme}, {chiffre.source.document && `${chiffre.source.document} `}{chiffre.source.annee}</b>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </section>
+          <section className="chiffres" aria-labelledby="chiffres">
+            <div className="chiffres-tete">
+              <h2 id="chiffres">Chiffres clés</h2>
+              <Link className="drapeau" href={`/signaler?question=${question.numero}`}>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 2a1 1 0 0 1 1 1v.6c1.6-.7 3.5-.9 5.6.1 2.3 1.1 4.3.9 6.6-.3a1 1 0 0 1 1.4.9v9.4a1 1 0 0 1-.5.9c-2.8 1.5-5.6 1.8-8.4.5-1.8-.8-3.3-.7-4.7.1V21a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1z" />
+                </svg>
+                Signaler une erreur
+              </Link>
+            </div>
+            <ul className="figures">
+              {question.chiffres.map((chiffre, rang) => (
+                // La source s'ouvre d'un geste, dans une bulle accrochée à son bouton (`--ancre`).
+                <li key={chiffre.legende} className="fig" style={{ "--ancre": `--source-${rang}` } as React.CSSProperties}>
+                  <span className="fig-num">
+                    {chiffre.valeur}
+                    {chiffre.unite && <> <small>{chiffre.unite}</small></>}
+                  </span>
+                  <span className="fig-txt">{chiffre.legende}</span>
+                  <button type="button" className="fig-voir-source" popoverTarget={`source-${rang}`} aria-label="Source">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+                      <path d="M14 3v5h5M9.5 13h6M9.5 17h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  <span className="fig-src" id={`source-${rang}`} popover="auto">
+                    Source : <b>{chiffre.source.organisme}, {chiffre.source.document && `${chiffre.source.document} `}{chiffre.source.annee}</b>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+          <section className="contexte" aria-labelledby="contexte">
+            <h2 id="contexte" className="sr">Le contexte</h2>
+            <div className="ctx">
+              {question.contexte.map((phrase) => (
+                <p key={phrase}>{phrase}</p>
+              ))}
+            </div>
+          </section>
+          <section className="plus-loin" aria-labelledby="plus-loin">
+            <h2 id="plus-loin" className="plus-loin-tete">Pour aller plus loin</h2>
+            <VignetteVideo titre={question.titreCourt ?? theme.nom} video={question.video} />
+          </section>
+          <div className="suite">
             {enJeu && <EnJeu question={question} theme={theme} enJeu={enJeu} reponses={reponses} />}
             <div className="actionbar">
               <button type="button" className="go" onClick={() => allerA("repondre")}>

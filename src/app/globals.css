@@ -198,61 +198,61 @@
 .page-en-attente { min-height: 100dvh; }
 
 /* La fiche en deux étapes.
-   Étape « lire » : l'équerre (4 novembre 2026, la vidéo devient verticale). La couleur du thème dessine un L : à gauche
-   la vidéo, debout, sur toute la hauteur, et en haut à droite la question en bandeau ; dessous, au calme, le contexte
-   numéroté, les chiffres clés en lignes, puis « Voir les propositions ». Sous 1200 px, l'affiche se range à côté de la
-   question et la vidéo s'ouvre en plein écran.
+   Étape « lire » : la une (9 novembre 2026 : les chiffres d'abord, la vidéo pour aller plus loin). La question en bandeau,
+   de la couleur du thème, sur toute la largeur ; dessous, les chiffres clés en ligne, en grand, comme une manchette ;
+   puis le contexte, et à sa droite la petite carte de la vidéo, au-dessus de « Voir les propositions ». Au téléphone,
+   tout s'empile dans cet ordre. La vidéo s'ouvre par-dessus la fiche, sur toutes les tailles d'écran.
    Étape « répondre » : la question seule, en haut, puis les cartes réponse. */
 :root { --barre-action: 96px; }
 .today.etape-lire { display: block; max-width: none; padding: 0 0 calc(var(--barre-action) + 18px); }
-.ecran-partage { --padX: 16px; --padY: 20px; }
-.ecran-partage .scene {
-  display: grid; grid-template-columns: minmax(0, 1fr) 38%; column-gap: 14px; align-items: end;
-  background: var(--theme); padding: var(--padY) var(--padX) 22px;
+.une { --padX: 16px; --padY: 20px; --ctx: 17px; display: flex; flex-direction: column; }
+.une .bandeau {
+  display: flex; flex-direction: column; gap: 14px; background: var(--theme); color: var(--on-theme);
+  padding: var(--padY) var(--padX) 24px; container-type: inline-size;
 }
-.ecran-partage .bloc { display: flex; flex-direction: column; gap: 14px; color: var(--on-theme); container-type: inline-size; }
-.ecran-partage .bloc .theme-chip { align-self: flex-start; margin: 0; }
-.ecran-partage .bloc h1 {
-  font: 800 clamp(30px, 17.5cqw, 76px)/0.92 var(--display);
+.une .bandeau .theme-chip { align-self: flex-start; margin: 0; }
+.une .bandeau h1 {
+  font: 800 clamp(30px, 11cqw, 64px)/0.92 var(--display);
   font-variation-settings: "wdth" 84, "opsz" 96; letter-spacing: -0.022em; text-wrap: balance; color: var(--on-theme);
 }
-/* L'affiche, debout comme la vidéo : sur l'encre, la carte du thème et le bouton lecture, puis le sujet et la durée.
-   Une vidéo encore en 16:9 se lit dans le même cadre, entre deux bandes. */
+/* L'affiche, debout comme la vidéo : sur l'encre, la carte du thème et le bouton lecture. Elle ne paraît plus qu'en
+   miniature, dans la carte de la vidéo ; la story en garde le fond et les couleurs. */
 .affiche {
   position: relative; display: block; width: 100%; aspect-ratio: 9 / 16; padding: 0; border: 0;
   border-radius: clamp(10px, 1.2vw, 20px); overflow: hidden; background: var(--ink); color: var(--chalk);
   text-align: left; container-type: inline-size; box-shadow: 0 5px 0 var(--ink-deep);
 }
-button.affiche { cursor: pointer; transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out); }
-button.affiche:hover { transform: translateY(-3px); }
-video.affiche { background: var(--ink-deep); object-fit: contain; }
 .affiche .art { position: absolute; inset: 0; width: 100%; height: 100%; }
 .affiche .point { fill: color-mix(in srgb, var(--chalk) 16%, var(--ink)); }
 .affiche .carte { fill: var(--theme); }
 .affiche .carte-bord { fill: var(--theme-edge); }
 .affiche .talon { fill: var(--ink-deep); }
-.affiche .marque {
-  position: absolute; left: 8cqw; top: 8cqw;
-  font: 800 clamp(10px, 5.2cqw, 20px)/1 var(--display); text-transform: uppercase; letter-spacing: .06em;
-}
 .affiche .lecture {
-  position: absolute; left: 50%; top: 36.5%; width: 32cqw; aspect-ratio: 1; transform: translate(-50%, -50%);
+  position: absolute; left: 50%; top: 36.5%; width: 44cqw; aspect-ratio: 1; transform: translate(-50%, -50%);
   border-radius: 50%; background: var(--chalk); box-shadow: 0 1cqw 0 var(--ink-deep); display: grid; place-items: center;
 }
 .affiche .lecture svg { width: 42%; height: 42%; margin-left: 8%; }
 .affiche .lecture path { fill: var(--ink); }
-.affiche .pied { position: absolute; left: 8cqw; right: 8cqw; bottom: 11cqw; display: flex; flex-direction: column; align-items: flex-start; gap: 5cqw; }
-.affiche .sujet {
-  font: 800 clamp(16px, 12.5cqw, 64px)/0.9 var(--display); font-variation-settings: "wdth" 78, "opsz" 96;
-  letter-spacing: -0.025em; text-wrap: balance;
+/* La carte de la vidéo, pour aller plus loin : l'affiche en miniature et, à côté, le sujet et la durée. Un trait, pas de
+   fond : elle ne dispute pas sa place à « Voir les propositions ». */
+.vid-carte {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 16px; width: 100%;
+  padding: 10px 16px 10px 10px; border: 2px solid var(--table-3); border-radius: 16px; background: none;
+  color: var(--sur-table); text-align: left;
 }
-.affiche .duree {
-  background: var(--chalk); color: var(--ink);
-  font: 700 clamp(11px, 5cqw, 21px)/1 var(--text); padding: .5em .7em .45em; border-radius: .5em;
+button.vid-carte { cursor: pointer; transition: border-color .15s, transform .2s var(--ease-out); }
+button.vid-carte:hover { border-color: var(--theme); transform: translateY(-2px); }
+button.vid-carte:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 2px; }
+.vid-carte .affiche { width: auto; height: 132px; border-radius: 10px; box-shadow: 0 4px 0 var(--ink-deep); }
+.vid-texte { display: flex; flex-direction: column; gap: 8px; }
+.vid-titre { font: 800 22px/1 var(--display); font-variation-settings: "wdth" 84, "opsz" 96; letter-spacing: -0.015em; text-wrap: balance; }
+.vid-duree { font: 600 14px/1 var(--text); color: var(--muted); }
+/* La story : la vidéo constat sans commandes, par-dessus la fiche, sur tout l'écran. Toucher à droite passe à l'écran
+   suivant, à gauche revient au précédent, rester appuyé met en pause ; la flèche paraît au survol de la souris. */
+.affiche.story-video {
+  position: fixed; inset: 0; z-index: 100; width: auto; height: auto; aspect-ratio: auto; border-radius: 0; box-shadow: none;
+  background: var(--ink-deep); user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
 }
-/* La story : la vidéo constat sans commandes. Toucher à droite passe à l'écran suivant, à gauche revient au précédent,
-   rester appuyé met en pause ; la flèche paraît au survol de la souris. En vignette, la story couvre tout l'écran. */
-.affiche.story-video { background: var(--ink-deep); user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 .affiche.story-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .story-video .cote {
   position: absolute; top: 0; bottom: 0; display: flex; align-items: center; padding: 0 4cqw; border: 0;
@@ -275,10 +275,7 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
 .story-video .rond { width: 22cqw; aspect-ratio: 1; border-radius: 50%; background: var(--chalk); display: grid; place-items: center; }
 .story-video .rond svg { width: 40%; height: 40%; fill: var(--ink); }
 .story-video .relancer svg { margin-left: 8%; }
-.affiche.story-video.en-vignette {
-  position: fixed; inset: 0; z-index: 100; width: auto; height: auto; aspect-ratio: auto; border-radius: 0; box-shadow: none;
-}
-/* En haut à droite : le son, le défilement, et en vignette la croix. */
+/* En haut à droite : le son, le défilement et la croix. */
 .story-video .commandes { position: absolute; top: max(12px, env(safe-area-inset-top)); right: 12px; display: flex; gap: 8px; }
 .story-video .outil {
   width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%;
@@ -324,25 +321,16 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
 @media (hover: hover) { .story-video .tiret:hover::after { opacity: 1; } }
 .story-video .tiret:focus-visible { outline: none; }
 .story-video .tiret:focus-visible::after { opacity: 1; outline: 2px solid var(--chalk); outline-offset: 3px; }
-.ecran-partage .faits { padding: clamp(26px, 4 * var(--u), 48px) var(--padX) 0; display: flex; flex-direction: column; --ctx: 17px; }
-/* Les phrases du contexte : un losange, pas un numéro, qu'on ne les prenne pas pour les propositions. */
-.ecran-partage .ctx { display: grid; gap: calc(var(--ctx) * .8); }
-.ecran-partage .ctx p {
-  margin: 0;
-  display: grid; grid-template-columns: calc(var(--ctx) * .5) 1fr; column-gap: calc(var(--ctx) * .8); align-items: start;
-  font: 500 var(--ctx)/1.42 var(--text); color: var(--sur-table); text-wrap: pretty;
-}
-.ecran-partage .ctx p::before {
-  content: ""; width: calc(var(--ctx) * .5); height: calc(var(--ctx) * .5); margin-top: calc(var(--ctx) * .46);
-  background: var(--theme); transform: rotate(45deg);
-}
-.ecran-partage .chiffres { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
-.chiffres-tete { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: clamp(14px, 2.4 * var(--u), 30px); }
-.chiffres-tete h2 {
+/* Les chiffres clés, ni fond ni couleur, un filet entre deux. Au téléphone, en lignes : le chiffre, sa légende à côté, et
+   la colonne du chiffre est celle du plus large. Dès la tablette, en manchette : côte à côte, le chiffre en grand, sa
+   légende dessous. La source s'ouvre d'un geste, dans une bulle accrochée à sa petite icône. */
+.une .chiffres { padding: 22px var(--padX) 0; }
+.chiffres-tete { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.chiffres-tete h2, .plus-loin-tete {
   display: flex; align-items: center; gap: 9px; color: var(--theme-text);
   font: 800 13px/1 var(--display); text-transform: uppercase; letter-spacing: .08em;
 }
-.chiffres-tete h2::before { content: ""; flex: none; width: 9px; height: 9px; background: var(--theme); transform: rotate(45deg); }
+.chiffres-tete h2::before, .plus-loin-tete::before { content: ""; flex: none; width: 9px; height: 9px; background: var(--theme); transform: rotate(45deg); }
 .drapeau {
   display: inline-flex; align-items: center; gap: 7px; min-height: 44px; padding: 0 2px 0 8px;
   font: 600 13px/1 var(--text); color: var(--muted); text-decoration: none; border-radius: 8px;
@@ -350,35 +338,66 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
 .drapeau svg { width: 16px; height: 16px; }
 .drapeau path { fill: var(--theme-text); }
 .drapeau:hover { color: var(--sur-table); }
-/* Les chiffres clés en lignes sobres (27 octobre 2026 : l'œil va d'abord à la question et à la vidéo) : le chiffre, sa
-   légende à côté, ni fond ni couleur, un filet plein entre deux. Toutes les lignes partagent la colonne du chiffre, celle
-   du plus large. La source s'ouvre d'un geste, dans une bulle accrochée à sa petite icône, au bout de la ligne. */
-.ecran-partage .figures { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr) auto; column-gap: clamp(14px, 1.4vw, 24px); }
-.ecran-partage .fig {
-  grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center; align-content: center;
+.une .figures {
+  margin: 6px 0 0; display: grid; grid-template-columns: max-content minmax(0, 1fr) auto; column-gap: 14px; row-gap: 0;
+  border-block: 2px solid var(--table-2);
+}
+.une .fig {
+  grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center;
   background: none; border: 0; border-top: 2px solid var(--table-2); border-radius: 0; padding: 14px 0; color: var(--sur-table);
 }
-.ecran-partage .fig:last-child { border-bottom: 2px solid var(--table-2); }
-.ecran-partage .fig-num { grid-column: 1; font-size: 34px; font-variation-settings: "wdth" 78, "opsz" 96; letter-spacing: -0.03em; }
-.ecran-partage .fig-num small { font-size: .42em; letter-spacing: 0; margin-left: .08em; color: var(--muted); }
-.ecran-partage .fig-txt { grid-column: 2; margin: 0; font: 500 15px/1.35 var(--text); text-wrap: pretty; }
+.une .fig:first-child { border-top: 0; }
+/* Une longue unité (« milliards d'euros ») passe sous son chiffre plutôt que de déborder. */
+.une .fig-num {
+  grid-column: 1; font-size: 34px; font-variation-settings: "wdth" 78, "opsz" 96; letter-spacing: -0.03em;
+  display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .12em; max-width: 4.6em; white-space: normal;
+}
+.une .fig-num small { font-size: .4em; letter-spacing: 0; color: var(--muted); }
+.une .fig-txt { grid-column: 2; margin: 0; font: 500 15px/1.35 var(--text); text-wrap: pretty; }
+.une .fig .fig-voir-source { grid-column: 3; }
+@media (min-width: 600px) {
+  .une .figures { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); column-gap: 0; }
+  .une .fig {
+    grid-column: auto; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto 1fr; align-items: start;
+    align-content: start; row-gap: 8px; border-top: 0; border-left: 2px solid var(--table-2); padding: 14px 10px 14px 18px;
+  }
+  .une .fig:first-child { border-left: 0; padding-left: 0; }
+  .une .fig:last-child { padding-right: 0; }
+  .une .fig-num { grid-column: 1 / -1; font-size: 40px; max-width: none; }
+  .une .fig-txt { grid-column: 1; }
+  .une .fig .fig-voir-source { grid-column: 2; grid-row: 2; }
+}
 .fig-voir-source {
-  grid-column: 3; width: 40px; height: 40px; display: grid; place-items: center; cursor: pointer; anchor-name: var(--ancre);
+  width: 40px; height: 40px; display: grid; place-items: center; cursor: pointer; anchor-name: var(--ancre);
   border: 0; border-radius: 10px; background: none; color: var(--muted); transition: color .15s, background .15s;
 }
 .fig-voir-source svg { width: 18px; height: 18px; }
 .fig-voir-source:hover, .fig-voir-source:focus-visible { color: var(--sur-table); background: var(--table-2); }
 .fig-voir-source:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 0; }
 /* La bulle de la source : accrochée sous son bouton là où le navigateur sait le faire, au centre de l'écran sinon. */
-.ecran-partage .fig-src {
+.une .fig-src {
   margin: auto; padding: 10px 13px 11px; border: 0; border-radius: 10px; max-width: min(300px, calc(100vw - 32px));
   background: var(--chalk); color: var(--ink-soft); box-shadow: 0 14px 30px -12px rgba(11, 9, 25, .85);
   font: 600 13px/1.3 var(--text); white-space: normal; overflow: visible; text-overflow: clip;
 }
-.ecran-partage .fig-src b { color: var(--ink); }
+.une .fig-src b { color: var(--ink); }
 @supports (position-area: bottom) {
-  .ecran-partage .fig-src { inset: auto; margin: 6px 0; position-anchor: var(--ancre); position-area: bottom span-left; position-try-fallbacks: flip-block, flip-inline; }
+  .une .fig-src { inset: auto; margin: 6px 0; position-anchor: var(--ancre); position-area: bottom span-left; position-try-fallbacks: flip-block, flip-inline; }
 }
+/* Les phrases du contexte : un losange, pas un numéro, qu'on ne les prenne pas pour les propositions. */
+.une .contexte { padding: 24px var(--padX) 0; }
+.une .ctx { display: grid; gap: calc(var(--ctx) * .8); }
+.une .ctx p {
+  display: grid; grid-template-columns: calc(var(--ctx) * .5) 1fr; column-gap: calc(var(--ctx) * .8); align-items: start;
+  font: 500 var(--ctx)/1.42 var(--text); color: var(--sur-table); text-wrap: pretty;
+}
+.une .ctx p::before {
+  content: ""; width: calc(var(--ctx) * .5); height: calc(var(--ctx) * .5); margin-top: calc(var(--ctx) * .46);
+  background: var(--theme); transform: rotate(45deg);
+}
+.une .plus-loin { padding: 28px var(--padX) 0; display: flex; flex-direction: column; gap: 12px; }
+.plus-loin-tete { min-height: 30px; }
+.une .suite { padding: 0 var(--padX); }
 .etape-lire .stake { margin-top: 18px; }
 /* Au téléphone, « Voir les propositions » est dans une barre collée en bas, qui garde sa place sous la page. */
 .actionbar {
@@ -388,60 +407,46 @@ video.affiche { background: var(--ink-deep); object-fit: contain; }
 }
 .actionbar .go { margin: 0 0 7px; display: flex; align-items: center; justify-content: center; gap: .5em; }
 .actionbar .go svg { width: 1.1em; height: 1.1em; }
-/* La vignette n'a pas la place du nom du site. */
-@media (max-width: 1199.98px) {
-  .affiche .marque { display: none; }
-}
 @media (min-width: 600px) and (max-width: 1199.98px) {
-  .ecran-partage { --padX: 32px; --padY: 28px; }
-  .ecran-partage .scene { grid-template-columns: minmax(0, 1fr) 30%; column-gap: 28px; padding-bottom: 32px; }
+  .une { --padX: 32px; --padY: 28px; }
 }
-/* Grand écran : l'équerre plein écran, rien ne défile. La vidéo prend toute la hauteur ; quand tout ne tient pas, le
-   texte des faits se resserre (`--fit`), puis la question rapetisse (`--titre`) (voir tenirALEcran). */
+/* Grand écran : la une plein écran, rien ne défile. Une fiche courte grandit jusqu'à remplir la fenêtre ; quand tout ne
+   tient pas, le texte se resserre (`--fit`), puis la question rapetisse (`--titre`) (voir tenirALEcran). */
 @media (min-width: 1200px) {
   .today.etape-lire { padding: 0; }
-  .ecran-partage {
+  .une {
     --padX: clamp(32px, 3.2vw, 64px); --padY: clamp(24px, 4 * var(--u), 52px);
-    display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); min-height: calc(100 * var(--u));
+    --ctx: calc(var(--fit, 1) * clamp(16px, min(1.45vw, 2.6 * var(--u)), 28px));
+    display: grid; min-height: calc(100 * var(--u));
+    grid-template-columns: minmax(0, 1fr) minmax(0, 30%);
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    grid-template-areas: "bandeau bandeau" "chiffres chiffres" "contexte plus-loin" "contexte suite";
   }
-  .ecran-partage .scene { display: contents; }
-  .ecran-partage .bobine { grid-column: 1; grid-row: 1 / 3; padding: var(--padY) 0 var(--padY) var(--padX); background: var(--theme); }
-  .ecran-partage .affiche { height: calc(100 * var(--u) - 2 * var(--padY)); width: auto; box-shadow: 0 8px 0 var(--ink-deep), 0 28px 50px -22px rgba(11, 9, 25, .8); }
-  .ecran-partage .bloc { grid-column: 2; grid-row: 1; background: var(--theme); padding: var(--padY) var(--padX) calc(var(--padY) * 1.1); gap: clamp(16px, 2.4 * var(--u), 30px); }
-  .ecran-partage .bloc h1 { font-size: calc(var(--titre, 1) * clamp(44px, min(10.5cqw, 9.4 * var(--u)), 132px)); }
-  /* Les faits sur deux colonnes : le contexte, puis les chiffres clés au-dessus de « Voir les propositions ». Le contexte
-     prend sa part de la largeur (`--contexte`, d'après la longueur des textes) : les deux colonnes finissent ensemble. */
-  .ecran-partage .faits {
-    --ecart: clamp(28px, 3vw, 60px);
-    grid-column: 2; grid-row: 2; min-height: 0;
-    display: grid; grid-template-columns: minmax(0, calc((100% - var(--ecart)) * var(--contexte, .53))) minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr) auto auto; column-gap: var(--ecart); padding: calc(var(--padY) * .9) var(--padX) var(--padY);
-    --ctx: calc(var(--fit, 1) * clamp(16px, min(1.55vw, 2.7 * var(--u)), 30px));
-  }
-  .ecran-partage .faits > section:first-child { grid-column: 1; grid-row: 1 / 4; }
-  .ecran-partage .ctx { gap: calc(var(--ctx) * 1.1); }
-  .ecran-partage .chiffres { grid-column: 2; grid-row: 1; flex: none; }
-  .chiffres-tete { margin-top: 0; }
-  .chiffres-tete h2 { font-size: clamp(13px, 1.5 * var(--u), 16px); }
+  .une > .bandeau { grid-area: bandeau; padding: var(--padY) var(--padX) calc(var(--padY) * 1.1); gap: clamp(16px, 2.4 * var(--u), 30px); }
+  .une .bandeau h1 { font-size: calc(var(--titre, 1) * clamp(44px, min(6.4cqw, 8.6 * var(--u)), 118px)); text-wrap: pretty; }
+  .une > .chiffres { grid-area: chiffres; padding: calc(var(--padY) * .8) var(--padX) 0; }
+  .chiffres-tete h2, .plus-loin-tete { font-size: clamp(13px, 1.5 * var(--u), 16px); }
   .drapeau { min-height: 36px; font-size: clamp(13px, 1.4 * var(--u), 15px); }
-  .ecran-partage .figures { flex: 1 1 auto; }
-  .ecran-partage .fig { padding: calc(var(--fit, 1) * clamp(12px, 1.9 * var(--u), 22px)) 0; }
-  /* Une longue unité (« milliards d'euros ») passe sous son chiffre plutôt que d'étrangler les légendes. */
-  .ecran-partage .fig-num {
-    font-size: calc(var(--fit, 1) * clamp(30px, 5 * var(--u), 58px));
-    display: flex; flex-wrap: wrap; align-items: baseline; column-gap: .08em; max-width: 4.2em;
-  }
-  .ecran-partage .fig-num small { margin-left: 0; }
-  .ecran-partage .fig-txt { font-size: calc(var(--fit, 1) * clamp(14px, min(1.25vw, 2 * var(--u)), 21px)); }
+  .une .figures { margin-top: clamp(8px, 1.2 * var(--u), 14px); }
+  .une .fig { row-gap: clamp(6px, 1 * var(--u), 12px); padding: calc(var(--fit, 1) * clamp(12px, 2 * var(--u), 24px)) clamp(18px, 2vw, 36px); }
+  .une .fig-num { font-size: calc(var(--fit, 1) * clamp(48px, 9.4 * var(--u), 120px)); }
+  .une .fig-txt { font-size: calc(var(--fit, 1) * clamp(14px, min(1.25vw, 2.1 * var(--u)), 22px)); }
   .fig-voir-source { width: 36px; height: 36px; }
   .fig-voir-source svg { width: clamp(17px, 2 * var(--u), 21px); height: clamp(17px, 2 * var(--u), 21px); }
-  .ecran-partage .fig-src { font-size: clamp(13px, 1.45 * var(--u), 15px); }
-  .etape-lire .stake { grid-column: 2; grid-row: 2; margin-top: clamp(18px, 3 * var(--u), 36px); }
-  .actionbar { grid-column: 2; grid-row: 3; position: static; padding: 0; background: none; box-shadow: none; margin-top: clamp(18px, 3 * var(--u), 36px); }
-  .actionbar .go { font-size: clamp(22px, min(1.8vw, 3.2 * var(--u)), 34px); padding: clamp(18px, 2.9 * var(--u), 34px) 18px; box-shadow: 0 8px 0 var(--theme-edge); }
+  .une .fig-src { font-size: clamp(13px, 1.45 * var(--u), 15px); }
+  .une > .contexte { grid-area: contexte; padding: calc(var(--padY) * .9) clamp(28px, 3vw, 60px) var(--padY) var(--padX); }
+  .une .ctx { gap: calc(var(--ctx) * 1.05); }
+  .une > .plus-loin { grid-area: plus-loin; padding: calc(var(--padY) * .9) var(--padX) 0 0; }
+  .une .vid-carte .affiche { height: calc(var(--fit, 1) * clamp(90px, 13 * var(--u), 150px)); }
+  .vid-titre { font-size: clamp(20px, 2.9 * var(--u), 32px); }
+  .vid-duree { font-size: clamp(13px, 1.6 * var(--u), 17px); }
+  .une > .suite { grid-area: suite; padding: clamp(18px, 3 * var(--u), 36px) var(--padX) var(--padY) 0; }
+  .etape-lire .stake { margin: 0 0 clamp(18px, 3 * var(--u), 36px); }
+  .actionbar { position: static; padding: 0; background: none; box-shadow: none; }
+  .actionbar .go { margin: 0; font-size: clamp(22px, min(1.8vw, 3.2 * var(--u)), 34px); padding: clamp(18px, 2.9 * var(--u), 34px) 18px; box-shadow: 0 8px 0 var(--theme-edge); }
 }
 @media (prefers-reduced-motion: reduce) {
-  button.affiche, .story-video .fleche, .story-video .tiret::after { transition: none; }
+  button.vid-carte, .story-video .fleche, .story-video .tiret::after { transition: none; }
   .story-video .defilement { scroll-behavior: auto; }
 }
 
