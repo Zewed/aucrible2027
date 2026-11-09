@@ -67,10 +67,11 @@ Bouton « Signaler une erreur » sur chaque fiche.
 ## Résultats
 
 - **Après chaque réponse** : « sur ce sujet tu es aligné·e avec X, Y ; opposé·e à Z ».
-- **À partir d'environ 10 réponses** : classement des candidats en % avec indicateur de fiabilité (faible / moyenne / forte), et **carte politique à 2 axes** :
-  - Économie : plus de redistribution ↔ plus de marché
-  - Société : progressiste ↔ conservateur
-- **À partir de 3 réponses dans un thème** : détail par thème (« sur l'écologie tu es proche de A, sur l'économie de B »).
+- **À partir d'environ 10 réponses** : classement des candidats en % avec indicateur de fiabilité (faible / moyenne / forte), ~~et **carte politique à 2 axes** :~~
+  - ~~Économie : plus de redistribution ↔ plus de marché~~
+  - ~~Société : progressiste ↔ conservateur~~
+- ~~**À partir de 3 réponses dans un thème** : détail par thème (« sur l'écologie tu es proche de A, sur l'économie de B »).~~
+- **La grille (09/11/2026)** : sur « Mes résultats », le classement devient une grille, une ligne par candidat et une colonne par thème. Chaque case est une part de camembert remplie de la proximité avec le candidat sur les seules questions de ce thème, dès 3 réponses dans le thème ; au bout de la ligne, la proximité sur tout. Toucher la tête d'une colonne range les lignes par elle, « Tout » revient au classement (09/11/2026). Elle remplace le plateau à deux axes et la liste des thèmes de la page : sur les 56 fiches, les candidats d'un même bloc font le même choix à 75–90 %, ceux de deux blocs à 25–50 %, donc toute carte à deux axes montre deux tas, et un électeur aux réponses mêlées tombe seul dans un coin vide (décision d'Antoine, 09/11/2026).
 - **Face-à-face** (dès la v1) : 2 candidats au choix, question par question, options et sources côte à côte. Mode **« Moi vs X »**. L'entre-deux-tours = face-à-face pré-rempli avec les deux finalistes.
 
 ## Ludique
@@ -200,7 +201,7 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 - **Carrousel et story** : l'auteur écrit dans la fiche les deux côtés de l'image 5 (titre et meilleur argument de chacun) et les deux choix de l'autocollant « Et toi ? ».
 - **Pouvoir de départage** : abandonné (l'ordre est tiré au hasard).
 - **Fiabilité du classement** : faible de 10 à 19 réponses, moyenne de 20 à 29, forte à partir de 30.
-- **Plateau** : au téléphone, des pions qui se recouvrent s'écartent juste assez pour rester lisibles ; un candidat sans aucune note n'a pas de pion.
+- ~~**Plateau** : au téléphone, des pions qui se recouvrent s'écartent juste assez pour rester lisibles ; un candidat sans aucune note n'a pas de pion.~~ Sans objet depuis la grille (09/11/2026).
 - **Camembert complet** (11/11) : un palier spécial sur la révélation, avec confettis.
 - **Navigation privée** : pas d'avertissement.
 - **Dates des fiches** : une fiche se joue à partir de sa date ; l'auteur la date du jour où il l'ajoute.
@@ -220,7 +221,7 @@ Maquettes statiques de tous les écrans, dans la direction « Jeu de société �
 2. **Fiche** : question, contexte, chiffres, options (sans noms), réponse + importance. Un seul point fort (27/10/2026) : la question et la vidéo ; à droite, le contexte et les chiffres clés restent au calme, en lignes, sans fond de couleur.
 3. **Révélation** : qui défend quoi, ~~alignement~~ dans un tableau en colonnes où la colonne de l'électeur est marquée « Ta réponse » (06/11/2026), classement mis à jour.
 4. **Toutes les questions** : la liste, pour en choisir une (avant le 25/10/2026 : rattrapage, trié par pouvoir de départage).
-5. **Mes résultats** : classement en %, fiabilité, carte 2 axes, détail par thème.
+5. **Mes résultats** : classement en %, fiabilité, ~~carte 2 axes, détail par thème~~ en grille, thème par thème (09/11/2026).
 6. **Face-à-face** et **Moi vs X**.
 7. **Fiche candidat** : positions sourcées par thème, badges déduite / officielle.
 8. **Méthodo & sources**, **Journal des corrections**, **À propos**.

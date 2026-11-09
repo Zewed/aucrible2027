@@ -5,25 +5,20 @@ import { ApercuDeLaCarte } from "@/components/Carte";
 import { Classement } from "@/components/Classement";
 import { Fiabilite } from "@/components/Fiabilite";
 import { PageEnAttente } from "@/components/PageEnAttente";
-import { Plateau } from "@/components/Plateau";
 import { Recommencer } from "@/components/Recommencer";
-import { GrandCamembert, TesThemes } from "@/components/Themes";
+import { GrandCamembert } from "@/components/Themes";
 import { lireThemes } from "@/lib/contenu";
-import { lireAujourdhui, lireCandidatsDeLaListe, lireCandidatsEnLice, lireQuestionsDuCalcul } from "@/lib/publication";
+import { lireAujourdhui, lireCandidatsEnLice, lireQuestionsDuCalcul } from "@/lib/publication";
 import "./resultats-vide.css";
 
 /**
- * « Mes résultats » : le titre, puis le classement calculé sur l'appareil à partir de ses réponses. Le classement
- * et la carte ne comptent que les candidats en lice ; ce que deviennent le plateau et les thèmes après un retrait
- * reste à trancher, ils gardent tous les candidats, sauf ceux qu'écarte la liste officielle une fois parue.
+ * « Mes résultats » : le titre, puis le classement calculé sur l'appareil à partir de ses réponses, en grille, thème par
+ * thème. Le classement et la carte ne comptent que les candidats en lice. La grille remplace le plateau à deux axes et la
+ * liste des thèmes (décision de l'auteur, 9 novembre 2026) : les candidats y formaient deux blocs, quelles que soient les
+ * réponses.
  */
 async function Resultats() {
-  const [jour, duCalcul, candidats, enLice] = await Promise.all([
-    lireAujourdhui(),
-    lireQuestionsDuCalcul(),
-    lireCandidatsDeLaListe(),
-    lireCandidatsEnLice(),
-  ]);
+  const [jour, duCalcul, enLice] = await Promise.all([lireAujourdhui(), lireQuestionsDuCalcul(), lireCandidatsEnLice()]);
   const themes = lireThemes();
   return (
     <>
@@ -43,11 +38,7 @@ async function Resultats() {
             <GrandCamembert questions={duCalcul} themes={themes} />
           </div>
         </section>
-        <div className="res-grid">
-          <Classement questions={duCalcul} candidats={enLice} />
-          <Plateau questions={duCalcul} candidats={candidats} />
-        </div>
-        <TesThemes questions={duCalcul} themes={themes} candidats={candidats} />
+        <Classement questions={duCalcul} candidats={enLice} themes={themes} />
         <ApercuDeLaCarte questions={duCalcul} candidats={enLice} themes={themes} />
         {/* « Signaler une erreur », avant le retour dans la maquette, attend son formulaire. */}
         <footer className="res-foot">

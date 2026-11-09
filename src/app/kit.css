@@ -11,11 +11,11 @@
    Cartes      : .deck > .qcard (.qcard-top .theme-chip h1, .qcard-body) · .label · .fig
                  .opt > input + .opt-face (.opt-letter .opt-title .opt-impl .arg) + .picked
                  .imp-face (choix ×1 ×2 ×3) · .stake (l'enjeu du jour) · .th (une ligne de thème)
-                 .cand (ligne cliquable du classement : .pawn.pawn--paper, .cand-name, .cand-pc, .bar)
+                 .grille (le classement : .g-tete .g-th, a.g-ligne > .g-qui .cand-n .cand-name, .g-case .g-part, .cand-pc)
    Pion        : .pawn (rond, initiales, identique pour tous) · .pawn--paper · .pawn--you
                  posé sur le plateau : dans .field avec style="--x:..%;--y:..%"
    Camembert   : svg.token-pop > .wedge.on / .wedge.fresh / .wedge.next · .big-token · .count
-   Plateau     : .board (.track, .field, .edge.top|bottom|left|right, .you) · .legend
+   Plateau     : .board (.track, .field, .edge.top|bottom|left|right, .you)
    Thème       : poser .theme-eco | -trav | -ecol | -immi | -secu | -sante | -educ | -loge | -euro
                  | -inst | -soc sur un conteneur : cartes, boutons et puces prennent sa couleur.
    Jetons      : --eco … --soc (une couleur par thème, jamais par candidat) · --theme, --theme-edge,
@@ -500,49 +500,69 @@ h1, h2, h3, p { margin: 0; }
 .th.done .th-who { color: var(--sur-inverse); }
 .th.done .th-who b { color: var(--table); }
 
-/* le classement */
-.rank { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 7px; }
-.cand {
-  color: inherit; text-decoration: none;
-  display: grid;
-  grid-template-columns: 26px 40px minmax(0, 1fr) auto;
-  grid-template-rows: auto auto;
-  column-gap: 10px; row-gap: 6px; align-items: center;
-  background: var(--table-2);
-  border-radius: 12px;
-  padding: 8px 12px 10px 8px;
+/* le classement, en grille : une ligne par candidat, une colonne par thème. Au téléphone, le pion seul nomme la ligne. */
+.grille { margin-top: 14px; --qui: 30px; --tot: 30px; }
+.g-tete, .g-ligne {
+  display: grid; align-items: center; column-gap: 2px;
+  grid-template-columns: var(--qui) repeat(var(--n), minmax(0, 1fr)) var(--tot);
 }
-.cand:hover { background: var(--table-3); }
-.cand:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
-.cand-n { font: 800 15px/1 var(--display); color: var(--muted); text-align: center; grid-row: 1 / span 2; }
-.cand .pawn { --size: 40px; font-size: 13px; grid-row: 1 / span 2; }
-.cand-name { font: 700 16px/1.2 var(--text); }
+.g-tete { padding: 0 6px 6px 4px; align-items: start; }
+.g-th { display: grid; justify-items: center; gap: 3px; text-align: center; }
+.g-th svg { width: 18px; height: 18px; }
+.g-th b { display: none; font: 700 12.5px/1.1 var(--text); color: var(--sur-table); }
+.g-th.vide b { color: var(--muted); }
+.g-th .pips { gap: 2px; }
+.g-th .pips i { width: 5px; height: 5px; border-radius: 1px; }
+.g-th .pips i.on { background: var(--theme-edge); }
+.g-tete .g-tot { align-self: end; font: 700 11px/1.1 var(--text); color: var(--muted); text-align: right; }
+.grille ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+.g-ligne {
+  color: inherit; text-decoration: none;
+  background: var(--table-2); border-radius: 10px; padding: 5px 6px 5px 4px;
+}
+a.g-ligne:hover { background: var(--table-3); }
+a.g-ligne:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
+.g-qui { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.g-qui .pawn { --size: 30px; font-size: 10px; }
+.cand-n { display: none; font: 800 15px/1 var(--display); color: var(--muted); width: 22px; flex: none; text-align: center; }
+.cand-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; font: 700 15.5px/1.2 var(--text); }
 .cand-pc {
-  font: 800 24px/1 var(--display);
+  text-align: right;
+  font: 800 15px/1 var(--display);
   font-variation-settings: "wdth" 80;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
-.cand-pc small { font-size: 15px; }
-.bar {
-  grid-column: 3 / -1;
-  height: 10px; border-radius: 3px;
-  background: var(--table-3);
-  overflow: hidden;
+.cand-pc small { display: none; font-size: 13px; }
+.g-case { display: grid; place-items: center; }
+/* La case : une part de camembert, remplie de la proximité sur le thème ; un point quand il n'y a rien à mesurer. */
+.g-part {
+  display: block; width: 22px; height: 22px; border-radius: 50%;
+  background: conic-gradient(var(--theme-edge) calc(var(--p) * 1%), #fff 0);
+  box-shadow: inset 0 0 0 1.5px var(--theme-edge);
 }
-.bar i {
-  display: block; height: 100%;
-  background: repeating-linear-gradient(90deg, var(--sur-table) 0 calc(5% - 2px), transparent calc(5% - 2px) 5%);
-  background-size: calc(100% * 100 / var(--p)) 100%;
-  width: calc(var(--p) * 1%);
-  transform-origin: left;
-  animation: grow .9s var(--ease-out) both;
+.g-rien { display: block; width: 7px; height: 7px; border-radius: 50%; background: var(--table-3); }
+/* Trier : chaque tête de colonne est un bouton ; celle qui range les lignes porte une pointe, et sa colonne une bande. */
+.g-tete button {
+  appearance: none; background: none; border: 0; margin: 0; padding: 4px 0 5px;
+  font: inherit; color: inherit; cursor: pointer; border-radius: 8px;
 }
-@keyframes grow { from { transform: scaleX(0); } }
-.rank-note { margin-top: 10px; font-size: 13px; color: var(--muted); }
+.g-tete .g-tot { padding-right: 2px; }
+.g-tete button:disabled { cursor: default; }
+.g-tete button:not(:disabled):hover { background: var(--table-2); }
+.g-tete button:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 2px; }
+.g-tete button[aria-pressed="true"]::after {
+  content: ""; justify-self: center; display: block; margin: 1px auto 0;
+  border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid var(--theme-edge);
+}
+.g-tete .g-tot[aria-pressed="true"] { color: var(--sur-table); }
+.g-tete .g-tot[aria-pressed="true"]::after { border-top-color: var(--sur-table); margin-right: 4px; }
+.g-case.trie { align-self: stretch; margin: -5px 0; border-radius: 6px; background: color-mix(in srgb, var(--theme) 30%, transparent); }
+/* Les lignes glissent à leur nouvelle place (src/components/Classement.tsx) ; la page autour ne bouge pas. */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+::view-transition-group(*) { animation-duration: .4s; animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
 
 /* le plateau (carte à 2 axes) */
-.board-wrap { margin-top: 14px; }
 .board {
   position: relative;
   width: 100%; max-width: 560px; margin: 0 auto;
@@ -612,15 +632,6 @@ h1, h2, h3, p { margin: 0; }
   padding: 4px 7px 3px; border-radius: 6px;
 }
 @keyframes hop { 0%, 70%, 100% { transform: none; } 80% { transform: translateY(-9px); } }
-.legend {
-  list-style: none; margin: 14px auto 0; padding: 0;
-  max-width: 560px;
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 10px;
-}
-.legend li { display: flex; align-items: center; gap: 6px; font-size: 12.5px; min-width: 0; }
-.legend li span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.legend .pawn { box-shadow: 0 0 0 2px var(--table-3); }
-.legend .pawn--you { box-shadow: none; }
 
 /* la carte à partager + actions */
 .share { display: grid; gap: 18px; }
@@ -762,11 +773,6 @@ h1, h2, h3, p { margin: 0; }
   .site-foot nav { display: flex; column-gap: 28px; }
   .site-foot a { white-space: nowrap; }
   .site-foot .repere-verrous { margin-left: auto; }
-  .res-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    column-gap: 40px; align-items: start;
-  }
   .res-hero { padding-top: 10px; }
   .res-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 32px; }
   .trophy { margin-top: 0; }
@@ -777,8 +783,23 @@ h1, h2, h3, p { margin: 0; }
   .actions { max-width: 420px; }
   .field .pawn { --size: 36px; }
   .you { width: 62px; height: 62px; margin: -31px 0 0 -31px; }
-  .legend { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .legend li { font-size: 13.5px; }
+  .grille { --qui: minmax(0, 250px); --tot: 64px; }
+  .g-tete, .g-ligne { column-gap: 4px; }
+  .g-tete { padding: 0 12px 8px 8px; }
+  .g-th svg { width: 26px; height: 26px; }
+  .g-th b { display: block; }
+  .g-th .pips i { width: 7px; height: 7px; border-radius: 2px; }
+  .g-tete .g-tot { font-size: 12.5px; }
+  .grille ol { gap: 6px; }
+  .g-ligne { border-radius: 12px; padding: 7px 12px 7px 8px; }
+  .g-qui .pawn { --size: 36px; font-size: 12px; }
+  .cand-n { display: block; }
+  .cand-name { position: static; width: auto; height: auto; clip: auto; overflow: hidden; text-overflow: ellipsis; }
+  .cand-pc { font-size: 22px; }
+  .cand-pc small { display: inline; }
+  .g-part { width: 34px; height: 34px; box-shadow: inset 0 0 0 2px var(--theme-edge); }
+  .g-rien { width: 10px; height: 10px; }
+  .g-case.trie { margin: -7px 0; border-radius: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

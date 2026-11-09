@@ -1865,35 +1865,118 @@ test.describe("« Je ne sais pas » ne compte pas dans le classement", () => {
   });
 });
 
-test.describe("chaque candidat du classement a sa barre", () => {
-  /** La part remplie de la barre de chaque ligne, dans l'ordre (largeur posée, hors animation). */
-  const remplissages = (page: Page) =>
-    page
-      .getByRole("region", { name: "Ton classement" })
-      .getByRole("listitem")
-      .evaluateAll((lignes) =>
-        lignes.map((ligne) => {
-          const barre = ligne.querySelector<HTMLElement>(".bar");
-          return barre ? barre.querySelector<HTMLElement>("i")!.offsetWidth / barre.offsetWidth : null;
+/** Les cases de chaque ligne du classement, dans l'ordre des lignes : le % de chaque thème, ou null pour une case vide. */
+const casesDuClassement = (page: Page) =>
+  page
+    .getByRole("region", { name: "Ton classement" })
+    .getByRole("listitem")
+    .evaluateAll((lignes) =>
+      lignes.map((ligne) =>
+        [...ligne.querySelectorAll(".g-case")].map((c) => {
+          const nom = c.querySelector(".g-part")?.getAttribute("aria-label");
+          return nom ? Number(nom.replace(/^.* : (\d+) %$/, "$1")) : null;
         }),
-      );
+      ),
+    );
 
-  test("la barre sous « François Ruffin 81 % » est remplie aux 81 % de sa longueur, celle sous « Éric Zemmour 22 % » aux 22 %", async ({ page }) => {
+/** Avec `vingtTroisReponses`, les thèmes qui ont 3 réponses ou plus, par leur rang dans la grille. */
+const GAGNES = { "Économie & impôts": 0, "Écologie & énergie": 2, Immigration: 3, "Sécurité & justice": 4, Santé: 5 };
+
+test.describe("chaque ligne du classement a une case par thème", () => {
+  test("avec 23 réponses, chacune des 13 lignes a 11 cases, une par thème, et finit par son pourcentage", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/resultats");
     await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
-    const parts = await remplissages(page);
-    expect(parts[0]).toBeCloseTo(0.81, 2);
-    expect(parts[12]).toBeCloseTo(0.22, 2);
+    const cases = await casesDuClassement(page);
+    expect(cases.map((ligne) => ligne.length)).toEqual(Array(13).fill(11));
+    expect((await lignesDuClassement(page))[0][2]).toBe("81 %");
   });
 
-  test("les 13 barres vont de la plus remplie à la moins remplie, dans l'ordre du classement", async ({ page }) => {
+  test("les 5 thèmes à 3 réponses ou plus ont des cases remplies ; les 6 autres restent vides sur les 13 lignes", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/resultats");
     await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
-    const parts = await remplissages(page);
-    expect(parts.every((part) => part !== null)).toBe(true);
-    for (let i = 1; i < parts.length; i++) expect(parts[i]!).toBeLessThan(parts[i - 1]!);
+    const cases = await casesDuClassement(page);
+    for (let theme = 0; theme < 11; theme++) {
+      const remplies = cases.filter((ligne) => ligne[theme] !== null).length;
+      if (Object.values(GAGNES).includes(theme)) expect(remplies, `thème n° ${theme + 1}`).toBeGreaterThan(0);
+      else expect(remplies, `thème n° ${theme + 1}`).toBe(0);
+    }
+  });
+
+  test("la case la plus remplie de chaque thème gagné : Ruffin en Économie, Tondelier en Écologie, Dupont-Aignan en Immigration, Lisnard en Sécurité, Roussel en Santé", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const noms = (await lignesDuClassement(page)).map(([, nom]) => nom);
+    const cases = await casesDuClassement(page);
+    const caseDe = (nom: string, theme: number) => cases[noms.indexOf(nom)][theme]!;
+    const plusRemplie = (theme: number) => Math.max(...cases.map((ligne) => ligne[theme] ?? -1));
+    expect(caseDe("François Ruffin", GAGNES["Économie & impôts"])).toBe(plusRemplie(GAGNES["Économie & impôts"]));
+    expect(caseDe("Marine Tondelier", GAGNES["Écologie & énergie"])).toBe(plusRemplie(GAGNES["Écologie & énergie"]));
+    expect(caseDe("Nicolas Dupont-Aignan", GAGNES.Immigration)).toBe(plusRemplie(GAGNES.Immigration));
+    expect(caseDe("David Lisnard", GAGNES["Sécurité & justice"])).toBe(plusRemplie(GAGNES["Sécurité & justice"]));
+    expect(caseDe("Fabien Roussel", GAGNES.Santé)).toBe(plusRemplie(GAGNES.Santé));
+  });
+
+  test("une case ne compte que son thème : en Santé, Fabien Roussel passe devant François Ruffin, premier du classement", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const noms = (await lignesDuClassement(page)).map(([, nom]) => nom);
+    expect(noms[0]).toBe("François Ruffin");
+    const cases = await casesDuClassement(page);
+    expect(cases[noms.indexOf("Fabien Roussel")][GAGNES.Santé]!).toBeGreaterThan(cases[noms.indexOf("François Ruffin")][GAGNES.Santé]!);
+  });
+
+  test("chaque case remplie dit son thème et son pourcentage, et la ligne mène à la page du candidat", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const ligne = page.getByRole("region", { name: "Ton classement" }).getByRole("listitem").first();
+    await expect(ligne.getByRole("img", { name: /^Santé : \d+ %$/ })).toHaveCount(1);
+    await ligne.getByRole("link").click();
+    await expect(page).toHaveURL(/\/candidat\/ruffin$/);
+  });
+});
+
+test.describe("on range le classement par une colonne", () => {
+  test("toucher « Santé » range les lignes par leur case Santé : Fabien Roussel passe premier, et le % au bout reste celui de tout", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const classement = page.getByRole("region", { name: "Ton classement" });
+    await expect(classement.getByRole("listitem")).toHaveCount(13);
+    await expect(classement.getByRole("button", { name: "Tout", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await classement.getByRole("button", { name: "Santé", exact: true }).click();
+    await expect(classement.getByRole("button", { name: "Santé", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await expect(classement.getByRole("button", { name: "Tout", exact: true })).toHaveAttribute("aria-pressed", "false");
+    const lignes = await lignesDuClassement(page);
+    expect(lignes[0][1]).toBe("Fabien Roussel");
+    expect(lignes.map(([rang]) => rang)).toEqual(Array.from({ length: 13 }, (_, i) => String(i + 1)));
+    const sante = (await casesDuClassement(page)).map((ligne) => ligne[GAGNES.Santé] ?? -1);
+    for (let i = 1; i < sante.length; i++) expect(sante[i]).toBeLessThanOrEqual(sante[i - 1]);
+    expect(lignes.find(([, nom]) => nom === "François Ruffin")![2]).toBe("81 %");
+  });
+
+  test("« Tout » remet les lignes dans l'ordre du classement", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const classement = page.getByRole("region", { name: "Ton classement" });
+    await expect(classement.getByRole("listitem")).toHaveCount(13);
+    const avant = await lignesDuClassement(page);
+    await classement.getByRole("button", { name: "Santé", exact: true }).click();
+    await expect(classement.getByRole("button", { name: "Santé", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await classement.getByRole("button", { name: "Tout", exact: true }).click();
+    await expect(classement.getByRole("button", { name: "Tout", exact: true })).toHaveAttribute("aria-pressed", "true");
+    expect(await lignesDuClassement(page)).toEqual(avant);
+  });
+
+  test("la tête d'un thème sous 3 réponses ne range rien : Travail & retraites, avec 2 réponses, ne se touche pas", async ({ page }) => {
+    await vingtTroisReponses(page);
+    await page.goto("/resultats");
+    const classement = page.getByRole("region", { name: "Ton classement" });
+    await expect(classement.getByRole("listitem")).toHaveCount(13);
+    await expect(classement.getByRole("button", { name: "Travail & retraites", exact: true })).toBeDisabled();
+    await expect(classement.getByRole("button", { name: "Économie & impôts", exact: true })).toBeEnabled();
   });
 });
 
@@ -2006,260 +2089,6 @@ test.describe("avant 10 réponses, le classement dit combien il en manque", () =
   });
 });
 
-/**
- * La place du centre du pion « TOI » sur le champ du plateau, de 0 à 1 sur chaque axe : sa position
- * calculée, au pixel près sans arrondi, hors animation (le pion est centré sur `left` et `top`).
- */
-const placeDuToi = (page: Page) =>
-  page
-    .getByRole("region", { name: "Ton plateau" })
-    .locator(".field .you")
-    .evaluate((toi: HTMLElement) => {
-      const champ = toi.offsetParent as HTMLElement;
-      const style = getComputedStyle(toi);
-      return { x: parseFloat(style.left) / champ.clientWidth, y: parseFloat(style.top) / champ.clientHeight };
-    });
-
-test.describe("le plateau place le pion « toi » sur les deux axes", () => {
-  test("avec 23 réponses, « Ton plateau » pose le pion « TOI » dans le cadre des candidats, à droite et sous leur milieu, et les pions occupent tout le plateau", async ({ page }) => {
-    await vingtTroisReponses(page);
-    await page.goto("/resultats");
-    const plateau = page.getByRole("region", { name: "Ton plateau" });
-    await expect(plateau.locator(".field .you").getByText("TOI", { exact: true })).toBeVisible();
-    // Le rendu serveur, sans les réponses de l'appareil, pose le pion au centre : attendre qu'elles soient lues.
-    await expect(plateau.locator(".field .pawn")).toHaveCount(13);
-    const { x, y } = await placeDuToi(page);
-    // Le plateau se cadre sur les candidats, groupés en haut à gauche dans ce jeu de fiches : TOI est à droite et sous leur milieu.
-    expect(x).toBeGreaterThan(0.7);
-    expect(x).toBeLessThan(0.82);
-    expect(y).toBeGreaterThan(0.58);
-    expect(y).toBeLessThan(0.7);
-    const pions = await plateau.locator(".field .pawn").evaluateAll((liste) =>
-      liste.map((pion) => {
-        const [champ, style] = [(pion as HTMLElement).offsetParent as HTMLElement, getComputedStyle(pion)];
-        return { x: parseFloat(style.left) / champ.clientWidth, y: parseFloat(style.top) / champ.clientHeight };
-      }),
-    );
-    const etendue = (valeurs: number[]) => Math.max(...valeurs) - Math.min(...valeurs);
-    expect(etendue(pions.map((p) => p.x))).toBeGreaterThan(0.75);
-    expect(etendue(pions.map((p) => p.y))).toBeGreaterThan(0.75);
-  });
-});
-
-test.describe("sur ordinateur, le plateau se pose à côté du classement", () => {
-  const boites = async (page: Page) => {
-    await vingtTroisReponses(page);
-    await page.goto("/resultats");
-    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
-    return {
-      classement: (await page.getByRole("region", { name: "Ton classement" }).boundingBox())!,
-      plateau: (await page.getByRole("region", { name: "Ton plateau" }).boundingBox())!,
-    };
-  };
-
-  test.describe("sur un écran d'ordinateur", () => {
-    test.use({ viewport: { width: 1280, height: 900 }, isMobile: false, hasTouch: false });
-
-    test("« Ton classement » est à gauche et « Ton plateau » à droite, côte à côte", async ({ page }) => {
-      const { classement, plateau } = await boites(page);
-      expect(classement.x + classement.width).toBeLessThanOrEqual(plateau.x);
-      expect(Math.abs(classement.y - plateau.y)).toBeLessThan(10);
-    });
-  });
-
-  test.describe("sur un téléphone de 375 px", () => {
-    test.use({ viewport: { width: 375, height: 812 } });
-
-    test("le plateau est sous le classement, sans défilement horizontal de la page", async ({ page }) => {
-      const { classement, plateau } = await boites(page);
-      expect(plateau.y).toBeGreaterThanOrEqual(classement.y + classement.height);
-      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
-    });
-  });
-});
-
-test.describe("le plateau nomme ses deux axes", () => {
-  /** Les quatre étiquettes du plateau, avec leur boîte à l'écran, et celle du champ. */
-  async function etiquettes(page: Page) {
-    await vingtTroisReponses(page);
-    await page.goto("/resultats");
-    // Le classement complet arrive après le rendu serveur et pousse le plateau : mesurer une fois la page posée.
-    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
-    const plateau = page.getByRole("region", { name: "Ton plateau" });
-    const boite = async (texte: string) => {
-      const etiquette = plateau.getByText(texte);
-      await expect(etiquette).toBeVisible();
-      return (await etiquette.boundingBox())!;
-    };
-    return {
-      champ: (await plateau.locator(".field").boundingBox())!,
-      haut: await boite("↑ progressiste"),
-      bas: await boite("↓ conservateur"),
-      gauche: await boite("← plus de redistribution"),
-      droite: await boite("plus de marché →"),
-    };
-  }
-  const centre = (b: { x: number; y: number; width: number; height: number }) => ({ x: b.x + b.width / 2, y: b.y + b.height / 2 });
-
-  test("« plus de redistribution » à gauche, « plus de marché » à droite, « progressiste » en haut, « conservateur » en bas", async ({ page }) => {
-    const { champ, haut, bas, gauche, droite } = await etiquettes(page);
-    expect(centre(haut).y).toBeLessThan(champ.y + 10);
-    expect(centre(bas).y).toBeGreaterThan(champ.y + champ.height - 10);
-    expect(centre(gauche).x).toBeLessThan(champ.x + 10);
-    expect(centre(droite).x).toBeGreaterThan(champ.x + champ.width - 10);
-  });
-
-  test.describe("sur un téléphone de 375 px", () => {
-    test.use({ viewport: { width: 375, height: 812 } });
-
-    test("les quatre étiquettes restent lisibles et ne se chevauchent pas", async ({ page }) => {
-      const { haut, bas, gauche, droite } = await etiquettes(page);
-      const boites = [haut, bas, gauche, droite];
-      const seChevauchent = (a: (typeof boites)[number], b: (typeof boites)[number]) =>
-        a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
-      for (let i = 0; i < boites.length; i++) for (let j = i + 1; j < boites.length; j++) expect(seChevauchent(boites[i], boites[j])).toBe(false);
-      for (const b of boites) {
-        expect(b.x).toBeGreaterThanOrEqual(0);
-        expect(b.x + b.width).toBeLessThanOrEqual(375);
-      }
-    });
-  });
-});
-
-test.describe("les 13 candidats sont posés en pions identiques", () => {
-  /** Les pions des candidats sur le plateau : initiales, forme, teinte. */
-  async function pionsDuPlateau(page: Page) {
-    await vingtTroisReponses(page);
-    await page.goto("/resultats");
-    const plateau = page.getByRole("region", { name: "Ton plateau" });
-    await expect(plateau.locator(".field .you").getByText("TOI", { exact: true })).toBeVisible();
-    // Les candidats n'arrivent qu'une fois les réponses de l'appareil lues.
-    await expect(plateau.locator(".field .pawn")).toHaveCount(13);
-    return plateau.locator(".field .pawn").evaluateAll((pions) =>
-      pions.map((pion) => {
-        const s = getComputedStyle(pion);
-        return { initiales: pion.textContent!.trim(), forme: `${s.width}×${s.height} ${s.borderRadius}`, teinte: s.backgroundColor };
-      }),
-    );
-  }
-
-  test("avec 23 réponses, le plateau montre 13 pions de candidats, un par candidat du lancement, en plus du pion « TOI »", async ({ page }) => {
-    const pions = await pionsDuPlateau(page);
-    expect(pions.map((p) => p.initiales).sort()).toEqual(Object.values(INITIALES).sort());
-    await expect(page.getByRole("region", { name: "Ton plateau" }).getByText("2 axes, 14 pions")).toBeVisible();
-  });
-
-  test("les 13 pions sont identiques, sans couleur de parti, et ne se distinguent que par leurs initiales", async ({ page }) => {
-    const pions = await pionsDuPlateau(page);
-    expect(pions).toHaveLength(13);
-    expect(new Set(pions.map((p) => p.forme)).size).toBe(1);
-    expect(new Set(pions.map((p) => p.initiales)).size).toBe(13);
-    const encre = await page.evaluate(() => {
-      const el = document.createElement("div");
-      el.style.background = "var(--ink)";
-      document.body.append(el);
-      const c = getComputedStyle(el).backgroundColor;
-      el.remove();
-      return c;
-    });
-    expect([...new Set(pions.map((p) => p.teinte))]).toEqual([encre]);
-  });
-});
-
-test.describe("la légende relie chaque pion à son candidat", () => {
-  /** Les lignes de la légende du plateau, dans l'ordre : initiales et nom. */
-  async function legende(page: Page) {
-    await vingtTroisReponses(page);
-    await page.goto("/resultats");
-    const liste = page.getByRole("region", { name: "Ton plateau" }).getByRole("list", { name: "Légende du plateau" });
-    await expect(liste.getByRole("listitem")).toHaveCount(14);
-    return liste.getByRole("listitem").evaluateAll((lignes) =>
-      lignes.map((ligne) => ({ initiales: ligne.querySelector(".pawn")!.textContent!.trim(), nom: ligne.querySelector(".pawn + span")!.textContent!.trim() })),
-    );
-  }
-
-  test("pour chacun des 13 pions du plateau, la légende a une ligne aux mêmes initiales et au nom complet, dont FRu pour François Ruffin et FRo pour Fabien Roussel", async ({ page }) => {
-    const lignes = await legende(page);
-    expect(lignes[0]).toEqual({ initiales: "TOI", nom: "Toi, ton camembert" });
-    const candidats = Object.fromEntries(lignes.slice(1).map(({ initiales, nom }) => [nom, initiales]));
-    expect(candidats).toEqual(INITIALES);
-    const surLePlateau = await page.getByRole("region", { name: "Ton plateau" }).locator(".field .pawn").allInnerTexts();
-    expect(surLePlateau.sort()).toEqual(lignes.slice(1).map((l) => l.initiales).sort());
-  });
-
-  test("la légende range les candidats dans un ordre qui n'est ni celui du classement ni l'ordre alphabétique", async ({ page }) => {
-    const noms = (await legende(page)).slice(1).map((l) => l.nom);
-    const classement = (await lignesDuClassement(page)).map(([, nom]) => nom);
-    expect(noms).not.toEqual(classement);
-    expect(noms).not.toEqual([...noms].sort((a, b) => a.localeCompare(b, "fr")));
-  });
-});
-
-test.describe("une option sans note sur un axe ne déplace pas le pion", () => {
-  /**
-   * La place du pion « TOI » pour un électeur qui a répondu A, avec les importances de `vingtTroisReponses`,
-   * aux questions de ces numéros, plus B à la n° 25 si `avecLa25` (une option sans aucune note).
-   */
-  async function placeAvec(page: Page, numeros: number[], avecLa25 = false) {
-    await page.goto("/questionnaire");
-    await page.evaluate(
-      ([numeros, avecLa25]) => {
-        const reponses: Record<number, object> = {};
-        for (const numero of numeros as number[]) {
-          const importance = numero <= 8 ? 3 : numero <= 14 ? 2 : 1;
-          reponses[numero] = { option: "A", importance, graine: 1, jour: "2026-10-22", duJour: false };
-        }
-        if (avecLa25) reponses[25] = { option: "B", importance: 2, graine: 1, jour: "2026-10-24", duJour: true };
-        localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
-      },
-      [numeros, avecLa25] as const,
-    );
-    await page.goto("/resultats");
-    // Le rendu serveur, sans les réponses de l'appareil, pose le pion au centre : attendre qu'elles soient lues.
-    await expect(page.getByRole("region", { name: "Ton plateau" }).locator(".field .pawn")).toHaveCount(13);
-    return placeDuToi(page);
-  }
-  const vingtTrois = Array.from({ length: 23 }, (_, i) => i + 1);
-
-  test("répondre en plus à une question dont l'option n'a aucune note économique laisse le pion « TOI » à la même place de gauche à droite", async ({ page }) => {
-    const sans = await placeAvec(page, vingtTrois);
-    const avec = await placeAvec(page, vingtTrois, true);
-    expect(avec.x).toBe(sans.x);
-  });
-
-  test("une option notée seulement sur l'axe économique déplace le pion de gauche à droite sans changer sa hauteur ; une option sans aucune note ne le déplace pas", async ({ page }) => {
-    // La n° 1 n'est notée que sur l'axe économique (A : −2).
-    const sansLa1 = await placeAvec(page, vingtTrois.slice(1));
-    const avecLa1 = await placeAvec(page, vingtTrois);
-    expect(avecLa1.x).toBeLessThan(sansLa1.x);
-    expect(avecLa1.y).toBe(sansLa1.y);
-    // La n° 25 n'a aucune note.
-    const avecLa25 = await placeAvec(page, vingtTrois, true);
-    expect(avecLa25).toEqual(avecLa1);
-  });
-});
-
-test.describe("avant 10 réponses, le plateau montre une position encore floue", () => {
-  const plateauDeLaPage = (page: Page) => page.getByRole("region", { name: "Ton plateau" });
-
-  test("avec 3 réponses, le plateau montre un pion « TOI » estompé, sans phrase par-dessus", async ({ page }) => {
-    await premieresReponses(page, 3);
-    await page.goto("/resultats");
-    await expect(plateauDeLaPage(page).locator(".board-note")).toHaveCount(0);
-    const opacite = await plateauDeLaPage(page).locator(".field .you svg").evaluate((svg) => Number(getComputedStyle(svg).opacity));
-    expect(opacite).toBeLessThan(1);
-  });
-
-  test("avec 3 réponses, aucun pion de candidat sur le plateau, et la légende dit « Les pions des candidats arrivent à 10 réponses »", async ({ page }) => {
-    await premieresReponses(page, 3);
-    await page.goto("/resultats");
-    const legende = plateauDeLaPage(page).getByRole("list", { name: "Légende du plateau" });
-    await expect(legende.getByText("Les pions des candidats arrivent à 10 réponses")).toBeVisible();
-    await expect(legende.getByText("Toi, ta position encore floue")).toBeVisible();
-    await expect(plateauDeLaPage(page).locator(".field .pawn")).toHaveCount(0);
-  });
-});
-
 test.describe("le camembert affiche 11 parts, une par thème", () => {
   const THEMES = [
     "Économie & impôts", "Travail & retraites", "Écologie & énergie", "Immigration", "Sécurité & justice", "Santé",
@@ -2286,33 +2115,37 @@ test.describe("le camembert affiche 11 parts, une par thème", () => {
     }
   });
 
-  test("« Tes 11 thèmes » nomme les 11 thèmes de SPEC.md, et la couleur de chaque thème est celle d'une part du camembert", async ({ page }) => {
+  test("la tête de la grille nomme les 11 thèmes de SPEC.md, et la couleur de chaque thème est celle d'une part du camembert", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/resultats");
-    const themes = page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem");
-    await expect(themes).toHaveCount(11);
-    const lignes = await themes.evaluateAll((items) =>
+    // La tête se lit une fois le classement posé : avant, c'est celle de l'aperçu, dessinée sans les réponses.
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    const tetes = page.getByRole("region", { name: "Ton classement" }).locator(".g-th");
+    await expect(tetes).toHaveCount(11);
+    const colonnes = await tetes.evaluateAll((items) =>
       // La couleur du thème est celle du contour de sa part, pleine ou en pointillés.
-      items.map((item) => ({ nom: item.querySelector(".th-name")!.textContent, couleur: getComputedStyle(item.querySelector("svg path")!).stroke })),
+      items.map((item) => ({ nom: item.querySelector("b")!.textContent, couleur: getComputedStyle(item.querySelector("svg path")!).stroke })),
     );
-    expect(lignes.map((l) => l.nom)).toEqual(THEMES);
-    expect(new Set(lignes.map((l) => l.couleur)).size).toBe(11);
-    // Avec ces réponses, cinq parts sont gagnées : chacune prend la couleur de sa ligne, à sa place.
+    expect(colonnes.map((c) => c.nom)).toEqual(THEMES.map((nom) => nom.split(" & ")[0]));
+    expect(new Set(colonnes.map((c) => c.couleur)).size).toBe(11);
+    // Avec ces réponses, cinq parts sont gagnées : chacune prend la couleur de sa colonne, à sa place.
     await expect(page.locator(".big-token svg path.on")).toHaveCount(5);
     const parts = await partsDuCamembert(page);
     const gagnees = await page.locator(".big-token svg path").evaluateAll((p) => p.map((part) => part.classList.contains("on")));
-    for (let i = 0; i < 11; i++) if (gagnees[i]) expect(parts[i].couleur).toBe(lignes[i].couleur);
+    for (let i = 0; i < 11; i++) if (gagnees[i]) expect(parts[i].couleur).toBe(colonnes[i].couleur);
   });
 });
 
 test.describe("une part se remplit après 3 réponses dans son thème", () => {
-  /** La ligne d'un thème dans « Tes 11 thèmes » : ses pastilles allumées, et si sa part est remplie. */
-  async function ligneDuTheme(page: Page, nom: string) {
-    const ligne = page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").filter({ hasText: nom });
-    const pastilles = await ligne.locator(".pips i").evaluateAll((pips) => pips.map((pip) => (pip as HTMLElement).style.background !== ""));
-    const index = await page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").evaluateAll((items, nom) => items.findIndex((i) => i.textContent!.includes(nom)), nom);
+  /** La colonne d'un thème dans la tête de la grille : ses pastilles allumées, sa part pleine, et la part du camembert. */
+  async function colonneDuTheme(page: Page, nom: string) {
+    const tetes = page.getByRole("region", { name: "Ton classement" }).locator(".g-th");
+    const index = await tetes.evaluateAll((items, nom) => items.findIndex((i) => i.querySelector("b")!.textContent === nom), nom.split(" & ")[0]);
+    const tete = tetes.nth(index);
+    const allumees = await tete.locator(".pips i.on").count();
+    const pleine = !(await tete.evaluate((el) => el.classList.contains("vide")));
     const remplie = await page.locator(".big-token svg path").nth(index).evaluate((part) => part.classList.contains("on"));
-    return { allumees: pastilles.filter(Boolean).length, sur: pastilles.length, remplie };
+    return { allumees, pastilles: await tete.locator(".pips i").count(), pleine, remplie };
   }
   async function reponsesAuxNumeros(page: Page, numeros: number[]) {
     await page.goto("/questionnaire");
@@ -2322,30 +2155,30 @@ test.describe("une part se remplit après 3 réponses dans son thème", () => {
       localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
     }, numeros);
     await page.goto("/resultats");
-    await expect(page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem")).toHaveCount(11);
+    await expect(page.getByRole("region", { name: "Ton classement" }).locator(".g-th")).toHaveCount(11);
   }
 
-  test("avec 2 réponses en Travail & retraites, la ligne montre 2 pastilles allumées sur 3 et la part Travail & retraites est vide", async ({ page }) => {
+  test("avec 2 réponses en Travail & retraites, sa colonne montre 2 pastilles allumées sur 3, sa part en pointillés, et la part du camembert est vide", async ({ page }) => {
     await reponsesAuxNumeros(page, [5, 12]);
-    await expect(page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").filter({ hasText: "Travail & retraites" }).locator(".pips")).toHaveAttribute("aria-label", "2 réponses");
-    expect(await ligneDuTheme(page, "Travail & retraites")).toEqual({ allumees: 2, sur: 3, remplie: false });
+    await expect(page.getByRole("region", { name: "Ton classement" }).locator(".g-th").nth(1).locator(".pips")).toHaveAttribute("aria-label", "2 réponses");
+    expect(await colonneDuTheme(page, "Travail & retraites")).toEqual({ allumees: 2, pastilles: 3, pleine: false, remplie: false });
   });
 
-  test("après la réponse à la n° 24, la 3e du thème, les 3 pastilles sont allumées et la part Travail & retraites est remplie", async ({ page }) => {
-    await reponsesAuxNumeros(page, [5, 12]);
+  test("après la réponse à la n° 24, la 3e du thème, la colonne Travail perd ses pastilles, sa part est pleine, ses cases se remplissent, et la part du camembert aussi", async ({ page }) => {
+    await vingtTroisReponses(page);
     await page.goto("/questionnaire");
     await choisir(page, "64 ans");
     await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/resultats");
-    await expect(page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").filter({ hasText: "Travail & retraites" }).locator(".pips")).toHaveAttribute("aria-label", "3 réponses");
-    expect(await ligneDuTheme(page, "Travail & retraites")).toEqual({ allumees: 3, sur: 3, remplie: true });
+    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
+    expect(await colonneDuTheme(page, "Travail & retraites")).toEqual({ allumees: 0, pastilles: 0, pleine: true, remplie: true });
+    expect((await casesDuClassement(page)).some((ligne) => ligne[1] !== null)).toBe(true);
   });
 
-  test("une 4e réponse dans un thème déjà gagné (Économie & impôts en a 4) laisse ses 3 pastilles allumées et sa part remplie", async ({ page }) => {
+  test("une 4e réponse dans un thème déjà gagné (Économie & impôts en a 4) laisse sa part pleine, sans pastilles", async ({ page }) => {
     await reponsesAuxNumeros(page, [1, 2, 4, 9]);
-    await expect(page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem").filter({ hasText: "Économie & impôts" }).locator(".pips")).toHaveAttribute("aria-label", "4 réponses");
-    expect(await ligneDuTheme(page, "Économie & impôts")).toEqual({ allumees: 3, sur: 3, remplie: true });
+    expect(await colonneDuTheme(page, "Économie & impôts")).toEqual({ allumees: 0, pastilles: 0, pleine: true, remplie: true });
   });
 });
 
@@ -2373,60 +2206,6 @@ test.describe("le camembert affiche le nombre de parts gagnées", () => {
     await premieresReponses(page, 3);
     await page.goto("/resultats");
     await expect(compteur(page).locator("b")).toHaveText("0/11");
-  });
-});
-
-/** Ce que dit chaque ligne de « Tes 11 thèmes » sous son nom, par thème. */
-const sousLesThemes = async (page: Page) => {
-  const lignes = page.getByRole("region", { name: "Tes 11 thèmes" }).getByRole("listitem");
-  await expect(lignes).toHaveCount(11);
-  return Object.fromEntries(
-    await lignes.evaluateAll((items) => items.map((item) => [item.querySelector(".th-name")!.textContent, item.querySelector(".th-who")?.textContent ?? null])),
-  );
-};
-
-test.describe("chaque thème affiche son candidat le plus proche", () => {
-  test("avec 23 réponses, les 5 thèmes gagnés nomment Ruffin, Tondelier, Dupont-Aignan, Lisnard et Roussel", async ({ page }) => {
-    await vingtTroisReponses(page);
-    await page.goto("/resultats");
-    await expect(page.locator(".big-token .count b")).toHaveText("5/11");
-    const textes = await sousLesThemes(page);
-    expect(textes["Économie & impôts"]).toBe("le plus proche : François Ruffin");
-    expect(textes["Écologie & énergie"]).toBe("le plus proche : Marine Tondelier");
-    expect(textes["Immigration"]).toBe("le plus proche : Nicolas Dupont-Aignan");
-    expect(textes["Sécurité & justice"]).toBe("le plus proche : David Lisnard");
-    expect(textes["Santé"]).toBe("le plus proche : Fabien Roussel");
-  });
-
-  test("le candidat d'un thème peut différer du premier du classement : en Santé, Fabien Roussel, alors que François Ruffin est premier", async ({ page }) => {
-    await vingtTroisReponses(page);
-    await page.goto("/resultats");
-    await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
-    expect((await lignesDuClassement(page))[0][1]).toBe("François Ruffin");
-    expect((await sousLesThemes(page))["Santé"]).toBe("le plus proche : Fabien Roussel");
-  });
-});
-
-test.describe("un thème sous 3 réponses dit « pas encore assez de réponses »", () => {
-  const SOUS_TROIS = ["Travail & retraites", "Éducation & jeunesse", "Logement", "Europe & international", "Institutions & démocratie", "Société"];
-
-  test("avec 23 réponses, les 6 thèmes sous 3 réponses disent « pas encore assez de réponses » et ne nomment aucun candidat", async ({ page }) => {
-    await vingtTroisReponses(page);
-    await page.goto("/resultats");
-    await expect(page.locator(".big-token .count b")).toHaveText("5/11");
-    const textes = await sousLesThemes(page);
-    for (const theme of SOUS_TROIS) expect(textes[theme], theme).toBe("pas encore assez de réponses");
-  });
-
-  test("après la réponse à la n° 24, la ligne Travail & retraites, qui a alors 3 réponses, nomme un candidat à la place du message", async ({ page }) => {
-    await vingtTroisReponses(page);
-    await page.goto("/questionnaire");
-    await choisir(page, "64 ans");
-    await validerMaReponse(page);
-    await expect(page).toHaveURL(/\/revelation$/);
-    await page.goto("/resultats");
-    await expect(page.locator(".big-token .count b")).toHaveText("6/11");
-    expect((await sousLesThemes(page))["Travail & retraites"]).toMatch(/^le plus proche : \S/);
   });
 });
 
@@ -6003,11 +5782,6 @@ test.describe("À la liste officielle, seuls les candidats officiels restent", (
     const classes = await listeOfficielle(page, "2027-03-17T09:00:00+01:00");
     expect([...classes].sort()).toEqual([...contenu().slice(0, -1), "Jean Lassalle"].sort());
     expect(classes).not.toContain(contenu().at(-1));
-    // Le plateau aussi bascule : la liste est exacte partout dans « Mes résultats ».
-    const legende = page.getByRole("list", { name: "Légende du plateau" });
-    await expect(legende.getByRole("listitem")).toHaveCount(classes.length + 1);
-    await expect(legende).not.toContainText(contenu().at(-1)!);
-    await expect(legende).toContainText("Jean Lassalle");
   });
 
   test("un candidat de la liste officielle qui n'était pas encore dans le classement y entre, avec une fiche", async ({ page }) => {
@@ -6308,74 +6082,6 @@ test.describe("avant 10 réponses, un bouton mène à la prochaine question", ()
     await page.goto("/resultats");
     await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem").first()).toBeVisible();
     await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("link", { name: "Répondre" })).toHaveCount(0);
-  });
-});
-
-test.describe("des pions qui se chevauchent restent lisibles au téléphone", () => {
-  // Jeu « plateau-proche » : Lisnard y a partout la position de Retailleau ; l'électeur répond comme Zemmour.
-  const COMME_ZEMMOUR: Record<number, string> = { 1: "C", 2: "B", 3: "C", 4: "C", 5: "A", 6: "B", 7: "C", 8: "C", 9: "C", 10: "C", 11: "C", 12: "C" };
-
-  /** Le centre et le diamètre de chaque pion du plateau (« TOI » compris), par ses initiales. */
-  async function pionsDuPlateau(page: Page) {
-    await page.setViewportSize({ width: 375, height: 812 });
-    await page.context().addCookies([{ name: "aucrible-jeu-de-test", value: "plateau-proche", url: "http://localhost:3127" }]);
-    await page.goto("/questionnaire");
-    await page.evaluate((r) => {
-      const reponses: Record<number, object> = {};
-      for (const [n, option] of Object.entries(r)) reponses[Number(n)] = { option, importance: 1, graine: 1, jour: "2026-10-22" };
-      localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
-    }, COMME_ZEMMOUR);
-    await page.goto("/resultats");
-    const plateau = page.getByRole("region", { name: "Ton plateau" });
-    await expect(plateau.locator(".field .pawn").first()).toBeVisible();
-    // Les centres se mesurent à l'écran : le champ doit y être en entier.
-    await plateau.locator(".field").scrollIntoViewIfNeeded();
-    return plateau.locator(".field .pawn, .field .you").evaluateAll((els) =>
-      Object.fromEntries(
-        els.map((e) => {
-          const r = e.getBoundingClientRect();
-          return [e.classList.contains("you") ? "TOI" : e.textContent!.trim(), { x: r.x + r.width / 2, y: r.y + r.height / 2, d: Math.min(r.width, r.height) }];
-        }),
-      ),
-    );
-  }
-  const ecart = (a: { x: number; y: number }, b: { x: number; y: number }) => Math.hypot(a.x - b.x, a.y - b.y);
-
-  test("à 375 px, Lisnard et Retailleau, à la même place, ont deux pions distincts dont on lit les initiales", async ({ page }) => {
-    const pions = await pionsDuPlateau(page);
-    expect(ecart(pions.DL, pions.BR)).toBeGreaterThanOrEqual(Math.min(pions.DL.d, pions.BR.d) * 0.9);
-    for (const initiales of ["DL", "BR"]) {
-      const { x, y } = pions[initiales];
-      expect(await page.evaluate(([x, y]) => document.elementFromPoint(x, y)?.textContent?.trim(), [x, y])).toBe(initiales);
-    }
-  });
-
-  test("quand « TOI » tombe sur le pion de Zemmour, on repère encore les deux", async ({ page }) => {
-    const pions = await pionsDuPlateau(page);
-    expect(ecart(pions.TOI, pions["ÉZ"])).toBeGreaterThanOrEqual((pions.TOI.d + pions["ÉZ"].d) / 2 * 0.9);
-  });
-
-  test("aucun pion ne sort du plateau en s'écartant", async ({ page }) => {
-    const pions = await pionsDuPlateau(page);
-    const champ = (await page.getByRole("region", { name: "Ton plateau" }).locator(".field").boundingBox())!;
-    for (const { x, y } of Object.values(pions)) {
-      expect(x).toBeGreaterThanOrEqual(champ.x);
-      expect(x).toBeLessThanOrEqual(champ.x + champ.width);
-      expect(y).toBeGreaterThanOrEqual(champ.y);
-      expect(y).toBeLessThanOrEqual(champ.y + champ.height);
-    }
-  });
-});
-
-test.describe("un candidat sans aucune note n'a pas de pion sur le plateau", () => {
-  test("Jean Lassalle, entré sans position, n'est pas posé sur le plateau ; la légende le dit « pas encore placé »", async ({ page }) => {
-    await page.context().addCookies([{ name: "aucrible-candidats-de-test", value: "lassalle", url: "http://localhost:3127" }]);
-    await vingtTroisReponses(page);
-    await page.goto("/resultats");
-    const plateau = page.getByRole("region", { name: "Ton plateau" });
-    await expect(plateau.locator(".field .pawn").first()).toBeVisible();
-    await expect(plateau.locator(".field .pawn", { hasText: /^JLa$/ })).toHaveCount(0);
-    await expect(plateau.getByRole("list", { name: "Légende du plateau" }).getByRole("listitem").filter({ hasText: "Jean Lassalle" })).toContainText("pas encore placé");
   });
 });
 

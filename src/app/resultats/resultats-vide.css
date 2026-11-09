@@ -39,8 +39,9 @@
   -webkit-mask-image: linear-gradient(#000 15%, transparent);
   mask-image: linear-gradient(#000 15%, transparent);
 }
-.cand.ghost { background: var(--table); padding-top: 9px; }
-.cand.ghost .cand-n, .cand.ghost .cand-pc { color: var(--muted); }
+.ghosts .g-ligne { background: var(--table); }
+.ghosts .cand-n, .ghosts .cand-pc { color: var(--muted); }
+.ghosts .cand-name { flex: 1; }
 .skel { display: block; width: var(--w); height: 12px; border-radius: 4px; background: var(--table-3); }
 .empty-body { position: relative; }
 .empty-t {
@@ -63,32 +64,6 @@
 .gauge i.on { background: var(--eco); }
 .empty-p { margin-top: 14px; font-size: 15px; line-height: 1.45; color: var(--sur-table); }
 .empty .go { margin-top: 20px; text-decoration: none; }
-
-/* ---------- le plateau, avec toi seulement ---------- */
-.halo {
-  position: absolute; z-index: 1;
-  left: var(--x); top: var(--y);
-  width: 52%; aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  border: 3px dashed var(--ink-soft);
-  border-radius: 50%;
-}
-.you.faint { animation: none; }
-.you.faint svg { opacity: .55; }
-.board-note {
-  position: absolute; z-index: 4;
-  left: 50%; bottom: 6%;
-  transform: translateX(-50%);
-  width: max-content; max-width: 90%;
-  background: var(--ink); color: var(--chalk);
-  font: 700 13px/1.25 var(--text); text-align: center; text-wrap: balance;
-  padding: 8px 12px 8px; border-radius: 10px;
-}
-.vide .legend { grid-template-columns: minmax(0, 1fr); }
-.pawn--ghost { background: transparent; color: var(--sur-table); border: 2px dashed var(--pawn-edge); box-shadow: none !important; }
-
-/* ---------- les thèmes ---------- */
-.vide .th-who { color: var(--muted); }
 
 /* ---------- la carte à partager, verrouillée ---------- */
 .story.locked {
@@ -119,5 +94,4 @@ button.act { border: 0; width: 100%; font-family: var(--display); cursor: pointe
   .vide .big-token .count span { display: block; }
   .trophy-txt { margin-top: 12px; max-width: 250px; }
   .started { margin: 0 auto; }
-  .vide .legend { grid-template-columns: minmax(0, 1fr); }
 }
