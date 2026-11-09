@@ -113,7 +113,7 @@ const fond = (locator: import("@playwright/test").Locator) =>
 test("la question n° 24 (Travail & retraites) s'affiche en orange", async ({ page }) => {
   await page.goto("/questionnaire");
   const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
-  await expect.poll(() => fond(carte.locator(".bloc"))).toBe(ORANGE);
+  await expect.poll(() => fond(carte.locator(".bandeau"))).toBe(ORANGE);
   expect(await fond(page.getByRole("button", { name: "Voir les propositions" }))).toBe(ORANGE);
   await voirLesPropositions(page);
   expect(await fond(page.locator(".mq-tete"))).toBe(ORANGE);
@@ -123,7 +123,7 @@ test("une question d'Écologie & énergie s'affiche en vert, et les 11 thèmes o
   await fixerLeJour(page, "2026-10-24T09:00:00+02:00");
   await page.goto("/questionnaire");
   const carte = page.getByRole("article", { name: "Faut-il sortir du nucléaire ?" });
-  await expect.poll(() => fond(carte.locator(".bloc"))).toBe(VERT);
+  await expect.poll(() => fond(carte.locator(".bandeau"))).toBe(VERT);
   expect(await fond(page.getByRole("button", { name: "Voir les propositions" }))).toBe(VERT);
   await voirLesPropositions(page);
   expect(await fond(page.locator(".mq-tete"))).toBe(VERT);
@@ -4326,11 +4326,11 @@ test.describe("l'en-tête reste en haut au défilement", () => {
   /** L'élément au point donné appartient-il à l'en-tête ? Si oui, rien de ce qui défile n'est passé par-dessus. */
   const devantAuPoint = (page: Page, x: number, y: number) => page.evaluate(([x, y]) => !!document.elementFromPoint(x, y)?.closest("header.topbar"), [x, y]);
 
-  test("sur la n° 24, défiler jusqu'aux derniers chiffres clés laisse le logo en haut, et le texte passe dessous", async ({ page }) => {
+  test("sur la n° 24, défiler jusqu'à la vidéo, en bas de la fiche, laisse le logo en haut, et le texte passe dessous", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/questionnaire");
-    await page.getByRole("region", { name: "Chiffres clés" }).getByRole("listitem").last().scrollIntoViewIfNeeded();
-    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(300);
+    await page.getByRole("region", { name: "Pour aller plus loin" }).scrollIntoViewIfNeeded();
+    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(200);
     const logo = page.getByRole("banner").getByRole("link", { name: "Au crible 2027" });
     await expect(logo).toBeInViewport();
     const boite = (await logo.boundingBox())!;
@@ -6533,7 +6533,7 @@ test("au téléphone, « Voir les propositions » est visible dès l'ouverture, 
   expect(await page.evaluate(() => window.scrollY)).toBe(0);
 });
 
-/** La vidéo lue comme une story, à la place de l'affiche ou par-dessus la fiche. */
+/** La vidéo lue comme une story, par-dessus la fiche. */
 const histoire = (page: Page) => page.getByRole("group", { name: /^Vidéo :/ });
 /** Où en est la vidéo de la story, en secondes. */
 const instant = (page: Page) => histoire(page).locator("video").evaluate((v: HTMLVideoElement) => v.currentTime);
@@ -6564,68 +6564,72 @@ const sansSon = (page: Page) => histoire(page).locator("video").evaluate((v: HTM
 /** La vidéo de la story est-elle arrêtée ? */
 const arretee = (page: Page) => histoire(page).locator("video").evaluate((v: HTMLVideoElement) => v.paused);
 
-test.describe("la première étape : l'équerre", () => {
+test.describe("la première étape : la une", () => {
   for (const [largeur, hauteur] of [[1440, 900], [1920, 1080]]) {
     test.describe(`à ${largeur} × ${hauteur}`, () => {
       test.use({ viewport: { width: largeur, height: hauteur }, isMobile: false, hasTouch: false });
 
-      test("la vidéo debout à gauche, la question au-dessus du contexte et des chiffres côte à côte, et tout tient sans défiler", async ({ page }) => {
+      test("la question en bandeau, les chiffres clés côte à côte dessous, puis le contexte, la vidéo à sa droite, et tout tient sans défiler", async ({ page }) => {
         await page.goto("/questionnaire");
         const bouton = page.getByRole("button", { name: "Voir les propositions" });
         await expect(bouton).toBeInViewport({ ratio: 1 });
-        const affiche = await page.getByRole("img", { name: /^Vidéo à venir/ }).boundingBox();
-        const question = await page.getByRole("heading", { level: 1 }).boundingBox();
-        const contexte = await page.getByRole("region", { name: "Le contexte" }).boundingBox();
-        const chiffres = await page.getByRole("region", { name: "Chiffres clés" }).boundingBox();
-        expect(affiche!.height).toBeGreaterThan(hauteur * 0.8);
-        expect(affiche!.height / affiche!.width).toBeCloseTo(16 / 9, 1);
-        expect(affiche!.x + affiche!.width).toBeLessThanOrEqual(question!.x);
-        expect(question!.y + question!.height).toBeLessThanOrEqual(contexte!.y);
-        expect(contexte!.x + contexte!.width).toBeLessThanOrEqual(chiffres!.x);
-        await expect(page.getByRole("region", { name: "Chiffres clés" })).toBeInViewport({ ratio: 1 });
+        const chiffres = page.getByRole("region", { name: "Chiffres clés" });
+        const question = (await page.getByRole("heading", { level: 1 }).boundingBox())!;
+        const boiteChiffres = (await chiffres.boundingBox())!;
+        const contexte = (await page.getByRole("region", { name: "Le contexte" }).boundingBox())!;
+        const plusLoin = (await page.getByRole("region", { name: "Pour aller plus loin" }).boundingBox())!;
+        const video = (await page.getByRole("img", { name: /^Vidéo à venir/ }).boundingBox())!;
+        expect(question.y + question.height).toBeLessThanOrEqual(boiteChiffres.y);
+        expect(boiteChiffres.y + boiteChiffres.height).toBeLessThanOrEqual(contexte.y);
+        expect(contexte.x + contexte.width).toBeLessThanOrEqual(plusLoin.x);
+        // Les chiffres en manchette, sur une même ligne ; la vidéo, une petite carte.
+        const [premier, dernier] = [(await chiffres.getByRole("listitem").first().boundingBox())!, (await chiffres.getByRole("listitem").last().boundingBox())!];
+        expect(Math.round(premier.y)).toBe(Math.round(dernier.y));
+        expect(video.height).toBeLessThan(hauteur / 4);
+        await expect(chiffres).toBeInViewport({ ratio: 1 });
         expect(await page.evaluate(() => document.documentElement.scrollHeight <= window.innerHeight + 1)).toBe(true);
       });
     });
   }
 
-  test("au téléphone, l'affiche est à côté de la question ; la vidéo s'ouvre en plein écran, et en sortir ramène l'affiche", async ({ page }) => {
+  test("au téléphone, la vidéo vient après le contexte ; elle s'ouvre en plein écran, et en sortir ramène la fiche", async ({ page }) => {
     await page.goto("/question/9");
-    const affiche = page.getByRole("button", { name: /^Lire la vidéo/ });
-    const boite = await affiche.boundingBox();
-    const question = await page.getByRole("heading", { level: 1 }).boundingBox();
-    expect(question!.x + question!.width).toBeLessThanOrEqual(boite!.x);
-    await affiche.click();
+    const carteVideo = page.getByRole("button", { name: /^Lire la vidéo/ });
+    const boite = await carteVideo.boundingBox();
+    const contexte = await page.getByRole("region", { name: "Le contexte" }).boundingBox();
+    expect(contexte!.y + contexte!.height).toBeLessThanOrEqual(boite!.y);
+    await carteVideo.click();
     await expect.poll(() => page.evaluate(() => document.fullscreenElement?.getAttribute("aria-label"))).toMatch(/^Vidéo :/);
     await page.evaluate(() => document.exitFullscreen());
     await expect(histoire(page)).toHaveCount(0);
-    await expect(affiche).toBeVisible();
+    await expect(carteVideo).toBeVisible();
   });
 
-  test("au téléphone, la vidéo couvre la fiche ; la croix ramène l'affiche, et la vidéo reprend là où elle s'était arrêtée", async ({ page }) => {
+  test("au téléphone, la vidéo couvre la fiche ; la croix ramène la fiche, et la vidéo reprend là où elle s'était arrêtée", async ({ page }) => {
     await servirLaVideoDeTest(page);
     await page.goto("/question/9");
-    const affiche = page.getByRole("button", { name: /^Lire la vidéo/ });
-    await affiche.click();
+    const carteVideo = page.getByRole("button", { name: /^Lire la vidéo/ });
+    await carteVideo.click();
     const { width, height } = page.viewportSize()!;
     expect(await histoire(page).boundingBox()).toEqual({ x: 0, y: 0, width, height });
     await page.getByRole("button", { name: "Écran suivant" }).click();
     await expect.poll(() => instant(page)).toBeGreaterThanOrEqual(10);
     await page.getByRole("button", { name: "Fermer la vidéo" }).click();
     await expect(histoire(page)).toHaveCount(0);
-    await affiche.click();
+    await carteVideo.click();
     await expect.poll(() => instant(page)).toBeGreaterThanOrEqual(10);
   });
 
   test("au téléphone, passer la question ou finir la vidéo ramène à la fiche, et la vidéo repart alors du début", async ({ page }) => {
     await servirLaVideoDeTest(page);
     await page.goto("/question/9");
-    const affiche = page.getByRole("button", { name: /^Lire la vidéo/ });
-    await affiche.click();
+    const carteVideo = page.getByRole("button", { name: /^Lire la vidéo/ });
+    await carteVideo.click();
     await expect.poll(() => instant(page)).toBeGreaterThan(0);
     await histoire(page).locator("video").evaluate((v: HTMLVideoElement) => (v.currentTime = 35));
     await page.getByRole("button", { name: "Écran suivant" }).click();
     await expect(histoire(page)).toHaveCount(0);
-    await affiche.click();
+    await carteVideo.click();
     await expect.poll(() => instant(page)).toBeGreaterThan(0);
     expect(await instant(page)).toBeLessThan(10);
     await histoire(page).locator("video").evaluate((v: HTMLVideoElement) => (v.currentTime = 39.5));
@@ -6650,7 +6654,7 @@ test.describe("la première étape : l'équerre", () => {
     expect(chiffre!.y + chiffre!.height).toBeLessThanOrEqual(barre!.y);
   });
 
-  test("sans vidéo, la vignette du sujet dit « Bientôt » ; avec une vidéo, la toucher la lance", async ({ page }) => {
+  test("sans vidéo, la carte de la vidéo dit « Bientôt » ; avec une vidéo, la toucher la lance", async ({ page }) => {
     await page.goto("/questionnaire");
     await expect(page.getByRole("img", { name: "Vidéo à venir : L'âge de la retraite" })).toContainText("Bientôt");
     await page.goto("/question/9");
@@ -6658,12 +6662,12 @@ test.describe("la première étape : l'équerre", () => {
     await expect(page.locator("video")).toBeVisible();
   });
 
-  test("au téléphone, les images couvrent aussi la fiche ; la croix ramène l'affiche, qui rouvre les images là où on les a laissées", async ({ page }) => {
+  test("au téléphone, les images couvrent aussi la fiche ; la croix ramène la fiche, et la carte rouvre les images là où on les a laissées", async ({ page }) => {
     await servirLaVideoDeTest(page);
     await servirLesImagesDeTest(page);
     await page.goto("/question/9");
-    const affiche = page.getByRole("button", { name: /^Lire la vidéo/ });
-    await affiche.click();
+    const carteVideo = page.getByRole("button", { name: /^Lire la vidéo/ });
+    await carteVideo.click();
     await page.getByRole("button", { name: "Faire défiler les images" }).click();
     const { width, height } = page.viewportSize()!;
     expect(await histoire(page).boundingBox()).toEqual({ x: 0, y: 0, width, height });
@@ -6672,7 +6676,7 @@ test.describe("la première étape : l'équerre", () => {
     await expect(page.getByRole("img", { name: "Écran 2 sur 4" })).toBeInViewport({ ratio: 0.9 });
     await page.getByRole("button", { name: "Fermer la vidéo" }).click();
     await expect(histoire(page)).toHaveCount(0);
-    await affiche.click();
+    await carteVideo.click();
     await expect(page.getByRole("img", { name: "Écran 2 sur 4" })).toBeInViewport({ ratio: 0.9 });
   });
 
@@ -6707,17 +6711,15 @@ test.describe("la première étape : l'équerre", () => {
     }
   });
 
-  test.describe("sur grand écran, la vidéo se lit à sa place comme une story", () => {
+  test.describe("sur grand écran aussi, la vidéo couvre la fiche, comme une story", () => {
     test.use({ viewport: { width: 1440, height: 900 }, isMobile: false, hasTouch: false });
 
     test("sans les commandes du navigateur : à droite l'écran suivant, à gauche le précédent, et les flèches du clavier de même", async ({ page }) => {
       await servirLaVideoDeTest(page);
       await page.goto("/question/9");
-      const affiche = page.getByRole("button", { name: /^Lire la vidéo/ });
-      const place = (await affiche.boundingBox())!;
-      await affiche.click();
-      const boite = (await histoire(page).boundingBox())!;
-      expect([boite.x, boite.y, boite.width, boite.height].map(Math.round)).toEqual([place.x, place.y, place.width, place.height].map(Math.round));
+      await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
+      const { width, height } = page.viewportSize()!;
+      expect(await histoire(page).boundingBox()).toEqual({ x: 0, y: 0, width, height });
       await expect(histoire(page).locator("video")).not.toHaveAttribute("controls");
       await expect.poll(() => instant(page)).toBeGreaterThan(0);
       const suivant = page.getByRole("button", { name: "Écran suivant" });
@@ -6736,7 +6738,7 @@ test.describe("la première étape : l'équerre", () => {
       await expect.poll(ecran).toBe(10);
     });
 
-    test("à gauche, passé une seconde et demie dans un écran, il reprend à son début ; après la question, la vidéo s'arrête sur elle", async ({ page }) => {
+    test("à gauche, passé une seconde et demie dans un écran, il reprend à son début ; après la question, on revient à la fiche", async ({ page }) => {
       await servirLaVideoDeTest(page);
       await page.goto("/question/9");
       await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
@@ -6759,8 +6761,7 @@ test.describe("la première étape : l'équerre", () => {
       expect(await instant(page)).toBeGreaterThanOrEqual(20);
       await arreterA(35);
       await page.getByRole("button", { name: "Écran suivant" }).click();
-      await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.ended)).toBe(true);
-      await expect(histoire(page)).toBeVisible();
+      await expect(histoire(page)).toHaveCount(0);
     });
 
     test("rester appuyé met en pause ; relâcher reprend, sans changer d'écran", async ({ page }) => {
@@ -6837,10 +6838,13 @@ test.describe("la première étape : l'équerre", () => {
       await page.getByRole("button", { name: /^Lire la vidéo/ }).click();
       await expect.poll(() => instant(page)).toBeGreaterThan(0);
       // Un tiret par écran, la question à part, posé sur celui de la vidéo : à 238 px du haut de 1 920, à partir de
-      // 80 px sur 1 080 (75 avec le demi-espace avant lui).
+      // 80 px sur 1 080 (75 avec le demi-espace avant lui). La vidéo, debout, est au milieu de l'écran.
       const tirets = page.getByRole("button", { name: /^Aller à l'écran/ });
       await expect(tirets).toHaveCount(3);
-      const boite = (await histoire(page).boundingBox())!;
+      const ecran = (await histoire(page).boundingBox())!;
+      const largeur = Math.min(ecran.width, (ecran.height * 9) / 16);
+      const hauteur = (largeur * 16) / 9;
+      const boite = { x: ecran.x + (ecran.width - largeur) / 2, y: ecran.y + (ecran.height - hauteur) / 2, width: largeur, height: hauteur };
       const premier = (await tirets.first().boundingBox())!;
       expect(Math.abs(premier.x - (boite.x + (boite.width * 75) / 1080))).toBeLessThan(2);
       expect(Math.abs(premier.y + premier.height / 2 - (boite.y + (boite.height * 238) / 1920))).toBeLessThan(2);
@@ -7003,14 +7007,14 @@ test.describe("le site est en mode clair, même sur un appareil réglé en sombr
 
   test("la table est lavande, le texte foncé, la couleur du thème adoucie", async ({ page }) => {
     await page.goto("/questionnaire");
-    await expect.poll(() => fond(page.locator(".ecran-partage .bloc"))).toBe(ORANGE);
+    await expect.poll(() => fond(page.locator(".une .bandeau"))).toBe(ORANGE);
     expect(await page.evaluate(() => getComputedStyle(document.body).backgroundColor)).toBe("rgb(242, 240, 246)");
     expect(await page.getByRole("region", { name: "Le contexte" }).locator("p").first().evaluate((p) => getComputedStyle(p).color)).toBe("rgb(42, 37, 68)");
   });
 
   test("le thème et la durée de la vidéo restent en pastille sombre, texte clair", async ({ page }) => {
     await page.goto("/questionnaire");
-    const pastille = page.locator(".ecran-partage .theme-chip");
+    const pastille = page.locator(".une .theme-chip");
     expect(await pastille.evaluate((e) => [getComputedStyle(e).backgroundColor, getComputedStyle(e).color])).toEqual(["rgb(29, 24, 56)", "rgb(246, 243, 255)"]);
   });
 
