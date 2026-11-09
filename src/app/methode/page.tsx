@@ -198,6 +198,10 @@ function RegleDeLImportance() {
             Le score de la question est multiplié par ce poids. Un sujet ×3 pèse trois fois plus qu&apos;un sujet ×1, dans les points
             gagnés comme dans le maximum possible.
           </p>
+          <p>
+            Ton classement fait ce calcul sur toutes tes réponses. Dans sa grille, <b>chaque case le refait sur les seules questions de son
+            thème</b>, dès 3 réponses dans ce thème.
+          </p>
           <p className="small">Le poids, c&apos;est ton choix à toi. Il ne dépend jamais du candidat.</p>
         </div>
         <figure className="demo" aria-label="Les trois poids et un exemple">
