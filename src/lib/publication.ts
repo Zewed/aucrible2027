@@ -57,8 +57,8 @@ export async function lireLesCandidats(): Promise<Candidat[]> {
 }
 
 /**
- * Les candidats de « Mes résultats » hors classement (le plateau, les thèmes) : tous, retirés compris, sauf, une fois la
- * liste officielle parue, ceux qu'elle écarte, puisque la liste bascule exactement sur ses candidats.
+ * Les candidats de la liste : tous, retirés compris, sauf, une fois la liste officielle parue, ceux qu'elle écarte,
+ * puisque la liste bascule exactement sur ses candidats.
  */
 export async function lireCandidatsDeLaListe(): Promise<Candidat[]> {
   const [candidats, liste] = await Promise.all([lireLesCandidats(), laListeParue()]);
@@ -150,7 +150,7 @@ export async function lireQuestionsDuCalcul(): Promise<QuestionDuCalcul[]> {
   return (await lireQuestionsPubliees()).map((q) => ({
     numero: q.numero,
     theme: q.theme,
-    options: q.options.map((o) => ({ id: o.id, horsEchelle: o.horsEchelle, axes: o.axes })),
+    options: q.options.map((o) => ({ id: o.id, horsEchelle: o.horsEchelle })),
     positions: Object.fromEntries(Object.entries(q.positions).map(([id, p]) => [id, { option: p.option }])),
   }));
 }

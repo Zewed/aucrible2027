@@ -2265,7 +2265,8 @@ test.describe("les résultats montrent la carte « Je suis à X % proche de Y »
 });
 
 test.describe("la carte affiche réponses et thèmes", () => {
-  const piedDeLaCarte = (page: Page) => page.getByRole("article", { name: /Carte à partager/ }).filter({ visible: true }).locator(".sc-f");
+  // La carte « avec mon candidat », la première : celle « sans candidat » porte le même pied.
+  const piedDeLaCarte = (page: Page) => page.getByRole("article", { name: /Carte à partager : \d/ }).filter({ visible: true }).locator(".sc-f");
 
   test("avec 23 réponses et 5 parts gagnées, la carte affiche « 23 réponses · 5/11 thèmes »", async ({ page }) => {
     await vingtTroisReponses(page);
@@ -2285,10 +2286,10 @@ test.describe("la carte affiche réponses et thèmes", () => {
 });
 
 test.describe("la carte affiche le camembert", () => {
-  /** Les parts remplies du camembert de la carte, par thème (dans l'ordre des thèmes). */
+  /** Les parts remplies du camembert de la carte « avec mon candidat », par thème (dans l'ordre des thèmes). */
   const partsDeLaCarte = (page: Page) =>
     page
-      .getByRole("article", { name: /Carte à partager/ })
+      .getByRole("article", { name: /Carte à partager : \d/ })
       .filter({ visible: true })
       .locator(".sc-token svg path")
       .evaluateAll((parts) => parts.map((part) => part.classList.contains("on")));
@@ -2301,7 +2302,7 @@ test.describe("la carte affiche le camembert", () => {
   test("avec 5 parts gagnées, le camembert de la carte montre les 5 mêmes parts que « Mes résultats »", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/carte");
-    await expect(page.getByRole("img", { name: "Camembert : 5 thèmes sur 11" })).toBeVisible();
+    await expect(page.getByRole("article", { name: /Carte à partager : \d/ }).getByRole("img", { name: "Camembert : 5 thèmes sur 11" })).toBeVisible();
     const parts = await partsDeLaCarte(page);
     expect(parts).toHaveLength(11);
     expect(remplies(parts)).toEqual(["Économie & impôts", "Écologie & énergie", "Immigration", "Sécurité & justice", "Santé"]);
@@ -2318,57 +2319,50 @@ test.describe("la carte affiche le camembert", () => {
     await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
     await page.goto("/carte");
-    await expect(page.getByRole("img", { name: "Camembert : 6 thèmes sur 11" })).toBeVisible();
+    await expect(page.getByRole("article", { name: /Carte à partager : \d/ }).getByRole("img", { name: "Camembert : 6 thèmes sur 11" })).toBeVisible();
     expect(remplies(await partsDeLaCarte(page))).toEqual(["Économie & impôts", "Travail & retraites", "Écologie & énergie", "Immigration", "Sécurité & justice", "Santé"]);
   });
 });
 
-test.describe("l'électeur choisit une carte qui ne montre que son pion", () => {
+test.describe("l'électeur choisit une carte qui ne montre que son camembert", () => {
   const versions = (page: Page) => ({
     candidat: page.locator(".sp-slot").filter({ hasText: "Version 1 · avec mon candidat" }),
-    pion: page.locator(".sp-slot").filter({ hasText: "Version 2 · seulement mon pion" }),
+    camembert: page.locator(".sp-slot").filter({ hasText: "Version 2 · sans candidat" }),
   });
   const choisirLaCarte = (page: Page, libelle: string) =>
     page.getByRole("group", { name: "Ce que ma carte montre" }).getByText(libelle, { exact: true }).click();
 
-  test("au départ, la version « avec mon candidat » est « Choisie » ; avec « Seulement mon pion », c'est la version « Mon pion sur le plateau »", async ({ page }) => {
+  test("au départ, la version « avec mon candidat » est « Choisie » ; avec « Seulement mon camembert », c'est la version « Mon camembert »", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/carte");
-    const { candidat, pion } = versions(page);
+    const { candidat, camembert } = versions(page);
     await expect(candidat.getByText("Choisie", { exact: true })).toBeVisible();
-    await expect(pion.getByText("Choisie", { exact: true })).toBeHidden();
-    await choisirLaCarte(page, "Seulement mon pion");
-    await expect(pion.getByText("Choisie", { exact: true })).toBeVisible();
+    await expect(camembert.getByText("Choisie", { exact: true })).toBeHidden();
+    await choisirLaCarte(page, "Seulement mon camembert");
+    await expect(camembert.getByText("Choisie", { exact: true })).toBeVisible();
     await expect(candidat.getByText("Choisie", { exact: true })).toBeHidden();
   });
 
-  test("la carte « Mon pion sur le plateau » pose le pion « TOI » dans le même cadre que le plateau, sans nom, pourcentage ni pion de candidat", async ({ page }) => {
+  test("la carte « Mon camembert » montre le camembert, ses 5 parts gagnées et le pied « 23 réponses · 5/11 thèmes », sans nom ni pourcentage de candidat", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/carte");
-    const carte = page.getByRole("article", { name: "Carte à partager : mon pion sur le plateau, sans nom de candidat" });
-    await expect(carte.getByRole("heading", { name: "Mon pion sur le plateau" })).toBeVisible();
-    await expect(carte.locator(".field .pawn")).toHaveCount(0);
+    const carte = page.getByRole("article", { name: "Carte à partager : mon camembert, sans nom de candidat" });
+    await expect(carte.getByRole("heading", { name: "Mon camembert" })).toBeVisible();
+    await expect(carte.getByRole("img", { name: "Camembert : 5 thèmes sur 11" })).toBeVisible();
+    await expect(carte.locator(".sc-f")).toHaveText("23 réponses · 5/11 thèmes");
+    await expect(carte.locator(".pawn")).toHaveCount(0);
     for (const nom of Object.keys(INITIALES)) await expect(carte.getByText(nom)).toHaveCount(0);
     await expect(carte.getByText(/%/)).toHaveCount(0);
-    const { x, y } = await carte.locator(".field .you").evaluate((toi: HTMLElement) => {
-      const champ = toi.offsetParent as HTMLElement;
-      const style = getComputedStyle(toi);
-      return { x: parseFloat(style.left) / champ.clientWidth, y: parseFloat(style.top) / champ.clientHeight };
-    });
-    expect(x).toBeGreaterThan(0.7);
-    expect(x).toBeLessThan(0.82);
-    expect(y).toBeGreaterThan(0.58);
-    expect(y).toBeLessThan(0.7);
   });
 
   test("en revenant sur « Mon candidat le plus proche », la version avec « 81 % » et « François Ruffin » redevient la choisie", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/carte");
-    await choisirLaCarte(page, "Seulement mon pion");
+    await choisirLaCarte(page, "Seulement mon camembert");
     await choisirLaCarte(page, "Mon candidat le plus proche");
-    const { candidat, pion } = versions(page);
+    const { candidat, camembert } = versions(page);
     await expect(candidat.getByText("Choisie", { exact: true })).toBeVisible();
-    await expect(pion.getByText("Choisie", { exact: true })).toBeHidden();
+    await expect(camembert.getByText("Choisie", { exact: true })).toBeHidden();
     await expect(candidat.getByText(/^81\s%$/)).toBeVisible();
     await expect(candidat.getByText("François Ruffin")).toBeVisible();
   });
@@ -2436,11 +2430,11 @@ test.describe("« Partager » envoie l'image 9:16 au partage du téléphone", ()
     await context.setOffline(false);
   });
 
-  test("l'image jointe est celle de la version choisie : avec « Seulement mon pion », c'est la carte du pion, sans nom", async ({ page }) => {
+  test("l'image jointe est celle de la version choisie : avec « Seulement mon camembert », c'est la carte du camembert, sans nom", async ({ page }) => {
     await partageDeTest(page);
     await vingtTroisReponses(page);
     await page.goto("/carte");
-    await page.getByRole("group", { name: "Ce que ma carte montre" }).getByText("Seulement mon pion", { exact: true }).click();
+    await page.getByRole("group", { name: "Ce que ma carte montre" }).getByText("Seulement mon camembert", { exact: true }).click();
     await page.getByRole("button", { name: "Partager", exact: true }).click();
     await expect.poll(async () => (await partagesFaits(page)).length).toBe(1);
     const [partage] = await partagesFaits(page);
@@ -2476,10 +2470,10 @@ test.describe("« Télécharger l'image » enregistre la carte", () => {
     expect(proche(image.fond, await couleurDuJeton(page, "--eco"))).toBe(true);
   });
 
-  test("l'image enregistrée est celle de la version choisie : avec « Seulement mon pion », la carte du pion", async ({ page }) => {
+  test("l'image enregistrée est celle de la version choisie : avec « Seulement mon camembert », la carte du camembert", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/carte");
-    await page.getByRole("group", { name: "Ce que ma carte montre" }).getByText("Seulement mon pion", { exact: true }).click();
+    await page.getByRole("group", { name: "Ce que ma carte montre" }).getByText("Seulement mon camembert", { exact: true }).click();
     const image = await telecharger(page);
     expect(proche(image.fond, await couleurDuJeton(page, "--immi"))).toBe(true);
   });
@@ -2550,11 +2544,11 @@ test.describe("la carte affiche « Et toi ? aucrible2027.fr »", () => {
     await expect(bas.getByText("aucrible2027.fr", { exact: true })).toBeVisible();
   });
 
-  test("en bas de la carte « seulement mon pion », on lit « Et toi, tu te places où ? » et la même adresse", async ({ page }) => {
+  test("en bas de la carte « seulement mon camembert », on lit « Et toi, tu en es où ? » et la même adresse", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/carte");
-    const bas = page.getByRole("article", { name: "Carte à partager : mon pion sur le plateau, sans nom de candidat" }).locator(".sc-ask");
-    await expect(bas.getByText("Et toi, tu te places où ?", { exact: true })).toBeVisible();
+    const bas = page.getByRole("article", { name: "Carte à partager : mon camembert, sans nom de candidat" }).locator(".sc-ask");
+    await expect(bas.getByText("Et toi, tu en es où ?", { exact: true })).toBeVisible();
     await expect(bas.getByText("aucrible2027.fr", { exact: true })).toBeVisible();
   });
 });
@@ -3141,7 +3135,7 @@ test.describe("la page Méthode explique pourquoi une position inconnue ne compt
     await expect(regle3(page).locator(".rule-txt p")).toHaveText([
       "Si rien, dans les sources publiques, ne permet de placer un candidat sur une question, sa position est notée « inconnue ».",
       "Pour ce candidat, la question est exclue du calcul : elle ne lui donne aucun point et ne lui en retire aucun. Elle ne compte pas non plus dans le maximum possible.",
-      "On n'invente jamais. Même estimée, une position s'appuie sur une source citée (règle 6).",
+      "On n'invente jamais. Même estimée, une position s'appuie sur une source citée (règle 4).",
     ]);
   });
 
@@ -3155,52 +3149,19 @@ test.describe("la page Méthode explique pourquoi une position inconnue ne compt
     await expect(exemple.locator(".demo-cap b")).toHaveText("Comptées : 3 questions sur 4.");
   });
 
-  test("la règle écrit « On n'invente jamais. Même estimée, une position s'appuie sur une source citée (règle 6). »", async ({ page }) => {
+  test("la règle écrit « On n'invente jamais. Même estimée, une position s'appuie sur une source citée (règle 4). »", async ({ page }) => {
     await page.goto("/methode");
-    await expect(regle3(page).getByText("On n'invente jamais. Même estimée, une position s'appuie sur une source citée (règle 6).")).toBeVisible();
-  });
-});
-
-test.describe("la page Méthode explique comment le plateau place les pions", () => {
-  const regle5 = (page: Page) => page.getByRole("article", { name: "Le plateau : deux axes, des notes de −2 à +2" });
-
-  test("la règle n° 5 dit que chaque option a une note de −2 à +2 sur l'un des deux axes, ou aucune, et nomme les axes Économie et Société", async ({ page }) => {
-    await page.goto("/methode");
-    await expect(regle5(page).getByText("Règle n° 5")).toBeVisible();
-    await expect(regle5(page).getByText("Chaque option reçoit une note de −2 à +2 sur l'un des deux axes, ou aucune note si elle n'a pas de rapport avec l'axe.")).toBeVisible();
-    await expect(regle5(page).locator(".axes li")).toHaveText(["Économieplus de redistribution ↔ plus de marché", "Sociétéprogressiste ↔ conservateur"]);
-  });
-
-  test("l'exemple montre Retraite : 62 ans (−1, ×3), Droits de succession (+2, ×1), Fin de vie (aucune, ×2), et conclut « −0,25 » : la question sans note est ignorée", async ({ page }) => {
-    await page.goto("/methode");
-    const lignes = regle5(page).locator(".nrows li");
-    await expect(lignes.locator(".nm")).toHaveText(["Retraite : 62 ans", "Droits de succession", "Fin de vie"]);
-    await expect(lignes.locator("b")).toHaveText(["−1", "+2", "aucune"]);
-    await expect(lignes.locator(".w")).toHaveText(["×3", "×1", "×2"]);
-    await expect(lignes.nth(2)).toHaveClass("void");
-    const egalite = regle5(page).locator(".eq");
-    await expect(egalite).toHaveAccessibleName("moins 1 fois 3 plus 2 fois 1, divisé par 3 plus 1, égale moins 0,25");
-    await expect(egalite.locator(".frac b")).toHaveText(["−1×3 + 2×1", "3 + 1"]);
-    await expect(egalite.locator("mark")).toHaveText("−0,25");
-    await expect(regle5(page).getByText("La question sans note est ignorée sur cet axe. Résultat : un peu côté redistribution.")).toBeVisible();
-  });
-
-  test("la règle dit que chaque thème pèse autant, que le plateau se cadre sur les candidats, et que les options sont notées à l'aveugle", async ({ page }) => {
-    await page.goto("/methode");
-    await expect(regle5(page).getByText("chaque thème pèse autant. Les candidats sont placés par la même formule, à partir de leurs positions.")).toBeVisible();
-    await expect(regle5(page).getByText("Le plateau se cadre sur les candidats : sur chaque axe, il va du premier au dernier, et son centre est le milieu entre eux. Le même cadre vaut pour tous les pions et pour le tien.")).toBeVisible();
-    await expect(regle5(page).getByText("Les options sont notées à l'aveugle, d'après leur seul texte, sans regarder qui les défend.")).toBeVisible();
-    await expect(regle5(page).getByRole("img", { name: "Carte à deux axes : un pion TOI, légèrement côté redistribution et progressiste" })).toBeVisible();
+    await expect(regle3(page).getByText("On n'invente jamais. Même estimée, une position s'appuie sur une source citée (règle 4).")).toBeVisible();
   });
 });
 
 test.describe("la page Méthode explique l'ordre des sources", () => {
-  const regle6 = (page: Page) => page.getByRole("article", { name: "Chaque position a une source, classée par priorité" });
+  const regle4 = (page: Page) => page.getByRole("article", { name: "Chaque position a une source, classée par priorité" });
 
-  test("la règle n° 6 liste, dans l'ordre, le programme 2027, une déclaration datée de moins de 12 mois, les votes du groupe, le programme 2022 du parti", async ({ page }) => {
+  test("la règle n° 4 liste, dans l'ordre, le programme 2027, une déclaration datée de moins de 12 mois, les votes du groupe, le programme 2022 du parti", async ({ page }) => {
     await page.goto("/methode");
-    await expect(regle6(page).getByText("Règle n° 6")).toBeVisible();
-    const crans = regle6(page).locator(".ladder li");
+    await expect(regle4(page).getByText("Règle n° 4")).toBeVisible();
+    const crans = regle4(page).locator(".ladder li");
     await expect(crans.locator(".t b")).toHaveText([
       "Le programme officiel 2027",
       "Une déclaration publique du candidat",
@@ -3216,23 +3177,23 @@ test.describe("la page Méthode explique l'ordre des sources", () => {
 
   test("un sixième cran, « Aucune source », renvoie à la position « inconnue », sautée (règle 3)", async ({ page }) => {
     await page.goto("/methode");
-    const dernier = regle6(page).locator(".ladder li").nth(5);
+    const dernier = regle4(page).locator(".ladder li").nth(5);
     await expect(dernier).toHaveClass("none");
     await expect(dernier.locator("small")).toHaveText("Position « inconnue », sautée (règle 3).");
   });
 
   test("la règle écrit « On n'invente jamais » et « on ne sollicite pas les équipes de campagne »", async ({ page }) => {
     await page.goto("/methode");
-    await expect(regle6(page).getByText("On n'invente jamais et on ne sollicite pas les équipes de campagne : seules les sources publiques comptent.")).toBeVisible();
+    await expect(regle4(page).getByText("On n'invente jamais et on ne sollicite pas les équipes de campagne : seules les sources publiques comptent.")).toBeVisible();
   });
 });
 
 test.describe("la page Méthode explique les trois badges", () => {
-  const regle6 = (page: Page) => page.getByRole("article", { name: "Chaque position a une source, classée par priorité" });
+  const regle4 = (page: Page) => page.getByRole("article", { name: "Chaque position a une source, classée par priorité" });
 
   test("dans l'échelle des sources, le programme 2027 et la déclaration portent « position officielle », les votes du groupe et le programme 2022 « position déduite »", async ({ page }) => {
     await page.goto("/methode");
-    const crans = regle6(page).locator(".ladder li");
+    const crans = regle4(page).locator(".ladder li");
     await expect(crans.locator(".src-badge")).toHaveText(["position officielle", "position officielle", "position déduite", "position déduite", "position estimée", "pas de position"]);
     await expect(crans.locator(".src-badge")).toHaveClass(["src-badge off", "src-badge off", "src-badge ded", "src-badge ded", "src-badge est", "src-badge nil"]);
   });
@@ -3240,7 +3201,7 @@ test.describe("la page Méthode explique les trois badges", () => {
   test("le paragraphe dit ce qu'est une position officielle, une position déduite, et qu'on la recode dès qu'une déclaration arrive", async ({ page }) => {
     await page.goto("/methode");
     await expect(
-      regle6(page).getByText(
+      regle4(page).getByText(
         "Trois badges, trois niveaux de certitude. Une position officielle a été écrite ou dite par le candidat pour 2027. Une position déduite n'a pas été dite telle quelle : on la déduit des votes de son groupe ou du programme 2022. Une position estimée vient de sa ligne sur un sujet voisin, citée à côté. On recode dès qu'une déclaration arrive.",
       ),
     ).toBeVisible();
@@ -3248,7 +3209,7 @@ test.describe("la page Méthode explique les trois badges", () => {
 
   test("deux exemples : « position officielle » avec « Programme 2027 · Retraites · 12/09/2026 », « position déduite » avec « Vote du groupe à l'AN · réforme des retraites · 03/2023 »", async ({ page }) => {
     await page.goto("/methode");
-    const exemples = regle6(page).getByRole("figure", { name: "Trois exemples de lignes de source" }).getByRole("listitem");
+    const exemples = regle4(page).getByRole("figure", { name: "Trois exemples de lignes de source" }).getByRole("listitem");
     await expect(exemples.locator(".src-badge")).toHaveText(["position officielle", "position déduite", "position estimée"]);
     await expect(exemples.locator(".s")).toHaveText([
       "Programme 2027 · Retraites · 12/09/2026",
@@ -3259,13 +3220,13 @@ test.describe("la page Méthode explique les trois badges", () => {
 });
 
 test.describe("la page Méthode explique la règle d'entrée des candidats", () => {
-  const regle7 = (page: Page) => page.getByRole("article", { name: "Qui est dans la liste : 13 candidats" });
+  const regle5 = (page: Page) => page.getByRole("article", { name: "Qui est dans la liste : 13 candidats" });
 
-  test("la règle n° 7 écrit les trois critères, dont un seul suffit", async ({ page }) => {
+  test("la règle n° 5 écrit les trois critères, dont un seul suffit", async ({ page }) => {
     await page.goto("/methode");
-    await expect(regle7(page).getByText("Règle n° 7")).toBeVisible();
-    await expect(regle7(page).getByText("La règle d'entrée est la même pour tous. Il suffit de remplir au moins un des trois critères :")).toBeVisible();
-    await expect(regle7(page).locator(".crit li p")).toHaveText([
+    await expect(regle5(page).getByText("Règle n° 5")).toBeVisible();
+    await expect(regle5(page).getByText("La règle d'entrée est la même pour tous. Il suffit de remplir au moins un des trois critères :")).toBeVisible();
+    await expect(regle5(page).locator(".crit li p")).toHaveText([
       "Son parti dirige un groupe à l'Assemblée nationale ou au Parlement européen.",
       "Il ou elle atteint 2,0 % en moyenne dans les enquêtes d'intentions de vote des 30 derniers jours.Pour chaque enquête, on fait la moyenne des scénarios où le candidat est testé.",
       "Son parti avait obtenu les 500 parrainages en 2022 (le parti lui-même, pas ses scissions).",
@@ -3274,8 +3235,8 @@ test.describe("la page Méthode explique la règle d'entrée des candidats", () 
 
   test("la liste « au 23/10/2026 · 13 candidats » nomme les 13 avec leur parti, dans un ordre mélangé, avec le même pion pour tous", async ({ page }) => {
     await page.goto("/methode");
-    await expect(regle7(page).getByText("La liste au 23/10/2026 · 13 candidats")).toBeVisible();
-    const liste = regle7(page).locator(".roster li");
+    await expect(regle5(page).getByText("La liste au 23/10/2026 · 13 candidats")).toBeVisible();
+    const liste = regle5(page).locator(".roster li");
     await expect(liste).toHaveCount(13);
     const lus = await liste.evaluateAll((lignes) => lignes.map((l) => [l.querySelector("b")!.textContent, l.querySelector("small")!.textContent]));
     const contenu = (parse(readFileSync("content/candidats.yaml", "utf8")) as { nom: string; parti: string }[]).map((c) => [c.nom, c.parti]);
@@ -3290,15 +3251,15 @@ test.describe("la page Méthode explique la règle d'entrée des candidats", () 
 
   test("la page dit que la liste est recalculée le 1er de chaque mois, qu'un candidat entré reste jusqu'à son retrait, et que Jean Lassalle entrerait s'il se déclarait", async ({ page }) => {
     await page.goto("/methode");
-    const jalon = regle7(page).locator(".tl li").first();
+    const jalon = regle5(page).locator(".tl li").first();
     await expect(jalon.locator(".when")).toHaveText("Le 1er de chaque mois");
     await expect(jalon.locator(".what")).toHaveText("La liste est recalculée avec les trois critères. Un candidat entré reste jusqu'à son retrait.");
-    await expect(regle7(page).getByText("Jean Lassalle entrerait automatiquement s'il se déclarait.", { exact: false })).toBeVisible();
+    await expect(regle5(page).getByText("Jean Lassalle entrerait automatiquement s'il se déclarait.", { exact: false })).toBeVisible();
   });
 });
 
 test.describe("la page Méthode explique les retraits et remplacements", () => {
-  /** Le jalon de la frise de la règle n° 7 qui commence par `quand`. */
+  /** Le jalon de la frise de la règle n° 5 qui commence par `quand`. */
   const jalon = (page: Page, quand: string) =>
     page.getByRole("article", { name: "Qui est dans la liste : 13 candidats" }).locator(".tl li").filter({ has: page.locator(".when", { hasText: quand }) });
 
@@ -3327,18 +3288,18 @@ test.describe("la page Méthode explique la bascule sur la liste officielle", ()
 });
 
 test.describe("la page Méthode explique pourquoi ce n'est pas un sondage", () => {
-  const regle8 = (page: Page) => page.getByRole("article", { name: "Ce que cet outil n'est pas, et comment le vérifier" });
+  const regle6 = (page: Page) => page.getByRole("article", { name: "Ce que cet outil n'est pas, et comment le vérifier" });
 
-  test("la règle n° 8 affiche le tampon « Ce n'est pas un sondage. »", async ({ page }) => {
+  test("la règle n° 6 affiche le tampon « Ce n'est pas un sondage. »", async ({ page }) => {
     await page.goto("/methode");
-    await expect(regle8(page).getByText("Règle n° 8")).toBeVisible();
-    await expect(regle8(page).locator(".stamp")).toHaveText("Ce n'est pas un sondage.");
+    await expect(regle6(page).getByText("Règle n° 6")).toBeVisible();
+    await expect(regle6(page).locator(".stamp")).toHaveText("Ce n'est pas un sondage.");
   });
 
   test("elle dit que les utilisateurs ne sont pas représentatifs, qu'on ne collecte pas les réponses, et qu'aucune statistique sur eux n'est calculée ni publiée", async ({ page }) => {
     await page.goto("/methode");
     await expect(
-      regle8(page).getByText(
+      regle6(page).getByText(
         "Les utilisateurs ne sont pas représentatifs, et on ne collecte pas tes réponses. Aucune statistique sur les utilisateurs n'est calculée ni publiée.",
       ),
     ).toBeVisible();
@@ -3347,7 +3308,7 @@ test.describe("la page Méthode explique pourquoi ce n'est pas un sondage", () =
   test("elle dit que le pourcentage n'est pas une prévision de vote, seulement la rencontre des réponses et des positions, sur les questions répondues", async ({ page }) => {
     await page.goto("/methode");
     await expect(
-      regle8(page).getByText(
+      regle6(page).getByText(
         "Ton pourcentage n'est pas une prévision de vote. Il dit seulement à quel point tes réponses rejoignent ce que défend chaque candidat, sur les questions auxquelles tu as répondu.",
       ),
     ).toBeVisible();
@@ -3453,10 +3414,10 @@ test.describe("la page À propos dit qu'on ne sait pas pour qui tu votes", () =>
     await page.goto("/a-propos");
     await expect(
       vote(page).getByText(
-        "Une opinion politique est une donnée sensible (RGPD, article 9) : le plus sûr est de ne pas la collecter. Ce n'est pas un sondage : voir la règle 8 de la méthode.",
+        "Une opinion politique est une donnée sensible (RGPD, article 9) : le plus sûr est de ne pas la collecter. Ce n'est pas un sondage : voir la règle 6 de la méthode.",
       ),
     ).toBeVisible();
-    await expect(vote(page).getByRole("link", { name: "règle 8 de la méthode" })).toHaveAttribute("href", "/methode#r8");
+    await expect(vote(page).getByRole("link", { name: "règle 6 de la méthode" })).toHaveAttribute("href", "/methode#r6");
   });
 
   test("elle prévient que vider les données du navigateur fait disparaître la partie ; le schéma : le téléphone garde les réponses, un serveur n'en reçoit aucune", async ({ page }) => {
@@ -6130,19 +6091,19 @@ test.describe("les 11 parts remplies font du camembert un trophée", () => {
 });
 
 test.describe("la page Méthode mène au code source public", () => {
-  const regle8 = (page: Page) => page.getByRole("article", { name: "Ce que cet outil n'est pas, et comment le vérifier" });
+  const regle6 = (page: Page) => page.getByRole("article", { name: "Ce que cet outil n'est pas, et comment le vérifier" });
 
-  test("la règle n° 8 dit que la formule, les notes, les sources et les corrections sont publiques, et affiche « Le code est public sur GitHub »", async ({ page }) => {
+  test("la règle n° 6 dit que la formule, les notes, les sources et les corrections sont publiques, et affiche « Le code est public sur GitHub »", async ({ page }) => {
     await page.goto("/methode");
-    await expect(regle8(page)).toContainText("Tu peux tout vérifier. La formule, les notes, les sources et les corrections sont publiques, et le calcul tient en quelques lignes de code.");
-    await expect(regle8(page).getByRole("link", { name: "Le code est public sur GitHub" })).toBeVisible();
+    await expect(regle6(page)).toContainText("Tu peux tout vérifier. La formule, les notes, les sources et les corrections sont publiques, et le calcul tient en quelques lignes de code.");
+    await expect(regle6(page).getByRole("link", { name: "Le code est public sur GitHub" })).toBeVisible();
   });
 
   test("toucher le bouton ouvre github.com/Zewed/aucrible2027 dans un nouvel onglet ; la page Méthode reste ouverte", async ({ page, context }) => {
     // Le dépôt n'est pas chargé pour de vrai : seul compte l'onglet qui s'ouvre, et son adresse.
     await context.route("https://github.com/**", (route) => route.fulfill({ status: 200, body: "dépôt" }));
     await page.goto("/methode");
-    const [onglet] = await Promise.all([context.waitForEvent("page"), regle8(page).getByRole("link", { name: "Le code est public sur GitHub" }).click()]);
+    const [onglet] = await Promise.all([context.waitForEvent("page"), regle6(page).getByRole("link", { name: "Le code est public sur GitHub" }).click()]);
     await onglet.waitForLoadState();
     expect(onglet.url()).toBe("https://github.com/Zewed/aucrible2027");
     await expect(page).toHaveURL(/\/methode$/);

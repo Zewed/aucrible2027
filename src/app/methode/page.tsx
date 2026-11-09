@@ -3,7 +3,6 @@ import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { PageEnAttente } from "@/components/PageEnAttente";
 import { Pion } from "@/components/Pion";
-import { PisteDuPlateau } from "@/components/PisteDuPlateau";
 import { DeDesRegles, RayuresDesThemes } from "@/components/Regles";
 import type { Candidat } from "@/lib/contenu";
 import { melanger } from "@/lib/melange";
@@ -263,7 +262,7 @@ function RegleDesInconnues() {
             Elle ne compte pas non plus dans le maximum possible.
           </p>
           <p>
-            <b>On n&apos;invente jamais.</b> Même estimée, une position s&apos;appuie sur une source citée (règle 6).
+            <b>On n&apos;invente jamais.</b> Même estimée, une position s&apos;appuie sur une source citée (règle 4).
           </p>
         </div>
         <figure className="demo" aria-label="Quatre questions, dont une inconnue">
@@ -287,114 +286,6 @@ function RegleDesInconnues() {
   );
 }
 
-/** L'exemple de la règle n° 5 : trois réponses et leur note sur l'axe économique, avec leur importance. */
-const TROIS_NOTES = [
-  { sujet: "Retraite\u00a0: 62 ans", note: "−1", poids: 3 },
-  { sujet: "Droits de succession", note: "+2", poids: 1 },
-  { sujet: "Fin de vie", note: null, poids: 2 },
-];
-
-/** Règle n° 5 : le plateau, la moyenne des notes pondérée par l'importance, comme `placeDeLElecteur`. */
-function RegleDuPlateau() {
-  return (
-    <article className="rule theme-educ" id="r5" aria-labelledby="r5-t">
-      <header className="rule-head">
-        <span className="rule-n" aria-hidden="true">
-          5
-        </span>
-        <p className="rule-k">Règle n° 5</p>
-        <h2 id="r5-t">Le plateau&nbsp;: deux axes, des notes de −2 à +2</h2>
-      </header>
-      <div className="rule-body split">
-        <div className="rule-txt">
-          <p>
-            Chaque option reçoit une note de <b>−2 à +2</b> sur l&apos;un des deux axes, ou <b>aucune note</b> si elle n&apos;a pas
-            de rapport avec l&apos;axe.
-          </p>
-          <ul className="axes">
-            <li>
-              <b>Économie</b>
-              <span>
-                plus de redistribution <em>↔</em> plus de marché
-              </span>
-            </li>
-            <li>
-              <b>Société</b>
-              <span>
-                progressiste <em>↔</em> conservateur
-              </span>
-            </li>
-          </ul>
-          <p>
-            Ta position sur un axe est la <b>moyenne de tes notes, pondérée par l&apos;importance</b> que tu as donnée, et{" "}
-            <b>chaque thème pèse autant</b>. Les candidats sont placés par la même formule, à partir de leurs positions.
-          </p>
-          <p>
-            Le plateau se <b>cadre sur les candidats</b>&nbsp;: sur chaque axe, il va du premier au dernier, et son centre est le
-            milieu entre eux. Le même cadre vaut pour tous les pions et pour le tien.
-          </p>
-          <p className="small">Les options sont notées à l&apos;aveugle, d&apos;après leur seul texte, sans regarder qui les défend.</p>
-
-          <div className="demo" style={{ marginTop: 16 }}>
-            <p className="demo-k">
-              <i></i>Exemple sur l&apos;axe économique
-            </p>
-            <div className="nscale" aria-hidden="true">
-              <span className="nmark" style={{ left: "45%" }}>
-                <span className="pawn pawn--you">TOI</span>
-              </span>
-              <ol>
-                {["−2", "−1", "0", "+1", "+2"].map((n) => (
-                  <li key={n}>{n}</li>
-                ))}
-              </ol>
-              <p>
-                <span>redistribution</span>
-                <span>marché</span>
-              </p>
-            </div>
-            <ul className="nrows">
-              {TROIS_NOTES.map(({ sujet, note, poids }) => (
-                <li key={sujet} className={note ? undefined : "void"}>
-                  <span className="nm one">{sujet}</span>
-                  <b>{note ?? "aucune"}</b>
-                  <span className="w">×{poids}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="eq" role="img" aria-label="moins 1 fois 3 plus 2 fois 1, divisé par 3 plus 1, égale moins 0,25">
-              <span className="frac">
-                <b>−1×3 + 2×1</b>
-                <b>3 + 1</b>
-              </span>{" "}
-              = <mark>−0,25</mark>
-            </p>
-            <p className="demo-cap">La question sans note est ignorée sur cet axe. Résultat&nbsp;: un peu côté redistribution.</p>
-          </div>
-        </div>
-        <figure className="demo" aria-label="Le plateau avec ton pion">
-          <figcaption className="demo-k">
-            <i></i>Le plateau
-          </figcaption>
-          <div className="board" role="img" aria-label="Carte à deux axes : un pion TOI, légèrement côté redistribution et progressiste">
-            <PisteDuPlateau />
-            <div className="field">
-              <span className="pawn pawn--you" style={{ "--x": "44%", "--y": "38%" } as React.CSSProperties}>
-                TOI
-              </span>
-            </div>
-            <span className="edge top">↑ progressiste</span>
-            <span className="edge bottom">↓ conservateur</span>
-            <span className="edge left">← plus de redistribution</span>
-            <span className="edge right">plus de marché →</span>
-          </div>
-          <p className="demo-cap">Horizontalement, l&apos;économie. Verticalement, la société, notée de la même façon.</p>
-        </figure>
-      </div>
-    </article>
-  );
-}
-
 /** Les crans des sources, du plus sûr au moins sûr (SPEC.md, « Sources des positions des candidats »). */
 const SOURCES = [
   { titre: "Le programme officiel 2027", precision: "Publié par le candidat ou son équipe.", statut: "officielle" },
@@ -410,16 +301,16 @@ const BADGES = {
   estimee: { classe: "est", texte: "position estimée" },
 } as const;
 
-/** Règle n° 6 : la première source disponible fait la position, et son cran donne le badge. */
+/** Règle n° 4 : la première source disponible fait la position, et son cran donne le badge. */
 function RegleDesSources() {
   return (
-    <article className="rule theme-sante" id="r6" aria-labelledby="r6-t">
+    <article className="rule theme-sante" id="r4" aria-labelledby="r4-t">
       <header className="rule-head">
         <span className="rule-n" aria-hidden="true">
-          6
+          4
         </span>
-        <p className="rule-k">Règle n° 6</p>
-        <h2 id="r6-t">Chaque position a une source, classée par priorité</h2>
+        <p className="rule-k">Règle n° 4</p>
+        <h2 id="r4-t">Chaque position a une source, classée par priorité</h2>
       </header>
       <div className="rule-body">
         <div className="rule-txt">
@@ -515,7 +406,7 @@ const CRITERES = [
 ];
 
 /**
- * Règle n° 7 : la règle d'entrée, puis la liste des candidats en lice, mélangée par le jour (le même ordre pour
+ * Règle n° 5 : la règle d'entrée, puis la liste des candidats en lice, mélangée par le jour (le même ordre pour
  * tous dans la journée, sans rapport avec les intentions de vote), et la frise : recalcul du 1er du mois, liste
  * officielle, retrait, remplacement.
  */
@@ -523,13 +414,13 @@ function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string
   const nombre = `${candidats.length} candidat${candidats.length > 1 ? "s" : ""}`;
   const melanges = melanger(candidats, Number(jour.replaceAll("-", "")));
   return (
-    <article className="rule theme-loge" id="r7" aria-labelledby="r7-t">
+    <article className="rule theme-loge" id="r5" aria-labelledby="r5-t">
       <header className="rule-head">
         <span className="rule-n" aria-hidden="true">
-          7
+          5
         </span>
-        <p className="rule-k">Règle n° 7</p>
-        <h2 id="r7-t">Qui est dans la liste&nbsp;: {nombre}</h2>
+        <p className="rule-k">Règle n° 5</p>
+        <h2 id="r5-t">Qui est dans la liste&nbsp;: {nombre}</h2>
       </header>
       <div className="rule-body">
         <div className="rule-txt">
@@ -625,18 +516,18 @@ function RegleDEntree({ candidats, jour }: { candidats: Candidat[]; jour: string
 }
 
 /**
- * Règle n° 8 : ce que le jeu n'est pas. Sa seconde colonne, « Tu peux tout vérifier » et le bouton vers le code,
+ * Règle n° 6 : ce que le jeu n'est pas. Sa seconde colonne, « Tu peux tout vérifier » et le bouton vers le code,
  * attend l'adresse publique du dépôt (ticket 153) : d'ici là, la règle tient sur une colonne.
  */
 function RegleDesLimites() {
   return (
-    <article className="rule theme-inst" id="r8" aria-labelledby="r8-t">
+    <article className="rule theme-inst" id="r6" aria-labelledby="r6-t">
       <header className="rule-head">
         <span className="rule-n" aria-hidden="true">
-          8
+          6
         </span>
-        <p className="rule-k">Règle n° 8</p>
-        <h2 id="r8-t">Ce que cet outil n&apos;est pas, et comment le vérifier</h2>
+        <p className="rule-k">Règle n° 6</p>
+        <h2 id="r6-t">Ce que cet outil n&apos;est pas, et comment le vérifier</h2>
       </header>
       <div className="rule-body">
         <div className="rule-txt">
@@ -670,7 +561,8 @@ function RegleDesLimites() {
 
 /**
  * La page « Méthode de calcul et sources » (maquettes/methode.html), règle par règle. Le sommaire « Aller à la règle »,
- * la version de la méthode et le pied de page ne sont portés par aucun ticket ; la règle n° 4 n'en a pas non plus.
+ * la version de la méthode et le pied de page ne sont portés par aucun ticket ; la règle du total (n° 4 de la maquette) n'en
+ * a pas non plus. La règle du plateau est retirée avec lui (9 novembre 2026) : les règles se suivent de 1 à 6.
  */
 async function Methode() {
   const [jour, candidats] = await Promise.all([lireAujourdhui(), lireCandidatsEnLice()]);
@@ -704,7 +596,6 @@ async function Methode() {
             <RegleDuScore />
             <RegleDeLImportance />
             <RegleDesInconnues />
-            <RegleDuPlateau />
             <RegleDesSources />
             <RegleDEntree candidats={candidats} jour={jour} />
             <RegleDesLimites />

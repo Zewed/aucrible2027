@@ -214,7 +214,7 @@ function OnNeSaitPas() {
           </p>
           <p>
             Une opinion politique est une donnée sensible (RGPD, article 9)&nbsp;: le plus sûr est de ne pas la collecter. Ce n&apos;est
-            pas un sondage&nbsp;: voir la <Link href="/methode#r8">règle 8 de la méthode</Link>.
+            pas un sondage&nbsp;: voir la <Link href="/methode#r6">règle 6 de la méthode</Link>.
           </p>
           <p className="small">
             Sans compte, c&apos;est toi qui emportes ta partie. Si tu vides les données de ton navigateur, elle disparaît.
