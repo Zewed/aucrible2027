@@ -7,8 +7,8 @@ import { lireQuestionsPubliees } from "@/lib/publication";
 import "./presentation.css";
 
 export const metadata: Metadata = {
-  title: "Au crible 2027 : les sujets de la présidentielle, un par un",
-  description: "Tu choisis ta réponse avant de savoir quels candidats la défendent. Gratuit, sans compte et sans pub.",
+  title: "Au crible 2027 : tout ça est dans les programmes",
+  description: "L'âge de ta retraite, ton SMIC, ton loyer, ton médecin : sujet par sujet, ce que chaque proposition change, chiffres et sources à l'appui.",
 };
 
 /** La landing à son adresse propre, à partager : l'accueil la montre aussi, mais seulement à un appareil sans réponse. */

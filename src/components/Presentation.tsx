@@ -3,18 +3,23 @@
 import Link from "next/link";
 import { useState } from "react";
 import { PREMIER_TOUR } from "@/components/CompteARebours";
+import { insecable, nomDeLaSource } from "@/components/DetailDeLOption";
 import { Logo } from "@/components/Logo";
 import { PartDuTheme, PuceTheme } from "@/components/PuceTheme";
 import { StylesDeLaPage } from "@/components/StylesDeLaPage";
-import type { Chiffre, Option, Question, Theme, VideoExplicative } from "@/lib/contenu";
+import type { Argument, Chiffre, Option, Question, Source, Theme, VideoExplicative } from "@/lib/contenu";
 import { joursEntre } from "@/lib/date";
 import { SEUIL_DES_RESULTATS } from "@/lib/proximite";
 
-/** La question tirée au hasard que la landing montre en exemple : sa vidéo, ses chiffres clés, ses options sans noms. */
+/**
+ * La question tirée au hasard que la landing montre en exemple : sa vidéo, ses chiffres clés, ses options sans noms, et
+ * l'une d'elles ouverte, chiffrée, avec un argument de chaque camp.
+ */
 export type Exemple = Pick<Question, "numero" | "question"> & {
   theme: Theme;
   chiffres: Chiffre[];
   options: Pick<Option, "id" | "libelle">[];
+  ouverte?: Pick<Option, "id" | "implique"> & { chiffrage: { texte: string; source: Source }; pour: Argument; contre: Argument };
   video?: VideoExplicative;
 };
 
@@ -33,6 +38,15 @@ const SANS_MENU = `
   body { padding-left: 0; }
   .topbar, .jauge, .site-foot, body > .strip { display: none; }
 `;
+
+/** Ce que les programmes changent pour chacun, en très grand en haut de page : chaque sujet dans la couleur de son thème. */
+const SUJETS = [
+  ["theme-trav", "L'âge de ta retraite."],
+  ["theme-eco", "Ton SMIC."],
+  ["theme-loge", "Ton loyer."],
+  ["theme-sante", "Ton médecin."],
+  ["theme-educ", "Ton entrée à la fac."],
+];
 
 /** Les pions du plateau d'illustration : anonymes, retournés, posés sans rapport avec un vrai candidat. */
 const PIONS = [
@@ -58,7 +72,7 @@ function lancerSansLeSon(video: HTMLVideoElement | null) {
   video.play().catch(() => {});
 }
 
-/** Le téléphone du haut de page : la vidéo de la question tirée y tourne sans le son ; un bouton le met. */
+/** Le téléphone de la première étape : la vidéo de la question tirée y tourne sans le son ; un bouton le met. */
 function Telephone({ exemple }: { exemple: Exemple }) {
   const [son, setSon] = useState(false);
   return (
@@ -149,19 +163,49 @@ function ChiffresDeLExemple({ exemple }: { exemple: Exemple }) {
   );
 }
 
-/** La carte de la question tirée : ses options mènent à sa fiche, et les pions des candidats restent retournés. */
+/** Ce qu'un camp dit de l'option ouverte ; seul un chiffre porte sa source. */
+function Camp({ titre, argument }: { titre: string; argument: Argument }) {
+  return (
+    <div>
+      <dt>{titre}</dt>
+      <dd>
+        {insecable(argument.texte)}
+        {argument.source && <cite>Chiffre : {nomDeLaSource(argument.source)}</cite>}
+      </dd>
+    </div>
+  );
+}
+
+/**
+ * La carte de la question tirée : ses options mènent à sa fiche, l'une d'elles ouverte comme dans sa fenêtre « + », et
+ * les pions des candidats restent retournés.
+ */
 function OptionsDeLExemple({ exemple, candidats }: { exemple: Exemple; candidats: number }) {
+  const { ouverte } = exemple;
   return (
     <div className={`lp-pile ${exemple.theme.classe}`}>
       <div className="lp-carte">
         <HautDeCarte exemple={exemple} />
         <ul className="lp-options">
           {exemple.options.map(({ id, libelle }) => (
-            <li key={id}>
+            <li key={id} className={id === ouverte?.id ? "lp-ouverte" : undefined}>
               <Link href={`/question/${exemple.numero}`}>
                 <span className="lp-lettre">{id}</span>
                 {libelle}
               </Link>
+              {id === ouverte?.id && (
+                <div className="lp-detail">
+                  <p>{insecable(ouverte.implique)}</p>
+                  <p className="lp-chiffrage">
+                    {insecable(ouverte.chiffrage.texte)}
+                    <cite>Source : {nomDeLaSource(ouverte.chiffrage.source)}</cite>
+                  </p>
+                  <dl className="lp-camps">
+                    <Camp titre="Ses défenseurs" argument={ouverte.pour} />
+                    <Camp titre="Ses critiques" argument={ouverte.contre} />
+                  </dl>
+                </div>
+              )}
             </li>
           ))}
         </ul>
@@ -200,8 +244,9 @@ function PlateauDIllustration() {
 }
 
 /**
- * La landing : ce que fait le site, montré plutôt qu'expliqué, et le bouton pour commencer. Sans menu : en haut, le seul
- * logo ; tout mène au questionnaire. C'est l'accueil d'un appareil sans réponse, et la page /presentation.
+ * La landing : ce que les programmes changent pour chacun, montré plutôt qu'expliqué, et le bouton pour commencer. Sans
+ * menu : en haut, le seul logo ; tout mène au questionnaire. C'est l'accueil d'un appareil sans réponse, et la page
+ * /presentation.
  */
 export function Presentation({ jour, candidats, themes, questions, exemple }: DonneesDeLaPresentation) {
   const classe = (id: string) => themes.find((t) => t.id === id)?.classe ?? "";
@@ -221,43 +266,45 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
         </header>
 
         <section className="lp-heros">
-          <div className="lp-heros-texte">
-            <h1>
-              Les sujets de la présidentielle, <span className="lp-mot">un par un.</span>
-            </h1>
-            <p className="lp-accroche">Tu choisis ta réponse avant de savoir quels candidats la défendent.</p>
+          <ul className="lp-sujets">
+            {SUJETS.map(([classe, sujet]) => (
+              <li key={sujet} className={classe}>
+                {sujet}
+              </li>
+            ))}
+          </ul>
+          <div className="lp-chute">
+            <h1>Tout ça est dans les programmes.</h1>
+            <p className="lp-accroche">Sujet par sujet, ce que chaque proposition change, chiffres et sources à l&apos;appui.</p>
             <div className="lp-actions">
               <Commencer />
               <p className="lp-rassure">Gratuit, sans compte et sans pub.</p>
             </div>
           </div>
-          {exemple && <Telephone exemple={exemple} />}
         </section>
 
         <Defile questions={questions} classe={classe} />
 
         <section className="lp-etapes" aria-labelledby="lp-etapes-t">
-          <h2 id="lp-etapes-t">Quelques minutes par question.</h2>
+          <h2 id="lp-etapes-t">Quelques minutes par sujet.</h2>
           {exemple && (
             <article className="lp-etape">
               <div className="lp-etape-texte">
                 <span className="lp-n">1</span>
-                <h3>Tu regardes la situation.</h3>
-                <p>Une vidéo de quelques minutes pose le sujet. Les chiffres clés sont là, chacun avec sa source.</p>
+                <h3>Tu comprends le sujet.</h3>
+                <p>Une courte vidéo pose la situation. Les chiffres clés sont là, chacun avec sa source.</p>
               </div>
-              <div className="lp-visuel">
-                <ChiffresDeLExemple exemple={exemple} />
-              </div>
+              <div className="lp-visuel">{exemple.video ? <Telephone exemple={exemple} /> : <ChiffresDeLExemple exemple={exemple} />}</div>
             </article>
           )}
           {exemple && (
             <article className="lp-etape">
               <div className="lp-etape-texte">
                 <span className="lp-n">2</span>
-                <h3>Tu choisis, sans les noms.</h3>
+                <h3>Tu compares les propositions.</h3>
                 <p>
-                  Trois à cinq réponses possibles, chacune avec les arguments de ses défenseurs et de ses critiques. Aucun nom de candidat
-                  n&apos;apparaît.
+                  Trois à cinq propositions, sans le nom des candidats. Chacune est chiffrée, avec les arguments de ses défenseurs et de
+                  ses critiques.
                 </p>
               </div>
               <div className="lp-visuel">
@@ -268,10 +315,10 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
           <article className="lp-etape">
             <div className="lp-etape-texte">
               <span className="lp-n">3</span>
-              <h3>Tu vois de qui tu es proche.</h3>
+              <h3>Tu vois qui propose quoi.</h3>
               <p>
-                Les noms apparaissent dès ta réponse, chacun avec la source de sa position. Au bout de {SEUIL_DES_RESULTATS} réponses, tu as ton
-                classement des {candidats} candidats et ta place sur une carte à deux axes.
+                Dès ta réponse, tu vois quels candidats défendent chaque proposition, avec leurs sources. Au bout de {SEUIL_DES_RESULTATS}{" "}
+                réponses, tu as ton classement des {candidats} candidats et ta place sur une carte à deux axes.
               </p>
             </div>
             <div className="lp-visuel">
@@ -310,7 +357,7 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
         </section>
 
         <section className="lp-fin theme-eco" aria-labelledby="lp-fin-t">
-          <h2 id="lp-fin-t">{jours > 0 ? `J-${jours} avant le premier tour.` : "Les sujets de la présidentielle, un par un."}</h2>
+          <h2 id="lp-fin-t">{jours > 0 ? `J-${jours} avant le premier tour.` : "Tout ça est dans les programmes."}</h2>
           <div className="lp-actions">
             <Commencer />
             <Link className="lp-autre" href="/rattrapage">

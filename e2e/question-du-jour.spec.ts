@@ -7211,7 +7211,7 @@ test.describe("l'accueil montre la landing à un appareil sans réponse, et prop
 
   test("sans réponse, l'accueil est la landing, sans menu, et « Commencer le questionnaire » ouvre la première question de l'appareil", async ({ page }) => {
     await page.goto("/");
-    await expect(compte(page)).toHaveText("Les sujets de la présidentielle, un par un.");
+    await expect(compte(page)).toHaveText("Tout ça est dans les programmes.");
     await expect(page.getByRole("navigation")).toHaveCount(0);
     await expect(page.getByRole("link", { name: "Continuer le questionnaire" })).toHaveCount(0);
     await page.getByRole("link", { name: "Commencer le questionnaire" }).first().click();
