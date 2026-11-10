@@ -1,0 +1,21 @@
+content/questions/064-pma.yaml
+  s_e211d97e094307::t_906743fa0201bd 18
+content/videos-verrouillees.yaml
+  s_e211d97e094307::t_54c42a1c43f475 67
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9e93cd91d9a34a2abe7ace1150f70daaea071880",
+  "prompts": {},
+  "sessions": {
+    "s_e211d97e094307": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a217d843ff74b1c47",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
