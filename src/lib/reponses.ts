@@ -1,4 +1,4 @@
-/** Une réponse validée. Elle ne quitte jamais l'appareil (SPEC.md, « Données »). */
+/** Une réponse validée, gardée sur l'appareil ; seule une copie anonyme en part (`partagerLaReponse`). */
 export type Reponse = {
   option: string;
   importance: number | null;
@@ -29,6 +29,39 @@ export function enregistrerReponse(numero: number, reponse: Reponse) {
   const toutes = lesReponses(lireReponses());
   localStorage.setItem(CLE, JSON.stringify({ ...toutes, [numero]: reponse }));
   window.dispatchEvent(new Event(NOUVELLE_REPONSE));
+}
+
+/** La session de l'onglet, qui relie entre elles les réponses partagées : tirée à la première, oubliée avec l'onglet. */
+const SESSION = "aucrible:session";
+let sessionSansStockage: string | undefined;
+
+/** Un numéro au format UUID ; `crypto.randomUUID` manque hors HTTPS (un téléphone sur le réseau local, en développement). */
+const tirerUneSession = () =>
+  crypto.randomUUID?.() ?? "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) => (+c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (+c / 4)))).toString(16));
+
+function laSession() {
+  try {
+    const deja = sessionStorage.getItem(SESSION);
+    if (deja) return deja;
+    const nouvelle = tirerUneSession();
+    sessionStorage.setItem(SESSION, nouvelle);
+    return nouvelle;
+  } catch {
+    return (sessionSansStockage ??= tirerUneSession());
+  }
+}
+
+/**
+ * Envoie une copie anonyme de la réponse (lib/reponses-partagees.ts) : la session de l'onglet, la question, l'option et
+ * l'importance, rien d'autre. Sans réseau, la copie se perd ; la réponse, elle, reste sur l'appareil.
+ */
+export function partagerLaReponse(numero: number, { option, importance }: Pick<Reponse, "option" | "importance">) {
+  fetch("/reponse", {
+    method: "POST",
+    keepalive: true,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ session: laSession(), question: numero, option, importance }),
+  }).catch(() => {});
 }
 
 /** Remplace toutes les réponses de l'appareil, par exemple par celles importées d'un autre appareil. */

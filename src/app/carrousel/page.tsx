@@ -166,7 +166,7 @@ function Legende({ question }: { question: Question }) {
           {question.question} Fais défiler : le contexte, {EN_LETTRES[question.chiffres.length]} chiffres sourcés, les{" "}
           {EN_LETTRES[question.options.length]} options et le meilleur argument de chaque côté.
         </p>
-        <p>Réponds sur aucrible2027.fr (lien en bio). Ce n&apos;est pas un sondage : tes réponses restent sur ton téléphone.</p>
+        <p>Réponds sur aucrible2027.fr (lien en bio). Sans compte : tes réponses sont anonymes.</p>
       </div>
       <div className="acts">
         <Link className="act second" href="/video">

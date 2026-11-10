@@ -31,8 +31,8 @@ async function Appareil() {
               </svg>
             </span>
             <div>
-              <p className="promise-t">Tes réponses ne quittent ton téléphone que si tu le décides.</p>
-              <p className="promise-s">Pas de compte, pas de serveur.</p>
+              <p className="promise-t">Le lien et le QR code portent tes réponses.</p>
+              <p className="promise-s">Pas de compte, et le passage ne touche aucun serveur.</p>
             </div>
           </div>
         </section>

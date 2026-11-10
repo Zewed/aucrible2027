@@ -32,7 +32,7 @@ async function Resultats() {
               </h1>
               <Fiabilite questions={duCalcul} />
               <p className="notpoll">
-                <b>Ce n&apos;est pas un sondage</b> : seulement tes réponses, gardées sur ton téléphone.
+                <b>Ce n&apos;est pas un sondage</b> : seulement tes réponses.
               </p>
             </div>
             <GrandCamembert questions={duCalcul} themes={themes} />

@@ -2,8 +2,8 @@ import postgres from "postgres";
 
 /**
  * La base Postgres d'Au crible 2027 (SPEC.md, « Décisions de l'auteur du 25/10/2026 ») : en ligne, celle du projet
- * Vercel (Neon) ; en local et pour les tests, le conteneur de scripts/base-locale.sh. Les réponses des électeurs n'y
- * entrent jamais : elle ne garde que ce qu'on lui envoie exprès, comme un signalement, et le nombre de visites par jour.
+ * Vercel (Neon) ; en local et pour les tests, le conteneur de scripts/base-locale.sh. Elle garde les signalements, le
+ * nombre de visites par jour et, depuis le 10/11/2026, une copie anonyme des réponses (lib/reponses-partagees.ts).
  */
 let connexion: postgres.Sql | undefined;
 let tablesPretes: Promise<unknown> | undefined;
@@ -27,6 +27,18 @@ export async function base() {
   ).then(
     // Les visites (ticket 192) : un nombre par jour, rien d'autre ; ni appareil, ni adresse, ni réponse.
     () => connexion!`CREATE TABLE IF NOT EXISTS visites (jour date PRIMARY KEY, nombre integer NOT NULL DEFAULT 0)`,
+  ).then(
+    // Les réponses partagées (10/11/2026) : la session de l'onglet, la question, l'option, l'importance et le jour ;
+    // ni appareil, ni adresse. Une question répondue deux fois dans la même session ne compte qu'une fois.
+    () => connexion!`
+      CREATE TABLE IF NOT EXISTS reponses_partagees (
+        session uuid NOT NULL,
+        question integer NOT NULL,
+        option text NOT NULL,
+        importance smallint,
+        jour date NOT NULL,
+        PRIMARY KEY (session, question)
+      )`,
   );
   await tablesPretes;
   return connexion;

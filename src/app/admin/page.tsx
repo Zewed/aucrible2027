@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { lAuteur } from "@/lib/auteur";
 import { dateCourte } from "@/lib/date";
+import { lireQuestionsPubliees } from "@/lib/publication";
+import { JE_NE_SAIS_PAS } from "@/lib/reponses";
+import { lireLesTotaux } from "@/lib/reponses-partagees";
 import { lireLesSignalements, TYPES } from "@/lib/signalement";
 import { lireLesVisites } from "@/lib/visites";
 import { seDeconnecter } from "./actions";
@@ -106,7 +109,69 @@ async function Visites() {
   );
 }
 
-/** Qui est là : l'auteur voit sa boîte et ses visites ; tout autre compte, ou personne, voit seulement la connexion. */
+/** Un nombre et son mot, accordé : « 1 session », « 12 sessions ». */
+const compte = (n: number, mot: string) => `${n.toLocaleString("fr-FR")} ${mot}${n > 1 ? "s" : ""}`;
+
+/**
+ * Les réponses partagées (lib/reponses-partagees.ts) : combien de réponses et de sessions, puis, question par question,
+ * la part de chaque option. L'export CSV donne chaque réponse avec sa session, pour les croiser ailleurs.
+ */
+async function Reponses() {
+  const [totaux, questions] = await Promise.all([lireLesTotaux(), lireQuestionsPubliees()]);
+  return (
+    <section className="sec" aria-labelledby="h-rp">
+      <div className="sec-h">
+        <h2 id="h-rp">Réponses</h2>
+        <p>
+          {compte(totaux.reponses, "réponse")} · {compte(totaux.sessions, "session")}
+        </p>
+      </div>
+      {totaux.reponses === 0 ? (
+        <p className="sg-vide">Aucune réponse pour l&apos;instant.</p>
+      ) : (
+        <>
+          {/* Un fichier à télécharger, pas une page : un lien ordinaire, sans préchargement. */}
+          <a className="rp-csv" href="/admin/reponses" download>
+            Télécharger le CSV
+          </a>
+          <ul className="rp-list">
+            {totaux.parQuestion.map(({ question: numero, options }) => {
+              const question = questions.find((q) => q.numero === numero);
+              const total = options.reduce((somme, o) => somme + o.nombre, 0);
+              const libelle = (option: string) =>
+                option === JE_NE_SAIS_PAS ? "Je ne sais pas" : `${option}. ${question?.options.find((o) => o.id === option)?.libelle ?? ""}`;
+              return (
+                <li key={numero} className="sg" aria-label={`Question n° ${numero}`}>
+                  <p className="sg-meta">
+                    <span className="sg-q">Question n° {numero}</span>
+                    <span>{question?.titreCourt ?? question?.question}</span>
+                    <span>{compte(total, "réponse")}</span>
+                  </p>
+                  <table className="rp-table">
+                    <tbody>
+                      {options.map(({ option, nombre }) => (
+                        <tr key={option}>
+                          <th scope="row">{libelle(option)}</th>
+                          <td className="rp-barre">
+                            <i style={{ width: `${(100 * nombre) / total}%` }}></i>
+                          </td>
+                          <td>{Math.round((100 * nombre) / total)} %</td>
+                          <td className="rp-n">{nombre}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      )}
+    </section>
+  );
+}
+
+/** Qui est là : l'auteur voit sa boîte, ses visites et les réponses partagées ; tout autre compte, ou personne, voit seulement la connexion. */
 async function Espace() {
   const auteur = await lAuteur();
   if (!auteur || auteur === "refuse") return <Connexion refuse={auteur === "refuse"} />;
@@ -118,6 +183,7 @@ async function Espace() {
       </form>
       <Boite />
       <Visites />
+      <Reponses />
     </>
   );
 }
