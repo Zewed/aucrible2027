@@ -13,6 +13,7 @@ date: 2026-08-31
 theme: securite-justice
 question: "Faut-il une loi intégrale contre les violences faites aux femmes et aux enfants, avec 3 milliards d'euros par an ?"
 titreCourt: "Les violences faites aux femmes"
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/058-violences-femmes-constat-yCA0wBrFMA9RQXOr9qyFKdLPHNa0Of.mp4", duree: "3 min 58", ecrans: [0, 10.3, 19.1, 25.97, 39.67, 52.9, 64.64, 72.97, 86.2, 100.4, 112.14, 125.37, 136.14, 147.9, 162.1, 172.87, 185.1, 193.44, 205.67, 215.47, 230.17] }
 contexte:
   # § 1.1, [17].
   - "Depuis 2010, plusieurs lois ont créé des protections pour les victimes de violences dans le couple, comme l'ordonnance de protection du juge, le téléphone grave danger ou le bracelet anti-rapprochement."
