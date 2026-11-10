@@ -1,0 +1,46 @@
+docs/etudes/072-rsa-jeunes.md
+  s_eefd24e14ae76a::t_01b44388a1a1f1 1-111,113-243,245-289,291-326,328,330-331,333-343,345-348,350-388
+  s_eefd24e14ae76a::t_7779fcbc7e2c19 112,244,290,327,329,332,344,349,389-394
+docs/etudes/067-imprescriptibilite.md
+  s_eefd24e14ae76a::t_471a715c914ba6 1-51,53-109,111-115,120,122-222,224-316,318-337,339-378
+  s_eefd24e14ae76a::t_5631fee607bf4b 52,110,117-119,121,223,317,338,379-381
+  s_eefd24e14ae76a::t_5abe2b4818e401 116
+docs/etudes/073-indexation-salaires.md
+  s_eefd24e14ae76a::t_9ee2007a5a829a 50
+  s_eefd24e14ae76a::t_62a179dbb480bd 1-45,47-48,51-415
+  s_eefd24e14ae76a::t_45240a0cd8fdc8 46,49
+docs/etudes/068-allocations-familiales.md
+  s_eefd24e14ae76a::t_f26e5a5551eac8 1-223,225-395
+  s_eefd24e14ae76a::t_ec60d1f46ab50d 224
+docs/etudes/070-achats-publics.md
+  s_eefd24e14ae76a::t_bbfa1b4f71c87b 96
+  s_eefd24e14ae76a::t_1bf6390c4550b2 64
+  s_eefd24e14ae76a::t_615f7c37060588 294
+  s_eefd24e14ae76a::t_67f2c28d92c37d 21
+  s_eefd24e14ae76a::t_782e6d4983e9c7 184
+  s_eefd24e14ae76a::t_3729a3151448c5 229
+  s_eefd24e14ae76a::t_1d0e2b45352bf0 1-20,22-54,56-63,65-95,97-183,185-228,230-293,295-361
+  s_eefd24e14ae76a::t_ebbb014239bac2 362
+  s_eefd24e14ae76a::t_2c054e40a2af9b 55
+docs/etudes/071-bareme-prudhommes.md
+  s_eefd24e14ae76a::t_4c3a452b8bbf76 1-68,72-85,87-129,131-134,136,138-159,162-215,217-243,245-302,304-338,340-346,348-364,366-390,392-397
+  s_eefd24e14ae76a::t_5527467ac55053 69-71,86,130,135,137,160-161,216,244,303,339,347,365,391,398
+docs/etudes/058-violences-femmes.md
+  s_eefd24e14ae76a::t_d7824864355508 130
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4b25e9e2151878355a1ddd4e62ac337356e4549e",
+  "prompts": {},
+  "sessions": {
+    "s_eefd24e14ae76a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0d7e65f6-06fd-4902-95da-933a5af28615",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
