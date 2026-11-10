@@ -1,0 +1,21 @@
+content/questions/060-egalite-salariale.yaml
+  s_9c7f6ede619f21::t_99de4eebddf145 17
+content/videos-verrouillees.yaml
+  s_9c7f6ede619f21::t_b213d2f9bb1cf8 63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "40d13208264888bcad286b162153cb80b739f95f",
+  "prompts": {},
+  "sessions": {
+    "s_9c7f6ede619f21": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a4b2eaff9600086ff",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
