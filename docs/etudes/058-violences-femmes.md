@@ -127,7 +127,7 @@ Motifs donnés :
 
 **C. Autre texte : la proposition de loi Bergé (28 janvier 2025)**
 
-La proposition de loi n° 669 d'Aurore Bergé et de députés EPR, Horizons et MoDem (imprescriptibilité civile des viols sur mineurs, prescription glissante pour les victimes majeures, contrôle coercitif) a été adoptée par 137 voix contre 20, 64 abstentions : RN 55 abstentions ; LFI 2 pour, 19 contre, 1 abst. ; UDR 2 pour, 1 contre, 7 abst. ; tous les autres groupes pour [26]. Les motifs de LFI et du RN n'ont pas été vérifiés **[à vérifier]**.
+La proposition de loi n° 669 d'Aurore Bergé et de députés EPR, Horizons et MoDem (imprescriptibilité civile des viols sur mineurs, prescription glissante pour les victimes majeures, contrôle coercitif) a été adoptée par 137 voix contre 20, 64 abstentions, mais sans son article 1er (l'imprescriptibilité civile), supprimé en commission selon l'étude 067 **[à vérifier]** : RN 55 abstentions ; LFI 2 pour, 19 contre, 1 abst. ; UDR 2 pour, 1 contre, 7 abst. ; tous les autres groupes pour [26]. Les motifs de LFI et du RN n'ont pas été vérifiés **[à vérifier]**.
 
 **D. Au Parlement européen, délégations françaises**
 
