@@ -1,0 +1,21 @@
+content/questions/062-preference-nationale.yaml
+  s_eefd24e14ae76a::t_d915f7b8bfa387 17
+content/videos-verrouillees.yaml
+  s_eefd24e14ae76a::t_85f8e414c98f84 65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7bff6b8e9beaabcb1ac02cf139b04fe9dd11b5cc",
+  "prompts": {},
+  "sessions": {
+    "s_eefd24e14ae76a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0d7e65f6-06fd-4902-95da-933a5af28615",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
