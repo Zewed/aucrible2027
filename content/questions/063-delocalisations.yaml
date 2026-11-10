@@ -10,6 +10,7 @@ date: 2026-08-26
 theme: economie-impots
 question: "Une entreprise qui délocalise doit-elle rembourser les aides publiques qu'elle a reçues ?"
 titreCourt: "Le remboursement des aides publiques"
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/063-delocalisations-constat-TbYdqnm0WAhdE0uHLjyra8JkO8oyy3.mp4", duree: "4 min 06", ecrans: [0, 10.34, 23.1, 35.4, 47.7, 60.5, 74.27, 87.04, 96.9, 109.17, 122.97, 135.74, 149, 162.3, 175.07, 188.87, 201.64, 214.94, 229.17, 238.54] }
 contexte:
   # § 1.1, [1] [3] [5].
   - "Aucune loi n'oblige aujourd'hui une entreprise qui délocalise à rembourser toutes ses aides publiques : seules certaines aides ciblées, comme les grands projets ou les aides régionales, le prévoient dans leur contrat."
