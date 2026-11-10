@@ -5,7 +5,7 @@
    Page        : body (fond table) · .sr (texte pour lecteurs d'écran) · .one (une ligne, ellipsis)
    En-tête     : header.topbar (collant) > .brand + nav.topnav (a[aria-current]) + .streak (.die)
                  puis .strip (.countdown, .qnum, .back) · contenu dans main.today ou main.res
-   Pied        : footer.site-foot > nav > a (4 liens vers les écrans) + .mode + .repere-verrous
+   Pied        : footer.site-foot > nav > a (4 liens vers les écrans) + .mode + .reseaux + .repere-verrous
    Boutons     : .go (gros bouton d'action, couleur du thème) · .btn-link (bouton clair, flèche)
                  .act.primary / .act.second (actions empilées) · .back (retour)
    Cartes      : .deck > .qcard (.qcard-top .theme-chip h1, .qcard-body) · .label · .fig
@@ -676,6 +676,10 @@ a.g-ligne:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3
 /* La page en cours : le texte de la table, et devant lui le losange des cartes. */
 .site-foot nav a[aria-current] { color: var(--sur-table); }
 .site-foot nav a[aria-current]::before { content: ""; flex: none; width: 8px; height: 8px; background: currentColor; transform: rotate(45deg); }
+/* Les réseaux de l'auteur : deux logos, collés au bout de la ligne sur ordinateur. */
+.site-foot .reseaux { margin: 0; display: flex; gap: 4px; justify-self: end; }
+.site-foot .reseaux a { justify-content: center; min-width: 44px; }
+.site-foot .reseaux svg { width: 20px; height: 20px; }
 
 /* ==================== GRAND ÉCRAN ==================== */
 @media (min-width: 900px) {
@@ -721,7 +725,7 @@ a.g-ligne:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3
   .site-foot::before { flex: 0 0 100%; }
   .site-foot nav { display: flex; column-gap: 28px; }
   .site-foot a { white-space: nowrap; }
-  .site-foot .repere-verrous { margin-left: auto; }
+  .site-foot .reseaux { margin-left: auto; }
   .res-hero { padding-top: 10px; }
   .res-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 32px; }
   .trophy { margin-top: 0; }

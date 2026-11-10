@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
 import { BoutonDuMode } from "@/components/BoutonDuMode";
+import { Reseaux } from "@/components/Reseaux";
 
 // « Changer d'appareil » n'y est plus (retour d'Antoine du 4 novembre) : la page /appareil reste, sans lien ici.
 const LIENS = [
@@ -32,7 +33,7 @@ function LiensDeLaPage() {
 
 /**
  * Le pied de page commun à tous les écrans (maquettes/introuvable.html) : les quatre pages secondaires, la sienne marquée,
- * sur une ligne. « Rattraper les questions » de la maquette s'appelle « Toutes les questions », comme dans le menu, depuis
+ * sur une ligne, puis les réseaux de l'auteur. « Rattraper les questions » de la maquette s'appelle « Toutes les questions », comme dans le menu, depuis
  * que toutes les questions se font d'un coup (décision du 25 octobre).
  */
 export function PiedDePage({ videosVerrouillees }: { videosVerrouillees: number }) {
@@ -42,6 +43,7 @@ export function PiedDePage({ videosVerrouillees }: { videosVerrouillees: number 
         <LiensDeLaPage />
       </Suspense>
       <BoutonDuMode />
+      <Reseaux className="reseaux" />
       {/* Repère provisoire d'Antoine, à retirer avant le lancement avec la page /verrous. */}
       <Link className="repere-verrous" href="/verrous">
         <svg viewBox="0 0 24 24" aria-hidden="true">
