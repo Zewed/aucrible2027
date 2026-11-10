@@ -23,3 +23,13 @@
 .vi-table th, .vi-table td { padding: 9px 4px; border-bottom: 1px dashed var(--table-3); }
 .vi-table th { text-align: left; font-weight: 600; color: var(--muted); }
 .vi-table td { text-align: right; font: 800 18px/1 var(--display); font-variant-numeric: tabular-nums; color: var(--sur-table); }
+
+.rp-csv { display: inline-flex; align-items: center; min-height: 44px; margin-top: 10px; color: var(--sur-table); font: 700 15px/1 var(--text); text-underline-offset: 3px; }
+.rp-list { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 12px; }
+.rp-table { margin-top: 10px; width: 100%; border-collapse: collapse; font: 600 14px/1.3 var(--text); }
+.rp-table th, .rp-table td { padding: 6px 4px; vertical-align: middle; }
+.rp-table th { text-align: left; font-weight: 600; width: 55%; }
+.rp-table td { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 800; }
+.rp-table .rp-barre { width: 30%; }
+.rp-barre i { display: block; height: 10px; border-radius: 999px; background: var(--ink); min-width: 2px; }
+.rp-table .rp-n { color: var(--ink-soft); font-weight: 600; }

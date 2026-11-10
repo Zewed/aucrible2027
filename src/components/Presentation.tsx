@@ -343,7 +343,7 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
           <dl>
             <div>
               <dt>Pas de compte.</dt>
-              <dd>Tes réponses restent sur ton téléphone. Personne ne peut les lire.</dd>
+              <dd>Tes réponses sont anonymes : ni nom, ni e-mail, ni adresse IP.</dd>
             </div>
             <div>
               <dt>Pas de pub.</dt>

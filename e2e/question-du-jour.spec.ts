@@ -2023,10 +2023,10 @@ test.describe("tous les candidats du classement ont le même pion", () => {
 });
 
 test.describe("les résultats affichent « Ce n'est pas un sondage »", () => {
-  test("dès l'ouverture de « Mes résultats », la phrase « Ce n'est pas un sondage : seulement tes réponses, gardées sur ton téléphone. » est sous le titre", async ({ page }) => {
+  test("dès l'ouverture de « Mes résultats », la phrase « Ce n'est pas un sondage : seulement tes réponses. » est sous le titre", async ({ page }) => {
     await page.goto("/resultats");
     const titre = page.getByRole("heading", { level: 1, name: "Mes résultats." });
-    const phrase = page.getByText("Ce n'est pas un sondage : seulement tes réponses, gardées sur ton téléphone.");
+    const phrase = page.getByText("Ce n'est pas un sondage : seulement tes réponses.");
     await expect(phrase).toBeVisible();
     expect((await phrase.boundingBox())!.y).toBeGreaterThan((await titre.boundingBox())!.y);
   });
@@ -3296,11 +3296,11 @@ test.describe("la page Méthode explique pourquoi ce n'est pas un sondage", () =
     await expect(regle6(page).locator(".stamp")).toHaveText("Ce n'est pas un sondage.");
   });
 
-  test("elle dit que les utilisateurs ne sont pas représentatifs, qu'on ne collecte pas les réponses, et qu'aucune statistique sur eux n'est calculée ni publiée", async ({ page }) => {
+  test("elle dit que les utilisateurs ne sont pas représentatifs, que leurs réponses arrivent anonymes, et qu'aucune statistique sur eux n'est publiée", async ({ page }) => {
     await page.goto("/methode");
     await expect(
       regle6(page).getByText(
-        "Les utilisateurs ne sont pas représentatifs, et on ne collecte pas tes réponses. Aucune statistique sur les utilisateurs n'est calculée ni publiée.",
+        "Les utilisateurs ne sont pas représentatifs. Leurs réponses arrivent, anonymes, mais aucune statistique sur eux n'est publiée.",
       ),
     ).toBeVisible();
   });
@@ -3397,15 +3397,15 @@ test.describe("la page À propos dit comment les fiches sont relues", () => {
   });
 });
 
-test.describe("la page À propos dit qu'on ne sait pas pour qui tu votes", () => {
-  const vote = (page: Page) => page.getByRole("article", { name: "On ne sait pas pour qui tu votes" });
+test.describe("la page À propos dit qu'on ne sait pas qui tu es", () => {
+  const vote = (page: Page) => page.getByRole("article", { name: "On ne sait pas qui tu es" });
 
-  test("la section dit : ni e-mail, ni mot de passe, ni pseudo ; les réponses restent sur le téléphone et ne sont envoyées nulle part, « moi non plus »", async ({ page }) => {
+  test("la section dit : ni e-mail, ni mot de passe, ni pseudo ; les réponses restent sur le téléphone, et une copie anonyme part, sans nom ni adresse IP", async ({ page }) => {
     await page.goto("/a-propos");
-    await expect(page.getByRole("article").nth(2)).toHaveAccessibleName("On ne sait pas pour qui tu votes");
+    await expect(page.getByRole("article").nth(2)).toHaveAccessibleName("On ne sait pas qui tu es");
     await expect(
       vote(page).getByText(
-        "Il n'y a pas de compte : ni e-mail, ni mot de passe, ni pseudo. Tes réponses restent sur ton téléphone, dans ton navigateur. Elles ne sont envoyées nulle part, donc personne ne peut les lire, moi non plus.",
+        "Il n'y a pas de compte : ni e-mail, ni mot de passe, ni pseudo. Tes réponses sont gardées sur ton téléphone, dans ton navigateur. Une copie m'arrive, anonyme : sans ton nom, sans ton adresse IP, sans rien qui te suive d'une visite à l'autre.",
       ),
     ).toBeVisible();
   });
@@ -3414,17 +3414,17 @@ test.describe("la page À propos dit qu'on ne sait pas pour qui tu votes", () =>
     await page.goto("/a-propos");
     await expect(
       vote(page).getByText(
-        "Une opinion politique est une donnée sensible (RGPD, article 9) : le plus sûr est de ne pas la collecter. Ce n'est pas un sondage : voir la règle 6 de la méthode.",
+        "Une opinion politique est une donnée sensible (RGPD, article 9) : rien ne permet donc de remonter jusqu'à toi. Ce n'est pas un sondage : voir la règle 6 de la méthode.",
       ),
     ).toBeVisible();
     await expect(vote(page).getByRole("link", { name: "règle 6 de la méthode" })).toHaveAttribute("href", "/methode#r6");
   });
 
-  test("elle prévient que vider les données du navigateur fait disparaître la partie ; le schéma : le téléphone garde les réponses, un serveur n'en reçoit aucune", async ({ page }) => {
+  test("elle prévient que vider les données du navigateur fait disparaître la partie ; le schéma : le téléphone garde les réponses, un serveur n'en reçoit qu'une copie anonyme", async ({ page }) => {
     await page.goto("/a-propos");
     await expect(vote(page).getByText("Sans compte, c'est toi qui emportes ta partie. Si tu vides les données de ton navigateur, elle disparaît.")).toBeVisible();
-    const schema = vote(page).getByRole("figure", { name: "Tes réponses restent sur ton téléphone et ne vont pas vers un serveur" });
-    await expect(schema.locator(".node")).toHaveText(["Ton téléphonetes réponses restent ici", "Un serveurn'en reçoit aucune"]);
+    const schema = vote(page).getByRole("figure", { name: "Tes réponses restent sur ton téléphone ; un serveur n'en reçoit qu'une copie anonyme" });
+    await expect(schema.locator(".node")).toHaveText(["Ton téléphonetes réponses restent ici", "Un serveurune copie, sans nom"]);
   });
 });
 
@@ -3984,6 +3984,67 @@ test.describe("l'auteur voit le nombre de visites par jour", () => {
     await page.goto("/questionnaire");
     await expect.poll(() => visitesDu(second)).toBe(avant + 1);
     await appareil.close();
+  });
+});
+
+test.describe("chaque réponse part, anonyme, sous la session de l'onglet", () => {
+  const sessionDe = (page: Page) => page.evaluate(() => sessionStorage.getItem("aucrible:session"));
+  /** Les réponses gardées dans la base des tests pour cette session, par question. */
+  const reponsesDe = async (session: string | null) =>
+    [...(await baseDeTest`SELECT question, option, importance, to_char(jour, 'YYYY-MM-DD') AS jour FROM reponses_partagees WHERE session = ${session}::uuid ORDER BY question`)];
+
+  test("valider « 62 ans » ×1 sur la n° 24 envoie la question, l'option, l'importance et le jour, et la table n'a pas d'autre colonne que la session", async ({ page }) => {
+    await repondre(page, "62 ans");
+    const session = await sessionDe(page);
+    expect(session).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
+    await expect.poll(() => reponsesDe(session)).toEqual([{ question: 24, option: "B", importance: 1, jour: "2026-10-23" }]);
+    const colonnes = await baseDeTest`SELECT column_name FROM information_schema.columns WHERE table_name = 'reponses_partagees' ORDER BY ordinal_position`;
+    expect(colonnes.map((c) => c.column_name)).toEqual(["session", "question", "option", "importance", "jour"]);
+  });
+
+  test("répondre à nouveau dans le même onglet remplace la réponse ; un nouvel onglet tire une autre session", async ({ page, context }) => {
+    await repondre(page, "62 ans");
+    const session = await sessionDe(page);
+    await page.evaluate(() => localStorage.removeItem("aucrible:reponses"));
+    await page.goto("/questionnaire");
+    await choisir(page, "64 ans");
+    await validerMaReponse(page);
+    await expect.poll(() => reponsesDe(session)).toEqual([{ question: 24, option: "C", importance: 1, jour: "2026-10-23" }]);
+    const onglet = await context.newPage();
+    await onglet.goto("/questionnaire");
+    await onglet.evaluate(() => localStorage.removeItem("aucrible:reponses"));
+    await onglet.goto("/questionnaire");
+    await choisir(onglet, "60 ans");
+    await validerMaReponse(onglet);
+    await expect(onglet).toHaveURL(/\/revelation$/);
+    const autre = await sessionDe(onglet);
+    expect(autre).not.toBe(session);
+    await expect.poll(() => reponsesDe(autre)).toEqual([{ question: 24, option: "A", importance: 1, jour: "2026-10-23" }]);
+  });
+
+  test("une option inconnue ou une importance hors de 1 à 3 est refusée sans rien garder ; « Je ne sais pas » est gardé sans importance", async ({ page }) => {
+    const session = crypto.randomUUID();
+    for (const corps of [{ option: "Z", importance: 1 }, { option: "B", importance: null }, { option: "B", importance: 7 }]) {
+      expect((await page.request.post("/reponse", { data: { session, question: 24, ...corps } })).status()).toBe(400);
+    }
+    expect((await page.request.post("/reponse", { data: { session: "pas-une-session", question: 24, option: "B", importance: 1 } })).status()).toBe(400);
+    expect(await reponsesDe(session)).toEqual([]);
+    expect((await page.request.post("/reponse", { data: { session, question: 24, option: "nsp", importance: 2 } })).status()).toBe(204);
+    expect(await reponsesDe(session)).toEqual([{ question: 24, option: "nsp", importance: null, jour: "2026-10-23" }]);
+  });
+
+  test("l'auteur voit la répartition de la n° 24 et télécharge le CSV, une ligne par réponse ; sans être l'auteur, le CSV est refusé", async ({ page }) => {
+    await repondre(page, "62 ans");
+    const session = await sessionDe(page);
+    await expect.poll(() => reponsesDe(session)).toHaveLength(1);
+    expect((await page.request.get("/admin/reponses")).status()).toBe(403);
+    await connecterAvecGitHub(page);
+    await page.goto("/admin");
+    const question = page.getByRole("region", { name: "Réponses" }).getByRole("listitem", { name: "Question n° 24" });
+    await expect(question.getByRole("row", { name: /^B\. 62 ans/ })).toBeVisible();
+    const csv = (await (await page.request.get("/admin/reponses")).text()).replace(/^\uFEFF/, "").split("\n");
+    expect(csv[0]).toBe("session;question;option;libelle;importance;jour");
+    expect(csv).toContain(`${session};24;B;62 ans;1;2026-10-23`);
   });
 });
 
@@ -4858,10 +4919,10 @@ test.describe("l'auteur récupère la légende proposée", () => {
     );
   });
 
-  test("elle invite à répondre sur aucrible2027.fr (lien en bio) et dit « Ce n'est pas un sondage : tes réponses restent sur ton téléphone. »", async ({ page }) => {
+  test("elle invite à répondre sur aucrible2027.fr (lien en bio) et dit « Sans compte : tes réponses sont anonymes. »", async ({ page }) => {
     await carrouselDeLaMaquette(page);
     await expect(legende(page).locator("p").nth(1)).toHaveText(
-      "Réponds sur aucrible2027.fr (lien en bio). Ce n'est pas un sondage : tes réponses restent sur ton téléphone.",
+      "Réponds sur aucrible2027.fr (lien en bio). Sans compte : tes réponses sont anonymes.",
     );
   });
 });
@@ -6416,11 +6477,11 @@ test.describe("un code illisible est refusé avec un message", () => {
   });
 });
 
-test.describe("la page dit que les réponses ne passent par aucun serveur", () => {
-  test("en haut de « Changer d'appareil », le bandeau dit « Tes réponses ne quittent ton téléphone que si tu le décides. » et « Pas de compte, pas de serveur. »", async ({ page }) => {
+test.describe("le changement d'appareil ne passe par aucun serveur", () => {
+  test("en haut de « Changer d'appareil », le bandeau dit « Le lien et le QR code portent tes réponses. » et « Pas de compte, et le passage ne touche aucun serveur. »", async ({ page }) => {
     await page.goto("/appareil");
     const bandeau = page.getByRole("note");
-    await expect(bandeau.locator("p")).toHaveText(["Tes réponses ne quittent ton téléphone que si tu le décides.", "Pas de compte, pas de serveur."]);
+    await expect(bandeau.locator("p")).toHaveText(["Le lien et le QR code portent tes réponses.", "Pas de compte, et le passage ne touche aucun serveur."]);
     const [haut, carte] = await Promise.all([bandeau.boundingBox(), page.getByRole("region", { name: "Envoyer mes réponses" }).boundingBox()]);
     expect(haut!.y).toBeLessThan(carte!.y);
   });

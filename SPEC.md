@@ -8,8 +8,8 @@ Nom : **Au crible 2027** — domaine `aucrible2027.fr`, comptes `@aucrible2027` 
 
 - **Neutralité vérifiable, pas déclarée.** Chaque position de candidat est sourcée (lien + date), la méthode de calcul est publique, l'ordre d'affichage des candidats est aléatoire, toute erreur signalée est corrigée publiquement.
 - **Meilleur argument de chaque camp.** Chaque option est présentée avec l'argument que ses propres défenseurs signeraient. Jamais d'ironie, de mépris ni de « en réalité… ». Un électeur RN doit se sentir aussi respecté qu'un électeur LFI.
-- **On ne sait pas pour qui tu votes.** Aucun compte, réponses stockées uniquement sur l'appareil (opinions politiques = données sensibles, RGPD art. 9). *Amendé le 25/10/2026 : l'électeur peut partager ses réponses, anonymement, s'il coche une case décochée par défaut ; sans adresse IP ni identifiant, seulement les réponses et leur jour, pour des totaux dans /admin.*
-- **Pas un sondage.** Aucune statistique agrégée sur les utilisateurs, rien n'est jamais présenté comme un sondage ; la mention « Ce n'est pas un sondage » accompagne les résultats.
+- **On ne sait pas qui tu es.** Aucun compte, réponses stockées sur l'appareil (opinions politiques = données sensibles, RGPD art. 9). *Amendé le 25/10/2026 : l'électeur peut partager ses réponses, anonymement, s'il coche une case décochée par défaut ; sans adresse IP ni identifiant, seulement les réponses et leur jour, pour des totaux dans /admin.* *Amendé le 10/11/2026 (remplace la case) : chaque réponse validée part au serveur, pour tout le monde, sans case à cocher : la question, l'option, l'importance, le jour et le numéro de session de l'onglet (tiré au hasard, oublié quand l'onglet se ferme), qui relie les réponses d'une même session. Ni adresse IP, ni cookie, ni identifiant de l'appareil. Dans /admin : la répartition des options question par question, et l'export CSV d'une ligne par réponse.*
+- **Pas un sondage.** Aucune statistique agrégée sur les utilisateurs n'est publiée (l'auteur seul voit les totaux, dans /admin), rien n'est jamais présenté comme un sondage ; la mention « Ce n'est pas un sondage » accompagne les résultats.
 - **Aucun candidat codé par la couleur de son parti** (contrainte de DA).
 
 ## Projet
@@ -156,7 +156,7 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 
 ## Données
 
-- Aucun compte. Réponses stockées localement dans le navigateur.
+- Aucun compte. Réponses stockées localement dans le navigateur ; une copie anonyme de chacune part au serveur (10/11/2026, voir « Principes »).
 - Changement d'appareil par export/import (QR code ou lien).
 - Statistiques de visite anonymes, sans les réponses.
 - Pas de notifications en v1.
@@ -197,7 +197,7 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 - **Vidéo** : Remotion (licence gratuite, structure de 3 personnes au plus), rendue par une commande locale, avec une musique libre de droits fournie par l'auteur.
 - **Code public** : github.com/Zewed/aucrible2027.
 - **Changer d'appareil** : les réponses voyagent après le `#` du lien et dans le QR code, jamais vers un serveur ; le lien prend l'adresse où le site tourne (le domaine n'est pas encore choisi).
-- **Partage des réponses** : seulement avec accord explicite (voir « Principes »).
+- ~~**Partage des réponses** : seulement avec accord explicite (voir « Principes »).~~ Pour tout le monde, anonyme, depuis le 10/11/2026.
 - **Carrousel et story** : l'auteur écrit dans la fiche les deux côtés de l'image 5 (titre et meilleur argument de chacun) et les deux choix de l'autocollant « Et toi ? ».
 - **Pouvoir de départage** : abandonné (l'ordre est tiré au hasard).
 - **Fiabilité du classement** : faible de 10 à 19 réponses, moyenne de 20 à 29, forte à partir de 30.
@@ -233,4 +233,4 @@ Maquettes statiques de tous les écrans, dans la direction « Jeu de société �
 - Direction artistique : à définir avec AEOM. Seule contrainte imposée : aucun candidat codé par la couleur de son parti.
 - Outillage de publication sur les réseaux.
 - Notifications.
-- Statistiques agrégées.
+- ~~Statistiques agrégées.~~ Les totaux des réponses partagées sont dans /admin (10/11/2026) ; rien n'est publié.

@@ -193,7 +193,8 @@ function CommentCEstRelu() {
 }
 
 /**
- * « À savoir n° 3 » : aucun compte, les réponses ne quittent pas le téléphone. Le bouton « Changer d'appareil » de
+ * « À savoir n° 3 » : aucun compte ; les réponses restent sur le téléphone, et seule une copie anonyme en part
+ * (décision du 10/11/2026). Le bouton « Changer d'appareil » de
  * la maquette n'est porté par aucun ticket (sa page d'arrivée est le 179).
  */
 function OnNeSaitPas() {
@@ -204,23 +205,24 @@ function OnNeSaitPas() {
           3
         </span>
         <p className="rule-k">À savoir n° 3</p>
-        <h2 id="r3-t">On ne sait pas pour qui tu votes</h2>
+        <h2 id="r3-t">On ne sait pas qui tu es</h2>
       </header>
       <div className="rule-body split">
         <div className="rule-txt">
           <p>
-            <b>Il n&apos;y a pas de compte</b>&nbsp;: ni e-mail, ni mot de passe, ni pseudo. Tes réponses restent <b>sur ton téléphone</b>
-            , dans ton navigateur. Elles ne sont envoyées nulle part, donc personne ne peut les lire, moi non plus.
+            <b>Il n&apos;y a pas de compte</b>&nbsp;: ni e-mail, ni mot de passe, ni pseudo. Tes réponses sont gardées{" "}
+            <b>sur ton téléphone</b>, dans ton navigateur. Une copie m&apos;arrive, <b>anonyme</b>&nbsp;: sans ton nom, sans ton adresse
+            IP, sans rien qui te suive d&apos;une visite à l&apos;autre.
           </p>
           <p>
-            Une opinion politique est une donnée sensible (RGPD, article 9)&nbsp;: le plus sûr est de ne pas la collecter. Ce n&apos;est
-            pas un sondage&nbsp;: voir la <Link href="/methode#r6">règle 6 de la méthode</Link>.
+            Une opinion politique est une donnée sensible (RGPD, article 9)&nbsp;: rien ne permet donc de remonter jusqu&apos;à toi.
+            Ce n&apos;est pas un sondage&nbsp;: voir la <Link href="/methode#r6">règle 6 de la méthode</Link>.
           </p>
           <p className="small">
             Sans compte, c&apos;est toi qui emportes ta partie. Si tu vides les données de ton navigateur, elle disparaît.
           </p>
         </div>
-        <figure className="demo" aria-label="Tes réponses restent sur ton téléphone et ne vont pas vers un serveur">
+        <figure className="demo" aria-label="Tes réponses restent sur ton téléphone ; un serveur n'en reçoit qu'une copie anonyme">
           <figcaption className="demo-k">
             <i></i>Où vont tes réponses
           </figcaption>
@@ -241,9 +243,8 @@ function OnNeSaitPas() {
             </div>
             <div className="cut" aria-hidden="true">
               <svg viewBox="0 0 70 40">
-                <path d="M2 20h66" style={{ fill: "none", stroke: "var(--ink)", strokeWidth: 3, strokeDasharray: "3 7", strokeLinecap: "round" }} />
-                <circle cx="35" cy="20" r="14" style={{ fill: "var(--ink)" }} />
-                <path d="M29 14l12 12M41 14L29 26" style={{ fill: "none", stroke: "var(--chalk)", strokeWidth: 3.4, strokeLinecap: "round" }} />
+                <path d="M2 20h60" style={{ fill: "none", stroke: "var(--ink)", strokeWidth: 3, strokeDasharray: "3 7", strokeLinecap: "round" }} />
+                <path d="M54 11l12 9-12 9" style={{ fill: "none", stroke: "var(--ink)", strokeWidth: 3.4, strokeLinecap: "round", strokeLinejoin: "round" }} />
               </svg>
             </div>
             <div className="node dim">
@@ -261,7 +262,7 @@ function OnNeSaitPas() {
                 ))}
               </svg>
               <b>Un serveur</b>
-              <small>n&apos;en reçoit aucune</small>
+              <small>une copie, sans nom</small>
             </div>
           </div>
         </figure>

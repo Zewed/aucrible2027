@@ -16,7 +16,7 @@ import { tirerGraine } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
 import { REPONSES_PAR_PART, reponsesParTheme } from "@/lib/proximite";
-import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses, type Reponse } from "@/lib/reponses";
+import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses, partagerLaReponse, type Reponse } from "@/lib/reponses";
 import { tenirALEcran } from "@/lib/tenir-a-l-ecran";
 
 /**
@@ -83,8 +83,8 @@ function EnJeu({ question, theme, enJeu, reponses }: { question: QuestionDeLaFic
 }
 
 /**
- * Une fiche à répondre : la carte question, ses options et l'importance. Valider enregistre la réponse
- * et mène à `revelation` ; une fiche déjà répondue sur cet appareil y rouvre directement.
+ * Une fiche à répondre : la carte question, ses options et l'importance. Valider enregistre la réponse, en envoie une
+ * copie anonyme et mène à `revelation` ; une fiche déjà répondue sur cet appareil y rouvre directement.
  */
 export function Fiche({ question, theme, revelation, enJeu }: { question: QuestionDeLaFiche; theme: Theme; revelation: string; enJeu?: PartEnJeu }) {
   const router = useRouter();
@@ -114,6 +114,7 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
     evenement.preventDefault();
     if (!choix || !prete || !jour) return;
     enregistrerReponse(question.numero, { option: choix, importance: poids, graine: tirerGraine(), jour, rang: Object.keys(reponses).length + 1 });
+    partagerLaReponse(question.numero, { option: choix, importance: poids });
     router.push(revelation);
   }
 

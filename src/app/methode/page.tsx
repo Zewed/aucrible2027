@@ -535,8 +535,8 @@ function RegleDesLimites() {
             <span>Ce n&apos;est pas un sondage.</span>
           </p>
           <p>
-            <b>Les utilisateurs ne sont pas représentatifs, et on ne collecte pas tes réponses.</b> Aucune statistique sur les
-            utilisateurs n&apos;est calculée ni publiée.
+            <b>Les utilisateurs ne sont pas représentatifs.</b> Leurs réponses arrivent, anonymes, mais aucune statistique sur eux
+            n&apos;est publiée.
           </p>
           <p>
             Ton pourcentage n&apos;est pas une prévision de vote. Il dit seulement à quel point tes réponses rejoignent ce que défend
