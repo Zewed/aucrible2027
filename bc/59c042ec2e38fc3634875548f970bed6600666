@@ -1,0 +1,21 @@
+content/questions/065-aide-sociale-enfance.yaml
+  s_eefd24e14ae76a::t_2c9342c3546d89 16
+content/videos-verrouillees.yaml
+  s_eefd24e14ae76a::t_10b5620aad4642 68
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bc59c042ec2e38fc3634875548f970bed6600666",
+  "prompts": {},
+  "sessions": {
+    "s_eefd24e14ae76a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0d7e65f6-06fd-4902-95da-933a5af28615",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
