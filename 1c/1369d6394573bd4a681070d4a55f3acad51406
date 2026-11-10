@@ -1,0 +1,21 @@
+content/questions/058-violences-femmes.yaml
+  s_eefd24e14ae76a::t_4eb8595319c249 16
+content/videos-verrouillees.yaml
+  s_eefd24e14ae76a::t_4eb8595319c249 61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1c1369d6394573bd4a681070d4a55f3acad51406",
+  "prompts": {},
+  "sessions": {
+    "s_eefd24e14ae76a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0d7e65f6-06fd-4902-95da-933a5af28615",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
