@@ -1,0 +1,23 @@
+content/questions/057-ivg.yaml
+  s_1f76327328a3a3::t_68e147b68a525c 14
+content/questions/059-education-sexualite.yaml
+  s_1f76327328a3a3::t_75e1dc553216be 18
+content/videos-verrouillees.yaml
+  s_1f76327328a3a3::t_b9702b557a194f 60-61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7a20ae5b9253c3d5a077f0f3ae59a5299095e1fa",
+  "prompts": {},
+  "sessions": {
+    "s_1f76327328a3a3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "148838d4-f869-445a-936c-43e4e94c43f0",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
