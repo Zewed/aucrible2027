@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { BandeauRetour } from "@/components/BandeauRetour";
 import { PageEnAttente } from "@/components/PageEnAttente";
+import { Reseaux } from "@/components/Reseaux";
 import { DeDesRegles, RayuresDesThemes } from "@/components/Regles";
 import { lireAujourdhui } from "@/lib/publication";
 import "../regles.css";
@@ -100,6 +101,7 @@ function QuiFaitLApp() {
             <b>Antoine</b>
             <small>auteur, affiché publiquement</small>
           </p>
+          <Reseaux className="reseaux" avecNoms />
           <ul className="seals">
             {SCEAUX.map(({ nom, dessin }) => (
               <li key={nom}>
