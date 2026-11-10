@@ -1,0 +1,27 @@
+src/app/kit.css
+  s_1f76327328a3a3::t_79757ebc778aba 8,679-682,728
+src/components/Reseaux.tsx
+  s_1f76327328a3a3::t_0611e985a05d11 1-33
+src/app/a-propos/a-propos.css
+  s_1f76327328a3a3::t_b82f0b49d2a940 10-12
+src/app/a-propos/page.tsx
+  s_1f76327328a3a3::t_79757ebc778aba 5,104
+src/components/PiedDePage.tsx
+  s_1f76327328a3a3::t_79757ebc778aba 7,36,46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6579d66f011191359d1f999c31d4140ac92dca0a",
+  "prompts": {},
+  "sessions": {
+    "s_1f76327328a3a3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "148838d4-f869-445a-936c-43e4e94c43f0",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
