@@ -1,0 +1,229 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 10/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/063-delocalisations.md (tout ce qui suit y est sourcé).
+# Mots disputés, attribués ou évités (étude, « Vocabulaire ») : « aides » (mot du Sénat, du HCSP et de la Cour des
+# comptes ; France Industrie le réfute, pour qui les entreprises « sont taxées »), « cadeaux fiscaux » (LFI), « charges »
+# (la fiche écrit « cotisations »), « licenciements boursiers » (expression de la gauche ; la fiche écrit « licencier en
+# faisant des bénéfices »), « coût du travail » (écrit sans guillemets, comme l'étude).
+numero: 63
+date: 2026-08-26
+theme: economie-impots
+question: "Une entreprise qui délocalise doit-elle rembourser les aides publiques qu'elle a reçues ?"
+titreCourt: "Le remboursement des aides publiques"
+contexte:
+  # § 1.1, [1] [3] [5].
+  - "Aucune loi n'oblige aujourd'hui une entreprise qui délocalise à rembourser toutes ses aides publiques : seules certaines aides ciblées, comme les grands projets ou les aides régionales, le prévoient dans leur contrat."
+  # § 1.3, [1] [2].
+  # § 1.1 : réponse du gouvernement du 07/07/2026, [3].
+  - "En juillet 2025, une commission d'enquête du Sénat a recommandé d'imposer le remboursement des aides de l'État et des collectivités quand une entreprise délocalise dans les deux ans ; le gouvernement répond en juillet 2026 que de telles conditions se heurteraient au droit européen et pourraient faire renoncer des entreprises à investir."
+  # § 1.1, 1.4 et § 3, [3] [6] [7] [9].
+  - "Les baisses de cotisations et le crédit d'impôt recherche s'arrêtent déjà quand l'activité quitte la France, sans rien rendre sur le passé ; les députés ont voté en 2024 et en 2025 le remboursement du crédit d'impôt recherche en cas de délocalisation, mais aucune de ces mesures n'est entrée dans la loi."
+chiffres:
+  # § 1.2, [1] [2] [16] : il n'existe ni définition légale ni chiffre officiel unique ; les périmètres diffèrent.
+  # L'année des chiffres du HCSP (2023 ou 2025) reste à vérifier (étude § 1.2) : la légende ne la donne pas.
+  - valeur: "82 à 211"
+    unite: milliards d'euros
+    legende: "d'aides publiques aux entreprises, selon ce que l'on compte : au moins 211 en 2023 pour le Sénat, au sens le plus large, baisses de cotisations comprises ; de 82 à 187 pour le Haut-commissariat à la stratégie et au plan"
+    source: { organisme: "Sénat ; Haut-commissariat à la stratégie et au plan", document: "commission d'enquête sur les aides publiques aux grandes entreprises ; rapport de concertation", annee: 2026 }
+  # § 2b, [14].
+  - valeur: "2 %"
+    legende: "des entreprises de 50 salariés ou plus ont délocalisé une activité de 2021 à 2023 (6,5 % de celles de 500 salariés ou plus), supprimant directement 7 500 à 13 000 postes en France en trois ans"
+    source: { organisme: Insee, document: Insee Première n° 2115, annee: 2026 }
+  # § 2b, [14].
+  - valeur: "55 %"
+    legende: "des entreprises qui ont délocalisé de 2021 à 2023 citent la baisse du coût de la main-d'œuvre, le motif le plus cité"
+    source: { organisme: Insee, document: Insee Première n° 2115, annee: 2026 }
+  # § 2b, [1] : le pendant du précédent, pour ceux qui visent aussi les licenciements.
+  - valeur: "plus de 30 %"
+    legende: "de plans sociaux en plus entre 2023 et 2024 ; beaucoup ne sont pas des délocalisations"
+    source: { organisme: "Ministère du Travail (DGEFP)", document: "cité par le Sénat", annee: 2025 }
+# L'ordre est une échelle, de la plus exigeante à la moins exigeante pour l'entreprise (étude § 4) ; la règle actuelle
+# est D. La limite entre B et C : les baisses de cotisations, et le déclenchement par des licenciements.
+options:
+  - id: A
+    libelle: "Rembourser, et lui interdire de licencier"
+    implique: "Une entreprise qui verse des dividendes ou reçoit des aides de l'État ne peut plus faire de licenciements économiques ; chaque aide est liée à des objectifs sociaux et écologiques, et remboursée s'ils ne sont pas tenus. En cas de délocalisation, l'État peut réquisitionner le site."
+    defenseurs: "Une entreprise qui fait des bénéfices ou touche de l'argent public ne doit pas pouvoir licencier : l'argent public ne doit plus servir à financer les dividendes des actionnaires."
+    critiques: "Licencier est souvent le dernier recours pour sauver le reste de l'entreprise : l'interdire l'empêcherait d'anticiper ses difficultés et dissuaderait d'embaucher et d'investir en France."
+    detail:
+      chiffrage:
+        # § 2b, [1].
+        texte: "Aucun chiffrage n'a été trouvé. Les plans sociaux ont augmenté de plus de 30 % entre 2023 et 2024."
+        source: { organisme: "Ministère du Travail (DGEFP)", document: "cité par le Sénat", annee: 2025 }
+      defenseurs:
+        # § 2f, [5].
+        - texte: "Le droit permet aujourd'hui de licencier pour rester compétitif, sans être en difficulté : une entreprise qui verse des dividendes ne devrait pas le pouvoir."
+        # § 2c, [2] : dividendes calculés par le rapporteur.
+        - texte: "L'argent public ne doit plus financer les dividendes : Michelin a reçu 32,4 millions d'euros d'exonérations de cotisations en 2023 et versé environ 1,4 milliard d'euros de dividendes la même année."
+          source: { organisme: Sénat, document: "commission d'enquête, calcul du rapporteur communiste Fabien Gay", annee: 2025 }
+        # § 2j, [29].
+        - texte: "Quand une entreprise délocalise ou ferme une activité, l'État doit pouvoir réquisitionner le site plutôt que la laisser partir."
+      critiques:
+        # § 2f, [5].
+        - texte: "Licencier n'est jamais un acte de complaisance : c'est souvent le dernier recours pour sauver le reste de l'entreprise."
+        # § 2f, [4].
+        - texte: "Interdire de licencier à une entreprise qui n'est pas encore en difficulté l'empêcherait d'anticiper : elle devrait attendre d'aller mal pour réagir."
+        # § 2f, [32].
+        - texte: "Plus il est difficile de se séparer d'un salarié, moins on embauche et moins on implante d'usines en France."
+  - id: B
+    libelle: "Tout rembourser, cotisations comprises, si elle délocalise ou licencie"
+    implique: "Une entreprise qui délocalise, ou qui supprime des emplois en faisant des bénéfices, rend toutes les aides des trois dernières années : crédit d'impôt recherche, subventions et baisses de cotisations sur les salaires. Une entreprise en redressement ou en liquidation n'est pas concernée."
+    defenseurs: "Celui qui touche l'argent public garde les emplois, investit dans les usines et forme les salariés ; sinon, il rend tout, baisses de cotisations comprises, car ce sont les plus grosses aides."
+    critiques: "Reprendre trois ans de baisses de cotisations à une entreprise qui supprime des postes alourdit le coût du travail au moment où elle se restructure, au risque de la fragiliser."
+    detail:
+      chiffrage:
+        # § 2a et 2e, [5].
+        texte: "Aucun chiffrage n'a été trouvé. Les baisses générales de cotisations patronales, que cette option ferait aussi rembourser, ont représenté 39,5 milliards d'euros en 2023, pour 1,9 million d'employeurs."
+        source: { organisme: Sécurité sociale, document: "annexe aux comptes 2023, citée par l'Assemblée nationale", annee: 2025 }
+      defenseurs:
+        # § 2a, [28].
+        - texte: "Celui qui touche l'argent public garde les emplois, investit dans les usines et forme les salariés ; sinon, il rembourse."
+        # § 2e, [5] [1].
+        - texte: "Les baisses de cotisations sont la plus grosse des aides : les exclure rendrait le remboursement symbolique."
+        # § 2b et 2f, [1].
+        - texte: "La plupart des plans sociaux ne sont pas des délocalisations : viser seulement le départ à l'étranger laisserait de côté l'essentiel des suppressions d'emplois."
+      critiques:
+        # § 2c, [5].
+        - texte: "Une entreprise qui supprime des postes sans être en redressement peut quand même aller mal : lui faire rendre trois ans d'aides au moment où elle se restructure risque de la conduire au dépôt de bilan."
+        # § 2e, [5].
+        - texte: "Les baisses de cotisations portent sur le coût du travail et facilitent les embauches : les reprendre pénaliserait l'emploi."
+        # § 2h, [1].
+        - texte: "Aucun pays comparé ne fait rembourser les baisses générales de cotisations : nos voisins ne conditionnent que des aides ciblées."
+  - id: C
+    libelle: "Rembourser les aides du site délocalisé, pas les cotisations"
+    implique: "Une entreprise qui délocalise un site ou une activité rend les aides qui l'ont financé, subventions de l'État et des collectivités ou crédit d'impôt recherche, reçues dans les deux ou trois années précédentes. Les baisses de cotisations sur les salaires ne sont pas reprises, et un plan social sans délocalisation ne déclenche rien."
+    defenseurs: "L'argent public doit servir l'emploi en France : quand il a financé un site ou une recherche qui part à l'étranger, la collectivité doit le récupérer."
+    critiques: "Les uns la jugent trop étroite, car la plupart des plans sociaux ne sont pas des délocalisations, les autres craignent qu'elle décourage d'investir en France."
+    detail:
+      chiffrage:
+        # § 2a, [5].
+        texte: "Aucun chiffrage n'a été trouvé. Le crédit d'impôt recherche, principale aide visée, a représenté 7,2 milliards d'euros en 2021 ; 42 % de sa part recherche est allée à 465 grandes entreprises."
+        source: { organisme: Gouvernement, document: "annexe au budget 2025, citée par l'Assemblée nationale", annee: 2025 }
+      defenseurs:
+        # § 2a, [3].
+        - texte: "Les aides publiques doivent ancrer l'industrie et l'emploi dans nos territoires : quand un site aidé part à l'étranger, la collectivité doit récupérer son argent."
+        # § 2e, [5].
+        - texte: "Une subvention ou un crédit d'impôt recherche financent un projet précis, qu'on peut reprendre s'il part ; les baisses de cotisations, elles, facilitent les embauches."
+        # § 2h, [1].
+        - texte: "Nos voisins le font déjà : en Italie, une entreprise aidée qui ne garde pas son activité dans le pays pendant cinq ans rembourse toute l'aide, avec une majoration."
+          source: { organisme: Sénat, document: "étude de législation comparée", annee: 2025 }
+      critiques:
+        # § 2e et 2f, [1] [5].
+        - texte: "La mesure laisserait de côté la plupart des plans sociaux, qui ne sont pas des délocalisations, et la plus grosse des aides, les baisses de cotisations."
+        # § 2b, [14].
+        - texte: "Le premier motif de délocalisation est le coût de la main-d'œuvre, cité par 55 % des entreprises concernées : une sanction ne le corrige pas."
+          source: { organisme: Insee, document: Insee Première n° 2115, annee: 2026 }
+        # § 2a, [5].
+        - texte: "Le crédit d'impôt recherche ne paie que la recherche faite en France : il s'arrête déjà quand elle part, et grandit avec elle quand elle reste."
+  - id: D
+    libelle: "Seulement si le contrat de l'aide le prévoit"
+    implique: "Pas de règle générale : seules les aides dont le contrat le prévoit, comme les grands projets, France 2030, les aides régionales ou les fonds européens, sont reprises en cas de départ. Les baisses de cotisations et le crédit d'impôt recherche s'arrêtent quand l'activité quitte la France, sans rien rendre sur le passé."
+    defenseurs: "Les aides générales ne sont dues que sur une activité réelle en France et s'arrêtent quand elle part ; des conditions sans lien avec leur objet seraient fragiles en droit et feraient renoncer à des investissements."
+    critiques: "Des groupes suppriment des postes après avoir reçu des centaines de millions d'euros d'aides, dont l'essentiel n'est soumis à aucune clause de remboursement."
+    detail:
+      chiffrage:
+        # § 1.1, [1] [5].
+        texte: "Garder ces règles ne coûte rien. La loi permet déjà de demander le remboursement des aides des deux dernières années quand une entreprise de 1 000 salariés ou plus ferme un site sans avoir assez cherché de repreneur ; le Sénat juge cette possibilité très peu utilisée."
+        source: { organisme: Sénat, document: "commission d'enquête sur les aides publiques aux grandes entreprises", annee: 2025 }
+      defenseurs:
+        # § 1.1 et 2a, [3] [18].
+        - texte: "Ces aides ont déjà une condition : elles ne sont dues que sur une activité en France, et toute délocalisation met fin à leur versement."
+        # § 1.1 et 2d, [3].
+        - texte: "Des conditions sans lien avec l'objectif d'une aide sont fragiles en droit européen et peuvent faire renoncer une entreprise à investir en France."
+        # § 2d, [2] [1].
+        - texte: "Une clause de remboursement est plus sûre quand elle est écrite dans le contrat de l'aide dès le départ, comme pour les grands projets et les aides régionales."
+      critiques:
+        # § 2c, [2] : les montants ne sont pas tous liés au site fermé (étude).
+        - texte: "Des groupes suppriment des postes après avoir reçu beaucoup d'aides : ArcelorMittal a reçu 298 millions d'euros en 2023, dont 195 millions liés au prix de l'énergie, puis annoncé près de 600 suppressions de postes."
+          source: { organisme: Sénat, document: "commission d'enquête sur les aides publiques aux grandes entreprises", annee: 2025 }
+        # § 1.1, [3].
+        - texte: "Les clauses de remboursement ne valent que pour quelques aides ciblées : pour les plus grosses, rien n'est repris sur le passé."
+        # § 2h, [1].
+        - texte: "Les États-Unis protègent leurs aides : une entreprise de puces aidée ne peut pas étendre de plus de 5 % ses capacités en Chine pendant dix ans."
+          source: { organisme: Sénat, document: "étude de législation comparée", annee: 2025 }
+  - id: E
+    libelle: "Non : moins d'aides et moins d'impôts de production"
+    implique: "Pas de remboursement obligatoire : l'État supprime une partie des aides, jugées trop dispersées par les défenseurs de cette option, et baisse d'autant les impôts de production, pour que produire en France coûte moins cher. Une proposition échange 50 milliards d'euros d'aides contre 50 milliards d'impôts en moins chaque année."
+    defenseurs: "Les entreprises françaises paient plus de prélèvements que leurs concurrentes : mieux vaut moins d'aides compliquées et moins d'impôts que des sanctions qui font fuir les investissements."
+    critiques: "Sans contrepartie, une baisse d'impôts nourrit des effets d'aubaine : rien n'oblige l'entreprise allégée à garder ses emplois en France."
+    detail:
+      chiffrage:
+        # § 2g, [2].
+        texte: "Aucun chiffrage n'a été trouvé. Les prélèvements nets sur les entreprises non financières atteignent 20 % de leur valeur ajoutée, le deuxième niveau de l'Union européenne après la Suède."
+        source: { organisme: Rexecode, document: "cité par le Sénat", annee: 2025 }
+      defenseurs:
+        # § 2g, [18] : chiffre d'une organisation patronale, partie au débat ; le texte le dit.
+        - texte: "Les entreprises paient chaque année 100 milliards d'euros de plus que leurs concurrentes de la zone euro, selon France Industrie, une organisation patronale."
+          source: { organisme: "France Industrie, organisation patronale", annee: 2026 }
+        # § 2g, [22].
+        - texte: "Beaucoup d'aides sont saupoudrées, complexes et incompréhensibles : mieux vaut les supprimer et baisser d'autant les impôts."
+        # § 2g, [20] [3].
+        - texte: "Sans baisser le coût du travail, d'autres usines partiront : ajouter des sanctions ne traite pas la cause des départs."
+      critiques:
+        # § 2g.
+        - texte: "Des aides sans contrepartie nourrissent des effets d'aubaine : conditionner, c'est mieux dépenser l'argent public, pas dépenser moins."
+        # § 2g, [22] (source secondaire).
+        - texte: "L'effet d'une baisse des impôts de production est discuté : une baisse passée n'a eu qu'un effet positif mais limité sur l'investissement."
+        # § 2g, [31].
+        - texte: "La baisse des impôts ne peut pas être financée par une réduction massive des aides aux entreprises, dont certaines, comme le crédit d'impôt recherche, doivent être préservées."
+pourAllerPlusLoin:
+  - titre: "Sénat, rapport de la commission d'enquête sur l'utilisation des aides publiques aux grandes entreprises, 2025"
+    url: https://www.senat.fr/rap/r24-808-1/r24-808-1.html
+  - titre: "Insee, Entre 2021 et 2023, deux tiers des entreprises qui délocalisent se tournent vers l'Europe, 2026"
+    url: https://www.insee.fr/fr/statistiques/9015211
+  - titre: "Cour des comptes, Les aides publiques à l'industrie, 2026"
+    url: https://www.ccomptes.fr/sites/default/files/2026-09/20260921-note-structurelle-Aides-a-l-industrie.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour l'obliger à rembourser"
+    argument: "L'argent public doit servir l'emploi en France : quand il a financé un site qui part, la collectivité doit le récupérer."
+  - titre: "Pour ne pas l'y obliger"
+    argument: "Les aides s'arrêtent déjà quand l'activité part : de nouvelles sanctions feraient fuir les investissements."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A, B et C d'un côté, D et E de l'autre.
+story:
+  - choix: "L'obliger à rembourser"
+    precision: "au moins les aides du site"
+  - choix: "Ne pas l'y obliger"
+    precision: "le contrat suffit, ou moins d'impôts"
+# Positions sourcées (étude, § 4, et « Positions vérifiées le 10/11/2026 ») : 2 officielles, 9 déduites, 2 estimées.
+# Inconnues : aucune.
+positions:
+  # Amendement n° I-823 de M. Taché et du groupe RN, budget 2026, adopté le 28/10/2025 ; scrutins du 06/11/2024 (RN : 68 pour) et du 14/11/2025 (RN contre) ; G. Dussausaye (RN), commission des affaires sociales, 12/02/2025 : https://www.assemblee-nationale.fr/dyn/17/amendements/1906A/AN/823.pdf
+  # Déduite : votes et textes de son groupe, aucune déclaration personnelle trouvée.
+  le-pen: { option: C, source: "Amendement n° I-823 du groupe RN au budget 2026, adopté le 28/10/2025 ; votes du groupe RN, 06/11/2024 et 14/11/2025", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/amendements/1906A/AN/823.pdf" }
+  # L'Avenir en commun, édition 2025, mesures 36, 154 et 155 (page refusée à l'outil ; texte lu dans l'extrait de https://melenchon2027.fr/?p=15581 et sur votons-2027.fr) : https://melenchon2027.fr/programme2025/livre/
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, mesures 36, 154 et 155", statut: officielle, citation: "Interdire les licenciements boursiers et économiques par les entreprises qui versent des dividendes ou bénéficient des aides de l'État", lien: "https://melenchon2027.fr/programme2025/livre/" }
+  # É. Philippe, programme « Pour une France plus prospère », site de campagne « Avec Édouard 2027 », consulté le 10/11/2026 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+  # Le « deal » est dans son programme 2027 (étude, « Positions vérifiées le 10/11/2026 »), mais le programme ne parle
+  # ni de délocalisation ni de remboursement : E tient au pacte et au vote du groupe Horizons contre le remboursement
+  # du CIR (scrutin du 06/11/2024, 6 contre). Déduite, et non officielle, après relecture.
+  philippe: { option: E, source: "Programme « Pour une France plus prospère », site de campagne (consulté le 10/11/2026) ; vote du groupe Horizons, 06/11/2024", statut: deduite, citation: "Conclure un pacte fiscal inédit avec les entreprises : 50 Md€ de baisses d'impôts de production contre 50 Md€ d'aides publiques improductives en moins, le plus grand choc de compétitivité jamais réalisé.", lien: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" }
+  # Place publique, « Acte I », partie 1 ; scrutins du 06/11/2024 (SOC : 20 pour) et du 14/11/2025 (SOC : 19 pour) ; A. Delaporte (SOC), commission des affaires sociales, 12/02/2025 : https://place-publique.eu/pages/6mRSwq5tuSrSi68Cw1IADX/l-acte-i
+  # Déduite : aucune mesure de remboursement dans ses textes ; votes du groupe socialiste, auquel Place publique est associée.
+  glucksmann: { option: B, source: "Place publique, « Acte I », partie 1 ; votes du groupe socialiste, 06/11/2024 et 14/11/2025", statut: deduite, lien: "https://place-publique.eu/pages/6mRSwq5tuSrSi68Cw1IADX/l-acte-i" }
+  # Les Républicains, livret « Produire plus », février 2026 ; scrutin du 06/11/2024 (DR : 8 contre) : https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf
+  # Déduite : rien sur le remboursement dans le projet ; des parlementaires LR ont soutenu d'autres positions (O. Rietmann,
+  # président de la commission du Sénat ; PPL n° 743).
+  retailleau: { option: D, source: "Les Républicains, livret « Produire plus », février 2026 ; vote du groupe DR, 06/11/2024", statut: deduite, lien: "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf" }
+  # Institut Molinari, La Lettre du Made in France, 07/05/2026 ; Nouvelle Énergie, « Changer de logiciel fiscal », 16/04/2026 : https://www.institutmolinari.org/wp-content/uploads/2026/05/2026-05-07-LA-LETTRE-DU-MADE-IN-FRANCE.pdf
+  # Estimée : il ne parle ni des aides ni du remboursement ; sa ligne libérale et la priorité donnée à la baisse des
+  # impôts le placent en E plutôt qu'en D (étude). Gardée en E sur décision de l'auteur.
+  lisnard: { option: E, source: "Entretien à l'Institut Molinari, La Lettre du Made in France, 07/05/2026 ; Nouvelle Énergie, « Changer de logiciel fiscal », 16/04/2026", statut: estimee, lien: "https://www.institutmolinari.org/wp-content/uploads/2026/05/2026-05-07-LA-LETTRE-DU-MADE-IN-FRANCE.pdf" }
+  # Datan, scrutin n° 288 du 06/11/2024 (G. Attal : contre) ; scrutins du 14/11/2025 ; J.-R. Cazeneuve (EPR), 12/02/2025 : https://datan.fr/votes/legislature-17/vote_288
+  attal: { option: D, source: "Son vote contre le remboursement du crédit d'impôt recherche en cas de délocalisation, 06/11/2024 ; votes du groupe EPR, 14/11/2025", statut: deduite, lien: "https://datan.fr/votes/legislature-17/vote_288" }
+  # É. Zemmour, programme présidentiel 2022, « J'accompagnerai les filières industrielles » : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  # Déduite : programme 2022 ; « intégral » ne dit pas si les cotisations sont comprises.
+  zemmour: { option: C, source: "Programme présidentiel 2022, « J'accompagnerai les filières industrielles »", statut: deduite, citation: "Exiger le remboursement intégral des aides publiques reçues par les entreprises qui délocalisent", lien: "https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf" }
+  # Amendement n° 14 du groupe Écologiste et social, 22/05/2026 ; amendement n° I-2947, budget 2026 ; PPL n° 769 : https://www.assemblee-nationale.fr/dyn/17/amendements/2815/AN/14.pdf
+  # Déduite : textes de son groupe ; son programme de juillet 2026 conditionne les aides (page refusée à l'outil).
+  tondelier: { option: B, source: "Amendement n° 14 du groupe Écologiste et social, 22/05/2026 ; amendement n° I-2947 au budget 2026", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/amendements/2815/AN/14.pdf" }
+  # F. Roussel, « La France des jours heureux », programme 2022, propositions 3 et 11 ; question au gouvernement de J. Brugerolles (GDR), 03/06/2026 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "Programme 2022, « La France des jours heureux », propositions 3 et 11 ; question au gouvernement du groupe GDR, 03/06/2026", statut: deduite, citation: "Tous les plans sociaux et les licenciements en cours seront suspendus", lien: "https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf" }
+  # Assemblée nationale, PPL n° 2007 de D. Meslot et autres (cosignataire), 21/12/2004 ; Debout la France, projet « Économie », mesure 6, 2026 : https://www.assemblee-nationale.fr/12/pdf/propositions/pion2007.pdf
+  # Estimée : cosignature de plus de 20 ans et ligne voisine ; rien sur les licenciements ni les cotisations.
+  dupont-aignan: { option: C, source: "Proposition de loi n° 2007 dont il est cosignataire, 21/12/2004 ; Debout la France, projet « Économie », mesure 6, 2026", statut: estimee, lien: "https://www.assemblee-nationale.fr/12/pdf/propositions/pion2007.pdf" }
+  # F. Ruffin, cahier « Pour protéger notre industrie, relocaliser 100 produits stratégiques », nouspresident.fr, octobre 2026 ; amendement n° 14, 22/05/2026 (cosignataire) : https://nouspresident.fr/pour-proteger-notre-industrie-relocaliser-100-produits-strategiques/
+  ruffin: { option: B, source: "Cahier de campagne « Pour protéger notre industrie, relocaliser 100 produits stratégiques », octobre 2026 ; amendement n° 14, 22/05/2026, dont il est cosignataire", statut: officielle, citation: "Celui qui touche l'argent public garde les emplois, investit dans les usines, forme les salariés. […] Sinon, il rembourse", lien: "https://nouspresident.fr/pour-proteger-notre-industrie-relocaliser-100-produits-strategiques/" }
+  # Lutte ouvrière, brochure de campagne « Nathalie Arthaud, présidentielle 2027 », 2026 : https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure_caravane_2026-01_-_couleur.pdf
+  # Déduite : elle ne parle pas de remboursement ; l'interdiction des licenciements est sa mesure phare selon les comparateurs.
+  arthaud: { option: A, source: "Lutte ouvrière, brochure de campagne « Nathalie Arthaud, présidentielle 2027 », 2026", statut: deduite, citation: "pour que personne ne soit condamné au chômage, il faut recenser les besoins et imposer que le travail soit réparti entre tous", lien: "https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure_caravane_2026-01_-_couleur.pdf" }

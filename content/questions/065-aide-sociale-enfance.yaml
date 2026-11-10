@@ -1,0 +1,168 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 10/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/065-aide-sociale-enfance.md (tout ce qui suit y est sourcé).
+# Les moyens, les familles d'accueil, les jeunes majeurs et les mineurs non accompagnés sont des enjeux de la question,
+# pas des options (étude, « D'où vient la question »).
+# Mots disputés, attribués ou évités (étude, « Règles de lecture ») : « recentraliser » (RN, LFI, rapport Woerth),
+# « renationaliser » (LFI ; C. Caubel en 2023), « reprendre la main » : la fiche écrit « l'État reprend l'aide sociale à
+# l'enfance » ; « recentraliser » n'apparaît que dans les citations. « Loterie territoriale » (LFI) : la fiche écrit
+# « écarts entre départements ». « État stratège », « premier parent défaillant de France » : évités. « Placements
+# abusifs » ou « injustifiés » (RN) : la fiche écrit « placements ». « Sorties sèches » : évité.
+numero: 65
+date: 2026-08-24
+theme: education-jeunesse
+question: "Qui doit diriger l'aide sociale à l'enfance, l'État ou les départements ?"
+titreCourt: "L'aide sociale à l'enfance"
+contexte:
+  - "L'aide sociale à l'enfance (ASE) protège les enfants en danger et certains jeunes de moins de 21 ans : elle les place en famille d'accueil ou en foyer, ou envoie un éducateur chez eux, le plus souvent sur décision d'un juge."
+  - "Depuis la décentralisation de 1982-1983, ce sont les départements qui dirigent et financent l'aide sociale à l'enfance ; l'État garde la justice, la santé, l'école et la loi."
+  - "Le projet de loi de 2026 sur la protection des enfants ne change pas ce partage, que certains veulent revoir : que l'État reprenne l'aide sociale à l'enfance, comme avant 1984, qu'il impose des règles nationales, ou au contraire que les départements aient plus de liberté."
+# Quatre chiffres qui posent le sujet : combien d'enfants, combien d'argent, quels écarts, combien de jeunes étrangers
+# arrivés seuls. La légende du troisième dit que la cause des écarts n'est pas mesurée (étude § 2a) : le chiffre ne
+# plaide pas pour un échelon.
+chiffres:
+  - valeur: "217 400"
+    unite: jeunes placés
+    legende: "fin 2025, hors de chez leurs parents : en famille d'accueil, en foyer ou ailleurs (chiffre provisoire)"
+    source: { organisme: "Drees", document: "données provisoires 2025", annee: 2026 }
+  - valeur: "11,7"
+    unite: milliards d'euros
+    legende: "dépensés par les départements pour l'aide sociale à l'enfance en 2024, dont 80 % pour les enfants placés"
+    source: { organisme: "Drees", document: "L'aide sociale à l'enfance, édition 2026", annee: 2026 }
+  - valeur: "0,7 à 2,7 %"
+    legende: "des moins de 21 ans sont placés fin 2024, selon le département ; ce que ces écarts doivent à la pauvreté ou aux choix locaux n'est pas mesuré"
+    source: { organisme: "Drees", document: "L'aide sociale à l'enfance, édition 2026", annee: 2026 }
+  - valeur: "46 800"
+    unite: jeunes étrangers arrivés seuls
+    legende: "mineurs ou devenus majeurs, étaient placés fin 2024 : 21 % des enfants et jeunes placés"
+    source: { organisme: "Drees", document: "L'aide sociale à l'enfance, édition 2026", annee: 2026 }
+# L'ordre est une échelle : de la plus centralisée (A) à la plus décentralisée (D) (étude § 4).
+options:
+  - id: A
+    libelle: "L'État reprend l'aide sociale à l'enfance"
+    implique: "L'État dirige et paie l'aide sociale à l'enfance à la place des départements, comme avant 1984. Une proposition de loi de 2022 prévoyait de mettre leurs agents à la disposition du préfet, en gardant leur statut, et de réduire d'autant l'argent que l'État verse aux départements. Certains de ses défenseurs y ajoutent une forte hausse des moyens financiers et humains."
+    defenseurs: "Selon le département où il vit, un enfant est accompagné ou abandonné : seul l'État peut garantir la même protection partout."
+    critiques: "Quand l'État dirigeait l'aide sociale à l'enfance, avant 1984, les écarts existaient déjà : changer d'échelon ne crée ni places ni familles d'accueil."
+    detail:
+      chiffrage:
+        texte: "Personne n'a chiffré ce que coûterait la reprise. L'État prendrait à sa charge des dépenses de 11,7 milliards d'euros par an : ce que les départements y ont consacré en 2024."
+        source: { organisme: "Drees", annee: 2026 }
+      defenseurs:
+        - texte: "Selon le département où il vit, un enfant est accompagné ou abandonné : seul l'État peut garantir la même protection partout."
+        - texte: "Les départements ne sont pas armés pour protéger les enfants : les hôtels, les placements non exécutés et les violences en foyer le montrent."
+        - texte: "Les écarts entre départements sont forts : 4 % ou plus des moins de 21 ans sont suivis par l'aide sociale à l'enfance dans quatre départements, moins de 1,9 % dans quinze autres."
+          source: { organisme: "Drees", annee: 2026 }
+      critiques:
+        - texte: "Les écarts existaient déjà quand l'État dirigeait l'aide sociale à l'enfance : dès 1980, on relevait des situations inacceptables et des inégalités entre territoires."
+        - texte: "Un transfert absorberait des années d'énergie administrative pendant lesquelles les enfants attendent, et ne créerait ni places ni familles d'accueil."
+        - texte: "Chez nos voisins, la protection de l'enfance revient à des communes, des comtés ou des arrondissements, pas à l'État central : c'était le cas dans les sept pays comparés en 2007."
+          source: { organisme: "Sénat", document: "étude de législation comparée", annee: 2007 }
+  - id: B
+    libelle: "Aux départements, avec des règles nationales financées par l'État"
+    implique: "Les départements gardent l'aide sociale à l'enfance, mais l'État impose partout un nombre minimum d'adultes par enfant dans les foyers et l'aide aux jeunes de 18 à 21 ans. Le préfet pourrait engager d'office les dépenses d'un département défaillant. Une loi fixerait les moyens sur cinq ans, avec un fonds payé par la branche Famille de la Sécurité sociale et une part de CSG."
+    defenseurs: "Le département connaît le terrain, mais l'État doit fixer partout des règles minimales et payer ce qu'il impose."
+    critiques: "Pour les uns, sans un responsable unique, les écarts entre départements resteront ; pour les autres, des normes imposées d'en haut contraindraient trop les départements."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Pour mesurer l'enjeu : un enfant placé coûte en moyenne 42 400 euros par an, et les dépenses des départements pour l'aide sociale à l'enfance ont augmenté de 6,7 % en 2024."
+        source: { organisme: "Drees", annee: 2026 }
+      defenseurs:
+        - texte: "Le département connaît le terrain, mais l'État doit fixer partout des règles minimales et payer ce qu'il impose."
+        - texte: "Les foyers sont le seul secteur de l'enfance sans nombre minimum d'adultes par enfant : c'est à l'État de le fixer."
+        - texte: "Aucun jeune ne doit se retrouver à la rue en quittant l'aide sociale à l'enfance : 23 % des adultes nés en France et sans domicile ont été placés enfants."
+          source: { organisme: "Insee", document: "enquête Sans-domicile, citée par l'Assemblée nationale", annee: 2012 }
+      critiques:
+        - texte: "Sans un responsable unique, les écarts entre départements resteront : l'État doit diriger, pas seulement encadrer."
+        - texte: "Des normes d'encadrement et un budget sur cinq ans imposés d'en haut contraindraient trop l'action des départements."
+        - texte: "L'uniformisation ne doit pas être un but en soi : chaque département doit pouvoir adapter son action aux réalités locales."
+  - id: C
+    libelle: "La règle actuelle, complétée par la loi de 2026"
+    implique: "Le département reste responsable de l'aide sociale à l'enfance. L'État se coordonne avec lui dans des comités départementaux, fixe un cadre national pour contrôler les lieux d'accueil et fait vérifier d'ici fin 2029 l'honorabilité de tout adulte qui travaille auprès d'enfants, sans imposer de nombre minimum d'adultes par enfant ni de budget sur plusieurs années."
+    defenseurs: "Quand l'État dirigeait l'aide sociale à l'enfance, cela ne marchait pas : mieux vaut renforcer la coordination et les contrôles que bouleverser l'organisation."
+    critiques: "La loi de 2026 ne tranche pas qui dirige et n'apporte ni normes d'encadrement ni budget sur plusieurs années : comme les précédentes, elle n'y suffira pas."
+    detail:
+      chiffrage:
+        texte: "Depuis 1998, les dépenses des départements pour l'aide sociale à l'enfance ont été multipliées par 2,7 (+78 % une fois l'inflation déduite), et le nombre de mesures, placements et suivis par un éducateur, par 1,5. La hausse récente tient au nombre d'enfants et à la hausse des salaires des familles d'accueil décidée en 2022."
+        source: { organisme: "Drees", annee: 2026 }
+      defenseurs:
+        - texte: "Quand l'État dirigeait l'aide sociale à l'enfance, cela ne marchait pas : mieux vaut améliorer l'organisation que la bouleverser."
+        - texte: "Il faut renforcer la coordination entre les départements, la justice, l'école, les services sociaux et les forces de sécurité : c'est ce que fait la loi de 2026."
+        - texte: "La loi mise sur les solutions familiales, comme l'accueil par un proche de confiance, alors que les familles d'accueil reculent : elles accueillaient 36 % des enfants placés fin 2025, contre 56 % en 2006."
+          source: { organisme: "Drees", annee: 2026 }
+      critiques:
+        - texte: "La loi ne tranche pas qui dirige : les écarts entre départements resteront."
+        - texte: "Sans normes d'encadrement ni budget sur plusieurs années, cette loi, comme les précédentes, n'y suffira pas."
+        - texte: "Les lois passées restent mal appliquées : en 2025, quatre décrets de la loi de 2022 n'étaient toujours pas publiés."
+          source: { organisme: "Assemblée nationale", document: "commission d'enquête sur la protection de l'enfance", annee: 2025 }
+  - id: D
+    libelle: "Donner plus de liberté aux départements"
+    implique: "Les départements gardent l'aide sociale à l'enfance et peuvent adapter les règles nationales à leur territoire. La Constitution interdirait de leur imposer une dépense nouvelle sans financement garanti, et l'État assumerait ses propres missions : psychiatrie des enfants, justice des mineurs, vérification de l'âge des jeunes étrangers arrivés seuls."
+    defenseurs: "Au-delà d'un socle fixé par la loi, chaque département doit pouvoir adapter son action aux réalités de son territoire, et l'État doit payer ce qu'il impose."
+    critiques: "Plus de liberté creuserait des écarts déjà forts entre départements, alors qu'un enfant en danger doit être protégé de la même façon partout."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Les pratiques varient déjà : selon le département, de 5 % à 55 % des suivis par un éducateur à domicile sont décidés avec l'accord des parents, sans juge."
+        source: { organisme: "Drees", annee: 2026 }
+      defenseurs:
+        - texte: "Au-delà d'un socle fixé par la loi, chaque département doit pouvoir adapter son action aux réalités de son territoire."
+        - texte: "Aucune dépense nouvelle ne devrait être imposée aux départements sans un financement identifié et réévalué."
+        - texte: "Les manques viennent d'abord de l'État : psychiatrie des enfants saturée, juges des enfants trop peu nombreux, et jeunes étrangers arrivés seuls, qui relèvent de sa politique migratoire, laissés à la charge des départements."
+      critiques:
+        - texte: "Plus de liberté creuserait des écarts déjà forts : un enfant en danger doit être protégé de la même façon partout."
+        - texte: "L'aide aux jeunes qui quittent l'aide sociale à l'enfance ne doit pas dépendre du budget de chaque département."
+        - texte: "Les foyers n'ont toujours aucun nombre minimum d'adultes par enfant : il faut plus de règles communes, pas moins."
+pourAllerPlusLoin:
+  - titre: "Drees, L'aide sociale à l'enfance, édition 2026"
+    url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/les-dossiers-de-la-drees/260630-aide-sociale-enfance-2026
+  - titre: "Assemblée nationale, rapport de la commission d'enquête sur les manquements des politiques publiques de protection de l'enfance, 2025"
+    url: https://www.assemblee-nationale.fr/dyn/17/rapports/cease/l17b1200-ti_rapport-enquete.pdf
+  - titre: "Assemblée nationale, dossier législatif du projet de loi relatif à la protection des enfants, 2026"
+    url: https://www.assemblee-nationale.fr/dyn/17/dossiers/projet_de_loi_relatif_a_la_protection_des_enfants
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour que l'État la reprenne"
+    argument: "Selon le département où il vit, un enfant est accompagné ou abandonné : seul l'État peut garantir la même protection partout."
+  - titre: "Pour la laisser aux départements"
+    argument: "Quand l'État la dirigeait, avant 1984, les écarts existaient déjà : changer d'échelon ne crée ni places ni familles d'accueil."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A contre B, C et D.
+story:
+  - choix: "L'État la reprend"
+    precision: "comme avant 1984"
+  - choix: "Les départements la gardent"
+    precision: "avec plus de règles nationales, ou plus de liberté"
+# Positions sourcées seulement (étude, § 4). Inconnus : Zemmour (piste : en 2022, rendre des compétences des régions aux
+# départements, sans préciser lesquelles ; source secondaire) et Dupont-Aignan (piste : « Créer un véritable "Code de la
+# famille et de l'enfance" », projet « Famille », mesure 9, sans dire qui le met en œuvre).
+# Choix de l'auteur : Philippe en B (son groupe demande des « standards minimaux » fixés par l'État) et Retailleau en C.
+positions:
+  # Groupe RN, Assemblée nationale : débat du 08/01/2026 (Marine Hamelet) : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026O1N108
+  # et séance du 15/07/2026 (« C'est ce projet que Marine Le Pen et le Rassemblement national porteront devant les Français ») : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/deuxieme-seance-du-mercredi-15-juillet-2026
+  le-pen: { option: A, source: "Groupe RN, Assemblée nationale : débat du 08/01/2026 (Marine Hamelet) et séance du 15/07/2026", statut: deduite, citation: "une recentralisation de l'aide sociale à l'enfance, que nous réaliserons à notre arrivée au pouvoir", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026O1N108" }
+  # L'Avenir en commun, édition 2025, chapitre 7, « Protéger les enfants » (page non ouverte, texte lu dans l'extrait du moteur de recherche, à relire) : https://melenchon2027.fr/programme2025/livre/chapitre7/s9/
+  # Confirmé par son groupe, débat du 08/01/2026 (« Il faut renationaliser ») et amendement n° II-AS147, 06/11/2024 : https://www.assemblee-nationale.fr/dyn/17/amendements/0324C/CION-SOC/AS147.pdf
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, chapitre 7, « Protéger les enfants »", statut: officielle, citation: "Recentraliser la protection de l'enfance en augmentant significativement ses moyens financiers et humains, pour une égalité entre tous les enfants de la République", lien: "https://melenchon2027.fr/programme2025/livre/chapitre7/s9/" }
+  # Béatrice Piron, oratrice du groupe Horizons, Assemblée nationale, débat du 08/01/2026 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026O1N108
+  philippe: { option: B, source: "Béatrice Piron, oratrice du groupe Horizons, Assemblée nationale, débat du 08/01/2026", statut: deduite, citation: "L'État ne peut pas se contenter d'un rôle d'animateur lointain. Il doit pleinement assumer son rôle de garant de l'égalité territoriale en fixant un cap clair, des standards minimaux", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026O1N108" }
+  # Ligne du PS : Isabelle Santiago, rapporteure de la commission d'enquête, 2025 : https://www.assemblee-nationale.fr/dyn/contenu/telechargement/903892/file/Dossier%20de%20presse%20CE%20protection%20de%20l%27enfance%2020250407.pdf
+  glucksmann: { option: B, source: "Isabelle Santiago (PS), rapporteure de la commission d'enquête de l'Assemblée nationale sur la protection de l'enfance, 2025", statut: estimee, lien: "https://www.assemblee-nationale.fr/dyn/contenu/telechargement/903892/file/Dossier%20de%20presse%20CE%20protection%20de%20l%27enfance%2020250407.pdf" }
+  # Oratrice du groupe Droite républicaine, séance du 15/07/2026 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/deuxieme-seance-du-mercredi-15-juillet-2026
+  # Votes sur la loi de 2026 : Assemblée, scrutin n° 8430 (Droite républicaine, 48 pour) : https://www.assemblee-nationale.fr/dyn/17/scrutins/8430 ; Sénat, scrutin n° 46 (LR, 120 pour) : https://www.senat.fr/scrutin-public/2026/scr2026-46.html
+  retailleau: { option: C, source: "Votes LR sur le projet de loi de 2026 (Assemblée, 21/07/2026 ; Sénat, 03/11/2026) ; oratrice du groupe Droite républicaine, 15/07/2026", statut: deduite, citation: "Il nous faut renforcer la coordination entre les départements, la justice, l'éducation nationale, les services sociaux et les forces de sécurité", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/deuxieme-seance-du-mercredi-15-juillet-2026" }
+  # Acteurs publics, 29/10/2026 : https://acteurspublics.fr/articles/reforme-de-letat-david-lisnard-defend-un-etat-moins-bureaucratique-et-plus-decentralise/
+  lisnard: { option: D, source: "Acteurs publics, 29/10/2026", statut: estimee, citation: "adapter les politiques publiques aux besoins concrets et particuliers locaux", lien: "https://acteurspublics.fr/articles/reforme-de-letat-david-lisnard-defend-un-etat-moins-bureaucratique-et-plus-decentralise/" }
+  # Joséphine Missoffe, oratrice EPR, débat du 08/01/2026 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026O1N108
+  # Pauline Cestrières, EPR, séance du 15/07/2026 ; scrutin n° 8430 (EPR, 86 pour, 2 abstentions) : https://www.assemblee-nationale.fr/dyn/17/scrutins/8430
+  # Citation retirée (« Nous la saluons… ») : on ne sait pas ce que désigne « la », et le débat du 08/01/2026 précède le
+  # dépôt du projet de loi (27/05/2026).
+  attal: { option: C, source: "Joséphine Missoffe, oratrice EPR, 08/01/2026 ; Pauline Cestrières, EPR, 15/07/2026 ; scrutin n° 8430, 21/07/2026", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026O1N108" }
+  # La Gazette France (AFP), 17/09/2026 : https://www.lagazettefrance.fr/article/pour-son-dernier-deplacement-avant-son-accouchement-tondelier-veut-un-pays-a-hauteur-d-enfant
+  # Oratrice écologiste, débat du 08/01/2026 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026O1N108
+  tondelier: { option: B, source: "La Gazette France (AFP), 17/09/2026 ; oratrice écologiste, Assemblée nationale, 08/01/2026", statut: estimee, lien: "https://www.lagazettefrance.fr/article/pour-son-dernier-deplacement-avant-son-accouchement-tondelier-veut-un-pays-a-hauteur-d-enfant" }
+  # Orateur du groupe GDR (PCF), séance du 15/07/2026 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/deuxieme-seance-du-mercredi-15-juillet-2026
+  roussel: { option: B, source: "Orateur du groupe GDR (PCF), Assemblée nationale, 15/07/2026", statut: estimee, citation: "la protection de l'enfance souffre autant d'un déficit de moyens que d'un déficit de gouvernance", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-extraordinaire-de-2025-2026/deuxieme-seance-du-mercredi-15-juillet-2026" }
+  # Question écrite n° 13010, JO du 17/02/2026 : https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE13010
+  # Fragile : rien sur l'échelon (étude, § 4).
+  ruffin: { option: B, source: "Question écrite n° 13010 de François Ruffin, JO du 17/02/2026", statut: estimee, lien: "https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE13010" }
+  # Lutte ouvrière, « Aide sociale à l'enfance : une catastrophe programmée », 17/12/2025 : https://www.lutte-ouvriere.org/portail/journal/aide-sociale-lenfance-catastrophe-programmee-189263.html
+  # Fragile : le parti met en cause le transfert de 1983 sans demander en toutes lettres la reprise par l'État (étude, § 4).
+  arthaud: { option: A, source: "Lutte ouvrière, « Aide sociale à l'enfance : une catastrophe programmée », 17/12/2025", statut: estimee, citation: "le transfert depuis 1983 de l'aide à l'enfance aux départements, suivi de la réduction constante depuis trente ans des moyens accordés à ces derniers, place l'ASE dans l'impossibilité matérielle de faire face", lien: "https://www.lutte-ouvriere.org/portail/journal/aide-sociale-lenfance-catastrophe-programmee-189263.html" }

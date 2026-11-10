@@ -374,6 +374,16 @@ Notes :
 - La limite entre B et C tient à deux points : les baisses de cotisations, et le déclenchement par des licenciements et pas seulement par une délocalisation. Le RN a explicitement refusé les deux [5][10].
 - Entre D et E : LR refuse de financer la baisse des impôts par des coupes d'aides [31], Horizons le propose [22]. Les deux rejettent un remboursement obligatoire.
 
+### Positions vérifiées le 10/11/2026
+
+| Candidat | Position | Source | Statut |
+|---|---|---|---|
+| Philippe | **E** : « Conclure un pacte fiscal inédit avec les entreprises : 50 Md€ de baisses d'impôts de production contre 50 Md€ d'aides publiques improductives en moins, le plus grand choc de compétitivité jamais réalisé. » (rubrique « Libérer nos entreprises du poids des impôts et de la bureaucratie ») | Programme « Pour une France plus prospère », site de campagne « Avec Édouard 2027 », page sans date, consultée le 10/11/2026 [40] | **officielle** (remplace « déduite ») |
+
+- Le « deal » de 2025 [22] figure bien dans son programme 2027 : la vérification demandée au tableau ci-dessus est faite.
+- La page ne parle ni de délocalisation ni de remboursement (recherche de « délocalis », « relocalis » et « rembours » dans la page). Le classement en E repose sur ce pacte (moins d'aides contre des impôts de production plus bas) et sur le vote du groupe Horizons contre le remboursement du CIR en cas de délocalisation (6 contre, 06/11/2024) [6].
+- Bilan mis à jour : 13 positions ; **3 officielles** (Mélenchon, Ruffin, Philippe), **8 déduites**, **2 estimées** (Lisnard, Dupont-Aignan), 0 inconnue. La répartition par option ne change pas.
+
 ---
 
 ## 5. Sources
@@ -419,3 +429,4 @@ Consultées du 7 au 9 novembre 2026.
 37. Assemblée nationale, proposition de loi n° 743 de S. Viry, R. Schellenberger, A. Pradié et J. Dive « visant à encadrer et renforcer la transparence et l'efficacité des aides publiques aux entreprises en faveur de l'emploi et de l'industrie dans les territoires », 19 décembre 2024 — https://www.assemblee-nationale.fr/dyn/17/textes/l17b0743_proposition-loi.pdf
 38. Assemblée nationale, PPL n° 1955 (M. Maximi, M. Panot, H. Clouet et groupe LFI) « visant à interdire le recours abusif des grandes entreprises aux aides publiques », 14 octobre 2025 — https://www.assemblee-nationale.fr/dyn/17/textes/l17b1955_proposition-loi.pdf ; PPL n° 1847 (E. Sas et autres, Écologiste et social et socialistes) « visant à renforcer la traçabilité des financements publics accordés aux entreprises », 16 septembre 2025 — https://www.assemblee-nationale.fr/dyn/17/textes/l17b1847_proposition-loi.pdf
 39. Règlement (UE) 2021/1060 du 24 juin 2021 portant dispositions communes (fonds européens), article 65 « Pérennité des opérations » (non ouvert : EUR-Lex inaccessible à l'outil) **[à vérifier]** — https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32021R1060
+40. Édouard Philippe, « Pour une France plus prospère », site de campagne « Avec Édouard 2027 » (page sans date, consultée le 10 novembre 2026) — https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere

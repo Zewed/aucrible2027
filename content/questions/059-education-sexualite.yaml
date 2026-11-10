@@ -1,0 +1,159 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 10/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doivent être vérifiés par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/059-education-sexualite.md (tout ce qui suit y est sourcé).
+# La question dit « séances », le mot de la loi (ce ne sont pas des cours notés), et « de la maternelle au lycée » : l'étude
+# disait « dès la maternelle », accroche des opposants, remplacée après relecture ; « garder », parce que l'obligation existe
+# depuis 2001. En maternelle et en élémentaire, le programme exclut la sexualité : le contexte le dit (étude, « Règles de
+# lecture »).
+# Mots disputés, attribués ou évités (étude, « Règles de lecture ») : « éducation sexuelle » (mot courant et mot des
+# opposants ; la fiche écrit « éducation à la vie affective et sexuelle », et « éducation à la sexualité » pour la loi) ;
+# « théorie du genre » (mot des opposants ; la fiche écrit « identité de genre ») ; « endoctrinement », « idéologie »,
+# « dérives », « réactionnaires » (jamais employés) ; « primauté éducative des parents » (AFC, non employé) ;
+# « adulte de confiance » (notion du programme, entre guillemets).
+numero: 59
+date: 2026-08-30
+theme: education-jeunesse
+question: "Faut-il garder les séances obligatoires d'éducation à la vie affective et sexuelle à l'école, de la maternelle au lycée ?"
+titreCourt: "L'éducation affective et sexuelle"
+contexte:
+  - "Depuis une loi de 2001, chaque école, collège et lycée doit organiser au moins trois séances d'éducation à la sexualité par an, sans dispense possible, mais cette loi a été peu appliquée jusqu'en 2025, et la justice a condamné l'État pour cette carence en décembre 2025."
+  - "Le programme entré en vigueur en septembre 2025 commence avant 4 ans ; en maternelle et en élémentaire, il exclut la sexualité et parle du corps, de l'intimité, du consentement, des violences, des « différentes structures familiales » et des stéréotypes, « notamment de genre »."
+  - "Le débat porte sur l'obligation elle-même, sur ce que les parents doivent savoir, sur la place de l'identité de genre et des associations, et sur les moyens."
+chiffres:
+  # § 1.4, [9] [10] : l'enquête ne dit ni combien d'établissements ont répondu, ni combien d'élèves ont eu les trois séances.
+  - valeur: "66 %"
+    legende: "des écoliers avaient eu au moins une séance entre la rentrée et le 31 décembre 2025, contre 48 % des collégiens et 35 % des lycéens, dans les établissements qui ont répondu à une enquête du ministère"
+    source: { organisme: "Ministère de l'Éducation nationale", document: "réponse à la question écrite n° 11476", annee: 2026 }
+  # § 1.4 et 2g, [9] : le chiffre du ministère, pas celui des associations (620 M€), donné dans l'option D.
+  - valeur: "119"
+    unite: "millions d'euros"
+    legende: "annoncés par le ministre pour ce programme, surtout en temps de travail des personnels et en subventions : ce n'est pas un budget affecté, précise le ministère"
+    source: { organisme: "Ministère de l'Éducation nationale", document: "réponse à la question écrite n° 11476", annee: 2026 }
+options:
+  - id: A
+    libelle: "Supprimer l'obligation et s'en remettre aux familles"
+    implique: "La loi de 2001 est abrogée : il n'y a plus de séance obligatoire, et l'éducation affective et sexuelle revient aux familles. Les cours de sciences sur la puberté et la reproduction restent."
+    defenseurs: "L'éducation des enfants revient d'abord aux parents : l'école doit instruire et se concentrer sur les savoirs fondamentaux, pas entrer dans des sujets aussi intimes."
+    critiques: "Sans ces séances, les enfants qui n'en parlent pas chez eux n'apprendraient plus à nommer leur corps, à dire non et à signaler des violences, parfois subies dans leur propre famille."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Avant 2001, ces séances étaient facultatives, en dehors de l'emploi du temps, et demandaient l'accord des parents."
+        source: { organisme: "Inspection générale de l'éducation", document: "rapport n° 2021-149", annee: 2021 }
+      defenseurs:
+        - texte: "L'éducation des enfants revient avant tout aux parents : l'école est là pour instruire, pas pour éduquer à leur place."
+        - texte: "Sur un sujet aussi personnel que la sexualité, l'école empiète sur la vie des familles, parfois sans dialogue ni transparence."
+        - texte: "L'école doit concentrer ses efforts sur les savoirs fondamentaux : lire, écrire, compter, raisonner."
+      critiques:
+        - texte: "Chaque année, 160 000 enfants sont victimes d'inceste ou de violences sexuelles : l'école est le premier lieu où les aider à se protéger et à en parler."
+          source: { organisme: "CIIVISE, commission qui soutient le programme", annee: 2024 }
+        - texte: "Un enfant victime de violences dans sa propre famille n'a parfois que l'école pour apprendre qu'il peut en parler, et à qui."
+        - texte: "Le programme ne remplace pas les parents : il est public, et les parents sont représentés dans les instances de l'école."
+  - id: B
+    libelle: "Les garder, mais recentrées et annoncées aux parents"
+    implique: "Les trois séances restent obligatoires, mais elles sont assurées par les enseignants plutôt que par des associations, sans la notion d'identité de genre, et les parents sont informés à l'avance de chaque séance."
+    defenseurs: "Les parents doivent savoir à l'avance ce qui est dit à leur enfant, et l'école doit rester à l'abri de tout militantisme : des séances par les professeurs, sans identité de genre."
+    critiques: "Annoncer chaque séance exposerait les enseignants aux pressions, et l'identité de genre sert, dans le programme, à combattre des discriminations que la loi interdit."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. En 2018-2019, au collège et au lycée, près de 30 % des séances étaient animées par des intervenants extérieurs, et près de 40 % par des infirmiers."
+        source: { organisme: "Inspection générale de l'éducation", document: "rapport n° 2021-149", annee: 2021 }
+      defenseurs:
+        - texte: "Les parents doivent savoir à l'avance ce qui sera dit à leur enfant, et pouvoir exprimer leurs réserves."
+        - texte: "Ces séances relèvent des professeurs, plutôt que d'intervenants extérieurs dont on peut craindre qu'ils y mettent leurs propres convictions."
+        - texte: "En seconde, le programme fait « prendre conscience que l'identité de genre peut ne pas correspondre au sexe biologique » : présenté ainsi, le genre peut troubler des adolescents qui cherchent des repères."
+      critiques:
+        - texte: "Annoncer chaque séance exposerait les enseignants à des pressions, et des parents retireraient leurs enfants de l'école ces jours-là."
+        - texte: "L'identité de genre est une notion de la loi : le programme l'emploie pour combattre des discriminations interdites, sans inciter personne à en changer."
+        - texte: "Des enseignants sans formation ni créneau, souvent volontaires, ne peuvent pas assurer seuls toutes ces séances."
+  - id: C
+    libelle: "Garder le programme de 2025 tel quel"
+    implique: "Trois séances par an, de la maternelle au lycée. En maternelle et en élémentaire, elles portent sur la vie affective et relationnelle, sans sexualité. Les parents sont informés des objectifs de l'année, et des associations agréées peuvent intervenir, en primaire à titre exceptionnel."
+    defenseurs: "Le programme suit l'âge des élèves et complète le rôle des parents sans le remplacer : en primaire, il parle du corps, du consentement et des violences, pas de sexualité."
+    critiques: "Les uns le jugent trop précoce et trop éloigné des familles, les autres trop peu appliqué, faute d'un budget propre."
+    detail:
+      chiffrage:
+        texte: "Le garder ne change rien : le ministère valorise son effort à 119 millions d'euros, surtout en temps de travail des personnels, sans budget affecté."
+        source: { organisme: "Ministère de l'Éducation nationale", annee: 2026 }
+      defenseurs:
+        - texte: "Le programme suit l'âge des élèves : en primaire, il parle du corps, des émotions, du consentement et des violences, pas de sexualité."
+        - texte: "Il ne remplace pas les familles, il les complète : le programme est public, et les parents connaissent les objectifs de chaque année."
+        - texte: "Les programmes scolaires de prévention des abus sexuels donnent aux enfants des connaissances et des réflexes pour se protéger, sans les rendre plus anxieux : c'est le bilan de 24 essais menés auprès de 5 802 enfants."
+          source: { organisme: "Revue Cochrane", annee: 2015 }
+      critiques:
+        - texte: "Dès la maternelle, il apprend aux enfants à repérer des « adultes de confiance », mis sur le même plan que leurs parents."
+        - texte: "Les parents ne sont plus prévenus de la date ni du contenu de chaque séance, seulement des objectifs de l'année."
+        - texte: "Sans budget propre, le programme n'a pas lieu partout : fin 2025, 35 % des lycéens avaient eu au moins une séance depuis la rentrée."
+          source: { organisme: "Ministère de l'Éducation nationale", annee: 2026 }
+  - id: D
+    libelle: "L'appliquer partout, avec un budget dédié"
+    implique: "Un budget propre, des heures réservées dans l'emploi du temps, des personnels formés, des associations agréées aussi en primaire et des contrôles dans le privé sous contrat. Des associations demandent jusqu'à 620 millions d'euros par an, contre 119 millions valorisés aujourd'hui par le ministère."
+    defenseurs: "Une loi votée en 2001 doit s'appliquer : sans budget, sans heures réservées ni personnes formées, des élèves traversent toute leur scolarité sans une seule séance."
+    critiques: "L'effort existe déjà, avec un plan national de formation, et faire parler de ces sujets à de jeunes enfants par des intervenants extérieurs ne devrait pas se généraliser."
+    detail:
+      chiffrage:
+        # § 1.4 et 2g, [9] [18] : chiffre d'un collectif d'associations, partie au débat (622 M€ dans une autre citation).
+        texte: "Des associations estiment le besoin à 620 millions d'euros par an, soit 52 euros par élève. Aucun chiffrage public indépendant n'a été trouvé."
+        source: { organisme: "Collectif pour une véritable éducation à la sexualité", document: "cité par l'Assemblée nationale", annee: 2024 }
+      defenseurs:
+        - texte: "Avant le programme de 2025, moins de 15 % des élèves avaient leurs trois séances dans l'année, à l'école comme au lycée, dans l'académie étudiée."
+          source: { organisme: "Inspection générale de l'éducation", annee: 2021 }
+        - texte: "Un programme sans moyens reste inefficace : les 119 millions d'euros annoncés valorisent surtout le temps des personnels, sans budget affecté."
+          source: { organisme: "Ministère de l'Éducation nationale", annee: 2026 }
+        - texte: "Pendant que l'école se tait, les algorithmes parlent de sexualité aux adolescents."
+      critiques:
+        - texte: "L'effort existe déjà : il passe par trois programmes du budget de l'État et par un plan national de formation des personnels."
+        - texte: "Plus d'associations en primaire, c'est faire parler de ces sujets à de jeunes enfants par des intervenants extérieurs, alors qu'ils relèvent d'abord de leurs professeurs."
+        - texte: "Aucune étude ne mesure encore si ces programmes réduisent vraiment les violences : il faut évaluer avant de dépenser plus."
+pourAllerPlusLoin:
+  - titre: "Ministère de l'Éducation nationale, programme d'éducation à la vie affective et relationnelle, et à la sexualité, 2025"
+    url: https://www.education.gouv.fr/sites/default/files/un-programme-ambitieux-eduquer-a-la-vie-affective-et-relationnelle-et-a-la-sexualite_1.pdf
+  - titre: "Conseil d'État, décision du 27 juin 2025 sur le programme d'éducation à la vie affective et relationnelle, et à la sexualité"
+    url: https://www.conseil-etat.fr/actualites/le-programme-scolaire-d-education-a-la-vie-affective-et-relationnelle-et-a-la-sexualite-est-conforme-a-la-loi
+  - titre: "Inspection générale de l'éducation, Éducation à la sexualité en milieu scolaire, rapport de juillet 2021"
+    url: https://www.education.gouv.fr/media/113772/download
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour plus de place aux parents"
+    argument: "L'éducation des enfants revient d'abord aux parents : ils doivent savoir ce que l'école leur dit."
+  - titre: "Pour garder ou renforcer les séances"
+    argument: "Nommer son corps, dire non et savoir à qui parler aident les enfants à se protéger des violences."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A et B d'un côté, C et D de l'autre (étude, § 4 : ce qui
+# départage le plus les candidats est le contenu et les moyens, B contre D).
+story:
+  - choix: "Les supprimer ou les recentrer"
+    precision: "les parents d'abord"
+  - choix: "Les garder ou les renforcer"
+    precision: "le programme de 2025, ou plus de moyens"
+# Positions sourcées seulement (étude, § 4). Inconnues : Lisnard, Roussel, Dupont-Aignan, Ruffin.
+# Pistes à vérifier avant tout ajout : Roussel (programme 2022 « L'heure de la révolution féministe », objectif 5, selon
+# MonVote2027, page non ouverte). Pistes écartées : MonVote2027 pour Lisnard (« neutre », sans source) et Dupont-Aignan
+# (« plutôt contre » parce que son programme n'en parle pas) ; Le Pen « fin de l'éducation à la vie sexuelle et affective »
+# (MonVote2027 d'après Bon Pote, que l'article ne dit pas).
+# Le Pen, Philippe et Glucksmann : positions de l'étude gardées en « estimée », choix de l'auteur du 10/11/2026.
+positions:
+  # Questions écrites de cinq députés RN, 2025, dont n° 4168 de Florence Joubert (18/02/2025) : https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE4168
+  # et n° 4167 de Lisette Pollet (18/02/2025, information des parents avant chaque séance) : https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE4167
+  # Ils acceptent le principe et demandent les trois changements de B ; ce ne sont pas les mots de Marine Le Pen.
+  le-pen: { option: B, source: "Questions écrites de cinq députés RN, dont n° 4168 de Florence Joubert et n° 4167 de Lisette Pollet, 18/02/2025", statut: estimee, citation: "supprimer de ce programme les occurrences liées à l'identité de genre", lien: "https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE4168" }
+  # Proposition de résolution n° 721 de Mathilde Panot et du groupe LFI, 13/12/2024 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b0721_proposition-resolution
+  # et amendement II-3450 du groupe LFI, 20/11/2025 : https://www.assemblee-nationale.fr/dyn/17/amendements/1906C/AN/3450.pdf
+  melenchon: { option: D, source: "Proposition de résolution n° 721 de Mathilde Panot et du groupe LFI, 13/12/2024 ; amendement II-3450 du groupe LFI, 20/11/2025", statut: deduite, citation: "Invite le Gouvernement à respecter les dispositions de l'article L. 312-16", lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b0721_proposition-resolution" }
+  # Circulaire du 12/09/2018 de son gouvernement sur les trois séances (citée par l'IGÉSR, rapport n° 2021-149) ; vote des
+  # députés Horizons pour l'amendement n° 1146 (14 pour), scrutin n° 8559, 06/10/2026 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8559
+  philippe: { option: C, source: "Circulaire du 12/09/2018 de son gouvernement sur les trois séances ; vote des députés Horizons pour l'amendement n° 1146 (14 pour), scrutin n° 8559, 06/10/2026", statut: estimee, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/8559" }
+  # Vote pour la résolution du Parlement européen du 24/06/2021 (rapport Matić, A9-0169/2021) : https://howtheyvote.eu/votes/134348
+  # et amendement II-AC363 du groupe socialiste, +4 M€ pour l'EVARS, 29/10/2025 : https://www.assemblee-nationale.fr/dyn/17/amendements/1906C/CION-CEDU/AC363.pdf
+  glucksmann: { option: D, source: "Vote pour la résolution du Parlement européen du 24/06/2021 sur la santé et les droits sexuels et génésiques (rapport Matić) ; amendement II-AC363 du groupe socialiste, +4 M€ pour l'éducation à la sexualité, 29/10/2025", statut: estimee, lien: "https://howtheyvote.eu/votes/134348" }
+  # Le JDD, fin décembre 2024, rapporté par Politis le 29/01/2025 [source secondaire] : https://www.politis.fr/articles/2025/01/societe-education-a-la-sexualite-un-programme-sous-haute-tension/
+  retailleau: { option: B, source: "Le JDD, fin décembre 2024, à propos de l'école, rapporté par Politis le 29/01/2025", statut: deduite, citation: "Il faut la protéger de tout militantisme", lien: "https://www.politis.fr/articles/2025/01/societe-education-a-la-sexualite-un-programme-sous-haute-tension/" }
+  # Annonce comme Premier ministre, janvier 2024, rappelée par Anne Genetet devant la délégation aux droits des femmes,
+  # 13/11/2024 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/ega/l17ega2425004_compte-rendu.pdf
+  attal: { option: C, source: "Annonce comme Premier ministre, janvier 2024, rappelée par Anne Genetet devant la délégation aux droits des femmes de l'Assemblée nationale, 13/11/2024", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/ega/l17ega2425004_compte-rendu.pdf" }
+  # Parents vigilants (Reconquête), « Le petit guide des parents vigilants », signé par Éric Zemmour, rentrée 2025 [date exacte à vérifier] : https://assets.ericzemmour.fr/document%2FLe%2BPetit%2BGuide%2Bdes%2BParents%2BVigilants.pdf
+  zemmour: { option: A, source: "Parents vigilants (Reconquête), « Le petit guide des parents vigilants », signé par Éric Zemmour, rentrée 2025", statut: deduite, citation: "L'école est là pour instruire, non pour éduquer à notre place.", lien: "https://assets.ericzemmour.fr/document%2FLe%2BPetit%2BGuide%2Bdes%2BParents%2BVigilants.pdf" }
+  # Déduite tant que le PDF du programme n'a pas été lu.
+  # Les Écologistes, projet 2027 « Pour une prospérité écologique », p. 134 (PDF non ouvert, relevé par MonVote2027 :
+  # https://monvote2027.fr/candidat/tondelier) : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+  tondelier: { option: D, source: "Les Écologistes, projet 2027 « Pour une prospérité écologique », p. 134 (relevé par MonVote2027)", statut: deduite, citation: "Veiller à l'application de l'Éducation à la Vie Affective et Relationnelle (EVAR) dans toutes les écoles élémentaires et de l'Éducation à la Vie Affective Relationnelle et Sexuelle (EVARS) dans tous les établissements scolaires du second degré", lien: "https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027" }
+  # Lutte ouvrière, « Sexualité, plus on en parle… », n° 2616, 19/09/2018 : https://www.lutte-ouvriere.org/journal/article/2018-09-19-sexualite-plus-en-parle_113513.html
+  arthaud: { option: D, source: "Lutte ouvrière, « Sexualité, plus on en parle… », n° 2616, 19/09/2018", statut: estimee, citation: "donner aux enseignants les moyens de les appliquer", lien: "https://www.lutte-ouvriere.org/journal/article/2018-09-19-sexualite-plus-en-parle_113513.html" }

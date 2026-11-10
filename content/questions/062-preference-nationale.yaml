@@ -1,0 +1,229 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 10/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/062-preference-nationale.md (tout ce qui suit y est sourcé).
+# Périmètre de l'étude : les étrangers non européens en situation régulière et les aides versées sans cotisation
+# (prestations familiales, aides au logement, RSA, prime d'activité, minimum vieillesse, AAH). Ni l'AME (fiche 015), ni
+# les étrangers sans titre de séjour (fiche 042).
+# Mots disputés, attribués à qui les emploie et jamais repris par la fiche (étude, « Vocabulaire ») :
+# « préférence nationale » (Le Gallou, 1985 ; aujourd'hui surtout employé par ceux qui s'opposent aux restrictions),
+# « priorité nationale » (terme du RN), « délai de carence » (gouvernement, B. Retailleau, socialistes ; contesté),
+# « appel d'air » (partisans d'une restriction ; « mythe » pour leurs opposants). Comme l'étude, la fiche écrit
+# « réserver aux Français » pour une condition de nationalité et « durée de résidence » ou « attente » pour un délai.
+numero: 62
+date: 2026-08-27
+theme: immigration
+question: "Les étrangers en situation régulière doivent-ils avoir droit aux mêmes aides sociales que les Français ?"
+titreCourt: "Les aides sociales aux étrangers"
+contexte:
+  # § 1.1 et § 3, [39].
+  - "Aujourd'hui, un étranger non européen en situation régulière a droit, aux mêmes conditions qu'un Français, aux allocations familiales et aux aides au logement dès son titre de séjour, mais il attend cinq ans pour le RSA et dix ans pour le minimum vieillesse."
+  # § 1.2 et § 2b, [1] [4].
+  - "Le Conseil constitutionnel juge contraire à la Constitution de réserver ces aides aux Français ; en avril 2024, il a admis le principe d'une durée de résidence, mais jugé que cinq ans pour les prestations familiales et les aides au logement allaient trop loin."
+  # § 1.3, [14] [15] [18].
+  - "Le gouvernement propose un an d'attente pour les prestations familiales dans le budget de la Sécurité sociale pour 2027 ; les députés ont supprimé cette mesure en commission en octobre 2026, et le Sénat examine le texte depuis le 9 novembre."
+chiffres:
+  # § 2a, [38].
+  - valeur: "9,1 %"
+    legende: "de la population vivant en France est de nationalité étrangère en 2025, Européens compris : 6,3 millions de personnes"
+    source: { organisme: Insee, document: "L'essentiel sur les immigrés et les étrangers", annee: 2026 }
+  # § 1.1, [39].
+  - valeur: "5"
+    unite: ans
+    legende: "de titre de séjour sont exigés d'un étranger non européen avant le RSA ; aucune durée pour les allocations familiales"
+    source: { organisme: "Service-public.gouv.fr", annee: 2026 }
+  # § 2d, [37] [10] : foyers au 30/06/2022, réponse publiée au JO le 20/06/2023. Ne se compare pas
+  # directement au 9,1 % (ni la même année ni la même unité, étude § 2d).
+  - valeur: "15,6 %"
+    legende: "des foyers du RSA avaient pour responsable un étranger non européen en juin 2022 ; pour les autres aides, la nationalité des allocataires n'est pas enregistrée"
+    source: { organisme: "Cnaf et MSA", document: "réponse ministérielle à la question écrite n° 5157", annee: 2023 }
+# L'ordre est une échelle, de la plus restrictive à la plus ouverte (étude § 4.1) ; la règle actuelle est D.
+# E est gardée sur décision de l'auteur, bien qu'aucun candidat ne la défende (seul le Gisti, association, la porte).
+options:
+  - id: A
+    libelle: "Réserver ces aides aux Français, en changeant la Constitution"
+    implique: "Les prestations familiales et les aides au logement sont réservées aux Français, ou retirées aux seuls étrangers non européens avec le RSA et le minimum vieillesse, selon les versions ; les Français passent en priorité pour les HLM. Il faut réviser la Constitution. Économie estimée : 6,7 milliards d'euros par an si ces quatre aides sont retirées aux étrangers non européens."
+    defenseurs: "La solidarité nationale doit d'abord aller aux Français, quelle que soit leur origine : c'est un droit naturel et juste, et la présence des étrangers ne doit pas peser sur les comptes sociaux."
+    critiques: "Un enfant étranger n'a pas moins besoin de manger et d'avoir un toit qu'un enfant français : il faudrait réviser la Constitution et dénoncer des traités qui garantissent l'égalité à ceux qui vivent ici régulièrement."
+    detail:
+      chiffrage:
+        # § 2d, [33] : version de 2022 (RSA, aides au logement, allocations familiales et minimum vieillesse retirés aux
+        # étrangers non européens). Hypothèses de l'Institut Montaigne, accords internationaux pas tous pris en compte.
+        texte: "Retirer le RSA, les aides au logement, les allocations familiales et le minimum vieillesse aux étrangers non européens économiserait 6,7 milliards d'euros par an selon l'Institut Montaigne, 20 milliards selon Reconquête, qui le proposait en 2022."
+        source: { organisme: Institut Montaigne, annee: 2022 }
+      defenseurs:
+        # § 2a, [23].
+        - texte: "La solidarité nationale doit d'abord bénéficier aux Français, quelles que soient leur couleur de peau, leur religion ou leur origine."
+        # § 2a, [20].
+        - texte: "La présence des étrangers ne doit pas devenir une charge déraisonnable pour les finances publiques et la protection sociale."
+        # § 2h, [44] : un seul institut, mêmes commanditaires, libellé exact non lu (étude) ; la question parlait de
+        # « préférence nationale ».
+        - texte: "En décembre 2023, 71 % des personnes interrogées se disaient favorables à une priorité aux Français pour le logement, l'emploi et les allocations."
+          source: { organisme: "CSA pour CNews, Europe 1 et Le JDD", annee: 2023 }
+      critiques:
+        # § 2a, [15].
+        - texte: "Un enfant étranger n'a pas moins besoin de manger, de se vêtir et d'avoir un toit qu'un enfant français."
+        # § 2b et 2c, [4] [33].
+        - texte: "Il faudrait réviser la Constitution et dénoncer plusieurs traités, car le droit français et européen garantit l'égalité aux étrangers qui vivent ici régulièrement."
+        # § 2a, [47].
+        - texte: "La solidarité répond à des situations, pas à des nationalités : ce n'est ni une concession ni une faveur."
+  - id: B
+    libelle: "Exiger cinq ans de résidence, voire de travail, avant ces aides"
+    implique: "Les aides versées sans cotisation, dont les allocations familiales, les aides au logement et le RSA, exigent cinq ans de séjour régulier, et selon certains cinq ans de travail. Le Conseil constitutionnel ayant censuré cette durée en 2024, il faut réviser la Constitution."
+    defenseurs: "Il y a un équilibre entre les devoirs et les droits : cinq ans de résidence avant les aides, ce n'est pas exclure, c'est garder une solidarité soutenable et légitime aux yeux de tous."
+    critiques: "Cinq ans sans allocations familiales ni aide au logement priveraient des enfants de ce qui sert à les nourrir et à les loger, et il faudrait réviser la Constitution et renégocier des conventions signées par la France."
+    detail:
+      chiffrage:
+        # § 2d, [34] : chiffrage d'une proposition de 2024 (cinq ans de travail pour le RSA et les aides de solidarité).
+        texte: "Exiger cinq ans de travail avant le RSA et les aides de solidarité économiserait 2,6 milliards d'euros par an, dans une fourchette de 0,6 à 3 milliards, selon l'Institut Montaigne."
+        source: { organisme: Institut Montaigne, document: "chiffrage d'une proposition de 2024", annee: 2024 }
+      defenseurs:
+        # § 2a, [26] [14].
+        - texte: "Entrer dans la communauté nationale, c'est un équilibre entre des devoirs et des droits : les aides viennent après une installation durable."
+        # § 2a, [27].
+        - texte: "Une durée de résidence n'exclut personne : c'est la condition d'une solidarité universelle qui reste soutenable et légitime aux yeux de tous."
+        # § 2g, [48].
+        - texte: "D'autres pays le font : l'Autriche réserve son aide sociale à ses nationaux, aux réfugiés et aux étrangers installés depuis au moins cinq ans."
+          source: { organisme: "République d'Autriche", document: "loi-cadre sur l'aide sociale, § 4", annee: 2019 }
+      critiques:
+        # § 1.2, 2b et 2c, [1] [6].
+        - texte: "Il faudrait réviser la Constitution, qui garantit « à l'enfant, à la mère » la sécurité matérielle, et renégocier les conventions de sécurité sociale signées par la France."
+        # § 2c, [6] (directive 2011/98, article 12).
+        - texte: "Le droit européen garantit l'égalité de traitement aux travailleurs étrangers titulaires d'un permis unique : il faudrait s'en affranchir pour leur imposer cinq ans."
+        # § 2f, [1].
+        - texte: "Une si longue attente frapperait d'abord des enfants : les allocations familiales et les aides au logement servent à nourrir et à loger une famille."
+  - id: C
+    libelle: "Un ou deux ans d'attente, sauf pour les travailleurs"
+    implique: "Les étrangers non européens qui n'ont pas de titre autorisant à travailler attendent un an, ou deux ans, avant les prestations familiales et les aides au logement ; les réfugiés et ceux qui travaillent n'attendent pas. Un an toucherait environ 400 personnes pour les prestations familiales et 25 000 ménages pour les aides au logement."
+    defenseurs: "Une installation durable doit précéder la solidarité nationale : ceux qui travaillent et cotisent n'attendent pas, les autres patientent un an ou deux."
+    critiques: "Les uns y voient une atteinte à l'égalité qui frappe des enfants pour des économies minimes, les autres une mesure trop étroite pour changer quoi que ce soit."
+    detail:
+      chiffrage:
+        # § 2d, [17] : étude d'impact du PLFSS 2027, lue dans la presse (source secondaire).
+        texte: "Un an d'attente toucherait environ 400 personnes et économiserait 1,8 million d'euros par an pour les prestations familiales, et 25 000 ménages pour 60 millions d'euros pour les aides au logement."
+        source: { organisme: Gouvernement, document: "étude d'impact du budget de la Sécurité sociale pour 2027, citée par Moneyvox", annee: 2026 }
+      defenseurs:
+        # § 2a, [14].
+        - texte: "Il est légitime de demander une installation durable en France avant d'ouvrir des droits financés par la solidarité nationale."
+        # § 2b et 2f, [6] [8] [14].
+        - texte: "Ceux qui travaillent, les réfugiés et les apatrides n'attendent pas : une attente courte vise ceux qui ne contribuent pas encore à la protection sociale, sans qu'il faille réviser la Constitution."
+        # § 2e, [6].
+        - texte: "Des aides ouvertes dès l'arrivée attirent des étrangers qui ne viennent pas pour travailler : une attente limite cet « appel d'air »."
+      critiques:
+        # § 2f, [14] [19] [15].
+        - texte: "L'attente frappe surtout des parents sans emploi et leurs enfants, qui ont les mêmes besoins que les enfants français."
+        # § 2d, [17] [15].
+        - texte: "Les économies seraient minimes : environ 62 millions d'euros par an, dont 1,8 million pour les prestations familiales et 60 millions pour les aides au logement."
+          source: { organisme: Gouvernement, document: "étude d'impact du budget de la Sécurité sociale pour 2027, citée par Moneyvox", annee: 2026 }
+        # § 2c, [15] (T. Bazin).
+        - texte: "Pour d'autres, la mesure est trop étroite : une fois exemptés les travailleurs, les réfugiés et les pays liés par une convention, elle ne touche presque personne."
+  - id: D
+    libelle: "Garder les règles d'aujourd'hui, différentes selon l'aide"
+    implique: "Les allocations familiales, les aides au logement et l'allocation aux adultes handicapés restent ouvertes dès le titre de séjour ; le RSA et la prime d'activité demandent cinq ans, le minimum vieillesse dix ans. Les réfugiés n'attendent pas, et les Européens ont droit à l'égalité de traitement."
+    defenseurs: "Les règles actuelles respectent la Constitution : elles lient le RSA à une installation durable sans priver les familles des aides dont leurs enfants ont besoin."
+    critiques: "Les uns les jugent trop généreuses envers des étrangers qui n'ont pas travaillé en France, les autres trouvent déjà injustes les cinq ans du RSA et les dix ans du minimum vieillesse."
+    detail:
+      chiffrage:
+        # § 2c, [6].
+        texte: "Garder ces règles ne change rien. Elles s'appuient aussi sur 39 conventions de sécurité sociale signées par la France, dont la plupart garantissent l'égalité pour les prestations familiales."
+        source: { organisme: Sénat, document: "avis de la commission des lois", annee: 2025 }
+      defenseurs:
+        # § 1.2, [5] [1] [2].
+        - texte: "Les règles actuelles respectent la Constitution : le RSA, qui vise le retour à l'emploi, exige une installation durable, mais les aides aux familles et au logement restent ouvertes."
+        # § 2d, [46] (source secondaire) : sans les dépenses collectives ; en les incluant, −0,85 % du PIB (étude).
+        - texte: "Avant de compter la défense et la dette, les immigrés apportent plus aux finances publiques qu'ils n'en reçoivent : environ 1 % du PIB, en moyenne de 2006 à 2018."
+          source: { organisme: OCDE, document: "cité par La finance pour tous", annee: 2021 }
+        # § 2c, [15].
+        - texte: "Durcir les règles rapporterait peu, car le droit européen et les conventions protègent déjà la plupart des étrangers concernés."
+      critiques:
+        # § 2f, [6].
+        - texte: "Des familles touchent les allocations dès leur titre de séjour, même sans avoir travaillé ni cotisé en France."
+        # § 2g, [49] : chiffre d'une association danoise d'aide aux réfugiés, partie au débat.
+        - texte: "Plusieurs voisins font attendre bien plus longtemps : le Danemark ne verse l'aide sociale à taux plein qu'après neuf ans de résidence sur les dix dernières années et deux ans et demi d'emploi."
+          source: { organisme: "Refugees Welcome, association danoise d'aide aux réfugiés", annee: 2025 }
+        # § 2d, [46] (source secondaire) : le pendant du chiffre des défenseurs, même source.
+        - texte: "Une fois comptée leur part de la défense et de la dette, la contribution des immigrés aux finances publiques devient négative : environ −0,85 % du PIB par an, de 2006 à 2018."
+          source: { organisme: OCDE, document: "cité par La finance pour tous", annee: 2021 }
+  - id: E
+    libelle: "Les mêmes droits dès le titre de séjour"
+    implique: "Les cinq ans exigés pour le RSA et la prime d'activité, et les dix ans du minimum vieillesse, sont supprimés : un étranger en situation régulière a droit aux mêmes aides qu'un Français dès son titre de séjour. Aucun chiffrage n'a été trouvé."
+    defenseurs: "À besoin égal, droit égal : ces durées traitent différemment des personnes qui vivent ici régulièrement, paient des impôts et ont les mêmes besoins."
+    critiques: "Le RSA vise le retour à l'emploi : il est logique d'exiger une présence stable en France, et l'ouvrir dès l'arrivée romprait ce lien."
+    detail:
+      chiffrage:
+        # § 4.1 (chiffrage non trouvé) et § 1.1, [39].
+        texte: "Aucun chiffrage n'a été trouvé. Aujourd'hui, un étranger non européen attend cinq ans pour le RSA et la prime d'activité, et dix ans pour le minimum vieillesse."
+        source: { organisme: "Service-public.gouv.fr", annee: 2026 }
+      defenseurs:
+        # § 4.1, [51] (Gisti, association, partie au débat).
+        - texte: "Ces durées sont discriminatoires : elles traitent différemment des personnes qui vivent ici régulièrement et ont les mêmes besoins."
+        # § 2a, [10].
+        - texte: "Les étrangers aussi paient des impôts : à besoin égal, ils doivent avoir les mêmes droits que les Français."
+        # § 2e, [10] [56] (sources secondaires).
+        - texte: "Les aides n'attirent pas les arrivées : « l'appel d'air » n'a jamais été démontré, et les étrangers ne comparent pas les droits sociaux avant de quitter leur pays."
+      critiques:
+        # § 1.2, [5].
+        - texte: "Lier le RSA à une présence stable en France, c'est en faire un outil d'insertion par le travail, pas une aide à l'arrivée."
+        # § 2e, [31].
+        - texte: "Les étrangers doivent choisir la France pour y travailler et s'y intégrer, pas pour ses aides."
+        # § 2g, [35] [48] [49].
+        - texte: "La France irait à rebours de plusieurs voisins : le Danemark, l'Autriche et l'Italie imposent une durée de résidence pour leur aide sociale de base."
+pourAllerPlusLoin:
+  - titre: "Conseil constitutionnel, décision n° 2024-6 RIP du 11 avril 2024 sur l'accès des étrangers aux prestations sociales"
+    url: https://www.conseil-constitutionnel.fr/decision/2024/20246RIP.htm
+  - titre: "Sénat, avis de la commission des lois sur la proposition de loi créant une condition de durée de résidence, 2025"
+    url: https://www.senat.fr/rap/a24-423/a24-423_mono.html
+  - titre: "Service-public.gouv.fr, les prestations familiales des étrangers"
+    url: https://www.service-public.gouv.fr/particuliers/vosdroits/F2787
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour durcir les règles"
+    argument: "Il y a un équilibre entre les devoirs et les droits : les aides viennent après une installation durable."
+  - titre: "Pour ne pas les durcir"
+    argument: "La solidarité répond à des situations, pas à des nationalités."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A, B et C d'un côté, D et E de l'autre.
+story:
+  - choix: "Durcir les règles"
+    precision: "les réserver aux Français, ou faire attendre"
+  - choix: "Ne pas les durcir"
+    precision: "règles actuelles, ou mêmes droits"
+# Positions sourcées (étude, § 4.2) : 4 officielles, 6 déduites, 3 estimées. Inconnues : aucune.
+# Le Pen : l'étude ne donne de son discours du 13/09/2026 que des fragments (« réserver » les APL, « donner la priorité
+# d'accès au logement social aux Français ») ; pas de citation tant que la phrase entière n'a pas été lue.
+positions:
+  # Discours d'Hénin-Beaumont, 13/09/2026 (AFP, Sud Radio) ; LCP, 14/09/2026 ; PPL constitutionnelle n° 2120, 25/01/2024 ; « 22 mesures pour 2022 », mesure 1 : https://www.sudradio.fr/societe/le-pen-veut-mettre-la-priorite-nationale-au-centre-dun-grand-chantier-sur-le-logement
+  le-pen: { option: A, source: "Discours d'Hénin-Beaumont, 13/09/2026 (AFP, Sud Radio) ; proposition de loi constitutionnelle n° 2120, 25/01/2024", statut: officielle, lien: "https://www.sudradio.fr/societe/le-pen-veut-mettre-la-priorite-nationale-au-centre-dun-grand-chantier-sur-le-logement" }
+  # Assemblée nationale, rapport n° 3345, t. III, 16/10/2026 (amendement AS1666 de L. Boyard, LFI) ; scrutin n° 3213, 19/12/2023 (LFI : 75 contre) : https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3345-tIII.raw
+  # Déduite : rien ne dit s'il veut aussi supprimer les durées actuelles (E).
+  melenchon: { option: D, source: "Vote de son groupe : suppression de l'article 37 du budget de la Sécurité sociale 2027 en commission, 16/10/2026 (rapport n° 3345, t. III)", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3345-tIII.raw" }
+  # É. Philippe, programme « Pour une France plus sûre » : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure
+  # Déduite : le programme ne dit pas quelle durée ; la référence au travail et le vote des sénateurs Les Indépendants
+  # (groupe des sénateurs Horizons) pour deux ans en 2025 rendent C plus probable que B (étude).
+  philippe: { option: C, source: "Programme « Pour une France plus sûre »", statut: deduite, citation: "Aligner les aides sociales versées aux étrangers sur la moyenne européenne, pour qu'ils choisissent la France pour y travailler et s'y intégrer, pas pour ses aides", lien: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure" }
+  # Place publique, « Acte I », 23/06/2025, chantier 41, p. 82 ; opposition du groupe socialiste à l'article 37 (rapport n° 3345 ; LCP, 01/10/2026) : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  # Estimée : son projet élargit l'accès aux droits sans restriction et ses alliés socialistes ont combattu l'attente
+  # d'un an ; rien ne départage D et E, D change le moins la règle actuelle.
+  glucksmann: { option: D, source: "Place publique, « Acte I », 23/06/2025, chantier 41 ; opposition du groupe socialiste à l'article 37 du budget de la Sécurité sociale 2027", statut: estimee, lien: "https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing" }
+  # Les Républicains, « Une politique pour toutes les familles de France », mai 2026 ; PPL référendaire n° 2324, 12/03/2024 (deuxième signataire) : https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf
+  retailleau: { option: B, source: "Les Républicains, « Une politique pour toutes les familles de France », mai 2026 ; proposition de loi référendaire n° 2324, 12/03/2024", statut: officielle, citation: "pour bénéficier pleinement des dispositifs familiaux, les ressortissants étrangers devront justifier de cinq années de résidence en France et d'exercice d'une activité professionnelle", lien: "https://republicains.fr/wp-content/uploads/2026/05/LR_Famille_vFinale.pdf" }
+  # Nouvelle Énergie, programme « Immigration » : https://www.unenouvelleenergie.fr/notre-programme/immigration/
+  lisnard: { option: B, source: "Nouvelle Énergie, programme « Immigration »", statut: officielle, citation: "Conditionner les prestations sociales non contributives aux étrangers résidant régulièrement sur le territoire national depuis au moins cinq ans", lien: "https://www.unenouvelleenergie.fr/notre-programme/immigration/" }
+  # Article 37 du PLFSS 2027 proposé par le gouvernement Lecornu, 01/10/2026 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b3211_projet-loi.pdf
+  # Le vote du groupe Renaissance (devenu EPR) sur la loi immigration (scrutin n° 3213, 19/12/2023 : 131 pour, 17
+  # abstentions, 20 contre) n'est plus cité en source : la loi contenait cinq ans, soit l'option B.
+  # Estimée, fragile : il n'a rien dit sur les aides ; les sénateurs macronistes (RDPI) ont voté contre deux ans en 2025.
+  # Gardée en C sur décision de l'auteur.
+  attal: { option: C, source: "Article 37 du budget de la Sécurité sociale 2027 (un an d'attente), proposé par le gouvernement de S. Lecornu, 01/10/2026", statut: estimee, lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3211_projet-loi.pdf" }
+  # É. Zemmour, programme présidentiel 2022 « Pour que la France reste la France » : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: A, source: "Programme présidentiel 2022 « Pour que la France reste la France »", statut: deduite, citation: "Supprimer les aides sociales non-contributives (allocations familiales, aides au logement, RSA, minimum vieillesse…) pour les étrangers extra-européens", lien: "https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf" }
+  # Rapport n° 3345, t. III, 16/10/2026 (amendements AS1122 de M.-C. Garin et AS1121 de S. Rousseau, groupe écologiste) : https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3345-tIII.raw
+  tondelier: { option: D, source: "Vote de son groupe : suppression de l'article 37 du budget de la Sécurité sociale 2027 en commission, 16/10/2026 (rapport n° 3345, t. III)", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3345-tIII.raw" }
+  # Rapport n° 3345, t. III, 16/10/2026 (amendement AS772 d'É. Bénard, GDR) ; Sénat, scrutin n° 235, 18/03/2025 (communistes : 18 contre) : https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3345-tIII.raw
+  roussel: { option: D, source: "Vote de son groupe : suppression de l'article 37 du budget de la Sécurité sociale 2027 en commission, 16/10/2026 (rapport n° 3345, t. III)", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3345-tIII.raw" }
+  # Debout la France, projet « Immigration et assimilation », 2026 : https://www.debout-la-france.fr/projet/immigration-et-assimilation/
+  dupont-aignan: { option: A, source: "Debout la France, projet « Immigration et assimilation », 2026", statut: officielle, citation: "Supprimer les aides sociales non contributives pour les étrangers (RSA, allocations familiales, aides au logement…)", lien: "https://www.debout-la-france.fr/projet/immigration-et-assimilation/" }
+  # Rapport n° 3345, t. III, 16/10/2026 (groupe écologiste, où il siège : à vérifier) ; il a voté contre la loi immigration (scrutin n° 3213) : https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3345-tIII.raw
+  ruffin: { option: D, source: "Vote du groupe écologiste : suppression de l'article 37 du budget de la Sécurité sociale 2027 en commission, 16/10/2026 (rapport n° 3345, t. III)", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3345-tIII.raw" }
+  # Lutte ouvrière, brochure de juin 2026 : https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure_caravane_2026-01_-_couleur.pdf
+  # Estimée : son parti refuse toute restriction des droits des étrangers, ce qui écarte A, B et C ; rien ne départage
+  # D et E, D change le moins la règle actuelle.
+  arthaud: { option: D, source: "Lutte ouvrière, brochure de juin 2026", statut: estimee, lien: "https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure_caravane_2026-01_-_couleur.pdf" }
