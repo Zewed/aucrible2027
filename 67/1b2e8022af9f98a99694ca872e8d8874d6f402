@@ -1,0 +1,105 @@
+content/questions/057-ivg.yaml
+  s_eefd24e14ae76a::t_1759c0346ba99d 1-19,21-31,36-46,50-52,55-74,79-82,84-89,91-97,101-104,106-112,114-126,130-167,169-179,181-195,198
+  s_eefd24e14ae76a::t_e7cd059a66722d 20,32-35,47-49,53-54,75-78,83,90,98-100,105,113,129,168,180,196-197,199
+  s_eefd24e14ae76a::t_65fe264657e8b5 127-128
+content/questions/060-egalite-salariale.yaml
+  s_eefd24e14ae76a::t_76f01a2f30f112 15,19,23,26,30,41,49,55,125,127,134-135,142,145,152,157-158,163-165
+  s_eefd24e14ae76a::t_ba3f777d24c008 20,97
+  s_eefd24e14ae76a::t_24da9022082612 1-14,16-18,21-22,24-25,27-29,31-40,42-48,50-54,56-96,98-124,126,128-133,136-141,143-144,146-151,153-156,159-162
+content/questions/065-aide-sociale-enfance.yaml
+  s_eefd24e14ae76a::t_0a4b4a0ce1b62b 20-22,35-38,43,56,58,85,109,113,155-157
+  s_eefd24e14ae76a::t_6907c08858ee9b 1-19,23-34,39-42,44-55,57,59-84,86-108,110-112,114-154,158-168
+content/questions/062-preference-nationale.yaml
+  s_eefd24e14ae76a::t_dbf842be942f99 51
+  s_eefd24e14ae76a::t_cc6f538e520ec0 35-38
+  s_eefd24e14ae76a::t_d8b9758a92673a 46
+  s_eefd24e14ae76a::t_0d8ebdf42a6df4 115
+  s_eefd24e14ae76a::t_0c4dc3d5d84cb9 68
+  s_eefd24e14ae76a::t_52bbdf49221832 107-110
+  s_eefd24e14ae76a::t_d27d73f4ec9140 161-162,165
+  s_eefd24e14ae76a::t_991140e28ff134 73
+  s_eefd24e14ae76a::t_0ffe7cecf3e37a 70
+  s_eefd24e14ae76a::t_6fa44176f8a9dc 19
+  s_eefd24e14ae76a::t_6871d40f17e6f5 143-145
+  s_eefd24e14ae76a::t_7a6829551190c6 150
+  s_eefd24e14ae76a::t_0838019f59f8b6 1-18,20,22-33,39-43,45,47-50,52-59,61-67,69,71-72,74-87,92-106,111-114,116-120,122-140,142,146-149,151-160,163-164,166-185,187-209,213-214,216-229
+  s_eefd24e14ae76a::t_d50dfb741dc6b3 34
+  s_eefd24e14ae76a::t_f345579cb1cfa3 88-91
+  s_eefd24e14ae76a::t_90438f349f375b 210-212,215
+  s_eefd24e14ae76a::t_47fb9c5a51802e 60
+  s_eefd24e14ae76a::t_6c269f82acd574 21
+  s_eefd24e14ae76a::t_e90a62ebdf4890 44
+  s_eefd24e14ae76a::t_75a5da863c6120 121
+  s_eefd24e14ae76a::t_13735c9d0e0caf 141
+  s_eefd24e14ae76a::t_74d5a09ad28be9 186
+content/questions/063-delocalisations.yaml
+  s_eefd24e14ae76a::t_2e97f3822e1903 58
+  s_eefd24e14ae76a::t_f284a217efbc42 17-20
+  s_eefd24e14ae76a::t_636c1d22e74db7 65
+  s_eefd24e14ae76a::t_862bf917996a5f 72
+  s_eefd24e14ae76a::t_c3e931df5f7c7a 137
+  s_eefd24e14ae76a::t_e3f9bb0345b40e 126
+  s_eefd24e14ae76a::t_131aa66c5af281 122
+  s_eefd24e14ae76a::t_4f2a9856e11a5e 23-24,26-27,30,33-34,36-39
+  s_eefd24e14ae76a::t_6f9b3bdd5808e6 87
+  s_eefd24e14ae76a::t_8ffefe53b9612c 188
+  s_eefd24e14ae76a::t_624f3684340554 166
+  s_eefd24e14ae76a::t_98961a55ecff71 197-200
+  s_eefd24e14ae76a::t_4a446048f8b1c3 1-16,21-22,25,28-29,31-32,35,40-57,59-64,66-71,73-86,88-121,123-125,127-136,138-165,167-187,189-196,201-229
+content/questions/066-plateformes.yaml
+  s_eefd24e14ae76a::t_910ca63a281475 117-118
+  s_eefd24e14ae76a::t_3c2c1bf97766bc 144
+  s_eefd24e14ae76a::t_229ce0f465bdb4 33
+  s_eefd24e14ae76a::t_0e56eddbcef5de 1-19,21-28,35-39,41-45,47-53,55-56,58,60-70,72-87,89-116,119-143,145-155
+  s_eefd24e14ae76a::t_ac2767c187d870 20,29-32,34,40,46,54,57,59,71,88
+docs/etudes/063-delocalisations.md
+  s_eefd24e14ae76a::t_e7b7c1564abeb3 432
+  s_eefd24e14ae76a::t_fea7965be93968 377-386
+content/questions/064-pma.yaml
+  s_eefd24e14ae76a::t_0574599ac234b9 1-3,6-21,24-26,28-30,32-34,36,40-52,54-58,61-69,71-95,97-128,130-135,137-148,150-192
+  s_eefd24e14ae76a::t_7a3a83ba6f3734 4-5,22-23,27,31,37-39,53,59-60,96,129,136,149
+  s_eefd24e14ae76a::t_3d8ea479d45e34 70
+  s_eefd24e14ae76a::t_3ca51faf0a0db2 35
+content/questions/059-education-sexualite.yaml
+  s_eefd24e14ae76a::t_87416f01d16f91 1-3,8-15,17-18,21-29,31-47,49,51-53,55-62,64-70,72-79,81-90,92-104,106-153,155-156,158-159
+  s_eefd24e14ae76a::t_51dd3bb45aa472 4-7,16,19-20,30,48,50,54,63,71,80,91,105,154,157
+docs/etudes/060-egalite-salariale.md
+  s_eefd24e14ae76a::t_cce9b6f04ac645 395-403
+  s_eefd24e14ae76a::t_fdead0e66b37ef 373-392
+content/questions/061-conge-naissance.yaml
+  s_eefd24e14ae76a::t_eab75fdd29e07a 111-112,114-115
+  s_eefd24e14ae76a::t_efcd79ba5dcdd3 74
+  s_eefd24e14ae76a::t_3a86843c2391ec 84
+  s_eefd24e14ae76a::t_1446e29d94b7a4 1-19,21,23-30,32-40,42-46,48-49,53-69,71-73,75-80,83,85-92,94-103,105-110,113,116-118,122-123,130-145,147-188
+  s_eefd24e14ae76a::t_d8ab0e922919b3 22
+  s_eefd24e14ae76a::t_800e52ac925e2c 93
+  s_eefd24e14ae76a::t_2c2bb77e47ee75 41
+  s_eefd24e14ae76a::t_0fca56b1126c97 70
+  s_eefd24e14ae76a::t_0c364b2c704fc3 20
+  s_eefd24e14ae76a::t_5f30c7d97af1cf 146
+  s_eefd24e14ae76a::t_ade4572cdb1742 47
+  s_eefd24e14ae76a::t_c72870dd05db9f 50-52
+  s_eefd24e14ae76a::t_5573ca2431b70a 119-121,124-129
+  s_eefd24e14ae76a::t_ecaffbd43173ff 104
+  s_eefd24e14ae76a::t_7e9ba94b98f282 81-82
+  s_eefd24e14ae76a::t_f091b752e2f08d 31
+content/questions/058-violences-femmes.yaml
+  s_eefd24e14ae76a::t_db3dc1260940c1 1-19,21-37,43-58,62-67,69-72,74-81,83-98,100-106,109-111,113-125,129,133,136-150,153-205
+  s_eefd24e14ae76a::t_9a761e735e141a 20,38-42,59-61,68,73,82,99,107-108,112,126-128,130-132,134-135,151-152
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "671b2e8022af9f98a99694ca872e8d8874d6f402",
+  "prompts": {},
+  "sessions": {
+    "s_eefd24e14ae76a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0d7e65f6-06fd-4902-95da-933a5af28615",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
