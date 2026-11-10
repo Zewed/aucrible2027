@@ -1,0 +1,188 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 10/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doivent être vérifiés par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/061-conge-naissance.md (tout ce qui suit y est sourcé).
+# La question porte sur le congé du père, pas sur le « congé de naissance » de 2026 : ce congé d'un ou deux mois existe
+# déjà, facultatif et égal pour chaque parent. Le contexte le dit, pour qu'on ne confonde pas les deux (étude, « D'où vient
+# la question »). « Congé de naissance » a trois sens : les 3 jours payés par l'employeur au père, le congé de 6 mois
+# annoncé en 2024 et jamais créé sous cette forme, le congé supplémentaire de naissance de 2026 (étude, « Règles de lecture »).
+# Mots disputés, attribués ou évités (étude, « Règles de lecture ») : « quotas » (RN ; la fiche écrit « part réservée » ou
+# « part obligatoire ») ; « ingénierie sociale », « dirigiste » (RN, non employés) ; « parent auxiliaire » (partisans d'un
+# congé du père plus long, entre guillemets dans leurs arguments) ; « libre choix » (RN, LR, MoDem, gouvernement, non
+# employé) ; « réarmement démographique » (la fiche écrit « natalité », ou « fécondité » pour le chiffre) ; « second
+# parent » (LFI, Écologistes, PS ; la fiche écrit « père », le mot de la loi, qui vise aussi le conjoint de la mère) ;
+# « pénalité de l'enfant », « coût d'être mère » (la fiche écrit « revenu salarial perdu »).
+numero: 61
+date: 2026-08-28
+theme: societe
+question: "Le congé du père après une naissance doit-il devenir aussi long et aussi obligatoire que celui de la mère ?"
+titreCourt: "Le congé du père"
+contexte:
+  - "Pour un premier ou un deuxième enfant, la mère a droit à 16 semaines de congé, dont 8 obligatoires, et le père, ou la conjointe de la mère, à 28 jours, dont 7 obligatoires."
+  - "Depuis le 1er juillet 2026, chaque parent peut prendre en plus un « congé de naissance » d'un ou deux mois, facultatif et égal pour la mère et pour le père."
+  - "Le débat porte sur la durée du congé du père et sur sa part obligatoire : l'aligner sur celui de la mère, l'allonger un peu, garder les mois facultatifs de 2026, ou laisser chaque couple s'organiser."
+chiffres:
+  # § 2b, [22] : chiffres de 2021, publiés par la Drees en juillet 2023. Chaque camp s'en sert (étude, § 2b).
+  - valeur: "71 %"
+    legende: "des pères qui y avaient droit ont pris un congé de paternité en 2021, contre 93 % des mères pour le congé de maternité"
+    source: { organisme: "Drees", document: "Études et résultats n° 1275", annee: 2023 }
+  # § 2a, [25] : salariés du privé, 2005-2015. L'Insee attribue l'écart surtout aux arrêts et au temps partiel, plus qu'à
+  # une discrimination de l'employeur : la légende le dit, chaque camp lisant ce chiffre à sa façon.
+  - valeur: "25 %"
+    legende: "de revenu salarial perdu par une mère cinq ans après une naissance, et 38 à 40 % pour les 5 % les moins bien payées, surtout à cause des arrêts et du temps partiel ; aucun écart notable pour les pères"
+    source: { organisme: "Insee", document: "Insee Analyses n° 48", annee: 2019 }
+  # § 2e, [24] : le chiffre de ceux qui mettent la natalité en premier, face au précédent.
+  - valeur: "645 000"
+    unite: naissances
+    legende: "en France en 2025, 23,6 % de moins qu'en 2010 ; pour la première fois depuis 1945, il y a eu plus de décès que de naissances"
+    source: { organisme: "Insee", document: "Bilan démographique 2025", annee: 2026 }
+options:
+  - id: A
+    libelle: "Laisser chaque couple répartir librement les congés"
+    implique: "Pas de part obligatoire ni réservée en plus pour le père : chaque couple répartit les congés comme il veut. Certains de ses défenseurs proposent aussi d'allonger le congé payé, par exemple jusqu'aux 6 mois de l'enfant, à 70 % du salaire."
+    defenseurs: "Chaque famille est différente, entre l'allaitement, la santé de la mère, les métiers et les revenus : c'est au couple, pas à l'État, de décider qui s'arrête et quand."
+    critiques: "Le choix n'est pas libre quand la mère doit s'arrêter 8 semaines et le père 7 jours : un congé partagé librement, c'est surtout la mère qui le prend, et sa carrière qui en pâtit."
+    detail:
+      chiffrage:
+        # § 2f, [30] : chiffre annoncé par Bruno Retailleau, rapporté par Public Sénat [source secondaire].
+        texte: "Un candidat qui la défend estime à environ 700 millions d'euros par an un congé allongé jusqu'aux 6 mois de l'enfant, payé 70 % du salaire. Aucun chiffrage public n'a été trouvé."
+        source: { organisme: "Public Sénat", document: "chiffre annoncé par un candidat", annee: 2026 }
+      defenseurs:
+        # § 2c, [14].
+        - texte: "Chaque famille est différente, entre l'allaitement, la santé de la mère, les métiers et les revenus, et 46 % des familles jugent la garde par un parent la plus adaptée entre 6 mois et 1 an : c'est au couple de décider qui s'arrête et quand."
+          source: { organisme: "Drees et Cnaf", document: "cités par l'Assemblée nationale", annee: 2025 }
+        - texte: "La politique familiale doit donner aux familles les moyens de leurs choix, pas leur dicter comment se partager les tâches."
+        - texte: "La fécondité est tombée à 1,56 enfant par femme en 2025 : un congé long et bien payé, que chaque famille organise, aide les couples à avoir les enfants qu'ils souhaitent."
+          source: { organisme: "Insee", annee: 2026 }
+      critiques:
+        - texte: "Le choix est déjà contraint : la mère doit s'arrêter 8 semaines, le père 7 jours, et la pression du travail pousse le père à reprendre vite."
+          source: { organisme: "Assemblée nationale", document: "rapport n° 1638", annee: 2025 }
+        - texte: "Quand un congé se partage librement, c'est la mère qui le prend : 94 % des bénéficiaires de l'allocation de congé parental sont des femmes."
+          source: { organisme: "Sécurité sociale", document: "citée par l'Assemblée nationale", annee: 2023 }
+        - texte: "Allonger un congé surtout pris par les mères creuserait l'écart : cinq ans après une naissance, une mère a perdu environ 25 % de son revenu salarial."
+          source: { organisme: "Insee", annee: 2019 }
+  - id: B
+    libelle: "Garder la règle actuelle, votée en 2025"
+    implique: "La mère garde 16 semaines, dont 8 obligatoires, et le père 28 jours, dont 7 obligatoires. Chacun peut ensuite prendre un ou deux mois facultatifs, qu'il ne peut pas céder à l'autre, payés 70 % puis 60 % du salaire net, dans la limite d'un plafond."
+    defenseurs: "Un congé bien payé, réservé à chaque parent mais facultatif, incite les pères à s'arrêter sans rien imposer aux familles."
+    critiques: "Les uns regrettent que les familles ne puissent pas se répartir les mois librement, les autres que le congé du père reste quatre fois plus court que celui de la mère."
+    detail:
+      chiffrage:
+        texte: "Le congé de naissance de 2026 devrait coûter 300 millions d'euros la première année, et jusqu'à 600 millions par an à la fin de la décennie."
+        source: { organisme: "Gouvernement", document: "cité par Public Sénat", annee: 2025 }
+      defenseurs:
+        - texte: "Inciter vaut mieux que contraindre : un congé bien payé et ouvert à chacun suffit à attirer les pères."
+        - texte: "Les pères vont au-delà de l'obligation : après la réforme de 2021, deux sur trois ont pris tous leurs jours, dont 21 facultatifs."
+          source: { organisme: "Drees", annee: 2023 }
+        - texte: "Donner à chaque parent les mêmes mois, que l'autre ne peut pas prendre à sa place, s'attaque à l'écart de carrière entre mères et pères sans rien imposer."
+      critiques:
+        - texte: "Le congé du père reste quatre fois plus court que celui de la mère, et sa part obligatoire huit fois plus courte."
+          source: { organisme: "Assemblée nationale", document: "rapport n° 1638", annee: 2025 }
+        - texte: "Les familles ne peuvent pas répartir ces mois comme elles l'entendent : ceux qu'un parent ne prend pas sont perdus."
+        # § 2a et 2b, [14] [23].
+        - texte: "Les mois en plus sont facultatifs et payés 70 % puis 60 % du salaire : quand le père gagne plus que la mère, le couple perd davantage s'il s'arrête, et c'est encore elle qui prend le congé."
+  - id: C
+    libelle: "Plus long et plus obligatoire, sans égaler la mère"
+    implique: "Le père a plus de jours obligatoires, sans aller jusqu'à la durée du congé de la mère : par exemple 15 jours obligatoires au lieu de 7, ou 10 semaines, dont 6 obligatoires, prises après le congé de la mère."
+    defenseurs: "Une part obligatoire plus longue protège les pères des pressions de l'employeur et les installe dans leur rôle, sans imposer aux familles un congé égal à celui de la mère."
+    critiques: "Les uns y voient une contrainte de plus pour les familles et les entreprises, les autres une étape qui laisse le congé du père bien plus court que celui de la mère."
+    detail:
+      chiffrage:
+        texte: "Un congé du père de 10 semaines, dont 6 obligatoires, pris après celui de la mère, coûterait 1,3 milliard d'euros par an."
+        source: { organisme: "Conseil d'analyse économique", document: "cité par l'Assemblée nationale", annee: 2024 }
+      defenseurs:
+        - texte: "Un congé facultatif se négocie avec l'employeur : 51 % des pères en contrat court prennent leur congé de paternité, contre 82 % en CDI dans le privé."
+          source: { organisme: "Drees", annee: 2023 }
+        - texte: "Des semaines où le père est seul avec l'enfant, après le congé de la mère, l'installent durablement dans son rôle de parent."
+        - texte: "Deux mois après l'accouchement, 16,7 % des mères sont en dépression : un père présent plus longtemps partage les nuits et les soins."
+          source: { organisme: "Santé publique France", document: "citée par l'Assemblée nationale", annee: 2021 }
+      critiques:
+        - texte: "Pour aider la mère après l'accouchement, le père doit être là en même temps qu'elle, pas seul après elle."
+        - texte: "Une obligation de plus ignore les couples où l'un ne peut pas s'arrêter : un indépendant, un agriculteur, un salarié en contrat court."
+        - texte: "Rester en dessous du congé de la mère laisse intact le calcul de l'employeur, qui voit toujours un risque à embaucher une jeune femme."
+  - id: D
+    libelle: "Donner au père le même congé que la mère"
+    implique: "Le père a 16 semaines de congé, dont 8 obligatoires, comme la mère, sur le modèle de l'Espagne. Le coût est estimé à environ 2,3 milliards d'euros de plus par an, tous régimes compris."
+    defenseurs: "Tant que seule la mère s'arrête longtemps, embaucher une jeune femme reste un risque pour l'employeur : un congé identique et obligatoire pour les deux parents fait disparaître ce calcul."
+    critiques: "Le congé de maternité protège d'abord la santé de la femme qui vient d'accoucher, et une absence obligatoire de 16 semaines pèserait lourd sur les petites entreprises."
+    detail:
+      chiffrage:
+        # § 2f, [14] : maximum, si tous les pères le prennent (régime général) ; 2,3 Md€ à financer pour 16 semaines, tous
+        # régimes, selon le rapport Legrain – Lingemann [15].
+        texte: "Donner au père 16 semaines, comme la mère, coûterait environ 2,3 milliards d'euros de plus par an, tous régimes compris ; aligner seulement les semaines qui suivent la naissance coûterait au plus 1,6 milliard de plus pour le régime général, si tous les pères le prenaient."
+        source: { organisme: "Assemblée nationale", document: "rapport Legrain – Lingemann et rapport n° 1971", annee: 2025 }
+      defenseurs:
+        # § 2a et 2g, [25].
+        - texte: "Cinq ans après une naissance, une mère a perdu environ 25 % de son revenu salarial, pas un père : un congé identique et obligatoire rend l'absence la même pour une femme ou un homme, et l'employeur n'a plus de raison d'écarter une jeune femme."
+          source: { organisme: "Insee", annee: 2019 }
+        - texte: "L'Espagne l'a fait en trois ans : à chaque allongement, de 8 à 16 semaines, les pères ont pris presque toute la durée."
+          source: { organisme: "Ambassade de France en Espagne", document: "citée par l'Assemblée nationale", annee: 2025 }
+        # § 2f, [14].
+        - texte: "La branche famille de la Sécurité sociale pourrait dégager 4,5 à 6 milliards d'euros d'excédent en 2029, surtout parce qu'il y a moins de naissances : de quoi financer un congé égal sans dette nouvelle."
+          source: { organisme: "HCFEA", document: "cité par l'Assemblée nationale", annee: 2025 }
+      critiques:
+        - texte: "Le congé de maternité protège d'abord la santé de la femme qui vient d'accoucher : en faire le modèle des deux congés néglige ce rôle."
+        # § 2f et 2g, [15].
+        - texte: "Une absence obligatoire de 16 semaines pèse lourd sur une petite entreprise ou sur un indépendant, et coûterait environ 2,3 milliards d'euros de plus par an, que des cotisations en hausse feraient payer au travail."
+          source: { organisme: "Assemblée nationale", document: "rapport Legrain – Lingemann", annee: 2025 }
+        # § 2a, [25].
+        - texte: "La perte de 25 % du revenu des mères vient surtout du temps partiel et des arrêts des années suivantes, pas des premières semaines : mieux vaut agir sur les places en crèche et sur le retour au travail."
+          source: { organisme: "Insee", annee: 2019 }
+pourAllerPlusLoin:
+  - titre: "Service-public.gouv.fr, entrée en vigueur du congé supplémentaire de naissance : les modalités pratiques, 2026"
+    url: https://www.service-public.gouv.fr/particuliers/actualites/A18939
+  - titre: "Drees, Premiers jours de l'enfant : un temps de plus en plus sanctuarisé par les pères via le congé de paternité, 2023"
+    url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/premiers-jours-de-lenfant-un-temps-de-plus-en
+  - titre: "Assemblée nationale, rapport d'information n° 1971 sur les congés parentaux, 2025"
+    url: https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1971_rapport-information.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour laisser chaque couple choisir"
+    argument: "Chaque famille est différente : c'est au couple, pas à l'État, de décider qui s'arrête et quand."
+  - titre: "Pour plus de congé obligatoire du père"
+    argument: "Tant que seule la mère s'arrête longtemps, embaucher une jeune femme reste un risque pour l'employeur."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A et B d'un côté, C et D de l'autre.
+story:
+  - choix: "Pas d'obligation en plus"
+    precision: "la règle de 2026, ou le libre partage"
+  - choix: "Plus de congé obligatoire"
+    precision: "pour le père, jusqu'à égaler la mère"
+# Positions sourcées seulement (étude, § 4). Inconnues : Lisnard, Arthaud.
+# Pistes à vérifier avant tout ajout : Lisnard (déplafonner le quotient familial, selon des comparateurs, non vérifié) ;
+# Arthaud (Lutte ouvrière, 12/08/2026, juge les indemnités « bien faibles » sans dire si le congé du père doit être plus long
+# ou obligatoire).
+# Le Pen et Retailleau en A plutôt qu'en B : leurs groupes ont voté le congé de 2026 (B), mais demandent une répartition
+# libre, sans part réservée, et un congé plus long (étude, § 4, notes) ; l'auteur tranche.
+# Ruffin (D) : fragile, sa place au groupe Écologiste et social reste à vérifier ; à confirmer ou à passer en « inconnue ».
+positions:
+  # Angélique Ranc, oratrice du groupe RN, commission des affaires sociales du 15/10/2025 (rapport n° 1971) : https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1971_rapport-information.pdf
+  # et séance du 12/11/2025 (« dirigiste ») : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/premiere-seance-du-mercredi-12-novembre-2025.pdf
+  # Le groupe RN a voté le congé supplémentaire de naissance (81 pour, scrutin n° 3690) : https://www.assemblee-nationale.fr/dyn/17/scrutins/3690
+  le-pen: { option: A, source: "Angélique Ranc, oratrice du groupe RN, commission des affaires sociales du 15/10/2025 et séance du 12/11/2025", statut: deduite, citation: "le libre choix des parents concernant la répartition du congé parental doit être garanti, sans politique de quotas", lien: "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1971_rapport-information.pdf" }
+  # Proposition de loi n° 1093 du groupe LFI (Sarah Legrain, Mathilde Panot et autres), 11/03/2025 : https://questions.assemblee-nationale.fr/dyn/17/textes/l17b1093_proposition-loi.pdf
+  melenchon: { option: D, source: "Proposition de loi n° 1093 du groupe LFI (Sarah Legrain, Mathilde Panot et autres), 11/03/2025", statut: deduite, citation: "accordé au salarié en même temps et pour une durée équivalente au congé maternité", lien: "https://questions.assemblee-nationale.fr/dyn/17/textes/l17b1093_proposition-loi.pdf" }
+  # Mission d'information sur la natalité, proposition n° 18, rapporteur Jérémie Patrier-Leitus (Horizons), 11/02/2026 : https://www.assemblee-nationale.fr/dyn/contenu/telechargement/1101881/file/DP%20MICP%20natalit%C3%A9.pdf
+  philippe: { option: C, source: "Mission d'information de l'Assemblée sur la natalité, proposition n° 18, rapporteur Jérémie Patrier-Leitus (Horizons), 11/02/2026", statut: estimee, citation: "Rendre obligatoire le congé de paternité pour une période de 15 jours contre 7 actuellement", lien: "https://www.assemblee-nationale.fr/dyn/contenu/telechargement/1101881/file/DP%20MICP%20natalit%C3%A9.pdf" }
+  # Sandrine Runel, oratrice du groupe socialiste, 2e séance du 12/11/2025 : https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/deuxieme-seance-du-mercredi-12-novembre-2025.pdf
+  # Place publique n'est pas le PS, et les députés PS sont partagés (étude, § 4, notes).
+  glucksmann: { option: C, source: "Sandrine Runel, oratrice du groupe socialiste, Assemblée nationale, séance du 12/11/2025", statut: estimee, citation: "Nous prônons l'allongement du congé paternité", lien: "https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/deuxieme-seance-du-mercredi-12-novembre-2025.pdf" }
+  # Public Sénat, 09/10/2026, sur sa présentation de fin avril 2026 : https://www.publicsenat.fr/actualites/politique/politique-familiale-allocations-creches-que-proposent-les-candidats-a-la-presidentielle
+  # Parlons politique, 30/04/2026 [source secondaire] : https://www.parlons-politique.fr/elections/allocation-familiale-conditionnelle-conge-naissance-prolonge-la-politique-nataliste-de-retailleau-rouvre-le-debat-citoyen-pour-2027_14845/
+  # Justine Gruet (LR), séance du 12/11/2025 : « chaque famille doit pouvoir s'organiser, à la fois dans la répartition et
+  # dans la temporalité du congé ». Pas de citation : ses propres mots, rapportés par bribes, disent la durée et la paie.
+  retailleau: { option: A, source: "Public Sénat, 09/10/2026, sur sa présentation de fin avril 2026 ; Parlons politique, 30/04/2026 ; Justine Gruet (LR), Assemblée nationale, séance du 12/11/2025", statut: deduite, lien: "https://www.publicsenat.fr/actualites/politique/politique-familiale-allocations-creches-que-proposent-les-candidats-a-la-presidentielle" }
+  # Marie-Pierre Rixain, oratrice du groupe Ensemble pour la République, séance du 12/11/2025 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/premiere-seance-du-mercredi-12-novembre-2025.pdf
+  # Votes EPR : 38 pour (scrutin n° 3690, 12/11/2025) et 37 pour, 2 contre (scrutin n° 4663, 05/12/2025).
+  attal: { option: B, source: "Marie-Pierre Rixain, oratrice du groupe Ensemble pour la République, séance du 12/11/2025 ; votes du groupe, scrutins n° 3690 et n° 4663", statut: deduite, citation: "Permettre à chaque parent de prendre un congé de naissance supplémentaire d'une durée équivalente, indemnisé par la sécurité sociale et non transférable entre parents, c'est s'engager contre cette mécanique", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/premiere-seance-du-mercredi-12-novembre-2025.pdf" }
+  # Programme présidentiel 2022 d'Éric Zemmour (copie hébergée par la FHF), non confirmé pour 2027 : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  zemmour: { option: A, source: "Programme présidentiel 2022 d'Éric Zemmour, chapitres famille et femmes", statut: deduite, citation: "Permettre aux deux parents de se répartir librement la durée et les modalités du congé parental", lien: "https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf" }
+  # Marie-Charlotte Garin, oratrice du groupe écologiste, séance du 12/11/2025 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/premiere-seance-du-mercredi-12-novembre-2025.pdf
+  # Livret des Écologistes sur la santé reproductive, cité par Public Sénat le 09/10/2026 [source secondaire] ; ses propres
+  # mots ne disent pas « obligatoire » : https://www.publicsenat.fr/actualites/politique/politique-familiale-allocations-creches-que-proposent-les-candidats-a-la-presidentielle
+  tondelier: { option: D, source: "Marie-Charlotte Garin, oratrice du groupe écologiste, séance du 12/11/2025 ; livret des Écologistes sur la santé reproductive, cité par Public Sénat le 09/10/2026", statut: deduite, citation: "un congé pour le deuxième parent qui soit obligatoire, aligné sur la durée du congé maternité", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/premiere-seance-du-mercredi-12-novembre-2025.pdf" }
+  # Réunion publique, rapportée par Public Sénat le 06/03/2020 : https://www.publicsenat.fr/actualites/politique/roussel-pcf-veut-rendre-obligatoire-le-conge-de-paternite-181139
+  # Il dit « allongé » et « obligatoire » sans durée ; entre C et D, C change le moins la règle actuelle (étude, § 4, notes).
+  roussel: { option: C, source: "Réunion publique, rapportée par Public Sénat le 06/03/2020", statut: estimee, citation: "Le congé paternité ne doit pas être seulement allongé, comme nous le demandons, il doit être rendu obligatoire", lien: "https://www.publicsenat.fr/actualites/politique/roussel-pcf-veut-rendre-obligatoire-le-conge-de-paternite-181139" }
+  # Debout la France, projet « Famille », janvier 2026, mesure 6 : https://www.debout-la-france.fr/projet/famille/
+  dupont-aignan: { option: B, source: "Debout la France, projet « Famille », janvier 2026, mesure 6", statut: officielle, citation: "Étendre le congé parental, mieux rémunéré et partagé entre les deux parents", lien: "https://www.debout-la-france.fr/projet/famille/" }
+  # Ligne du groupe Écologiste et social, où il siège [à vérifier] : Marie-Charlotte Garin, séance du 12/11/2025 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/premiere-seance-du-mercredi-12-novembre-2025.pdf
+  ruffin: { option: D, source: "Ligne du groupe Écologiste et social, où il siège : Marie-Charlotte Garin, oratrice du groupe, séance du 12/11/2025", statut: estimee, lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2025-2026/premiere-seance-du-mercredi-12-novembre-2025.pdf" }

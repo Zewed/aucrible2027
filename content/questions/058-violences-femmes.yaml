@@ -1,0 +1,205 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 10/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doivent être vérifiés par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/058-violences-femmes.md (tout ce qui suit y est sourcé).
+# La question est celle de l'étude, reformulée après l'adoption de la loi à l'Assemblée le 13/10/2026 (503 voix, aucune
+# contre) : le désaccord porte sur le budget et l'orientation, plus sur l'existence d'une loi globale.
+# Mots disputés (étude, « Règles de lecture ») : « féminicide » (la fiche écrit « femmes tuées par leur conjoint ou
+# ex-conjoint ») ; « loi intégrale » (nom donné par ses promoteurs, contesté par LFI : la fiche écrit « loi dite
+# « intégrale » » hors de la question) ; « filière d'immigration » et « fémonationalisme » (évités : « étrangères qui
+# portent plainte ») ; « inflation pénale » et « fermeté » (évités : « peines plus lourdes ») ; « victime » pour les
+# statistiques, « qui porte plainte » pour la procédure ; « culture du viol » (non employé).
+numero: 58
+date: 2026-08-31
+theme: securite-justice
+question: "Faut-il une loi intégrale contre les violences faites aux femmes et aux enfants, avec 3 milliards d'euros par an ?"
+titreCourt: "Les violences faites aux femmes"
+contexte:
+  # § 1.1, [17].
+  - "Depuis 2010, plusieurs lois ont créé des protections pour les victimes de violences dans le couple, comme l'ordonnance de protection du juge, le téléphone grave danger ou le bracelet anti-rapprochement."
+  # § 1.2, [2] [3] [5].
+  - "Le 13 octobre 2026, l'Assemblée nationale a adopté par 503 voix, sans voix contre et avec 67 abstentions, une loi dite « intégrale » contre les violences sexuelles et sexistes faites aux femmes et aux enfants ; son article 68 programme 3 milliards d'euros par an de 2027 à 2032, sans ouvrir les crédits."
+  # § 1.2 et 3, [10].
+  - "Le Sénat doit encore examiner cette loi, sans doute en janvier 2027 ; le débat porte sur son budget, sur la protection des étrangères qui portent plainte et sur la sévérité des peines."
+chiffres:
+  # § 2a, [17].
+  - valeur: "277 000"
+    unite: femmes
+    legende: "majeures ont déclaré avoir subi en 2023 un viol, une tentative de viol ou une agression sexuelle ; 7 % disent avoir porté plainte"
+    source: { organisme: "SSMSI", document: "enquête Vécu et ressenti en matière de sécurité", annee: 2024 }
+  # § 2a et 2h, [17].
+  - valeur: "54 %"
+    legende: "des victimes de violences sexuelles enregistrées par la police et la gendarmerie en 2024 sont mineures"
+    source: { organisme: "SSMSI", document: "cité par la MIPROF", annee: 2025 }
+  # § 2a, [17] : le chiffre de la statistique publique, pas celui des collectifs, qui comptent autrement.
+  - valeur: "107"
+    unite: femmes
+    legende: "ont été tuées par leur conjoint ou ex-conjoint en 2024"
+    source: { organisme: "Ministère de l'Intérieur", document: "cité par la MIPROF", annee: 2025 }
+  # § 1.3, [9] [11] : le chiffre du gouvernement, partie au débat, dit comme tel.
+  - valeur: "1,5"
+    unite: "milliard d'euros"
+    legende: "par an environ : le « socle » annoncé par le gouvernement pour 2027, État et Sécurité sociale compris, en grande partie des moyens déjà engagés en 2026 ; la loi votée par les députés en programme 3"
+    source: { organisme: "Gouvernement", document: "tribune du Premier ministre, 15 septembre 2026", annee: 2026 }
+# L'ordre est une échelle (étude, § 4) : de l'option qui engage le plus de moyens et de protections (A) à celle qui met
+# l'accent sur la sanction (D). La frontière entre A et B repose surtout sur le vote de l'article 62 (victimes étrangères).
+options:
+  - id: A
+    libelle: "Aller plus loin : 3 milliards votés dès 2027"
+    implique: "Le Parlement vote dès le budget 2027 au moins 3 milliards d'euros par an de crédits nouveaux. La loi protège de l'expulsion, pendant la procédure, l'étrangère qui porte plainte pour violences sexuelles, et finance l'éducation à la vie affective et sexuelle et les soins des victimes adultes."
+    # § 2c et 2g, [8] [12].
+    defenseurs: "Une loi sans moyens votés serait une promesse de plus : il faut des crédits réels, et une victime étrangère est d'abord une victime."
+    # § 2c et 2g, [8] [12].
+    critiques: "Des milliards de crédits nouveaux chaque année sont hors de portée des comptes publics, et une plainte ne doit pas ouvrir droit au séjour."
+    detail:
+      chiffrage:
+        # § 1.3, [13] [15]. La fondation est partie au débat : le texte le dit.
+        texte: "Au moins 3 milliards d'euros de crédits nouveaux par an, votés dès le budget 2027. La Fondation des Femmes, association qui défend la loi, estime les besoins entre 2,6 et 5,4 milliards d'euros par an."
+        source: { organisme: "Fondation des Femmes", annee: 2023 }
+      defenseurs:
+        # § 1.3, [16] : programme 137 du projet de loi de finances 2026.
+        - texte: "Une loi intégrale sans budget intégral serait inapplicable : le programme budgétaire de l'égalité entre les femmes et les hommes ne pèse que 95,6 millions d'euros en 2026."
+          source: { organisme: "Assemblée nationale", document: "rapport de la Délégation aux droits des femmes sur le budget 2026", annee: 2025 }
+        - texte: "Une étrangère qui porte plainte pour viol est d'abord une victime : la peur d'être expulsée ne doit pas la faire taire."
+        - texte: "Il faut prévenir avant de punir : le texte voté commence au repérage, et l'éducation à la vie affective et sexuelle doit être financée."
+      critiques:
+        - texte: "Des milliards de crédits nouveaux chaque année sont hors de portée des comptes publics actuels."
+        - texte: "Une plainte est un acte de justice, pas un titre de séjour : elle ne doit pas protéger de l'expulsion."
+        # § 1.2 et 2g, [4].
+        - texte: "Lier un titre de séjour à une plainte rendrait éligibles bien plus d'étrangers qu'aujourd'hui, sans qu'aucune étude d'impact dise combien."
+  - id: B
+    libelle: "La loi votée, avec 3 milliards programmés par an"
+    implique: "La loi adoptée par l'Assemblée s'applique : un minimum d'actes d'enquête obligatoires avant de classer une plainte, des juges spécialisés, un entretien individuel à l'école, de nouvelles infractions. Elle programme 3 milliards d'euros par an de 2027 à 2032, que chaque budget doit ensuite voter, sans protection particulière contre l'expulsion pour les étrangères qui portent plainte."
+    # § 2c et 4, [2] [8].
+    defenseurs: "Une réponse globale, de la plainte au jugement, voulue par presque tous les groupes : 3 milliards par an, c'est moins que ce que coûtent les violences à la société."
+    # § 4, [4] [8] [12].
+    critiques: "Les uns la jugent trop timide, sans crédits votés ni protection des étrangères qui portent plainte ; les autres doutent que l'État trouve 3 milliards par an."
+    detail:
+      chiffrage:
+        # § 1.2 et 1.3, [3] [8].
+        texte: "L'article 68 engage 3 milliards d'euros par an de 2027 à 2032. Cette programmation n'ouvre pas les crédits : chaque budget annuel devra les voter."
+        source: { organisme: "Assemblée nationale", document: "texte de la commission spéciale, article 68", annee: 2026 }
+      defenseurs:
+        - texte: "Une réponse globale, de la plainte au jugement, voulue par presque tous les groupes : ce combat ne doit être ni partisan ni solitaire."
+        # § 1.3 et 2c, [2] : chiffre de la CIIVISE, lu dans la proposition de loi [source secondaire].
+        - texte: "Trois milliards par an, c'est moins que ce que coûtent à la société les violences sexuelles faites aux enfants : 9,7 milliards par an."
+          source: { organisme: "CIIVISE", document: "citée par la proposition de loi n° 3106", annee: 2026 }
+        - texte: "Un minimum d'actes d'enquête et des juges spécialisés éviteront qu'une victime ait à se battre contre l'institution censée la protéger."
+      critiques:
+        - texte: "Une programmation n'ouvre aucun crédit : sans argent voté chaque année, la loi restera une promesse."
+        - texte: "En retirant la protection des étrangères qui portent plainte, le texte voté laisse de côté une partie des victimes."
+        # § 2d, [4].
+        - texte: "De 2019 à 2023, les crimes sexuels envoyés devant les cours ont augmenté de 60 % : une juridiction spécialisée sans juges en plus allongerait les délais."
+          source: { organisme: "Ministère de la Justice", document: "cité par le Conseil d'État", annee: 2026 }
+  - id: C
+    libelle: "La loi, avec un budget augmenté pas à pas"
+    implique: "La loi s'applique avec le « socle » d'environ 1,5 milliard d'euros par an annoncé par le gouvernement, État et Sécurité sociale compris, augmenté selon les marges de chaque budget. Les juridictions spécialisées sont d'abord expérimentées avant d'être généralisées."
+    # § 2c et 4, [11] [12].
+    defenseurs: "Mieux vaut des moyens réels qu'une promesse non financée : ce socle est un point de départ, pas un point final."
+    # § 1.3 et 4, [9] [11].
+    critiques: "Ce « socle » repose en grande partie sur des moyens déjà engagés : il apporte peu d'argent nouveau aux victimes."
+    detail:
+      chiffrage:
+        # § 1.3, [9] [11].
+        texte: "Environ 1,5 milliard d'euros en 2027, budgets de l'État et de la Sécurité sociale compris, puis davantage selon les marges du budget. Le gouvernement précise que ce « socle » repose en grande partie sur des moyens déjà engagés en 2026."
+        source: { organisme: "Gouvernement", document: "tribune du Premier ministre, 15 septembre 2026", annee: 2026 }
+      defenseurs:
+        - texte: "Mieux vaut des moyens réels qu'une promesse non financée : le budget augmentera selon ce que les comptes publics permettent."
+        # § 2c, limite de l'étude.
+        - texte: "Aucune évaluation ne relie encore en France une dépense à une baisse de ces violences : mieux vaut augmenter les moyens à mesure qu'on mesure ce qui marche que promettre un montant fixé d'avance."
+        # § 2d, [4] : la recommandation d'expérimenter est celle du Conseil d'État.
+        - texte: "Créer partout une juridiction nouvelle sans juges en plus allongerait les délais : mieux vaut l'expérimenter d'abord."
+      critiques:
+        - texte: "Ce « socle » repose en grande partie sur des moyens déjà engagés : il apporte peu d'argent nouveau aux victimes."
+        # § 1.3, [16] : programme 137 du projet de loi de finances 2026.
+        - texte: "Le programme budgétaire de l'égalité entre les femmes et les hommes ne pèse que 95,6 millions d'euros en 2026, aides d'urgence aux victimes comprises."
+          source: { organisme: "Assemblée nationale", document: "rapport de la Délégation aux droits des femmes sur le budget 2026", annee: 2025 }
+        - texte: "Expérimenter d'abord retarderait encore le jour où chaque victime verra son affaire jugée par des magistrats spécialisés."
+  - id: D
+    libelle: "La loi, mais d'abord des peines plus lourdes"
+    implique: "La loi s'applique avec des peines minimales obligatoires pour les violences sexuelles, la révocation du sursis et l'interdiction du territoire pour les étrangers condamnés. Pas de protection particulière contre l'expulsion pour les étrangères qui portent plainte, et pas d'engagement sur les 3 milliards."
+    # § 2a et 2f, [8].
+    defenseurs: "On ne protège pas les victimes en laissant les auteurs libres : la loi ne vaudra que si les peines sont réellement exécutées."
+    # § 2f et 2g, [8].
+    critiques: "Des peines plus lourdes ne dissuadent pas sans la certitude d'être pris, et la peur de l'expulsion dissuaderait des étrangères de porter plainte."
+    detail:
+      chiffrage:
+        # § 2f, [8]. Aucun coût n'est donné par l'étude.
+        texte: "Aucun chiffrage n'a été trouvé. Les amendements en ce sens (peines minimales, révocation du sursis, interdiction du territoire) ont été rejetés à l'Assemblée en octobre 2026."
+        source: { organisme: "Assemblée nationale", document: "compte rendu de la séance du 13 octobre 2026", annee: 2026 }
+      defenseurs:
+        # § 2b et 2f, [17].
+        - texte: "On ne protège pas les victimes en laissant les auteurs libres : en 2024, 22 % des condamnés pour violences dans le couple étaient en récidive."
+          source: { organisme: "Ministère de la Justice (SSER)", document: "cité par la MIPROF", annee: 2025 }
+        - texte: "Une plainte est un acte de justice, pas un titre de séjour : un étranger condamné pour violences sexuelles doit quitter le territoire."
+        # § 2i, [4] [8].
+        - texte: "Limiter les questions sur la crédibilité de la plaignante fragilise la présomption d'innocence : chaque erreur judiciaire fait deux victimes."
+      critiques:
+        - texte: "Ce qui dissuade un auteur, c'est la certitude d'être pris, pas la gravité de la peine."
+        - texte: "La prison seule ne brise pas la reproduction des violences : il faut suivre les auteurs et prévenir."
+        - texte: "La peur de l'expulsion dissuaderait des étrangères victimes de violences de porter plainte."
+pourAllerPlusLoin:
+  - titre: "MIPROF, Les violences sexistes et sexuelles en 2024, lettre n° 25 de l'Observatoire national des violences faites aux femmes, 2025"
+    url: https://arretonslesviolences.gouv.fr/sites/default/files/2025-11/Lettre-violences-sexistes-et-sexuelles-novembre-2025.pdf
+  - titre: "Conseil d'État, avis sur la proposition de loi visant à lutter de manière intégrale contre les violences sexistes et sexuelles, 16 juillet 2026"
+    url: https://www.assemblee-nationale.fr/dyn/17/textes/l17b2169_avis-conseil-etat
+  - titre: "Inspection générale de la justice, Évaluation du traitement judiciaire des violences intrafamiliales, 2025"
+    url: https://www.justice.gouv.fr/sites/default/files/2026-03/rapport_mission_igj_vif.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour garantir les 3 milliards"
+    argument: "Une loi sans moyens votés serait une promesse de plus : 3 milliards par an, c'est moins que ce que coûtent les violences."
+  - titre: "Pour ne pas s'engager sur 3 milliards"
+    argument: "Une loi ne vaut que si les peines sont exécutées : mieux vaut des moyens réels qu'une promesse de 3 milliards non financée."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A et B, puis C et D.
+story:
+  - choix: "3 milliards par an"
+    precision: "votés ou programmés"
+  - choix: "Sans les 3 milliards"
+    precision: "pas à pas, ou d'abord la sanction"
+# Positions sourcées seulement (étude, § 4). Aucun inconnu : 13 positions sur 13. Aucun candidat ne défend C, la position
+# du gouvernement en exercice.
+# Le Pen reste en D (choix de l'auteur) : elle a voté la loi le 13/10/2026, mais son groupe s'est abstenu sur les
+# 3 milliards, a supprimé les articles sur les victimes étrangères et défendu des peines plus lourdes (étude, § 4).
+# Glucksmann, Lisnard, Philippe, Tondelier et Roussel sont classés d'après les votes et cosignatures de députés de leur
+# parti, pas d'après leurs propres déclarations.
+positions:
+  # Scrutins n° 8705 (13/10/2026), n° 8668 et n° 8641 (09/10/2026) : https://www.assemblee-nationale.fr/dyn/17/scrutins/8705
+  # Compte rendu du 13/10/2026, explication de vote de Thomas Ménagé (RN) : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2027O1N020
+  le-pen: { option: D, source: "Scrutins n° 8705, 8668 et 8641, 9 et 13/10/2026 ; explication de vote de Thomas Ménagé (RN), 13/10/2026", statut: deduite, citation: "ne manque plus qu'à les exécuter réellement, ce que nous ferons, avec Marine Le Pen, en 2027", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2027O1N020" }
+  # L'Avenir en commun, édition 2025, « Entrer pleinement dans l'ère de l'émancipation des femmes » : https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre3
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, « Entrer pleinement dans l'ère de l'émancipation des femmes »", statut: officielle, citation: "Adopter une loi de lutte contre les violences sexistes et sexuelles et allouer les 3 milliards de budget demandés par les associations", lien: "https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre3" }
+  # PPL n° 3106, cosignée par Isabelle Rauch (Horizons), 11/08/2026 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b3106_proposition-loi.pdf
+  # Scrutins n° 8668, 8705, 8641 ; compte rendu du 13/10/2026 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2027O1N020
+  philippe: { option: B, source: "Isabelle Rauch (Horizons), corapporteure et cosignataire de la proposition de loi n° 3106 ; votes du groupe Horizons, scrutins n° 8668, 8705 et 8641 ; explication de vote, 13/10/2026", statut: deduite, citation: "Ce texte programme 3 milliards d'euros par an", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2027O1N020" }
+  # PPL n° 3106 (cosignée par Aurélien Rousseau, Place publique) : https://www.assemblee-nationale.fr/dyn/17/textes/l17b3106_proposition-loi.pdf
+  # Scrutin n° 8641 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8641 ; HowTheyVote, 24/04/2024 : https://howtheyvote.eu/votes/168573 ; 28/04/2026 : https://howtheyvote.eu/votes/189914
+  glucksmann: { option: A, source: "Aurélien Rousseau (Place publique), cosignataire de la proposition de loi n° 3106, contre la suppression de l'article 62 (scrutin n° 8641) ; explication de vote socialiste, 13/10/2026 ; ses votes au Parlement européen, 2024 et 2026", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/8641" }
+  # Scrutins n° 8705, 8668, 8641 ; explication de vote de Sylvie Bonnet, 13/10/2026 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2027O1N020
+  # PPL n° 3106 (cosignée par Michel Barnier) : https://www.assemblee-nationale.fr/dyn/17/textes/l17b3106_proposition-loi.pdf
+  retailleau: { option: B, source: "Votes du groupe Droite républicaine, scrutins n° 8705, 8668 et 8641 ; explication de vote de Sylvie Bonnet, 13/10/2026 ; Michel Barnier cosigne la proposition de loi n° 3106", statut: deduite, citation: "Nous serons donc attentifs à la traduction budgétaire de ces engagements", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2027O1N020" }
+  # PPL n° 2169 et 3106, cosignées par Alexandra Martin (Nouvelle Énergie) : https://www.assemblee-nationale.fr/dyn/17/textes/l17b3106_proposition-loi.pdf
+  # Scrutins n° 8668, 8641, 8642, 8705 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8668
+  lisnard: { option: B, source: "Alexandra Martin (Nouvelle Énergie), cosignataire des propositions de loi n° 2169 et 3106 ; ses votes, scrutins n° 8668, 8641, 8642 et 8705", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/8668" }
+  # PPL n° 3106, 11/08/2026 (article 68) : https://www.assemblee-nationale.fr/dyn/17/textes/l17b3106_proposition-loi.pdf
+  # Scrutins n° 8705 et 8641 ; explication de vote EPR, 13/10/2026 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2027O1N020
+  attal: { option: B, source: "Cosignataire de la proposition de loi n° 3106 et de son article 68, 11/08/2026 ; vote pour le texte, scrutin n° 8705 ; explication de vote EPR, 13/10/2026", statut: officielle, lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3106_proposition-loi.pdf" }
+  # Estimée : ligne générale sur la justice et votes européens voisins ; rien sur la loi intégrale.
+  # Le Monde du Droit, 15/02/2022 : https://www.lemondedudroit.fr/decryptages/79916-presidentielle-2022-quelles-sont-les-propositions-d-eric-zemmour-en-matiere-de-justice.html
+  # HowTheyVote, directive, 24/04/2024 : https://howtheyvote.eu/votes/168573 ; convention d'Istanbul, 2023 : https://howtheyvote.eu/votes/152564
+  zemmour: { option: D, source: "Programme 2022, rapporté par Le Monde du Droit, 15/02/2022 ; votes de ses élus européens, 2023 et 2024", statut: estimee, citation: "réinstaurer des peines planchers […] pour chaque crime et délit", lien: "https://www.lemondedudroit.fr/decryptages/79916-presidentielle-2022-quelles-sont-les-propositions-d-eric-zemmour-en-matiere-de-justice.html" }
+  # Déduite : le groupe s'est abstenu sur l'article 68, motif non trouvé.
+  # Scrutins n° 8705, 8641, 8642 ; explication de vote de Clémentine Autain, 13/10/2026 : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2027O1N020
+  # La Libre Belgique (AFP), 15/06/2026 : https://www.lalibre.be/international/europe/elections-france/2026/06/15/quest-ce-quon-attend-pour-faire-pareil-en-france-marine-tondelier-loue-le-modele-belge-dans-laccueil-de-victimes-de-violences-sexuelles-ZJYIACVQBNF4PLINFSTYXIQLUA/
+  tondelier: { option: A, source: "Votes du groupe écologiste, scrutins n° 8705, 8641 et 8642 ; explication de vote de Clémentine Autain, 13/10/2026 ; La Libre Belgique (AFP), 15/06/2026", statut: deduite, citation: "une loi véritablement intégrale, avec un budget intégral", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2027O1N020" }
+  # Tract du PCF (mobilisation du 07/09/2026) : https://assets.nationbuilder.com/pcf/pages/43322/attachments/original/1787822730/document_tract_loi_integrale_plaque_BAT.pdf
+  # Scrutins n° 8705, 8641 ; explication de vote d'Elsa Faucillon ; PPL n° 3106 (cosignée par Stéphane Peu)
+  roussel: { option: A, source: "Tract du PCF, été 2026 ; votes du groupe GDR, scrutins n° 8705 et 8641 ; Stéphane Peu (PCF) cosigne la proposition de loi n° 3106", statut: deduite, citation: "Le Parti communiste français soutient cette loi et agira pour préserver toute son ambition", lien: "https://assets.nationbuilder.com/pcf/pages/43322/attachments/original/1787822730/document_tract_loi_integrale_plaque_BAT.pdf" }
+  # Estimée : mêmes mesures que celles du RN pour les violences sexuelles, mais énoncées pour la délinquance en général.
+  # Debout la France, projet « Justice », livret de juin 2026 : https://www.debout-la-france.fr/projet/justice/
+  dupont-aignan: { option: D, source: "Debout la France, projet « Justice », livret de juin 2026", statut: estimee, citation: "Réinstaurer et élargir les peines planchers", lien: "https://www.debout-la-france.fr/projet/justice/" }
+  # Déduite : il n'a pas pris part au vote sur l'article 62.
+  # PPL n° 2169 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b2169_proposition-loi.pdf ; PPL n° 3106 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b3106_proposition-loi.pdf
+  # Scrutin n° 8705 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8705
+  ruffin: { option: A, source: "Cosignataire des propositions de loi n° 2169, 02/12/2025, et n° 3106, 11/08/2026 ; vote pour le texte, scrutin n° 8705", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3106_proposition-loi.pdf" }
+  # Journal du parti. Lutte ouvrière n° 3039, « Loi intégrale : intégralement non financée », 28/10/2026 : https://lutte-ouvriere.org/journal/article/loi-integrale-integralement-non-financee-209325.html
+  arthaud: { option: A, source: "Lutte ouvrière n° 3039, « Loi intégrale : intégralement non financée », 28/10/2026", statut: deduite, citation: "la mobilisation devra continuer pour imposer les moyens nécessaires", lien: "https://lutte-ouvriere.org/journal/article/loi-integrale-integralement-non-financee-209325.html" }

@@ -1,0 +1,155 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 10/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/066-plateformes.md (tout ce qui suit y est sourcé).
+# La directive vise toutes les plateformes de travail (ménage, aide à domicile…) ; le débat français, les accords et
+# les chiffres portent surtout sur les chauffeurs VTC et les livreurs, dont parle la question.
+# Mots disputés, attribués ou évités (étude, « Règles de lecture ») : « ubérisation » (critiques des plateformes),
+# « faux indépendants » et « salariés déguisés » (partisans de la requalification), « requalification automatique »
+# (mot de la mission ; ses partisans disent présomption « effective »), « dialogue social » (gouvernement et
+# plateformes ; ses critiques disent « accords au rabais »). « Présomption de salariat » : mot courant, gardé comme
+# dans l'étude (la directive dit « présomption légale » d'une « relation de travail »). « Sans titre de séjour »
+# plutôt que « sans-papiers », comme la mission.
+numero: 66
+date: 2026-08-23
+theme: travail-retraites
+question: "Les livreurs et chauffeurs des plateformes doivent-ils être considérés comme des salariés ?"
+titreCourt: "Les travailleurs des plateformes"
+contexte:
+  - "Les chauffeurs VTC et les livreurs des plateformes travaillent aujourd'hui comme indépendants : seul un juge peut reconnaître que l'un d'eux est salarié, au cas par cas, s'il prouve que la plateforme lui donne des ordres, en contrôle l'exécution et peut le sanctionner."
+  - "La France doit inscrire dans sa loi, au plus tard le 2 décembre 2026, une directive européenne qui impose de présumer salariés les travailleurs des plateformes dès que des faits montrent que la plateforme les dirige et les contrôle ; le ministre du Travail a annoncé en septembre 2026 que ce ne serait pas prêt à temps."
+  - "Pour appliquer la directive européenne sur les plateformes, une mission chargée par le gouvernement a proposé le 3 novembre 2026 qu'un chauffeur ou un livreur qui saisit les prud'hommes avec des indices soit présumé salarié, avec un jugement en 4 à 6 mois et une assurance accidents du travail payée par les plateformes ; d'autres veulent les présumer tous salariés d'office, d'autres refusent toute présomption."
+chiffres:
+  - valeur: "70 000"
+    unite: livreurs
+    legende: "actifs en 2024, et à peu près autant de chauffeurs VTC"
+    source: { organisme: Arpe, document: "cité par la mission gouvernementale", annee: 2024 }
+  - valeur: "56 %"
+    legende: "des 153 arrêts de cours d'appel rendus de 2016 à 2024 sur des travailleurs des plateformes refusent de les reconnaître salariés"
+    source: { organisme: "Mission gouvernementale", document: "d'après une étude de l'Institut Badinter", annee: 2026 }
+  - valeur: "−15 à −22,4 %"
+    legende: "de revenu horaire brut pour les livreurs de 2021 à 2025, selon la plateforme, temps d'attente non payé ; un minimum de 19 € par heure d'activité s'applique depuis septembre 2026"
+    source: { organisme: Arpe, document: "cité par la mission gouvernementale", annee: 2025 }
+  - valeur: "73,5 %"
+    legende: "des livreurs interrogés ont déjà travaillé en louant le compte d'un autre, pour 528 € par mois en moyenne ; 64,4 % n'ont pas de titre de séjour ; Uber Eats conteste la méthode de l'enquête"
+    source: { organisme: "Médecins du Monde, association", document: "enquête Santé-Course, citée par la mission gouvernementale", annee: 2026 }
+options:
+  - id: A
+    libelle: "Les présumer tous salariés, sans attendre un procès"
+    implique: "Tous les chauffeurs et livreurs sont présumés salariés. La plateforme ne peut l'écarter qu'en prouvant, tout à la fois, que le travailleur fixe ses prix, choisit ses horaires, peut refuser des courses, a sa propre clientèle et n'est ni supervisé ni sanctionné. L'inspection du travail peut reconnaître salariés d'un coup tous les travailleurs d'une plateforme."
+    defenseurs: "Un algorithme qui attribue les courses, fixe les prix et peut couper l'accès à l'application agit comme un employeur : tant que chacun doit aller seul au procès, des années après, ces travailleurs restent privés des droits des salariés."
+    critiques: "Beaucoup veulent rester indépendants, et présumer tout le monde salarié ferait disparaître des missions et des plateformes, comme en Espagne, où Deliveroo est partie."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage du coût total n'a été trouvé. Pour un revenu de 1 480 € par mois, un salarié et son employeur versent 370 € de prélèvements sociaux, un micro-entrepreneur 317 €."
+        source: { organisme: "Mission gouvernementale", document: "simulations, barèmes 2026", annee: 2026 }
+      defenseurs:
+        - texte: "Un algorithme qui attribue les courses, fixe les prix, géolocalise et peut couper l'accès à l'application dirige, contrôle et sanctionne : ce sont les trois marques d'un employeur."
+        - texte: "Un travailleur précaire ne peut pas attendre son jugement des années : aux prud'hommes, une demande pour être reconnu salarié prend aujourd'hui plus de 20 mois."
+          source: { organisme: "Mission gouvernementale", annee: 2026 }
+        - texte: "La Sécurité sociale perd des cotisations : fin 2024, l'Urssaf a réclamé 1,7 milliard d'euros à Uber au motif du statut de ses chauffeurs et livreurs."
+          source: { organisme: "Le Club des juristes", annee: 2026 }
+      critiques:
+        - texte: "Beaucoup de chauffeurs et de livreurs tiennent à leur liberté de se connecter quand ils veulent et ne souhaitent pas devenir salariés."
+        - texte: "En Espagne, où les livreurs sont présumés salariés depuis 2021, Deliveroo est partie et d'autres plateformes ont continué avec des indépendants ou des sous-traitants."
+        - texte: "La présomption doit aider le juge à trancher selon les conditions réelles de travail, pas transformer d'office un indépendant en salarié."
+  - id: B
+    libelle: "Les présumer salariés s'ils vont devant le juge"
+    implique: "Un chauffeur ou un livreur qui va aux prud'hommes n'a plus qu'à présenter des indices, comme la géolocalisation, des sanctions ou des prix imposés : c'est à la plateforme de prouver qu'il est indépendant, et le jugement est rendu en 4 à 6 mois. Les syndicats peuvent aussi agir en justice pour plusieurs travailleurs à la fois. En même temps, les plateformes paient une assurance accidents du travail, et un revenu minimum est fixé par accord ou, à défaut, par décret."
+    defenseurs: "C'est la directive appliquée à la lettre : le travailleur n'a plus à tout prouver, la décision vient vite, et chacun reçoit les droits qui manquent sans qu'on impose le salariat à ceux qui n'en veulent pas."
+    critiques: "Les partisans du salariat d'office jugent que le travailleur doit toujours aller devant le juge, le plus souvent après avoir quitté la plateforme ; les plateformes, qu'une présomption large crée une insécurité juridique et des coûts nouveaux."
+    detail:
+      chiffrage:
+        texte: "Rattacher les livreurs à l'assurance accidents du travail coûterait aux plateformes environ 27 millions d'euros par an, soit 0,21 à 0,25 € par livraison."
+        source: { organisme: "Mission gouvernementale", annee: 2026 }
+      defenseurs:
+        - texte: "C'est la directive appliquée à la lettre : la présomption aide le travailleur à prouver qu'il est salarié, sans transformer d'office tous les indépendants en salariés."
+        - texte: "Le travailleur n'a plus à tout prouver, et la décision vient vite : 4 à 6 mois en procédure accélérée, au lieu de plus de 20 aujourd'hui."
+          source: { organisme: "Mission gouvernementale", annee: 2026 }
+        - texte: "Chacun reçoit d'abord l'assurance accidents du travail qui lui manque, sans changer de statut : 26,4 % des livreurs interrogés à Paris et en petite couronne ont déjà eu un accident en travaillant."
+          source: { organisme: Ifsttar, document: "enquête Dablanc et al., citée par la mission gouvernementale", annee: 2022 }
+      critiques:
+        - texte: "Le travailleur doit toujours aller devant le juge, et la plupart ne le font qu'après avoir quitté la plateforme, pour être indemnisés."
+        - texte: "Les juges refusent déjà la plupart des demandes : 56 % des 153 arrêts de cours d'appel rendus de 2016 à 2024 ne reconnaissent pas ces travailleurs salariés."
+          source: { organisme: "Mission gouvernementale", document: "d'après une étude de l'Institut Badinter", annee: 2026 }
+        - texte: "Une présomption large crée pour les plateformes une insécurité juridique et des coûts nouveaux : mieux vaut appliquer la directive au plus juste."
+  - id: C
+    libelle: "Les garder indépendants, avec des droits négociés"
+    implique: "C'est la règle actuelle : pas de présomption de salariat, et celui qui se dit salarié doit le prouver devant le juge. Les revenus minimums et les règles pour suspendre un compte se négocient entre les plateformes et les représentants élus des chauffeurs et des livreurs, sous l'égide de l'Arpe, l'autorité qui organise ces négociations."
+    defenseurs: "Ces travailleurs ont choisi la liberté de se connecter quand ils veulent et pour qui ils veulent, et la négociation leur a déjà donné des minimums : 9 € par course pour les chauffeurs, 19 € par heure d'activité pour les livreurs."
+    critiques: "Les revenus ont baissé malgré les accords, près de la moitié des chauffeurs n'en bénéficient pas, et la directive oblige la France à instaurer une présomption de salariat."
+    detail:
+      chiffrage:
+        texte: "La garder ne change rien. Depuis 2022, 14 accords ont été signés entre les plateformes et les représentants élus des chauffeurs et des livreurs, dont des revenus minimums."
+        source: { organisme: "Mission gouvernementale", annee: 2026 }
+      defenseurs:
+        - texte: "Ces travailleurs ont choisi la liberté de se connecter quand ils veulent, de refuser une course et de travailler pour plusieurs applications."
+        - texte: "La négociation donne des résultats : les chauffeurs ont au moins 9 € par course, commission déduite, et les livreurs au moins 19 € par heure d'activité depuis septembre 2026."
+          source: { organisme: "Mission gouvernementale", annee: 2026 }
+        - texte: "Imposer le salariat ferait partir des plateformes et supprimerait des missions : à Genève, selon le PDG d'Uber, des milliers de personnes ont perdu leur travail quand les chauffeurs ont été salariés."
+      critiques:
+        - texte: "Les revenus baissent malgré les accords : de 2021 à 2025, le revenu horaire brut des livreurs a reculé de 15 à 22,4 %, selon la plateforme."
+          source: { organisme: Arpe, document: "cité par la mission gouvernementale", annee: 2025 }
+        - texte: "Près de la moitié des chauffeurs ne sont pas couverts par les accords, et seuls 3,90 % des livreurs ont voté en 2024 pour élire leurs représentants."
+          source: { organisme: "Mission gouvernementale", annee: 2026 }
+        - texte: "La directive européenne oblige la France à instaurer une présomption de salariat : la règle actuelle ne peut pas rester telle quelle."
+pourAllerPlusLoin:
+  - titre: "Direction générale des entreprises, rapport de la mission sur la transposition de la directive sur le travail via une plateforme, novembre 2026"
+    url: https://www.entreprises.gouv.fr/la-dge/publications/rapport-de-la-mission-sur-la-transposition-de-la-directive-europeenne-dite
+  - titre: "EUR-Lex, directive (UE) 2024/2831 relative à l'amélioration des conditions de travail dans le cadre du travail via une plateforme"
+    url: https://eur-lex.europa.eu/eli/dir/2024/2831/oj?locale=fr
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour les présumer tous salariés"
+    argument: "Un algorithme qui attribue les courses, fixe les prix et peut couper l'accès à l'application agit comme un employeur."
+  - titre: "Pour décider au cas par cas"
+    argument: "On ne doit pas imposer le salariat à ceux qui n'en veulent pas."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A d'un côté, B et C (le juge décide, au cas par cas) de l'autre.
+story:
+  - choix: "Tous présumés salariés"
+    precision: "sans attendre un procès"
+  - choix: "Au cas par cas"
+    precision: "devant le juge"
+# Positions de l'étude (§ 4). Inconnues : Lisnard (aucune déclaration trouvée sur les plateformes ou le statut des
+# livreurs), Dupont-Aignan (rien dans les pages « Économie-travail », « Intelligence artificielle » et « Transport » du
+# projet de Debout la France).
+# Le classement en B de cinq candidats (Le Pen, Philippe, Glucksmann, Attal, Zemmour) repose surtout sur le vote de la
+# directive au Parlement européen le 24/04/2024 : ce vote écarte C mais ne tranche pas entre A et B (étude § 4).
+# Choix de l'auteur (10/11/2026) : ces cinq restent en B, avec le statut de l'étude (Zemmour « estimee » : pas de groupe
+# Reconquête, les deux élus ont quitté le parti depuis).
+positions:
+  # Parlement européen, vote du 24/04/2024 sur la directive (A9-0301/2022), détail par député : https://howtheyvote.eu/votes/168270
+  # Les élus RN s'étaient abstenus sur la résolution de 2021 (https://howtheyvote.eu/votes/135565) et sur celle de 2025 (https://howtheyvote.eu/votes/182797).
+  le-pen: { option: B, source: "Parlement européen, vote du 24/04/2024 sur la directive : 16 des 18 eurodéputés RN pour, dont Jordan Bardella, 2 n'ont pas voté (HowTheyVote.eu)", statut: deduite, lien: "https://howtheyvote.eu/votes/168270" }
+  # L'Avenir en commun, édition de novembre 2021 (programme 2022), section « Un emploi stable pour chacun » : https://laec.fr/section/38/un-emploi-stable-pour-chacun
+  # Proposition de loi n° 441 cosignée par des députés LFI, 15/10/2024 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b0441_proposition-loi
+  # Édition 2025 du programme (transposer la directive « sur la présomption de salariat »), page non ouverte [à vérifier] : https://melenchon2027.fr/?p=15573
+  melenchon: { option: A, source: "L'Avenir en commun, 2022, section « Un emploi stable pour chacun » ; proposition de loi n° 441 cosignée par des députés LFI, 15/10/2024", statut: deduite, citation: "Requalifier les travailleurs des plateformes numériques (Uber, Deliveroo...) et tous les salariés faussement considérés comme indépendants en contrat de travail salarié", lien: "https://laec.fr/section/38/un-emploi-stable-pour-chacun" }
+  # Parlement européen, 24/04/2024, eurodéputés Renew français dont Gilles Boyer (Horizons) : https://howtheyvote.eu/votes/168270
+  # Fragile : Premier ministre, il avait choisi en 2019 des chartes des plateformes, en partie censurées
+  # (https://www.conseil-constitutionnel.fr/decision/2019/2019794DC.htm), et en 2020 un « statut spécifique » [source secondaire]
+  # (https://siecledigital.fr/2020/06/09/les-livreurs-et-les-chauffeurs-independants-pourraient-bientot-beneficier-dun-statut-specifique/), ce qui va vers C.
+  philippe: { option: B, source: "Parlement européen, vote du 24/04/2024 sur la directive : eurodéputés français du groupe Renew 21 pour, 1 contre, dont Gilles Boyer (Horizons) pour (HowTheyVote.eu)", statut: deduite, lien: "https://howtheyvote.eu/votes/168270" }
+  # Parlement européen, résolution 2019/2186(INI), votes des 15-16/09/2021 : https://howtheyvote.eu/votes/135565 (texte de la résolution cité par la PPL n° 3081) ;
+  # directive, 24/04/2024 : https://howtheyvote.eu/votes/168270. Les députés socialistes vont plus loin, vers A (résolution n° 3187, PPL n° 441 et 3081).
+  glucksmann: { option: B, source: "Parlement européen, ses votes pour la résolution du 16/09/2021 sur les travailleurs des plateformes (texte cité) et pour la directive le 24/04/2024 (HowTheyVote.eu)", statut: deduite, citation: "une présomption réfragable d'une relation de travail […] conjuguée à un renversement de la charge de la preuve", lien: "https://howtheyvote.eu/votes/135565" }
+  # Sénat, scrutin public n° 128 du 27/05/2021 sur l'article 2 de la proposition de loi visant à lutter contre l'indépendance fictive : https://www.senat.fr/scrutin-public/2020/scr2020-128.html
+  # Vote ancien, avant la directive ; en 2024, les eurodéputés LR ont voté la directive.
+  retailleau: { option: C, source: "Sénat, scrutin public n° 128 du 27/05/2021 : vote contre l'article qui présumait salarié le travailleur dont le revenu vient surtout d'un algorithme", statut: deduite, lien: "https://www.senat.fr/scrutin-public/2020/scr2020-128.html" }
+  # Parlement européen, 24/04/2024, eurodéputés Renaissance du groupe Renew : https://howtheyvote.eu/votes/168270
+  # Fragile : son gouvernement s'opposait au compromis au Conseil de l'UE en février–mars 2024 (EUobserver, Agence Europe), ce qui va vers C.
+  attal: { option: B, source: "Parlement européen, vote du 24/04/2024 sur la directive : eurodéputés français du groupe Renew, dont Renaissance, 21 pour, 1 contre (HowTheyVote.eu)", statut: deduite, lien: "https://howtheyvote.eu/votes/168270" }
+  # Parlement européen, 24/04/2024 : Nicolas Bay (ECR) et Jérôme Rivière (non-inscrit), alors membres de Reconquête [appartenance à vérifier] : https://howtheyvote.eu/votes/168270
+  # Pas de groupe Reconquête ; ces élus ont pour la plupart quitté le parti. Signal contraire : Sarah Knafo vote contre la
+  # résolution du 17/12/2025 sur la gestion algorithmique (https://howtheyvote.eu/votes/182797).
+  zemmour: { option: B, source: "Parlement européen, vote du 24/04/2024 sur la directive : les eurodéputés alors membres de Reconquête, Nicolas Bay et Jérôme Rivière, pour (HowTheyVote.eu)", statut: estimee, lien: "https://howtheyvote.eu/votes/168270" }
+  # Proposition de loi n° 441, 15/10/2024, cosignée par la présidente du groupe Écologiste et social, Cyrielle Chatelain, et la plupart de ses députés : https://www.assemblee-nationale.fr/dyn/17/textes/l17b0441_proposition-loi
+  # Proposition de loi n° 3081, 23/07/2026 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b3081_proposition-loi
+  tondelier: { option: A, source: "Proposition de loi n° 441, 15/10/2024, cosignée par la présidente du groupe Écologiste et social et la plupart de ses députés ; proposition de loi n° 3081, 23/07/2026", statut: deduite, citation: "Le travailleur est présumé être lié au donneur d'ordre par un contrat de travail", lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b0441_proposition-loi" }
+  # Propositions de loi n° 441 et n° 3081 cosignées par les députés communistes Stéphane Peu, Nicolas Sansu, Édouard Bénard : https://www.assemblee-nationale.fr/dyn/17/textes/l17b0441_proposition-loi
+  # Sénat, scrutin n° 128 du 27/05/2021, sénateurs communistes 15 pour sur 15 : https://www.senat.fr/scrutin-public/2020/scr2020-128.html
+  roussel: { option: A, source: "Propositions de loi n° 441 (15/10/2024) et n° 3081 (23/07/2026), cosignées par les députés communistes Stéphane Peu, Nicolas Sansu et Édouard Bénard ; Sénat, scrutin n° 128 du 27/05/2021 : sénateurs communistes 15 pour sur 15", statut: deduite, citation: "Le travailleur est présumé être lié au donneur d'ordre par un contrat de travail", lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b0441_proposition-loi" }
+  # Proposition de loi n° 441, 15/10/2024, qu'il cosigne : https://www.assemblee-nationale.fr/dyn/17/textes/l17b0441_proposition-loi
+  ruffin: { option: A, source: "Proposition de loi n° 441, 15/10/2024, qu'il cosigne", statut: deduite, citation: "Le travailleur est présumé être lié au donneur d'ordre par un contrat de travail", lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b0441_proposition-loi" }
+  # Lutte ouvrière, « Deliveroo : condamné pour travail dissimulé », 08/10/2025 : https://lutte-ouvriere.org/journal/article/deliveroo-condamne-travail-dissimule-187621.html
+  # Estimée : le parti tient les livreurs pour des salariés sans le statut, sans mesure précise ; A est l'option la plus proche.
+  arthaud: { option: A, source: "Lutte ouvrière, « Deliveroo : condamné pour travail dissimulé », 08/10/2025", statut: estimee, citation: "pieds et poings liés à la plateforme", lien: "https://lutte-ouvriere.org/journal/article/deliveroo-condamne-travail-dissimule-187621.html" }

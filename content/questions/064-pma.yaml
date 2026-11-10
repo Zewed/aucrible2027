@@ -1,0 +1,192 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 10/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/064-pma.md (tout ce qui suit y est sourcé).
+# La GPA a sa propre fiche (027) : celle-ci n'en parle que dans l'argument de ceux qui la relient à la PMA (étude,
+# « Règles de lecture » et § 2a).
+# Mots de la fiche : « PMA », « femmes seules » (la loi écrit « femme non mariée »), « donneur », « PMA après le décès
+# du conjoint », « don d'ovocytes entre conjointes » (la ROPA).
+# Mots disputés, attribués ou évités (étude, « Règles de lecture ») : « PMA pour toutes » (slogan des partisans de la
+# loi) ; « PMA sans père » (expression des opposants, seulement dans la citation d'Éric Zemmour) ; « père biologique »
+# ou « géniteur » pour le donneur (Debout la France) ; « droit à l'enfant » (opposants) et « projet parental » (la
+# loi) ; « infertilité sociale » ou « demandes sociétales » (CCNE, 2017) : la fiche écrit « sans raison médicale » ;
+# « une forme de GPA » pour le don entre conjointes (Debout la France) : la fiche décrit la technique sans la qualifier.
+numero: 64
+date: 2026-08-25
+theme: societe
+question: "Faut-il garder la PMA ouverte aux couples de femmes et aux femmes seules ?"
+titreCourt: "L'accès à la PMA"
+contexte:
+  - "Depuis la loi de bioéthique du 2 août 2021, la procréation médicalement assistée (PMA) est ouverte aux couples de femmes et aux femmes seules, et remboursée à 100 % comme pour les couples formés d'un homme et d'une femme."
+  - "Le Parlement doit réexaminer la loi de bioéthique de 2021 d'ici août 2028, comme elle le prévoit elle-même."
+  - "Certains veulent revenir à la règle d'avant 2021, qui réservait la PMA aux couples formés d'un homme et d'une femme pour une raison médicale, ou cesser de la rembourser ; d'autres veulent l'élargir, par exemple aux femmes dont le conjoint est mort."
+# Quatre chiffres qui posent le sujet : la demande, l'attente, les naissances, l'accès des couples homme-femme. Chacun
+# sert aux deux camps (étude § 1.2, 2c et 3) ; aucun ne compare les enfants, ni ne vient d'une partie au débat.
+chiffres:
+  - valeur: "12 000"
+    unite: demandes de PMA
+    legende: "au moins, de couples de femmes et de femmes seules en 2025, pour une PMA avec un don de spermatozoïdes : 3 % de plus qu'en 2024"
+    source: { organisme: "Agence de la biomédecine", document: "chiffres d'activité 2025", annee: 2026 }
+  - valeur: "17,7"
+    unite: mois
+    legende: "d'attente en moyenne en 2025 pour une PMA avec un don de spermatozoïdes, de 8 à 28 mois selon les centres, contre 5 à 6 mois pour une PMA sans donneur"
+    source: { organisme: "Agence de la biomédecine", document: "chiffres d'activité 2025", annee: 2026 }
+  - valeur: "1 100"
+    unite: enfants
+    legende: "environ, nés depuis la loi et jusqu'à la fin de 2023 d'une PMA faite par un couple de femmes ou une femme seule"
+    source: { organisme: "Agence de la biomédecine", document: "communiqué du 2 juillet 2024", annee: 2024 }
+  - valeur: "−34 %"
+    legende: "de demandes de première consultation pour un don de spermatozoïdes chez les couples formés d'un homme et d'une femme, de 2019 à 2025 ; la cause n'en est pas établie"
+    source: { organisme: "Agence de la biomédecine", document: "chiffres d'activité 2025", annee: 2026 }
+# L'ordre est une échelle : du retour à la règle d'avant 2021 (A) à l'élargissement le plus large (E) ; le statu quo
+# est au milieu (étude § 4).
+options:
+  - id: A
+    libelle: "La réserver de nouveau aux couples homme-femme"
+    implique: "Comme avant 2021, la PMA serait réservée aux couples formés d'un homme et d'une femme, en cas d'infertilité médicalement constatée ou de risque de transmettre une maladie grave. Les couples de femmes et les femmes seules n'y auraient plus accès en France ; les propositions ne disent pas ce que deviendraient les parcours déjà commencés."
+    defenseurs: "Un enfant a besoin, autant que possible, d'un père et d'une mère : la vie en prive parfois un enfant, mais la loi ne doit pas l'organiser à l'avance."
+    critiques: "Ces familles existaient déjà : revenir en arrière renverrait les femmes vers la Belgique ou l'Espagne, à leurs frais et sans accès de l'enfant à ses origines."
+    detail:
+      chiffrage:
+        texte: "Aucun coût n'a été chiffré. Avant la loi, de 2 000 à 4 000 femmes partaient chaque année faire une PMA à l'étranger, selon l'estimation d'un médecin citée par le gouvernement."
+        source: { organisme: "Gouvernement", document: "étude d'impact du projet de loi de bioéthique", annee: 2019 }
+      defenseurs:
+        - texte: "Les études rassurantes portent surtout sur de petits groupes de volontaires et sur des enfants encore jeunes : dans le doute, la prudence doit primer."
+        - texte: "La médecine est là pour soigner une infertilité : une femme seule ou un couple de femmes n'est pas malade."
+        - texte: "Les couples infertiles, à qui la PMA était destinée, y accèdent moins : leurs demandes de don de spermatozoïdes ont baissé de 34 % de 2019 à 2025."
+          source: { organisme: "Agence de la biomédecine", annee: 2026 }
+      critiques:
+        - texte: "Ce qui protège un enfant, c'est d'être désiré, aimé et entouré, pas la forme de sa famille."
+        - texte: "Les études sur registres répondent à la critique des petits groupes : aux Pays-Bas, 2 971 enfants de couples de même sexe ont eu des résultats scolaires au moins aussi bons que les autres."
+          source: { organisme: "Mazrekaj, De Witte et Cabus, American Sociological Review", annee: 2020 }
+        - texte: "L'attente des couples infertiles tient au manque de personnel et de centres, pas à la loi : les candidats au don de spermatozoïdes sont passés de 380 par an avant la loi à 1 015 en 2025."
+          source: { organisme: "Agence de la biomédecine", annee: 2026 }
+  - id: B
+    libelle: "La garder, remboursée seulement pour raison médicale"
+    implique: "Les couples de femmes et les femmes seules gardent l'accès à la PMA, mais paient elles-mêmes tout ou partie des actes : l'assurance maladie ne rembourse que les PMA faites pour une raison médicale. Le Sénat l'avait voté en 2020 ; l'Assemblée nationale l'a rejeté."
+    defenseurs: "La Sécurité sociale est là pour soigner : on peut laisser le choix aux femmes sans faire payer à tous une PMA faite sans raison médicale."
+    critiques: "Une PMA payante redeviendrait réservée aux femmes aisées, et le remboursement dépendrait de l'orientation sexuelle."
+    detail:
+      chiffrage:
+        texte: "Avant la loi, le gouvernement estimait que l'ouverture coûterait 10 à 15 millions d'euros par an à l'assurance maladie. Le coût réel depuis 2021 n'a pas été chiffré."
+        source: { organisme: "Gouvernement", document: "étude d'impact du projet de loi de bioéthique", annee: 2019 }
+      defenseurs:
+        - texte: "La Sécurité sociale est là pour soigner une maladie : une PMA sans raison médicale répond à un projet, pas à un besoin de soin."
+        - texte: "En période d'économies, on peut laisser le choix aux femmes sans faire payer ce projet par la solidarité de tous."
+        - texte: "Une contribution des patientes, même partielle, garderait la PMA ouverte tout en ménageant les comptes de l'assurance maladie."
+      critiques:
+        - texte: "Une PMA payante redeviendrait réservée aux femmes aisées, comme quand il fallait partir en Belgique ou en Espagne."
+        - texte: "Rembourser les couples formés d'un homme et d'une femme, et pas les autres, ferait dépendre la prise en charge de l'orientation sexuelle."
+        - texte: "Le coût est modeste : environ 5 % des près de 300 millions d'euros que la PMA coûte chaque année à l'assurance maladie, selon l'estimation faite avant la loi."
+          source: { organisme: "Gouvernement", document: "étude d'impact du projet de loi de bioéthique", annee: 2019 }
+  - id: C
+    libelle: "La garder telle quelle, remboursée à 100 %"
+    implique: "Les couples de femmes et les femmes seules gardent l'accès à la PMA, remboursée à 100 % comme pour tous. Rien ne s'ajoute : la PMA après le décès du conjoint et le don d'ovocytes entre conjointes restent interdits. L'effort porte sur l'attente, de 17,7 mois en moyenne en 2025."
+    defenseurs: "La loi de 2021 a fait entrer ces familles dans un cadre français, médical et gratuit : il faut maintenant des moyens pour réduire l'attente, pas changer la règle."
+    critiques: "Pour les uns, la loi organise la naissance d'enfants sans père désigné ; pour les autres, elle laisse de côté les veuves et les couples de femmes qui voudraient partager la maternité."
+    detail:
+      chiffrage:
+        texte: "La règle ne change pas : l'assurance maladie rembourse à 100 % jusqu'à 6 inséminations et 4 fécondations in vitro par grossesse, la même prise en charge pour les couples formés d'un homme et d'une femme, les couples de femmes et les femmes seules."
+        source: { organisme: "Service-public.fr", annee: 2025 }
+      defenseurs:
+        - texte: "La loi a fait entrer dans un cadre français, médical et gratuit des familles qui se formaient déjà à l'étranger, avec l'accès de l'enfant à ses origines."
+        - texte: "L'attente tient au manque de personnel et de locaux dans les centres : il faut des moyens, pas une nouvelle loi."
+        - texte: "Le don a suivi, malgré la fin de l'anonymat des donneurs : 1 015 candidats au don de spermatozoïdes en 2025, contre 380 par an avant la loi."
+          source: { organisme: "Agence de la biomédecine", annee: 2026 }
+      critiques:
+        - texte: "Une fois la PMA ouverte au nom de l'égalité, la même égalité sera invoquée pour les couples d'hommes, et donc pour la GPA."
+        - texte: "Elle laisse de côté les veuves : une femme dont le conjoint est mort peut recourir au don d'un inconnu, mais pas aux embryons conçus avec lui."
+        - texte: "L'accès en France reste trop lent : les demandes de remboursement de PMA faites à l'étranger ont doublé de 2019 à 2025."
+          source: { organisme: "OPECST", document: "évaluation de la loi de bioéthique", annee: 2026 }
+  - id: D
+    libelle: "L'élargir aux veuves et au don d'ovocytes entre conjointes"
+    implique: "En plus de la loi de 2021, une femme dont le conjoint est mort pourrait poursuivre la PMA avec les embryons du couple ou les spermatozoïdes conservés de son conjoint, s'il y avait consenti par écrit de son vivant. Dans un couple de femmes, l'une pourrait porter l'enfant conçu avec les ovocytes de l'autre."
+    defenseurs: "Interdire à une veuve les embryons conçus avec son conjoint, alors qu'elle peut recourir au don d'un inconnu, est une injustice ; et deux femmes doivent pouvoir partager la maternité."
+    critiques: "Ce serait faire naître un enfant déjà orphelin, sur une décision prise en plein deuil, et imposer une ponction d'ovocytes à une femme qui n'en a pas besoin pour sa santé."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. La PMA après le décès du conjoint est autorisée dans douze pays européens, dont l'Espagne et le Royaume-Uni, et interdite dans onze."
+        source: { organisme: "Agence de la biomédecine", document: "citée par l'OPECST", annee: 2024 }
+      defenseurs:
+        - texte: "Interdire à une veuve les embryons conçus avec son conjoint, alors qu'elle peut recourir au don d'un inconnu, est une profonde injustice."
+        - texte: "Le don d'ovocytes entre conjointes permet aux deux femmes de partager la maternité : l'une donne ses ovocytes, l'autre porte l'enfant."
+        - texte: "Il évite de chercher une donneuse, alors qu'elles manquent : en 2025, plus de 2 700 personnes attendaient un don d'ovocytes, avec 22 mois de délai."
+          source: { organisme: "Agence de la biomédecine", annee: 2026 }
+      critiques:
+        - texte: "Après un décès, ce serait faire naître un enfant déjà orphelin, sur une décision prise en plein deuil."
+        - texte: "Le don d'ovocytes entre conjointes impose une stimulation hormonale et une ponction à une femme qui n'en a pas besoin pour sa santé."
+        - texte: "Un enfant conçu après la mort de son père aurait une filiation et un héritage plus compliqués à établir."
+  - id: E
+    libelle: "L'ouvrir aussi aux hommes trans pouvant porter un enfant"
+    implique: "En plus de la PMA après le décès du conjoint et du don d'ovocytes entre conjointes, la PMA serait ouverte aux hommes trans : des personnes nées avec un corps de femme, dont l'état civil indique « homme », et qui peuvent porter un enfant. Aujourd'hui, la PMA leur est fermée dès que l'état civil indique « homme »."
+    defenseurs: "La PMA doit être ouverte à toutes les personnes en capacité de procréer, sans exclure celles dont l'état civil a changé."
+    critiques: "L'accès repose sur l'état civil, et le changer toucherait toute la filiation ; chaque élargissement ajoute des demandes dans des centres déjà saturés."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé, ni du coût ni du nombre de personnes concernées. À l'Assemblée nationale, un amendement en ce sens a été rejeté en 2019 par 44 voix contre 27."
+        source: { organisme: "Assemblée nationale", document: "scrutin n° 2082", annee: 2019 }
+      defenseurs:
+        - texte: "La PMA doit être ouverte à toutes les personnes en capacité de procréer, sans exclure celles dont l'état civil a changé."
+        - texte: "Un homme trans qui peut porter un enfant en est exclu pour la seule raison que son état civil a changé, alors que la loi refuse toute différence selon la situation de couple ou l'orientation sexuelle."
+        - texte: "Il faut des moyens pour tous ces publics : ramener l'attente, de 17,7 mois en moyenne en 2025, à moins de six mois."
+          source: { organisme: "Agence de la biomédecine", annee: 2026 }
+      critiques:
+        - texte: "L'accès à la PMA repose sur l'état civil : le changer toucherait toute la filiation."
+        - texte: "Chaque élargissement ajoute des demandes dans des centres déjà saturés : fin 2025, 8 700 personnes attendaient un don de spermatozoïdes."
+          source: { organisme: "Agence de la biomédecine", annee: 2026 }
+        - texte: "Rien n'oblige à aller plus loin que la loi de 2021, et chaque élargissement éloigne un peu plus la PMA de sa raison d'être : soigner une infertilité."
+pourAllerPlusLoin:
+  - titre: "OPECST, L'évaluation de l'application de la loi du 2 août 2021 relative à la bioéthique, 2026"
+    url: https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B2988.raw
+  - titre: "Agence de la biomédecine, chiffres d'activité 2025 de l'assistance médicale à la procréation, 2026"
+    url: https://back.agence-biomedecine.fr/uploads/ABM_CP_Chiffres_activite_AMP_2025_b491882bcc.pdf
+  - titre: "CCNE, avis n° 126 sur les demandes de recours à l'assistance médicale à la procréation, 2017"
+    url: https://www.ccne-ethique.fr/sites/default/files/2021-02/ccne_avis_ndeg126_amp_version-def.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour revenir en arrière"
+    argument: "Un enfant a besoin, autant que possible, d'un père et d'une mère."
+  - titre: "Pour la garder ouverte"
+    argument: "La loi a fait entrer ces familles dans un cadre français, médical et gratuit, avec l'accès de l'enfant à ses origines."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A contre B, C, D et E.
+story:
+  - choix: "Revenir en arrière"
+    precision: "comme avant 2021"
+  - choix: "La garder ouverte"
+    precision: "remboursée ou non, élargie ou non"
+# Positions sourcées seulement (étude, § 4). Inconnu : Lisnard (aucune déclaration ni mesure trouvée ; MonVote2027
+# affiche « neutre », sans source).
+# Choix de l'auteur : Le Pen reste en C (statu quo), d'après le moratoire de son programme 2022 ; elle s'était dite
+# « opposée » à l'ouverture en 2017 et a voté contre l'ensemble de la loi en 2019 et 2021 (étude, notes du § 4).
+positions:
+  # Rassemblement national, projet présidentiel 2022, livret « La Famille », p. 15 : https://rassemblementnational.fr/documents/projet/projet-la-famille.pdf
+  le-pen: { option: C, source: "Rassemblement national, projet présidentiel 2022, livret « La Famille », p. 15", statut: deduite, citation: "ce moratoire n'empêchera pas la stricte application de la loi", lien: "https://rassemblementnational.fr/documents/projet/projet-la-famille.pdf" }
+  # Proposition de résolution n° 2268 des députés LFI, 22/12/2025 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b2268_proposition-resolution.pdf
+  # Amendement n° 2277 (PMA après décès) cosigné en 2019 : https://www.assemblee-nationale.fr/dyn/15/amendements/2243/AN/2277
+  # Programme 2027 cité par MonVote2027 (page non lisible, piste seulement) : https://monvote2027.fr/candidat/melenchon
+  melenchon: { option: E, source: "Proposition de résolution n° 2268 des députés LFI, 22/12/2025 ; amendement n° 2277 cosigné en 2019", statut: deduite, citation: "l'ouverture pleine et entière de la PMA à toutes les personnes en capacité de procréer", lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b2268_proposition-resolution.pdf" }
+  # Europe 1, L'Émission politique, 27/09/2018 : https://www.europe1.fr/politique/edouard-philippe-se-dit-plutot-favorable-a-lextension-de-la-pma-3765932
+  # Projet de loi n° 2187, 24/07/2019 : https://www.assemblee-nationale.fr/dyn/opendata/PRJLANR5L15B2187.pdf
+  philippe: { option: C, source: "Europe 1, L'Émission politique, 27/09/2018 ; projet de loi n° 2187, 24/07/2019", statut: deduite, citation: "On peut y aller", lien: "https://www.europe1.fr/politique/edouard-philippe-se-dit-plutot-favorable-a-lextension-de-la-pma-3765932" }
+  # Proposition de loi n° 1942 des députés socialistes, alliés de Place publique, 14/10/2025 : https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B1942.pdf
+  glucksmann: { option: D, source: "Proposition de loi n° 1942 des députés socialistes, alliés de Place publique, 14/10/2025", statut: estimee, lien: "https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L17B1942.pdf" }
+  # Sénat, scrutins n° 66 (21/01/2020) : https://www.senat.fr/scrutin-public/2019/scr2019-66.html et n° 61 (02/02/2021) : https://www.senat.fr/scrutin-public/2020/scr2020-61.html
+  # Public Sénat, 07/06/2018 : https://www.publicsenat.fr/actualites/politique/pma-je-pense-qu-il-y-a-une-question-de-la-marchandisation-affirme-bruno-retailleau
+  retailleau: { option: A, source: "Sénat, scrutins n° 66 (21/01/2020) et n° 61 (02/02/2021) ; Public Sénat, 07/06/2018", statut: deduite, citation: "Moi je ne suis pas favorable", lien: "https://www.publicsenat.fr/actualites/politique/pma-je-pense-qu-il-y-a-une-question-de-la-marchandisation-affirme-bruno-retailleau" }
+  # franceinfo, 22/09/2024 : https://www.franceinfo.fr/politique/gouvernement-de-michel-barnier/gouvernement-de-michel-barnier-gabriel-attal-reclame-des-garanties-sur-les-droits-des-femmes-et-lgbt_6795844.html
+  attal: { option: C, source: "franceinfo, 22/09/2024", statut: deduite, citation: "la PMA, le droit à l'IVG, les droits LGBT", lien: "https://www.franceinfo.fr/politique/gouvernement-de-michel-barnier/gouvernement-de-michel-barnier-gabriel-attal-reclame-des-garanties-sur-les-droits-des-femmes-et-lgbt_6795844.html" }
+  # Programme présidentiel 2022, rapporté par Breizh-info, 15/03/2022 (source secondaire) : https://www.breizh-info.com/2022/03/15/181736/presidentielle-2022-eric-zemmour-devoile-son-programme-politique-pour-la-france/
+  # France 2, 09/12/2021, rapporté par Aleteia : https://fr.aleteia.org/2021/12/10/ivg-pma-pour-toutes-peine-de-mort-ce-quen-pense-eric-zemmour/
+  zemmour: { option: A, source: "Programme présidentiel 2022, rapporté par Breizh-info, 15/03/2022 ; France 2, 09/12/2021, rapporté par Aleteia", statut: deduite, citation: "Revenir sur la procréation médicalement assistée (PMA) sans père", lien: "https://www.breizh-info.com/2022/03/15/181736/presidentielle-2022-eric-zemmour-devoile-son-programme-politique-pour-la-france/" }
+  # Proposition de résolution n° 2607, cosignée par des députés écologistes dont Cyrielle Chatelain, 07/05/2024 : https://www.assemblee-nationale.fr/dyn/16/textes/l16b2607_proposition-resolution.pdf
+  # Programme de juillet 2026 cité par MonVote2027 (page non lisible, piste seulement) : https://monvote2027.fr/candidat/tondelier
+  tondelier: { option: E, source: "Proposition de résolution n° 2607, cosignée par des députés écologistes dont Cyrielle Chatelain, 07/05/2024", statut: estimee, lien: "https://www.assemblee-nationale.fr/dyn/16/textes/l16b2607_proposition-resolution.pdf" }
+  # Assemblée nationale, scrutins n° 2146 (15/10/2019) : https://www.assemblee-nationale.fr/dyn/15/scrutins/2146 et n° 3855 (29/06/2021) : https://www.assemblee-nationale.fr/dyn/15/scrutins/3855
+  # Têtu, 04/04/2022 : https://tetu.com/2022/04/04/presidentielle-candidats-proposition-lgbtqi-election/
+  roussel: { option: C, source: "Assemblée nationale, scrutins n° 2146 (15/10/2019) et n° 3855 (29/06/2021) ; Têtu, 04/04/2022", statut: deduite, citation: "Il faut maintenant un service public pour garantir l'usage des gamètes, qu'on n'en fasse pas une marchandise", lien: "https://tetu.com/2022/04/04/presidentielle-candidats-proposition-lgbtqi-election/" }
+  # Assemblée nationale, scrutins n° 2146 et n° 3855 (voir plus haut) ; communiqué de Debout la France, 29/07/2020 : https://www.debout-la-france.fr/actualite/bioethique-le-gouvernement-choisit-le-cynisme-plutot-que-linteret-general/
+  # Fragile : son projet « Famille » actuel ne propose pas de revenir sur la loi (étude, notes du § 4).
+  dupont-aignan: { option: A, source: "Assemblée nationale, scrutins n° 2146 (15/10/2019) et n° 3855 (29/06/2021) ; communiqué de Debout la France, 29/07/2020", statut: estimee, citation: "aucun enfant ne peut être privé de sa filiation paternelle ou maternelle", lien: "https://www.debout-la-france.fr/actualite/bioethique-le-gouvernement-choisit-le-cynisme-plutot-que-linteret-general/" }
+  # Assemblée nationale, scrutin n° 3855, 29/06/2021 : https://www.assemblee-nationale.fr/dyn/15/scrutins/3855
+  ruffin: { option: C, source: "Assemblée nationale, scrutin n° 3855, 29/06/2021", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/15/scrutins/3855" }
+  # Lutte ouvrière n° 2618, « PMA : l'Église appelle à la croisade », 03/10/2018 : https://journal.lutte-ouvriere.org/journal/article/2018-10-03-pma-leglise-appelle-la-croisade_113934.html
+  arthaud: { option: C, source: "Lutte ouvrière n° 2618, « PMA : l'Église appelle à la croisade », 03/10/2018", statut: estimee, lien: "https://journal.lutte-ouvriere.org/journal/article/2018-10-03-pma-leglise-appelle-la-croisade_113934.html" }

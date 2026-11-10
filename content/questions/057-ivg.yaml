@@ -1,0 +1,199 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 10/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doivent être vérifiés par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/057-ivg.md (tout ce qui suit y est sourcé).
+# Mots disputés (étude, « Règles de lecture ») : « double clause de conscience » (partisans de la suppression ; le
+# Syngof la conteste), « stigmatisante », « droit » ou « liberté » d'avorter, « anti-choix » et « pro-vie », « déserts »
+# d'IVG. La fiche écrit « clause propre à l'IVG » et « clause générale », « liberté » pour la Constitution ; les autres
+# mots n'apparaissent que dans la voix d'un camp ou dans une citation, ou pas du tout.
+# Défendre la clause n'est pas s'opposer à l'IVG (étude, « Règles de lecture ») : aucune option ne touche à l'IVG elle-même.
+numero: 57
+date: 2026-09-01
+theme: sante
+question: "Faut-il supprimer la clause de conscience propre à l'IVG ?"
+titreCourt: "La clause de conscience"
+contexte:
+  # § 1.1 et 1.5, [1] [2] [5].
+  - "La loi dit qu'un médecin ou une sage-femme « n'est jamais tenu » de pratiquer une IVG, mais doit alors donner tout de suite à la patiente le nom d'autres praticiens : c'est la clause de conscience propre à l'IVG, présente dans la loi depuis 1975."
+  # § 1.1, [6].
+  - "Une seconde clause, générale et fixée par décret, permet à tout médecin de refuser un soin pour des raisons personnelles, sauf en cas d'urgence."
+  # § 1.3 et 1.4, [1] [16] [17].
+  - "Depuis mars 2024, la Constitution garantit la liberté de recourir à l'IVG, sans parler de la clause de conscience ; en octobre 2026, 28 députés socialistes ont déposé un texte pour supprimer la clause propre à l'IVG."
+chiffres:
+  # § 2b, [8].
+  - valeur: "259 400"
+    unite: IVG
+    legende: "ont été pratiquées en France en 2025, soit 17,8 pour 1 000 femmes de 15 à 49 ans"
+    source: { organisme: "Drees", document: "Études et résultats n° 1384", annee: 2026 }
+  # § 1.1 et 2a, [5].
+  - valeur: "3"
+    unite: actes
+    legende: "ont une clause de conscience propre dans le droit français : l'IVG, la stérilisation à visée contraceptive et la recherche sur l'embryon"
+    source: { organisme: "Assemblée nationale", document: "rapport d'information n° 3343", annee: 2020 }
+  # § 2b, [8] : l'accès selon le territoire ; aucun chiffre ne dit combien de refus viennent de la clause.
+  - valeur: "83 %"
+    legende: "des femmes de métropole ont avorté dans leur département en 2025, de 55 % dans l'Ain à 96 % dans les Alpes-Maritimes"
+    source: { organisme: "Drees", document: "Études et résultats n° 1384", annee: 2026 }
+# L'ordre est une échelle : de la protection la plus forte de la clause (A) à sa suppression avec un délai plus long (D).
+options:
+  - id: A
+    libelle: "Inscrire la clause de conscience dans la Constitution"
+    implique: "La Constitution, qui garantit depuis 2024 la liberté de recourir à l'IVG, garantirait aussi aux soignants le droit « de ne pas être tenus de la pratiquer ou d'y concourir ». La clause propre à l'IVG resterait dans la loi."
+    # § 2c, [17] [18].
+    defenseurs: "La liberté de conscience des soignants doit être garantie au même niveau que celle des femmes, pour que la liberté de recourir à l'IVG ne puisse jamais être opposée aux médecins."
+    # § 2a et 2c, [1] [4] [5].
+    critiques: "Aucun texte ne propose d'obliger un soignant à pratiquer une IVG : graver le refus dans la Constitution ferait encore plus de l'avortement un acte à part."
+    detail:
+      chiffrage:
+        # § 1.6d et 2h, [17]. Aucun coût n'est donné par l'étude.
+        texte: "Inscrire la clause n'a pas de coût direct. L'ajout proposé au Sénat en 2024 visait le droit des soignants « de ne pas être tenus de la pratiquer ou d'y concourir »."
+        source: { organisme: "Sénat", document: "amendement n° 1 rect. sexies", annee: 2024 }
+      defenseurs:
+        - texte: "La Constitution protège depuis 2024 la liberté des femmes : elle doit protéger, à côté, celle des soignants qui ne veulent pas pratiquer l'acte."
+        - texte: "Une liberté « garantie » pourrait un jour être opposée aux médecins devant les juges : seule la Constitution met leur conscience durablement à l'abri."
+        # § 2c, [34] [source secondaire].
+        - texte: "En Suède, où la loi ne reconnaît pas de clause, deux sages-femmes ont été écartées d'emplois parce qu'elles refusaient de participer à des avortements : il faut mettre la clause hors d'atteinte d'une simple loi."
+      critiques:
+        - texte: "Aucun texte ne propose d'obliger un soignant à pratiquer une IVG, et la liberté de conscience a déjà valeur constitutionnelle."
+        - texte: "Mettre le refus des soignants dans la Constitution, à côté de l'IVG, ferait encore plus de l'avortement un acte à part."
+        # § 2b et 3, [8] : 83 % des femmes de métropole avortent dans leur département, soit environ une sur six hors.
+        - texte: "L'accès est déjà inégal, une femme sur six avortant hors de son département en métropole : protéger davantage le refus n'aiderait pas les femmes."
+          source: { organisme: "Drees", annee: 2026 }
+  - id: B
+    libelle: "Garder la clause propre à l'IVG dans la loi"
+    implique: "Rien ne change : la loi dit toujours qu'un médecin ou une sage-femme n'est jamais tenu de pratiquer une IVG, et oblige celui qui refuse à donner tout de suite le nom d'autres praticiens. Le délai reste de 14 semaines de grossesse."
+    # § 2a, [7] [10].
+    defenseurs: "L'IVG n'est pas un acte comme les autres : la conscience des soignants mérite la protection d'une loi, pas seulement celle d'un décret que le gouvernement peut changer seul."
+    # § 2a, [1] [5].
+    critiques: "La clause générale suffit à permettre un refus : garder une clause propre fait de l'IVG un acte toléré plutôt qu'un droit à part entière."
+    detail:
+      chiffrage:
+        # § 1.1, [6].
+        texte: "La garder ne change rien. Aucun chiffre ne dit combien de soignants l'invoquent : en 2013, le Haut Conseil à l'égalité jugeait son usage « très mal connu »."
+        source: { organisme: "Haut Conseil à l'égalité entre les femmes et les hommes", annee: 2013 }
+      defenseurs:
+        - texte: "L'IVG n'est pas un acte médical comme les autres : une clause qui lui est propre reconnaît cette singularité, sans rien retirer aux femmes."
+        # § 2a, [3] : le code de déontologie modifié par le décret n° 2026-691.
+        - texte: "La clause générale n'est qu'un décret, que le gouvernement peut modifier seul, comme il l'a encore fait pour le code de déontologie en juillet 2026 : la conscience des soignants mérite la protection d'une loi."
+        # § 1.1, 1.5 et 2a, [2] [4] [5] [6].
+        - texte: "Toutes les lois qui ont élargi l'IVG depuis 1975 ont gardé cette clause : dans les hôpitaux publics, qui ne peuvent pas refuser l'IVG, elle garantit par la loi à chaque soignant qu'il ne sera pas obligé de la pratiquer lui-même."
+      critiques:
+        - texte: "Elle n'apporte aux soignants aucune protection de plus que la clause générale, et fait de l'IVG un acte toléré plutôt qu'un droit à part entière."
+        - texte: "Certains médecins l'invoquent à partir d'un certain terme de la grossesse, ce qui raccourcit de fait le délai légal."
+        # § 2b, [6] : relevés des agences régionales de santé, cités par le HCE en 2013.
+        - texte: "En 2013, les agences régionales de santé relevaient des refus visant des mineures sans autorisation parentale ou des femmes jugées « récidivistes »."
+  - id: C
+    libelle: "Supprimer la clause propre, garder la clause générale"
+    implique: "Un médecin ou une sage-femme pourrait toujours refuser une IVG au nom de la clause générale, sauf urgence, et la loi l'obligerait toujours à informer la patiente sans délai et à lui donner le nom d'autres praticiens. C'est ce que prévoit une proposition de loi déposée à l'Assemblée en octobre 2026."
+    # § 2a et 2c, [1] [5].
+    defenseurs: "Personne ne serait obligé de pratiquer une IVG : supprimer la dernière condition posée en 1975 ferait enfin de l'avortement un droit à part entière."
+    # § 2a et 2b, [10] [22].
+    critiques: "La clause générale n'est qu'un décret, modifiable par le gouvernement seul, et supprimer la clause propre ne suffirait pas à garantir l'accès sans moyens en plus."
+    detail:
+      chiffrage:
+        # § 1.4 et 2h, [1].
+        texte: "Supprimer la clause propre n'a pas de coût direct. Une proposition de loi en ce sens a été déposée par 28 députés le 6 octobre 2026."
+        source: { organisme: "Assemblée nationale", document: "proposition de loi n° 3247", annee: 2026 }
+      defenseurs:
+        - texte: "Personne ne serait obligé de pratiquer une IVG : la clause générale demeure, et le soignant qui refuse devra toujours orienter la patiente sans délai."
+        - texte: "La clause propre est la dernière condition de la loi de 1975 encore en vigueur : elle culpabilise les femmes, et la supprimer ferait de l'IVG un droit à part entière."
+        # § 2b, [1] [5].
+        - texte: "La clause propre entretient des refus constatés sur le terrain malgré la Constitution : certains médecins l'invoquent à partir d'un certain terme, ce qui raccourcit de fait le délai légal."
+      critiques:
+        - texte: "La clause générale n'est qu'un décret : sans clause propre, la conscience des soignants ne serait plus protégée par la loi."
+        - texte: "La clause propre est la contrepartie de l'autorisation d'interrompre une grossesse : elle protège les soignants, d'abord ceux du service public."
+        # § 2b, [7] : le ministère expliquait cette baisse par la fermeture de maternités et la démographie médicale.
+        - texte: "Entre 2005 et 2018, le nombre d'établissements qui pratiquent l'IVG est passé de 653 à 511, en même temps que fermaient des maternités : supprimer la clause ne rouvrira pas ces services."
+          source: { organisme: "Drees", document: "cité par le Sénat", annee: 2021 }
+  - id: D
+    libelle: "Supprimer la clause et passer à 22 semaines"
+    implique: "La clause propre à l'IVG disparaît, la clause générale demeure, et le délai pour avorter passe de 14 à 22 semaines de grossesse, comme aux Pays-Bas et au Royaume-Uni."
+    # § 2d, [29] [30].
+    defenseurs: "Une femme qui découvre sa grossesse tard doit pouvoir avorter en France, comme aux Pays-Bas ou au Royaume-Uni, sans qu'une clause propre fasse de l'IVG un acte à part."
+    # § 2d, [7] [8].
+    critiques: "Allonger le délai ne répond pas au manque de moyens des services d'IVG, et 1 à 2 % des IVG ont lieu dans les deux dernières semaines du délai actuel."
+    detail:
+      chiffrage:
+        # § 2d, [7]. Délais en semaines de grossesse.
+        texte: "Le délai passerait de 14 à 22 semaines de grossesse, celui des Pays-Bas et du Royaume-Uni. Il est de 14 semaines en Espagne et en Autriche, de 16 en Suède."
+        source: { organisme: "Sénat", document: "commission des affaires sociales", annee: 2021 }
+      defenseurs:
+        - texte: "Une femme qui découvre sa grossesse tard doit pouvoir avorter en France, sans devoir partir à l'étranger."
+        # § 2d, [7] : ratios de 2019.
+        - texte: "Un délai plus long ne fait pas plus d'IVG : 0,18 IVG pour une naissance aux Pays-Bas, 0,32 au Royaume-Uni, 0,31 en France."
+          source: { organisme: "CCNE", document: "cité par le Sénat", annee: 2020 }
+        - texte: "Aucun soignant ne serait obligé de pratiquer une IVG tardive : la clause générale demeure."
+      critiques:
+        - texte: "Allonger le délai ne répond pas au manque de moyens et de médecins des services d'IVG."
+        # § 2d, [8] : 3,3 % des IVG à l'hôpital ont lieu à partir de 14 SA (les deux dernières semaines avant la limite
+        # de 16 SA), soit 1 à 2 % de toutes les IVG.
+        - texte: "1 à 2 % des IVG, quelques milliers par an, ont lieu dans les deux dernières semaines du délai actuel : allonger ne concernerait qu'une petite part des femmes."
+          source: { organisme: "Drees", annee: 2026 }
+        # § 1.2 et 1.5, [5] [8] : 10 semaines en 1975, 12 en 2001, 14 en 2022.
+        - texte: "Le délai a déjà été allongé deux fois, de 10 à 14 semaines : il faut le stabiliser plutôt que le repousser encore."
+          source: { organisme: "Drees", annee: 2026 }
+pourAllerPlusLoin:
+  - titre: "Drees, Les interruptions volontaires de grossesse en 2025, Études et résultats n° 1384, 2026"
+    url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/260922-les-interruptions-volontaires-de-grossesse-IVG-en-2025
+  - titre: "Conseil constitutionnel, décision n° 2001-446 DC du 27 juin 2001 sur la loi relative à l'IVG"
+    url: https://www.conseil-constitutionnel.fr/decision/2001/2001446DC.htm
+  - titre: "Sénat, commission des affaires sociales, L'essentiel sur la proposition de loi visant à renforcer le droit à l'avortement, 2021-2022"
+    url: https://www.senat.fr/lessentiel/ppl20-023.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour garder la clause"
+    argument: "L'IVG n'est pas un acte comme les autres : la loi doit protéger la conscience des soignants."
+  - titre: "Pour la supprimer"
+    argument: "La clause générale suffit : une clause propre fait de l'IVG un acte à part."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A et B, puis C et D.
+story:
+  - choix: "La garder"
+    precision: "ou la renforcer"
+  - choix: "La supprimer"
+    precision: "avec ou sans délai plus long"
+# Positions sourcées seulement (étude, § 4). Inconnu : Lisnard (aucune déclaration trouvée sur l'IVG ; MonVote2027
+# affiche « neutre », sans source).
+# Le Pen reste en B (choix de l'auteur) : son amendement de 2022, retiré, se rapprochait de A ; elle a voté en 2024 le
+# texte qui ne mentionne pas la clause, et les trois sénateurs RN ont voté contre l'amendement Milon (étude, § 4, notes).
+# Retailleau, Le Pen, Dupont-Aignan, Ruffin : leurs propres votes ou signatures ont plus de 12 mois, d'où « déduite ».
+positions:
+  # Datan, vote n° 2950, 08/10/2020 : https://datan.fr/votes/legislature-15/vote_2950
+  # Amendement n° 190 de Marine Le Pen, 21/11/2022, retiré : https://www.assemblee-nationale.fr/dyn/16/amendements/0488/AN/190.pdf
+  le-pen: { option: B, source: "Vote contre l'article qui supprimait la clause, scrutin n° 2950, 08/10/2020 ; amendement n° 190, 21/11/2022", statut: deduite, citation: "risque sur la clause de conscience qui existe aujourd'hui pour les personnels de santé", lien: "https://www.assemblee-nationale.fr/dyn/16/amendements/0488/AN/190.pdf" }
+  # L'Avenir en commun, « Mettre en sécurité sociale », chapitre 3 : https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre3
+  # Amendement n° 140 (LFI), 05/02/2022 : https://www.assemblee-nationale.fr/dyn/15/amendements/4985/AN/140.pdf
+  melenchon: { option: C, source: "L'Avenir en commun, mesure clé ; amendement n° 140 qu'il cosigne, 05/02/2022", statut: officielle, citation: "Garantir l'égal accès et l'effectivité du droit à l'IVG, tout comme le choix de la méthode d'IVG, et supprimer la double clause de conscience des médecins", lien: "https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre3" }
+  # Estimée : aucun texte ni propos trouvé ; rien ne départage B et C, B change le moins la règle actuelle.
+  # Sénat, scrutin n° 135, 28/02/2024 (Les Indépendants 0 pour, 13 contre) : https://www.senat.fr/scrutin-public/2023/scr2023-135.html
+  # [à vérifier : présence des sénateurs Horizons dans le groupe Les Indépendants]
+  philippe: { option: B, source: "Aucune déclaration trouvée ; sénateurs du groupe Les Indépendants contre l'inscription de la clause dans la Constitution, scrutin n° 135, 28/02/2024", statut: estimee, lien: "https://www.senat.fr/scrutin-public/2023/scr2023-135.html" }
+  # Proposition de loi n° 3247 des députés socialistes, 06/10/2026 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b3247_proposition-loi.pdf
+  # HowTheyVote, rapport Matić, 24/06/2021 : https://howtheyvote.eu/votes/134348
+  glucksmann: { option: C, source: "Proposition de loi n° 3247 des députés socialistes, alliés de Place publique, 06/10/2026 ; son vote du rapport Matić au Parlement européen, 24/06/2021", statut: deduite, citation: "Plus rien ne justifie donc désormais le maintien de cette double clause de conscience", lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3247_proposition-loi.pdf" }
+  # Sénat, amendement n° 1 rect. sexies (A. Milon, B. Retailleau et autres) : https://www.senat.fr/enseance/2023-2024/299/Amdt_1.html
+  # Sénat, scrutin n° 135, 28/02/2024 : https://www.senat.fr/scrutin-public/2023/scr2023-135.html
+  # Public Sénat, 14/02/2024 : https://www.publicsenat.fr/actualites/politique/ivg-dans-la-constitution-bruno-retailleau-annonce-des-amendements-pour-introduire-la-clause-de-conscience-des-medecins
+  retailleau: { option: A, source: "Sénat, amendement n° 1 rect. sexies qu'il cosigne et vote, scrutin n° 135, 28/02/2024 ; Public Sénat, 14/02/2024", statut: deduite, citation: "et aux professionnels de santé de ne pas être tenus de la pratiquer ou d'y concourir", lien: "https://www.senat.fr/enseance/2023-2024/299/Amdt_1.html" }
+  # Estimée, fragile : les députés LREM avaient voté la suppression en 2020 (45 contre 10), et le ministère veut la
+  # « réinterroger » en 2026 (étude, § 4).
+  # Aleteia, 08/03/2024 (propos de C. Vautrin sur France 2 le 07/03/2024) : https://fr.aleteia.org/2024/03/08/ivg-la-double-clause-de-conscience-des-medecins-est-elle-menacee/
+  # Sénat, scrutin n° 135 (RDPI 1 pour, 21 contre) : https://www.senat.fr/scrutin-public/2023/scr2023-135.html
+  attal: { option: B, source: "Catherine Vautrin, ministre de la Santé de son gouvernement, France 2, 07/03/2024 (rapporté par Aleteia) ; sénateurs RDPI, scrutin n° 135, 28/02/2024 ; à l'inverse, les députés LREM ont voté la suppression de la clause le 08/10/2020 (45 pour, 10 contre)", statut: estimee, citation: "je ne toucherai pas à la clause de conscience des médecins", lien: "https://fr.aleteia.org/2024/03/08/ivg-la-double-clause-de-conscience-des-medecins-est-elle-menacee/" }
+  # Estimée : rien sur la clause ; refuser de changer la loi dans un sens ou dans l'autre correspond à B.
+  # Aleteia, 10/12/2021 (débat de France 2 du 09/12/2021) : https://fr.aleteia.org/2021/12/10/ivg-pma-pour-toutes-peine-de-mort-ce-quen-pense-eric-zemmour/
+  zemmour: { option: B, source: "France 2, 09/12/2021, rapporté par Aleteia", statut: estimee, citation: "Non, je ne touche pas à la loi sur l'avortement", lien: "https://fr.aleteia.org/2021/12/10/ivg-pma-pour-toutes-peine-de-mort-ce-quen-pense-eric-zemmour/" }
+  # Estimée : le programme ne nomme pas la clause ; la ligne du parti la critique ; rien sur le délai.
+  # Les Écologistes, programme de juillet 2026, p. 138 (cité par MonVote2027) : https://lesecologistes.fr/pages/6ImK65GKUnvibm33WGkjkj/projet-2027
+  # EELV, décision CF-12-044, 2012 : https://archives.eelv.fr/eelv/eelv.fr-2011-2015/wp-content/uploads/2012/02/Dec_CF-12-044_contrac_avort.pdf
+  tondelier: { option: C, source: "Les Écologistes, programme de juillet 2026, p. 138 (cité par MonVote2027) ; décision du conseil fédéral d'EELV, 2012", statut: estimee, citation: "La clause de conscience est trop souvent une excuse pour ne pas avoir à pratiquer l'acte d'IVG", lien: "https://archives.eelv.fr/eelv/eelv.fr-2011-2015/wp-content/uploads/2012/02/Dec_CF-12-044_contrac_avort.pdf" }
+  # Déduite : Fabien Roussel lui-même n'a pas voté en 2020.
+  # Datan, vote n° 2950 (GDR 3 pour) : https://datan.fr/votes/legislature-15/vote_2950
+  # Sénat, scrutin n° 135 (communistes 18 contre) : https://www.senat.fr/scrutin-public/2023/scr2023-135.html
+  roussel: { option: C, source: "Votes des députés communistes, scrutin n° 2950, 08/10/2020, et des sénateurs communistes, scrutin n° 135, 28/02/2024", statut: deduite, lien: "https://datan.fr/votes/legislature-15/vote_2950" }
+  # Datan, votes n° 2950 (08/10/2020), n° 4414 (23/02/2022), n° 3289 (30/01/2024) : https://datan.fr/votes/legislature-15/vote_2950
+  dupont-aignan: { option: B, source: "Ses votes : scrutins n° 2950, 08/10/2020, n° 4414, 23/02/2022, et n° 3289, 30/01/2024", statut: deduite, lien: "https://datan.fr/votes/legislature-15/vote_2950" }
+  # Amendement n° 140 (C. Fiat, J.-L. Mélenchon, F. Ruffin et autres), 05/02/2022 : https://www.assemblee-nationale.fr/dyn/15/amendements/4985/AN/140.pdf
+  ruffin: { option: C, source: "Amendement n° 140 qu'il cosigne, 05/02/2022", statut: deduite, citation: "nous demandons le rétablissement de la suppression de la clause spécifique de conscience pour les actes d'IVG", lien: "https://www.assemblee-nationale.fr/dyn/15/amendements/4985/AN/140.pdf" }
+  # Estimée : journal du parti, pas ses mots, qui approuve la demande d'une autre organisation ; « à juste titre » lu dans
+  # un extrait [à vérifier].
+  # Lutte ouvrière n° 3035, « IVG : un droit menacé », 30/09/2026 : https://lutte-ouvriere.org/journal/article/ivg-droit-menace-197514.html
+  arthaud: { option: D, source: "Lutte ouvrière n° 3035, « IVG : un droit menacé », 30/09/2026", statut: estimee, citation: "réclame, à juste titre, un allongement du délai légal pour pratiquer une IVG de 14 à 22 semaines", lien: "https://lutte-ouvriere.org/journal/article/ivg-droit-menace-197514.html" }

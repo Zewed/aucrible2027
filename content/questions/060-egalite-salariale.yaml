@@ -1,0 +1,165 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 10/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/060-egalite-salariale.md (tout ce qui suit y est sourcé ; positions vérifiées le
+# 10/11/2026, fin du § 4).
+# La question porte sur les écarts à travail égal ou de valeur égale dans une même entreprise, les seuls qu'on peut
+# sanctionner ; l'écart moyen de 22 % tient surtout à d'autres causes (temps partiel, métiers, enfants).
+# Mots disputés, attribués ou évités (étude, « Règles de lecture ») : « discrimination », « écart injustifié »,
+# « écart inexpliqué » (gouvernement et ministre de l'Égalité ; la CPME y voit parfois des différences de compétences) ;
+# « surtransposition » (organisations patronales, députés RN et non inscrits ; le gouvernement le conteste) ;
+# « usine à gaz » ; « système patriarcal ». La fiche dit « écart à poste comparable » ou « écart que l'employeur ne
+# justifie pas », et « discrimination » seulement dans la voix d'un camp.
+numero: 60
+date: 2026-08-29
+theme: travail-retraites
+question: "Faut-il durcir les obligations et les sanctions des entreprises pour l'égalité de salaire entre femmes et hommes ?"
+titreCourt: "L'égalité salariale femmes-hommes"
+contexte:
+  - "Depuis 2020, les entreprises d'au moins 50 salariés publient chaque année une note sur 100 de l'égalité entre femmes et hommes ; sous 75, elles doivent corriger leurs écarts, sous peine d'une pénalité jusqu'à 1 % de ce qu'elles versent en salaires."
+  - "Une directive européenne de 2023, que la France devait appliquer avant le 7 juin 2026, oblige en plus à donner aux candidats la fourchette de salaire du poste et, dans les entreprises d'au moins 100 salariés, à corriger tout écart d'au moins 5 % qui ne repose pas sur des critères objectifs."
+  - "Le projet de loi présenté le 10 septembre 2026 pour appliquer la directive européenne sur l'égalité des salaires n'a pas encore été examiné : le débat porte sur la dureté des sanctions et sur les entreprises visées, dès 50 ou dès 100 salariés."
+chiffres:
+  - valeur: "14 %"
+    legende: "d'écart de salaire entre femmes et hommes à temps de travail égal, tous métiers et postes confondus, dans le secteur privé, en 2024"
+    source: { organisme: Insee, document: "Insee Focus n° 377", annee: 2026 }
+  - valeur: "3,6 %"
+    legende: "d'écart entre femmes et hommes qui occupent le même emploi dans le même établissement, en 2024, mesuré dans un quart des établissements"
+    source: { organisme: Insee, document: "Insee Focus n° 377", annee: 2026 }
+  - valeur: "101"
+    unite: pénalités
+    legende: "financières prononcées sur l'index de l'égalité de 2019 à mars 2025, pour 1 001 mises en demeure, la plupart suivies d'une mise en conformité"
+    source: { organisme: "Ministère du Travail", annee: 2025 }
+  - valeur: "88,5"
+    unite: sur 100
+    legende: "note moyenne des entreprises à l'index de l'égalité en 2026, contre 84 en 2020"
+    source: { organisme: "Ministère du Travail", document: "repris par la DREETS Nouvelle-Aquitaine", annee: 2026 }
+options:
+  - id: A
+    libelle: "Aller plus loin et punir l'écart lui-même"
+    implique: "Toute entreprise où persiste un écart de salaire à travail égal que l'employeur ne justifie pas est sanctionnée, plus lourdement que dans le projet de loi : perte des réductions de cotisations patronales, prime versée aux salariées lésées, exclusion des marchés publics, et jusqu'à 2 ans de prison et 7 000 € d'amende pour le délit d'atteinte à l'égalité professionnelle, contre 1 an et 3 750 € aujourd'hui."
+    defenseurs: "La loi promet « à travail égal, salaire égal » depuis 1972 : tant qu'il coûte moins de payer moins une femme que de risquer une amende, rien ne change."
+    critiques: "Un écart que les données n'expliquent pas n'est pas forcément une discrimination : en faire un délit exposerait des entreprises de bonne foi à des procès en série."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage du coût n'a été trouvé. Le délit d'atteinte à l'égalité professionnelle est puni d'un an de prison et de 3 750 € d'amende ; une proposition de loi de 2023 les porte à deux ans et 7 000 €."
+        source: { organisme: "Assemblée nationale", document: "proposition de loi n° 1434", annee: 2023 }
+      defenseurs:
+        - texte: "La sanction ne fait pas peur : de 2019 à mars 2025, 1 001 mises en demeure sur l'index n'ont abouti qu'à 101 pénalités."
+          source: { organisme: "Ministère du Travail", annee: 2025 }
+        - texte: "L'Islande oblige chaque employeur de 25 salariés et plus à faire certifier que ses salaires reposent sur des critères objectifs, au lieu d'attendre qu'une salariée porte plainte."
+        - texte: "« À travail égal, salaire égal » est inscrit dans la loi depuis 1972 et n'est toujours pas respecté : seules des mesures vraiment contraignantes changeront les choses."
+      critiques:
+        - texte: "Un écart que les données n'expliquent pas n'est pas forcément injustifié : l'expérience réelle, la performance ou la négociation à l'embauche n'y figurent pas."
+        - texte: "À poste comparable, l'écart n'est plus que de 3,6 % : l'essentiel vient du temps partiel, des métiers et des enfants, sur lesquels l'employeur n'a pas prise."
+          source: { organisme: Insee, annee: 2026 }
+        - texte: "Obliger l'employeur à prouver qu'il ne discrimine pas, sous peine de lourdes sanctions, frapperait aussi des entreprises de bonne foi et ouvrirait des procès en série."
+  - id: B
+    libelle: "Appliquer la directive comme le prévoit le gouvernement"
+    implique: "Sept indicateurs à déclarer dès 50 salariés, dont six calculés automatiquement, la fourchette de salaire donnée aux candidats, le droit de connaître les salaires moyens de sa catégorie et l'obligation de corriger tout écart non justifié d'au moins 5 %. L'entreprise qui ne déclare pas ou ne corrige pas paie jusqu'à 1 % de ce qu'elle verse en salaires, 2 % en récidive, et perd l'accès aux marchés publics pendant un an."
+    defenseurs: "On ne corrige que ce qu'on voit : chaque employeur devra mesurer ses écarts, puis les justifier ou les corriger avec les représentants des salariés."
+    critiques: "Les uns jugent les sanctions trop faibles, les autres les règles trop lourdes pour les PME, au-delà de ce qu'exige l'Europe."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage du coût pour les entreprises n'a été trouvé. Les règles s'appliqueraient dès 50 salariés : plus de 21 800 entreprises de 50 à 99 salariés auraient une déclaration allégée."
+        source: { organisme: "Ministère du Travail", document: "dossier de presse du projet de loi", annee: 2026 }
+      defenseurs:
+        - texte: "Six indicateurs sur sept seraient calculés automatiquement à partir des déclarations de paie : c'est plus simple que l'index actuel."
+          source: { organisme: "Ministère du Travail", document: "dossier de presse du projet de loi", annee: 2026 }
+        - texte: "L'employeur devra justifier ses écarts par des critères objectifs, ou les corriger avec les représentants des salariés : la salariée n'a plus à tout prouver seule."
+        - texte: "Les entreprises de 50 à 99 salariés publient déjà l'index : les dispenser des nouvelles règles serait un retour en arrière."
+      critiques:
+        - texte: "Une amende de 450 € par manquement à l'information des salariés n'a rien de dissuasif pour une grande entreprise."
+          source: { organisme: "Sénat", document: "projet de loi n° 944", annee: 2026 }
+        - texte: "Le texte ne punit pas l'écart lui-même : seule l'entreprise qui ne déclare pas ou ne corrige pas est sanctionnée, et beaucoup de règles sont renvoyées à des décrets."
+        - texte: "Le projet impose ses règles dès 50 salariés, quand la directive commence à 100 : c'est une charge de plus pour les PME françaises."
+  - id: C
+    libelle: "Appliquer seulement le minimum exigé par la directive"
+    implique: "Les nouvelles obligations commencent à 100 salariés, comme dans le texte européen, sans règle ni sanction française plus stricte. Les PME ont plus de temps et plus d'aide, et les obligations des plus petites entreprises passent aux branches professionnelles."
+    defenseurs: "La France ne doit pas imposer à ses entreprises plus que ses voisins : les petites n'ont pas les moyens de classer leurs emplois de valeur égale."
+    critiques: "Plus de 21 800 entreprises de 50 à 99 salariés perdraient des obligations qu'elles ont aujourd'hui, ce que la directive interdit selon le gouvernement."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Le seuil passerait de 50 à 100 salariés : plus de 21 800 entreprises de 50 à 99 salariés sortiraient des nouvelles obligations."
+        source: { organisme: "Ministère du Travail", document: "dossier de presse du projet de loi", annee: 2026 }
+      defenseurs:
+        - texte: "La France ne doit pas imposer à ses entreprises plus que ce qu'exige l'Europe, au risque de les pénaliser face à leurs voisines."
+        - texte: "Les PME et les TPE font 99 % des entreprises : sans spécialistes, beaucoup ne pourront pas classer seules leurs emplois de valeur égale."
+          source: { organisme: "Assemblée nationale", document: "rapport d'information n° 2370", annee: 2026 }
+        - texte: "Pour les plus petites entreprises, ces obligations doivent revenir aux branches professionnelles, avec un test avant chaque nouvelle règle."
+      critiques:
+        - texte: "Plus de 21 800 entreprises de 50 à 99 salariés perdraient des obligations qu'elles ont aujourd'hui."
+          source: { organisme: "Ministère du Travail", document: "dossier de presse du projet de loi", annee: 2026 }
+        - texte: "La directive interdit de baisser le niveau de protection existant : relever le seuil à 100 salariés irait contre elle, selon le gouvernement."
+        - texte: "L'index couvre déjà mal le privé : 44 % des salariés sont hors de son champ, et relever le seuil en exclurait davantage."
+          source: { organisme: "Cour des comptes", document: "citée par la délégation aux droits des femmes de l'Assemblée", annee: 2025 }
+  - id: D
+    libelle: "Garder l'index actuel et ses pénalités"
+    implique: "L'index de 2018 et sa pénalité jusqu'à 1 % de ce que l'entreprise verse en salaires restent la règle. La France demande à l'Union européenne de suspendre ou de simplifier la directive, et agit plutôt sur les causes hors de l'entreprise, comme les places en crèche et le temps partiel."
+    defenseurs: "Les entreprises se sont pliées à l'index : mieux vaut agir sur les causes principales de l'écart, les enfants et le temps partiel, que d'ajouter des règles."
+    critiques: "L'index donne des notes élevées sans réduire les écarts, et la France doit appliquer la directive, dont le délai est dépassé."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. Au 1er mars 2026, 83,5 % des entreprises concernées avaient déclaré leur index, contre 54 % en 2020."
+        source: { organisme: "Ministère du Travail", document: "repris par la DREETS Nouvelle-Aquitaine", annee: 2026 }
+      defenseurs:
+        - texte: "Les entreprises se sont pliées à l'index : leur note moyenne est passée de 84 sur 100 en 2020 à 88,5 en 2026."
+          source: { organisme: "Ministère du Travail", document: "repris par la DREETS Nouvelle-Aquitaine", annee: 2026 }
+        - texte: "L'essentiel de l'écart naît hors de l'entreprise : cinq ans après une naissance, les mères gagnent environ 25 % de moins que si elles n'avaient pas eu d'enfant."
+          source: { organisme: Insee, annee: 2019 }
+        - texte: "Plutôt que des règles de plus venues de Bruxelles, mieux vaut agir là où naissent les écarts : les modes de garde et l'organisation du travail."
+      critiques:
+        - texte: "L'index n'a pas réduit les écarts : les entreprises qui y sont soumises ont évolué comme les autres, avant comme après 2018."
+        - texte: "Les notes sont trompeuses : seul un quart des salariés du privé entre dans le calcul de l'écart de rémunération, et les écarts de moins de 5 % y comptent pour zéro."
+          source: { organisme: "Institut des politiques publiques", annee: 2023 }
+        - texte: "La France devait appliquer la directive avant le 7 juin 2026 : ne pas le faire l'expose à des poursuites devant la Cour de justice de l'Union européenne."
+pourAllerPlusLoin:
+  - titre: "Insee, Écart de salaire entre femmes et hommes en 2024, Insee Focus n° 377, 2026"
+    url: https://www.insee.fr/fr/statistiques/8743657
+  - titre: "Sénat, projet de loi n° 944 sur la transparence des rémunérations, dossier législatif, 2026"
+    url: https://www.senat.fr/dossier-legislatif/pjl25-944.html
+  - titre: "Assemblée nationale, délégation aux droits des femmes, rapport d'information sur l'égalité salariale, 2026"
+    url: https://www.assemblee-nationale.fr/dyn/17/rapports/ega/l17b2370_rapport-information.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour des sanctions plus dures"
+    argument: "La sanction actuelle ne fait pas peur : chaque employeur doit mesurer ses écarts, puis les justifier ou les corriger."
+  - titre: "Contre des sanctions plus dures"
+    argument: "La France ne doit pas imposer à ses entreprises plus que ce qu'exige l'Europe : ces règles pèsent d'abord sur les PME."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A et B durcissent les sanctions, C et D non.
+story:
+  - choix: "Sanctionner plus durement"
+    precision: "comme le projet de loi, ou plus"
+  - choix: "Ne pas durcir"
+    precision: "le minimum européen, ou les règles actuelles"
+# Positions : étude, § 4, et « Positions vérifiées le 10/11/2026 ». Inconnus : Zemmour, Lisnard (relecture du 10/11/2026 :
+# leur seule base, une phrase favorable à l'égalité ou une ligne générale de simplification, ne départage pas les options).
+# Aucun vote sur la mesure exacte : le projet de loi n° 944 n'a pas encore été examiné (page du Sénat consultée le
+# 10/11/2026). Les positions « estimee » citent leur base et leur raisonnement dans l'étude.
+positions:
+  # L'Avenir en commun, édition 2027, partie 3, chap. 3, section « Atteindre l'égalité salariale » : https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre3
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2027, partie 3, chap. 3, section « Atteindre l'égalité salariale »", statut: officielle, citation: "Augmenter les sanctions financières et pénales à l'encontre des entreprises qui ne respectent pas l'égalité salariale femmes/hommes (amendes et refus d'attribution de marchés publics)", lien: "https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre3" }
+  # Programme présidentiel 2022, La France des Jours heureux, proposition 76 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  roussel: { option: A, source: "Programme présidentiel 2022, « La France des Jours heureux », proposition 76", statut: deduite, citation: "L'égalité salariale sera effective dans les six premiers mois de la mandature dans la fonction publique. Les entreprises disposeront d'un an pour la mettre en œuvre, faute de quoi un administrateur judiciaire le fera à la place de l'employeur.", lien: "https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf" }
+  # Programme présidentiel 2022 de Y. Jadot (EELV), rapporté par myRHline le 25/03/2022 (source secondaire) : https://myrhline.com/type-article/tendances-rh/programme-presidentielle-2022-propositions-rh
+  # Projet 2027 des Écologistes, « Instaurer l'égalité salariale réelle » (relevé par Votons 2027) : https://votons-2027.fr/candidats/tondelier/programme/institutions
+  tondelier: { option: A, source: "Programme présidentiel 2022 de Y. Jadot (EELV), rapporté par myRHline le 25/03/2022", statut: estimee, citation: "entreprises de plus de 25 salariés et les administrations devront prouver que, à poste et à compétences égales, hommes et femmes touchent le même salaire ; à défaut il propose une amende de 33 euros par jour", lien: "https://myrhline.com/type-article/tendances-rh/programme-presidentielle-2022-propositions-rh" }
+  # Proposition de loi n° 1434 (LFI), exposé des motifs, co-signée, 20/06/2023 : https://www.assemblee-nationale.fr/dyn/16/textes/l16b1434_proposition-loi.pdf
+  ruffin: { option: A, source: "Proposition de loi n° 1434, exposé des motifs, co-signée quand il était au groupe LFI, 20/06/2023", statut: estimee, citation: "C'est pourquoi nous proposons des mesures véritablement contraignantes pour que les entreprises fassent enfin de la réduction des inégalités salariales une priorité.", lien: "https://www.assemblee-nationale.fr/dyn/16/textes/l16b1434_proposition-loi.pdf" }
+  # Lutte ouvrière, brève « Transparence salariale : pas de quoi inquiéter le patronat », 28/08/2026 : https://lutte-ouvriere.org/portail/breves/transparence-salariale-p-quoi-inquieter-patronat-196661.html
+  arthaud: { option: A, source: "Lutte ouvrière, brève « Transparence salariale : pas de quoi inquiéter le patronat », 28/08/2026", statut: estimee, citation: "Ils sont de 14 % en France et ce n'est pas cette énième loi non contraignante pour le patronat qui réduira cet écart.", lien: "https://lutte-ouvriere.org/portail/breves/transparence-salariale-p-quoi-inquieter-patronat-196661.html" }
+  # Communiqué de presse du Premier ministre, Matignon, 07/03/2018 : https://www.info.gouv.fr/upload/media/default/0001/01/2018_03_communique_de_presse_de_m._edouard_philippe_premier_ministre_-_egalite_professionnelle_entre_les_femmes_et_les_hommes.pdf
+  # Votes de l'eurodéputé Horizons, 30/03/2023 et 11/03/2026 : https://howtheyvote.eu/votes/154076 ; https://howtheyvote.eu/votes/186909
+  philippe: { option: B, source: "Votes de l'eurodéputé Horizons pour la directive, 30/03/2023, et pour une transposition « rapide », 11/03/2026 ; communiqué de presse du Premier ministre, 07/03/2018", statut: estimee, lien: "https://howtheyvote.eu/votes/186909" }
+  # Votes nominatifs au Parlement européen, 30/03/2023 (directive) et 11/03/2026 (transposition « rapide ») : https://howtheyvote.eu/votes/154076 ; https://howtheyvote.eu/votes/186909
+  glucksmann: { option: B, source: "Votes au Parlement européen : pour la directive, 30/03/2023 ; pour une transposition « rapide », 11/03/2026", statut: estimee, lien: "https://howtheyvote.eu/votes/186909" }
+  # Votes des eurodéputés LR, 30/03/2023 et 11/03/2026 : https://howtheyvote.eu/votes/154076 ; rapport d'information n° 2370 co-signé par V. Duby-Muller (LR), 27/01/2026 : https://www.assemblee-nationale.fr/dyn/17/rapports/ega/l17b2370_rapport-information.pdf
+  retailleau: { option: B, source: "Votes des eurodéputés LR, 30/03/2023 et 11/03/2026 ; rapport d'information n° 2370 co-signé par une députée LR, 27/01/2026", statut: estimee, lien: "https://howtheyvote.eu/votes/154076" }
+  # Projet de loi n° 944 présenté par J.-P. Farandou et D. Amiel, avec A. Bergé, 10/09/2026 : https://www.senat.fr/dossier-legislatif/pjl25-944.html ; votes des eurodéputés Renaissance et alliés, 30/03/2023 : https://howtheyvote.eu/votes/154076
+  attal: { option: B, source: "Projet de loi n° 944 présenté par J.-P. Farandou et D. Amiel (Renaissance), avec A. Bergé (Renaissance), 10/09/2026 ; votes des eurodéputés Renaissance et alliés, 30/03/2023", statut: estimee, lien: "https://www.senat.fr/dossier-legislatif/pjl25-944.html" }
+  # S. Dogor-Such (RN), commission des affaires sociales, 12/05/2026 : https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/cion-soc/l17cion-soc2526071_compte-rendu.pdf
+  # Question écrite n° 14085 de P. Lottiaux (RN), 07/04/2026 : https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE14085
+  le-pen: { option: C, source: "S. Dogor-Such (RN), commission des affaires sociales, 12/05/2026 ; question écrite de P. Lottiaux (RN), 07/04/2026 ; eurodéputés RN pour une transposition « rapide », 11/03/2026", statut: estimee, citation: "ne doit pas devenir une « usine à gaz » pour les TPE et les PME", lien: "https://questions.assemblee-nationale.fr/dyn/17/comptes-rendus/cion-soc/l17cion-soc2526071_compte-rendu.pdf" }
+  # Debout la France, projet « Combat pour les femmes », point 12 (page non datée, © 2026) : https://www.debout-la-france.fr/projet/combat-pour-les-femmes/
+  # Relecture du 10/11/2026 : le point 12 remplace l'index par un score « à poste égal » et récompense au lieu de punir ;
+  # ni D (garder l'index) ni A ou B (durcir) : C, l'option sans règle française plus stricte, en est la plus proche.
+  dupont-aignan: { option: C, source: "Debout la France, projet « Combat pour les femmes », point 12 (consulté le 10/11/2026)", statut: estimee, citation: "Créer un label ‘’F-H’’, permettant un allégement de cotisations pour les entreprises respectant l'égalité salariale ; remplacer l'index de l'égalité professionnelle en score d'égalité salariale à poste égal", lien: "https://www.debout-la-france.fr/projet/combat-pour-les-femmes/" }
