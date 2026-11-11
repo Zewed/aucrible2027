@@ -1,4 +1,4 @@
-# Étude des enjeux : Faut-il pouvoir juger sans limite de temps les crimes sexuels commis sur des enfants ?
+# Étude des enjeux : Faut-il pouvoir juger sans limite de temps les violences sexuelles et les crimes graves commis sur des enfants ?
 
 > Chaque fiche part de son étude : la fiche (contexte, chiffres, options, arguments) et son reportage vidéo ne disent
 > rien qui ne soit ici, sourcé. Étude rédigée par IA le 10/11/2026, à vérifier par l'auteur.
@@ -29,7 +29,7 @@
 
 ---
 
-## 1. Où on en est (au 10 novembre 2026)
+## 1. Où on en est (au 10 novembre 2026, complété le 11 novembre)
 
 ### 1.1 Le droit en vigueur
 
@@ -44,7 +44,7 @@
 
 ### 1.2 Le texte en cours : le projet de loi relatif à la protection des enfants
 
-**Attention : la règle est en train de changer.** Les deux assemblées ont voté l'imprescriptibilité, chacune avec un périmètre différent. Le texte commun n'est pas encore connu.
+**Attention : la règle est en train de changer.** Les deux assemblées ont voté l'imprescriptibilité, chacune avec un périmètre différent. Le texte commun n'est pas encore connu : au 11 novembre 2026, la commission mixte paritaire n'a rendu aucun résultat et la loi n'est pas définitivement adoptée (voir « Vérifié le 11/11/2026 »).
 
 | Date | Étape | Ce qui est voté | Sources |
 |---|---|---|---|
@@ -54,7 +54,7 @@
 | 21 octobre 2026 | Commission des lois du Sénat | Supprime l'article : « une rupture significative dans notre tradition juridique » (rapporteures Agnès Canayer, LR, et Dominique Vérien, UC) | [13] |
 | 28 octobre 2026 | Sénat, séance | Rétablit l'imprescriptibilité, limitée aux **viols sur mineurs** (articles 222-23 à 222-26 du code pénal : viol, viols aggravés, viol incestueux), au pénal seulement, sur amendements de sénateurs de six groupes et du gouvernement ; **252 voix contre 80** | [11][12][15] |
 | 3 novembre 2026 | Sénat, ensemble du projet de loi | Adopté par 260 voix contre 1 (80 abstentions) | [12] |
-| 5 novembre 2026 | Commission mixte paritaire (CMP) convoquée | Le résultat n'a pas été trouvé au 10 novembre **[à vérifier]** | [8] |
+| 5 novembre 2026 | Convocation de la commission mixte paritaire (CMP : sept députés, sept sénateurs), chargée de proposer un texte commun | Au 11 novembre 2026, aucune réunion, aucun rapport ni aucun résultat de la CMP n'est publié ; le Sénat écrit qu'elle « sera prochainement réunie » (voir « Vérifié le 11/11/2026 ») | [8][11][28][29] |
 
 - **Le gouvernement** soutient la version du Sénat. Le garde des Sceaux, Gérald Darmanin, s'est dit personnellement favorable à l'imprescriptibilité, « une conviction politique », tout en prévenant à l'Assemblée qu'« il n'est pas tout à fait certain que l'imprescriptibilité soit constitutionnelle » ; il souhaitait la limiter aux crimes sexuels, le meurtre d'un enfant étant presque toujours constaté [9]. Aurore Bergé, ministre de l'Égalité, a déposé l'amendement du gouvernement au Sénat : « Ce couperet qui tombe est une violence supplémentaire pour les victimes » [14].
 - **Le Conseil constitutionnel** n'a pas encore statué. S'il est saisi après l'adoption définitive, ou plus tard par une question prioritaire de constitutionnalité (QPC), il pourra valider ou censurer la mesure ; le garde des Sceaux a mis en garde contre une censure tardive qui « invaliderait des dizaines, voire des centaines ou des milliers de procédures » [9].
@@ -294,7 +294,7 @@ La mission de cadrage donnait la loi du 21 avril 2021 comme celle des « 30 ans 
 
 **Ce qui fait consensus (faits établis) :**
 - Le délai actuel est de 30 ans après la majorité pour les crimes sexuels sur mineurs (loi de 2018), avec la prescription glissante depuis 2021 ; seuls les crimes contre l'humanité et le génocide sont imprescriptibles [1].
-- Les deux assemblées ont voté l'imprescriptibilité en 2026, avec des périmètres différents ; la loi n'est pas encore adoptée définitivement au 10 novembre 2026 [10][12].
+- Les deux assemblées ont voté l'imprescriptibilité en 2026, avec des périmètres différents ; la loi n'est pas encore adoptée définitivement au 11 novembre 2026 [10][12][28].
 - Elle ne s'appliquerait pas aux faits déjà prescrits [1][2].
 - La prescription est une cause minoritaire des classements ; le manque de preuves est la principale [1].
 - Des deux côtés, on demande plus de moyens d'enquête et de jugement [1][9].
@@ -305,7 +305,7 @@ La mission de cadrage donnait la loi du 21 avril 2021 comme celle des « 30 ans 
 - La place à donner à l'amnésie traumatique (§ c).
 - Le risque constitutionnel, que le gouvernement juge plus grand pour la version large (§ d).
 
-**Limites de cette étude :** le rapport de la Ciivise, l'avis du Conseil d'État de 2018 et la décision du Conseil constitutionnel de 2019 n'ont pas été ouverts directement (cités par des documents parlementaires) ; le résultat de la commission mixte paritaire n'a pas été trouvé ; Légifrance n'a pas été consulté directement ; les lois étrangères n'ont pas été vérifiées à la source ; aucun chiffre ne mesure la part des victimes qui parlent après 48 ans ; aucun sondage récent.
+**Limites de cette étude :** le rapport de la Ciivise, l'avis du Conseil d'État de 2018 et la décision du Conseil constitutionnel de 2019 n'ont pas été ouverts directement (cités par des documents parlementaires) ; au 11 novembre 2026, la commission mixte paritaire n'a publié aucun résultat ; Légifrance n'a pas été consulté directement (aucune loi promulguée trouvée par recherche) ; les lois étrangères n'ont pas été vérifiées à la source ; aucun chiffre ne mesure la part des victimes qui parlent après 48 ans ; aucun sondage récent.
 
 ---
 
@@ -319,7 +319,7 @@ La mission de cadrage donnait la loi du 21 avril 2021 comme celle des « 30 ans 
 - **C — Aucune limite pour les seuls viols sur mineurs.** La version votée par le Sénat le 28 octobre 2026 (252 contre 80), soutenue par le gouvernement [12][14][15].
 - **D — Garder un délai : 30 ans après la majorité, avec la prescription glissante, et renforcer les moyens d'enquête.** La règle en vigueur au 10 novembre 2026 ; défendue par les groupes RN, LFI et GDR à l'Assemblée en juillet 2026, par la commission des lois du Sénat et 70 sénateurs LR [9][10][12][13].
 
-Note sur le statu quo : si la loi est promulguée avec la version du Sénat, l'option C deviendra la règle en vigueur, et l'option D une proposition de retour en arrière ; à revoir après la commission mixte paritaire et une éventuelle décision du Conseil constitutionnel. Aucun acteur trouvé ne propose un délai chiffré plus long que 30 ans (40 ou 50 ans) : l'option « allonger encore » n'est donc pas retenue ; le RN dit être « favorable à des délais de prescription très étendus » sans chiffre [9].
+Note sur le statu quo : si la loi est promulguée avec la version du Sénat, l'option C deviendra la règle en vigueur, et l'option D une proposition de retour en arrière ; à revoir après la commission mixte paritaire et une éventuelle décision du Conseil constitutionnel. Au 11 novembre 2026, rien n'est conclu : l'option D reste la règle en vigueur. Aucun acteur trouvé ne propose un délai chiffré plus long que 30 ans (40 ou 50 ans) : l'option « allonger encore » n'est donc pas retenue ; le RN dit être « favorable à des délais de prescription très étendus » sans chiffre [9].
 
 Ordre : de l'option qui supprime le plus de délais (A, qui touche aussi les délits) à celle qui n'en supprime aucun (D). A et B ne sont pas emboîtées : A va plus loin sur les violences sexuelles, B sur les autres crimes.
 
@@ -348,9 +348,20 @@ Points fragiles à trancher par l'auteur :
 
 ---
 
+## Vérifié le 11/11/2026
+
+Recherche ciblée sur la suite du projet de loi relatif à la protection des enfants après le vote du Sénat (dossiers législatifs de l'Assemblée nationale et du Sénat, liste des commissions mixtes paritaires du Sénat, presse parlementaire ; recherche sur Légifrance et au *Journal officiel*).
+
+- **Commission mixte paritaire** : le dossier de l'Assemblée nationale enregistre, le jeudi 5 novembre 2026, la « Convocation de la commission mixte paritaire chargée de proposer un texte sur les dispositions restant en discussion », avec le texte modifié par le Sénat (n° 3440, mis en ligne le 9 novembre) ; la rubrique « Travaux de la CMP » est vide [8][11]. Le dossier du Sénat, mis à jour le 11 novembre, cite l'étape sans date ni résultat [11]. La page « La loi en clair » du Sénat écrit : « Une commission mixte paritaire sera prochainement réunie sur ce texte » [28]. La liste des CMP du Sénat ne la mentionne pas (la plus récente s'est réunie le 4 novembre, sur un autre texte) [30]. **Aucune réunion, aucun accord ni aucun échec n'est publié au 11 novembre 2026.**
+- **Ce qui reste en discussion** : selon Public Sénat (2 et 3 novembre 2026), députés et sénateurs « devront tenter de rapprocher leurs positions », notamment sur le délai du délaissement parental, le cumul des peines, la consultation du fichier des antécédents judiciaires et l'accueil d'urgence [29]. L'imprescriptibilité reste aussi à trancher, puisque les deux versions diffèrent : tous les crimes graves sur mineurs, au pénal et au civil (Assemblée), ou les seuls viols sur mineurs, au pénal (Sénat) [11][12].
+- **Lecture des conclusions, adoption définitive, saisine du Conseil constitutionnel, promulgation** : aucune de ces étapes n'apparaît sur les dossiers législatifs, et aucune loi promulguée n'a été trouvée **[Légifrance non ouvert directement]** [8][11].
+- **Conséquence pour la fiche** : la règle en vigueur reste celle de 2018 (30 ans après la majorité, avec la prescription glissante) ; la question et les options du § 4 sont gardées, et le contexte est écrit au présent de ce qui est en cours.
+
+---
+
 ## 5. Sources
 
-Consultées le 10 novembre 2026.
+Consultées le 10 novembre 2026 ; [8] et [11] consultées de nouveau, et [28] à [30] consultées, le 11 novembre 2026.
 
 1. Assemblée nationale, Délégation aux droits des enfants, rapport d'information n° 2685 sur l'imprescriptibilité des violences commises sur des mineurs (A. Bonnet, P. Goulet, A. Martin), 15 avril 2026 (cite le ministère de la Justice, le SSMSI, la Ciivise, la Cour de cassation, le Conseil constitutionnel, la CEDH ; liste des 22 auditions) — https://www.assemblee-nationale.fr/dyn/opendata/RINFANR5L17B2685.html ; PDF : https://www.assemblee-nationale.fr/dyn/17/rapports/dde/l17b2685_rapport-information.pdf
 2. Assemblée nationale, proposition de loi n° 2677 visant à rendre imprescriptibles les crimes sur les mineurs (A. Bonnet, P. Goulet, A. Martin et autres, dont F. Ruffin), 14 avril 2026 — https://www.assemblee-nationale.fr/dyn/17/textes/l17b2677_proposition-loi.pdf
@@ -379,3 +390,6 @@ Consultées le 10 novembre 2026.
 25. Debout la France, projet « Justice » (déjà cité par l'étude 058) — https://www.debout-la-france.fr/projet/justice/
 26. Conseil constitutionnel, décision n° 2019-785 QPC du 24 mai 2019 (citée par [1], [2], [4] et [17] ; non ouverte) — https://www.conseil-constitutionnel.fr/decision/2019/2019785QPC.htm
 27. Ciivise, « Violences sexuelles faites aux enfants : on vous croit », rapport de novembre 2023, recommandation n° 60 (cité par [1], [3], [4] ; non ouvert) — https://www.ciivise.fr/wp-content/uploads/2023/11/VERSION-DEF-SUR-LE-SITE-1611.pdf
+28. Sénat, « La loi en clair », projet de loi relatif à la protection des enfants (après l'adoption du 3 novembre 2026), consulté le 11 novembre 2026 — https://www.senat.fr/travaux-parlementaires/textes-legislatifs/la-loi-en-clair/projet-de-loi-relatif-a-la-protection-des-enfants.html
+29. Public Sénat, « Protection de l'enfance : imprescriptibilité, contrôle d'honorabilité… Que contient le projet de loi modifié par le Sénat ? », 2 novembre 2026, mis à jour le 3 novembre — https://www.publicsenat.fr/actualites/parlementaire/protection-de-lenfance-imprescriptibilite-controle-dhonorabilite-que-contient-le-projet-de-loi-modifie-par-le-senat
+30. Sénat, liste des commissions mixtes paritaires, consultée le 11 novembre 2026 — https://www.senat.fr/travaux-parlementaires/structures-temporaires/commissions-mixtes-paritaires.html

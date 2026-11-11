@@ -1,0 +1,149 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 11/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/073-indexation-salaires.md (tout ce qui suit y est sourcé).
+# La fiche porte sur le mécanisme qui protège les salaires des hausses de prix, pas sur le niveau du SMIC (question 002).
+# Décision de l'auteur (11/11/2026) : l'indexation plafonnée à deux fois le salaire médian est retirée, personne ne la
+# défendant aujourd'hui ; les options sont A (tout indexer), B (obliger les branches, sans indexer), C (règles actuelles).
+# Mots disputés, attribués ou évités (étude, « Règles de lecture ») : « boucle » ou « spirale prix-salaires » (mot des
+# opposants ; les partisans parlent de « boucle prix-profits »), évités dans le texte de la fiche, gardés dans les
+# citations ; « charges » évité, la fiche écrit « cotisations » ; « smicardisation » évité, la fiche dit que les grilles
+# « s'écrasent » sur le SMIC.
+# Question reformulée après relecture (11/11/2026) : « comme le SMIC » reprenait l'argument de l'option A ; l'étude
+# (§ 4) garde l'ancienne formulation.
+numero: 73
+date: 2026-08-17
+theme: travail-retraites
+question: "Faut-il indexer tous les salaires du privé sur les prix ?"
+titreCourt: "L'indexation des salaires"
+contexte:
+  - "Depuis 1958, la loi interdit de lier les salaires à la hausse des prix : seul le SMIC est relevé automatiquement quand les prix montent."
+  - "Le Parlement a rejeté l'indexation de tous les salaires du privé en 2022 et en 2025, mais la commission des affaires sociales de l'Assemblée nationale l'a adoptée le 19 octobre 2026."
+  - "Le débat oppose ceux qui veulent indexer tous les salaires, ceux qui préfèrent obliger chaque branche professionnelle à garder ses plus bas salaires au niveau du SMIC, et ceux qui veulent garder les règles actuelles."
+chiffres:
+  - valeur: "−1,3 %"
+    legende: "de pouvoir d'achat pour le salaire net moyen du privé en 2022, puis −1,0 % en 2023 et +0,8 % en 2024"
+    source: { organisme: Insee, document: Insee Première n° 2079, annee: 2025 }
+  - valeur: "126"
+    unite: branches sur 179
+    legende: "avaient un premier niveau de salaire sous le SMIC juste après sa hausse du 1er juin 2026 ; 82 l'étaient encore le 30 septembre"
+    source: { organisme: Ministère du Travail, document: "cité par le rapport n° 3350 de l'Assemblée nationale", annee: 2026 }
+  - valeur: "3 %"
+    legende: "des salariés du privé dans la zone euro, environ, ont un salaire indexé automatiquement sur les prix, surtout en Belgique et au Luxembourg"
+    source: { organisme: BCE, document: Bulletin économique 7/2021, annee: 2021 }
+options:
+  - id: A
+    libelle: Indexer tous les salaires sur les prix
+    implique: "Chaque année, tout salaire du privé est relevé au moins autant que les prix ; les accords de branche et d'entreprise peuvent prévoir mieux. Le texte adopté en commission en 2026 prévoit une caisse payée par les entreprises de plus de 750 millions d'euros de chiffre d'affaires pour aider les petites."
+    defenseurs: "On ne doit pas s'appauvrir en travaillant : le SMIC, les pensions et la plupart des prestations suivent déjà les prix, les autres salaires doivent les suivre aussi."
+    critiques: "Une hausse automatique de tous les salaires risque d'entretenir la hausse des prix et de peser sur les petites entreprises, qui n'ont pas les marges des grands groupes."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage de son coût n'a été trouvé : il dépend de l'inflation et des hausses déjà négociées. Sur vingt ans, le salaire de base a progressé de 2,1 % par an en moyenne, contre 1,4 % pour les prix : en temps normal, la garantie jouerait peu."
+        source: { organisme: Institut Montaigne, document: "chiffrage du programme du Nouveau Front populaire", annee: 2024 }
+      defenseurs:
+        - texte: "Quand les prix montent plus vite que les salaires, on s'appauvrit sans avoir moins travaillé : le salaire net moyen a perdu 1,3 % de pouvoir d'achat en 2022, puis 1,0 % en 2023."
+          source: { organisme: Insee, document: Insee Première n° 2079, annee: 2025 }
+        - texte: "Le SMIC, les pensions et la plupart des prestations suivent déjà les prix : les salariés juste au-dessus du SMIC sont les seuls à ne pas être protégés."
+        - texte: "Ce ne sont pas les salaires qui ont tiré les prix : près de la moitié de la hausse des prix de la zone euro depuis début 2022 vient des profits des entreprises."
+          source: { organisme: FMI, document: document de travail 23/131, annee: 2023 }
+      critiques:
+        - texte: "Le boulanger, le restaurateur ou l'artisan paieraient la hausse en emplois : en Belgique, 1 % de coût salarial en plus par l'indexation réduirait de 0,6 % le travail demandé par les entreprises."
+          source: { organisme: Institut Montaigne, document: "chiffrage du programme du Nouveau Front populaire, d'après Bijnens et al., De Economist, 2023", annee: 2024 }
+        - texte: "En 1982-1983, l'arrêt de l'indexation a cassé l'inflation : ensuite, une hausse des prix ne passait plus qu'aux deux tiers dans les salaires."
+          source: { organisme: Économie et Prévision, document: "Ralle et Toujas-Bernate, 1990, cité par l'Assemblée nationale", annee: 1990 }
+        - texte: "Si les salaires n'ont pas entraîné les prix en 2022, c'est justement parce qu'ils étaient peu indexés : indexer tous les salaires, énergie comprise, prolongerait chaque hausse des prix."
+  - id: B
+    libelle: "Sans indexer, obliger les branches à suivre le SMIC"
+    implique: "Pas d'indexation par la loi. Chaque branche professionnelle doit garder les plus bas salaires de sa convention collective au moins au niveau du SMIC, sinon ses employeurs perdent leurs baisses de cotisations ; une conférence nationale sur les salaires lance des négociations dans chaque branche."
+    defenseurs: "Le retard vient de branches qui tardent à négocier : il faut les obliger à suivre le SMIC, plutôt que de faire fixer tous les salaires par un indice des prix."
+    critiques: "Les uns jugent qu'obliger à négocier ne garantit aucune hausse aux salaires au-dessus du minimum ; les autres veulent garder la souplesse de chaque branche face à sa concurrence."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage n'a été trouvé. La loi de financement de la sécurité sociale pour 2026 prévoit déjà de lier les baisses de cotisations des employeurs à des minima de branche au niveau du SMIC, mais son décret n'était pas pris le 19 octobre 2026."
+        source: { organisme: Assemblée nationale, document: rapport n° 3350, annee: 2026 }
+      defenseurs:
+        - texte: "Les branches tardent à suivre : au 2e trimestre 2026, leurs plus bas salaires n'avaient monté que de 1,1 % en un an. Il faut les y obliger, pas fixer tous les salaires par un indice."
+          source: { organisme: Banque de France, document: "citée par le rapport n° 3350 de l'Assemblée nationale", annee: 2026 }
+        - texte: "Une indexation générale « protège autant le salarié au Smic que celui qui gagne dix fois plus » : l'effort doit aller d'abord aux bas salaires."
+        - texte: "La loi doit garantir un plancher, et la négociation entre syndicats et employeurs faire le reste : d'abord une conférence nationale sur les salaires, puis des accords dans chaque branche."
+      critiques:
+        - texte: "Obliger à négocier n'oblige pas à augmenter : seuls les plus bas salaires seraient protégés, et ceux juste au-dessus continueraient de perdre face aux prix."
+        - texte: "Dans une petite entreprise sans syndicat, le salarié n'a personne pour négocier : il n'y a de délégué syndical qu'à partir de 50 salariés."
+          source: { organisme: Assemblée nationale, document: rapport n° 3350, annee: 2026 }
+        - texte: "Les branches se remettent déjà à niveau, sans sanction : 82 avaient encore un premier niveau de salaire sous le SMIC le 30 septembre 2026, contre 126 en juin."
+          source: { organisme: Ministère du Travail, document: "cité par le rapport n° 3350 de l'Assemblée nationale", annee: 2026 }
+  - id: C
+    libelle: "Garder la règle actuelle, seul le SMIC indexé"
+    implique: "Seul le SMIC est relevé automatiquement avec les prix. Les autres salaires se négocient chaque année dans les branches et les entreprises, sans obligation d'aboutir à une hausse ; ses défenseurs proposent plutôt de baisser les cotisations pour augmenter le salaire net."
+    defenseurs: "Sans indexation, les prix ne se sont pas emballés, et le dialogue social a permis le rattrapage dès 2024 : chaque branche garde la souplesse que demande sa concurrence."
+    critiques: "Sans protection, les salaires perdent face aux prix à chaque poussée d'inflation, et le bas des grilles s'écrase sur le SMIC."
+    detail:
+      chiffrage:
+        texte: "Rien ne change. De 2020 à 2025, le salaire de base a suivi les prix selon l'indice de l'Insee (+0,3 % une fois l'inflation déduite), mais a perdu 1,8 % selon l'indice européen, qui compte les frais de santé restant à la charge des ménages."
+        source: { organisme: Assemblée nationale, document: "calcul de la commission des affaires sociales, d'après la Dares et l'Insee", annee: 2026 }
+      defenseurs:
+        - texte: "Le système actuel a permis le rattrapage : les salaires réels sont repartis à la hausse en 2024, de 0,8 % une fois l'inflation déduite."
+          source: { organisme: Insee, document: Insee Première n° 2079, annee: 2025 }
+        - texte: "Pour que le salaire net suive les prix sans peser sur l'emploi, mieux vaut baisser les cotisations que d'imposer une hausse à toutes les entreprises."
+        - texte: "Une hausse des prix venue de l'énergie appauvrit tout le pays : indexer ne fait pas disparaître cette perte, elle la reporte sur les entreprises, l'emploi ou de nouvelles hausses de prix."
+      critiques:
+        - texte: "Les hausses négociées restent faibles quand les prix montent : au 2e trimestre 2026, plus de 15 % des accords de branche prévoyaient 1 % ou moins."
+          source: { organisme: Banque de France, document: "citée par le rapport n° 3350 de l'Assemblée nationale", annee: 2026 }
+        - texte: "Rien n'oblige à aboutir : les branches et les entreprises doivent négocier chaque année, pas augmenter les salaires."
+        - texte: "Quand le SMIC rattrape les premiers échelons d'une grille, l'ancienneté et la qualification ne sont plus payées."
+pourAllerPlusLoin:
+  - titre: "Insee, Les salaires dans le secteur privé en 2024, Insee Première n° 2079, 2025"
+    url: https://www.insee.fr/fr/statistiques/8657156
+  - titre: "Banque de France, Quelles sont les causes de l'inflation post-pandémie en France ?, 2024"
+    url: https://www.banque-france.fr/fr/publications-et-statistiques/publications/quelles-sont-les-causes-de-linflation-post-pandemie-en-france
+  - titre: "BCE, L'indexation des salaires du secteur privé dans la zone euro, Bulletin économique 7/2021"
+    url: https://www.ecb.europa.eu/press/economic-bulletin/focus/2021/html/ecb.ebbox202107_07~f555b70c47.fr.html
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour indexer tous les salaires"
+    argument: "On ne doit pas s'appauvrir en travaillant : les salaires doivent suivre les prix, comme le SMIC et les pensions."
+  - titre: "Pour ne pas les indexer"
+    argument: "Indexer tous les salaires entretiendrait la hausse des prix et pèserait sur l'emploi des petites entreprises : mieux vaut négocier branche par branche."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A d'un côté, B et C (pas d'indexation) de l'autre.
+story:
+  - choix: "Indexer tous les salaires"
+    precision: "sur les prix, chaque année"
+  - choix: "Ne pas les indexer"
+    precision: "les branches négocient, avec ou sans obligation"
+# Positions de l'étude (§ 4). Inconnues (décision de l'auteur, 11/11/2026) : Zemmour et Dupont-Aignan, qui n'ont rien
+# dit sur l'indexation des salaires du privé ; les classer serait deviner.
+# Les six positions « deduite » reposent surtout sur ce qu'ont dit les groupes en commission le 19/10/2026 sur la
+# proposition de loi n° 3176 (rapport n° 3350, dont le rapporteur, H. Clouet, LFI, défend la mesure).
+positions:
+  # Lutte ouvrière, brochure de la fête annuelle, mai 2026, publiée en juin 2026 : https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure-ete-2026.pdf
+  arthaud: { option: A, source: "Discours à la fête de Lutte ouvrière, mai 2026, brochure publiée en juin 2026", statut: officielle, citation: "Nous devons imposer une augmentation massive des salaires, des allocations et des pensions et leur indexation sur la hausse des prix : quand les prix montent, notre salaire doit suivre !", lien: "https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure-ete-2026.pdf" }
+  # L'Avenir en commun, édition 2025, mesure 5, lu sur votons-2027.fr [source secondaire] : https://votons-2027.fr/candidats/melenchon/programme/economie
+  # Proposition de loi n° 3176 du groupe LFI, adoptée en commission le 19/10/2026 (rapport n° 3350) : https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2025, mesure 5, lu sur votons-2027.fr ; proposition de loi n° 3176 de son groupe, adoptée en commission le 19/10/2026", statut: officielle, citation: "Porter immédiatement le SMIC mensuel à 1600 euros net et indexer les salaires sur l'inflation", lien: "https://votons-2027.fr/candidats/melenchon/programme/economie" }
+  # Commission des affaires sociales, 19/10/2026, F. Gernigon (Horizons), rapport n° 3350 : https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf
+  # Assemblée nationale, scrutin public n° 40 du 20/07/2022 (Horizons : 21 contre) : https://www.assemblee-nationale.fr/dyn/16/scrutins/40
+  philippe: { option: C, source: "Commission des affaires sociales, 19/10/2026 : le groupe Horizons « ne votera pas en faveur » du texte qui indexe tous les salaires (F. Gernigon) ; Horizons, 21 contre le 20/07/2022", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf" }
+  # Commission des affaires sociales, 19/10/2026, G. Leseul (socialistes), rapport n° 3350 : https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf
+  # Déduite du groupe socialiste, où siègent les députés de Place publique [à vérifier] ; aucune déclaration de R. Glucksmann lui-même trouvée.
+  glucksmann: { option: B, source: "Commission des affaires sociales, 19/10/2026, G. Leseul pour le groupe socialiste", statut: deduite, citation: "une politique ciblée, passant par une conférence nationale sur les salaires puis par des négociations de branche", lien: "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf" }
+  # Commission des affaires sociales, 19/10/2026, T. Bazin (Droite républicaine), rapport n° 3350 : https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf
+  # Sénat, scrutin public n° 200 du 19/02/2025 (LR : 130 contre) : https://www.senat.fr/scrutin-public/2024/scr2024-200.html
+  retailleau: { option: C, source: "Commission des affaires sociales, 19/10/2026, T. Bazin pour la Droite républicaine ; sénateurs LR, 130 contre le 19/02/2025", statut: deduite, citation: "Ce que vous proposez risque de mettre en difficulté bon nombre d'employeurs […] nous voterons contre cette proposition de loi", lien: "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf" }
+  # Nouvelle Énergie, FAQ mise à jour le 16/10/2026, citant i24NEWS, 11/06/2026 : https://www.unenouvelleenergie.fr/questions/comment-david-lisnard-veut-il-augmenter-les-salaires-sans-augmenter-le-cout-du-travail/
+  lisnard: { option: C, source: "Nouvelle Énergie, FAQ mise à jour le 16/10/2026, citant i24NEWS, 11/06/2026", statut: estimee, citation: "en baissant les cotisations, pas en imposant une hausse de salaire", lien: "https://www.unenouvelleenergie.fr/questions/comment-david-lisnard-veut-il-augmenter-les-salaires-sans-augmenter-le-cout-du-travail/" }
+  # Commission des affaires sociales, 19/10/2026, G. Kasbarian (Ensemble pour la République), rapport n° 3350 : https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf
+  # Assemblée nationale, scrutin public n° 40 du 20/07/2022 (Renaissance : 118 contre) : https://www.assemblee-nationale.fr/dyn/16/scrutins/40
+  attal: { option: C, source: "Commission des affaires sociales, 19/10/2026 : le groupe Ensemble pour la République « votera contre » (G. Kasbarian) ; Renaissance, 118 contre le 20/07/2022", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf" }
+  # Commission des affaires sociales, 19/10/2026, S. Sebaihi (Écologiste et social), rapport n° 3350 : https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf
+  # Assemblée nationale, scrutin public n° 40 du 20/07/2022 (Écologistes : 13 pour) : https://www.assemblee-nationale.fr/dyn/16/scrutins/40
+  # Le projet 2027 des Écologistes n'indexe que le point d'indice et conditionne des aides aux grilles, ce qui va vers B (étude § 4).
+  tondelier: { option: A, source: "Commission des affaires sociales, 19/10/2026, S. Sebaihi pour le groupe Écologiste et social ; Écologistes, 13 pour le 20/07/2022", statut: deduite, citation: "Ce texte apporte la réponse : un Smic à 1 700 euros, des salaires indexés sur les prix […] C'est pour cela que notre groupe votera ce texte", lien: "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf" }
+  # BFMTV, 07/11/2026, rapporté par Stéphane Larue News [source secondaire] : https://stephanelarue.com/fabien-roussel-reclame-un-smic-a-2-200-euros-brut-et-lindexation-des-salaires/
+  # Proposition de loi n° 432, 02/11/2022 : https://www.assemblee-nationale.fr/dyn/16/textes/l16b0432_proposition-loi.pdf
+  roussel: { option: A, source: "Proposition de loi n° 432 dont il est l'auteur, 02/11/2022 ; BFMTV, 07/11/2026, rapporté par Stéphane Larue News", statut: officielle, citation: "échelle mobile de tous les salaires dans le secteur privé", lien: "https://www.assemblee-nationale.fr/dyn/16/textes/l16b0432_proposition-loi.pdf" }
+  # François Ruffin, Cahier de campagne n° 01, « Pour les travailleurs essentiels », avril 2026, proposition 1 : https://nouspresident.fr/statut-travailleurs-essentiels/
+  ruffin: { option: A, source: "Cahier de campagne n° 01, « Pour les travailleurs essentiels », avril 2026, proposition 1", statut: officielle, citation: "nous indexerons les salaires sur l'inflation, comme cela a existé jusqu'en 1982", lien: "https://nouspresident.fr/statut-travailleurs-essentiels/" }
+  # Commission des affaires sociales, 19/10/2026, A. Ranc (RN), amendement AS11, rapport n° 3350 : https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf
+  # Assemblée nationale, scrutin public n° 40 du 20/07/2022 (RN : 66 contre, 1 abstention) : https://www.assemblee-nationale.fr/dyn/16/scrutins/40
+  # Amendement de repli AS13 : réserver les clauses d'indexation aux accords d'entreprise (étude § 4).
+  le-pen: { option: C, source: "Commission des affaires sociales, 19/10/2026, amendement AS11 du groupe RN (A. Ranc) ; RN, 66 contre et 1 abstention le 20/07/2022", statut: deduite, citation: "supprimer les dispositions qui créent une indexation automatique des salaires du secteur privé sur l'inflation", lien: "https://www.assemblee-nationale.fr/dyn/docs/RAPPANR5L17B3350.pdf" }

@@ -1,0 +1,210 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 11/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/070-achats-publics.md (tout ce qui suit y est sourcé).
+# Ce qui la distingue de la 063 : la 063 porte sur l'argent que l'État donne aux entreprises, celle-ci sur ce que
+# l'État, les collectivités et les hôpitaux achètent, et sur l'origine de ces achats.
+# Mots disputés, attribués à qui les emploie et jamais repris par la fiche hors des citations (étude, « Règles de
+# lecture ») : « priorité nationale » (mot du RN pour sa résolution) et « préférence nationale » (mot de ses opposants,
+# et de Debout la France dans son programme) ; « patriotisme économique » (RN, Debout la France) ; « protectionnisme »
+# (assumé par F. Ruffin et Place publique, rejeté par D. Lisnard et Lutte ouvrière) ; « Made in Europe » ou « Made with
+# Europe ». La fiche écrit « favoriser le fabriqué en France » pour la mesure, et « préférence européenne », le mot de la
+# Commission, du gouvernement et du Sénat, que le RN juge trop large.
+numero: 70
+date: 2026-08-20
+theme: economie-impots
+question: "Faut-il réserver une part des achats publics aux produits fabriqués en France ou en Europe ?"
+titreCourt: "L'origine des achats publics"
+contexte:
+  # § 1.1, [1] [3] [19].
+  - "Aujourd'hui, un acheteur public ne peut pas favoriser un produit ou une entreprise parce qu'il est français : le droit européen et le code de la commande publique l'interdisent, et les offres se départagent sur le prix, la qualité, l'environnement ou des clauses sociales."
+  # § 1.3, [6] [7] [18].
+  - "Seules quelques règles ciblées limitent déjà les achats venus de hors de l'Union, pour les technologies vertes ou les dispositifs médicaux ; depuis une loi d'août 2026, les aliments servis dans les cantines publiques doivent aussi venir d'Europe, sauf quand l'offre manque."
+  # § 1.4, § 1.5 (raisons des groupes), § 4 (A : 80 %, F. Ruffin [27]), [3] [11] [27]. Chaque échelon avec un exemple
+  # chiffré proposé, aucun présenté comme refusé ou en marche (relectures du 11/11/2026).
+  - "Le débat porte sur l'échelon, la France ou l'Europe, et sur les conditions, l'origine seule ou avec des critères sociaux et écologiques : un candidat vise 80 % de commande publique localisée en France, un texte de la Commission européenne propose 70 % de composants européens pour un véhicule électrique."
+# Seuls des chiffres de sources primaires (Sénat) : ceux sur l'origine des produits achetés (deux tiers importés,
+# mission Jégo) et sur les titulaires étrangers (2 %, CAE) sont de source secondaire, et chacun plaide pour un camp ;
+# ils restent dans la fenêtre des options A et B. Le vote du 8 octobre 2026 (151 contre 187) est retiré : un vote
+# présenté comme une majorité, sur une résolution sans force obligatoire, sans son pendant (relectures du 11/11/2026).
+chiffres:
+  # § 2a, [4].
+  - valeur: "400"
+    unite: milliards d'euros
+    legende: "par an environ : le poids estimé de tous les achats publics en France, soit 14 % du PIB"
+    source: { organisme: Cour des comptes européenne, document: "citée par le Sénat", annee: 2025 }
+  # § 2a, [4].
+  - valeur: "80 %"
+    legende: "des marchés publics recensés en 2023 sont passés par les collectivités locales, contre 8 % par l'État et 12 % par les entreprises publiques et les opérateurs de réseaux"
+    source: { organisme: Observatoire économique de la commande publique, document: "cité par le Sénat", annee: 2025 }
+# L'ordre est une échelle, de la préférence la plus forte à l'absence de préférence (étude § 4) ; la règle actuelle est
+# D. La limite entre A et B : l'obligation (part réservée ou avantage de prix imposé) ou la simple faculté. Entre B et C :
+# l'échelon, la France ou l'Union.
+options:
+  - id: A
+    libelle: "Réserver une part des achats au fabriqué en France"
+    implique: "Une loi réserve aux produits fabriqués en France une part des achats publics ou un avantage de prix, même s'il faut s'écarter des règles européennes. Une proposition leur réserve le marché tant qu'ils ne coûtent pas plus de 50 % de plus que le produit étranger ; une autre vise 80 % de commande publique localisée en France."
+    defenseurs: "L'argent public doit faire travailler les usines françaises : les États-Unis réservent leurs achats publics à leur production, la France doit avoir son « Buy French Act »."
+    critiques: "S'écarter des règles européennes exposerait les contrats à l'annulation par le juge, et les entreprises françaises qui vendent à l'étranger aux représailles de nos voisins."
+    detail:
+      chiffrage:
+        # § 2a et 2c, [1] [3] : mission Jégo d'après France Industrie, citée par le RN et LR (source secondaire).
+        texte: "Aucun chiffrage du surcoût n'a été trouvé pour la France. Les deux tiers des produits manufacturés achetés par les acheteurs publics seraient importés, environ 54 milliards d'euros en 2023, selon une mission sur le « Made in France » qui s'appuie sur France Industrie, une organisation patronale."
+        source: { organisme: "Mission « Made in France » d'Y. Jégo", document: "d'après France Industrie, citée à l'Assemblée nationale", annee: 2025 }
+      defenseurs:
+        # § 2e, § 2f et § 2h, [1] [36] (règle fédérale non ouverte, à vérifier). Répond à deux relectures : un chiffre
+        # pour les défenseurs de A (droite) et l'argument des normes, porté à gauche (gauche).
+        - texte: "Les États-Unis exigent 65 % de composants américains dans leurs achats fédéraux : la France doit avoir son « Buy French Act », et l'argent public ne doit plus payer des produits fabriqués selon des règles interdites chez nous."
+          source: { organisme: "Gouvernement fédéral des États-Unis", document: "Federal Acquisition Regulation, Buy American Act", annee: 2022 }
+        # § 2d, [27].
+        - texte: "Les commandes publiques donnent aux usines la visibilité qui leur manque pour investir : sans volumes garantis, les masques chinois sont revenus casser les prix après le covid."
+        # § 2c, [1].
+        - texte: "Le prix affiché ne dit pas tout : un euro dépensé en France paie des salaires, des cotisations et des impôts, dont une partie revient aux caisses publiques."
+      critiques:
+        # § 2b, [3].
+        - texte: "S'écarter des règles européennes exposerait les contrats à l'annulation par le juge, et l'acheteur à indemniser le concurrent écarté."
+        # § 2e, [3].
+        - texte: "La France vend des trains, de l'eau et de l'énergie aux acheteurs publics étrangers : en fermant ses marchés, elle exposerait ses exportateurs aux représailles de ses voisins."
+        # § 2c, [18] (source secondaire) : études étrangères, aucune estimation pour la France.
+        - texte: "Les exigences de contenu local renchérissent les achats : de 20 à 30 % en tendance centrale, selon une revue d'études menées dans d'autres pays."
+          source: { organisme: Peterson Institute for International Economics, document: "cité par le CEPS", annee: 2013 }
+  - id: B
+    libelle: "Permettre aux acheteurs de favoriser le fabriqué en France"
+    implique: "Pas d'obligation : chaque acheteur public peut donner la priorité aux offres dont la production, les emplois ou la recherche sont en France, ce que le droit européen interdit aujourd'hui. Cette priorité s'ajoute à une préférence européenne face au reste du monde."
+    defenseurs: "Un acheteur peut déjà choisir une offre pour son impact sur la planète : il doit pouvoir la choisir aussi pour les emplois qu'elle fait vivre en France."
+    critiques: "Les uns rappellent qu'une faculté de discriminer reste une discrimination illégale, les autres que les grands groupes étrangers installés en France en profiteraient autant que les PME."
+    detail:
+      chiffrage:
+        # § 2a et § 3, [23] (source secondaire).
+        texte: "Aucun chiffrage n'a été trouvé. Les marchés vont déjà presque tous à des entreprises établies en France, mais une grande partie des biens qu'elles livrent est fabriquée ailleurs : de l'ordre de 2 % des marchés sont attribués directement à des entreprises étrangères."
+        source: { organisme: Conseil d'analyse économique, document: "cité par l'Institut Montaigne", annee: 2021 }
+      defenseurs:
+        # § 2b, [3].
+        - texte: "Un acheteur peut déjà choisir une offre pour son impact sur la planète, mais pas pour son impact sur l'emploi en France : il doit pouvoir le faire."
+        # § 2a, [3].
+        - texte: "Ce qui compte est le lieu de production, pas la marque : une voiture japonaise fabriquée à Valenciennes fait plus travailler la France qu'une voiture de marque française fabriquée à l'étranger."
+        # § 2g, [1] [3].
+        - texte: "Mieux vaut un critère clair et assumé que des détours, comme compter les kilomètres parcourus, qui exposent les maires au contentieux."
+      critiques:
+        # § 2b, [3].
+        - texte: "Une faculté de discriminer reste une discrimination illégale : les contrats passés ainsi pourraient être annulés par le juge."
+        # § 2d, [3].
+        - texte: "Les grands groupes étrangers qui ont une usine en France en profiteraient autant que les PME, sans garantie sur l'emploi ni sur les salaires."
+        # § 2a, [3].
+        - texte: "La commande publique est déjà très locale : le problème n'est pas la volonté des acheteurs, mais l'absence d'offre française dans certains secteurs."
+  - id: C
+    libelle: "Une préférence européenne, décidée à l'échelle de l'Union"
+    implique: "Les achats publics favorisent les produits européens, et ceux des pays liés à l'Union par un accord, sans priorité pour la France, comme le proposent deux textes de la Commission de 2026. Pour un véhicule électrique, par exemple : assemblage dans l'Union et 70 % de composants européens."
+    defenseurs: "Face aux États-Unis ou à la Chine, la France ne pèse que si elle agit au niveau européen, sans s'exposer aux représailles de ses voisins."
+    critiques: "Les uns la jugent trop large, car elle traite comme européens les produits des pays liés à l'Union par un accord ; les autres craignent des prix plus élevés et moins de concurrence."
+    detail:
+      chiffrage:
+        # § 2d, [11].
+        texte: "Aucun chiffrage du coût n'a été trouvé. L'industrie manufacturière pèse 14,3 % du PIB européen en 2024, contre 17,4 % en 2000 ; la Commission, qui propose ces textes, vise 20 % en 2035."
+        source: { organisme: Commission européenne, annee: 2026 }
+      defenseurs:
+        # § 2b, [3].
+        - texte: "Face aux États-Unis ou à la Chine, la France ne pèsera que si elle agit au niveau européen."
+        # § 2e, [3].
+        - texte: "Nos adversaires commerciaux ne sont pas l'Italie ou l'Espagne : une préférence européenne vise la Chine et les États-Unis sans provoquer nos voisins."
+        # § 1.3 et 2b, [18].
+        - texte: "Elle est possible dans le respect des accords internationaux : l'Union l'applique déjà aux technologies vertes et aux dispositifs médicaux."
+      critiques:
+        # Mots disputés et § 2b, [3] [13].
+        - texte: "Elle est trop large : elle traite comme européens les produits de nombreux pays liés à l'Union par un accord, et ne donne aucune priorité à la France."
+        # § 2d, [18].
+        - texte: "Là où l'offre européenne manque, ces règles restent sans effet ou sont assouplies par des dérogations, comme pour le cloud ou la défense."
+        # § 2c, [13] [18].
+        - texte: "Fermer les marchés aux pays tiers ferait payer plus cher les acheteurs publics et réduirait la concurrence."
+  - id: D
+    libelle: "Garder les règles actuelles, sans préférence selon l'origine"
+    implique: "Les acheteurs départagent les offres sur le prix, la qualité, le carbone et les clauses sociales. Seules quelques préférences européennes ciblées s'appliquent : aliments des cantines, technologies vertes, entreprises chinoises exclues des gros marchés de dispositifs médicaux."
+    defenseurs: "Réserver les achats à certains producteurs fait payer plus cher le contribuable et réduit la concurrence, sans créer d'usine là où l'offre manque."
+    critiques: "Les acheteurs regardent le prix, pas le pays : sans règle d'origine, l'argent public continue d'acheter à l'étranger ce que la France pourrait fabriquer."
+    detail:
+      chiffrage:
+        # § 2a et 2f, [6].
+        texte: "Garder ces règles ne coûte rien de plus. Aucune statistique publique ne dit d'où viennent les produits achetés : seules les cantines devront publier chaque année la part de leurs aliments venus de l'Union et de France."
+        source: { organisme: Parlement, document: "loi n° 2026-796 du 18 août 2026", annee: 2026 }
+      defenseurs:
+        # § 2c, [18] (source secondaire).
+        - texte: "Plus il y a de candidats, moins on paie : un concurrent de plus fait baisser le prix de 2,1 %, selon une étude de 600 000 marchés espagnols."
+          source: { organisme: "Applied Economics (Matilla-García et Vega)", document: "cité par le CEPS", annee: 2025 }
+        # § 2g, [3].
+        - texte: "Les acheteurs peuvent déjà favoriser la qualité, le carbone, les circuits courts et l'emploi stable par des critères permis, sans discriminer selon l'origine."
+        # § 2d, [34].
+        - texte: "Le protectionnisme ne protège ni l'emploi ni les salaires : il sert les entreprises d'un pays dans leur guerre contre celles des autres."
+      critiques:
+        # § 2d, [27].
+        - texte: "Les acheteurs publics regardent le prix, pas le pays : sans règle d'origine, l'argent public continue d'acheter à l'étranger ce que la France pourrait fabriquer."
+        # § 2g, [1] [3].
+        - texte: "Les critères de carbone ou de proximité obligent à des détours juridiques, et les maires craignent le contentieux dès qu'ils retiennent autre chose que le prix."
+        # § 2e, [4].
+        - texte: "Nos partenaires ferment leurs marchés publics aux entreprises européennes : l'Europe doit cesser d'être naïve et exiger la réciprocité."
+pourAllerPlusLoin:
+  - titre: "Sénat, rapport de la commission d'enquête sur la commande publique, 2025"
+    url: https://www.senat.fr/rap/r24-830-1/r24-830-1-syn.pdf
+  - titre: "Assemblée nationale, compte rendu du débat du 8 octobre 2026 sur la commande publique, avec l'avis de chaque groupe"
+    url: https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2026-2027/premiere-seance-du-jeudi-08-octobre-2026
+  - titre: "Parlement européen, Observatoire législatif, Industrial Accelerator Act, 2026"
+    url: https://oeil.secure.europarl.europa.eu/oeil/en/procedure-file?reference=2026/0068(COD)
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour favoriser le fabriqué en France"
+    argument: "L'argent public doit faire travailler les usines et les emplois en France."
+  - titre: "Pour ne pas favoriser la France seule"
+    argument: "Une préférence française serait illégale en Europe et exposerait aux représailles de nos voisins."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A et B d'un côté, C et D de l'autre.
+story:
+  - choix: "Favoriser le fabriqué en France"
+    precision: "par obligation ou au choix de l'acheteur"
+  - choix: "Pas de priorité à la France"
+    precision: "préférence européenne, ou règles actuelles"
+# Positions sourcées (étude, § 4) : 5 officielles, 6 déduites, 2 estimées (Arthaud baissée en estimée le 11/11/2026).
+# Inconnues : aucune.
+# Signalé à l'auteur (relecture droite) : la citation de Zemmour demande un mécanisme européen, alors que A dit « même
+# s'il faut s'écarter des règles européennes » ; option gardée en A.
+# Classement de l'étude gardé pour tous, sur décision de l'auteur, y compris les points qu'elle laisse à trancher :
+# Retailleau (C, alors que le groupe DR a voté pour la résolution du RN), Roussel (B, alors que le groupe GDR a voté
+# contre), Lisnard (B, « critère de référence » à vérifier).
+positions:
+  # Assemblée nationale, PPR n° 3115 (A. Loubet, M. Le Pen et le groupe RN), 07/09/2026 ; scrutin n° 8610, 08/10/2026 (elle a voté pour) ; séance du 08/10/2026 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b3115_proposition-resolution
+  le-pen: { option: B, source: "Proposition de résolution n° 3115, dont elle est cosignataire, 07/09/2026 ; son vote pour, scrutin n° 8610, 08/10/2026", statut: officielle, citation: "autoriser les acheteurs publics à accorder une priorité aux offres dont tout ou partie des moyens d'exécution sont localisés en France", lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b3115_proposition-resolution" }
+  # C. Lejeune (LFI), séance du 08/10/2026, auteur de la citation : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2026-2027/premiere-seance-du-jeudi-08-octobre-2026
+  # L'Avenir en commun, édition 2027, « Pour une bifurcation écologique et sociale », chap. 2 (page refusée à l'outil, texte lu dans l'extrait du moteur de recherche) : https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre2/
+  # Déduite : formulation exacte du programme non lue ; « contraignante » range la mesure en A plutôt qu'en B.
+  melenchon: { option: A, source: "C. Lejeune (LFI), Assemblée nationale, 08/10/2026 (citation) ; L'Avenir en commun, édition 2027, « Pour une bifurcation écologique et sociale », chap. 2", statut: deduite, citation: "une mesure de refonte contraignante de la commande publique, intégrant des critères de localisation et de nationalité, mais également des critères sociaux et des critères écologiques", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2026-2027/premiere-seance-du-jeudi-08-octobre-2026" }
+  # Programme « Pour une France plus prospère », site de campagne, consulté le 10/11/2026 ; T. Lam (HOR), séance du 08/10/2026 ; scrutin n° 8610 : https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere
+  # Déduite : il s'en remet au règlement européen, qui contient la préférence européenne, sans en parler lui-même.
+  philippe: { option: C, source: "Programme « Pour une France plus prospère », site de campagne (consulté le 10/11/2026) ; groupe Horizons, Assemblée nationale, 08/10/2026 (T. Lam : un « Buy European » « sans quotas ») et scrutin n° 8610", statut: deduite, citation: "Supprimer le code français de la commande publique dès l'entrée en vigueur du futur règlement européen sur les marchés publics, sans transposition ni ajout de règles nationales", lien: "https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere" }
+  # Place publique, « Acte I », chantier 4 « Mener le combat du “Fabriqué en France” » (date du document à vérifier) : https://place-publique.eu/pages/6mRSwq5tuSrSi68Cw1IADX/l-acte-i
+  glucksmann: { option: C, source: "Place publique, « Acte I », chantier 4 « Mener le combat du “Fabriqué en France” »", statut: officielle, citation: "Porter une loi “Acheter européen” (un “Buy European Act”) dans les institutions européennes pour prioriser les productions européennes dans les marchés publics", lien: "https://place-publique.eu/pages/6mRSwq5tuSrSi68Cw1IADX/l-acte-i" }
+  # Les Républicains, livret « Produire plus », février 2026, p. 24-25 : https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf
+  # Déduite : projet de son parti, sans le mot « préférence ». Point laissé à trancher par l'étude : le groupe DR a voté
+  # pour la résolution du RN le 08/10/2026, tout en la jugeant contraire au droit européen.
+  retailleau: { option: C, source: "Les Républicains, livret « Produire plus », février 2026", statut: deduite, citation: "Nous défendrons également, fermement, une Europe qui conditionne davantage l'accès à son marché à une production sur son sol", lien: "https://republicains.fr/wp-content/uploads/2026/02/LR_Produire_Plus_LIVRET.pdf" }
+  # Institut Molinari, La Lettre du Made in France, entretien du 07/05/2026 : https://www.institutmolinari.org/wp-content/uploads/2026/05/2026-05-07-LA-LETTRE-DU-MADE-IN-FRANCE.pdf
+  # À vérifier (étude) : « critère de référence » peut se lire comme une préférence d'origine française ou comme une
+  # simple définition du « fabriqué en France ».
+  lisnard: { option: B, source: "Entretien à l'Institut Molinari, La Lettre du Made in France, 07/05/2026", statut: officielle, citation: "Nous ferons de cette certification [« Origine France Garantie »] le critère de référence de la commande publique", lien: "https://www.institutmolinari.org/wp-content/uploads/2026/05/2026-05-07-LA-LETTRE-DU-MADE-IN-FRANCE.pdf" }
+  # M. Lebec (EPR), séance du 08/10/2026 ; scrutin n° 8610 (EPR : 36 contre ; G. Attal non votant) : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2026-2027/premiere-seance-du-jeudi-08-octobre-2026
+  # Déduite : votes et prises de parole de son groupe ; aucune déclaration personnelle trouvée.
+  attal: { option: C, source: "M. Lebec (EPR), Assemblée nationale, 08/10/2026 ; vote du groupe EPR, scrutin n° 8610", statut: deduite, citation: "la préférence européenne n'est pas un slogan : elle est en train de devenir une règle", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2026-2027/premiere-seance-du-jeudi-08-octobre-2026" }
+  # Programme présidentiel 2022, « Je privilégierai la production en France » (copie hébergée par la FHF) : https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  # Déduite : programme 2022, non confirmé pour 2027 ; il demande un mécanisme européen plutôt qu'une sortie des règles.
+  zemmour: { option: A, source: "Programme présidentiel 2022, « Je privilégierai la production en France »", statut: deduite, citation: "Permettre à chaque État européen de réserver une part de sa commande publique aux entreprises nationales en exigeant, sous deux ans, la mise en place d'un mécanisme adéquat à l'échelle de l'Union européenne", lien: "https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf" }
+  # Sénat, PPL n° 211, 10/12/2025, cosignée par le sénateur écologiste D. Salmon ; scrutin n° 8610 (Écologiste et social : 26 contre) : https://www.senat.fr/leg/ppl25-211.pdf
+  # Estimée : aucune déclaration trouvée ; ligne de son parti sur des textes voisins (refus de la préférence française,
+  # soutien d'élus écologistes à la préférence européenne) ; programme de juillet 2026 inaccessible.
+  tondelier: { option: C, source: "Proposition de loi n° 211 du Sénat, cosignée par le sénateur écologiste D. Salmon, 10/12/2025 ; vote du groupe Écologiste et social, scrutin n° 8610, 08/10/2026", statut: estimee, lien: "https://www.senat.fr/leg/ppl25-211.pdf" }
+  # F. Roussel, « Une nouvelle industrialisation pour la France », PCF, 17/05/2025 ; J.-P. Lecoq et É. Bénard (GDR), séance du 08/10/2026 : https://assets.nationbuilder.com/pcf/pages/30221/attachments/original/1747822112/Intro_FR_nouvelleind_170525.pdf
+  # Déduite. Point laissé à trancher par l'étude : le groupe GDR a voté contre la résolution du RN, jugée sans critères
+  # sociaux ; rien ne dit s'il veut une obligation (A) ou une faculté (B), donc B, qui change le moins la règle.
+  roussel: { option: B, source: "Discours « Une nouvelle industrialisation pour la France », 17/05/2025 ; groupe GDR, Assemblée nationale, 08/10/2026", statut: deduite, citation: "En relocalisant des productions, en mobilisant les marchés publics pour favoriser le “produire en France” en mettant en valeur sa traçabilité", lien: "https://assets.nationbuilder.com/pcf/pages/30221/attachments/original/1747822112/Intro_FR_nouvelleind_170525.pdf" }
+  # Debout la France, projet « Économie », mesures « Produire en France », 2026 : https://www.debout-la-france.fr/projet/economie-travail/
+  dupont-aignan: { option: A, source: "Debout la France, projet « Économie », 2026", statut: officielle, citation: "Adopter un “BUY French ACT” à la manière des États-Unis : introduire une préférence nationale dans les marchés publics […]. La commande publique sera réservée aux entreprises qui produisent le bien en question en France, sous réserve que son prix ne soit pas supérieur de 50 % au produit étranger", lien: "https://www.debout-la-france.fr/projet/economie-travail/" }
+  # F. Ruffin, cahier de campagne « Pour protéger notre industrie, relocaliser 100 produits stratégiques », octobre 2026 : https://nouspresident.fr/pour-proteger-notre-industrie-relocaliser-100-produits-strategiques/
+  ruffin: { option: A, source: "Cahier de campagne « Pour protéger notre industrie, relocaliser 100 produits stratégiques », octobre 2026", statut: officielle, citation: "Un “Buy French Act” pour aller vers 80% de commande publique localisée en France", lien: "https://nouspresident.fr/pour-proteger-notre-industrie-relocaliser-100-produits-strategiques/" }
+  # Lutte ouvrière, brochure de campagne « Nathalie Arthaud, présidentielle 2027 », 2026 : https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure_caravane_2026-01_-_couleur.pdf
+  # Estimée (était déduite, relecture gauche du 11/11/2026) : elle ne parle pas des achats publics ; elle rejette le
+  # protectionnisme en général, un sujet voisin, sans défendre les règles de marché actuelles.
+  arthaud: { option: D, source: "Lutte ouvrière, brochure de campagne « Nathalie Arthaud, présidentielle 2027 », 2026", statut: estimee, citation: "Le protectionnisme ne protège ni l'emploi ni les salaires, il est une arme des capitalistes dans leur guerre contre d'autres capitalistes", lien: "https://www.lutte-ouvriere.org/medias/document/fichiers/2026/06/brochure_caravane_2026-01_-_couleur.pdf" }

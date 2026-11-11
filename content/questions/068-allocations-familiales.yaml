@@ -1,0 +1,238 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 11/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doivent être vérifiés par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/068-allocations-familiales.md (tout ce qui suit y est sourcé).
+# Presque tous les partis disent vouloir aider dès le premier enfant : les options séparent aussi le montant selon les
+# revenus (la « modulation » de 2015) et la refonte des aides (étude, « Note sur la question »).
+# Mots disputés, attribués ou évités (étude, « Règles de lecture ») : « universalité » et « fin de l'universalité » (la
+# fiche écrit « même montant pour toutes les familles » ou « montant selon les revenus ») ; « politique nataliste » et
+# « réarmement démographique » (la fiche écrit « natalité » ou « naissances »).
+# Le chiffre de 40,3 milliards d'euros prêté au « revenu familial » n'est pas repris : il vient d'un site qui dit écrire
+# avec l'aide d'une IA (étude, § 2c et source [18]).
+# Décision de l'auteur du 11/11/2026 : Gabriel Attal passe de E à C (voir positions et étude, § 4).
+numero: 68
+date: 2026-08-21
+theme: societe
+question: "Faut-il verser les allocations familiales dès le premier enfant ?"
+titreCourt: "Les allocations familiales"
+contexte:
+  # § 1.1 et 1.3, [1] [3].
+  - "Les allocations familiales ne sont versées qu'à partir du deuxième enfant, sauf outre-mer, et depuis 2015 leur montant est divisé par deux ou par quatre pour les familles aux revenus les plus élevés."
+  # § 1.3 et 1.4, [2] [4].
+  - "Le 5 juin 2025, l'Assemblée nationale a voté leur versement dès le premier enfant, contre l'avis du gouvernement, qui en jugeait le coût trop élevé ; le Sénat n'a pas encore examiné ce texte."
+  # § 3, « Ce qui est débattu ».
+  - "Le débat porte sur l'aide au premier enfant, sur le montant plus faible versé aux familles aisées, sur le coût de ces changements et sur leur effet sur les naissances."
+chiffres:
+  # § 2a, [3] : naissances de 2024 (Insee), part des premiers enfants de 2022 appliquée par le rapporteur.
+  - valeur: "283 000"
+    unite: premiers enfants
+    legende: "sont nés en France en 2024, sur 663 000 naissances"
+    source: { organisme: "Insee", document: "calcul du rapporteur, cité par l'Assemblée nationale", annee: 2024 }
+  # § 2b, [3] : la modulation, chiffre de la direction de la sécurité sociale.
+  - valeur: "11 %"
+    legende: "des familles qui touchent les allocations reçoivent un montant divisé par deux ou par quatre, parce que leurs revenus dépassent un plafond"
+    source: { organisme: "Direction de la sécurité sociale", document: "citée par l'Assemblée nationale", annee: 2020 }
+  # § 1.2, [3] : prévision de dépense.
+  - valeur: "14"
+    unite: milliards d'euros
+    legende: "versés en allocations familiales en 2025, selon la prévision"
+    source: { organisme: "Commission des comptes de la sécurité sociale", document: "citée par l'Assemblée nationale", annee: 2025 }
+# Rangées du plus grand changement au statu quo (étude, § 4.1).
+options:
+  - id: A
+    libelle: "Une seule allocation, plus forte, dès le premier enfant"
+    implique: "Une seule allocation remplace les allocations familiales et d'autres aides : de 240 à 350 € par mois dès le premier enfant selon les propositions, ou 250 € par enfant quel que soit son rang. Son effet selon les revenus n'est pas précisé."
+    defenseurs: "Une seule aide, plus forte et plus simple, soutient toutes les familles dès le premier enfant, au moment où l'arrivée d'un enfant fait baisser le niveau de vie."
+    critiques: "Sans financement identifié, une telle allocation n'est pas soutenable, et la payer en supprimant des aides existantes pourrait faire des perdants."
+    detail:
+      chiffrage:
+        # § 1.3, 2c et 4.1, [14] [15] [17].
+        texte: "Les propositions vont de 240 à 350 € par mois dès le premier enfant, en remplacement des allocations familiales et d'autres aides. Aucun chiffrage officiel n'a été trouvé."
+        source: { organisme: "LCP et Public Sénat", document: "propositions de deux candidats", annee: 2026 }
+      defenseurs:
+        # § 2a, [3].
+        - texte: "Une naissance fait perdre de 2 à 11 % de niveau de vie entre l'année d'avant et l'année d'après : une aide forte dès le premier enfant répond à ce choc."
+          source: { organisme: "Insee", document: "cité par l'Assemblée nationale", annee: 2011 }
+        # § 2h, [12].
+        - texte: "Une seule allocation, à la place de plusieurs aides, serait plus simple à comprendre et à demander pour les familles."
+        # § 2e, [23].
+        - texte: "Les aides en argent comptent dans la décision d'avoir un enfant : une allocation de 150 € par mois et par enfant pourrait relever la fécondité d'environ 0,3 enfant par femme."
+          source: { organisme: "G. Laroque et B. Salanié", document: "Journal of Applied Econometrics", annee: 2014 }
+      critiques:
+        # § 2c, [3].
+        - texte: "Une mesure sans financement identifié n'est pas soutenable, et ces propositions ne précisent pas quelles aides seraient supprimées pour la payer."
+        # § 2c et limites de l'étude, [7].
+        - texte: "Remplacer plusieurs aides par une seule pourrait faire des perdants, et sans barème connu au-delà du premier enfant, personne ne sait encore lesquels."
+        # § 2e, [3] [12].
+        - texte: "Les aides en argent jouent surtout sur le moment de la première naissance, pas sur l'envie d'avoir des enfants, et le premier frein cité est l'inquiétude pour l'avenir."
+  - id: B
+    libelle: "Dès le premier enfant, même montant pour tous"
+    implique: "Chaque famille touche les allocations dès le premier enfant, au même montant quels que soient ses revenus, sans baisse des aides actuelles des familles nombreuses. Le premier enfant coûterait 1,8 à 3,6 milliards d'euros par an, et le même montant pour toutes les familles 1 à 1,5 milliard de plus."
+    defenseurs: "Chaque enfant compte autant, et toutes les familles financent la politique familiale : la justice entre riches et pauvres passe par l'impôt, pas par les allocations."
+    critiques: "C'est le choix le plus coûteux, et rendre le montant plein aux familles aisées ne ferait rien pour les plus modestes."
+    detail:
+      chiffrage:
+        # § 2c, [3] [7].
+        texte: "Verser les allocations dès le premier enfant coûterait de 1,8 à 3,6 milliards d'euros par an selon le montant, et rendre le même montant à toutes les familles de 1 à 1,5 milliard de plus."
+        source: { organisme: "Direction de la sécurité sociale et LexImpact", document: "cités par l'Assemblée nationale", annee: 2025 }
+      defenseurs:
+        # § 2b, [7] [9].
+        - texte: "Les allocations reconnaissent la charge d'un enfant dans toutes les familles : la justice entre riches et pauvres passe par l'impôt et par les aides sous condition de ressources."
+        # § 2a, [3] [6].
+        - texte: "Les familles ont changé : 36,5 % n'ont qu'un enfant, et la règle héritée de 1939 les laisse de côté."
+          source: { organisme: "Insee", document: "cité par l'Assemblée nationale", annee: 2020 }
+        # § 2b, [7] [9].
+        - texte: "Moduler les allocations selon les revenus ouvre la porte à tout moduler : demain, ce serait le remboursement des soins, et la Sécurité sociale cesserait d'être la même pour tous."
+      critiques:
+        # § 2b, [3] [7].
+        - texte: "Rendre le montant plein aux familles aisées coûterait 1 à 1,5 milliard d'euros par an sans aider les plus modestes."
+          source: { organisme: "Direction de la sécurité sociale et LexImpact", document: "cités par l'Assemblée nationale", annee: 2025 }
+        # § 2b, [9].
+        - texte: "Le montant réduit des familles aisées a permis d'augmenter d'autres aides aux familles modestes, comme le complément familial."
+        # § 1.2 et 2d, [7].
+        - texte: "Sans changer le calcul du RSA, chaque euro d'allocation en plus retire un euro de RSA : verser dès le premier enfant n'aiderait pas les familles au RSA."
+  - id: C
+    libelle: "Dès le premier enfant, montant selon les revenus"
+    implique: "Les allocations sont versées dès le premier enfant, environ 75 € par mois, ou 38 € et 19 € au-dessus de certains revenus. C'est le texte voté par l'Assemblée en juin 2025, chiffré à 3,58 milliards d'euros par an."
+    defenseurs: "Le premier enfant est aidé, comme chez nos voisins, tout en gardant un montant plus faible pour les familles aisées, ce qui protège ce que touchent les plus modestes."
+    critiques: "Elle coûterait 3 à 4 milliards d'euros par an, et sans changer le calcul du RSA, les familles au RSA n'y gagneraient rien."
+    detail:
+      chiffrage:
+        # § 2c, [3] [5].
+        texte: "Le texte voté par l'Assemblée en 2025 coûterait 3,58 milliards d'euros par an, et porterait la dépense d'allocations familiales de 14,04 à 17,62 milliards. Le gouvernement l'estimait entre 3 et 4 milliards."
+        source: { organisme: "LexImpact", document: "cité par l'Assemblée nationale", annee: 2025 }
+      defenseurs:
+        # § 2a, [3].
+        - texte: "Les familles monoparentales, souvent avec un seul enfant, sont un quart des familles : 24,7 % en 2020, contre 10 % en 1970."
+          source: { organisme: "HCFEA", document: "cité par l'Assemblée nationale", annee: 2020 }
+        # § 2b, [7].
+        - texte: "Garder un montant plus faible pour les familles aisées protège ce que touchent les plus modestes, qu'un même montant pour tous pourrait réduire."
+        # § 2c, [3] [5].
+        - texte: "La branche famille est excédentaire, de 1,1 milliard d'euros en 2024, et ses moyens ont servi à d'autres dépenses : les allocations sont un investissement, pas une charge."
+          source: { organisme: "Assemblée nationale", document: "rapport n° 1473", annee: 2025 }
+      critiques:
+        # § 2d, [5] [7].
+        - texte: "Sans changer le calcul du RSA, chaque euro d'allocation en plus retire un euro de RSA : la mesure aiderait peu les familles les plus modestes."
+        # § 1.4 et 2c, [5].
+        - texte: "Le pays n'a pas les moyens d'une dépense de 3 à 4 milliards d'euros de plus par an."
+          source: { organisme: "Gouvernement", document: "rapporté par LCP", annee: 2025 }
+        # § 2b, [7] [9].
+        - texte: "Garder un montant réduit laisse de côté des familles qui financent la politique familiale par leurs cotisations et leurs impôts."
+  - id: D
+    libelle: "Dès le deuxième enfant, même montant pour tous"
+    implique: "Rien ne change pour le premier enfant. Les familles aux revenus les plus élevés retrouvent le montant plein, comme avant 2015, pour un coût de 1 à 1,5 milliard d'euros par an."
+    defenseurs: "Les allocations reconnaissent l'effort de toutes les familles : le montant réduit de 2015 a d'abord été une économie, au détriment de familles qui les financent."
+    critiques: "Elle rend de l'argent aux familles les plus aisées sans rien changer pour les parents d'un seul enfant."
+    detail:
+      chiffrage:
+        # § 2b et 2c, [3] [7].
+        texte: "Rendre le même montant à toutes les familles coûterait de 1 à 1,5 milliard d'euros par an : c'est à peu près ce que rapporte aujourd'hui le montant réduit."
+        source: { organisme: "Direction de la sécurité sociale et LexImpact", document: "cités par l'Assemblée nationale", annee: 2025 }
+      defenseurs:
+        # § 2b, [7] [9].
+        - texte: "Les allocations reconnaissent la charge d'un enfant dans toutes les familles, quels que soient leurs revenus ; l'impôt se charge de la justice entre riches et pauvres."
+        # § 2b, [7] [9].
+        - texte: "Des familles qui paient la politique familiale par leurs cotisations et leurs impôts touchent une allocation devenue « dérisoire », ce qui fragilise leur consentement à payer."
+        # § 2e, [7] : chiffres cités par Justine Gruet (Droite républicaine) ; 663 000 en 2024 : Insee, [3].
+        - texte: "Depuis le montant réduit de 2015 et les baisses du quotient familial, les naissances n'ont cessé de baisser, de 818 000 en 2014 à 663 000 en 2024 : il faut redonner confiance aux familles qui hésitent à avoir un enfant."
+          source: { organisme: "Assemblée nationale", document: "rapport n° 998, chiffres cités par une députée Droite républicaine", annee: 2025 }
+      critiques:
+        # § 2b, [3] [9].
+        - texte: "Le montant réduit ne touche que les familles les plus aisées, 11 % des allocataires : le supprimer leur rendrait de l'argent sans aider les plus modestes."
+          source: { organisme: "Direction de la sécurité sociale", document: "citée par l'Assemblée nationale", annee: 2020 }
+        # § 1.2, [7].
+        - texte: "Les allocations vont déjà surtout aux familles modestes, 3 milliards d'euros au premier dixième des niveaux de vie contre 300 millions au dernier : leur budget doit aller d'abord à celles qui en ont le plus besoin."
+          source: { organisme: "Cour des comptes", document: "citée par l'Assemblée nationale", annee: 2024 }
+        # § 1.1 et 2a, [3].
+        - texte: "Elle ne change rien pour les parents d'un seul enfant, qui restent sans allocations familiales."
+  - id: E
+    libelle: "Comme aujourd'hui : deuxième enfant, montant selon les revenus"
+    implique: "Les allocations restent versées à partir du deuxième enfant, avec un montant divisé par deux ou par quatre pour les familles aux revenus les plus élevés. Aucune dépense nouvelle."
+    defenseurs: "Les familles modestes ont déjà des aides dès le premier enfant, et le pays n'a pas les moyens d'une dépense nouvelle de plusieurs milliards par an."
+    critiques: "La France est le seul des pays voisins étudiés à ne rien verser au premier enfant, alors que les familles d'un seul enfant sont de plus en plus nombreuses."
+    detail:
+      chiffrage:
+        # § 2b, [3].
+        texte: "Garder la règle ne coûte rien de plus. Le montant réduit des familles aisées rapporte environ 1 milliard d'euros par an."
+        source: { organisme: "Direction de la sécurité sociale", document: "citée par l'Assemblée nationale", annee: 2025 }
+      defenseurs:
+        # § 2a, [3].
+        - texte: "Les familles modestes reçoivent déjà des aides dès le premier enfant : prestation d'accueil du jeune enfant, prime de naissance, majorations du RSA et des aides au logement."
+        # § 2a, [3].
+        - texte: "Les allocations ont été pensées pour les fratries, plus exposées à la pauvreté : 43 % des familles de quatre enfants ou plus sont pauvres, contre 16 % des familles d'un ou deux enfants."
+          source: { organisme: "Insee", document: "cité par l'Assemblée nationale", annee: 2020 }
+        # § 2a et 2d, [3].
+        - texte: "La politique familiale ne se limite pas aux allocations : la garde des enfants et l'aide aux familles monoparentales passent d'abord."
+      critiques:
+        # § 2f, [26].
+        - texte: "Nos voisins versent une allocation dès le premier enfant : la France est le seul des pays étudiés à ne rien verser avant le deuxième."
+        # § 1.1, [3].
+        - texte: "Rien n'est versé pour un enfant unique, ni pour le dernier enfant quand ses aînés ont dépassé 20 ans."
+        # § 2e, [13].
+        - texte: "Les naissances baissent : 645 000 en 2025, et pour la première fois depuis la guerre, plus de décès que de naissances."
+          source: { organisme: "Insee", document: "Bilan démographique 2025", annee: 2026 }
+pourAllerPlusLoin:
+  - titre: "Service-public.fr, Allocations familiales (famille de 2 enfants ou plus)"
+    url: https://www.service-public.gouv.fr/particuliers/vosdroits/F13213
+  - titre: "Assemblée nationale, rapport n° 1473 sur les allocations familiales dès le premier enfant, 2025"
+    url: https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1473_rapport-fond.pdf
+  - titre: "Sénat, dossier législatif du versement des allocations familiales dès le premier enfant"
+    url: https://www.senat.fr/dossier-legislatif/ppl24-709.html
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour aider dès le premier enfant"
+    argument: "Une famille sur trois n'a qu'un enfant, et l'arrivée du premier fait déjà baisser le niveau de vie."
+  - titre: "Pour garder le deuxième enfant"
+    argument: "Les familles modestes ont déjà des aides dès le premier enfant, et le pays n'a pas les moyens de cette dépense."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A, B et C d'un côté, D et E de l'autre.
+story:
+  - choix: "Dès le premier enfant"
+    precision: "avec ou sans montant selon les revenus"
+  - choix: "À partir du deuxième"
+    precision: "avec ou sans montant selon les revenus"
+# Positions sourcées seulement (étude, § 4.2). Inconnues : Lisnard, Arthaud (aucune déclaration trouvée).
+# L'option E n'a plus de candidat depuis la décision de l'auteur du 11/11/2026 ; elle reste celle des gouvernements de
+# 2022 et 2025 (étude, § 4).
+positions:
+  # Angélique Ranc, oratrice du groupe RN, commission du 28/05/2025 (rapport n° 1473) : https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1473_rapport-fond.pdf
+  # Groupe RN : 24 pour, 0 contre, scrutin n° 2272 du 05/06/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/2272
+  # Proposition de loi RN n° 985 (fin de la modulation), 21/03/2023 : https://www.assemblee-nationale.fr/dyn/16/textes/l16b0985_proposition-loi.pdf
+  le-pen: { option: B, source: "Angélique Ranc, oratrice du groupe RN, commission des affaires sociales du 28/05/2025 ; vote du groupe RN, scrutin n° 2272 du 05/06/2025 ; proposition de loi RN n° 985 « visant à restaurer l'universalité des allocations familiales et à les réserver aux familles françaises », 21/03/2023", statut: deduite, citation: "il semble évident qu'il faut ouvrir les allocations familiales dès le premier enfant", lien: "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1473_rapport-fond.pdf" }
+  # Louis Boyard, orateur LFI, commission du 19/02/2025 (rapport n° 998) : https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b0998_rapport-fond.pdf
+  # Groupe LFI : 22 pour, scrutin n° 2272 : https://www.assemblee-nationale.fr/dyn/17/scrutins/2272
+  melenchon: { option: B, source: "Louis Boyard, orateur LFI, commission des affaires sociales du 19/02/2025 ; vote du groupe LFI, scrutin n° 2272 du 05/06/2025", statut: deduite, citation: "La France insoumise défend de longue date le versement des allocations familiales dès le premier enfant. Nous sommes également favorables à la suppression de leur modulation en fonction du revenu des ménages.", lien: "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b0998_rapport-fond.pdf" }
+  # France 2, L'Heure de vérité, 08/10/2026, rapporté par LCP le 09/10/2026 : https://lcp.fr/actualites/allocations-familiales-edouard-philippe-propose-350-euros-des-le-premier-enfant-443576
+  # et par La Gazette France (dépêche AFP) : https://www.lagazettefrance.fr/article/edouard-philippe-veut-aider-les-familles-des-le-premier-enfant-et-via-une-reduction-d-impot
+  philippe: { option: A, source: "France 2, L'Heure de vérité, 08/10/2026 (AFP, La Gazette France ; LCP)", statut: officielle, citation: "une allocation familiale unique qui permet de verser 350 € dès le premier enfant", lien: "https://lcp.fr/actualites/allocations-familiales-edouard-philippe-propose-350-euros-des-le-premier-enfant-443576" }
+  # Arnaud Simion, orateur PS, commission du 19/02/2025 (rapport n° 998) : https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b0998_rapport-fond.pdf
+  # Groupe PS : 14 pour, scrutin n° 2272. Place publique n'est pas le PS ; aucune déclaration de Raphaël Glucksmann trouvée.
+  glucksmann: { option: C, source: "Arnaud Simion, orateur du groupe socialiste, commission des affaires sociales du 19/02/2025 ; vote du groupe socialiste, scrutin n° 2272 du 05/06/2025", statut: estimee, citation: "si le groupe Socialistes et apparentés soutient l'octroi des allocations familiales dès le premier enfant, il défendra en revanche un amendement visant à supprimer la forfaitisation", lien: "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b0998_rapport-fond.pdf" }
+  # Entretien à l'AFP, 30/04/2026, rapporté par Public Sénat le 09/10/2026 : https://www.publicsenat.fr/actualites/politique/politique-familiale-allocations-creches-que-proposent-les-candidats-a-la-presidentielle
+  # et par Parlons politique [source secondaire] : https://www.parlons-politique.fr/elections/allocation-familiale-conditionnelle-conge-naissance-prolonge-la-politique-nataliste-de-retailleau-rouvre-le-debat-citoyen-pour-2027_14845/
+  # Pas de citation : l'étude n'a que des bribes de ses mots (« revenu familial », 240 € « dès le premier enfant »).
+  # Son groupe défend la fin de la modulation (B) ; s'il faut, l'auteur peut le passer en B (étude, § 4, notes).
+  retailleau: { option: A, source: "Entretien à l'AFP, 30/04/2026, rapporté par Public Sénat le 09/10/2026 et par Parlons politique", statut: officielle, lien: "https://www.publicsenat.fr/actualites/politique/politique-familiale-allocations-creches-que-proposent-les-candidats-a-la-presidentielle" }
+  # Décision de l'auteur du 11/11/2026 : de E à C (« dès le premier enfant en gardant la modulation »), parce que son groupe
+  # (EPR) a voté à l'unanimité en commission, le 19/02/2025, l'objectif « dès le premier enfant » (rapport n° 998) :
+  # https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b0998_rapport-fond.pdf
+  # Le groupe a voté contre le texte du 05/06/2025 pour son coût (13 contre, 2 abstentions, scrutin n° 2272).
+  # Pas de citation : le texte adopté n'est rapporté que par bribes.
+  # Statut ramené à « estimée » après relecture : son groupe a voté contre ce texte exact le 05/06/2025.
+  attal: { option: C, source: "Commission des affaires sociales de l'Assemblée nationale, 19/02/2025 : objectif d'ouvrir les allocations familiales dès le premier enfant, adopté à l'unanimité, groupe Ensemble pour la République compris ; le groupe a voté contre le texte du 05/06/2025 pour son coût (scrutin n° 2272)", statut: estimee, lien: "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b0998_rapport-fond.pdf" }
+  # Programme présidentiel 2022 d'Éric Zemmour (copie hébergée par la FHF), non confirmé pour 2027 ; rien sur le premier enfant :
+  # https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf
+  # « Estimée » : programme de 2022, et le deuxième enfant est déduit de son silence (étude, § 4, notes).
+  zemmour: { option: D, source: "Programme présidentiel 2022 d'Éric Zemmour, chapitre famille", statut: estimee, citation: "Revenir à l'universalité des allocations familiales, qui ne doivent plus être versées sous conditions de ressources", lien: "https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf" }
+  # Lisa Belluco, oratrice Écologiste et social, commission du 28/05/2025 (rapport n° 1473) : https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1473_rapport-fond.pdf
+  # Groupe Écologiste et social : 19 pour, scrutin n° 2272.
+  tondelier: { option: C, source: "Lisa Belluco, oratrice du groupe Écologiste et social, commission des affaires sociales du 28/05/2025 ; vote du groupe, scrutin n° 2272 du 05/06/2025", statut: estimee, citation: "le versement des allocations dès le premier enfant, en particulier pour les familles monoparentales", lien: "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b1473_rapport-fond.pdf" }
+  # Groupe GDR (texte du député PCF Édouard Bénard) : 15 pour, scrutin n° 2272 : https://www.assemblee-nationale.fr/dyn/17/scrutins/2272
+  # Proposition de loi n° 161 cosignée par Fabien Roussel, 25/07/2022, article 1er : https://questions.assemblee-nationale.fr/dyn/16/textes/l16b0161_proposition-loi.pdf
+  # Tondelier et Roussel en « estimée » : le texte voté ne touchait pas à la modulation ; le rapporteur PCF la regrette et
+  # des écologistes ont défendu un montant forfaitaire (étude, § 4, notes).
+  roussel: { option: C, source: "Texte du député PCF Édouard Bénard, voté par le groupe GDR, scrutin n° 2272 du 05/06/2025 ; proposition de loi n° 161 cosignée par Fabien Roussel, 25/07/2022", statut: estimee, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/2272" }
+  # Debout la France, projet « Famille », 2026, mesure 2 ; rien sur le premier enfant : https://www.debout-la-france.fr/projet/famille/
+  # « Estimée » : le programme parle de la modulation, pas du premier enfant (déduit de son silence).
+  dupont-aignan: { option: D, source: "Debout la France, projet « Famille », 2026, mesure 2", statut: estimee, citation: "Les allocations doivent être versées à toutes les familles, sans condition de revenu", lien: "https://www.debout-la-france.fr/projet/famille/" }
+  # Commission des affaires sociales, 19/02/2025 (rapport n° 998) : https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b0998_rapport-fond.pdf
+  # Vote personnel pour, scrutin n° 2272 du 05/06/2025. Ses mots datent de plus de 12 mois.
+  ruffin: { option: B, source: "Commission des affaires sociales du 19/02/2025 ; vote personnel pour, scrutin n° 2272 du 05/06/2025", statut: deduite, citation: "J'insiste sur la nécessité de l'universalité des allocations familiales, qui doivent être versées à la famille de Bernard Arnault comme à celle d'un ouvrier", lien: "https://www.assemblee-nationale.fr/dyn/17/rapports/cion-soc/l17b0998_rapport-fond.pdf" }

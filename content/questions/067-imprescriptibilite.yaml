@@ -1,0 +1,173 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 11/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/067-imprescriptibilite.md (tout ce qui suit y est sourcé).
+# Vérifié le 11/11/2026 (étude, « Vérifié le 11/11/2026 ») : la commission mixte paritaire est convoquée depuis le
+# 5 novembre, sans réunion ni résultat publié ; la loi n'est pas définitivement adoptée. La règle actuelle reste celle de
+# 2018 (option D) : la question et les options de l'étude sont gardées, le contexte dit ce qui est en cours.
+# Mots disputés, attribués ou évités (étude, « Règles de lecture ») : « impunité » (partisans de l'imprescriptibilité),
+# « droit à l'oubli » (opposants), « procès de l'impossible », « justice déceptive », « fausse promesse » (opposants,
+# magistrats), « intranquillité » (associations), « crime contre l'humanité » pour ces violences (associations, députés) :
+# la fiche ne les emploie que dans la voix d'un camp. « Pédocriminalité » évité : la fiche écrit « crimes sexuels commis
+# sur des enfants » et « auteur ». « Imprescriptibilité » est expliqué : « sans limite de temps », « aucun délai ».
+# Question : l'étude (§ 4) dit « les crimes sexuels commis sur des enfants », mais ses options visent aussi les agressions
+# sexuelles, qui sont des délits (A), et les meurtres, tortures, enlèvements et la traite (B) : la question nomme les deux,
+# comme les trois périmètres en débat de l'étude (§ 2d).
+numero: 67
+date: 2026-08-22
+theme: securite-justice
+question: "Faut-il pouvoir juger sans limite de temps les violences sexuelles et les crimes graves commis sur des enfants ?"
+titreCourt: "Juger sans limite de temps"
+contexte:
+  - "Aujourd'hui, un viol commis sur un enfant peut être poursuivi pendant 30 ans après la majorité de la victime, donc jusqu'à ses 48 ans ; seuls le génocide et les crimes contre l'humanité peuvent être jugés sans limite de temps."
+  - "En 2026, l'Assemblée nationale a voté la fin de tout délai pour les crimes graves commis sur des mineurs, puis le Sénat l'a votée pour les seuls viols sur mineurs."
+  - "Au 11 novembre 2026, députés et sénateurs doivent encore s'accorder sur un texte commun : tant que la loi n'est pas définitivement adoptée, le délai de 30 ans s'applique, et le débat porte à la fois sur le principe et sur les crimes concernés."
+# Quatre chiffres qui posent le sujet : la règle actuelle, l'ampleur des plaintes, les révélations tardives, la part de
+# la prescription dans les classements. Le troisième sert les partisans de l'imprescriptibilité, le quatrième ceux d'un
+# délai (étude § 2a et 2b) : l'un équilibre l'autre.
+chiffres:
+  - valeur: "48"
+    unite: ans
+    legende: "l'âge de la victime jusqu'auquel un viol subi enfant peut aujourd'hui être poursuivi : 30 ans après sa majorité"
+    source: { organisme: "Assemblée nationale", document: "rapport d'information n° 2685, Délégation aux droits des enfants", annee: 2026 }
+  - valeur: "71 085"
+    unite: mineurs
+    legende: "ont porté plainte pour violences sexuelles en 2024, dont 34 % pour viol ou tentative de viol"
+    source: { organisme: "SSMSI", document: "cité par le rapport n° 2685 de l'Assemblée nationale", annee: 2024 }
+  - valeur: "42 %"
+    legende: "des victimes mineures de violences sexuelles dans leur famille qui portent plainte le font pour des faits de plus de cinq ans"
+    source: { organisme: "Ministère de la Justice", document: "Infostats n° 205, cité par l'Assemblée nationale", annee: 2024 }
+  - valeur: "3 %"
+    legende: "des viols sur mineurs classés sans suite de 2016 à 2022 l'ont été pour prescription ; 72 % de ces viols ont été classés, surtout faute de preuves"
+    source: { organisme: "Ciivise", document: "citée par le rapport n° 2685 de l'Assemblée nationale", annee: 2026 }
+# L'ordre est une échelle (étude § 4) : de l'option qui supprime le plus de délais (A, qui touche aussi les délits
+# sexuels) à celle qui n'en supprime aucun (D, la règle en vigueur au 11/11/2026). A et B ne sont pas emboîtées : A va plus
+# loin sur les violences sexuelles, B sur les autres crimes.
+options:
+  - id: A
+    libelle: Aucun délai pour toutes les violences sexuelles sur enfants
+    implique: "Les viols et les agressions sexuelles commis sur des mineurs peuvent être poursuivis sans limite de temps, comme le recommande la Ciivise. Les autres crimes sur mineurs gardent leur délai, et les faits déjà prescrits le restent."
+    defenseurs: "La victime parle quand elle le peut, parfois des décennies plus tard : c'est vrai d'une agression sexuelle comme d'un viol, et aucun délai ne doit plus tomber comme un couperet."
+    critiques: "Des faits sans trace vieux de quarante ans se prouvent rarement : on ferait naître un espoir que la justice ne pourra pas tenir, et des délits seraient traités plus durement que bien des crimes."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage du coût n'a été trouvé. Parmi les témoignages reçus par la Ciivise, 35 % demandent l'imprescriptibilité, qu'elle recommande pour les viols et les agressions sexuelles sur enfants."
+        source: { organisme: "Ciivise", document: "citée par l'Assemblée nationale", annee: 2023 }
+      defenseurs:
+        - texte: "La victime ne choisit pas le moment où elle peut parler : 42 % des victimes mineures de violences sexuelles dans leur famille qui portent plainte le font pour des faits de plus de cinq ans."
+          source: { organisme: "Ministère de la Justice", document: "Infostats n° 205, cité par l'Assemblée nationale", annee: 2024 }
+        - texte: "Une agression sexuelle subie enfant peut marquer toute une vie : garder un délai pour elle seule, c'est hiérarchiser la souffrance des victimes."
+        - texte: "Des souvenirs peuvent revenir des décennies plus tard : seule la fin de tout délai évite à la victime de devoir prouver quand sa mémoire est revenue."
+      critiques:
+        - texte: "La prescription n'est pas le principal obstacle : seuls 3 % des viols sur mineurs classés sans suite l'ont été pour prescription, le manque de preuves passe avant."
+          source: { organisme: "Ciivise", document: "citée par l'Assemblée nationale", annee: 2026 }
+        - texte: "Une agression sexuelle est un délit : la rendre imprescriptible la traiterait plus durement qu'un crime terroriste puni de la perpétuité, qui se prescrit par 30 ans."
+        - texte: "Des faits anciens et sans trace se jugent mal : on promettrait aux victimes des procès qui, faute de preuves, ne pourraient pas aboutir."
+  - id: B
+    libelle: Aucun délai pour tous les crimes graves sur enfants
+    implique: "Les viols, meurtres, tortures, enlèvements et la traite commis sur des mineurs peuvent être poursuivis sans limite de temps, au pénal comme pour demander réparation, comme l'a voté l'Assemblée nationale en juillet 2026. Les agressions sexuelles gardent leur délai."
+    defenseurs: "Un enfant violé, torturé ou tué subit le pire : viser tous ces crimes évite de hiérarchiser la souffrance et rend la règle plus cohérente."
+    critiques: "Une version aussi large risque d'être censurée par le Conseil constitutionnel, et elle a été votée par amendement, sans étude d'impact ni avis du Conseil d'État."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage du coût n'a été trouvé. C'est la version votée par l'Assemblée nationale le 16 juillet 2026."
+        source: { organisme: "Assemblée nationale", document: "scrutin public n° 8308", annee: 2026 }
+      defenseurs:
+        - texte: "La prescription n'est pas un principe constitutionnel, et le législateur garde une large marge pour la fixer : le risque qu'une version large soit censurée est faible."
+        - texte: "Les révélations tardives augmentent : la part des viols arrivés au parquet deux ans ou plus après les faits est passée de 39 % à 45 % entre 2017 et 2024."
+          source: { organisme: "Ministère de la Justice", document: "cité par l'Assemblée nationale", annee: 2024 }
+        - texte: "Il serait incohérent que le viol d'un enfant soit imprescriptible, mais pas son meurtre ni sa torture."
+      critiques:
+        - texte: "Une version aussi large risque d'être censurée par le Conseil constitutionnel, et une censure tardive invaliderait des procédures déjà engagées."
+        - texte: "Le meurtre d'un enfant est presque toujours constaté tout de suite : supprimer son délai n'apporte rien et fragilise la mesure."
+        - texte: "Changer aussi profondément le droit pénal par un simple amendement, sans étude d'impact ni avis du Conseil d'État, ce n'est pas comme ça qu'on fait la loi."
+  - id: C
+    libelle: Aucun délai pour les seuls viols sur enfants
+    implique: "Les viols commis sur des mineurs peuvent être poursuivis sans limite de temps, comme l'a voté le Sénat en octobre 2026. Les autres crimes et les agressions sexuelles sur mineurs gardent leurs délais."
+    defenseurs: "Le délai qui tombe est une violence de plus pour les victimes de viol, qui parlent souvent très tard ; viser ces seuls crimes est la voie la plus sûre devant le juge constitutionnel."
+    critiques: "Le viol d'un enfant deviendrait imprescriptible mais pas son meurtre, et les preuves s'effacent toujours avec les années."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage du coût n'a été trouvé. C'est la version votée par le Sénat le 28 octobre 2026."
+        source: { organisme: "Sénat", document: "scrutin public n° 43", annee: 2026 }
+      defenseurs:
+        - texte: "Les victimes parlent souvent très tard : parmi les témoignages reçus par la Ciivise, 13 ans en moyenne après la fin des violences, à 44 ans en moyenne."
+          source: { organisme: "Ciivise", document: "citée par l'Assemblée nationale", annee: 2023 }
+        - texte: "Le délai qui tombe est une violence supplémentaire pour les victimes de viol, qui ne choisissent pas le moment où elles peuvent parler."
+        - texte: "Le meurtre d'un enfant est presque toujours constaté tout de suite : c'est pour les viols, révélés des années après, que le délai pose problème."
+      critiques:
+        - texte: "Hiérarchiser les crimes est incohérent : le viol d'un enfant deviendrait imprescriptible, mais pas son meurtre ni sa torture."
+        - texte: "Les agressions sexuelles sur enfants resteraient soumises à un délai : c'est hiérarchiser la souffrance des victimes."
+        - texte: "Les preuves s'effacent avec les années : juger des faits vieux de quarante ans fait grandir le risque d'erreur judiciaire."
+  - id: D
+    libelle: "Garder le délai de 30 ans, renforcer les moyens d'enquête"
+    implique: "Un viol sur mineur reste poursuivable jusqu'aux 48 ans de la victime, plus longtemps si l'auteur fait une nouvelle victime mineure avant la fin du délai. L'effort porte sur les moyens d'enquête et de jugement."
+    defenseurs: "Le délai français est déjà parmi les plus longs : c'est le manque de preuves et de moyens, pas le délai, qui empêche de juger."
+    critiques: "Un délai, même long, tombe encore sur les victimes qui parlent le plus tard, et les prive de tout procès."
+    detail:
+      chiffrage:
+        texte: "Avec la règle actuelle, un viol subi enfant peut être poursuivi jusqu'aux 48 ans de la victime ; ce délai de 30 ans, voté en 2018, ne sera pleinement effectif qu'à partir de 2028."
+        source: { organisme: "Assemblée nationale", document: "rapport d'information n° 2685", annee: 2026 }
+      defenseurs:
+        - texte: "La prescription ne joue que dans une petite part des classements, 477 viols sur 28 000 en 2023-2024 ; des faits vieux de quarante ans, sans trace ni témoin fiable, se jugent mal et font grandir le risque d'erreur judiciaire."
+          source: { organisme: "Ministère de la Justice", document: "cité par l'Assemblée nationale", annee: 2024 }
+        - texte: "Promettre l'imprescriptibilité ne coûte rien et masque le vrai manque : sans enquêteurs, sans juges et sans accompagnement des victimes, les plaintes restent classées faute de preuves."
+        - texte: "L'imprescriptibilité doit rester réservée aux crimes contre l'humanité, qui visent la société tout entière : l'étendre bouleverserait cet équilibre."
+      critiques:
+        - texte: "Un délai, même long, laisse un couperet qui tombe sur les victimes les plus tardives : dans l'affaire Le Scouarnec, des victimes prescrites n'ont pu être que témoins."
+        - texte: "Des souvenirs traumatiques peuvent revenir après des décennies : avec un délai, ces victimes restent sans procès possible."
+        - texte: "Plusieurs voisins ont supprimé le délai, comme la Belgique en 2019 : la France est à la traîne."
+pourAllerPlusLoin:
+  - titre: "Assemblée nationale, Délégation aux droits des enfants, rapport d'information n° 2685 sur l'imprescriptibilité des violences commises sur des mineurs, 2026"
+    url: https://www.assemblee-nationale.fr/dyn/17/rapports/dde/l17b2685_rapport-information.pdf
+  - titre: "Sénat, projet de loi relatif à la protection des enfants, dossier législatif, 2026"
+    url: https://www.senat.fr/dossier-legislatif/pjl25-911.html
+  - titre: "Ciivise, Violences sexuelles faites aux enfants : on vous croit, rapport, 2023"
+    url: https://www.ciivise.fr/wp-content/uploads/2023/11/VERSION-DEF-SUR-LE-SITE-1611.pdf
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour supprimer le délai"
+    argument: "La victime parle quand elle le peut : aucun délai ne doit plus tomber comme un couperet."
+  - titre: "Pour garder un délai"
+    argument: "C'est le manque de preuves et de moyens, pas le délai, qui empêche de juger."
+# Les deux choix de l'autocollant « Et toi ? » de la story.
+story:
+  - choix: "Aucune limite de temps"
+    precision: "pour tout ou partie de ces crimes"
+  - choix: "Garder un délai"
+    precision: "30 ans après la majorité"
+# Positions sourcées seulement (étude, § 4) : 3 officielles, 4 déduites, 4 estimées (Le Pen et Roussel ramenés à « estimée »
+# après relecture : leurs sénateurs ont voté autrement que leurs députés).
+# Inconnus : Zemmour (aucune déclaration ; piste : vote de sa députée européenne le 17/06/2025 sur tout un texte, que RN
+# et LFI ont aussi approuvé), Arthaud (aucune déclaration sur la prescription).
+# Points fragiles (étude § 4) : RN et communistes contre à l'Assemblée (version large), pour au Sénat (version « viols »).
+positions:
+  # Groupe RN, AN : scrutin n° 8308 (23 contre, 1 abstention) et compte rendu du 16/07/2026 (Sophie Blanc) : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026E1N016
+  # Les sénateurs RN ont voté pour la version « viols » le 28/10/2026 (scrutin n° 43) : position à confirmer.
+  le-pen: { option: D, source: "Groupe RN, Assemblée nationale : scrutin n° 8308 (23 contre, 1 abstention) et compte rendu du 16/07/2026 (Sophie Blanc, oratrice du groupe) ; les sénateurs RN ont en revanche voté pour la version « viols » le 28/10/2026 (Sénat, scrutin n° 43)", statut: estimee, citation: "nous ne pensons pas que l'imprescriptibilité constitue la bonne réponse", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026E1N016" }
+  # Groupe LFI, AN : scrutin n° 8308 (22 contre), 16/07/2026 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8308
+  # Commission des lois, rapport n° 845, 22/01/2025 (Danièle Obono) : https://www.assemblee-nationale.fr/dyn/opendata/RAPPANR5L17B0845.html
+  melenchon: { option: D, source: "Groupe LFI, Assemblée nationale : scrutin n° 8308 (22 contre), 16/07/2026 ; commission des lois, rapport n° 845, 22/01/2025 (Danièle Obono)", statut: deduite, citation: "nous sommes opposés au fait d'augmenter le nombre d'infractions imprescriptibles", lien: "https://www.assemblee-nationale.fr/dyn/opendata/RAPPANR5L17B0845.html" }
+  # Groupe Horizons, AN : scrutin n° 8308 (9 pour) et compte rendu du 16/07/2026 (Charlotte Parmentier-Lecocq) : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026E1N016
+  philippe: { option: B, source: "Groupe Horizons, Assemblée nationale : scrutin n° 8308 (9 pour) et compte rendu du 16/07/2026 (Charlotte Parmentier-Lecocq)", statut: deduite, citation: "les députés Horizons voteront pour ces amendements", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026E1N016" }
+  # Groupe socialiste (où siègent les députés de Place publique), AN : scrutin n° 8308 (21 pour) et compte rendu du 16/07/2026 (Florence Herouin-Léautey) : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026E1N016
+  glucksmann: { option: B, source: "Groupe socialiste, où siègent les députés de Place publique, Assemblée nationale : scrutin n° 8308 (21 pour) et compte rendu du 16/07/2026 (Florence Herouin-Léautey)", statut: deduite, citation: "nous ne pouvons pas fuir ce débat", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026E1N016" }
+  # Vote nominatif du candidat, Sénat, scrutin n° 43, 28/10/2026 : https://www.senat.fr/scrutin-public/2026/scr2026-43.html
+  # L'étude le classe « officielle » (son vote personnel) ; l'auteur peut le ramener à « déduite ».
+  retailleau: { option: C, source: "Sénat, scrutin public n° 43, 28/10/2026 : vote personnel pour le rétablissement de l'imprescriptibilité des viols sur mineurs", statut: officielle, lien: "https://www.senat.fr/scrutin-public/2026/scr2026-43.html" }
+  # Alexandra Martin, députée Droite républicaine et secrétaire générale de Nouvelle Énergie, corapporteure et coautrice de la PPL n° 2677, 14/04/2026, vote pour le 16/07/2026 : https://www.assemblee-nationale.fr/dyn/17/textes/l17b2677_proposition-loi.pdf
+  lisnard: { option: B, source: "Proposition de loi n° 2677 « visant à rendre imprescriptibles les crimes sur les mineurs », 14/04/2026, coécrite par Alexandra Martin, députée Droite républicaine et secrétaire générale de Nouvelle Énergie, qui a voté pour le 16/07/2026 (scrutin n° 8308)", statut: estimee, lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b2677_proposition-loi.pdf" }
+  # Groupe EPR, AN : scrutin n° 8308 (24 pour, 1 contre), 16/07/2026 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8308
+  # Entretien au Figaro, juin 2026, rapporté par Europe 1 (page non ouverte, phrase lue dans un extrait de recherche, à relire) : https://www.europe1.fr/node/952973
+  # L'iFRAP écrit « crimes sexuels sur mineurs », ce qui le placerait en C : à vérifier dans l'entretien.
+  # Citation retirée après relecture : lue dans un extrait de recherche, sur une page non ouverte.
+  attal: { option: B, source: "Groupe EPR, Assemblée nationale : scrutin n° 8308 (24 pour, 1 contre), 16/07/2026", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/8308" }
+  # La Libre Belgique (AFP), Bruxelles, 15/06/2026 : https://www.lalibre.be/international/europe/elections-france/2026/06/15/quest-ce-quon-attend-pour-faire-pareil-en-france-marine-tondelier-loue-le-modele-belge-dans-laccueil-de-victimes-de-violences-sexuelles-ZJYIACVQBNF4PLINFSTYXIQLUA/
+  # « Crimes sexuels » sans autre précision : C, ou B si elle y inclut les autres crimes.
+  tondelier: { option: C, source: "La Libre Belgique (AFP), Bruxelles, 15/06/2026", statut: officielle, citation: "Je suis pour l'imprescriptibilité pour les crimes sexuels sur les enfants", lien: "https://www.lalibre.be/international/europe/elections-france/2026/06/15/quest-ce-quon-attend-pour-faire-pareil-en-france-marine-tondelier-loue-le-modele-belge-dans-laccueil-de-victimes-de-violences-sexuelles-ZJYIACVQBNF4PLINFSTYXIQLUA/" }
+  # Députés communistes du groupe GDR, AN : scrutin n° 8308 (3 contre, 1 abstention) et compte rendu du 16/07/2026 (Yannick Monnet, PCF, qui conteste la méthode) : https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026E1N016
+  # Fragile : les 18 sénateurs communistes ont voté pour la version « viols » le 28/10/2026 (scrutin n° 43).
+  roussel: { option: D, source: "Groupe GDR, Assemblée nationale : scrutin n° 8308 (3 contre, 1 abstention) et compte rendu du 16/07/2026 (Yannick Monnet, PCF) ; les 18 sénateurs communistes ont en revanche voté pour la version « viols » le 28/10/2026 (Sénat, scrutin n° 43)", statut: estimee, citation: "Je serais plutôt favorable intuitivement […] Je voterai contre ces amendements", lien: "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/CRSANR5L17S2026E1N016" }
+  # Debout la France, projet « Justice », 2026 (mesure générale sur la prescription, pas propre aux mineurs) : https://www.debout-la-france.fr/projet/justice/
+  dupont-aignan: { option: D, source: "Debout la France, projet « Justice », 2026", statut: estimee, citation: "Porter à 30 ans la prescription de l'action publique et des peines pour les crimes, et à 10 ans pour les délits", lien: "https://www.debout-la-france.fr/projet/justice/" }
+  # Cosignataire de la proposition de loi n° 2677, 14/04/2026 (n'a pas pris part au vote du 16/07/2026) : https://www.assemblee-nationale.fr/dyn/17/textes/l17b2677_proposition-loi.pdf
+  ruffin: { option: B, source: "Cosignataire de la proposition de loi n° 2677, 14/04/2026", statut: officielle, citation: "visant à rendre imprescriptibles les crimes sur les mineurs", lien: "https://www.assemblee-nationale.fr/dyn/17/textes/l17b2677_proposition-loi.pdf" }
