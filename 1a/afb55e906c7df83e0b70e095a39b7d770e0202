@@ -1,0 +1,90 @@
+content/questions/073-indexation-salaires.yaml
+  s_eefd24e14ae76a::t_5e64897f734054 20,31,56,73
+  s_eefd24e14ae76a::t_c1a62850449731 16,42,51-52,54,78,87,106,125,143
+  s_eefd24e14ae76a::t_b08386454a6337 1-10,13-15,17-19,21-30,32-41,43-50,53,55,57-72,74-77,79-86,88-105,107-124,126-142,144-149
+  s_eefd24e14ae76a::t_d95cb099e95c6f 11-12
+docs/etudes/067-imprescriptibilite.md
+  s_eefd24e14ae76a::t_bf96320d85e3e1 1
+  s_eefd24e14ae76a::t_6c66d86def658e 32,364
+  s_eefd24e14ae76a::t_2a94eb1777a352 47,57,297,308,322,351-361,393-395
+content/questions/067-imprescriptibilite.yaml
+  s_eefd24e14ae76a::t_2f17fc30aa4d39 12-14,18,72,75,85,90,99,102,111,113,118,138-139,146,149,157-158,162-163,169
+  s_eefd24e14ae76a::t_c0a4cc3ff5ab31 104
+  s_eefd24e14ae76a::t_95b41729a8e851 1-11,15-17,19-71,73-74,76-84,86-89,91-98,100-101,103,105-110,112,114-117,119-137,140-145,147-148,150-156,159-161,164-168,170-173
+content/questions/070-achats-publics.yaml
+  s_eefd24e14ae76a::t_d663383c5c918f 54-57
+  s_eefd24e14ae76a::t_4f60f2f958079b 162-165
+  s_eefd24e14ae76a::t_f6eaa6a2d5fe94 102
+  s_eefd24e14ae76a::t_5cb91675b08ea1 22-23,25-28
+  s_eefd24e14ae76a::t_031a7f972f13eb 21,110
+  s_eefd24e14ae76a::t_91cf5f953b8726 208-210
+  s_eefd24e14ae76a::t_69452dcdd20916 178
+  s_eefd24e14ae76a::t_b2e283de945a2f 1-20,29-53,58-101,103-109,111-161,166-171,174,176-177,179-207
+  s_eefd24e14ae76a::t_c902dc31e1c182 24
+  s_eefd24e14ae76a::t_fcc22539c56756 172-173,175
+content/questions/068-allocations-familiales.yaml
+  s_eefd24e14ae76a::t_50dcce664289f6 1-20,22,24-27,29-41,44,46-57,59-61,65-67,69-82,85-90,93,95,98-108,112-113,115-120,122-134,138-141,145-147,149-198,200-218,221-222,225-226,228-229,233,236-238
+  s_eefd24e14ae76a::t_e7dafe98a71468 21,23,43,45,58,62-64,83-84,91-92,97,109-111,114,135-137,142-144,199,219-220,223-224,227,230-232,234-235
+  s_eefd24e14ae76a::t_1605e0d09d8867 28,42,68,94,96,121,148
+docs/etudes/071-bareme-prudhommes.md
+  s_eefd24e14ae76a::t_8e961d07847fc7 95-96
+  s_eefd24e14ae76a::t_ac53db026480f3 307
+  s_eefd24e14ae76a::t_8047254758dc6f 262,264
+  s_eefd24e14ae76a::t_73080183251e1e 93
+  s_eefd24e14ae76a::t_5f6624294feb24 311
+  s_eefd24e14ae76a::t_b758bd6411abc1 381,427-441
+  s_eefd24e14ae76a::t_9839b217e77df3 297
+  s_eefd24e14ae76a::t_e22636dd6d4edf 331-332
+  s_eefd24e14ae76a::t_5f5b55341306c0 335-336,339-340,342-375
+content/questions/072-rsa-jeunes.yaml
+  s_eefd24e14ae76a::t_a3244d3ada0c15 49,62,88
+  s_eefd24e14ae76a::t_b5317e20a957b8 1-48,50-61,63-66,68-81,83-87,89-105,108-109,111-112,118-133,135-160,162-164,168-178
+  s_eefd24e14ae76a::t_1efd0e154e0100 67,82,106-107,110,113-117,134,161,167,180
+  s_eefd24e14ae76a::t_7cdbf47f8c5ca2 165-166,179
+content/questions/071-bareme-prudhommes.yaml
+  s_eefd24e14ae76a::t_6781a0b31bbeb2 38
+  s_eefd24e14ae76a::t_ddfced6fa436c4 80-82,84-85
+  s_eefd24e14ae76a::t_a60dfe15df8233 29
+  s_eefd24e14ae76a::t_79c6e4d68db890 68
+  s_eefd24e14ae76a::t_acc0d916deefc4 1-19,21-23,25-28,30-32,34-37,39-47,49-64,66-67,69-79,83,86-102,104-108,110-127,129-148,152-173
+  s_eefd24e14ae76a::t_454e4e1b61a6e3 33,103,109
+  s_eefd24e14ae76a::t_e155cb68f84794 149-151
+  s_eefd24e14ae76a::t_70e277def76ec4 128
+  s_eefd24e14ae76a::t_fe853427130911 48
+  s_eefd24e14ae76a::t_54f525fddc3fcb 20,24
+  s_eefd24e14ae76a::t_74861f4c66a598 65
+docs/etudes/068-allocations-familiales.md
+  s_eefd24e14ae76a::t_1d4442415fcbe4 340,351
+  s_eefd24e14ae76a::t_21124190555137 356
+docs/etudes/073-indexation-salaires.md
+  s_eefd24e14ae76a::t_590ac6e6e5172c 362
+  s_eefd24e14ae76a::t_16501c62bc8b8b 372
+  s_eefd24e14ae76a::t_5fb3646c128b9e 373-376
+  s_eefd24e14ae76a::t_41b4cbde1c33e2 355
+  s_eefd24e14ae76a::t_95779b18b2ff9c 356
+  s_eefd24e14ae76a::t_dfc1589792cab2 358
+  s_eefd24e14ae76a::t_bf96320d85e3e1 1
+  s_eefd24e14ae76a::t_20cf8c02cb9fcc 364
+  s_eefd24e14ae76a::t_0967ae80260979 357
+  s_eefd24e14ae76a::t_b40dceefae0b42 366,369
+  s_eefd24e14ae76a::t_f5dccf31cf8794 345-348
+  s_eefd24e14ae76a::t_1ece82fc9c0e58 370-371
+  s_eefd24e14ae76a::t_c8d96b0c3da4c9 354
+  s_eefd24e14ae76a::t_d443070ceab5c2 359
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1aafb55e906c7df83e0b70e095a39b7d770e0202",
+  "prompts": {},
+  "sessions": {
+    "s_eefd24e14ae76a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0d7e65f6-06fd-4902-95da-933a5af28615",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
