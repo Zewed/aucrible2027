@@ -23,16 +23,16 @@ chiffres:
   # § 2b, [8].
   - valeur: "259 400"
     unite: IVG
-    legende: "ont été pratiquées en France en 2025, soit 17,8 pour 1 000 femmes de 15 à 49 ans"
+    legende: "ont été pratiquées en France en 2025"
     source: { organisme: "Drees", document: "Études et résultats n° 1384", annee: 2026 }
   # § 1.1 et 2a, [5].
   - valeur: "3"
     unite: actes
-    legende: "ont une clause de conscience propre dans le droit français : l'IVG, la stérilisation à visée contraceptive et la recherche sur l'embryon"
+    legende: "ont leur propre clause de conscience dans la loi, dont l'IVG"
     source: { organisme: "Assemblée nationale", document: "rapport d'information n° 3343", annee: 2020 }
   # § 2b, [8] : l'accès selon le territoire ; aucun chiffre ne dit combien de refus viennent de la clause.
   - valeur: "83 %"
-    legende: "des femmes de métropole ont avorté dans leur département en 2025, de 55 % dans l'Ain à 96 % dans les Alpes-Maritimes"
+    legende: "des femmes de métropole ont avorté dans leur propre département, en 2025"
     source: { organisme: "Drees", document: "Études et résultats n° 1384", annee: 2026 }
 # L'ordre est une échelle : de la protection la plus forte de la clause (A) à sa suppression avec un délai plus long (D).
 options:

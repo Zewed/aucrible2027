@@ -14,17 +14,17 @@ contexte:
 chiffres:
   - valeur: "1 867"
     unite: euros bruts
-    legende: "par mois : le SMIC depuis le 1er juin 2026, soit environ 1 478 euros nets"
+    legende: "par mois : le SMIC en 2026, soit environ 1 478 euros nets"
     source: { organisme: Service-Public, document: arrêté du 22 mai 2026, annee: 2026 }
   - valeur: 12 %
-    legende: des salariés étaient payés au SMIC début 2021
+    legende: "des salariés étaient payés au SMIC en 2021"
     source: { organisme: La finance pour tous, annee: 2021 }
   - valeur: "19"
     unite: milliards d'euros
-    legende: "par an : coût estimé en 2024 d'un SMIC à 1 600 euros nets pour les finances publiques"
+    legende: "par an : le coût estimé d'un SMIC à 1 600 euros nets pour les finances publiques"
     source: { organisme: Institut Montaigne, annee: 2024 }
   - valeur: "plus de 60 %"
-    legende: "du salaire brut médian : le niveau du salaire minimum français, dans le groupe le plus élevé de l'Union européenne"
+    legende: "du salaire brut médian : le niveau du SMIC, parmi les plus hauts de l'Union européenne"
     source: { organisme: Eurostat, annee: 2024 }
 options:
   - id: A

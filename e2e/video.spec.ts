@@ -44,7 +44,7 @@ test("je corrige dans la fiche « 1,7 » en « 1,6 » et je régénère : l'imag
   const dossier = "e2e/fiches/video-corrigee";
   mkdirSync(dossier, { recursive: true });
   try {
-    writeFileSync(`${dossier}/024.yaml`, readFileSync("content/questions/024-retraite.yaml", "utf8").replace('valeur: "1,7"', 'valeur: "1,6"'));
+    writeFileSync(`${dossier}/024.yaml`, readFileSync("e2e/fiches/contenu/024-retraite.yaml", "utf8").replace('valeur: "1,7"', 'valeur: "1,6"'));
     const image = async (seconde: number, jeu?: string) => {
       const sortie = testInfo.outputPath(`${jeu ?? "fiche"}-${seconde}s.png`);
       await pnpmVideo("--jour", "2026-10-23", "--image", String(seconde), "--sortie", sortie, ...(jeu ? ["--jeu", jeu] : []));

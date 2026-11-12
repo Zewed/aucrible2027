@@ -13,16 +13,16 @@ contexte:
   - "Ces locations offrent un revenu aux propriétaires et un hébergement aux touristes, mais peuvent concurrencer le logement des habitants là où il manque."
 chiffres:
   - valeur: "213 millions"
-    legende: "de nuitées réservées via les plateformes chez des particuliers (472 millions en hébergements collectifs)"
+    legende: "de nuitées réservées en 2025 chez des particuliers via les plateformes"
     source: { organisme: Insee, annee: 2025 }
   - valeur: "48 000"
-    legende: "logements entiers disponibles sur Airbnb à Paris en octobre 2025"
+    legende: "logements entiers proposés sur Airbnb à Paris en 2025"
     source: { organisme: Apur, document: note n° 281, annee: 2025 }
   - valeur: 41 %
-    legende: "des logements entiers sur Airbnb à Paris proposés par un loueur à plusieurs annonces"
+    legende: "des logements entiers d'Airbnb à Paris viennent d'un loueur à plusieurs annonces"
     source: { organisme: Apur, document: note n° 281, annee: 2026 }
   - valeur: 30 %
-    legende: "d'abattement fiscal pour un meublé non classé, au lieu de 50 % (plafond 15 000 €)"
+    legende: "d'abattement fiscal pour un meublé non classé depuis 2025, contre 50 % avant"
     source: { organisme: Ministère du Logement, document: guide pratique, annee: 2025 }
 options:
   - id: A

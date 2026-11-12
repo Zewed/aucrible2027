@@ -19,14 +19,14 @@ contexte:
 chiffres:
   - valeur: "25"
     unite: révisions
-    legende: "de la Constitution de 1958, la dernière en 2024 pour la liberté de recourir à l'avortement"
+    legende: "de la Constitution de 1958, la dernière en 2024 sur l'avortement"
     source: { organisme: Assemblée nationale, document: "fiche de synthèse n° 55, La révision de la Constitution", annee: 2024 }
   - valeur: "23"
     unite: fois
-    legende: "le 49.3 a été utilisé de 2022 à 2024, sans majorité absolue, contre une fois de 2017 à 2022"
+    legende: "le 49.3 a été utilisé de 2022 à 2024, sans majorité absolue à l'Assemblée"
     source: { organisme: Assemblée nationale, document: "fiche de synthèse n° 64, La mise en cause de la responsabilité du Gouvernement", annee: 2024 }
   - valeur: "58 %"
-    legende: "des Français estiment qu'il faudrait changer de Constitution et de régime politique, 32 % non (sondage en ligne auprès de 3 166 inscrits)"
+    legende: "des Français estiment en 2026 qu'il faut changer de Constitution et de régime"
     source: { organisme: "CEVIPOF, OpinionWay", document: "Baromètre de la confiance politique, vague 17", annee: 2026 }
 options:
   - id: A

@@ -25,18 +25,18 @@ contexte:
 chiffres:
   - valeur: "12 000"
     unite: demandes de PMA
-    legende: "au moins, de couples de femmes et de femmes seules en 2025, pour une PMA avec un don de spermatozoïdes : 3 % de plus qu'en 2024"
+    legende: "au moins, faites par des couples de femmes ou des femmes seules en 2025"
     source: { organisme: "Agence de la biomédecine", document: "chiffres d'activité 2025", annee: 2026 }
   - valeur: "17,7"
     unite: mois
-    legende: "d'attente en moyenne en 2025 pour une PMA avec un don de spermatozoïdes, de 8 à 28 mois selon les centres, contre 5 à 6 mois pour une PMA sans donneur"
+    legende: "d'attente en moyenne en 2025 pour une PMA avec un don de spermatozoïdes"
     source: { organisme: "Agence de la biomédecine", document: "chiffres d'activité 2025", annee: 2026 }
   - valeur: "1 100"
     unite: enfants
-    legende: "environ, nés depuis la loi et jusqu'à la fin de 2023 d'une PMA faite par un couple de femmes ou une femme seule"
+    legende: "environ sont nés de 2021 à 2023 d'une PMA d'un couple de femmes ou d'une femme seule"
     source: { organisme: "Agence de la biomédecine", document: "communiqué du 2 juillet 2024", annee: 2024 }
   - valeur: "−34 %"
-    legende: "de demandes de première consultation pour un don de spermatozoïdes chez les couples formés d'un homme et d'une femme, de 2019 à 2025 ; la cause n'en est pas établie"
+    legende: "de premières demandes de don de spermatozoïdes par des couples formés d'un homme et d'une femme, de 2019 à 2025"
     source: { organisme: "Agence de la biomédecine", document: "chiffres d'activité 2025", annee: 2026 }
 # L'ordre est une échelle : du retour à la règle d'avant 2021 (A) à l'élargissement le plus large (E) ; le statu quo
 # est au milieu (étude § 4).

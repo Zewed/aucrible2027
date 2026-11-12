@@ -21,18 +21,18 @@ contexte:
   - "Le projet de loi présenté le 10 septembre 2026 pour appliquer la directive européenne sur l'égalité des salaires n'a pas encore été examiné : le débat porte sur la dureté des sanctions et sur les entreprises visées, dès 50 ou dès 100 salariés."
 chiffres:
   - valeur: "14 %"
-    legende: "d'écart de salaire entre femmes et hommes à temps de travail égal, tous métiers et postes confondus, dans le secteur privé, en 2024"
+    legende: "d'écart de salaire entre femmes et hommes du privé à temps égal, tous postes confondus, en 2024"
     source: { organisme: Insee, document: "Insee Focus n° 377", annee: 2026 }
   - valeur: "3,6 %"
-    legende: "d'écart entre femmes et hommes qui occupent le même emploi dans le même établissement, en 2024, mesuré dans un quart des établissements"
+    legende: "d'écart de salaire entre femmes et hommes au même emploi, dans le même établissement, en 2024"
     source: { organisme: Insee, document: "Insee Focus n° 377", annee: 2026 }
   - valeur: "101"
     unite: pénalités
-    legende: "financières prononcées sur l'index de l'égalité de 2019 à mars 2025, pour 1 001 mises en demeure, la plupart suivies d'une mise en conformité"
+    legende: "financières prononcées pour l'index de l'égalité de 2019 à 2025, sur 1 001 mises en demeure"
     source: { organisme: "Ministère du Travail", annee: 2025 }
   - valeur: "88,5"
     unite: sur 100
-    legende: "note moyenne des entreprises à l'index de l'égalité en 2026, contre 84 en 2020"
+    legende: "est la note moyenne des entreprises à l'index de l'égalité en 2026"
     source: { organisme: "Ministère du Travail", document: "repris par la DREETS Nouvelle-Aquitaine", annee: 2026 }
 options:
   - id: A

@@ -15,14 +15,14 @@ contexte:
 chiffres:
   - valeur: "1 800"
     unite: foyers
-    legende: "environ possèdent plus de 100 millions d'euros, selon l'estimation de Gabriel Zucman, que l'administration fiscale n'a pas pu retracer"
+    legende: "environ possèdent plus de 100 millions d'euros, selon une estimation de Gabriel Zucman"
     source: { organisme: Sénat, document: "rapport n° 689", annee: 2025 }
   - valeur: "26 %"
-    legende: "de leur revenu : ce que paient en impôts les 75 foyers les plus riches, contre 46 % pour le 0,1 % le plus aisé, selon une estimation sur 2016 dont le Sénat juge la méthode contestable"
+    legende: "de leur revenu payés en impôts par les 75 foyers les plus riches, contre 46 % pour le 0,1 % le plus aisé, selon une estimation contestée"
     source: { organisme: Institut des politiques publiques, document: "note n° 92", annee: 2023 }
   - valeur: "5 à 20"
     unite: milliards d'euros
-    legende: "par an : ce que rapporterait la taxe selon les estimations, environ 20 pour Gabriel Zucman, environ 5 pour d'autres économistes"
+    legende: "par an : ce que rapporterait la taxe, 20 selon Gabriel Zucman, 5 selon d'autres"
     source: { organisme: OFCE, document: "document de travail n° 2026-6", annee: 2026 }
 options:
   - id: A

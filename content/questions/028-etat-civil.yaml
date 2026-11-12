@@ -15,14 +15,14 @@ contexte:
 chiffres:
   - valeur: "2 883"
     unite: demandes
-    legende: "de changement de la mention du sexe en 2024, contre 426 en 2018"
+    legende: "de changement de la mention du sexe à l'état civil en 2024"
     source: { organisme: "Ministère de la Justice", document: "rapport d'évaluation de la loi de 2016", annee: 2025 }
   - valeur: "99,1 %"
-    legende: "des demandes acceptées par le juge de 2018 à 2024 : 81 refus en sept ans"
+    legende: "des demandes ont été acceptées par le juge entre 2018 et 2024"
     source: { organisme: "Ministère de la Justice", document: "rapport d'évaluation de la loi de 2016", annee: 2025 }
   - valeur: "4,9"
     unite: mois
-    legende: "de procédure en moyenne, entre la demande et la décision du juge"
+    legende: "en moyenne entre la demande et la décision du juge"
     source: { organisme: "Ministère de la Justice", document: "rapport d'évaluation de la loi de 2016", annee: 2025 }
 options:
   - id: A

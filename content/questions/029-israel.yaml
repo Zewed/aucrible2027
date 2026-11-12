@@ -16,14 +16,14 @@ contexte:
 chiffres:
   - valeur: "19,8"
     unite: millions d'euros
-    legende: "de matériel militaire livré par la France à Israël en 2025 : des composants, selon le gouvernement"
+    legende: "de matériel militaire livré à Israël en 2025 : des composants, selon le gouvernement"
     source: { organisme: Ministère des Armées, document: rapport au Parlement sur les exportations d'armement, annee: 2026 }
   - valeur: 31,7 %
-    legende: "du commerce de biens d'Israël se fait avec l'Union européenne, son premier partenaire"
+    legende: "du commerce de biens d'Israël se fait avec l'Union européenne"
     source: { organisme: Commission européenne, document: relations commerciales UE-Israël, annee: 2025 }
   - valeur: "27 941"
     unite: logements
-    legende: "de colonies en Cisjordanie ont avancé en 2025 dans les procédures d'urbanisme : plus du double du précédent record"
+    legende: "de colonies en Cisjordanie ont avancé dans les procédures d'urbanisme en 2025"
     source: { organisme: Union européenne, document: rapport 2025 sur les colonies, annee: 2026 }
 options:
   - id: A

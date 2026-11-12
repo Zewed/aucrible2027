@@ -13,14 +13,14 @@ contexte:
   - "Le préfet peut aussi réquisitionner certains logements vides, surtout ceux de sociétés, pour y loger des personnes contre un loyer versé au propriétaire ; il ne l'a presque plus fait depuis 2001."
 chiffres:
   - valeur: "2,9 millions"
-    legende: "de logements vides au 1er janvier 2026, soit 7,6 % des logements, contre 1,9 million (7,9 %) en 1982"
+    legende: "de logements vides en 2026, soit 7,6 % des logements"
     source: { organisme: Insee, document: Insee Focus n° 388, annee: 2026 }
   - valeur: "1,1 million"
-    legende: "de logements privés vides depuis plus de deux ans, dont 118 000 dans les communes où le logement manque (données 2022)"
+    legende: "de logements privés vides depuis plus de deux ans, en 2022"
     source: { organisme: Cour des comptes, document: rapport sur la lutte contre les logements vacants, annee: 2025 }
   - valeur: "271"
     unite: millions d'euros
-    legende: "rapportés en 2023 par la taxe sur les logements vides des communes où le logement manque, contre 80 millions en 2014"
+    legende: "rapportés en 2023 par la taxe sur les logements vides, là où le logement manque"
     source: { organisme: Cour des comptes, document: rapport sur la lutte contre les logements vacants, annee: 2025 }
 options:
   - id: A

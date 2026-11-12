@@ -30,12 +30,12 @@ chiffres:
     source: { organisme: "Insee", document: "calcul du rapporteur, cité par l'Assemblée nationale", annee: 2024 }
   # § 2b, [3] : la modulation, chiffre de la direction de la sécurité sociale.
   - valeur: "11 %"
-    legende: "des familles qui touchent les allocations reçoivent un montant divisé par deux ou par quatre, parce que leurs revenus dépassent un plafond"
+    legende: "des familles allocataires n'en touchent que la moitié ou le quart, à cause de leurs revenus"
     source: { organisme: "Direction de la sécurité sociale", document: "citée par l'Assemblée nationale", annee: 2020 }
   # § 1.2, [3] : prévision de dépense.
   - valeur: "14"
     unite: milliards d'euros
-    legende: "versés en allocations familiales en 2025, selon la prévision"
+    legende: "d'allocations familiales prévus pour 2025"
     source: { organisme: "Commission des comptes de la sécurité sociale", document: "citée par l'Assemblée nationale", annee: 2025 }
 # Rangées du plus grand changement au statu quo (étude, § 4.1).
 options:

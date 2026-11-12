@@ -31,11 +31,11 @@ chiffres:
   # § 2a, [4].
   - valeur: "400"
     unite: milliards d'euros
-    legende: "par an environ : le poids estimé de tous les achats publics en France, soit 14 % du PIB"
+    legende: "par an environ : ce que pèsent tous les achats publics en France"
     source: { organisme: Cour des comptes européenne, document: "citée par le Sénat", annee: 2025 }
   # § 2a, [4].
   - valeur: "80 %"
-    legende: "des marchés publics recensés en 2023 sont passés par les collectivités locales, contre 8 % par l'État et 12 % par les entreprises publiques et les opérateurs de réseaux"
+    legende: "des marchés publics recensés en 2023 sont passés par les collectivités locales"
     source: { organisme: Observatoire économique de la commande publique, document: "cité par le Sénat", annee: 2025 }
 # L'ordre est une échelle, de la préférence la plus forte à l'absence de préférence (étude § 4) ; la règle actuelle est
 # D. La limite entre A et B : l'obligation (part réservée ou avantage de prix imposé) ou la simple faculté. Entre B et C :

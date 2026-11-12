@@ -13,13 +13,13 @@ contexte:
   - En 2025, la France a délivré 377 462 premiers titres de séjour, soit 9,8 % du total de l'Union européenne, et l'Ofpra a enregistré 145 210 demandes de protection internationale.
 chiffres:
   - valeur: "377 462"
-    legende: premiers titres de séjour délivrés en France en 2025, soit 9,8 % du total de l'Union européenne
+    legende: "premiers titres de séjour délivrés par la France en 2025"
     source: { organisme: Eurostat, document: premiers titres de séjour, annee: 2025 }
   - valeur: "145 210"
-    legende: demandes de protection internationale enregistrées par l'Ofpra en 2025
+    legende: "demandes de protection internationale reçues par l'Ofpra en 2025"
     source: { organisme: Ofpra, document: rapport d'activité 2025, annee: 2025 }
   - valeur: 33,6 %
-    legende: "des premiers titres délivrés dans l'Union en 2025 le sont pour un emploi, 28,1 % pour la famille et 15,5 % pour les études"
+    legende: "des premiers titres de séjour délivrés dans l'Union en 2025 le sont pour un emploi"
     source: { organisme: Eurostat, document: premiers titres de séjour, annee: 2025 }
 options:
   - id: A

@@ -14,18 +14,18 @@ contexte:
 chiffres:
   - valeur: "140"
     unite: euros
-    legende: "par an : le plafond cumulé des franchises et des participations forfaitaires depuis le 1er octobre 2026, contre 100 auparavant"
+    legende: "par an au maximum de franchises et participations à payer depuis octobre 2026, contre 100 avant"
     source: { organisme: Journal officiel, document: décret n° 2026-858, annee: 2026 }
   - valeur: 9,7 %
-    legende: de la dépense de santé reste à la charge des ménages en France, contre 14,8 % en moyenne dans l'Union européenne
+    legende: "des dépenses de santé restent à la charge des ménages en France, contre 14,8 % dans l'Union"
     source: { organisme: DREES, document: comptes de la santé, annee: 2025 }
   - valeur: "2,5"
     unite: milliards d'euros
-    legende: "de dépenses en moins pour les régimes de base grâce aux franchises et participations en 2025"
+    legende: "économisés par l'Assurance maladie avec les franchises et participations en 2025"
     source: { organisme: Cour des comptes, document: cité par Caducée, annee: 2025 }
   - valeur: "750"
     unite: millions d'euros
-    legende: "par an : ce que rapporterait le doublement des plafonds annoncé en juillet 2026, selon le gouvernement"
+    legende: "par an : ce qu'aurait rapporté le doublement des plafonds, annoncé puis abandonné en 2026"
     source: { organisme: Gouvernement, document: cité par LCP et les Échos, annee: 2026 }
 options:
   - id: A

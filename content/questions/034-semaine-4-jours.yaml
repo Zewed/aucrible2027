@@ -15,14 +15,14 @@ contexte:
 chiffres:
   - valeur: "38,8"
     unite: heures
-    legende: "par semaine : la durée habituelle d'un salarié à temps plein en 2024, pour une durée légale de 35 heures"
+    legende: "par semaine : le temps de travail habituel d'un salarié à temps plein en 2024"
     source: { organisme: Insee, document: "Insee Références, Durée du travail", annee: 2025 }
   - valeur: "89 %"
-    legende: "des 150 accords d'entreprise sur la semaine de quatre jours signés en 2023 gardent le même nombre d'heures"
+    legende: "des accords de semaine de quatre jours signés en 2023 gardent le même nombre d'heures"
     source: { organisme: CEET, document: "cité par le rapport d'information de l'Assemblée nationale n° 460", annee: 2024 }
   - valeur: "350 000"
     unite: emplois
-    legende: "attribués au passage aux 35 heures entre 1998 et 2002, une estimation discutée"
+    legende: "attribués aux 35 heures de 1998 à 2002, selon une estimation discutée"
     source: { organisme: Insee, document: "Économie et Statistique n° 376-377", annee: 2005 }
 options:
   - id: A

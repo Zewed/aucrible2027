@@ -13,19 +13,19 @@ contexte:
   - "Le Canada, l'Uruguay, Malte, le Luxembourg et l'Allemagne ont légalisé tout ou partie de l'usage récréatif ; la France maintient l'interdiction."
 chiffres:
   - valeur: 10,8 %
-    legende: "des adultes de 18 à 64 ans ont consommé du cannabis dans l'année"
+    legende: "des 18-64 ans ont consommé du cannabis dans l'année, en 2023"
     source: { organisme: OFDT, document: enquête 2023, annee: 2023 }
-  - valeur: "124,7"
+  - valeur: "125"
     unite: "tonnes"
-    legende: "de cannabis saisies en France"
+    legende: "de cannabis saisies en France en 2023"
     source: { organisme: OFDT, annee: 2023 }
   - valeur: "568"
     unite: "millions d'euros"
-    legende: "de dépense publique pour lutter contre le cannabis (estimation)"
+    legende: "d'argent public dépensés contre le cannabis, selon une estimation"
     source: { organisme: Conseil d'analyse économique, document: note n° 52, annee: 2019 }
   - valeur: "2"
     unite: "milliards d'euros"
-    legende: "de recettes fiscales par an estimées en cas de légalisation (scénario de 500 tonnes)"
+    legende: "de recettes fiscales par an si le cannabis était légalisé, selon une estimation"
     source: { organisme: Conseil d'analyse économique, document: note n° 52, annee: 2019 }
 options:
   - id: A

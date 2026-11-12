@@ -13,11 +13,11 @@ contexte:
   - "Leur devis atteint 72,8 milliards d'euros aux prix de 2020 et EDF doit décider fin 2026 de les construire ; le stockage profond des déchets les plus radioactifs a reçu en août 2026 un avis favorable, avec réserves, de l'enquête publique et attend son autorisation."
 chiffres:
   - valeur: "68 %"
-    legende: "de l'électricité produite en France en 2025 vient du nucléaire ; en dix ans, cette part a varié entre 63 et 77 %"
+    legende: "de l'électricité produite en France vient du nucléaire, en 2025"
     source: { organisme: RTE, document: "Bilan électrique 2025", annee: 2025 }
   - valeur: "57"
     unite: réacteurs
-    legende: "en service fin 2025 ; les 32 plus anciens réacteurs ont démarré entre 1978 et 1987"
+    legende: "nucléaires en service en France en 2025, les plus anciens depuis 1978"
     source: { organisme: "Cour des comptes, ASNR", document: "La filière EPR ; réexamens périodiques", annee: 2025 }
 # Pas de note d'axe : ni « plus de redistribution / plus de marché » ni « progressiste / conservateur » ne range ces
 # options (la sortie comme la relance passent par l'État), et une note forcée ajouterait des blocs au plateau.

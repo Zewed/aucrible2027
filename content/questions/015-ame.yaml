@@ -13,19 +13,19 @@ contexte:
   - "Les demandeurs d'asile n'y ont pas droit, et les personnes non éligibles peuvent recevoir des soins urgents à l'hôpital, financés par un dispositif distinct."
 chiffres:
   - valeur: "465 208"
-    legende: "bénéficiaires de l'AME de droit commun fin 2024"
+    legende: "bénéficiaires de l'aide médicale de l'État fin 2024"
     source: { organisme: Sénat, document: "Rapport sur le projet de loi de finances 2026, Santé", annee: 2025 }
   - valeur: "1,3"
     unite: "milliard d'euros"
-    legende: "de dépenses d'AME de droit commun en 2025 (estimation), hors 129 millions d'euros de soins urgents"
+    legende: "dépensés pour l'AME en 2025, selon une estimation"
     source: { organisme: Sénat, document: "Rapport sur le projet de loi de finances 2026, Santé", annee: 2025 }
   - valeur: "2 699"
     unite: euros
-    legende: "de dépense moyenne par bénéficiaire en 2024, contre 3 659 euros pour l'ensemble de la population en 2023"
+    legende: "dépensés en moyenne par bénéficiaire en 2024, contre 3 659 par habitant en 2023"
     source: { organisme: Sénat, document: "Rapport sur le projet de loi de finances 2026, Santé", annee: 2025 }
   - valeur: "9"
     unite: mois
-    legende: "d'attente après l'entrée dans l'aide, avant certains soins non urgents programmés pour un nouveau bénéficiaire adulte"
+    legende: "d'attente avant certains soins non urgents pour un adulte qui entre à l'AME"
     source: { organisme: "Service-public.gouv.fr", document: "Aide médicale de l'État", annee: 2026 }
 options:
   - id: A

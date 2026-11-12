@@ -16,11 +16,11 @@ chiffres:
     legende: "des voix au premier tour pour le bloc arrivé en tête en 2024"
     source: { organisme: Ministère de l'Intérieur, document: législatives 2024, annee: 2024 }
   - valeur: 24,6 %
-    legende: "des sièges pour les mêmes candidats : 142 sur 577"
+    legende: "des sièges sont allés à ce même bloc à l'Assemblée"
     source: { organisme: Ministère de l'Intérieur, document: législatives 2024, annee: 2024 }
   - valeur: "289"
     unite: "sièges"
-    legende: "pour la majorité absolue : aucun bloc ne l'a atteinte en 2024"
+    legende: "pour la majorité absolue, qu'aucun bloc n'a atteinte en 2024"
     source: { organisme: Ministère de l'Intérieur, document: législatives 2024, annee: 2024 }
 options:
   - id: A

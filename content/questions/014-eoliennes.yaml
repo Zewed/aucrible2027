@@ -13,19 +13,19 @@ contexte:
   - "Cette électricité est bas carbone mais varie avec le vent, et son soutien public comme l'implantation des parcs font débat."
 chiffres:
   - valeur: "9,1 %"
-    legende: "de l'électricité produite en France en 2025 vient de l'éolien (49,6 TWh)"
+    legende: "de l'électricité produite en France en 2025 vient de l'éolien"
     source: { organisme: RTE, document: "Bilan électrique 2025", annee: 2025 }
   - valeur: "23,9"
     unite: GW
-    legende: "d'éolien à terre installés fin 2025, auxquels s'ajoutent 1,9 GW en mer"
+    legende: "d'éolien à terre installés fin 2025"
     source: { organisme: RTE, document: "Bilan électrique 2025", annee: 2025 }
   - valeur: "35 à 40"
     unite: GW
-    legende: "d'éolien à terre visés en 2035, contre environ 24 GW en 2025"
+    legende: "d'éolien à terre visés pour 2035 par la programmation de l'énergie"
     source: { organisme: Gouvernement, document: "Programmation pluriannuelle de l'énergie (décret n° 2026-76)", annee: 2026 }
   - valeur: "15"
     unite: GW
-    legende: "d'éolien en mer visés en 2035, contre 1,9 GW fin 2025"
+    legende: "d'éolien en mer visés pour 2035, contre 1,9 GW fin 2025"
     source: { organisme: Gouvernement, document: "Programmation pluriannuelle de l'énergie (décret n° 2026-76)", annee: 2026 }
 options:
   - id: A

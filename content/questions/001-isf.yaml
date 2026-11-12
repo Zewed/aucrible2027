@@ -13,18 +13,18 @@ contexte:
   - L'Assemblée nationale a rejeté en octobre 2025, puis en octobre 2026, un impôt plancher de 2 % sur les patrimoines de plus de 100 millions d'euros, dit taxe Zucman, et des projets de retour de l'ISF.
 chiffres:
   - valeur: "358 000"
-    legende: foyers payaient l'ISF en 2017, dernière année avant sa suppression
+    legende: "foyers payaient l'ISF en 2017, l'année avant sa suppression"
     source: { organisme: Cour des comptes, document: rapport sur l'IFI, annee: 2017 }
   - valeur: "193 600"
-    legende: foyers payent l'IFI en 2025
+    legende: "foyers paient en 2025 l'IFI, qui a remplacé l'ISF"
     source: { organisme: DGFiP, annee: 2025 }
   - valeur: "2,3"
     unite: milliards d'euros
-    legende: de recettes pour l'IFI en 2025, contre 4,4 pour l'ISF en 2017
+    legende: "rapportés par l'IFI en 2025, contre 4,4 par l'ISF en 2017"
     source: { organisme: "DGFiP, Cour des comptes", annee: 2025 }
   - valeur: "15 à 25"
     unite: milliards d'euros
-    legende: "par an : ce qu'attendent les partisans de la taxe Zucman, une estimation contestée"
+    legende: "par an attendus de la taxe Zucman par ses partisans, une estimation contestée"
     source: { organisme: Assemblée nationale, document: amendement n° 2359, annee: 2025 }
 options:
   - id: A

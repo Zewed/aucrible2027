@@ -24,18 +24,18 @@ contexte:
 chiffres:
   - valeur: "217 400"
     unite: jeunes placés
-    legende: "fin 2025, hors de chez leurs parents : en famille d'accueil, en foyer ou ailleurs (chiffre provisoire)"
+    legende: "vivaient hors de chez leurs parents fin 2025, en famille d'accueil, en foyer ou ailleurs"
     source: { organisme: "Drees", document: "données provisoires 2025", annee: 2026 }
   - valeur: "11,7"
     unite: milliards d'euros
-    legende: "dépensés par les départements pour l'aide sociale à l'enfance en 2024, dont 80 % pour les enfants placés"
+    legende: "dépensés par les départements pour l'aide sociale à l'enfance en 2024"
     source: { organisme: "Drees", document: "L'aide sociale à l'enfance, édition 2026", annee: 2026 }
   - valeur: "0,7 à 2,7 %"
-    legende: "des moins de 21 ans sont placés fin 2024, selon le département ; ce que ces écarts doivent à la pauvreté ou aux choix locaux n'est pas mesuré"
+    legende: "des moins de 21 ans sont placés fin 2024, selon le département"
     source: { organisme: "Drees", document: "L'aide sociale à l'enfance, édition 2026", annee: 2026 }
   - valeur: "46 800"
     unite: jeunes étrangers arrivés seuls
-    legende: "mineurs ou devenus majeurs, étaient placés fin 2024 : 21 % des enfants et jeunes placés"
+    legende: "étaient placés fin 2024, soit 21 % de tous les jeunes placés"
     source: { organisme: "Drees", document: "L'aide sociale à l'enfance, édition 2026", annee: 2026 }
 # L'ordre est une échelle : de la plus centralisée (A) à la plus décentralisée (D) (étude § 4).
 options:

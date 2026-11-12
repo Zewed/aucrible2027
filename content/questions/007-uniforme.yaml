@@ -14,17 +14,17 @@ contexte:
 chiffres:
   - valeur: "119"
     unite: établissements
-    legende: volontaires pour l'expérimentation de la tenue commune, dès la rentrée 2024
+    legende: "se sont portés volontaires pour tester la tenue commune en 2024"
     source: { organisme: DEPP, document: évaluation des expérimentations du port de la tenue commune, annee: 2026 }
   - valeur: 75 %
-    legende: des directeurs d'école constatent une évolution positive du sentiment d'appartenance
+    legende: "des directeurs d'école disent que le sentiment d'appartenance a progressé"
     source: { organisme: DEPP, document: évaluation des expérimentations du port de la tenue commune, annee: 2026 }
   - valeur: 36 %
-    legende: des directeurs d'école constatent une amélioration du climat scolaire
+    legende: "des directeurs d'école disent que le climat scolaire s'est amélioré"
     source: { organisme: DEPP, document: évaluation des expérimentations du port de la tenue commune, annee: 2026 }
   - valeur: "180"
     unite: € par élève
-    legende: "pour une tenue, selon les directeurs d'école ; l'État pouvait en financer la moitié si la collectivité le demandait"
+    legende: "pour une tenue, selon les directeurs d'école"
     source: { organisme: DEPP, document: évaluation des expérimentations du port de la tenue commune, annee: 2026 }
 options:
   - id: A

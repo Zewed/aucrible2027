@@ -15,17 +15,17 @@ contexte:
 chiffres:
   - valeur: "124,1"
     unite: "milliards d'euros"
-    legende: "de soins hospitaliers en 2025, financés à 94 % par les administrations publiques"
+    legende: "de soins hospitaliers en 2025, financés à 94 % par des fonds publics"
     source: { organisme: DREES, document: "Comptes de la santé, édition 2026", annee: 2025 }
   - valeur: "2,9"
     unite: "milliards d'euros"
     legende: "de déficit des hôpitaux publics en 2024, soit 2,7 % de leurs recettes"
     source: { organisme: DREES, document: "Les établissements de santé en 2024", annee: 2024 }
   - valeur: "2,1 %"
-    legende: "des recettes : le déficit estimé des hôpitaux publics en 2025, en baisse mais élevé"
+    legende: "des recettes : le déficit estimé des hôpitaux publics en 2025"
     source: { organisme: DREES, document: "Études et résultats, juillet 2026", annee: 2025 }
   - valeur: "50 %"
-    legende: "des ressources des établissements visées hors T2A par la refonte du financement"
+    legende: "des ressources des établissements à financer hors tarification à l'activité, cible de la réforme"
     source: { organisme: DREES, document: "Les établissements de santé en 2024, annexe 2", annee: 2026 }
 options:
   - id: A

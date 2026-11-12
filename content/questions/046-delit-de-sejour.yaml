@@ -17,15 +17,15 @@ contexte:
   - "Le Parlement a rétabli le délit en 2023, puni d'une amende, mais le Conseil constitutionnel l'a censuré pour une raison de procédure ; le 30 octobre 2025, l'Assemblée nationale a rejeté par 209 voix contre 169 un texte du RN qui reprenait celui de 2023."
 chiffres:
   - valeur: "8,3 %"
-    legende: "des obligations de quitter le territoire ont été exécutées en 2024 ; 10,9 % estimés sur neuf mois en 2025"
+    legende: "des obligations de quitter le territoire ont été exécutées en 2024"
     source: { organisme: "Sénat", document: "avis sur le budget 2026, Immigration, asile et intégration", annee: 2025 }
   - valeur: "137 550"
     unite: étrangers
-    legende: "ont reçu l'ordre de quitter la France en 2025, le plus grand nombre de l'Union européenne (28 % du total)"
+    legende: "ont reçu l'ordre de quitter la France en 2025, le plus grand nombre de l'Union"
     source: { organisme: "Eurostat", annee: 2026 }
   - valeur: "209"
     unite: députés
-    legende: "ont refusé le retour du délit, puni d'une amende, contre 169, le 30 octobre 2025"
+    legende: "ont rejeté en 2025 le retour du délit puni d'une amende, contre 169 pour"
     source: { organisme: "Assemblée nationale", document: "scrutin n° 3261", annee: 2025 }
 options:
   - id: A

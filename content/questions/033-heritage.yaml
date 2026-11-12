@@ -14,13 +14,13 @@ contexte:
 chiffres:
   - valeur: "16,6"
     unite: milliards d'euros
-    legende: "de droits de succession en 2023, plus du double de 2011"
+    legende: "de droits de succession payés en 2023, plus du double de 2011"
     source: { organisme: Cour des comptes, document: Les droits de succession, annee: 2024 }
   - valeur: "0,74 %"
-    legende: "de la richesse produite en 2021 : la France taxe les héritages et les dons plus que les 38 autres pays comparés"
+    legende: "du PIB en impôts sur les héritages et les dons en 2021, le plus haut de 39 pays"
     source: { organisme: Conseil des prélèvements obligatoires, document: comparaisons internationales, annee: 2023 }
   - valeur: "10 %"
-    legende: "environ : ce que paient, selon une estimation, les 0,1 % qui héritent le plus, pour un taux affiché de 45 %"
+    legende: "de droits payés par les 0,1 % qui héritent le plus, pour un taux affiché de 45 %"
     source: { organisme: Conseil d'analyse économique, document: note n° 69, annee: 2021 }
 options:
   - id: A

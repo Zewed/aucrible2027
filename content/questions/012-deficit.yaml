@@ -19,11 +19,11 @@ chiffres:
     legende: "du PIB : la dette publique fin 2025"
     source: { organisme: Insee, document: "Comptes des administrations publiques", annee: 2025 }
   - valeur: "57,3 %"
-    legende: "du PIB : les dépenses publiques en 2025, pour 43,6 % de prélèvements obligatoires"
+    legende: "du PIB : les dépenses publiques en 2025"
     source: { organisme: Insee, document: "Comptes des administrations publiques", annee: 2025 }
   - valeur: "89,6"
     unite: "milliards d'euros"
-    legende: "d'effort encore nécessaire, soit 3 points de PIB, pour stabiliser la dette"
+    legende: "de déficit encore à réduire pour stabiliser la dette"
     source: { organisme: "Cour des comptes", document: "La situation et les perspectives des finances publiques", annee: 2026 }
 options:
   - id: A

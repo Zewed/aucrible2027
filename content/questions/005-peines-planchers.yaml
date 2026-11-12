@@ -13,17 +13,17 @@ contexte:
   - Un texte visant à les rétablir pour certains crimes et délits a été examiné à l'Assemblée en octobre 2024 sans être adopté ; les prisons comptent aujourd'hui 90 020 détenus pour 63 348 places.
 chiffres:
   - valeur: 142,1 %
-    legende: "densité carcérale au 1er septembre 2026 : 90 020 détenus pour 63 348 places"
+    legende: "de densité carcérale en 2026 : 90 020 détenus pour 63 348 places"
     source: { organisme: Ministère de la Justice, document: mesure de l'incarcération, annee: 2026 }
   - valeur: "8 347"
-    legende: détenus dorment sur un matelas posé au sol au 1er septembre 2026
+    legende: "détenus dorment sur un matelas posé au sol, en 2026"
     source: { organisme: Ministère de la Justice, document: mesure de l'incarcération, annee: 2026 }
   - valeur: 69 %
-    legende: "des récidivistes majeurs étaient condamnés à de la prison ferme en 2016-2020, contre 54 % en 2001-2005"
+    legende: "des récidivistes majeurs ont eu de la prison ferme en 2016-2020, contre 54 % en 2001-2005"
     source: { organisme: Ministère de la Justice, document: cité à l'Assemblée nationale le 31/10/2024, annee: 2020 }
   - valeur: "9"
     unite: mois
-    legende: "de prison ferme en moyenne après l'abrogation de 2014, contre 7,3 à 7,9 mois quand les peines planchers existaient"
+    legende: "de prison ferme en moyenne après 2014, contre 7,3 à 7,9 mois avec les peines planchers"
     source: { organisme: Ministère de la Justice, document: cité à l'Assemblée nationale le 31/10/2024, annee: 2014 }
 options:
   - id: A

@@ -15,14 +15,14 @@ contexte:
 chiffres:
   - valeur: "212"
     unite: milliards d'euros
-    legende: "de TVA en 2025 : c'est le premier impôt, et 27 % de cette somme va à la Sécurité sociale, 25 % aux collectivités"
+    legende: "de TVA en 2025 : c'est le premier impôt en France"
     source: { organisme: DGFiP, document: "DGFiP Statistiques n° 43", annee: 2026 }
   - valeur: "13 %"
-    legende: "de leur revenu : ce que versent en TVA les 10 % les plus modestes, contre 7 % pour les 10 % les plus aisés (données 2016)"
+    legende: "de leur revenu part en TVA chez les 10 % les plus modestes, contre 7 % chez les 10 % les plus aisés, en 2016"
     source: { organisme: Insee, document: "Économie et Statistique n° 522-523", annee: 2021 }
   - valeur: "12 à 15"
     unite: milliards d'euros
-    legende: "par an : ce que coûterait la TVA à 5,5 % sur l'énergie et les carburants que propose le RN, selon le gouvernement"
+    legende: "par an : le coût de la TVA à 5,5 % sur l'énergie proposée par le RN, selon le gouvernement"
     source: { organisme: Gouvernement, document: "chiffrage cité par l'AFP", annee: 2026 }
 options:
   - id: A

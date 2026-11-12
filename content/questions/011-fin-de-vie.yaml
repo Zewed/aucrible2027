@@ -15,19 +15,19 @@ contexte:
 chiffres:
   - valeur: "291"
     unite: députés
-    legende: pour la loi, contre 241, au vote final du 15 juillet 2026
+    legende: "ont voté pour la loi lors du vote final en 2026, 241 contre"
     source: { organisme: Assemblée nationale, document: lecture définitive, annee: 2026 }
   - valeur: "181"
     unite: sénateurs
-    legende: "contre le texte, pour 122 : le Sénat l'avait rejeté le 28 janvier 2026"
+    legende: "ont voté contre le texte en 2026, 122 pour"
     source: { organisme: Sénat, document: vote du 28 janvier 2026, annee: 2026 }
   - valeur: "2"
     unite: jours
-    legende: de réflexion au minimum avant que le patient confirme sa demande
+    legende: "de réflexion au moins avant que le patient confirme sa demande"
     source: { organisme: Conseil constitutionnel, document: décision n° 2026-910 DC, annee: 2026 }
   - valeur: "3"
     unite: réserves
-    legende: "du Conseil constitutionnel : majeurs sous protection, pharmaciens, établissements privés"
+    legende: "posées par le Conseil constitutionnel en validant la loi en 2026"
     source: { organisme: Conseil constitutionnel, document: décision n° 2026-910 DC, annee: 2026 }
 options:
   - id: A

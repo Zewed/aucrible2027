@@ -16,14 +16,15 @@ contexte:
 chiffres:
   - valeur: "15"
     unite: heures
-    legende: "d'activité par semaine en principe, réductibles selon la situation de chacun, demandées depuis 2025 aux allocataires du RSA"
+    legende: "d'activité par semaine demandées aux allocataires du RSA depuis 2025, moins selon leur situation"
     source: { organisme: Conseil constitutionnel, document: "décision n° 2023-858 DC", annee: 2023 }
-  - valeur: "651,69"
+  - valeur: "652"
     unite: euros
-    legende: "par mois : le RSA d'une personne seule sans ressources, depuis le 1er avril 2026"
+    legende: "par mois : le RSA d'une personne seule sans ressources, en 2026"
     source: { organisme: Journal officiel, document: "décret n° 2026-220", annee: 2026 }
-  - valeur: "1 sur 3"
-    legende: "des foyers qui avaient droit au RSA ne le percevaient pas fin 2021, avant la réforme"
+  - valeur: "1"
+    unite: tiers
+    legende: "des foyers qui avaient droit au RSA ne le touchaient pas, en 2021"
     source: { organisme: Drees, document: "Études et résultats n° 1370", annee: 2026 }
 options:
   - id: A

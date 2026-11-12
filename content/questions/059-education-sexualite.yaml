@@ -23,12 +23,12 @@ contexte:
 chiffres:
   # § 1.4, [9] [10] : l'enquête ne dit ni combien d'établissements ont répondu, ni combien d'élèves ont eu les trois séances.
   - valeur: "66 %"
-    legende: "des écoliers avaient eu au moins une séance entre la rentrée et le 31 décembre 2025, contre 48 % des collégiens et 35 % des lycéens, dans les établissements qui ont répondu à une enquête du ministère"
+    legende: "des écoliers ont eu au moins une séance à l'automne 2025, dans les écoles qui ont répondu"
     source: { organisme: "Ministère de l'Éducation nationale", document: "réponse à la question écrite n° 11476", annee: 2026 }
   # § 1.4 et 2g, [9] : le chiffre du ministère, pas celui des associations (620 M€), donné dans l'option D.
   - valeur: "119"
     unite: "millions d'euros"
-    legende: "annoncés par le ministre pour ce programme, surtout en temps de travail des personnels et en subventions : ce n'est pas un budget affecté, précise le ministère"
+    legende: "annoncés par le ministre pour ce programme, surtout en temps de travail des personnels"
     source: { organisme: "Ministère de l'Éducation nationale", document: "réponse à la question écrite n° 11476", annee: 2026 }
 options:
   - id: A

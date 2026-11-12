@@ -13,16 +13,16 @@ contexte:
   - "Après un mouvement lycéen en octobre 2026, l'exécutif a annoncé, selon la presse, une réforme pour 2027, puis un nouvel outil à l'horizon 2028."
 chiffres:
   - valeur: "1 046 000"
-    legende: "candidats ont confirmé au moins un vœu sur la plateforme en 2026"
+    legende: "candidats ont confirmé au moins un vœu sur Parcoursup en 2026"
     source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2026, annee: 2026 }
   - valeur: 91,4 %
-    legende: "des lycéens de Terminale ont reçu au moins une proposition"
+    legende: "des élèves de terminale ont reçu au moins une proposition en 2026"
     source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2026, annee: 2026 }
   - valeur: 66,5 %
-    legende: "des lycéens ont reçu une proposition dès le premier jour"
+    legende: "des lycéens ont reçu une proposition dès le premier jour, en 2026"
     source: { organisme: Ministère de l'Enseignement supérieur, document: bilan Parcoursup 2026, annee: 2026 }
   - valeur: 49 %
-    legende: "des nouveaux bacheliers jugent la procédure transparente (53 % en 2025)"
+    legende: "des nouveaux bacheliers jugent la procédure transparente, en 2026"
     source: { organisme: Institut CSA, document: baromètre Parcoursup 2026 pour le ministère, annee: 2026 }
 options:
   - id: A

@@ -26,10 +26,10 @@ chiffres:
     source: { organisme: Insee, document: Insee Première n° 2079, annee: 2025 }
   - valeur: "126"
     unite: branches sur 179
-    legende: "avaient un premier niveau de salaire sous le SMIC juste après sa hausse du 1er juin 2026 ; 82 l'étaient encore le 30 septembre"
+    legende: "avaient un premier niveau de salaire sous le SMIC juste après sa hausse de juin 2026"
     source: { organisme: Ministère du Travail, document: "cité par le rapport n° 3350 de l'Assemblée nationale", annee: 2026 }
   - valeur: "3 %"
-    legende: "des salariés du privé dans la zone euro, environ, ont un salaire indexé automatiquement sur les prix, surtout en Belgique et au Luxembourg"
+    legende: "des salariés du privé de la zone euro ont un salaire indexé sur les prix, surtout en Belgique"
     source: { organisme: BCE, document: Bulletin économique 7/2021, annee: 2021 }
 options:
   - id: A

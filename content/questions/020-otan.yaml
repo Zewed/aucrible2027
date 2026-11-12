@@ -13,16 +13,16 @@ contexte:
   - "En juin 2025, les 32 alliés se sont engagés à consacrer 5 % de leur PIB à leur défense et à leur sécurité d'ici 2035, dont au moins 3,5 % à la défense elle-même."
 chiffres:
   - valeur: "1966"
-    legende: "année où la France quitte le commandement intégré, tout en restant dans l'Alliance"
+    legende: "la France quitte le commandement intégré de l'OTAN mais reste dans l'Alliance"
     source: { organisme: OTAN, document: la France et l'OTAN, annee: 1966 }
   - valeur: "2009"
-    legende: "année où la France annonce qu'elle participera de nouveau pleinement aux structures"
+    legende: "la France annonce son retour dans le commandement intégré de l'OTAN"
     source: { organisme: OTAN, document: la France et l'OTAN, annee: 2009 }
   - valeur: 2,22 %
-    legende: "du PIB : l'effort de défense de la France en 2026 (estimation)"
+    legende: "du PIB consacrés par la France à sa défense en 2026, selon une estimation"
     source: { organisme: OTAN, document: dépenses de défense 2014-2026, annee: 2026 }
   - valeur: 5 %
-    legende: "du PIB à consacrer à la défense et à la sécurité d'ici 2035, dont 3,5 % à la défense : l'engagement des 32 alliés"
+    legende: "du PIB pour la défense et la sécurité d'ici 2035 : l'objectif des 32 alliés"
     source: { organisme: OTAN, document: déclaration du sommet de La Haye, annee: 2025 }
 options:
   - id: A

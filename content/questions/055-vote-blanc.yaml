@@ -18,13 +18,13 @@ contexte:
 chiffres:
   - valeur: "2,2"
     unite: millions
-    legende: "de bulletins blancs au second tour de la présidentielle de 2022, soit 6,4 % des votants"
+    legende: "de bulletins blancs au second tour de la présidentielle de 2022"
     source: { organisme: Conseil constitutionnel, document: "décision n° 2022-197 PDR", annee: 2022 }
   - valeur: "54,7 %"
     legende: "des voix pour le président élu en 2022 si les blancs avaient compté, au lieu de 58,6 %"
     source: { organisme: Conseil constitutionnel, document: "décision n° 2022-197 PDR, calcul de l'étude", annee: 2022 }
   - valeur: "81 %"
-    legende: "des Français favorables, dans un sondage en ligne, à ce que le vote blanc compte dans le résultat de toute élection"
+    legende: "des Français souhaitent que le vote blanc compte dans les résultats, en 2020"
     source: { organisme: "Ifop pour le groupe Union centriste du Sénat", document: "Les Français et les moyens de renforcer la participation électorale", annee: 2020 }
 options:
   - id: A

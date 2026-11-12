@@ -32,12 +32,12 @@ const optionsDeLaFiche = (page: Page) =>
 
 /** Passer à la seconde étape de la fiche, celle des propositions, si on est encore sur la première. */
 async function voirLesPropositions(page: Page) {
-  const bouton = page.getByRole("button", { name: "Voir les propositions" });
+  const bouton = page.getByRole("button", { name: "Répondre" });
   await expect(bouton.or(page.getByRole("radiogroup", { name: "Les options" }))).toBeVisible();
   if (await bouton.isVisible()) await bouton.click();
 }
 
-/** Choisir une option comme le fait l'électeur : en touchant sa carte (après « Voir les propositions »). */
+/** Choisir une option comme le fait l'électeur : en touchant sa carte (après « Répondre »). */
 async function choisir(page: Page, libelle: string) {
   await voirLesPropositions(page);
   await page.getByRole("radiogroup", { name: "Les options" }).getByText(libelle, { exact: true }).click();
@@ -114,7 +114,7 @@ test("la question n° 24 (Travail & retraites) s'affiche en orange", async ({ pa
   await page.goto("/questionnaire");
   const carte = page.getByRole("article", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" });
   await expect.poll(() => fond(carte.locator(".bandeau"))).toBe(ORANGE);
-  expect(await fond(page.getByRole("button", { name: "Voir les propositions" }))).toBe(ORANGE);
+  expect(await fond(page.getByRole("button", { name: "Répondre" }))).toBe(ORANGE);
   await voirLesPropositions(page);
   expect(await fond(page.locator(".mq-tete"))).toBe(ORANGE);
 });
@@ -124,7 +124,7 @@ test("une question d'Écologie & énergie s'affiche en vert, et les 11 thèmes o
   await page.goto("/questionnaire");
   const carte = page.getByRole("article", { name: "Faut-il sortir du nucléaire ?" });
   await expect.poll(() => fond(carte.locator(".bandeau"))).toBe(VERT);
-  expect(await fond(page.getByRole("button", { name: "Voir les propositions" }))).toBe(VERT);
+  expect(await fond(page.getByRole("button", { name: "Répondre" }))).toBe(VERT);
   await voirLesPropositions(page);
   expect(await fond(page.locator(".mq-tete"))).toBe(VERT);
 
@@ -1025,15 +1025,15 @@ test("avec « réduire les animations », les blocs sont posés d'emblée, sans 
   expect(poses).toEqual(["1", "1", "1", "1", "1", "1"]);
 });
 
-/** La fenêtre « Sources », ouverte par « Voir les sources » sous le tableau (6 novembre 2026). */
+/** La fenêtre « Sources », ouverte par « Sources » sous le tableau (6 novembre 2026). */
 async function ouvrirLesSources(page: Page) {
-  await page.getByRole("button", { name: "Voir les sources" }).filter({ visible: true }).click();
+  await page.getByRole("button", { name: "Sources", exact: true }).filter({ visible: true }).click();
   const fenetre = page.getByRole("dialog", { name: "Sources" });
   await expect(fenetre).toBeVisible();
   return fenetre;
 }
 
-test("sur la révélation n° 24, « Voir les sources » ouvre une fenêtre de trois liens vers le COR, la DREES et la Cour des comptes", async ({ page }) => {
+test("sur la révélation n° 24, « Sources » ouvre une fenêtre de trois liens vers le COR, la DREES et la Cour des comptes", async ({ page }) => {
   await repondre(page, "62 ans");
   await expect(page.getByRole("dialog", { name: "Sources" })).toBeHidden();
   const liens = (await ouvrirLesSources(page)).getByRole("link");
@@ -1277,7 +1277,7 @@ test.describe("quand toutes les questions ont une réponse, l'accueil le dit", (
     await toutRepondre(page);
     await expect(page.getByRole("heading", { name: "Tu as répondu à toutes les questions." })).toBeVisible();
     await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
-    await page.getByRole("link", { name: "Voir mes résultats" }).click();
+    await page.getByRole("link", { name: "Résultats", exact: true }).click();
     await expect(page).toHaveURL(/\/resultats$/);
   });
 
@@ -1453,7 +1453,7 @@ test.describe("la révélation mène à la question suivante", () => {
     await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" }).filter({ visible: true })).toBeVisible();
   });
 
-  test("après la dernière question sans réponse, la révélation n'a plus de « Question suivante », mais « Voir mes résultats »", async ({ page }) => {
+  test("après la dernière question sans réponse, la révélation n'a plus de « Question suivante », mais « Résultats »", async ({ page }) => {
     await page.goto("/questionnaire");
     await page.evaluate(() => {
       const reponses: Record<number, object> = {};
@@ -1464,7 +1464,7 @@ test.describe("la révélation mène à la question suivante", () => {
     await choisir(page, "64 ans");
     await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
-    await expect(page.getByRole("link", { name: "Voir mes résultats" }).filter({ visible: true }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: "Résultats", exact: true }).filter({ visible: true }).first()).toBeVisible();
     await expect(suivante(page)).toHaveCount(0);
   });
 });
@@ -1727,11 +1727,11 @@ test.describe("la révélation mène à « Mes résultats »", () => {
     await expect(page).toHaveURL(/\/revelation$/);
   }
 
-  test("sur la révélation de la question n° 24, « Voir mes résultats » ouvre « Mes résultats », sans phrase de plus sous le bouton", async ({ page }) => {
+  test("sur la révélation de la question n° 24, « Résultats » ouvre « Mes résultats », sans phrase de plus sous le bouton", async ({ page }) => {
     await vingtTroisReponses(page);
     await repondreEALaQuestionDuJour(page);
     await expect(page.getByText(/Ton classement est recalculé/)).toHaveCount(0);
-    await page.getByRole("link", { name: "Voir mes résultats" }).filter({ visible: true }).click();
+    await page.getByRole("link", { name: /^Résultats/ }).filter({ visible: true }).click();
     await expect(page).toHaveURL(/\/resultats$/);
     await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." }).filter({ visible: true })).toBeVisible();
   });
@@ -1742,7 +1742,7 @@ test.describe("la révélation mène à « Mes résultats »", () => {
     await expect(page.getByRole("region", { name: "Ton classement" }).getByRole("listitem")).toHaveCount(13);
     expect(await pourcentageDe(page, "Nicolas Dupont-Aignan")).toBe(66);
     await repondreEALaQuestionDuJour(page);
-    await page.getByRole("link", { name: "Voir mes résultats" }).filter({ visible: true }).click();
+    await page.getByRole("link", { name: /^Résultats/ }).filter({ visible: true }).click();
     await expect(page).toHaveURL(/\/resultats$/);
     await expect(page.getByRole("region", { name: "Ton classement" }).filter({ visible: true }).getByRole("listitem")).toHaveCount(13);
     expect(await pourcentageDe(page, "Nicolas Dupont-Aignan")).toBeGreaterThan(66);
@@ -6522,12 +6522,12 @@ test.describe("la fiche se lit en deux étapes : le contexte, puis les propositi
     await expect(carte.getByText("1,7", { exact: true })).toBeVisible();
     await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
     await expect(page.getByRole("button", { name: "Valider ma réponse" })).toHaveCount(0);
-    await expect(page.getByRole("button", { name: "Voir les propositions" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Répondre" })).toBeVisible();
   });
 
-  test("« Voir les propositions » montre la question, ses options et la validation, sans le contexte", async ({ page }) => {
+  test("« Répondre » montre la question, ses options et la validation, sans le contexte", async ({ page }) => {
     await page.goto("/questionnaire");
-    await page.getByRole("button", { name: "Voir les propositions" }).click();
+    await page.getByRole("button", { name: "Répondre" }).click();
     await expect(page.getByRole("heading", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
     await expect(page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio")).toHaveCount(6);
     await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeVisible();
@@ -6536,7 +6536,7 @@ test.describe("la fiche se lit en deux étapes : le contexte, puis les propositi
 
   test("« Le contexte » ramène à la première étape", async ({ page }) => {
     await page.goto("/questionnaire");
-    await page.getByRole("button", { name: "Voir les propositions" }).click();
+    await page.getByRole("button", { name: "Répondre" }).click();
     await page.getByRole("button", { name: "Le contexte" }).click();
     await expect(page.getByRole("region", { name: "Le contexte" })).toBeVisible();
     await expect(page.getByRole("radiogroup", { name: "Les options" })).toHaveCount(0);
@@ -6545,16 +6545,16 @@ test.describe("la fiche se lit en deux étapes : le contexte, puis les propositi
 
 test("passer aux propositions repart du haut de la page", async ({ page }) => {
   await page.goto("/questionnaire");
-  const bouton = page.getByRole("button", { name: "Voir les propositions" });
+  const bouton = page.getByRole("button", { name: "Répondre" });
   await bouton.scrollIntoViewIfNeeded();
   await bouton.click();
   await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeInViewport();
   expect(await page.evaluate(() => window.scrollY)).toBe(0);
 });
 
-test("au téléphone, « Voir les propositions » est visible dès l'ouverture, sans défiler", async ({ page }) => {
+test("au téléphone, « Répondre » est visible dès l'ouverture, sans défiler", async ({ page }) => {
   await page.goto("/questionnaire");
-  await expect(page.getByRole("button", { name: "Voir les propositions" })).toBeInViewport();
+  await expect(page.getByRole("button", { name: "Répondre" })).toBeInViewport();
   expect(await page.evaluate(() => window.scrollY)).toBe(0);
 });
 
@@ -6596,7 +6596,7 @@ test.describe("la première étape : la une", () => {
 
       test("la question en bandeau, les chiffres clés côte à côte dessous, puis le contexte, la vidéo à sa droite, et tout tient sans défiler", async ({ page }) => {
         await page.goto("/questionnaire");
-        const bouton = page.getByRole("button", { name: "Voir les propositions" });
+        const bouton = page.getByRole("button", { name: "Répondre" });
         await expect(bouton).toBeInViewport({ ratio: 1 });
         const chiffres = page.getByRole("region", { name: "Chiffres clés" });
         const question = (await page.getByRole("heading", { level: 1 }).boundingBox())!;
@@ -6670,11 +6670,11 @@ test.describe("la première étape : la une", () => {
 
   test("au téléphone, la barre du bouton ne recouvre jamais la fin des chiffres clés", async ({ page }) => {
     await page.goto("/questionnaire");
-    await expect(page.getByRole("button", { name: "Voir les propositions" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Répondre" })).toBeVisible();
     await page.mouse.wheel(0, 5000);
     await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
     const dernierChiffre = page.getByRole("region", { name: "Chiffres clés" }).getByRole("listitem").last();
-    const barre = await page.getByRole("button", { name: "Voir les propositions" }).boundingBox();
+    const barre = await page.getByRole("button", { name: "Répondre" }).boundingBox();
     const chiffre = await dernierChiffre.boundingBox();
     expect(chiffre!.y + chiffre!.height).toBeLessThanOrEqual(barre!.y);
   });
@@ -6943,7 +6943,7 @@ test.describe("l'accueil montre la landing à un appareil sans réponse, et prop
     await premieresReponses(page, 1000);
     await page.goto("/");
     await expect(compte(page)).toHaveText("Tu as répondu à toutes les questions.");
-    await page.getByRole("link", { name: "Voir mes résultats" }).click();
+    await page.getByRole("link", { name: "Résultats", exact: true }).click();
     await expect(page).toHaveURL(/\/resultats$/);
   });
 

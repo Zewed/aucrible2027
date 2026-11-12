@@ -15,11 +15,11 @@ contexte:
   - "L'évaluation remise au Parlement en 2026 trouve une baisse des loyers de 2 à 4 % hors Paris ; son effet durable sur le nombre de logements à louer n'a pas pu être mesuré, et plus d'un tiers des nouveaux baux dépassent le plafond, parfois avec un supplément permis."
 chiffres:
   - valeur: 40 %
-    legende: "des ménages sont locataires de leur résidence principale ; 22,6 % louent à un bailleur privé"
+    legende: "des ménages sont locataires de leur logement ; 22,6 % louent dans le privé"
     source: { organisme: Insee, document: Insee Focus n° 309, annee: 2023 }
   - valeur: "70"
     unite: communes
-    legende: "appliquent un encadrement des loyers, dans 9 territoires, en octobre 2026"
+    legende: "appliquent un encadrement des loyers en 2026"
     source: { organisme: Sénat, document: rapport n° 47, annee: 2026 }
 options:
   - id: A

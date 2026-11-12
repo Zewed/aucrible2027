@@ -13,13 +13,13 @@ contexte:
   - "Le Conseil constitutionnel a aussi jugé que la Constitution ne garantit pas un droit du sol sans condition ; plusieurs candidats veulent le restreindre ou le supprimer, d'autres le garder ou l'élargir."
 chiffres:
   - valeur: "34 904"
-    legende: "jeunes nés en France devenus français par le droit du sol en 2025, sur 98 139 nouveaux Français"
+    legende: "jeunes nés en France sont devenus français par le droit du sol en 2025"
     source: { organisme: "Ministères de l'Intérieur et de la Justice", document: "L'accès à la nationalité française en 2025", annee: 2025 }
   - valeur: "46 %"
-    legende: "des bébés nés à Mayotte en 2024 ont deux parents étrangers, contre 28 % en 2014"
+    legende: "des bébés nés à Mayotte en 2024 ont deux parents étrangers"
     source: { organisme: Insee, document: "Bilan démographique 2024 à Mayotte", annee: 2025 }
   - valeur: "50 %"
-    legende: "des personnes interrogées en février 2024 voulaient supprimer le droit du sol, 39 % le garder et 10 % l'élargir (sondage en ligne)"
+    legende: "des personnes interrogées en 2024 voulaient supprimer le droit du sol"
     source: { organisme: Elabe, document: "sondage pour BFMTV", annee: 2024 }
 options:
   - id: A
