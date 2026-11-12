@@ -1,0 +1,25 @@
+content/corrections.yaml
+  s_d2e9066465336d::t_eeddea73b44859 5-108
+e2e/fiches/corrections/aucune.yaml
+  s_d2e9066465336d::t_5e0b7b20435826 1-3
+src/app/journal/page.tsx
+  s_d2e9066465336d::t_007879e633c93e 66
+src/lib/contenu.ts
+  s_d2e9066465336d::t_c0597e1dfc4be1 192-196,202-203,207-210
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "da74188eb4c95a0b908ad5688c286845e0ece1fa",
+  "prompts": {},
+  "sessions": {
+    "s_d2e9066465336d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e0177c44-523e-490f-8d1e-eda81c069dfc",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
