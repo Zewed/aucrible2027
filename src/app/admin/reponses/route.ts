@@ -1,4 +1,4 @@
-import { lAuteur } from "@/lib/auteur";
+import { estLAuteur } from "@/lib/auteur";
 import { lireQuestionsPubliees } from "@/lib/publication";
 import { JE_NE_SAIS_PAS } from "@/lib/reponses";
 import { lireToutesLesReponses } from "@/lib/reponses-partagees";
@@ -14,8 +14,7 @@ const champ = (valeur: string | number | null) => {
  * l'option pour se lire sans les fiches. Des points-virgules et un BOM, pour qu'Excel en français l'ouvre tel quel.
  */
 export async function GET() {
-  const auteur = await lAuteur();
-  if (!auteur || auteur === "refuse") return new Response(null, { status: 403 });
+  if (!(await estLAuteur())) return new Response(null, { status: 403 });
   const [reponses, questions] = await Promise.all([lireToutesLesReponses(), lireQuestionsPubliees()]);
   const libelles = new Map(questions.flatMap((q) => q.options.map((o) => [`${q.numero}:${o.id}`, o.libelle])));
   const lignes = [

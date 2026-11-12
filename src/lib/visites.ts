@@ -1,4 +1,4 @@
-import { lAuteur } from "@/lib/auteur";
+import { estLAuteur } from "@/lib/auteur";
 import { base } from "@/lib/base";
 
 /**
@@ -15,8 +15,7 @@ export type VisitesDuJour = { jour: string; nombre: number };
 
 /** Les visites des 60 derniers jours qui en ont, les plus récents d'abord. Réservé à l'auteur, comme sa boîte. */
 export async function lireLesVisites(): Promise<VisitesDuJour[]> {
-  const auteur = await lAuteur();
-  if (!auteur || auteur === "refuse") throw new Error("Les statistiques de visite sont réservées à l'auteur.");
+  if (!(await estLAuteur())) throw new Error("Les statistiques de visite sont réservées à l'auteur.");
   const sql = await base();
   return sql<VisitesDuJour[]>`SELECT to_char(jour, 'YYYY-MM-DD') AS jour, nombre FROM visites ORDER BY jour DESC LIMIT 60`;
 }

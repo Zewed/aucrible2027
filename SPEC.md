@@ -193,7 +193,7 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
 ## Décisions de l'auteur du 25/10/2026
 
 - **Signalements** : ils arrivent dans **/admin**, une partie privée du site, gardés dans une base **Postgres** (site sur **Vercel**).
-- **/admin** : on y entre avec **son compte GitHub** ; seuls les comptes autorisés (celui de l'auteur, Zewed) passent. On y trouve les signalements, les outils de l'auteur (refus d'une fiche dont un chiffre ou une position n'a pas de source, fiches d'avance, correction d'une fiche publiée, contrôle de neutralité), et les totaux des réponses partagées.
+- **/admin** : on y entre avec **son compte GitHub** ; seuls les comptes autorisés (celui de l'auteur, Zewed) passent. *Amendé le 12/11/2026 : plus de GitHub, on y entre en tapant le mot de passe de l'auteur.* On y trouve les signalements, les outils de l'auteur (refus d'une fiche dont un chiffre ou une position n'a pas de source, fiches d'avance, correction d'une fiche publiée, contrôle de neutralité), et les totaux des réponses partagées.
 - **Corriger une fiche** depuis /admin fait **un commit sur GitHub**, avec la raison : le contenu reste en YAML dans le dépôt, et l'historique Git nourrit le journal.
 - **Contrôle de neutralité** : avec Claude (API Anthropic) ; **conseillé, pas obligatoire** pour publier.
 - **Vidéo** : Remotion (licence gratuite, structure de 3 personnes au plus), rendue par une commande locale, avec une musique libre de droits fournie par l'auteur.
