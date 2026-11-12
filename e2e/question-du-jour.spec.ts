@@ -616,21 +616,26 @@ test("sans rien choisir, rien ne permet de valider : ni importance ni « Valider
   expect(await reponsesEnregistrees(page)).toEqual([]);
 });
 
-test("toucher une option fait monter ×1, ×2 et ×3 en bas de l'écran ; rien n'est enregistré avant d'en toucher un", async ({ page }) => {
+test("toucher une option fait monter ×1, ×2, ×3 et « Valider ma réponse », encore inactif, en bas de l'écran ; rien n'est enregistré", async ({ page }) => {
   await page.goto("/questionnaire");
   await choisir(page, "65 ans ou plus");
   await expect(importance(page)).toBeInViewport();
-  await expect(importance(page).getByRole("button")).toHaveCount(3);
-  await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeHidden();
+  await expect(importance(page).getByRole("radio")).toHaveCount(3);
+  await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeInViewport();
+  await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeDisabled();
   await page.waitForTimeout(500);
   await expect(page).toHaveURL(/\/questionnaire$/);
   expect(await reponsesEnregistrees(page)).toEqual([]);
 });
 
-test("après une option, toucher ×2 valide aussitôt et ouvre la révélation", async ({ page }) => {
+test("après une option, toucher ×2 ne valide pas : il marque ×2, puis « Valider ma réponse » ouvre la révélation", async ({ page }) => {
   await page.goto("/questionnaire");
   await choisir(page, "65 ans ou plus");
-  await validerAvec(page, "×2");
+  await peser(page, "×2");
+  await page.waitForTimeout(500);
+  await expect(page).toHaveURL(/\/questionnaire$/);
+  expect(await reponsesEnregistrees(page)).toEqual([]);
+  await page.getByRole("button", { name: "Valider ma réponse" }).click();
   await expect(page).toHaveURL(/\/revelation$/);
 });
 
@@ -674,12 +679,13 @@ test("choisir « Je ne sais pas » après « 64 ans » décoche « 64 ans » : u
 /** L'importance à l'écran : au téléphone, la feuille du bas ; sur grand écran, la tuile pour décider. */
 const importance = (page: Page) => page.getByRole("group", { name: "Ce sujet compte pour toi ?" }).filter({ visible: true });
 
-/** Au téléphone, valider avec une importance comme l'électeur : toucher ×1, ×2 ou ×3 dans la feuille valide aussitôt. */
+/** Valider avec une importance comme l'électeur : marquer ×1, ×2 ou ×3, puis « Valider ma réponse ». */
 async function validerAvec(page: Page, poids: "×1" | "×2" | "×3") {
-  await importance(page).getByRole("button", { name: new RegExp(`^${poids} `) }).click();
+  await peser(page, poids);
+  await page.getByRole("button", { name: "Valider ma réponse" }).filter({ visible: true }).click();
 }
 
-/** Sur grand écran, choisir une importance comme l'électeur : en touchant sa carte. */
+/** Choisir une importance comme l'électeur : en touchant sa carte. */
 async function peser(page: Page, poids: "×1" | "×2" | "×3") {
   await importance(page).getByText(poids, { exact: true }).click();
   await expect(importance(page).getByRole("radio", { name: new RegExp(`^${poids} `) })).toBeChecked();
@@ -688,7 +694,7 @@ async function peser(page: Page, poids: "×1" | "×2" | "×3") {
 test("sous « Ce sujet compte pour toi ? », la feuille de la n° 24 propose ×1 « Un peu », ×2 « Beaucoup », ×3 « Essentiel », collée en bas", async ({ page }) => {
   await page.goto("/questionnaire");
   await choisir(page, "64 ans");
-  const boutons = importance(page).getByRole("button");
+  const boutons = importance(page).getByRole("radio");
   await expect(boutons).toHaveCount(3);
   for (const [rang, nom] of ["×1 Un peu", "×2 Beaucoup", "×3 Essentiel"].entries()) {
     await expect(boutons.nth(rang)).toHaveAccessibleName(nom);
@@ -736,11 +742,10 @@ test.describe("sur grand écran, l'importance se marque puis se valide", () => {
 });
 
 /**
- * Valider la réponse comme l'électeur : au téléphone, une option se valide en touchant son importance, ×1 ici ; sur
- * grand écran, on marque ×1 (si aucune ne l'est) puis « Valider ma réponse ». « Je ne sais pas » n'en demande pas.
+ * Valider la réponse comme l'électeur : on marque ×1 (si aucune importance ne l'est) puis « Valider ma réponse ».
+ * « Je ne sais pas » n'en demande pas.
  */
 async function validerMaReponse(page: Page) {
-  if ((await importance(page).getByRole("button").count()) > 0) return validerAvec(page, "×1");
   const niveaux = importance(page).getByRole("radio");
   if ((await niveaux.count()) > 0 && !(await niveaux.evaluateAll((radios) => radios.some((r) => (r as HTMLInputElement).checked)))) {
     await peser(page, "×1");
