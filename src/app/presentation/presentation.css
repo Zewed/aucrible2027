@@ -22,12 +22,19 @@
 .lp-sujets { list-style: none; margin: 0; padding: 0; }
 .lp-sujets li {
   color: var(--theme-text); font: 800 clamp(46px, 12.4vw, 128px)/0.92 var(--display); font-variation-settings: "wdth" 76, "opsz" 96;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.03em; animation: lp-monte .8s var(--ease-out) both; animation-delay: calc(var(--i) * 80ms);
 }
+@keyframes lp-monte { from { opacity: 0; translate: 0 .4em; } }
 .lp-chute h1 {
   max-width: 14ch; font: 800 clamp(34px, 8.6vw, 72px)/0.88 var(--display); font-variation-settings: "wdth" 80, "opsz" 96;
   letter-spacing: -0.03em; text-wrap: balance;
 }
+/* « programmes » passé au surligneur, une fois les sujets posés. */
+.lp-surligne {
+  background: linear-gradient(var(--eco), var(--eco)) no-repeat 0 88% / 100% .3em; padding-inline: .03em;
+  animation: lp-trait .9s .55s var(--ease-out) both;
+}
+@keyframes lp-trait { from { background-size: 0 .3em; } }
 .lp-accroche { margin-top: 22px; max-width: 30ch; font: 600 clamp(19px, 5vw, 26px)/1.3 var(--text); text-wrap: pretty; }
 .lp-actions { margin-top: 30px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
 .lp-go {
@@ -44,9 +51,8 @@
 /* Le téléphone, posé sur deux cartes de couleur qui dépassent. */
 .lp-scene { position: relative; justify-self: center; padding: 34px 26px; }
 .lp-scene::before, .lp-scene::after { content: ""; position: absolute; border-radius: 40px; }
-.lp-scene::before { inset: 4% 2%; background: var(--theme); transform: rotate(-8deg); }
-.lp-scene::after { inset: 10% 0 6% 10%; background: var(--eco); transform: rotate(6deg); }
-.lp-scene.theme-eco::after { background: var(--immi); }
+.lp-scene::before { inset: 4% 2%; background: color-mix(in srgb, var(--card) 55%, transparent); transform: rotate(-8deg); }
+.lp-scene::after { inset: 10% 0 6% 10%; background: color-mix(in srgb, var(--ink) 16%, transparent); transform: rotate(6deg); }
 .lp-tel {
   position: relative; z-index: 1; width: clamp(236px, 64vw, 340px); padding: 11px; border-radius: 46px;
   background: #0B0919; box-shadow: inset 0 0 0 2px #3B3369, 0 40px 70px -30px rgba(11, 9, 25, .75);
@@ -76,20 +82,35 @@
 @keyframes lp-defile { to { transform: translateX(-50%); } }
 
 /* ---------- les trois étapes, chacune avec son visuel ---------- */
-.lp-etapes { padding-block: 72px 24px; }
+.lp-etapes { padding-block: 72px 96px; }
 .lp-etapes h2, .lp-gages h2 {
   max-width: 13ch; font: 800 clamp(42px, 10.4vw, 100px)/0.9 var(--display); font-variation-settings: "wdth" 80, "opsz" 96;
   letter-spacing: -0.025em; text-wrap: balance;
 }
-.lp-etape { display: grid; gap: 28px; padding-block: 44px; }
-.lp-etapes h2 + .lp-etape { margin-top: 20px; }
-.lp-n { display: block; font: 800 clamp(64px, 17vw, 128px)/0.8 var(--display); font-variation-settings: "wdth" 80; letter-spacing: -0.03em; color: var(--table-3); }
+/* Chaque étape est une grande fiche de couleur, un peu de travers, posée sur la précédente. */
+.lp-etape {
+  --penche: -1.2deg;
+  position: relative; display: grid; gap: 28px; padding: clamp(26px, 5vw, 64px); border-radius: clamp(26px, 4vw, 40px);
+  background: var(--theme); color: var(--on-theme); rotate: var(--penche); box-shadow: 0 30px 60px -34px rgba(11, 9, 25, .55);
+}
+.lp-etape:nth-of-type(2) { --penche: 1deg; }
+.lp-etape:nth-of-type(3) { --penche: -.6deg; }
+.lp-etapes h2 + .lp-etape { margin-top: 48px; }
+.lp-etape + .lp-etape { margin-top: -18px; }
+@supports (animation-timeline: view()) {
+  .lp-etape { animation: lp-pose linear both; animation-timeline: view(); animation-range: entry 0% entry 70%; }
+  @keyframes lp-pose { from { translate: 0 90px; rotate: calc(var(--penche) * 5); } }
+}
+.lp-n {
+  display: block; font: 800 clamp(64px, 17vw, 128px)/0.8 var(--display); font-variation-settings: "wdth" 80; letter-spacing: -0.03em;
+  color: transparent; -webkit-text-stroke: 2px var(--on-theme);
+}
 .lp-etape h3 {
   margin-top: 16px; font: 800 clamp(32px, 8vw, 60px)/0.95 var(--display); font-variation-settings: "wdth" 82;
   letter-spacing: -0.02em; text-wrap: balance;
 }
 .lp-etape-texte p { margin-top: 16px; max-width: 34ch; font: 500 clamp(17px, 4.4vw, 21px)/1.45 var(--text); text-wrap: pretty; }
-.lp-visuel { display: grid; place-items: center; padding: clamp(28px, 6vw, 64px) clamp(18px, 5vw, 56px); border-radius: 28px; background: var(--table-2); }
+.lp-visuel { display: grid; place-items: center; padding: clamp(8px, 2vw, 24px); }
 
 /* La carte d'une question, comme sur la fiche. */
 .lp-carte { width: min(100%, 520px); background: var(--card); color: var(--ink); border-radius: 22px; overflow: hidden; box-shadow: 0 24px 50px -26px rgba(11, 9, 25, .5); }
@@ -112,8 +133,8 @@
 
 .lp-pile { position: relative; width: min(100%, 520px); margin: 12px 12px 0 0; }
 .lp-pile::before, .lp-pile::after { content: ""; position: absolute; inset: 0; border-radius: 22px; }
-.lp-pile::before { background: var(--immi); transform: rotate(3.4deg) translate(10px, -12px); }
-.lp-pile::after { background: var(--eco); transform: rotate(1.6deg) translate(5px, -6px); }
+.lp-pile::before { background: color-mix(in srgb, var(--ink) 18%, transparent); transform: rotate(3.4deg) translate(10px, -12px); }
+.lp-pile::after { background: color-mix(in srgb, var(--card) 60%, transparent); transform: rotate(1.6deg) translate(5px, -6px); }
 .lp-pile .lp-carte { position: relative; z-index: 1; width: 100%; }
 .lp-options { list-style: none; margin: 0; padding: 14px 14px 4px; display: grid; gap: 8px; }
 .lp-options a {
@@ -152,13 +173,12 @@
 .lp-grille .g-part { width: clamp(15px, 3.6vw, 26px); height: clamp(15px, 3.6vw, 26px); }
 
 /* ---------- les garanties, sur fond inversé ---------- */
-.lp-gages { --filet: color-mix(in srgb, var(--table) 18%, transparent); padding-block: 80px; background: var(--sur-table); color: var(--table); }
-.lp-gages dl { margin: 40px 0 0; }
-.lp-gages dl > div { display: grid; gap: 8px; padding: 24px 0; border-top: 2px solid var(--filet); }
+.lp-gages { padding-block: 80px; background: var(--sur-table); color: var(--table); }
+.lp-gages dl { display: grid; gap: 36px; margin: 48px 0 0; }
+.lp-gages dl > div { display: grid; align-content: start; gap: 10px; padding-top: 22px; border-top: 8px solid var(--theme); }
 .lp-gages dt { font: 800 clamp(28px, 7vw, 52px)/0.95 var(--display); font-variation-settings: "wdth" 82; letter-spacing: -0.02em; }
 .lp-gages dd { margin: 0; max-width: 40ch; font: 500 clamp(17px, 4.4vw, 21px)/1.45 var(--text); color: var(--sur-inverse); }
 .lp-gages a { color: var(--table); font-weight: 700; text-underline-offset: 3px; }
-.lp-signe { margin-top: 36px; font: 600 clamp(16px, 4.2vw, 19px)/1.4 var(--text); color: var(--sur-inverse); }
 
 /* ---------- l'appel final ---------- */
 .lp-fin { --lp-bouton: var(--ink); --lp-bouton-texte: var(--chalk); --lp-bouton-tranche: var(--ink-deep); padding-block: 88px 96px; background: var(--theme); color: var(--on-theme); }
@@ -184,13 +204,13 @@
   .lp-sujets li { font-size: clamp(46px, 7.6vw, 112px); }
   .lp-heros .lp-go { white-space: nowrap; }
   .lp-tel { width: clamp(270px, min(24vw, 40svh), 380px); }
-  .lp-etape { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: clamp(40px, 5vw, 88px); padding-block: 64px; }
+  .lp-etape { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: clamp(40px, 5vw, 88px); }
   .lp-etape:nth-of-type(even) { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
   .lp-etape:nth-of-type(even) .lp-etape-texte { order: 2; }
   .lp-pile { width: min(100%, 580px); }
   .lp-camps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
   .lp-gages { padding-block: 112px; }
-  .lp-gages dl > div { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: baseline; gap: 48px; padding: 30px 0; }
+  .lp-gages dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 64px; }
   .lp-fin { padding-block: 120px 128px; }
   .lp-fin .lp-actions { flex-direction: row; align-items: center; gap: 32px; }
 }
