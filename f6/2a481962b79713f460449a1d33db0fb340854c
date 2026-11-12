@@ -1,0 +1,26 @@
+src/components/Fiche.tsx
+  s_6f07cf65918d65::t_98fbb4f54841c3 92,95-97
+  s_6f07cf65918d65::t_86db6f74b01932 108-114
+SPEC.md
+  s_6f07cf65918d65::t_30d25b61468071 13,223
+src/app/globals.css
+  s_6f07cf65918d65::t_8deeea71458758 544,564,566-567,587-589,591,593,596
+e2e/question-du-jour.spec.ts
+  s_6f07cf65918d65::t_608b685cb198ab 619,623-625,631,634-638,682,684-685,688,697,745-746
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f62a481962b79713f460449a1d33db0fb340854c",
+  "prompts": {},
+  "sessions": {
+    "s_6f07cf65918d65": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "db6082f5-ade2-438f-9279-b9d43f038326",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
