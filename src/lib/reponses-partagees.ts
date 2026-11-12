@@ -4,18 +4,22 @@ import { base } from "@/lib/base";
 /**
  * Les réponses partagées (décision du 10/11/2026) : chaque réponse validée part au serveur, pour tout le monde, sans case
  * à cocher. Elle n'emporte que la session de l'onglet (un numéro tiré au hasard, oublié quand l'onglet se ferme), la
- * question, l'option, l'importance et le jour : ni adresse IP, ni cookie, ni identifiant de l'appareil. Les réponses d'une
- * même session se relient entre elles ; deux sessions du même électeur, jamais.
+ * question, l'option, l'importance, le jour et l'heure à la minute (depuis le 12/11/2026) : ni adresse IP, ni cookie, ni
+ * identifiant de l'appareil. Les réponses d'une même session se relient entre elles ; deux sessions, jamais.
  */
 export type ReponsePartagee = { session: string; question: number; option: string; importance: number | null; jour: string };
+
+/** Une réponse partagée telle que la lit l'auteur : avec son heure, absente des réponses d'avant le 12/11/2026. */
+export type ReponseLue = ReponsePartagee & { recueLe: Date | null };
 
 /** Garde une réponse ; la même question, répondue à nouveau dans la même session, remplace la précédente. */
 export async function enregistrerUneReponsePartagee({ session, question, option, importance, jour }: ReponsePartagee) {
   const sql = await base();
   await sql`
-    INSERT INTO reponses_partagees (session, question, option, importance, jour)
-    VALUES (${session}, ${question}, ${option}, ${importance}, ${jour})
-    ON CONFLICT (session, question) DO UPDATE SET option = EXCLUDED.option, importance = EXCLUDED.importance, jour = EXCLUDED.jour`;
+    INSERT INTO reponses_partagees (session, question, option, importance, jour, recue_le)
+    VALUES (${session}, ${question}, ${option}, ${importance}, ${jour}, date_trunc('minute', now()))
+    ON CONFLICT (session, question) DO UPDATE
+      SET option = EXCLUDED.option, importance = EXCLUDED.importance, jour = EXCLUDED.jour, recue_le = EXCLUDED.recue_le`;
 }
 
 async function reserveeALAuteur() {
@@ -47,18 +51,18 @@ export async function lireLesTotaux(): Promise<TotauxDesReponses> {
 }
 
 /** Les réponses d'une session, par question ; aucune si l'identifiant n'en est pas un. */
-export async function lireLesReponsesDeLaSession(session: string): Promise<ReponsePartagee[]> {
+export async function lireLesReponsesDeLaSession(session: string): Promise<ReponseLue[]> {
   const sql = await reserveeALAuteur();
   if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(session)) return [];
-  return sql<ReponsePartagee[]>`
-    SELECT session::text, question, option, importance, to_char(jour, 'YYYY-MM-DD') AS jour
+  return sql<ReponseLue[]>`
+    SELECT session::text, question, option, importance, to_char(jour, 'YYYY-MM-DD') AS jour, recue_le AS "recueLe"
     FROM reponses_partagees WHERE session = ${session}::uuid ORDER BY question`;
 }
 
 /** Toutes les réponses, une ligne chacune, rangées par session : l'export CSV de /admin, pour les croiser ailleurs. */
-export async function lireToutesLesReponses(): Promise<ReponsePartagee[]> {
+export async function lireToutesLesReponses(): Promise<ReponseLue[]> {
   const sql = await reserveeALAuteur();
-  return sql<ReponsePartagee[]>`
-    SELECT session::text, question, option, importance, to_char(jour, 'YYYY-MM-DD') AS jour
+  return sql<ReponseLue[]>`
+    SELECT session::text, question, option, importance, to_char(jour, 'YYYY-MM-DD') AS jour, recue_le AS "recueLe"
     FROM reponses_partagees ORDER BY session, question`;
 }
