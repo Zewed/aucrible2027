@@ -1,0 +1,30 @@
+src/components/Revelation.tsx
+  s_c3d726e4787956::t_b27f9a5e013480 357,363-365,371
+src/app/revelation/revelation.css
+  s_c3d726e4787956::t_4a88fcaeac56a5 233
+  s_c3d726e4787956::t_138e443bcf1969 13-15
+  s_c3d726e4787956::t_9277a1028d4c1d 24,127-128,160-162,164-167,169-172,174-180,183-187
+e2e/question-du-jour.spec.ts
+  s_c3d726e4787956::t_00d407abbe7370 5845-5848,5850,5852,5854,5860-5863
+  s_c3d726e4787956::t_e50b32d4ed6628 1028
+SPEC.md
+  s_c3d726e4787956::t_e50b32d4ed6628 30
+src/app/globals.css
+  s_c3d726e4787956::t_ef432a6d4c7a6e 134
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "88a7425d4e3edbc6cf1a29354c3630f1ff464048",
+  "prompts": {},
+  "sessions": {
+    "s_c3d726e4787956": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "526911d2-4597-4260-9c60-ae0ea6384cfb",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
