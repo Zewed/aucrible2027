@@ -85,13 +85,13 @@ options:
         source: { organisme: "Direction générale de l'offre de soins", annee: 2025 }
       defenseurs:
         - texte: "Un jeune médecin garde le choix de son lieu d'installation : il donne seulement une partie de son temps là où l'on manque de médecins."
-        - texte: "Elle vise d'abord les territoires les plus en difficulté : 151 intercommunalités, où vivent plus de 2,5 millions d'habitants."
+        - texte: "Le renfort obligatoire vise d'abord les territoires les plus en difficulté : 151 intercommunalités, où vivent plus de 2,5 millions d'habitants."
           source: { organisme: "Direction générale de l'offre de soins", annee: 2025 }
         - texte: "En renfort, les médecins pourraient ajouter jusqu'à 30 millions de consultations par an, d'après l'estimation du gouvernement en 2025."
           source: { organisme: "Gouvernement", annee: 2025 }
       critiques:
-        - texte: "Elle ne limite plus rien : un médecin pourra toujours s'installer là où ils sont déjà nombreux, pourvu qu'il exerce un peu ailleurs."
-        - texte: "Elle reste une contrainte : un médecin désigné qui refuserait d'aller en renfort pourrait payer jusqu'à 1 000 euros par jour refusé."
+        - texte: "La condition d'installation ne limite plus rien : un médecin pourra toujours s'installer là où les médecins sont déjà nombreux, pourvu qu'il exerce un peu ailleurs."
+        - texte: "Le renfort obligatoire reste une contrainte : un médecin désigné qui refuserait d'aller en renfort pourrait payer jusqu'à 1 000 euros par jour refusé."
           source: { organisme: "Sénat", annee: 2025 }
         - texte: "Le volontariat a peu mobilisé : fin 2025, 250 généralistes inscrits intervenaient dans près de 100 lieux."
           source: { organisme: "Direction générale de l'offre de soins", annee: 2025 }
@@ -103,7 +103,7 @@ options:
     axes: { economie: 0 }
     detail:
       chiffrage:
-        texte: "Le garder ne change pas la dépense : les aides à l'installation ont coûté environ 205 millions d'euros en 2023, sans compter celles des collectivités."
+        texte: "Garder la liberté d'installation ne change pas la dépense : les aides à l'installation ont coûté environ 205 millions d'euros en 2023, sans compter celles des collectivités."
         source: { organisme: "Cour des comptes", annee: 2025 }
       defenseurs:
         - texte: "Ce qui attire les jeunes médecins, c'est l'organisation : une maison de santé en fait venir en moyenne 16 de plus pour 100 000 habitants."

@@ -59,7 +59,7 @@ options:
       defenseurs:
         - texte: "Le seuil actuel est hors d'atteinte : la seule collecte organisée n'a réuni que 1,09 million de signatures, moins du quart du nombre requis."
           source: { organisme: "Conseil constitutionnel", annee: 2020 }
-        - texte: "Ses sujets sont trop étroits : six des sept demandes déposées ont été écartées, notamment parce qu'elles sortaient du champ prévu."
+        - texte: "Les sujets du référendum d'initiative partagée sont trop étroits : six des sept demandes déposées ont été écartées, notamment parce qu'elles sortaient du champ prévu."
           source: { organisme: "Conseil constitutionnel", annee: 2026 }
         - texte: "On garde les contrôles qui protègent la démocratie représentative, sans aller jusqu'à un RIC."
       critiques:
@@ -80,12 +80,12 @@ options:
         source: { organisme: "Parlement suisse", annee: 2024 }
       defenseurs:
         - texte: "Les citoyens ne veulent plus seulement être consultés : entre deux élections, ils veulent pouvoir décider."
-        - texte: "Il ne remplacerait pas le Parlement : en Suisse, de 2019 à 2023, les électeurs n'ont rejeté que 8 des 244 textes qu'ils pouvaient contester."
+        - texte: "Le RIC ne remplacerait pas le Parlement : en Suisse, de 2019 à 2023, les électeurs n'ont rejeté que 8 des 244 textes qu'ils pouvaient contester."
           source: { organisme: "Parlement suisse", annee: 2024 }
         - texte: "Les Français le demandent : 79 % veulent recourir plus souvent au référendum pour décider de lois importantes."
           source: { organisme: "CEVIPOF", annee: 2026 }
       critiques:
-        - texte: "Il pourrait servir à défaire des lois tout juste votées : en Suisse, de 2019 à 2023, les électeurs ont rejeté 8 des 21 textes soumis au vote."
+        - texte: "Le RIC pourrait servir à défaire des lois tout juste votées : en Suisse, de 2019 à 2023, les électeurs ont rejeté 8 des 21 textes soumis au vote."
           source: { organisme: "Parlement suisse", annee: 2024 }
         - texte: "Le vote risque de ne mobiliser qu'une minorité : en Italie, depuis 1997, moins de la moitié des électeurs ont voté neuf fois sur dix."
           source: { organisme: "Ministère de l'Intérieur italien", annee: 2025 }

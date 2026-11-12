@@ -58,7 +58,7 @@ options:
     axes: { societe: 1 }
     detail:
       chiffrage:
-        texte: "Ses partisans au Sénat en attendent 138 à 275 millions d'euros d'économie en écartant l'extrait d'acte de naissance des justificatifs, et 200 millions de plus avec l'accord préalable pour tous."
+        texte: "Les sénateurs favorables à des conditions plus dures en attendent 138 à 275 millions d'euros d'économie en écartant l'extrait d'acte de naissance des justificatifs, et 200 millions de plus avec l'accord préalable pour tous."
         source: { organisme: "Sénat", annee: 2025 }
       defenseurs:
         - texte: "Les justificatifs sont trop faciles à fournir : en Guyane, 41 % des demandeurs présentaient un simple extrait d'acte de naissance, sans photo."
@@ -73,7 +73,7 @@ options:
           source: { organisme: "Sénat", annee: 2025 }
         - texte: "Exiger un accord préalable pour tous retarderait des soins qui ne peuvent pas toujours attendre."
   - id: C
-    libelle: "La remplacer par une aide médicale d'urgence limitée aux soins vitaux"
+    libelle: "Remplacer l'AME par une aide médicale d'urgence limitée aux soins vitaux"
     implique: "Seuls les soins urgents et vitaux seraient pris en charge pour les étrangers en situation irrégulière ; les soins programmés ne le seraient plus."
     defenseurs: "L'argent public doit d'abord soigner les assurés : on garde les soins vitaux, mais plus de prise en charge complète des personnes en situation irrégulière, ce qui, selon eux, économiserait une partie des 1,3 milliard d'euros actuels."
     critiques: "Les hôpitaux publics estiment que tout recul aggraverait la situation sanitaire des plus précaires et désorganiserait les services hospitaliers."

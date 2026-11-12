@@ -74,7 +74,7 @@ options:
         source: { organisme: "Kyiv Independent", annee: 2026 }
       defenseurs:
         - texte: "Des soldats européens sur place dissuaderaient la Russie de toute nouvelle attaque une fois la paix revenue."
-        - texte: "Ils ne seraient pas au combat : l'armée ukrainienne, prévue à 800 000 soldats, resterait en première ligne, et la force se tiendrait loin du front."
+        - texte: "Les soldats français ne seraient pas au combat : l'armée ukrainienne, prévue à 800 000 soldats, resterait en première ligne, et la force se tiendrait loin du front."
           source: { organisme: "Élysée", annee: 2026 }
         - texte: "La force ne serait pas seule : les États-Unis conduiraient la surveillance du cessez-le-feu."
       critiques:

@@ -90,7 +90,7 @@ options:
         - texte: "Les agents décident en quelques secondes face à des refus de plus en plus dangereux : 21 % mettaient des vies en danger en 2023, contre 16 % en 2016."
           source: { organisme: "Ministère de l'Intérieur", annee: 2024 }
       critiques:
-        - texte: "Elle protégerait quelqu'un pour son métier, et non plus pour ce qui s'est passé au moment du tir."
+        - texte: "La présomption protégerait quelqu'un pour son métier, et non plus pour ce qui s'est passé au moment du tir."
         - texte: "Ce serait aux victimes et à leurs familles de prouver que le tir était injustifié, et l'usage des armes risquerait de devenir banal."
         - texte: "Le danger vise surtout les autres usagers : dans 90 % des refus de s'arrêter dangereux, ce sont eux qui sont menacés, les agents dans 10 %."
           source: { organisme: "Ministère de l'Intérieur", annee: 2024 }

@@ -33,7 +33,7 @@ options:
     critiques: "Sans obligation, les jeunes et les plus modestes votent beaucoup moins : en 2022, un inscrit modeste sur quatre n'a voté à aucun tour, et les élus sont choisis par ceux qui votent, plus âgés et plus aisés."
     detail:
       chiffrage:
-        texte: "Le garder ne change rien : au premier tour de la présidentielle de 2022, 26,3 % des inscrits n'ont pas voté."
+        texte: "Garder le vote libre ne change rien : au premier tour de la présidentielle de 2022, 26,3 % des inscrits n'ont pas voté."
         source: { organisme: "Conseil constitutionnel", annee: 2022 }
       defenseurs:
         - texte: "Chacun a le droit de vote, et celui de ne pas en user : refuser de voter est aussi une façon de s'exprimer."
@@ -63,7 +63,7 @@ options:
         - texte: "Un rappel à la loi puis un stage de citoyenneté font comprendre l'enjeu du vote, sans appauvrir ceux qui ont le moins."
       critiques:
         - texte: "Sans amende, l'obligation risque de rester lettre morte : là où aucune sanction n'est prévue, la participation ne change guère."
-        - texte: "Elle stigmatiserait et infantiliserait les abstentionnistes, d'abord les jeunes et les classes populaires."
+        - texte: "L'obligation de voter stigmatiserait et infantiliserait les abstentionnistes, d'abord les jeunes et les classes populaires."
         - texte: "Les Français ne la réclament pas : dans un sondage de 2023, 56 % ne retenaient pas le vote obligatoire parmi les remèdes à l'abstention."
           source: { organisme: "Ifop-Fiducial pour Sud Radio", annee: 2023 }
   - id: C
@@ -83,7 +83,7 @@ options:
         - texte: "Les candidats devraient enfin parler à tout le monde, jeunes et modestes compris, et pas seulement à ceux qui votent déjà."
       critiques:
         - texte: "L'amende frapperait d'abord les citoyens les plus défavorisés, qui sont aussi ceux qui s'abstiennent le plus."
-        - texte: "Elle fait voter sans convaincre : au Chili, 43 % de ceux qui ne votaient jamais sont venus en 2022 surtout pour éviter l'amende."
+        - texte: "L'obligation avec amende fait voter sans convaincre : au Chili, 43 % de ceux qui ne votaient jamais sont venus en 2022 surtout pour éviter l'amende."
           source: { organisme: "Centre d'études publiques du Chili", annee: 2023 }
         - texte: "Forcer à voter ne fait pas forcément choisir : en Australie, 5,5 % des bulletins n'ont pas été comptés en 2025, parce que blancs ou mal remplis."
           source: { organisme: "Commission électorale australienne", annee: 2026 }

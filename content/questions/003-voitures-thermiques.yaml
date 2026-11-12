@@ -48,7 +48,7 @@ options:
           source: { organisme: "Xerfi", annee: 2025 }
         - texte: "Les pays où l'électrique se vend encore peu, comme l'Allemagne, jugent l'objectif trop strict et demandent à l'assouplir."
   - id: B
-    libelle: L'assouplir à 90 %
+    libelle: "Assouplir l'objectif à 90 %"
     implique: L'objectif passe à 90 % de réduction ; les 10 % restants sont compensés par de l'acier bas carbone ou des carburants durables, et 27 à 29 % des voitures neuves pourraient encore avoir un moteur thermique après 2035, selon les projets en discussion.
     defenseurs: Garder la direction tout en laissant du temps à l'industrie et aux ménages, avec des hybrides, des carburants durables et des petites voitures électriques abordables.
     critiques: Elle affaiblit la visibilité de l'échéance et laisse des voitures thermiques neuves vendues après 2035.

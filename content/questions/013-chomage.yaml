@@ -64,14 +64,14 @@ options:
       defenseurs:
         - texte: "Après une rupture conventionnelle, on cherche un emploi comme les autres : 57 % de ceux qui ont cherché l'ont fait six mois ou plus."
           source: { organisme: "Dares", annee: 2013 }
-        - texte: "Elles remplacent aussi des licenciements : les licenciements pour motif personnel ont baissé de 10 % grâce à elles, sans recul des démissions."
+        - texte: "Les ruptures conventionnelles remplacent aussi des licenciements : les licenciements pour motif personnel ont baissé de 10 % grâce à elles, sans recul des démissions."
           source: { organisme: "Batut et Maurin", annee: 2020 }
         - texte: "Le chômage remonte, à 8,3 %, et la baisse de 2026 ne prévoit aucun allongement des droits si la situation se dégrade."
           source: { organisme: "Insee", annee: 2026 }
       critiques:
         - texte: "La plupart des ruptures conventionnelles remplacent des démissions, qui n'ouvrent aucun droit : trois sur quatre, selon une estimation."
           source: { organisme: "Dares", annee: 2018 }
-        - texte: "Elles pèsent lourd dans le régime : 9,4 milliards d'euros d'allocations en 2024, plus du quart des dépenses d'allocation."
+        - texte: "Les ruptures conventionnelles pèsent lourd dans le régime : 9,4 milliards d'euros d'allocations en 2024, plus du quart des dépenses d'allocation."
           source: { organisme: "Unédic", annee: 2026 }
         - texte: "Ces chômeurs ont des droits plus longs que les autres : 77 % ont 18 mois ou plus, car ils sortent d'un CDI."
           source: { organisme: "Unédic", annee: 2026 }
@@ -83,22 +83,22 @@ options:
     axes: { economie: 0 }
     detail:
       chiffrage:
-        texte: "Les garder ne change pas les comptes. Une fois en place, la baisse de 2026 réduira de 35 000 à 45 000 le nombre d'allocataires indemnisés chaque mois."
+        texte: "Garder les règles actuelles ne change pas les comptes. Une fois en place, la baisse de 2026 réduira de 35 000 à 45 000 le nombre d'allocataires indemnisés chaque mois."
         source: { organisme: "Unédic", annee: 2026 }
       defenseurs:
         - texte: "Beaucoup choisissent la rupture conventionnelle pour toucher le chômage : 69 % des salariés citent les allocations parmi leurs raisons."
           source: { organisme: "Dares", annee: 2013 }
-        - texte: "Elles sont de plus en plus nombreuses : 515 000 en 2024, 17 % de plus qu'en 2019."
+        - texte: "Les ruptures conventionnelles sont de plus en plus nombreuses : 515 000 en 2024, 17 % de plus qu'en 2019."
           source: { organisme: "Unédic", annee: 2026 }
         - texte: "La baisse vient d'un accord entre patronat et syndicats, signé notamment par la CFDT, la CFTC et FO."
       critiques:
         - texte: "Les plus âgés risquent d'arriver au bout de leurs droits sans emploi : trois mois après, seuls 24 % des 53-59 ans ont un emploi salarié."
           source: { organisme: "Trésor et Dares", annee: 2025 }
-        - texte: "Elle frappe large : 46 à 52 % des personnes indemnisées après une rupture conventionnelle perdraient des jours d'allocation, trois mois pour plus de la moitié d'entre elles."
+        - texte: "La baisse pour les départs négociés frappe large : 46 à 52 % des personnes indemnisées après une rupture conventionnelle perdraient des jours d'allocation, trois mois pour plus de la moitié d'entre elles."
           source: { organisme: "Unédic", annee: 2026 }
-        - texte: "Elle ne touche que les départs négociés et laisse inchangée la durée de tous les autres chômeurs."
+        - texte: "La baisse de 2026 ne touche que les départs négociés et laisse inchangée la durée de tous les autres chômeurs."
   - id: D
-    libelle: "La réduire pour tous : 12 mois avant 50 ans"
+    libelle: "Réduire la durée pour tous : 12 mois avant 50 ans"
     implique: "Un plafond de 12 mois pour les moins de 50 ans, contre 18 aujourd'hui ; aucune économie chiffrée à ce jour."
     defenseurs: "Plus la fin des droits approche, plus la recherche d'emploi s'intensifie : douze mois, comme l'Allemagne selon ses partisans, incitent à reprendre plus vite et allègent le régime."
     critiques: "Ceux qui arrivent en fin de droits sans emploi pourraient basculer vers le RSA : la charge serait transférée aux minima sociaux, et les parcours fragiles sont les plus touchés."
@@ -116,7 +116,7 @@ options:
       critiques:
         - texte: "Beaucoup basculeraient vers les minima sociaux : trois mois après la fin de leurs droits, 29 % des chômeurs touchent le RSA ou l'allocation de solidarité."
           source: { organisme: "Trésor et Dares", annee: 2025 }
-        - texte: "Il toucherait d'abord les parcours fragiles : saisonniers, salariés qui enchaînent les contrats courts, personnes malades, régions industrielles en difficulté."
+        - texte: "Réduire la durée à 12 mois toucherait d'abord les parcours fragiles : saisonniers, salariés qui enchaînent les contrats courts, personnes malades, régions industrielles en difficulté."
         - texte: "Le chômage de longue durée remonte : 2,1 % de la population active, son plus haut niveau depuis 2022."
           source: { organisme: "Insee", annee: 2026 }
 pourAllerPlusLoin:

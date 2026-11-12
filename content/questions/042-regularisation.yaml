@@ -100,7 +100,7 @@ options:
     axes: { societe: 2 }
     detail:
       chiffrage:
-        texte: "Il fermerait la porte aux quelque 700 000 étrangers sans titre que le ministère de l'Intérieur estime présents en France."
+        texte: "Ne plus régulariser fermerait la porte aux quelque 700 000 étrangers sans titre que le ministère de l'Intérieur estime présents en France."
         source: { organisme: "Ministère de l'Intérieur", annee: 2025 }
       defenseurs:
         - texte: "Entrer ou rester sans titre ne doit jamais être récompensé par un titre de séjour."
@@ -109,7 +109,7 @@ options:
         - texte: "Les renvois sont possibles : 24 985 étrangers ont été éloignés en 2025, 15,7 % de plus qu'en 2024."
           source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
       critiques:
-        - texte: "Ils ne partiraient pas pour autant : seules 8,3 % des obligations de quitter la France ont été exécutées en 2024."
+        - texte: "Les étrangers sans titre ne partiraient pas pour autant : seules 8,3 % des obligations de quitter la France ont été exécutées en 2024."
           source: { organisme: "Sénat", annee: 2025 }
         - texte: "Fermer toute régularisation pousserait plus de gens dans la clandestinité, sans droits ni protection."
         - texte: "Des métiers difficiles dépendent des immigrés : ils sont 38,8 % des employés de maison, contre 10,2 % de l'ensemble des emplois."

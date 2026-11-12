@@ -36,7 +36,7 @@ options:
     axes: { societe: -1 }
     detail:
       chiffrage:
-        texte: "L'arrêter éviterait la dépense prévue : environ 2,3 milliards d'euros de 2026 à 2030, sans compter la paie des encadrants."
+        texte: "Arrêter le service militaire volontaire éviterait la dépense prévue : environ 2,3 milliards d'euros de 2026 à 2030, sans compter la paie des encadrants."
         source: { organisme: "Sénat", annee: 2026 }
       defenseurs:
         - texte: "Les jeunes veulent déjà s'engager : le service civique reçoit trois fois plus de demandes qu'il n'a de missions."
@@ -58,13 +58,13 @@ options:
     axes: { societe: 0 }
     detail:
       chiffrage:
-        texte: "Le garder coûte ce qui est prévu : environ 2,3 milliards d'euros de 2026 à 2030, pour 29 500 jeunes accueillis en tout."
+        texte: "Garder le volontariat coûte ce qui est prévu : environ 2,3 milliards d'euros de 2026 à 2030, pour 29 500 jeunes accueillis en tout."
         source: { organisme: "Sénat", annee: 2026 }
       defenseurs:
         - texte: "Encadrer toute une génération n'est plus le rôle des armées : elles ont besoin de quelques milliers de renforts choisis, pas d'appelés en masse."
         - texte: "Même les pays qui ont rétabli l'obligation choisissent peu de jeunes : la Suède n'en retient qu'environ 8 % d'une génération."
           source: { organisme: "France Stratégie", annee: 2025 }
-        - texte: "Il monte en charge au rythme de ce que les armées peuvent encadrer : 10 000 jeunes prévus en 2030."
+        - texte: "Le service militaire volontaire monte en charge au rythme de ce que les armées peuvent encadrer : 10 000 jeunes prévus en 2030."
           source: { organisme: "Ministère des Armées", annee: 2026 }
       critiques:
         - texte: "Le volontariat ne mélange pas les milieux : au service national universel, 5 % des jeunes venaient d'un quartier prioritaire, contre 9 % des 15-17 ans."
@@ -80,7 +80,7 @@ options:
     axes: { societe: 1 }
     detail:
       chiffrage:
-        texte: "Pour 600 000 jeunes, il coûterait de 1,7 milliard d'euros par an pour douze jours à 3,5 milliards pour une mission de service civique, hors bâtiments nouveaux."
+        texte: "Pour 600 000 jeunes, un service civique obligatoire coûterait de 1,7 milliard d'euros par an pour douze jours à 3,5 milliards pour une mission de service civique, hors bâtiments nouveaux."
         source: { organisme: "France Stratégie", annee: 2025 }
       defenseurs:
         - texte: "Le volontariat attire surtout des jeunes déjà proches de l'uniforme : au service national universel, 26 % avaient un parent militaire, policier ou pompier, contre 2 % de la population."

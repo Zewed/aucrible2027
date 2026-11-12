@@ -59,12 +59,12 @@ options:
         - texte: "La protection des alliés tient à l'adhésion, pas au commandement : en restant dans l'Alliance, la France la garde tout entière."
         - texte: "L'indépendance des décisions de la France, y compris nucléaires, se défend mieux hors d'une structure où les États-Unis pèsent le plus."
       critiques:
-        - texte: "Elle perdrait un grand poste : depuis 2009, un Français dirige l'un des deux commandements suprêmes de l'OTAN, celui qui prépare ses armées de demain."
+        - texte: "La France perdrait un grand poste : depuis 2009, un Français dirige l'un des deux commandements suprêmes de l'OTAN, celui qui prépare ses armées de demain."
           source: { organisme: "Institut français des relations internationales", annee: 2025 }
         - texte: "Ce n'est pas le moment de défaire l'organisation militaire commune : la menace russe persiste aux frontières de l'Europe."
         - texte: "Sortir affaiblirait le rôle de la France en Europe et sa crédibilité auprès de ses alliés."
   - id: C
-    libelle: "Non, y rester"
+    libelle: "Non, rester dans le commandement intégré"
     implique: "La France garde sa place dans la structure militaire intégrée, où elle est revenue en 2009, et développe la défense européenne en lien avec l'OTAN."
     defenseurs: "Elle y pèse plus qu'en dehors, avec des postes de commandement, sans rien céder de son indépendance : sa dissuasion nucléaire reste hors du groupe des plans nucléaires."
     critiques: "L'influence tient aux moyens militaires plus qu'aux postes de commandement, et, pour ses critiques, la structure fait perdre à la France une part de son autonomie stratégique à l'égard des États-Unis."

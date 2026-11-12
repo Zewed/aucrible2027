@@ -29,7 +29,7 @@ chiffres:
     source: { organisme: "Assemblée nationale", document: "scrutin n° 3261", annee: 2025 }
 options:
   - id: A
-    libelle: "Le rétablir, avec de la prison"
+    libelle: "Rétablir le délit, avec de la prison"
     implique: "Rester en France sans titre de séjour redevient un délit puni de prison et d'amende, comme jusqu'en 2012 ; le droit européen autorise aujourd'hui la prison une fois la procédure de renvoi menée à son terme, pas avant."
     defenseurs: "Seule une peine de prison permet la garde à vue, qui donnait à la police le temps d'identifier les étrangers à renvoyer ; la retenue actuelle, 24 heures sans accès à leur téléphone, n'y suffit pas, et la prison ferme dissuade de rester."
     critiques: "En 2011, la Cour de justice de l'Union a jugé la prison contraire au droit européen tant que la procédure de renvoi n'est pas allée à son terme, et en 2012, la Cour de cassation a exclu la garde à vue pour ce motif ; avant 2012, 500 à 600 étrangers par an étaient condamnés pour ce seul délit."
@@ -49,7 +49,7 @@ options:
           source: { organisme: "Assemblée nationale", annee: 2025 }
         - texte: "On ne quitte pas son pays en lisant le code pénal, et aucune étude n'a montré que la fin du délit en 2012 ait attiré plus d'étrangers."
   - id: B
-    libelle: "Le rétablir, avec une amende"
+    libelle: "Rétablir le délit, avec une amende"
     implique: "Rester en France sans titre de séjour redevient un délit puni de 3 750 euros d'amende, et le juge peut interdire le territoire pendant trois ans, comme l'avait voté le Parlement en 2023 ; la garde à vue reste impossible."
     defenseurs: "Une règle sans sanction n'est pas respectée : moins de 1,5 % des étrangers qui reçoivent l'ordre de partir le font d'eux-mêmes. Le droit européen permet l'amende, et la plupart des pays de l'Union sanctionnaient ce séjour en 2013."
     critiques: "Ses opposants, dont le ministre de l'Intérieur en 2025, y voient un symbole : sans prison, la police n'a aucun pouvoir de plus, l'amende viserait des personnes souvent sans ressources et des milliers de dossiers encombreraient les tribunaux."

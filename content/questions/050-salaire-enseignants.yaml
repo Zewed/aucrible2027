@@ -49,7 +49,7 @@ options:
         - texte: "Les manques se concentrent dans quelques matières, qu'une hausse uniforme ne vise pas : en 2025, 74,4 % des postes de mathématiques ont été pourvus au concours du collège et du lycée."
           source: { organisme: "Ministère de l'Éducation nationale", annee: 2025 }
   - id: B
-    libelle: "Augmenter ceux qui font des missions en plus"
+    libelle: "Augmenter les enseignants qui font des missions en plus"
     implique: "Le pacte de 2023 est gardé ou élargi : chaque mission acceptée, comme remplacer un collègue absent ou aider des élèves en difficulté, est payée en plus, ou la hausse est donnée contre plus de présence dans l'établissement."
     defenseurs: "Payer le travail fait en plus améliore aussi l'école : en un an, le pacte a multiplié par 2,5 le remplacement des absences de quelques jours."
     critiques: "Moins d'un tiers des enseignants du public l'avaient choisi à la rentrée 2024, la Cour des comptes juge la participation « encore fragile », et son budget est passé de 780 à 480 millions d'euros entre 2025 et 2026."
@@ -61,13 +61,13 @@ options:
       defenseurs:
         - texte: "Le pacte rend service aux élèves : en un an, il a multiplié par 2,5 le remplacement des professeurs absents quelques jours."
           source: { organisme: "Sénat", annee: 2025 }
-        - texte: "Il paie vraiment ceux qui s'engagent : 2 408 euros par an en moyenne pour chaque enseignant qui y adhère."
+        - texte: "Le pacte enseignant paie vraiment ceux qui s'engagent : 2 408 euros par an en moyenne pour chaque enseignant qui y adhère."
           source: { organisme: "Sénat", annee: 2025 }
         - texte: "La hausse va au travail fait en plus, pas à tous sans distinction."
       critiques:
         - texte: "Peu d'enseignants l'ont choisi : 27,8 % de ceux du public à la rentrée 2024."
           source: { organisme: "Sénat", annee: 2025 }
-        - texte: "Il ne profite qu'à ceux qui peuvent travailler plus : 14 % seulement cumulent plusieurs missions."
+        - texte: "Le pacte enseignant ne profite qu'à ceux qui peuvent travailler plus : 14 % seulement cumulent plusieurs missions."
           source: { organisme: "Sénat", annee: 2025 }
         - texte: "C'est une paie incertaine, qui dépend du budget de chaque année et a déjà été réduite."
   - id: C

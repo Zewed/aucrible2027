@@ -30,7 +30,7 @@ chiffres:
     source: { organisme: Amnesty International, annee: 2024 }
 options:
   - id: A
-    libelle: L'interdire dans toutes les compétitions
+    libelle: "Interdire les signes religieux dans toutes les compétitions"
     implique: "Une règle nationale interdit les signes et tenues religieux ou politiques visibles dans toutes les compétitions officielles, du niveau départemental au niveau national, comme le prévoit le texte voté par le Sénat en 2025."
     # L'égalité entre les femmes et les hommes est l'argument d'une partie de la gauche laïque comme de la droite
     # (étude § 2d, [18] [22]) ; « prosélytisme » retiré, absent de l'étude.
@@ -53,7 +53,7 @@ options:
           source: { organisme: "Assemblée nationale", annee: 2025 }
       critiques:
         - texte: "La laïcité oblige l'État et ses agents : une joueuse amateur ne représente en rien la puissance publique."
-        - texte: "Elle écarterait des femmes de la compétition, même amateur, et creuserait l'écart de pratique sportive avec les hommes."
+        - texte: "L'interdiction écarterait des femmes de la compétition, même amateur, et creuserait l'écart de pratique sportive avec les hommes."
         - texte: "Les clubs repérés comme liés à une mouvance séparatiste sont rares : 127 sur 380 000 associations sportives en 2019."
           source: { organisme: "Ministère des Sports", document: "cité par le Sénat", annee: 2024 }
   - id: B
@@ -66,7 +66,7 @@ options:
     axes: { societe: 0 }
     detail:
       chiffrage:
-        texte: "La garder ne change rien : 14 fédérations sur 80 étudiées interdisent aujourd'hui un signe ou une tenue religieuse en compétition."
+        texte: "Garder la règle actuelle ne change rien : 14 fédérations sur 80 étudiées interdisent aujourd'hui un signe ou une tenue religieuse en compétition."
         source: { organisme: "Ministère des Sports", annee: 2025 }
       defenseurs:
         - texte: "Le football n'est pas le handball : chaque fédération juge des risques de son sport, sous le contrôle du juge."
@@ -79,7 +79,7 @@ options:
         - texte: "Les outils actuels servent peu : depuis la loi de 2021, un seul club a perdu son agrément pour manquement aux principes de la République."
           source: { organisme: "Sénat", annee: 2024 }
   - id: C
-    libelle: "L'autoriser, sauf en équipe de France"
+    libelle: "Autoriser le voile, sauf en équipe de France"
     implique: "Les sélectionnés en équipe de France restent neutres. Pour tous les autres, une fédération ne peut plus interdire un couvre-chef religieux adapté au sport, sauf pour une raison de sécurité."
     defenseurs: "La neutralité s'impose à ceux qui représentent la France, pas aux amateurs, qui ne représentent pas l'État : les écarter les prive de sport."
     critiques: "Le terrain deviendrait un lieu d'affichage religieux, et chaque club serait exposé seul aux pressions de ceux qui veulent y imposer leurs règles."
@@ -99,7 +99,7 @@ options:
         - texte: "Le juge a validé l'interdiction au football pour prévenir les affrontements sans lien avec le sport : la loi retirerait cet outil aux fédérations."
         - texte: "Le terrain deviendrait un lieu où l'on affiche sa religion, alors qu'il doit rester neutre pour tous."
   - id: D
-    libelle: "L'autoriser partout, équipe de France comprise"
+    libelle: "Autoriser le voile partout, équipe de France comprise"
     implique: "Aucune fédération ne peut interdire un couvre-chef religieux adapté au sport, et les athlètes de l'équipe de France peuvent le porter, comme le permettent les règles mondiales du basket ou du football."
     defenseurs: "Les fédérations internationales et le Comité international olympique l'autorisent : une athlète qui porte le voile doit pouvoir représenter son pays, comme ailleurs en Europe."
     critiques: "Une équipe nationale représente un État laïque : ses membres doivent rester neutres, comme l'a jugé le Conseil d'État."

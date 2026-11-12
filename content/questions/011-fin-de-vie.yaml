@@ -31,14 +31,14 @@ chiffres:
     source: { organisme: Conseil constitutionnel, document: décision n° 2026-910 DC, annee: 2026 }
 options:
   - id: A
-    libelle: L'abroger
+    libelle: "Abroger la loi sur l'aide à mourir"
     implique: La loi du 18 août 2026 est abrogée ; on s'en tient à la loi de 2016 (sédation profonde et continue) et au développement des soins palliatifs.
     defenseurs: "La société a besoin de soins palliatifs, pas d'une légalisation de l'euthanasie : il deviendrait plus facile de demander la mort que d'être soigné."
     critiques: Des malades peuvent vouloir arrêter de souffrir et demandent la liberté de choisir leur fin de vie.
     axes: { societe: 2 }
     detail:
       chiffrage:
-        texte: "L'abroger ramènerait au cadre de 2016 et aux soins palliatifs. L'écart entre leurs besoins et leur offre était estimé à 4 000 lits spécialisés."
+        texte: "Abroger la loi ramènerait au cadre de 2016 et aux soins palliatifs. L'écart entre leurs besoins et leur offre était estimé à 4 000 lits spécialisés."
         source: { organisme: "Cour des comptes", annee: 2023 }
       defenseurs:
         - texte: "Il faut d'abord pouvoir être soigné : les soins palliatifs ne couvraient que la moitié des besoins estimés."
@@ -53,7 +53,7 @@ options:
         - texte: "Aider à mourir n'empêche pas d'être soigné : dans l'Oregon, 9 malades aidés à mourir sur 10 étaient suivis en soins palliatifs."
           source: { organisme: "Oregon Health Authority", annee: 2026 }
   - id: B
-    libelle: La garder telle quelle
+    libelle: "Garder l'aide à mourir telle quelle"
     implique: Aide à mourir pour les majeurs, français ou résidents, atteints d'une maladie grave et incurable en phase avancée ou terminale ; le patient s'administre le produit, un soignant n'agit que s'il ne le peut pas.
     defenseurs: "Si nul ne souhaite mourir, certains peuvent vouloir arrêter de souffrir : la loi leur donne ce choix, avec des garde-fous (collège de soignants, délai de réflexion de deux jours)."
     critiques: Les uns y voient un « basculement anthropologique majeur », les autres un texte affaibli par les amendements.
@@ -63,9 +63,9 @@ options:
         texte: "Aucun chiffrage du nombre de malades concernés n'a été trouvé. Le médecin répond sous quinze jours, et le malade confirme après au moins deux jours de réflexion."
         source: { organisme: "Conseil constitutionnel", annee: 2026 }
       defenseurs:
-        - texte: "Ses limites peuvent tenir : au Canada, en 2024, 96 % des aides à mourir respectaient la condition d'origine de la loi, une mort prévisible."
+        - texte: "Les limites de la loi peuvent tenir : au Canada, en 2024, 96 % des aides à mourir respectaient la condition d'origine de la loi, une mort prévisible."
           source: { organisme: "Santé Canada", annee: 2025 }
-        - texte: "Elle protège les plus fragiles : un collège de soignants examine chaque demande, et toute pression signalée est transmise au procureur."
+        - texte: "La loi protège les plus fragiles : un collège de soignants examine chaque demande, et toute pression signalée est transmise au procureur."
         - texte: "L'État investit en même temps dans les soins palliatifs : un plan de dix ans leur consacre 1,1 milliard d'euros."
           source: { organisme: "Ministère de la Santé", annee: 2026 }
       critiques:
@@ -73,9 +73,9 @@ options:
           source: { organisme: "Ministère de la Santé", annee: 2023 }
         - texte: "Des malades pourraient demander à mourir pour ne pas peser : dans l'Oregon, 4 malades aidés à mourir sur 10 citent la peur d'être un poids pour leurs proches."
           source: { organisme: "Oregon Health Authority", annee: 2026 }
-        - texte: "Elle reste trop étroite : un malade qui peut prendre le produit lui-même ne peut pas demander à un soignant de le lui donner."
+        - texte: "La loi reste trop étroite : un malade qui peut prendre le produit lui-même ne peut pas demander à un soignant de le lui donner."
   - id: C
-    libelle: L'étendre à l'euthanasie
+    libelle: "Étendre l'aide à mourir à l'euthanasie"
     implique: Le patient peut demander qu'un médecin ou un infirmier lui administre le produit, sans devoir d'abord être dans l'incapacité de le faire lui-même.
     defenseurs: Une liberté supplémentaire donnée aux êtres humains pour choisir leur fin de vie.
     critiques: "« L'euthanasie est une boîte de Pandore : une fois ouverte, vous n'arrivez plus à la refermer. »"

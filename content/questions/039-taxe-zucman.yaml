@@ -35,7 +35,7 @@ options:
     axes: { economie: -2 }
     detail:
       chiffrage:
-        texte: "Ses partisans en attendent 15 à 25 milliards d'euros par an. Cette estimation est contestée, et l'administration n'a publié aucun chiffrage."
+        texte: "Les partisans de la taxe Zucman en attendent 15 à 25 milliards d'euros par an. Cette estimation est contestée, et l'administration n'a publié aucun chiffrage."
         source: { organisme: "Amendement à l'Assemblée nationale", annee: 2026 }
       defenseurs:
         - texte: "Au sommet, l'impôt baisse : les 75 foyers les plus riches paient en impôts 26 % de leur revenu, bénéfices de leurs sociétés compris, contre 46 % pour le 0,1 % le plus aisé."
@@ -46,9 +46,9 @@ options:
       critiques:
         - texte: "La recette est surestimée : si l'on déduit l'impôt déjà payé par les entreprises détenues, elle tomberait à 2 ou 3 milliards d'euros par an."
           source: { organisme: "Sénat", annee: 2025 }
-        - texte: "Elle reposerait sur quelques familles : si les trois plus grandes fortunes partaient, la recette baisserait de moitié environ."
+        - texte: "La taxe Zucman reposerait sur quelques familles : si les trois plus grandes fortunes partaient, la recette baisserait de moitié environ."
           source: { organisme: "Sénat", annee: 2025 }
-        - texte: "Sans plafond lié aux revenus, elle risque d'être censurée : le Conseil constitutionnel n'a validé l'ancien ISF qu'avec un plafonnement."
+        - texte: "Sans plafond lié aux revenus, la taxe Zucman risque d'être censurée : le Conseil constitutionnel n'a validé l'ancien ISF qu'avec un plafonnement."
   - id: B
     libelle: "Taxer la fortune, pas les entreprises"
     implique: "Pas de taxe Zucman, mais un impôt sur le patrimoine des plus riches dont sont exclues les parts des entreprises qu'ils détiennent ou dirigent, par exemple 0,5 % par an comme le propose la Cour des comptes, ou un impôt sur la fortune qui épargne les entreprises et la résidence principale."

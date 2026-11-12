@@ -32,7 +32,7 @@ options:
     axes: { economie: -2 }
     detail:
       chiffrage:
-        texte: Ses défenseurs estiment à 27 milliards d'euros en 2027 le passage de 62 à 60 ans, payés par des cotisations. Aucun chiffrage public n'a été trouvé.
+        texte: Selon ceux qui le proposent, le passage de 62 à 60 ans coûterait 27 milliards d'euros en 2027, payés par des cotisations. Aucun chiffrage public n'a été trouvé.
         source:
           organisme: Amendement à l'Assemblée nationale
           annee: 2023

@@ -51,14 +51,14 @@ options:
         - texte: "Les Français soutiennent l'interdiction : 69 % voulaient interdire les vols intérieurs quand le train fait le trajet dans le même temps."
           source: { organisme: "Elabe", document: "sondage pour BFMTV", annee: 2019 }
   - id: B
-    libelle: "La garder à 2 h 30"
+    libelle: "Garder l'interdiction à 2 h 30"
     implique: "Le décret est reconduit : les vols sont interdits quand le train relie les deux villes sans changement en moins de 2 h 30, et les vols depuis Roissy restent permis pour les correspondances."
     defenseurs: "Une « interdiction raisonnable », selon le rapporteur de la loi au Sénat, qui laisse faire l'aller-retour dans la journée et ne coupe pas les correspondances vers l'étranger depuis Roissy."
     critiques: "Pour les uns, un « coup d'épée dans l'eau » qui vise trois lignes déjà suspendues ; pour les autres, une entrave à la liberté d'entreprendre."
     axes: { societe: 0 }
     detail:
       chiffrage:
-        texte: "La garder ne change rien : trois lignes restent interdites, toutes au départ de Paris-Orly, et les vols depuis Roissy restent permis."
+        texte: "Garder l'interdiction ne change rien : trois lignes restent interdites, toutes au départ de Paris-Orly, et les vols depuis Roissy restent permis."
         source: { organisme: "Ministère de la Transition écologique", annee: 2023 }
       defenseurs:
         - texte: "C'est une interdiction raisonnable : elle laisse faire l'aller-retour dans la journée et préserve les lignes de service public."
@@ -71,14 +71,14 @@ options:
           source: { organisme: "UFC-Que Choisir", annee: 2021 }
         - texte: "Protéger les vols de Roissy revient à ne pas compter les correspondances, alors que le train dessert la gare de l'aéroport."
   - id: C
-    libelle: "L'étendre à moins de 4 heures de train"
+    libelle: "Étendre l'interdiction à moins de 4 heures de train"
     implique: "Comme le proposait la Convention citoyenne pour le climat : 18 à 23 lignes seraient concernées, et environ 30 % des passagers des vols intérieurs en métropole selon l'UFC-Que Choisir ; ces estimations d'associations favorables à ce seuil reposent sur le trafic d'avant le Covid."
     defenseurs: "Sur ces trajets, le train fait perdre environ 40 minutes et émet près de 80 fois moins de CO2 par passager ; l'effet sur les émissions serait trois fois celui du seuil de 2 h 30, selon deux associations."
     critiques: "Les TGV sont déjà remplis à 77 % en moyenne, des voyageurs en correspondance pourraient passer par des aéroports étrangers, et l'aérien régional a déjà perdu des emplois."
     axes: { societe: -1 }
     detail:
       chiffrage:
-        texte: "Ses partisans estiment que les émissions des vols en métropole baisseraient de 33,2 %, contre 11,2 % au seuil de 2 h 30. Cette estimation date de 2021, avant la baisse du trafic."
+        texte: "Les partisans d'un seuil à 4 heures estiment que les émissions des vols en métropole baisseraient de 33,2 %, contre 11,2 % au seuil de 2 h 30. Cette estimation date de 2021, avant la baisse du trafic."
         source: { organisme: "Réseau Action Climat", annee: 2021 }
       defenseurs:
         - texte: "Sur ces trajets, le train fait perdre peu de temps : 40 minutes en moyenne, attente à l'aéroport comprise."

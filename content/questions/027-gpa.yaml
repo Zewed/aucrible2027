@@ -27,7 +27,7 @@ chiffres:
     source: { organisme: Annals of Internal Medicine, document: "Velez et al.", annee: 2024 }
 options:
   - id: A
-    libelle: L'interdire aussi à l'étranger
+    libelle: "Interdire la GPA aussi à l'étranger"
     implique: "La GPA reste interdite en France, et y recourir devient un délit même dans un pays où elle est légale, comme en Italie depuis 2024 ; les peines contre les intermédiaires sont alourdies."
     defenseurs: "Interdire en France sans punir le recours à l'étranger revient à laisser faire : la GPA porte atteinte à la dignité des femmes et des enfants, il faut la combattre partout."
     critiques: "Des juristes jugent difficile de punir un acte légal là où il a lieu, et ce sont les enfants déjà nés qui en subiraient les conséquences."
@@ -62,10 +62,10 @@ options:
         - texte: "Les instances d'éthique et de droit consultées par l'État, en 2017 puis en 2018, ont toutes conclu qu'il fallait garder l'interdiction."
       critiques:
         - texte: "L'interdiction se contourne sans risque : des plaintes déposées contre des agences américaines de GPA n'ont donné lieu à aucune poursuite."
-        - texte: "Elle laisse le juge décider à la place de la loi : depuis 2026, il reconnaît des parents d'enfants nés de GPA sans qu'aucune procédure ne soit prévue par la loi."
-        - texte: "Elle laisse des Français passer des contrats à l'étranger, alors qu'un cadre fixé en France protégerait mieux la femme qui porte l'enfant."
+        - texte: "L'interdiction actuelle laisse le juge décider à la place de la loi : depuis 2026, il reconnaît des parents d'enfants nés de GPA sans qu'aucune procédure ne soit prévue par la loi."
+        - texte: "L'interdiction actuelle laisse des Français passer des contrats à l'étranger, alors qu'un cadre fixé en France protégerait mieux la femme qui porte l'enfant."
   - id: C
-    libelle: L'autoriser sans paiement
+    libelle: "Autoriser la GPA sans paiement"
     implique: "Une femme peut porter un enfant pour d'autres sans être payée, ses frais étant remboursés, dans un cadre strict fixé par la loi, comme au Royaume-Uni ou au Canada."
     defenseurs: "Des couples infertiles et des couples d'hommes partent déjà à l'étranger : mieux vaut une GPA encadrée et non lucrative en France, qui protège la femme et l'enfant."
     critiques: "« Il n'y a pas de GPA éthique » : la femme engage son corps, l'enfant est séparé d'elle à la naissance, et le remboursement des frais peut cacher un paiement."
@@ -87,7 +87,7 @@ options:
         - texte: "On connaît mal le devenir de ces enfants : l'étude qui les a suivis jusqu'à l'âge adulte ne compte que 22 familles nées de GPA, sans résultat publié pour elles seules."
           source: { organisme: "Université de Cambridge", annee: 2023 }
   - id: D
-    libelle: "L'autoriser, même payée"
+    libelle: "Autoriser la GPA, même payée"
     implique: "La femme qui porte l'enfant peut être payée, dans un contrat encadré par la loi, comme en Californie."
     defenseurs: "Porter un enfant pour d'autres demande du temps et comporte des risques : le rémunérer le reconnaît, dans un cadre qui protège les droits de chacun."
     critiques: "Payer une grossesse fait du corps des femmes et de l'enfant un objet de marché, et attire d'abord les femmes les plus pauvres."

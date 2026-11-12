@@ -59,15 +59,15 @@ options:
         texte: "Suivre la programmation fait monter l'aide publique à l'éolien : 1,6 milliard d'euros en 2025, 2,7 milliards prévus en 2027."
         source: { organisme: "Commission de régulation de l'énergie", annee: 2026 }
       defenseurs:
-        - texte: "Elle prévoit l'électricité dont le pays aura besoin : 120 TWh bas carbone de plus par an en 2035, en combinant éolien, solaire et nucléaire."
+        - texte: "La programmation de l'énergie prévoit l'électricité dont le pays aura besoin : 120 TWh bas carbone de plus par an en 2035, en combinant éolien, solaire et nucléaire."
           source: { organisme: "Gouvernement", annee: 2026 }
-        - texte: "Fixée après une consultation publique, elle donne aux entreprises la visibilité dont elles ont besoin pour investir."
-        - texte: "Elle privilégie le renouvellement des parcs existants avec des turbines plus puissantes, pour produire plus en limitant l'impact sur les paysages."
+        - texte: "Fixée après une consultation publique, la programmation de l'énergie donne aux entreprises la visibilité dont elles ont besoin pour investir."
+        - texte: "La programmation de l'énergie privilégie le renouvellement des parcs existants avec des turbines plus puissantes, pour produire plus en limitant l'impact sur les paysages."
       critiques:
-        - texte: "Ses objectifs ont déjà été revus à la baisse : 15 GW d'éolien en mer en 2035, contre 18 GW dans la version précédente."
+        - texte: "Les objectifs de la programmation ont déjà été revus à la baisse : 15 GW d'éolien en mer en 2035, contre 18 GW dans la version précédente."
           source: { organisme: "Gouvernement", annee: 2026 }
-        - texte: "Elle laisse la France en retard sur l'électrification de ses usages, alors qu'il faudrait accélérer."
-        - texte: "Elle engage encore beaucoup d'argent public dans des aides garanties pendant de longues années."
+        - texte: "La programmation de l'énergie laisse la France en retard sur l'électrification de ses usages, alors qu'il faudrait accélérer."
+        - texte: "La programmation de l'énergie engage encore beaucoup d'argent public dans des aides garanties pendant de longues années."
   - id: C
     libelle: "Arrêter les aides publiques et ne plus lancer d'appels d'offres"
     implique: "Fin des subventions à l'éolien et au solaire (12 milliards d'euros d'économies annoncées dans un plan), annulation des appels d'offres non attribués, priorité au nucléaire et à l'hydroélectricité."
@@ -75,7 +75,7 @@ options:
     critiques: "Arrêter les appels d'offres envoie un signal négatif aux investisseurs et, selon la filière, menacerait 80 000 emplois."
     detail:
       chiffrage:
-        texte: "Ses partisans annoncent 12 milliards d'euros d'économies sur les aides à l'éolien et au solaire. Aucun chiffrage indépendant n'a été trouvé."
+        texte: "Les partisans de l'arrêt des aides annoncent 12 milliards d'euros d'économies sur les aides à l'éolien et au solaire. Aucun chiffrage indépendant n'a été trouvé."
         source: { organisme: "Debout la France", document: "projet « Économie et travail »", annee: 2026 }
       defenseurs:
         - texte: "L'électricité vaut de plus en plus souvent moins que rien : les prix ont été négatifs pendant 513 heures en 2025, contre 352 en 2024."

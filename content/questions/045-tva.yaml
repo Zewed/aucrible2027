@@ -54,7 +54,7 @@ options:
           source: { organisme: "American Economic Journal", annee: 2019 }
         - texte: "Le droit européen interdit un taux réduit sur les carburants : la France ne peut pas le décider seule."
   - id: B
-    libelle: "Ne pas y toucher, aider de façon ciblée"
+    libelle: "Ne pas toucher à la TVA, aider de façon ciblée"
     implique: "Les taux restent les mêmes. Pour le pouvoir d'achat, l'État verse des aides réservées à ceux qui en ont besoin, comme le chèque énergie ou l'aide carburant de 100 euros versée en 2026 à des travailleurs modestes."
     defenseurs: "Le chèque énergie protège mieux les ménages vulnérables qu'une baisse de TVA, pour un coût moindre, selon le Conseil des prélèvements obligatoires. La TVA, premier impôt avec 212 milliards d'euros en 2025, finance aussi la Sécurité sociale et les collectivités."
     critiques: "Une aide réservée n'atteint pas tous ceux qui y ont droit : à une semaine de la date limite, un travailleur sur deux qui y avait droit n'avait pas demandé l'aide carburant. Et la TVA reste plus lourde, en part du revenu, pour les ménages modestes."
@@ -76,7 +76,7 @@ options:
           source: { organisme: "Direction générale de l'énergie et du climat", annee: 2026 }
         - texte: "Ne rien changer, c'est garder la hausse d'août 2025, qui a fait passer l'abonnement d'électricité et de gaz au taux normal de TVA."
   - id: C
-    libelle: "L'augmenter pour baisser les cotisations"
+    libelle: "Augmenter la TVA pour baisser les cotisations"
     implique: "Le taux de la TVA augmente de quelques points, et la recette sert à baisser les cotisations prélevées sur les salaires, pour augmenter le salaire net ou baisser le coût du travail. C'est la « TVA sociale », votée en 2012 puis abrogée avant d'entrer en vigueur."
     defenseurs: "La protection sociale repose surtout sur les salaires ; la financer aussi par la consommation fait contribuer les produits importés. Une note du ministère de l'Économie attendait en 2007 jusqu'à 300 000 emplois si la baisse vise les bas salaires, et la France taxe moins la consommation que ses voisins."
     critiques: "Une hausse de TVA passe vite dans les prix, à 70 ou 80 % en France. Selon une simulation de l'Insee, qui ne compte pas la baisse des cotisations, trois points de plus ôteraient 1,4 % de pouvoir d'achat aux 10 % les plus modestes, même après la hausse du Smic et des aides, et en Allemagne la consommation a baissé de 1,8 % au trimestre de la hausse de 2007."

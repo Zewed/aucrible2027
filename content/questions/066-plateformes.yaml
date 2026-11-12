@@ -35,7 +35,7 @@ chiffres:
     source: { organisme: "Médecins du Monde, association", document: "enquête Santé-Course, citée par la mission gouvernementale", annee: 2026 }
 options:
   - id: A
-    libelle: "Les présumer tous salariés, sans attendre un procès"
+    libelle: "Tous présumés salariés, sans attendre un procès"
     implique: "Tous les chauffeurs et livreurs sont présumés salariés. La plateforme ne peut l'écarter qu'en prouvant, tout à la fois, que le travailleur fixe ses prix, choisit ses horaires, peut refuser des courses, a sa propre clientèle et n'est ni supervisé ni sanctionné. L'inspection du travail peut reconnaître salariés d'un coup tous les travailleurs d'une plateforme."
     defenseurs: "Un algorithme qui attribue les courses, fixe les prix et peut couper l'accès à l'application agit comme un employeur : tant que chacun doit aller seul au procès, des années après, ces travailleurs restent privés des droits des salariés."
     critiques: "Beaucoup veulent rester indépendants, et présumer tout le monde salarié ferait disparaître des missions et des plateformes, comme en Espagne, où Deliveroo est partie."
@@ -54,7 +54,7 @@ options:
         - texte: "En Espagne, où les livreurs sont présumés salariés depuis 2021, Deliveroo est partie et d'autres plateformes ont continué avec des indépendants ou des sous-traitants."
         - texte: "La présomption doit aider le juge à trancher selon les conditions réelles de travail, pas transformer d'office un indépendant en salarié."
   - id: B
-    libelle: "Les présumer salariés s'ils vont devant le juge"
+    libelle: "Présumés salariés en cas de procès"
     implique: "Un chauffeur ou un livreur qui va aux prud'hommes n'a plus qu'à présenter des indices, comme la géolocalisation, des sanctions ou des prix imposés : c'est à la plateforme de prouver qu'il est indépendant, et le jugement est rendu en 4 à 6 mois. Les syndicats peuvent aussi agir en justice pour plusieurs travailleurs à la fois. En même temps, les plateformes paient une assurance accidents du travail, et un revenu minimum est fixé par accord ou, à défaut, par décret."
     defenseurs: "C'est la directive appliquée à la lettre : le travailleur n'a plus à tout prouver, la décision vient vite, et chacun reçoit les droits qui manquent sans qu'on impose le salariat à ceux qui n'en veulent pas."
     critiques: "Les partisans du salariat d'office jugent que le travailleur doit toujours aller devant le juge, le plus souvent après avoir quitté la plateforme ; les plateformes, qu'une présomption large crée une insécurité juridique et des coûts nouveaux."
@@ -74,13 +74,13 @@ options:
           source: { organisme: "Mission gouvernementale", document: "d'après une étude de l'Institut Badinter", annee: 2026 }
         - texte: "Une présomption large crée pour les plateformes une insécurité juridique et des coûts nouveaux : mieux vaut appliquer la directive au plus juste."
   - id: C
-    libelle: "Les garder indépendants, avec des droits négociés"
+    libelle: "Indépendants, avec des droits négociés"
     implique: "C'est la règle actuelle : pas de présomption de salariat, et celui qui se dit salarié doit le prouver devant le juge. Les revenus minimums et les règles pour suspendre un compte se négocient entre les plateformes et les représentants élus des chauffeurs et des livreurs, sous l'égide de l'Arpe, l'autorité qui organise ces négociations."
     defenseurs: "Ces travailleurs ont choisi la liberté de se connecter quand ils veulent et pour qui ils veulent, et la négociation leur a déjà donné des minimums : 9 € par course pour les chauffeurs, 19 € par heure d'activité pour les livreurs."
     critiques: "Les revenus ont baissé malgré les accords, près de la moitié des chauffeurs n'en bénéficient pas, et la directive oblige la France à instaurer une présomption de salariat."
     detail:
       chiffrage:
-        texte: "La garder ne change rien. Depuis 2022, 14 accords ont été signés entre les plateformes et les représentants élus des chauffeurs et des livreurs, dont des revenus minimums."
+        texte: "Garder la règle actuelle ne change rien. Depuis 2022, 14 accords ont été signés entre les plateformes et les représentants élus des chauffeurs et des livreurs, dont des revenus minimums."
         source: { organisme: "Mission gouvernementale", annee: 2026 }
       defenseurs:
         - texte: "Ces travailleurs ont choisi la liberté de se connecter quand ils veulent, de refuser une course et de travailler pour plusieurs applications."

@@ -67,7 +67,7 @@ options:
       critiques:
         - texte: "Les prisons débordent déjà : au 1er septembre 2026, 8 347 détenus dormaient sur un matelas posé au sol."
           source: { organisme: "Ministère de la Justice", annee: 2026 }
-        - texte: "Leur effet sur la récidive est faible : la baisse mesurée ne porte que sur des récidives répétées, environ 1,75 % des condamnations."
+        - texte: "L'effet des peines planchers sur la récidive est faible : la baisse mesurée ne porte que sur des récidives répétées, environ 1,75 % des condamnations."
           source: { organisme: "Institut des politiques publiques", annee: 2024 }
         - texte: "Mieux vaut une sanction rapide et vraiment exécutée, même courte, qu'un seuil minimal."
   - id: C

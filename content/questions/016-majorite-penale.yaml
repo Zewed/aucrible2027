@@ -33,7 +33,7 @@ options:
     axes: { societe: 0 }
     detail:
       chiffrage:
-        texte: "Le garder ne change pas le droit : en 2024, sur 46 884 peines et mesures prononcées contre des mineurs, 2 680 étaient de la prison ferme, en tout ou en partie."
+        texte: "Garder la majorité pénale à 18 ans ne change pas le droit : en 2024, sur 46 884 peines et mesures prononcées contre des mineurs, 2 680 étaient de la prison ferme, en tout ou en partie."
         source: { organisme: "Ministère de la Justice", annee: 2025 }
       defenseurs:
         - texte: "La délinquance des mineurs recule dans l'ensemble : 131 572 mineurs soupçonnés d'un crime ou délit en 2024, contre 165 638 en 2016."
@@ -67,7 +67,7 @@ options:
         - texte: "La comparution immédiate dès seize ans a déjà été censurée en 2025 comme contraire à la Constitution."
         - texte: "La justice des mineurs est déjà plus sévère : la prison ferme prononcée est passée de 5,5 mois en moyenne en 2010 à 9 mois en 2020."
           source: { organisme: "Ministère de la Justice", annee: 2022 }
-        - texte: "Elle enfermerait davantage de mineurs, alors que la plupart des détenus attendent encore leur jugement : 451, contre 288 condamnés, au 1er janvier 2025."
+        - texte: "La comparution immédiate enfermerait davantage de mineurs, alors que la plupart des détenus attendent encore leur jugement : 451, contre 288 condamnés, au 1er janvier 2025."
           source: { organisme: "Ministère de la Justice", annee: 2025 }
   - id: C
     libelle: "Abaisser la majorité pénale à 16 ans"
@@ -77,7 +77,7 @@ options:
     axes: { societe: 2 }
     detail:
       chiffrage:
-        texte: "Elle viserait les 16 et 17 ans, qui font 89 % des 810 mineurs suivis en milieu fermé au 1er janvier 2025."
+        texte: "Abaisser la majorité pénale toucherait les 16 et 17 ans, qui font 89 % des 810 mineurs suivis en milieu fermé au 1er janvier 2025."
         source: { organisme: "Ministère de la Justice", annee: 2025 }
       defenseurs:
         - texte: "Les mineurs réagissent aux sanctions comme les adultes : aux États-Unis, des peines adoucies expliqueraient 60 % de la hausse plus rapide de leur violence de 1978 à 1993."
@@ -90,7 +90,7 @@ options:
           source: { organisme: "Agence de santé publique des États-Unis", annee: 2007 }
         - texte: "La plupart des voisins gardent dix-huit ans : sur 11 pays européens étudiés en 2007, seuls le Danemark et le Portugal faisaient autrement."
           source: { organisme: "Sénat", annee: 2007 }
-        - texte: "Elle se heurterait à un principe fondamental de la République, l'atténuation de la peine en fonction de l'âge, et supposerait de réviser la Constitution."
+        - texte: "Abaisser la majorité pénale se heurterait à un principe fondamental de la République, l'atténuation de la peine en fonction de l'âge, et supposerait de réviser la Constitution."
   - id: D
     libelle: "Abaisser la majorité pénale à 16 ans et faire de l'excuse de minorité l'exception dès 13 ans"
     implique: "Majorité pénale à 16 ans ; dès 13 ans, la peine d'adulte devient la règle et l'excuse de minorité une exception accordée par le juge ; comparution immédiate dès 13 ans pour les cas graves."
@@ -99,7 +99,7 @@ options:
     axes: { societe: 2 }
     detail:
       chiffrage:
-        texte: "Elle s'étendrait aux moins de 16 ans, qui font 11 % des mineurs suivis en milieu fermé au 1er janvier 2025."
+        texte: "Faire de l'excuse de minorité l'exception toucherait aussi les moins de 16 ans, qui font 11 % des mineurs suivis en milieu fermé au 1er janvier 2025."
         source: { organisme: "Ministère de la Justice", annee: 2025 }
       defenseurs:
         - texte: "Les plus jeunes commettent aussi des faits très graves : en 2024, un tiers des mineurs soupçonnés d'homicide avaient moins de 16 ans."

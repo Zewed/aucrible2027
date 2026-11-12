@@ -23,7 +23,7 @@ chiffres:
 # options (la sortie comme la relance passent par l'État), et une note forcée ajouterait des blocs au plateau.
 options:
   - id: A
-    libelle: "En sortir progressivement"
+    libelle: "Sortir progressivement du nucléaire"
     implique: "Plus de nouveaux réacteurs (ni EPR2 ni petits réacteurs) et fermeture des réacteurs actuels au fil des années, sur une vingtaine d'années pour les uns, jusqu'à une électricité 100 % renouvelable en 2050 pour les autres."
     defenseurs: "On supprime le risque d'accident et les nouveaux déchets, dangereux des centaines de milliers d'années ; en 2021, le gestionnaire du réseau a jugé possible une électricité 100 % renouvelable en 2050, et le devis des six réacteurs prévus a augmenté de 41 % depuis 2022, à prix constants."
     critiques: "Selon la même étude de 2021, que le gestionnaire du réseau met à jour fin 2026, se passer de nouveaux réacteurs coûterait environ 10 milliards d'euros de plus par an vers 2060 et demanderait de construire les renouvelables plus vite que les pays européens les plus rapides ; l'Allemagne, sortie en 2023, a tiré 38 % de son électricité du charbon et du gaz en 2025."
@@ -44,7 +44,7 @@ options:
           source: { organisme: "Agence France-Presse", annee: 2025 }
         - texte: "Fermer des réacteurs avant d'avoir assez de renouvelables ferait monter les émissions de carbone."
   - id: B
-    libelle: "Réduire sa part, sans en sortir"
+    libelle: "Réduire la part du nucléaire, sans en sortir"
     implique: "On garde tout ou partie des réacteurs actuels, tant que l'autorité de sûreté l'autorise, mais on construit moins que les six réacteurs prévus, voire aucun ; les renouvelables prennent une part croissante. C'était l'objectif de la loi de 2015 à 2023 : 50 % de nucléaire."
     defenseurs: "Ne pas dépendre d'une seule technologie, comme en 2022 quand jusqu'à près de 65 % du parc était à l'arrêt, tout en gardant une production stable et sans engager des dizaines de milliards dans des réacteurs attendus vers 2038 au lieu de 2035."
     critiques: "Près de la moitié de la puissance nucléaire aura 60 ans d'ici 2045 : sans assez de réacteurs neufs, il faudra la remplacer vite ; pour les partisans de la sortie, c'est garder le risque et les déchets."
@@ -61,11 +61,11 @@ options:
       critiques:
         - texte: "Il faudra remplacer beaucoup de réacteurs : 30 des quelque 63 gigawatts du parc atteindront 60 ans d'ici 2045."
           source: { organisme: "Réseau de transport d'électricité", annee: 2023 }
-        - texte: "En construire moins coûterait plus cher : garder environ 40 gigawatts de nucléaire en 2050, avec de nouveaux réacteurs, revient moins cher qu'une électricité toute renouvelable."
+        - texte: "Construire moins de réacteurs coûterait plus cher : garder environ 40 gigawatts de nucléaire en 2050, avec de nouveaux réacteurs, revient moins cher qu'une électricité toute renouvelable."
           source: { organisme: "Réseau de transport d'électricité", annee: 2021 }
         - texte: "Garder des réacteurs, c'est garder le risque d'accident et continuer à produire des déchets à vie très longue."
   - id: C
-    libelle: "Le relancer avec les renouvelables"
+    libelle: "Relancer le nucléaire avec les renouvelables"
     implique: "C'est le plan de l'État : faire durer les réacteurs 50 ou 60 ans, construire six EPR2 (le premier vers 2038) et peut-être huit de plus, tout en continuant à développer l'éolien et le solaire."
     defenseurs: "Selon une étude de 2021 du gestionnaire du réseau, construire de nouveaux réacteurs « est pertinent du point de vue économique » et coûte moins cher à long terme qu'une électricité 100 % renouvelable ; le parc actuel produit pour environ 60 euros le mégawattheure une électricité bas carbone qu'on règle selon les besoins."
     critiques: "Le devis des six réacteurs est passé de 51,7 à 72,8 milliards d'euros aux prix de 2020, le premier est attendu vers 2038 au lieu de 2035, et le stockage des déchets les plus radioactifs n'est pas encore autorisé ; d'autres jugent l'aide aux renouvelables trop coûteuse."

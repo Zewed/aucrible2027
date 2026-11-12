@@ -52,7 +52,7 @@ options:
     axes: { societe: 1 }
     detail:
       chiffrage:
-        texte: "Ils porteraient sur les titres délivrés pour un emploi : 13,5 % des premiers titres de séjour en France en 2025, contre 33,6 % dans l'Union."
+        texte: "Les quotas porteraient sur les titres délivrés pour un emploi : 13,5 % des premiers titres de séjour en France en 2025, contre 33,6 % dans l'Union."
         source: { organisme: "Eurostat", annee: 2026 }
       defenseurs:
         - texte: "Les employeurs peinent à recruter : en 2026, ils jugeaient difficiles 43,8 % de leurs projets d'embauche."
@@ -84,7 +84,7 @@ options:
       critiques:
         - texte: "Un plafond buterait sur la vie familiale et l'asile, deux droits garantis par la Constitution, qui ont compté pour 46,5 % des premiers titres en 2025."
           source: { organisme: "Eurostat", annee: 2026 }
-        - texte: "Ses défenseurs n'ont avancé ni chiffre ni mécanisme : on ne sait pas comment le plafond s'appliquerait à l'asile et à la famille."
+        - texte: "Les partisans d'un plafond général n'ont avancé ni chiffre ni mécanisme : on ne sait pas comment le plafond s'appliquerait à l'asile et à la famille."
         - texte: "Même le Canada ne plafonne pas tout : son objectif laissait de côté les permis temporaires d'études ou de travail."
 pourAllerPlusLoin:
   - titre: Conseil constitutionnel, décision n° 2023-863 DC du 25 janvier 2024

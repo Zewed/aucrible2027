@@ -61,7 +61,7 @@ options:
         - texte: "Les salariés gagnent un jour de repos par semaine, sans perdre de salaire et sans rien coûter à l'employeur."
         - texte: "Beaucoup d'actifs y gagneraient : 49 % seraient plus satisfaits avec les mêmes heures sur moins de jours, contre 22 % moins satisfaits."
           source: { organisme: "Crédoc", annee: 2024 }
-        - texte: "Elle aide des salariés à temps partiel à passer à temps plein : c'était le but à la Métropole de Lyon, où 90 % d'entre eux sont des femmes."
+        - texte: "La semaine de quatre jours aide des salariés à temps partiel à passer à temps plein : c'était le but à la Métropole de Lyon, où 90 % d'entre eux sont des femmes."
           source: { organisme: "Assemblée nationale", document: "rapport d'information n° 460", annee: 2024 }
       critiques:
         - texte: "Des journées plus longues fatiguent davantage et augmentent le risque d'accidents dans les emplois physiques ou stressants."

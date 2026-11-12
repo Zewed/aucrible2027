@@ -24,7 +24,7 @@ chiffres:
     source: { organisme: HCAAM, document: "Trois scénarios pour une réforme des dépassements d'honoraires", annee: 2026 }
 options:
   - id: A
-    libelle: Les interdire
+    libelle: "Interdire les dépassements"
     implique: "Tous les médecins conventionnés appliquent le tarif de la Sécurité sociale, revalorisé en échange ; le secteur 2 se ferme, d'abord aux nouveaux installés."
     defenseurs: "Le soin doit dépendre du besoin, pas des moyens : des tarifs justes payés par la Sécurité sociale plutôt que 4,7 milliards d'euros de dépassements par an laissés aux patients et à leurs mutuelles."
     critiques: "Selon une simulation, 95 % des spécialistes du secteur 2 perdraient 28 % de leurs honoraires, et même 4 milliards d'euros de hausses de tarifs payées par la Sécurité sociale laisseraient six perdants sur dix."
@@ -46,7 +46,7 @@ options:
         - texte: "Les médecins quittent déjà l'exercice libéral : 42,4 % l'exercent seul en 2025, contre 51,4 % en 2012. Interdire risquerait d'accélérer ces départs."
           source: { organisme: "Drees", annee: 2026 }
   - id: B
-    libelle: Les plafonner et rendre le secteur 2 plus sélectif
+    libelle: "Plafonner les dépassements et rendre le secteur 2 plus sélectif"
     implique: "Un dépassement maximum par acte, par exemple 50 % ou 150 % du tarif de la Sécurité sociale, et un secteur 2 ouvert après plusieurs années d'expérience ; certains soins essentiels peuvent être exclus des dépassements."
     defenseurs: "Les dépassements augmentent de plus de 5 % par an et pourraient dépasser 10 milliards d'euros en 2040 : une limite claire protège les patients sans supprimer la liberté des médecins."
     critiques: "Pour certains, un plafond à 150 % du tarif toucherait 13 % des médecins du secteur 2 et réduirait les dépassements de 255 millions d'euros la première année ; pour d'autres, il pénaliserait des spécialités dont les tarifs ne couvrent pas les coûts."
@@ -88,7 +88,7 @@ options:
           source: { organisme: "Haut Conseil pour l'avenir de l'assurance maladie", annee: 2025 }
         - texte: "Ceux qui dépassent le plus restent hors de l'Optam, et chaque médecin peut en sortir quand il veut."
   - id: D
-    libelle: Les permettre à tous les médecins
+    libelle: "Permettre les dépassements à tous les médecins"
     implique: "Tout médecin conventionné peut fixer ses prix, par exemple dans un secteur unique où seuls les excès sont encadrés ; les patients modestes et les urgences restent au tarif de la Sécurité sociale, comme le proposent des syndicats de médecins."
     defenseurs: "Les tarifs de la Sécurité sociale ne suivent pas le coût d'un cabinet : la liberté des prix rendrait la médecine de ville plus attractive et éviterait que des médecins quittent la convention."
     critiques: "Les patients et leurs mutuelles paieraient davantage, alors que les dépassements sont déjà plus élevés là où les revenus le sont, que des ménages modestes y sont exposés et que les mutuelles en remboursent 40 % en moyenne."
