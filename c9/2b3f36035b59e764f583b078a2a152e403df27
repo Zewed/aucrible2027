@@ -1,0 +1,185 @@
+src/app/icon.svg
+  s_1475db94cbf163::t_984f37b03bb565 1
+src/components/Logo.tsx
+  s_1475db94cbf163::t_0720e4e8c9cad4 1-23,26-31
+content/questions/024-retraite.yaml
+  s_1475db94cbf163::t_db4afb1c717963 10
+maquettes/logos.html
+  s_1475db94cbf163::t_50f1d4ae46993f 1-18,20-22,24-26,30-34,36-50,52-171
+  s_1475db94cbf163::t_3b26cb10b85f6d 35,51
+  s_1475db94cbf163::t_5d54040af8bda3 19,23,27-29
+content/questions/011-fin-de-vie.yaml
+  s_88ed36ac19d8e8::t_f86a7c412eb1e8 10
+content/questions/048-vaccins.yaml
+  s_d2e9066465336d::t_b04968bcffdce9 12
+content/questions/001-isf.yaml
+  s_1475db94cbf163::t_b5b85c8894b1ae 9
+content/questions/002-smic.yaml
+  s_1475db94cbf163::t_4b7f584cfc03c6 9
+content/questions/003-voitures-thermiques.yaml
+  s_1475db94cbf163::t_4151f2d8c6f6d1 9
+content/questions/004-quotas-immigration.yaml
+  s_1475db94cbf163::t_de7ae51a3c8b8c 9
+content/questions/005-peines-planchers.yaml
+  s_1475db94cbf163::t_87cfa38d8d7cd4 9
+content/questions/006-franchises-medicales.yaml
+  s_1475db94cbf163::t_ec046c890e9a7d 9
+content/questions/007-uniforme.yaml
+  s_1475db94cbf163::t_d3d13fdf43fcd4 9
+content/questions/008-sru.yaml
+  s_1475db94cbf163::t_2d2f79682fd5f4 9
+content/questions/009-ukraine.yaml
+  s_1475db94cbf163::t_2802a6140c930f 9
+content/questions/010-ric.yaml
+  s_1475db94cbf163::t_3ddeed15af375d 9
+content/questions/012-deficit.yaml
+  s_1475db94cbf163::t_2fe0c1bae5276f 9
+content/questions/013-chomage.yaml
+  s_1475db94cbf163::t_5b22c9b5388bb2 9
+content/questions/014-eoliennes.yaml
+  s_1475db94cbf163::t_6b3db95fd838ee 9
+content/questions/015-ame.yaml
+  s_1475db94cbf163::t_9a2ddf7bb12cbd 9
+content/questions/016-majorite-penale.yaml
+  s_1475db94cbf163::t_7aa24bceed340a 9
+content/questions/017-hopital.yaml
+  s_1475db94cbf163::t_3ab40afc1a4036 10
+content/questions/018-parcoursup.yaml
+  s_1475db94cbf163::t_93f051ff46eb22 9
+content/questions/019-airbnb.yaml
+  s_1475db94cbf163::t_af68481357865b 9
+content/questions/020-otan.yaml
+  s_1475db94cbf163::t_19be1e10e2738b 9
+content/questions/021-proportionnelle.yaml
+  s_1475db94cbf163::t_ae251e277a1e2d 9
+content/questions/022-cannabis.yaml
+  s_1475db94cbf163::t_8caa3eab2a4bf3 9
+content/questions/023-loyers.yaml
+  s_1475db94cbf163::t_d832632ef4f8a9 11
+content/questions/025-nucleaire.yaml
+  s_1475db94cbf163::t_972715c5608a52 9
+content/questions/026-medecins.yaml
+  s_1475db94cbf163::t_e1fe3df5613614 11
+content/questions/027-gpa.yaml
+  s_1475db94cbf163::t_399afa764a9b8c 11
+content/questions/028-etat-civil.yaml
+  s_1475db94cbf163::t_83380679e48ea1 10
+content/questions/029-israel.yaml
+  s_1475db94cbf163::t_e1a4345b4dd68f 11
+content/questions/030-soldats-ukraine.yaml
+  s_1475db94cbf163::t_fbee0ca1c3306f 10
+content/questions/031-russie.yaml
+  s_1475db94cbf163::t_a23bc0e0da61c5 9
+content/questions/032-ouighours.yaml
+  s_1475db94cbf163::t_13eb291e435438 9
+content/questions/033-heritage.yaml
+  s_1475db94cbf163::t_61363840acc347 9
+content/questions/034-semaine-4-jours.yaml
+  s_1475db94cbf163::t_4b1f1794ae283f 10
+content/questions/035-vols-interieurs.yaml
+  s_1475db94cbf163::t_67deb4563f7767 11
+content/questions/036-droit-du-sol.yaml
+  s_1475db94cbf163::t_616ca550530891 9
+content/questions/037-videosurveillance-ia.yaml
+  s_1475db94cbf163::t_8bfa3f682acf50 11
+content/questions/038-reseaux-sociaux.yaml
+  s_1475db94cbf163::t_756f95620cca49 11
+content/questions/039-taxe-zucman.yaml
+  s_1475db94cbf163::t_41b3a1ee7d9f23 10
+content/questions/040-rsa.yaml
+  s_1475db94cbf163::t_b5bb9bf096e4b3 11
+content/questions/041-pesticides.yaml
+  s_1475db94cbf163::t_f3b716b301ca7b 11
+content/questions/042-regularisation.yaml
+  s_1475db94cbf163::t_dcb8ef830ac71d 11
+content/questions/043-prisons.yaml
+  s_1475db94cbf163::t_4b291af415a482 12
+content/questions/044-depassements-honoraires.yaml
+  s_1475db94cbf163::t_ef730bc3348792 9
+content/questions/045-tva.yaml
+  s_1475db94cbf163::t_4bdfb459e6510b 10
+content/questions/046-delit-de-sejour.yaml
+  s_1475db94cbf163::t_8639f7e13626af 13
+content/questions/047-legitime-defense-policiers.yaml
+  s_1475db94cbf163::t_d9097b3a576847 13
+content/questions/049-service-national.yaml
+  s_1475db94cbf163::t_4acd155a9b4346 12
+content/questions/050-salaire-enseignants.yaml
+  s_1475db94cbf163::t_736ab7ec3b635c 9
+content/questions/051-logements-vacants.yaml
+  s_1475db94cbf163::t_07a77cae6817df 9
+content/questions/052-zan.yaml
+  s_1475db94cbf163::t_b3f76b3f755cc3 11
+content/questions/053-sixieme-republique.yaml
+  s_1475db94cbf163::t_e76356963db5ae 14
+content/questions/054-vote-obligatoire.yaml
+  s_1475db94cbf163::t_f30120ae34f31c 13
+content/questions/055-vote-blanc.yaml
+  s_1475db94cbf163::t_65a9a889b66a62 13
+content/questions/056-voile-sport.yaml
+  s_1475db94cbf163::t_b54338155b78c0 12
+content/questions/057-ivg.yaml
+  s_1475db94cbf163::t_5eb4792a0742e8 14
+content/questions/058-violences-femmes.yaml
+  s_1475db94cbf163::t_f745493d8772b3 16
+content/questions/059-education-sexualite.yaml
+  s_1475db94cbf163::t_4405c2c25622f3 18
+content/questions/060-egalite-salariale.yaml
+  s_1475db94cbf163::t_c9fa845309ef92 17
+content/questions/061-conge-naissance.yaml
+  s_1475db94cbf163::t_acda25bc206ab3 19
+content/questions/062-preference-nationale.yaml
+  s_1475db94cbf163::t_35c59c4b9854c8 17
+content/questions/063-delocalisations.yaml
+  s_1475db94cbf163::t_e81036a38cd8b2 13
+content/questions/064-pma.yaml
+  s_1475db94cbf163::t_3e4cd4d0bb8fe5 18
+content/questions/065-aide-sociale-enfance.yaml
+  s_1475db94cbf163::t_d46013785a6a77 16
+content/questions/066-plateformes.yaml
+  s_1475db94cbf163::t_e9b77297a5c92e 17
+content/questions/067-imprescriptibilite.yaml
+  s_1475db94cbf163::t_9006f780d4b074 20
+content/questions/068-allocations-familiales.yaml
+  s_1475db94cbf163::t_2ac6ebfe3cce08 17
+content/questions/070-achats-publics.yaml
+  s_1475db94cbf163::t_0902072439c846 17
+content/questions/071-bareme-prudhommes.yaml
+  s_1475db94cbf163::t_9c6ff81316c140 17
+content/questions/072-rsa-jeunes.yaml
+  s_1475db94cbf163::t_673551142fe9bb 20
+content/questions/073-indexation-salaires.yaml
+  s_1475db94cbf163::t_65d2a3fd7ad581 18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c92b3f36035b59e764f583b078a2a152e403df27",
+  "prompts": {},
+  "sessions": {
+    "s_1475db94cbf163": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b3c1b772-35eb-435f-84c7-179111b15df2",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    },
+    "s_88ed36ac19d8e8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b3332e11-d4f9-401b-b673-7cc2fc1d99bb",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    },
+    "s_d2e9066465336d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e0177c44-523e-490f-8d1e-eda81c069dfc",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
