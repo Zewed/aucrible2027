@@ -2,7 +2,7 @@
 
 Web app ludique et neutre pour savoir où l'on se situe politiquement et de quel·le candidat·e on est le plus proche à la présidentielle 2027 (1er tour 18 avril, 2nd tour 2 mai 2027), à travers une question approfondie par jour, avec de vrais chiffres.
 
-Nom : **Décrypte 2027** — domaine `decrypte2027.com` (acheté le 12/11/2026 ; pas de .fr), comptes `@decrypte2027` partout (Insta, TikTok, Facebook, YouTube).
+Nom : **Décrypte 2027** — domaine `decrypte2027.com` (acheté le 12/11/2026 ; pas de .fr), comptes `@decrypte2027` partout (Insta, TikTok, YouTube ; pas de Facebook, décision du 12/11/2026).
 Décision de l'auteur du 12/11/2026 : « Décrypte 2027 » remplace « Au crible 2027 », nom déjà pris par un autre site
 (aucrible2027.com). Le dépôt GitHub et les clés internes (stockage du navigateur, cookies, base) gardent « aucrible ».
 
@@ -171,7 +171,7 @@ Photos des candidats : portraits officiels sous licence libre uniquement.
   - une **vidéo verticale** de 45–90 s.
 - Vidéos générées avec **Remotion** : texte animé, compteurs, graphiques, musique libre de droits, **sans voix**, lisibles sans le son. Les chiffres affichés viennent de la fiche vérifiée, jamais d'une IA générative vidéo.
 - **Lignes rouges IA** : jamais de visage ni de voix de personnes réelles générés par IA. Mention « Animation générée avec IA, contenu vérifié par un humain ».
-- Plateformes : Instagram, Facebook, TikTok, YouTube Shorts. Croissance organique uniquement : la publicité politique est interdite (L52-1) et Meta ne diffuse plus de pub « sujets de société » dans l'UE.
+- Plateformes : Instagram, TikTok, YouTube Shorts (pas de Facebook, décision de l'auteur du 12/11/2026). Croissance organique uniquement : la publicité politique est interdite (L52-1) et Meta ne diffuse plus de pub « sujets de société » dans l'UE.
 - Publication : gérée par l'auteur, hors périmètre technique.
 
 ## Technique

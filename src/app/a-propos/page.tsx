@@ -338,12 +338,11 @@ function LIA() {
   );
 }
 
-/** Les comptes @decrypte2027 (SPEC.md, en-tête), à réserver par l'auteur avant la mise en ligne. */
+/** Les comptes @decrypte2027 (SPEC.md, en-tête), à réserver par l'auteur avant la mise en ligne. Pas de Facebook (décision du 12/11/2026). */
 const COMPTES = [
   { plateforme: "Instagram", adresse: "https://www.instagram.com/decrypte2027" },
   { plateforme: "TikTok", adresse: "https://www.tiktok.com/@decrypte2027" },
   { plateforme: "YouTube", adresse: "https://www.youtube.com/@decrypte2027" },
-  { plateforme: "Facebook", adresse: "https://www.facebook.com/decrypte2027" },
 ];
 
 /**

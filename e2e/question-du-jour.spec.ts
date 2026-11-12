@@ -3472,21 +3472,20 @@ test.describe("la page À propos mène aux comptes @decrypte2027", () => {
     ["Instagram", "https://www.instagram.com/decrypte2027"],
     ["TikTok", "https://www.tiktok.com/@decrypte2027"],
     ["YouTube", "https://www.youtube.com/@decrypte2027"],
-    ["Facebook", "https://www.facebook.com/decrypte2027"],
   ];
 
-  test("l'encadré montre « @decrypte2027 » et quatre liens, Instagram, TikTok, YouTube, Facebook, chacun marqué « @decrypte2027 »", async ({ page }) => {
+  test("l'encadré montre « @decrypte2027 » et trois liens, Instagram, TikTok, YouTube, chacun marqué « @decrypte2027 »", async ({ page }) => {
     await page.goto("/a-propos");
     await expect(page.getByRole("article").nth(4)).toHaveAccessibleName("Aller plus loin, ou nous suivre");
     await expect(comptes(page).getByText("Le même compte partout : @decrypte2027")).toBeVisible();
     const liens = comptes(page).getByRole("link");
     await expect(liens).toHaveText(PROFILS.map(([plateforme]) => `${plateforme} @decrypte2027`));
-    await expect(liens.locator("span")).toHaveText(Array(4).fill("@decrypte2027"));
+    await expect(liens.locator("span")).toHaveText(Array(3).fill("@decrypte2027"));
   });
 
   test("chaque lien ouvre le profil @decrypte2027 de sa plateforme dans un nouvel onglet, et l'onglet de Décrypte 2027 reste ouvert", async ({ page, context }) => {
     // Les plateformes ne sont pas appelées pour de vrai : leurs pages sont remplacées par une page vide.
-    for (const hote of ["instagram.com", "tiktok.com", "youtube.com", "facebook.com"])
+    for (const hote of ["instagram.com", "tiktok.com", "youtube.com"])
       await context.route(`https://www.${hote}/**`, (route) => route.fulfill({ contentType: "text/html", body: "<title>profil</title>" }));
     await page.goto("/a-propos");
     for (const [plateforme, adresse] of PROFILS) {
