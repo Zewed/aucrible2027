@@ -10,10 +10,10 @@
                  .act.primary / .act.second (actions empilées) · .back (retour)
    Cartes      : .deck > .qcard (.qcard-top .theme-chip h1, .qcard-body) · .label · .fig
                  .opt > input + .opt-face (.opt-letter .opt-title .opt-impl .arg) + .picked
-                 .imp-face (choix ×1 ×2 ×3) · .stake (l'enjeu du jour) · .th (une ligne de thème)
+                 .imp-face (choix ×1 ×2 ×3) · .th (une ligne de thème)
                  .grille (le classement : .g-tete .g-th, a.g-ligne > .g-qui .cand-n .cand-name, .g-case .g-part, .cand-pc)
    Pion        : .pawn (rond, initiales, identique pour tous) · .pawn--paper · .pawn--you
-   Camembert   : svg.token-pop > .wedge.on / .wedge.fresh / .wedge.next · .big-token · .count
+   Camembert   : svg.token-pop > .wedge.on · .big-token · .count
    Thème       : poser .theme-eco | -trav | -ecol | -immi | -secu | -sante | -educ | -loge | -euro
                  | -inst | -soc sur un conteneur : cartes, boutons et puces prennent sa couleur.
    Jetons      : --eco … --soc (une couleur par thème, jamais par candidat) · --theme, --theme-edge,
@@ -234,21 +234,6 @@ h1, h2, h3, p { margin: 0; }
 }
 .fig-src b { color: var(--ink); }
 
-/* ---------- l'enjeu du jour : la part à gagner ---------- */
-.stake {
-  margin-top: 22px;
-  display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: center;
-  background: var(--table-2);
-  border-radius: var(--r);
-  padding: 14px;
-  text-decoration: none;
-}
-.stake svg { width: 84px; height: 84px; display: block; }
-.stake-k { font: 800 12px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--theme-text); white-space: nowrap; }
-.stake-t { margin-top: 6px; font: 800 20px/1.1 var(--display); font-variation-settings: "wdth" 88; }
-.stake-s { margin-top: 6px; font-size: 13.5px; color: var(--muted); line-height: 1.35; }
-.stake-s u { text-decoration: none; color: var(--sur-table); font-weight: 700; white-space: nowrap; }
-
 /* ---------- les cartes réponses ---------- */
 .answer { margin-top: 30px; }
 .answer-head h2 {
@@ -400,12 +385,8 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- camembert ---------- */
 .wedge { transform-box: view-box; transform-origin: 100px 100px; }
-.wedge.next { animation: blink 1.6s ease-in-out infinite; }
-@keyframes blink { 50% { opacity: .35; } }
 .token-pop .wedge.on { animation: wedgein .5s var(--ease-out) both; }
-.token-pop .wedge.fresh { animation: click .9s var(--ease-out) .9s both; }
 @keyframes wedgein { from { transform: scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
-@keyframes click { from { transform: scale(.2); opacity: 0; } to { transform: none; opacity: 1; } }
 
 /* ==================== RÉSULTATS ==================== */
 .res { max-width: 1240px; margin: 0 auto; padding: 0 16px 40px; }
@@ -710,8 +691,6 @@ a.g-ligne:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3
   .fig-num { font-size: 32px; }
   .fig-txt { margin-top: 8px; font-size: 14px; }
   .fig-src { white-space: normal; }
-  .stake { margin-top: 26px; grid-template-columns: 96px 1fr; }
-  .stake svg { width: 96px; height: 96px; }
   .answer { margin-top: 0; }
   .answer-head h2 { font-size: 38px; }
   .opt-face { grid-template-columns: 48px minmax(0, 1fr); padding: 16px 18px 16px; }

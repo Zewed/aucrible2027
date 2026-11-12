@@ -2209,40 +2209,6 @@ test.describe("le camembert affiche le nombre de parts gagnées", () => {
   });
 });
 
-test.describe("la question du jour annonce la part en jeu", () => {
-  const enJeu = (page: Page) => page.getByRole("link", { name: /Avec cette réponse/ });
-
-  test("sur la fiche n° 24, avec 2 réponses en Travail & retraites et 5 parts gagnées, le bloc annonce la part en jeu et les 6 parts sur 11", async ({ page }) => {
-    await vingtTroisReponses(page);
-    await page.goto("/questionnaire");
-    await expect(enJeu(page)).toBeVisible();
-    await expect(enJeu(page).getByText("Avec cette réponse", { exact: true })).toBeVisible();
-    await expect(enJeu(page).getByText("La part Travail & retraites", { exact: true })).toBeVisible();
-    await expect(enJeu(page).getByText("Ton camembert passe à 6 parts sur 11.")).toBeVisible();
-  });
-
-  test("toucher ce bloc ouvre « Mes résultats »", async ({ page }) => {
-    await vingtTroisReponses(page);
-    await page.goto("/questionnaire");
-    await enJeu(page).click();
-    await expect(page).toHaveURL(/\/resultats$/);
-    await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." }).filter({ visible: true })).toBeVisible();
-  });
-});
-
-test.describe("la révélation annonce la part gagnée", () => {
-  test("avec 2 réponses en Travail & retraites, valider la n° 24 affiche « +1 réponse en Travail & retraites : 3/3, la part est gagnée ! » et « Ton camembert passe à 6 parts sur 11. »", async ({ page }) => {
-    await vingtTroisReponses(page);
-    await page.goto("/questionnaire");
-    await choisir(page, "64 ans");
-    await validerMaReponse(page);
-    await expect(page).toHaveURL(/\/revelation$/);
-    const bloc = page.getByRole("region", { name: "Ton camembert" }).filter({ visible: true });
-    await expect(bloc.getByText("+1 réponse en Travail & retraites : 3/3, la part est gagnée !")).toBeVisible();
-    await expect(bloc.getByText("Ton camembert passe à 6 parts sur 11.")).toBeVisible();
-  });
-});
-
 test.describe("les résultats montrent la carte « Je suis à X % proche de Y »", () => {
   test("avec 23 réponses, la section « Ta carte » dit « Je suis à 81 % proche de François Ruffin. », le premier du classement", async ({ page }) => {
     await vingtTroisReponses(page);

@@ -3,20 +3,18 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Camembert } from "@/components/Camembert";
 import { CompteARebours } from "@/components/CompteARebours";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
 import { StylesDeLaPage } from "@/components/StylesDeLaPage";
 import { VignetteVideo } from "@/components/VignetteVideo";
-import type { Question, QuestionDeLaFiche, Theme } from "@/lib/contenu";
+import type { QuestionDeLaFiche, Theme } from "@/lib/contenu";
 import { DetailDeLOption } from "@/components/DetailDeLOption";
 import { lettreOption } from "@/lib/lettres";
 import { tirerGraine } from "@/lib/melange";
 import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
-import { REPONSES_PAR_PART, reponsesParTheme } from "@/lib/proximite";
-import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses, partagerLaReponse, type Reponse } from "@/lib/reponses";
+import { enregistrerReponse, JE_NE_SAIS_PAS, lesReponses, lireReponses, partagerLaReponse } from "@/lib/reponses";
 import { tenirALEcran } from "@/lib/tenir-a-l-ecran";
 
 /**
@@ -42,51 +40,11 @@ export function Bandeau({ jour, question }: { jour: string; question: QuestionDe
   );
 }
 
-/** La couleur d'un thème, celle de sa part : `--trav` pour « theme-trav ». */
-const couleurDe = (theme: Theme) => `var(--${theme.classe.replace("theme-", "")})`;
-
-/** Ce que la fiche du jour lit pour annoncer la part en jeu : le thème des questions publiées, et les thèmes. */
-export type PartEnJeu = { questions: Pick<Question, "numero" | "theme">[]; themes: Theme[] };
-
-/**
- * « En jeu aujourd'hui » : quand répondre à cette question gagne la part de son thème (2 réponses sur 3),
- * le bloc l'annonce et mène à « Mes résultats ». Ce qu'il dit dans les autres cas reste à trancher.
- */
-function EnJeu({ question, theme, enJeu, reponses }: { question: QuestionDeLaFiche; theme: Theme; enJeu: PartEnJeu; reponses: Record<number, Reponse> }) {
-  const parTheme = reponsesParTheme(enJeu.questions, reponses);
-  const dansLeTheme = parTheme[theme.id] ?? 0;
-  if (dansLeTheme !== REPONSES_PAR_PART - 1) return null;
-  const gagnes = enJeu.themes.filter((t) => (parTheme[t.id] ?? 0) >= REPONSES_PAR_PART);
-  const part = enJeu.themes.findIndex((t) => t.id === question.theme);
-  return (
-    <Link className="stake" href="/resultats">
-      <Camembert
-        couleurs={enJeu.themes.map((t) => (gagnes.includes(t) ? couleurDe(t) : null))}
-        enJeu={{ part, couleur: couleurDe(theme) }}
-        description={`${gagnes.length} parts sur ${enJeu.themes.length}, la part ${theme.nom} est en jeu`}
-      />
-      <span>
-        <span className="stake-k">Avec cette réponse</span>
-        <span className="stake-t" style={{ display: "block" }}>
-          La part {theme.nom}
-        </span>
-        <span className="stake-s" style={{ display: "block" }}>
-          Ton camembert passe à{" "}
-          <u>
-            {gagnes.length + 1} parts sur {enJeu.themes.length}
-          </u>
-          .
-        </span>
-      </span>
-    </Link>
-  );
-}
-
 /**
  * Une fiche à répondre : la carte question, ses options et l'importance. Valider enregistre la réponse, en envoie une
  * copie anonyme et mène à `revelation` ; une fiche déjà répondue sur cet appareil y rouvre directement.
  */
-export function Fiche({ question, theme, revelation, enJeu }: { question: QuestionDeLaFiche; theme: Theme; revelation: string; enJeu?: PartEnJeu }) {
+export function Fiche({ question, theme, revelation }: { question: QuestionDeLaFiche; theme: Theme; revelation: string }) {
   const router = useRouter();
   const [etape, setEtape] = useState<"lire" | "repondre">("lire");
   const [choix, setChoix] = useState<string | null>(null);
@@ -174,7 +132,6 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
             <VignetteVideo titre={question.titreCourt ?? theme.nom} video={question.video} />
           </section>
           <div className="suite">
-            {enJeu && <EnJeu question={question} theme={theme} enJeu={enJeu} reponses={reponses} />}
             <div className="actionbar">
               <button type="button" className="go" onClick={() => allerA("repondre")}>
                 Répondre

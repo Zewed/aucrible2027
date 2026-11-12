@@ -79,8 +79,7 @@ export function ProchaineQuestion({
     );
   }
 
-  const enJeu = { questions: questions.map(({ numero, theme }) => ({ numero, theme })), themes };
   // Next garde la page quittée, avec son état : sans clé, la question suivante reprendrait le choix de la précédente.
   const revelation = `/question/${question.numero}/revelation${dansLeTheme ? `?theme=${theme.id}` : ""}`;
-  return <Fiche key={question.numero} question={question} theme={theme} revelation={revelation} enJeu={enJeu} />;
+  return <Fiche key={question.numero} question={question} theme={theme} revelation={revelation} />;
 }

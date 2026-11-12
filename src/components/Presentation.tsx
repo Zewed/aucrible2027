@@ -278,14 +278,16 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
 
         <section className="lp-heros">
           <ul className="lp-sujets">
-            {SUJETS.map(([classe, sujet]) => (
-              <li key={sujet} className={classe}>
+            {SUJETS.map(([classe, sujet], i) => (
+              <li key={sujet} className={classe} style={{ "--i": i } as React.CSSProperties}>
                 {sujet}
               </li>
             ))}
           </ul>
           <div className="lp-chute">
-            <h1>Tout ça est dans les programmes.</h1>
+            <h1>
+              Tout ça est dans les <span className="lp-surligne">programmes</span>.
+            </h1>
             <p className="lp-accroche">Sujet par sujet, ce que chaque proposition change, chiffres et sources à l&apos;appui.</p>
             <div className="lp-actions">
               <Commencer />
@@ -299,7 +301,7 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
         <section className="lp-etapes" aria-labelledby="lp-etapes-t">
           <h2 id="lp-etapes-t">Quelques minutes par sujet.</h2>
           {exemple && (
-            <article className="lp-etape">
+            <article className="lp-etape theme-trav">
               <div className="lp-etape-texte">
                 <span className="lp-n">1</span>
                 <h3>Tu comprends le sujet.</h3>
@@ -309,7 +311,7 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
             </article>
           )}
           {exemple && (
-            <article className="lp-etape">
+            <article className="lp-etape theme-immi">
               <div className="lp-etape-texte">
                 <span className="lp-n">2</span>
                 <h3>Tu compares les propositions.</h3>
@@ -323,7 +325,7 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
               </div>
             </article>
           )}
-          <article className="lp-etape">
+          <article className="lp-etape theme-soc">
             <div className="lp-etape-texte">
               <span className="lp-n">3</span>
               <h3>Tu vois qui propose quoi.</h3>
@@ -341,30 +343,27 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
         <section className="lp-gages" aria-labelledby="lp-gages-t">
           <h2 id="lp-gages-t">Tu n&apos;as rien à croire sur parole.</h2>
           <dl>
-            <div>
+            <div className="theme-eco">
               <dt>Pas de compte.</dt>
               <dd>Tes réponses sont anonymes : ni nom, ni e-mail, ni adresse IP.</dd>
             </div>
-            <div>
+            <div className="theme-loge">
               <dt>Pas de pub.</dt>
               <dd>Le site ne gagne rien, ni avec tes clics ni avec tes réponses.</dd>
             </div>
-            <div>
+            <div className="theme-sante">
               <dt>Tout est sourcé.</dt>
               <dd>
                 Chaque chiffre et chaque position de candidat a sa source. La <Link href="/methode">méthode de calcul</Link> est publique.
               </dd>
             </div>
-            <div>
+            <div className="theme-educ">
               <dt>Les erreurs sont corrigées.</dt>
               <dd>
                 Chaque erreur signalée est corrigée et notée dans un <Link href="/journal">journal public</Link>.
               </dd>
             </div>
           </dl>
-          <p className="lp-signe">
-            Un projet perso d&apos;Antoine, sans but lucratif. <Link href="/a-propos">À propos</Link>
-          </p>
         </section>
 
         <section className="lp-fin theme-eco" aria-labelledby="lp-fin-t">
