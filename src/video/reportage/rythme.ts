@@ -14,7 +14,7 @@ const MOTS_PAR_SECONDE = 4.5;
 /** Le temps le plus court qu'un texte reste seul à l'écran, en secondes. */
 const LECTURE_MINIMALE = 1.25;
 
-export const APPEL = "Choisis ta carte sur decrypte2027.fr";
+export const APPEL = "Choisis ta carte sur decrypte2027.com";
 
 /**
  * Le pas sur lequel couper, en secondes : un temps de la musique, doublé ou divisé par deux pour rester entre 0,4 et

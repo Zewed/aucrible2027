@@ -2535,13 +2535,13 @@ test.describe("avant 10 réponses, la carte reste verrouillée", () => {
   });
 });
 
-test.describe("la carte affiche « Et toi ? decrypte2027.fr »", () => {
-  test("en bas de la carte « avec mon candidat », on lit « Et toi ? » et « decrypte2027.fr »", async ({ page }) => {
+test.describe("la carte affiche « Et toi ? decrypte2027.com »", () => {
+  test("en bas de la carte « avec mon candidat », on lit « Et toi ? » et « decrypte2027.com »", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/carte");
     const bas = page.getByRole("article", { name: /Carte à partager : 81/ }).locator(".sc-ask");
     await expect(bas.getByText("Et toi ?", { exact: true })).toBeVisible();
-    await expect(bas.getByText("decrypte2027.fr", { exact: true })).toBeVisible();
+    await expect(bas.getByText("decrypte2027.com", { exact: true })).toBeVisible();
   });
 
   test("en bas de la carte « seulement mon camembert », on lit « Et toi, tu en es où ? » et la même adresse", async ({ page }) => {
@@ -2549,7 +2549,7 @@ test.describe("la carte affiche « Et toi ? decrypte2027.fr »", () => {
     await page.goto("/carte");
     const bas = page.getByRole("article", { name: "Carte à partager : mon camembert, sans nom de candidat" }).locator(".sc-ask");
     await expect(bas.getByText("Et toi, tu en es où ?", { exact: true })).toBeVisible();
-    await expect(bas.getByText("decrypte2027.fr", { exact: true })).toBeVisible();
+    await expect(bas.getByText("decrypte2027.com", { exact: true })).toBeVisible();
   });
 });
 
@@ -4875,11 +4875,11 @@ test.describe("l'auteur génère la vidéo verticale du jour depuis la fiche", (
 test.describe("la dernière image invite à répondre sur l'app", () => {
   const derniere = (page: Page) => page.getByRole("region", { name: "Le carrousel" }).getByRole("article", { name: "Image 6 sur 6 : et toi ?" });
 
-  test("l'image 6/6 affiche « Et toi ? », « Réponds et découvre de quels candidats tu es proche » et l'adresse decrypte2027.fr", async ({ page }) => {
+  test("l'image 6/6 affiche « Et toi ? », « Réponds et découvre de quels candidats tu es proche » et l'adresse decrypte2027.com", async ({ page }) => {
     await page.goto("/carrousel");
     await expect(derniere(page).getByRole("heading", { level: 3 })).toHaveText("Et toi ?");
     await expect(derniere(page).getByText("Réponds et découvre de quels candidats tu es proche", { exact: true })).toBeVisible();
-    await expect(derniere(page).locator(".s-url")).toHaveText("decrypte2027.fr");
+    await expect(derniere(page).locator(".s-url")).toHaveText("decrypte2027.com");
   });
 
   test("elle montre le camembert des 11 thèmes", async ({ page }) => {
@@ -4919,10 +4919,10 @@ test.describe("l'auteur récupère la légende proposée", () => {
     );
   });
 
-  test("elle invite à répondre sur decrypte2027.fr (lien en bio) et dit « Sans compte : tes réponses sont anonymes. »", async ({ page }) => {
+  test("elle invite à répondre sur decrypte2027.com (lien en bio) et dit « Sans compte : tes réponses sont anonymes. »", async ({ page }) => {
     await carrouselDeLaMaquette(page);
     await expect(legende(page).locator("p").nth(1)).toHaveText(
-      "Réponds sur decrypte2027.fr (lien en bio). Sans compte : tes réponses sont anonymes.",
+      "Réponds sur decrypte2027.com (lien en bio). Sans compte : tes réponses sont anonymes.",
     );
   });
 });

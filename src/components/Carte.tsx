@@ -238,7 +238,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
               <p className="sc-f">{pied}</p>
               <p className="sc-ask">
                 <b>Et toi&nbsp;?</b>
-                <span className="sc-url">decrypte2027.fr</span>
+                <span className="sc-url">decrypte2027.com</span>
               </p>
             </article>
           </div>
@@ -262,7 +262,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
               <p className="sc-f">{pied}</p>
               <p className="sc-ask sc-ask--col">
                 <b>Et toi, tu en es où&nbsp;?</b>
-                <span className="sc-url">decrypte2027.fr</span>
+                <span className="sc-url">decrypte2027.com</span>
               </p>
             </article>
           </div>

@@ -142,7 +142,7 @@ function lesImages(question: Question, theme: Theme): React.ReactElement[] {
         <h3>Et toi&nbsp;?</h3>
         <p>Réponds et découvre de quels candidats tu es proche</p>
         <span className="s-url">
-          decrypte2027.fr <Fleche />
+          decrypte2027.com <Fleche />
         </span>
       </div>
     </Visuel>,
@@ -166,7 +166,7 @@ function Legende({ question }: { question: Question }) {
           {question.question} Fais défiler : le contexte, {EN_LETTRES[question.chiffres.length]} chiffres sourcés, les{" "}
           {EN_LETTRES[question.options.length]} options et le meilleur argument de chaque côté.
         </p>
-        <p>Réponds sur decrypte2027.fr (lien en bio). Sans compte : tes réponses sont anonymes.</p>
+        <p>Réponds sur decrypte2027.com (lien en bio). Sans compte : tes réponses sont anonymes.</p>
       </div>
       <div className="acts">
         <Link className="act second" href="/video">
