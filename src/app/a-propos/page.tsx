@@ -77,12 +77,12 @@ function QuiFaitLApp() {
           1
         </span>
         <p className="rule-k">À savoir n° 1</p>
-        <h2 id="r1-t">Qui fait Au crible 2027&nbsp;?</h2>
+        <h2 id="r1-t">Qui fait Décrypte 2027&nbsp;?</h2>
       </header>
       <div className="rule-body split">
         <div className="rule-txt">
           <p>
-            <b>Je m&apos;appelle Antoine.</b> Au crible 2027 est un projet perso, fait par une seule personne.
+            <b>Je m&apos;appelle Antoine.</b> Décrypte 2027 est un projet perso, fait par une seule personne.
           </p>
           <p>
             Il n&apos;y a <b>pas de but lucratif</b> et <b>pas de pub</b>&nbsp;: le site ne gagne rien, ni avec tes clics, ni avec tes
@@ -338,12 +338,12 @@ function LIA() {
   );
 }
 
-/** Les comptes @aucrible2027 (SPEC.md, en-tête), à réserver par l'auteur avant la mise en ligne. */
+/** Les comptes @decrypte2027 (SPEC.md, en-tête), à réserver par l'auteur avant la mise en ligne. */
 const COMPTES = [
-  { plateforme: "Instagram", adresse: "https://www.instagram.com/aucrible2027" },
-  { plateforme: "TikTok", adresse: "https://www.tiktok.com/@aucrible2027" },
-  { plateforme: "YouTube", adresse: "https://www.youtube.com/@aucrible2027" },
-  { plateforme: "Facebook", adresse: "https://www.facebook.com/aucrible2027" },
+  { plateforme: "Instagram", adresse: "https://www.instagram.com/decrypte2027" },
+  { plateforme: "TikTok", adresse: "https://www.tiktok.com/@decrypte2027" },
+  { plateforme: "YouTube", adresse: "https://www.youtube.com/@decrypte2027" },
+  { plateforme: "Facebook", adresse: "https://www.facebook.com/decrypte2027" },
 ];
 
 /**
@@ -379,18 +379,18 @@ function AllerPlusLoin() {
             </li>
           </ul>
         </div>
-        <figure className="demo" aria-label="Les comptes @aucrible2027">
+        <figure className="demo" aria-label="Les comptes @decrypte2027">
           <figcaption className="demo-k">
             <i></i>Chaque jour, une question
           </figcaption>
           <p className="demo-cap" style={{ margin: "0 0 6px" }}>
-            Le même compte partout&nbsp;: <b>@aucrible2027</b>
+            Le même compte partout&nbsp;: <b>@decrypte2027</b>
           </p>
           <ul className="socials">
             {COMPTES.map(({ plateforme, adresse }) => (
               <li key={plateforme}>
                 <a href={adresse} target="_blank" rel="noopener">
-                  {plateforme} <span>@aucrible2027</span>
+                  {plateforme} <span>@decrypte2027</span>
                 </a>
               </li>
             ))}

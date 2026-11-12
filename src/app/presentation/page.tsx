@@ -7,7 +7,7 @@ import { lireQuestionsPubliees } from "@/lib/publication";
 import "./presentation.css";
 
 export const metadata: Metadata = {
-  title: "Au crible 2027 : tout ça est dans les programmes",
+  title: "Décrypte 2027 : tout ça est dans les programmes",
   description: "L'âge de ta retraite, ton SMIC, ton loyer, ton médecin : sujet par sujet, ce que chaque proposition change, chiffres et sources à l'appui.",
 };
 

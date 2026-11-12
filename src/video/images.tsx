@@ -14,7 +14,7 @@ function Cadre({ nom, classe, children }: { nom: string; classe?: string; childr
       <div className="v-brand">
         <Logo className="mark" />
         <span>
-          Au crible <b>2027</b>
+          Décrypte <b>2027</b>
         </span>
       </div>
       {children}
@@ -140,14 +140,14 @@ function DeuxCotes({ question }: Fiche) {
 
 function EtToi() {
   return (
-    <Cadre nom="Image 6 : et toi ? aucrible2027.fr" classe="vf--theme">
+    <Cadre nom="Image 6 : et toi ? decrypte2027.fr" classe="vf--theme">
       <div className="v-body v-cta">
         <span className="mark-big">
           <Logo />
         </span>
         <h3>Et toi&nbsp;?</h3>
         <p>Réponds et découvre de quels candidats tu es proche</p>
-        <span className="v-url">aucrible2027.fr</span>
+        <span className="v-url">decrypte2027.fr</span>
       </div>
     </Cadre>
   );
@@ -161,11 +161,11 @@ function Fin() {
           <Logo />
         </span>
         <h3>
-          Au crible <span className="v-annee">2027</span>
+          Décrypte <span className="v-annee">2027</span>
         </h3>
         <p className="v-handle">
-          <span>aucrible2027.fr</span>
-          <span>@aucrible2027</span>
+          <span>decrypte2027.fr</span>
+          <span>@decrypte2027</span>
         </p>
       </div>
     </Cadre>
@@ -182,7 +182,7 @@ export const IMAGES = [
   { debut: 12, fin: 30, Dessin: Chiffres, legende: "les chiffres clés", ecran: "Chaque chiffre avec sa source et sa date." },
   { debut: 30, fin: 45, Dessin: Options, legende: "les options en cartes", ecran: "Sans aucun nom de candidat." },
   { debut: 45, fin: 60, Dessin: DeuxCotes, legende: "un argument de chaque côté", ecran: "Les deux au même format." },
-  { debut: 60, fin: 70, Dessin: EtToi, legende: "Et toi ? aucrible2027.fr", ecran: "L'appel à répondre et l'adresse." },
+  { debut: 60, fin: 70, Dessin: EtToi, legende: "Et toi ? decrypte2027.fr", ecran: "L'appel à répondre et l'adresse." },
   { debut: 70, fin: 75, Dessin: Fin, legende: "la carte de fin", ecran: "La marque, l'adresse et le pseudo." },
 ];
 

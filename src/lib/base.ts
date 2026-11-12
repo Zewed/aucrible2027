@@ -1,7 +1,7 @@
 import postgres from "postgres";
 
 /**
- * La base Postgres d'Au crible 2027 (SPEC.md, « Décisions de l'auteur du 25/10/2026 ») : en ligne, celle du projet
+ * La base Postgres de Décrypte 2027 (SPEC.md, « Décisions de l'auteur du 25/10/2026 ») : en ligne, celle du projet
  * Vercel (Neon) ; en local et pour les tests, le conteneur de scripts/base-locale.sh. Elle garde les signalements, le
  * nombre de visites par jour et, depuis le 10/11/2026, une copie anonyme des réponses (lib/reponses-partagees.ts).
  */

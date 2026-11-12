@@ -10,7 +10,7 @@ import "../visuels.css";
 import "./video.css";
 
 // Un outil de l'auteur, comme le carrousel : la page n'a pas à être trouvée par les moteurs de recherche.
-export const metadata: Metadata = { title: "Vidéo du jour — Au crible 2027", robots: { index: false } };
+export const metadata: Metadata = { title: "Vidéo du jour — Décrypte 2027", robots: { index: false } };
 
 /**
  * « Vidéo du jour » (maquettes/video.html) : le storyboard de la vidéo verticale de la fiche du jour, les 7 images

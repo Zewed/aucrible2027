@@ -1,8 +1,10 @@
-# Au crible 2027 — cadrage produit
+# Décrypte 2027 — cadrage produit
 
 Web app ludique et neutre pour savoir où l'on se situe politiquement et de quel·le candidat·e on est le plus proche à la présidentielle 2027 (1er tour 18 avril, 2nd tour 2 mai 2027), à travers une question approfondie par jour, avec de vrais chiffres.
 
-Nom : **Au crible 2027** — domaine `aucrible2027.fr`, comptes `@aucrible2027` partout (Insta, TikTok, Facebook, YouTube).
+Nom : **Décrypte 2027** — domaine `decrypte2027.fr` (et `.com`), comptes `@decrypte2027` partout (Insta, TikTok, Facebook, YouTube).
+Décision de l'auteur du 12/11/2026 : « Décrypte 2027 » remplace « Au crible 2027 », nom déjà pris par un autre site
+(aucrible2027.com). Le dépôt GitHub et les clés internes (stockage du navigateur, cookies, base) gardent « aucrible ».
 
 ## Principes non négociables
 

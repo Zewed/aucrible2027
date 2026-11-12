@@ -32,7 +32,7 @@ function Marque() {
     <div className="rp-marque">
       <Logo className="rp-logo" />
       <span>
-        Au crible <b>2027</b>
+        Décrypte <b>2027</b>
       </span>
     </div>
   );
@@ -384,7 +384,7 @@ function Fin({ leviers, instants }: { leviers?: DonneesDuReportage["leviers"]; i
       )}
       <h2 style={{ opacity: p, transform: `scale(${0.9 + 0.1 * p})` }}>Et toi ?</h2>
       <p className="rp-appel" style={{ opacity: progres(image, instants[2].debut - 2, 12) }}>
-        Choisis ta carte sur <b>aucrible2027.fr</b>
+        Choisis ta carte sur <b>decrypte2027.fr</b>
       </p>
       <p className="rp-ia">Animation générée avec IA · contenu vérifié par un humain</p>
     </AbsoluteFill>

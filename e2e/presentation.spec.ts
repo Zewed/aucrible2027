@@ -9,7 +9,7 @@ test("la landing n'a pas de menu : le logo en haut, et le bouton mène au questi
   await page.goto("/presentation");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Tout ça est dans les programmes.");
   await expect(page.getByRole("navigation")).toHaveCount(0);
-  await expect(page.getByRole("link", { name: "Au crible 2027" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Décrypte 2027" })).toBeVisible();
   await page.getByRole("link", { name: "Commencer le questionnaire" }).first().click();
   await expect(page).toHaveURL(/\/questionnaire$/);
 });
