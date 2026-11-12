@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Décrypte 2027 — logos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nuit: #1D1838; --nuit-2: #29224C; --craie: #F6F3FF;
+    --lav: #F2F0F6; --lav-2: #E8E5F0; --encre: #2A2544; --muted: #5F587D;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body { background: var(--lav-2); color: var(--encre); font: 600 14px/1.2 "Instrument Sans", system-ui, sans-serif; }
+  .planche {
+    height: 100vh; display: grid; gap: 6px; padding: 6px;
+    grid-template-columns: 48px 1.55fr 1.55fr .8fr .8fr;
+    grid-template-rows: repeat(5, 1fr);
+  }
+  .num { display: grid; place-items: center; font: 800 44px/1 "Bricolage Grotesque"; font-variation-settings: "wdth" 85; color: var(--encre); }
+  .cel { border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 10px 18px; min-height: 0; overflow: hidden; }
+  .clair { background: var(--lav); color: var(--encre); }
+  .sombre { background: var(--nuit); color: var(--craie); }
+  .nom { position: absolute; }
+  .lockup { display: inline-flex; align-items: center; gap: 18px; }
+  .lockup svg { width: 88px; height: 88px; flex: none; }
+  .mot { font: 800 50px/1 "Bricolage Grotesque", sans-serif; font-variation-settings: "wdth" 85, "opsz" 72; letter-spacing: -0.015em; white-space: nowrap; }
+  .clair .mot b { color: #9A7400; }
+  .sombre .mot b { color: #FFC21F; }
+  .gm { font-weight: 800; }
+  .clair .gm { color: #9A7400; } .sombre .gm { color: #FFC21F; }
+  .favs { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .tailles { display: flex; align-items: flex-end; gap: 18px; }
+  .tailles svg { display: block; }
+  .onglet { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 10px; border-radius: 9px 9px 0 0; font: 500 13px/1 system-ui, sans-serif; min-width: 170px; }
+  .clair .onglet { background: #fff; color: #202124; box-shadow: 0 -1px 0 #dadce0 inset; }
+  .sombre .onglet { background: #35363a; color: #e8eaed; }
+  .onglet svg { width: 16px; height: 16px; flex: none; }
+  .tete { display: contents; }
+</style>
+</head>
+<body>
+<main class="planche" id="planche"></main>
+<script>
+const SOMBRE = { eco:"#FFC21F", trav:"#FF7A1A", ecol:"#22B85A", immi:"#1FB2F0", secu:"#4357FF", sante:"#F2453D", educ:"#9461FF", loge:"#0E9E93", euro:"#A6D92B", inst:"#D63AC9", soc:"#FF7FB0" };
+const CLAIR  = { eco:"#F1D27A", trav:"#F3A26A", ecol:"#6CC594", immi:"#7CC8EA", secu:"#8E99EE", sante:"#EE8A84", educ:"#B597EE", loge:"#5DB5AC", euro:"#C3DC7E", inst:"#D88DD1", soc:"#F2AECA" };
+const ORDRE = ["eco","trav","ecol","immi","secu","sante","educ","loge","euro","inst","soc"];
+const pal = m => m === "clair"
+  ? { fond:"#F2F0F6", encre:"#2A2544", doux:"#CFC9E3", papier:"#FFFFFF", jaune:"#FFC21F", th: ORDRE.map(k => SOMBRE[k]), thv: ORDRE.map(k => SOMBRE[k]) }
+  : { fond:"#1D1838", encre:"#F6F3FF", doux:"#CFC9E3", papier:"#FFFFFF", jaune:"#FFC21F", th: ORDRE.map(k => SOMBRE[k]), thv: ORDRE.map(k => SOMBRE[k]) };
+const NUIT = "#1D1838", CRAIE = "#F6F3FF", JAUNE = "#FFC21F";
+
+const f = n => n.toFixed(2);
+const pt = (cx, cy, r, a) => [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+/** une part d'anneau (r0 = 0 : part pleine), angles en radians depuis midi */
+function part(cx, cy, r0, r1, a0, a1) {
+  const A0 = a0 - Math.PI / 2, A1 = a1 - Math.PI / 2, g = (a1 - a0) > Math.PI ? 1 : 0;
+  const [x1, y1] = pt(cx, cy, r1, A0), [x2, y2] = pt(cx, cy, r1, A1);
+  if (r0 === 0) return `M${f(cx)} ${f(cy)}L${f(x1)} ${f(y1)}A${r1} ${r1} 0 ${g} 1 ${f(x2)} ${f(y2)}Z`;
+  const [x3, y3] = pt(cx, cy, r0, A1), [x4, y4] = pt(cx, cy, r0, A0);
+  return `M${f(x1)} ${f(y1)}A${r1} ${r1} 0 ${g} 1 ${f(x2)} ${f(y2)}L${f(x3)} ${f(y3)}A${r0} ${r0} 0 ${g} 0 ${f(x4)} ${f(y4)}Z`;
+}
+const svg = (inner, taille) => `<svg viewBox="0 0 100 100" ${taille ? `width="${taille}" height="${taille}"` : ""} xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
+const fondFav = `<rect width="100" height="100" rx="22" fill="${NUIT}"/>`;
+
+/* ---------- 1 · La loupe : le camembert des onze thèmes vu à travers la loupe ---------- */
+function loupe(m) {
+  const c = pal(m), s = (2 * Math.PI) / 11;
+  let p = `<line x1="63" y1="63" x2="88" y2="88" stroke="${c.encre}" stroke-width="14" stroke-linecap="round"/>`;
+  p += `<circle cx="41" cy="41" r="32" fill="${c.papier}" stroke="${c.encre}" stroke-width="9"/>`;
+  c.th.forEach((col, i) => p += `<path d="${part(41, 41, 0, 24, i * s, (i + 1) * s)}" fill="${col}" stroke="${c.papier}" stroke-width="2.2" stroke-linejoin="round"/>`);
+  return p;
+}
+function loupeFav() {
+  return fondFav + `<line x1="64" y1="64" x2="84" y2="84" stroke="${CRAIE}" stroke-width="15" stroke-linecap="round"/>`
+    + `<circle cx="43" cy="43" r="26" fill="${JAUNE}" stroke="${CRAIE}" stroke-width="11"/>`;
+}
+
+/* ---------- 2 · Le D en lignes : un D fait de onze barres, une par thème ---------- */
+function barresD(n, haut, bas, couleurs) {
+  const pas = (bas - haut) / n, h = pas * 0.72, cy = (haut + bas) / 2, R = (bas - haut) / 2;
+  const g = 10, dx = 46, ri = R * 0.47, gi = 31;
+  let p = "";
+  for (let i = 0; i < n; i++) {
+    const y = haut + pas * i + pas / 2, dy = Math.abs(y - cy);
+    const droite = dx + Math.sqrt(Math.max(0, R * R - dy * dy)) * (44 / R);
+    const col = couleurs[i % couleurs.length], rx = h / 2;
+    if (dy < ri) {
+      const di = dx + Math.sqrt(ri * ri - dy * dy) * 1.05;
+      p += `<rect x="${g}" y="${f(y - h / 2)}" width="${gi - g}" height="${f(h)}" rx="${f(rx)}" fill="${col}"/>`;
+      p += `<rect x="${f(di)}" y="${f(y - h / 2)}" width="${f(droite - di)}" height="${f(h)}" rx="${f(rx)}" fill="${col}"/>`;
+    } else {
+      p += `<rect x="${g}" y="${f(y - h / 2)}" width="${f(droite - g)}" height="${f(h)}" rx="${f(rx)}" fill="${col}"/>`;
+    }
+  }
+  return p;
+}
+const lignesD = m => barresD(11, 6, 94, pal(m).th);
+const lignesDFav = () => fondFav + `<g transform="translate(12 12) scale(.76)">${barresD(5, 6, 94, [SOMBRE.eco, SOMBRE.trav, SOMBRE.immi, SOMBRE.educ, SOMBRE.ecol])}</g>`;
+
+/* ---------- 3 · Les guillemets : « ce qui est écrit dans les programmes » ---------- */
+function chevrons(couleur, ep) {
+  const a = (x) => `<polyline points="${x + 13},26 ${x},50 ${x + 13},74" fill="none" stroke="${couleur}" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const b = (x) => `<polyline points="${x - 13},26 ${x},50 ${x - 13},74" fill="none" stroke="${couleur}" stroke-width="${ep}" stroke-linecap="round" stroke-linejoin="round"/>`;
+  return a(10) + a(30) + b(70) + b(90);
+}
+const guillemets = m => `<rect x="2" y="2" width="96" height="96" rx="22" fill="${m === "clair" ? NUIT : "#2E2758"}"/>` + chevrons(JAUNE, 9).replace(/(\d+),(\d+)/g, (s, x, y) => `${f(18 + x * .64)},${y}`);
+const guillemetsFav = () => fondFav + `<g transform="translate(50 50) scale(.92) translate(-50 -50)">${chevrons(JAUNE, 12).replace(/(\d+),(\d+)/g, (s, x, y) => `${f(12 + x * .76)},${y}`)}</g>`;
+
+/* ---------- 4 · Le surligné : la fiche dont on surligne la ligne qui compte ---------- */
+function surligne(m) {
+  const c = pal(m);
+  return `<g transform="rotate(-6 50 50)">`
+    + `<path d="M18 8h46l18 18v66a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z" fill="${c.papier}" ${m === "clair" ? `stroke="${c.encre}" stroke-width="5" stroke-linejoin="round"` : ""}/>`
+    + `<path d="M64 8v14a4 4 0 0 0 4 4h14" fill="${m === "clair" ? "#E8E5F0" : "#CFC9E3"}" ${m === "clair" ? `stroke="${c.encre}" stroke-width="5" stroke-linejoin="round"` : ""}/>`
+    + `<line x1="26" y1="34" x2="56" y2="34" stroke="${c.doux}" stroke-width="6" stroke-linecap="round"/>`
+    + `<rect x="10" y="44" width="80" height="18" rx="3" fill="${JAUNE}"/>`
+    + `<line x1="26" y1="53" x2="72" y2="53" stroke="${NUIT}" stroke-width="7" stroke-linecap="round"/>`
+    + `<line x1="26" y1="72" x2="68" y2="72" stroke="${c.doux}" stroke-width="6" stroke-linecap="round"/>`
+    + `<line x1="26" y1="84" x2="52" y2="84" stroke="${c.doux}" stroke-width="6" stroke-linecap="round"/></g>`;
+}
+const surligneFav = () => fondFav
+  + `<rect x="24" y="14" width="52" height="72" rx="6" fill="${CRAIE}"/>`
+  + `<rect x="12" y="40" width="76" height="20" rx="3" fill="${JAUNE}"/>`
+  + `<line x1="32" y1="50" x2="66" y2="50" stroke="${NUIT}" stroke-width="8" stroke-linecap="round"/>`;
+
+/* ---------- 5 · Le camembert ouvert : on sort un thème pour le regarder ---------- */
+function camembert(m) {
+  const c = pal(m), s = (2 * Math.PI) / 11;
+  let p = "";
+  c.th.forEach((col, i) => {
+    let dx = 0, dy = 0;
+    if (i === 0) { const a = s / 2 - Math.PI / 2; dx = 10 * Math.cos(a); dy = 10 * Math.sin(a); }
+    p += `<path d="${part(47, 53, 15, 40, i * s, (i + 1) * s)}" transform="translate(${f(dx)} ${f(dy)})" fill="${col}" stroke="${c.fond}" stroke-width="2.6" stroke-linejoin="round"/>`;
+  });
+  return p;
+}
+function camembertFav() {
+  const s = (2 * Math.PI) / 11, a = s / 2 - Math.PI / 2;
+  return fondFav
+    + `<path d="${part(46, 54, 13, 34, s, 2 * Math.PI)}" fill="${CRAIE}"/>`
+    + `<path d="${part(46, 54, 13, 34, 0, s)}" transform="translate(${f(11 * Math.cos(a))} ${f(11 * Math.sin(a))})" fill="${JAUNE}"/>`;
+}
+
+const PISTES = [
+  { nom: "La loupe", marque: loupe, fav: loupeFav },
+  { nom: "Le D en lignes", marque: lignesD, fav: lignesDFav },
+  { nom: "Les guillemets", marque: guillemets, fav: guillemetsFav, encadre: true },
+  { nom: "Le surligné", marque: surligne, fav: surligneFav },
+  { nom: "Le camembert ouvert", marque: camembert, fav: camembertFav },
+];
+
+const mot = (p) => p.encadre
+  ? `<span class="mot"><span class="gm">«&#8239;</span>Décrypte <b>2027</b><span class="gm">&#8239;»</span></span>`
+  : `<span class="mot">Décrypte <b>2027</b></span>`;
+const lockup = (p, m) => `<span class="lockup">${svg(p.marque(m))}${mot(p)}</span>`;
+const favs = (p) => `<div class="favs"><div class="tailles">${svg(p.fav(), 64)}${svg(p.fav(), 32)}${svg(p.fav(), 16)}</div></div>`;
+const onglet = (p) => `<span class="onglet">${svg(p.fav())}Décrypte 2027</span>`;
+
+document.getElementById("planche").innerHTML = PISTES.map((p, i) => `
+  <div class="num" title="${p.nom}">${i + 1}</div>
+  <div class="cel clair">${lockup(p, "clair")}</div>
+  <div class="cel sombre">${lockup(p, "sombre")}</div>
+  <div class="cel clair">${favs(p)}${onglet(p)}</div>
+  <div class="cel sombre">${favs(p)}${onglet(p)}</div>
+`).join("");
+</script>
+</body>
+</html>

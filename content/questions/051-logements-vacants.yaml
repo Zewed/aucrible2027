@@ -6,7 +6,7 @@ date: 2026-09-07
 theme: logement
 question: "Que faire des logements vides ?"
 titreCourt: "Les logements vides"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/051-logements-vacants-constat-yYvnJxDZQEUHi1NPJX5WtQHiENtyyR.mp4", duree: "3 min 55", ecrans: [0, 14.14, 27.54, 38.84, 52.94, 67.07, 81.87, 93.87, 106.6, 120.7, 134.84, 148.94, 162.37, 176.47, 188.47, 201.17, 213.87, 228], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/051-logements-vacants-constat-yYvnJxDZQEUHi1NPJX5WtQHiENtyyR/" }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/051-logements-vacants-constat-8FzS5SDhISMPz8Y7CxxYcTT8kB9ZZK.mp4", duree: "3 min 55", ecrans: [0, 14.14, 27.54, 38.84, 52.94, 67.07, 81.87, 93.87, 106.6, 120.7, 134.84, 148.94, 162.37, 176.47, 188.47, 201.17, 213.87, 228], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/051-logements-vacants-constat-8FzS5SDhISMPz8Y7CxxYcTT8kB9ZZK/" }
 contexte:
   - "Au 1er janvier 2026, la France compte 2,9 millions de logements vides, soit 7,6 % des logements ; une partie le reste quelques mois, entre deux locataires, pendant une vente, une succession ou des travaux."
   - "Dans les communes où le logement manque, le propriétaire d'un logement vide depuis au moins un an paie une taxe de 17 % de sa valeur locative la première année, puis 34 % ; dès 2027, ces communes pourront aller jusqu'à 30 %, puis 60 %."

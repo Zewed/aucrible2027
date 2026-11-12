@@ -6,7 +6,7 @@ date: 2026-10-24
 theme: ecologie-energie
 question: Faut-il sortir du nucléaire ?
 titreCourt: "Le nucléaire"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/025-nucleaire-constat-fijkSxjl08E5bSHHvXw6BdnTIkgvw6.mp4", duree: "3 min 12", ecrans: [0, 6.74, 19.67, 31.04, 43.97, 55.87, 68.8, 81.74, 94.67, 106.57, 118.44, 130.34, 142.77, 156.2, 171.74, 185.17], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/025-nucleaire-constat-fijkSxjl08E5bSHHvXw6BdnTIkgvw6/" }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/025-nucleaire-constat-pn4I5394WHhU2BfjfW0vRdoQ3yFsdj.mp4", duree: "3 min 12", ecrans: [0, 6.74, 19.67, 31.04, 43.97, 55.87, 68.8, 81.74, 94.67, 106.57, 118.44, 130.34, 142.77, 156.2, 171.74, 185.17], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/025-nucleaire-constat-pn4I5394WHhU2BfjfW0vRdoQ3yFsdj/" }
 contexte:
   - "En 2025, les 57 réacteurs du pays ont produit 68 % de l'électricité française ; les plus anciens tournent depuis 1978."
   - "La programmation de l'énergie de février 2026 prévoit de les faire durer 50 ou 60 ans et de construire six nouveaux réacteurs, appelés EPR2, le premier vers 2038."

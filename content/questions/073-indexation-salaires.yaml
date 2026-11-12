@@ -15,7 +15,7 @@ date: 2026-08-17
 theme: travail-retraites
 question: "Faut-il indexer tous les salaires du privé sur les prix ?"
 titreCourt: "L'indexation des salaires"
-video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/073-indexation-salaires-constat-iPNswDCSbQeCmRZ5YHltAwblIXWmCt.mp4", duree: "4 min 34", ecrans: [0, 12.5, 25, 38.14, 51.87, 64.37, 77.5, 90, 103.77, 115.64, 126.87, 138.77, 151.27, 165.64, 180, 193.77, 207.5, 221.87, 236.87, 251.87, 266.87] }
+video: { url: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/videos/073-indexation-salaires-constat-XB493c7xlMTGuLgnUFyt4RRmE2Sfmm.mp4", duree: "4 min 34", ecrans: [0, 12.5, 25, 38.14, 51.87, 64.37, 77.5, 90, 103.77, 115.64, 126.87, 138.77, 151.27, 165.64, 180, 193.77, 207.5, 221.87, 236.87, 251.87, 266.87], images: "https://kfhyualtffrsrkll.public.blob.vercel-storage.com/ecrans/073-indexation-salaires-constat-XB493c7xlMTGuLgnUFyt4RRmE2Sfmm/" }
 contexte:
   - "Depuis 1958, la loi interdit de lier les salaires à la hausse des prix : seul le SMIC est relevé automatiquement quand les prix montent."
   - "Le Parlement a rejeté l'indexation de tous les salaires du privé en 2022 et en 2025, mais la commission des affaires sociales de l'Assemblée nationale l'a adoptée le 19 octobre 2026."
