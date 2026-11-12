@@ -131,9 +131,8 @@
   .today, .res, .fiche, .lost, main { padding-top: 28px; }
 }
 
-/* Les paliers (toutes les 5 réponses) : sur la révélation, un bloc gagné, avec des confettis aux couleurs des thèmes. */
+/* Le camembert complet, sur la révélation : un bloc gagné, avec des confettis aux couleurs des thèmes. */
 .palier { position: relative; overflow: hidden; grid-template-columns: auto minmax(0, 1fr); }
-.palier-n { font: 800 56px/0.9 var(--display); font-variation-settings: "wdth" 80; letter-spacing: -0.03em; color: var(--sur-table); min-width: 64px; text-align: center; }
 .palier .confetti { inset: 0 0 auto 0; }
 @media (prefers-reduced-motion: reduce) {
   .palier .confetti { display: none; }
