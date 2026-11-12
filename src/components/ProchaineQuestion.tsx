@@ -72,7 +72,7 @@ export function ProchaineQuestion({
         {bandeau}
         <Annonce message="Tu as répondu à toutes les questions.">
           <Link className="btn-link" href="/resultats">
-            Voir mes résultats
+            Résultats
           </Link>
         </Annonce>
       </>

@@ -16,13 +16,13 @@ contexte:
 chiffres:
   - valeur: "15 119"
     unite: hectares
-    legende: "de terres naturelles, agricoles et forestières prises pour bâtir en 2024, contre 29 470 en 2011"
+    legende: "de terres naturelles, agricoles et forestières prises pour bâtir en 2024"
     source: { organisme: Cerema, document: "La consommation foncière, état des lieux et enjeux", annee: 2026 }
   - valeur: "65 %"
-    legende: "de ces terres prises depuis 2011 ont servi au logement"
+    legende: "des terres prises pour bâtir depuis 2011 ont servi au logement"
     source: { organisme: Cerema, document: "La consommation foncière, état des lieux et enjeux", annee: 2026 }
   - valeur: "68 %"
-    legende: "des terres prises depuis 2021 l'ont été dans les communes rurales : 88 % des communes, un tiers des habitants"
+    legende: "des terres prises pour bâtir depuis 2021 l'ont été dans des communes rurales"
     source: { organisme: "Cerema, Insee", annee: 2026 }
 options:
   - id: A

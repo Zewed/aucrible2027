@@ -14,19 +14,19 @@ contexte:
 chiffres:
   - valeur: "1 276"
     unite: communes
-    legende: sur 2 196 soumises à la loi n'atteignaient pas leur taux légal en 2024
+    legende: "sur 2 196 soumises à la loi n'atteignaient pas leur objectif en 2024"
     source: { organisme: Ministère du Logement, document: page sur la loi SRU mise à jour le 2 septembre 2024, annee: 2024 }
   - valeur: "186 000"
     unite: logements sociaux
-    legende: produits en 2020-2022 dans les communes soumises à la loi
+    legende: "produits de 2020 à 2022 dans les communes soumises à la loi"
     source: { organisme: Ministère du Logement, document: bilan 2020-2022 de la loi SRU, annee: 2024 }
   - valeur: "5,4"
     unite: millions
-    legende: "de logements locatifs sociaux, soit 15,9 % des résidences principales"
+    legende: "de logements sociaux en 2025, soit 15,9 % des résidences principales"
     source: { organisme: SDES, document: répertoire du parc locatif social au 1er janvier 2025, annee: 2025 }
   - valeur: "2,8"
     unite: millions
-    legende: "de demandes de logement social en attente fin 2024, dont environ 1,9 million hors demandes de mutation"
+    legende: "de demandes de logement social en attente fin 2024, dont 1,9 million hors locataires HLM"
     source: { organisme: Cour des comptes, document: rapport annuel, annee: 2026 }
 options:
   - id: A

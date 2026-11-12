@@ -17,16 +17,16 @@ contexte:
 chiffres:
   - valeur: "210"
     unite: sénateurs
-    legende: "ont voté, contre 81, le texte qui interdirait les signes religieux dans toutes les compétitions, le 18 février 2025"
+    legende: "ont voté en 2025 pour interdire les signes religieux dans toutes les compétitions"
     source: { organisme: Sénat, document: scrutin public n° 199, annee: 2025 }
   - valeur: "14"
     unite: fédérations
-    legende: "sur 80 étudiées par le ministère des Sports interdisent un signe ou une tenue religieuse en compétition"
+    legende: "sur 80 étudiées interdisent un signe ou une tenue religieuse en compétition"
     source: { organisme: Assemblée nationale, document: mission flash sur le sport, annee: 2025 }
   - valeur: "1"
     unite: pays sur 38
     # Amnesty est partie au débat ; aucune source indépendante ne confirme ce décompte (étude § 2f) : la légende le dit.
-    legende: "en Europe interdit le voile au football, au basket ou au volley : la France, selon Amnesty International, qui conteste ces interdictions"
+    legende: "en Europe interdit le voile au football, au basket ou au volley : la France, selon Amnesty, qui s'y oppose"
     source: { organisme: Amnesty International, annee: 2024 }
 options:
   - id: A

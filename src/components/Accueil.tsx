@@ -110,7 +110,7 @@ export function Accueil({
             <h1 className="ac-grande">Tu as répondu à toutes les questions.</h1>
           )}
           <Link className="ac-action" href={prochaine ? "/questionnaire" : "/resultats"}>
-            {prochaine ? "Continuer le questionnaire" : "Voir mes résultats"}{" "}
+            {prochaine ? "Continuer le questionnaire" : "Résultats"}{" "}
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M5 12h13M13 6l6 6-6 6" style={{ fill: "none", stroke: "currentColor", strokeWidth: 3, strokeLinecap: "round", strokeLinejoin: "round" }} />
             </svg>

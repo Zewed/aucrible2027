@@ -16,14 +16,14 @@ contexte:
 chiffres:
   - valeur: "28 610"
     unite: régularisations
-    legende: "en 2025 (chiffre provisoire), contre 34 724 en 2023, dont un tiers pour le travail"
+    legende: "en 2025, dont un tiers pour le travail"
     source: { organisme: "Ministère de l'Intérieur", document: "chiffres de l'immigration 2025", annee: 2026 }
   - valeur: "1 655"
     unite: titres
-    legende: "de séjour délivrés en 2025 à des travailleurs d'un métier qui manque de bras"
+    legende: "de séjour délivrés en 2025 pour un métier qui peine à recruter"
     source: { organisme: "Ministère de l'Intérieur", document: "télégramme aux préfets du 14 avril 2026", annee: 2026 }
   - valeur: "700 000"
-    legende: "étrangers en situation irrégulière en France, selon une estimation du ministère de l'Intérieur"
+    legende: "étrangers sans titre de séjour, selon une estimation du ministère de l'Intérieur"
     source: { organisme: Sénat, document: "avis sur le budget 2026, Immigration, asile et intégration", annee: 2025 }
 options:
   - id: A

@@ -22,16 +22,16 @@ contexte:
 chiffres:
   - valeur: "70 000"
     unite: livreurs
-    legende: "actifs en 2024, et à peu près autant de chauffeurs VTC"
+    legende: "étaient actifs en 2024, et à peu près autant de chauffeurs VTC"
     source: { organisme: Arpe, document: "cité par la mission gouvernementale", annee: 2024 }
   - valeur: "56 %"
-    legende: "des 153 arrêts de cours d'appel rendus de 2016 à 2024 sur des travailleurs des plateformes refusent de les reconnaître salariés"
+    legende: "des arrêts d'appel rendus de 2016 à 2024 refusent le statut de salarié aux travailleurs des plateformes"
     source: { organisme: "Mission gouvernementale", document: "d'après une étude de l'Institut Badinter", annee: 2026 }
   - valeur: "−15 à −22,4 %"
-    legende: "de revenu horaire brut pour les livreurs de 2021 à 2025, selon la plateforme, temps d'attente non payé ; un minimum de 19 € par heure d'activité s'applique depuis septembre 2026"
+    legende: "de revenu horaire brut pour les livreurs de 2021 à 2025, selon la plateforme"
     source: { organisme: Arpe, document: "cité par la mission gouvernementale", annee: 2025 }
   - valeur: "73,5 %"
-    legende: "des livreurs interrogés ont déjà travaillé en louant le compte d'un autre, pour 528 € par mois en moyenne ; 64,4 % n'ont pas de titre de séjour ; Uber Eats conteste la méthode de l'enquête"
+    legende: "des livreurs interrogés ont déjà travaillé sur un compte loué, selon une enquête contestée par Uber Eats"
     source: { organisme: "Médecins du Monde, association", document: "enquête Santé-Course, citée par la mission gouvernementale", annee: 2026 }
 options:
   - id: A

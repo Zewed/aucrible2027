@@ -19,17 +19,17 @@ chiffres:
   # § 2b, [11] [12] : refus « aggravés », qui exposent d'autres personnes à un risque de mort ou de blessure grave.
   - valeur: "4 905"
     unite: refus
-    legende: "de s'arrêter mettant des vies en danger en 2022, deux fois plus qu'en 2012 (2 520)"
+    legende: "de s'arrêter mettant des vies en danger en 2022, deux fois plus qu'en 2012"
     source: { organisme: Assemblée nationale, document: "mission d'information sur les refus d'obtempérer", annee: 2024 }
   # § 2c, [11] : police nationale ; la part des refus suivis d'un tir est revenue à son niveau d'avant 2017 dès 2019.
   - valeur: "156"
     unite: tirs par an
-    legende: "de policiers sur des voitures en mouvement de 2018 à 2022, contre 122 de 2012 à 2016"
+    legende: "de policiers sur des voitures en mouvement en 2018-2022, contre 122 en 2012-2016"
     source: { organisme: Assemblée nationale, document: "mission d'information sur les refus d'obtempérer", annee: 2024 }
   # § 1.2, [7].
   - valeur: "313"
     unite: députés
-    legende: "pour la présomption le 7 juillet 2026, contre 199 : le texte doit encore passer au Sénat"
+    legende: "ont voté la présomption en 2026, contre 199 ; le Sénat doit encore l'examiner"
     source: { organisme: Assemblée nationale, document: scrutin n° 7987, annee: 2026 }
 options:
   - id: A

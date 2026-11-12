@@ -177,7 +177,7 @@ export function Fiche({ question, theme, revelation, enJeu }: { question: Questi
             {enJeu && <EnJeu question={question} theme={theme} enJeu={enJeu} reponses={reponses} />}
             <div className="actionbar">
               <button type="button" className="go" onClick={() => allerA("repondre")}>
-                Voir les propositions
+                Répondre
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M4 12h15M13 5.5l6.5 6.5-6.5 6.5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

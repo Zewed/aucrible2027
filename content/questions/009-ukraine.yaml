@@ -14,14 +14,14 @@ contexte:
 chiffres:
   - valeur: "5,9"
     unite: milliards d'euros
-    legende: "de soutien militaire direct à l'Ukraine, du 24 février 2022 au 31 décembre 2024"
+    legende: "d'aide militaire directe à l'Ukraine de 2022 à fin 2024"
     source: { organisme: Ministère des Armées, document: rapport au Parlement sur les exportations d'armement, annee: 2025 }
   - valeur: 0,3 %
-    legende: "du PIB : ce que la France consacre à l'Ukraine, au 13e rang européen"
+    legende: "du PIB : ce que la France consacre à l'Ukraine, 13e rang en Europe"
     source: { organisme: Institut de Kiel, document: Ukraine Support Tracker, annee: 2025 }
   - valeur: "20 000"
     unite: soldats
-    legende: ukrainiens formés par la France depuis 2022
+    legende: "ukrainiens formés par la France depuis 2022"
     source: { organisme: Ministère des Armées, annee: 2026 }
 options:
   - id: A

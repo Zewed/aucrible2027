@@ -16,14 +16,14 @@ contexte:
 chiffres:
   - valeur: "1"
     unite: an de prison
-    legende: "et 15 000 € d'amende au plus pour l'intermédiaire ; recourir à la GPA dans un pays où elle est légale n'est pas puni"
+    legende: "et 15 000 € d'amende au plus pour l'intermédiaire d'une GPA"
     source: { organisme: Ministère de la Justice, document: réponse à la question écrite n° 11042, annee: 2024 }
   - valeur: "5"
     unite: affaires
-    legende: "dans lesquelles la Cour européenne des droits de l'homme a condamné la France, de 2014 à 2017, pour avoir refusé à des enfants nés de GPA tout lien légal avec leur père, sans condamner l'interdiction elle-même"
+    legende: "perdues par la France devant la CEDH sur le lien d'enfants nés de GPA avec leur père"
     source: { organisme: Sénat, document: étude de législation comparée n° 327, annee: 2023 }
   - valeur: "7,8 %"
-    legende: "des grossesses pour autrui ont connu une complication grave en Ontario (Canada), contre 2,3 % des grossesses sans aide médicale et 4,3 % après une fécondation in vitro"
+    legende: "des grossesses pour autrui suivies en Ontario ont connu une complication grave, contre 4,3 % après une fécondation in vitro"
     source: { organisme: Annals of Internal Medicine, document: "Velez et al.", annee: 2024 }
 options:
   - id: A

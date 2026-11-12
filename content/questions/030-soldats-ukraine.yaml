@@ -15,15 +15,15 @@ contexte:
 chiffres:
   - valeur: "26"
     unite: pays
-    legende: "se sont engagés en septembre 2025 à contribuer à la force après un cessez-le-feu, sur terre, en mer ou dans les airs"
+    legende: "se sont engagés en 2025 à contribuer à une force pour l'Ukraine après un cessez-le-feu"
     source: { organisme: Élysée, document: réunion de la coalition des volontaires, annee: 2025 }
   - valeur: "800 000"
     unite: soldats
-    legende: "le format prévu de l'armée ukrainienne, qui resterait la première ligne de défense"
+    legende: "prévus dans l'armée ukrainienne, qui resterait la première ligne de défense"
     source: { organisme: Élysée, document: sommet de la coalition des volontaires, annee: 2026 }
   - valeur: "4"
     unite: mois
-    legende: "au-delà, le Parlement doit autoriser la prolongation d'une intervention à l'étranger ; avant, aucun vote n'est obligatoire"
+    legende: "d'intervention à l'étranger avant que le Parlement doive voter sa prolongation"
     source: { organisme: Constitution, document: article 35, annee: 2008 }
 # Aucune note de plateau : la question ne se range ni sur l'axe économique ni sur l'axe sociétal.
 options:

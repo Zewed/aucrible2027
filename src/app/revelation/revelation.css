@@ -20,8 +20,9 @@ main.rev { --r: 8px; --f: 1; display: flex; flex-direction: column; gap: 22px; p
 .rev-suite .go { margin: 0 0 7px; text-decoration: none; }
 .rev-resultats {
   align-self: center; min-height: 44px; display: inline-flex; align-items: center;
-  font: 700 15px/1 var(--text); text-underline-offset: 4px;
+  font: 600 13.5px/1 var(--text); color: var(--muted); text-underline-offset: 4px;
 }
+.rev-resultats:hover { color: var(--sur-table); }
 
 /* ce que la réponse fait gagner : une ligne chacun */
 .rev-gain { margin-top: 10px; display: flex; align-items: center; gap: 12px; font: 500 14px/1.25 var(--text); }
@@ -128,7 +129,7 @@ main.rev { --r: 8px; --f: 1; display: flex; flex-direction: column; gap: 22px; p
   .rev-bulle { inset: auto; margin: 2px 0; position-anchor: var(--ancre); position-area: bottom span-left; position-try-fallbacks: flip-block, flip-inline; }
 }
 
-/* sous le tableau : la clé des pastilles sur une ligne, et « Voir les sources » */
+/* sous le tableau : la clé des pastilles sur une ligne, et « Sources » */
 .rev-pied { order: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; }
 .rev-legende { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; font: 600 13.5px/1.2 var(--text); color: var(--sur-table); }
 .rev-legende b { font: 800 12px/1 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
@@ -164,11 +165,17 @@ main.rev { --r: 8px; --f: 1; display: flex; flex-direction: column; gap: 22px; p
   main.rev {
     --f: var(--fit, 1); --px: clamp(18px, 1.8vw, 36px); --py: clamp(12px, 2 * var(--u), 24px);
     min-height: calc(100 * var(--u)); padding: clamp(6px, .5vw, 10px) var(--px);
-    display: grid; grid-template-rows: auto 1fr auto; gap: clamp(6px, .5vw, 10px);
+    display: grid; grid-template-columns: minmax(0, 1fr) clamp(240px, 20vw, 320px); grid-template-rows: auto 1fr auto;
+    gap: clamp(6px, .5vw, 10px) 0;
   }
-  .rev-tete {
-    display: grid; grid-template-columns: minmax(0, 1fr) clamp(240px, 20vw, 320px); column-gap: calc(var(--px) * 1.5);
-    align-items: end; padding: var(--py) 0 calc(var(--py) * .8); border-bottom: 3px solid var(--sur-table);
+  /* « Question suivante » en bas à droite, là où sont « Répondre » et « Valider ma réponse » sur la fiche (12 novembre
+     2026) : la question prend toute la largeur en haut, la suite ferme la bande du bas, à côté de la légende. */
+  .rev-tete { display: contents; }
+  .rev-q { grid-column: 1 / -1; grid-row: 1; padding: var(--py) 0 calc(var(--py) * .8); border-bottom: 3px solid var(--sur-table); }
+  .rev-tableau { grid-column: 1 / -1; grid-row: 2; }
+  .rev-pied { grid-column: 1; grid-row: 3; align-self: stretch; align-items: end; padding-right: calc(var(--px) * 1.5); }
+  .rev-suite {
+    grid-column: 2; grid-row: 3; padding: calc(var(--f) * 12px) 0 2px; border-top: 2px solid var(--sur-table);
   }
   .rev h1 { font-size: calc(var(--f) * clamp(28px, 4.4 * var(--u), 52px)); }
   .rev-meta { justify-content: flex-start; gap: 18px; }
@@ -176,7 +183,7 @@ main.rev { --r: 8px; --f: 1; display: flex; flex-direction: column; gap: 22px; p
   .rev-suite { gap: 4px; }
   .rev-suite .go { padding: calc(var(--f) * clamp(12px, 1.7 * var(--u), 17px)) 16px; font-size: calc(var(--f) * clamp(16px, 2 * var(--u), 20px)); box-shadow: 0 5px 0 var(--theme-edge); }
   .rev-suite .go svg { width: 22px; height: 22px; }
-  .rev-resultats { min-height: 34px; font-size: calc(var(--f) * 14px); }
+  .rev-resultats { min-height: 34px; font-size: calc(var(--f) * 13px); }
   .rev-gain { margin-top: calc(var(--f) * 6px); font-size: calc(var(--f) * 13.5px); }
   .rev-gain svg { width: calc(var(--f) * 40px); height: calc(var(--f) * 40px); }
   .rev-gain b { font-size: calc(var(--f) * 16px); }
@@ -210,7 +217,7 @@ main.rev { --r: 8px; --f: 1; display: flex; flex-direction: column; gap: 22px; p
   .rev .def .pawn { --size: calc(var(--f) * 28px); font-size: calc(var(--f) * 9.5px); }
   .rev .def-name { font-size: calc(var(--f) * 15px); }
 
-  .rev-pied { padding: calc(var(--f) * 12px) 0 2px; border-top: 2px solid var(--sur-table); }
+  .rev-pied { padding-block: calc(var(--f) * 12px) 2px; border-top: 2px solid var(--sur-table); }
 }
 /* Une colonne un peu étroite pour « Nicolas Dupont-Aignan », le plus long des noms, sur une ligne : les noms de la colonne
    passent en un peu plus petit, toujours sur une ligne. Plus étroite encore, le prénom passe au-dessus du nom, et les

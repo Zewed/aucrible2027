@@ -14,13 +14,13 @@ contexte:
 chiffres:
   - valeur: "4,7"
     unite: milliards d'euros
-    legende: "de dépassements facturés par les médecins spécialistes en 2025, hors généralistes, payés par les patients et leurs mutuelles"
+    legende: "de dépassements d'honoraires facturés par les spécialistes en 2025"
     source: { organisme: HCAAM, document: "Trois scénarios pour une réforme des dépassements d'honoraires", annee: 2026 }
   - valeur: "75 %"
-    legende: "des jeunes spécialistes qui s'installent en ville choisissent le secteur 2 en 2024, contre 58 % en 2010"
+    legende: "des jeunes spécialistes choisissent en 2024 le secteur 2, qui autorise les dépassements"
     source: { organisme: HCAAM, document: "Trois scénarios pour une réforme des dépassements d'honoraires", annee: 2026 }
   - valeur: "40 %"
-    legende: "des dépassements sont remboursés en moyenne par les mutuelles ; les patients paient le reste"
+    legende: "des dépassements sont payés par les mutuelles, le reste par les patients"
     source: { organisme: HCAAM, document: "Trois scénarios pour une réforme des dépassements d'honoraires", annee: 2026 }
 options:
   - id: A

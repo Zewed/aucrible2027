@@ -17,11 +17,11 @@ chiffres:
     legende: cotisant pour 1 retraité
     source: { organisme: COR, document: rapport, annee: 2025 }
   - valeur: 14 %
-    legende: "du PIB : environ ce que représentent les retraites"
+    legende: "du PIB : la part de la richesse nationale consacrée aux retraites"
     source: { organisme: COR, annee: 2025 }
   - valeur: "62"
     unite: ans
-    legende: "et 10 mois : l'âge moyen de départ"
+    legende: "et 10 mois : l'âge moyen de départ à la retraite"
     source: { organisme: DREES, annee: 2025 }
 options:
   - id: A

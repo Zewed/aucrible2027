@@ -28,17 +28,17 @@ contexte:
 chiffres:
   - valeur: "48"
     unite: ans
-    legende: "l'âge de la victime jusqu'auquel un viol subi enfant peut aujourd'hui être poursuivi : 30 ans après sa majorité"
+    legende: "l'âge de la victime jusqu'auquel un viol subi enfant peut aujourd'hui être poursuivi"
     source: { organisme: "Assemblée nationale", document: "rapport d'information n° 2685, Délégation aux droits des enfants", annee: 2026 }
   - valeur: "71 085"
     unite: mineurs
-    legende: "ont porté plainte pour violences sexuelles en 2024, dont 34 % pour viol ou tentative de viol"
+    legende: "ont porté plainte pour violences sexuelles en 2024"
     source: { organisme: "SSMSI", document: "cité par le rapport n° 2685 de l'Assemblée nationale", annee: 2024 }
   - valeur: "42 %"
-    legende: "des victimes mineures de violences sexuelles dans leur famille qui portent plainte le font pour des faits de plus de cinq ans"
+    legende: "des mineurs qui portent plainte pour violences sexuelles en famille le font plus de cinq ans après"
     source: { organisme: "Ministère de la Justice", document: "Infostats n° 205, cité par l'Assemblée nationale", annee: 2024 }
   - valeur: "3 %"
-    legende: "des viols sur mineurs classés sans suite de 2016 à 2022 l'ont été pour prescription ; 72 % de ces viols ont été classés, surtout faute de preuves"
+    legende: "des viols sur mineurs classés sans suite de 2016 à 2022 l'ont été pour prescription"
     source: { organisme: "Ciivise", document: "citée par le rapport n° 2685 de l'Assemblée nationale", annee: 2026 }
 # L'ordre est une échelle (étude § 4) : de l'option qui supprime le plus de délais (A, qui touche aussi les délits
 # sexuels) à celle qui n'en supprime aucun (D, la règle en vigueur au 11/11/2026). A et B ne sont pas emboîtées : A va plus

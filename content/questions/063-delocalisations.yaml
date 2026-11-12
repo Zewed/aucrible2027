@@ -24,19 +24,19 @@ chiffres:
   # L'année des chiffres du HCSP (2023 ou 2025) reste à vérifier (étude § 1.2) : la légende ne la donne pas.
   - valeur: "82 à 211"
     unite: milliards d'euros
-    legende: "d'aides publiques aux entreprises, selon ce que l'on compte : au moins 211 en 2023 pour le Sénat, au sens le plus large, baisses de cotisations comprises ; de 82 à 187 pour le Haut-commissariat à la stratégie et au plan"
+    legende: "d'aides publiques aux entreprises, selon ce que l'on y compte"
     source: { organisme: "Sénat ; Haut-commissariat à la stratégie et au plan", document: "commission d'enquête sur les aides publiques aux grandes entreprises ; rapport de concertation", annee: 2026 }
   # § 2b, [14].
   - valeur: "2 %"
-    legende: "des entreprises de 50 salariés ou plus ont délocalisé une activité de 2021 à 2023 (6,5 % de celles de 500 salariés ou plus), supprimant directement 7 500 à 13 000 postes en France en trois ans"
+    legende: "des entreprises de 50 salariés ou plus ont délocalisé une activité de 2021 à 2023"
     source: { organisme: Insee, document: Insee Première n° 2115, annee: 2026 }
   # § 2b, [14].
   - valeur: "55 %"
-    legende: "des entreprises qui ont délocalisé de 2021 à 2023 citent la baisse du coût de la main-d'œuvre, le motif le plus cité"
+    legende: "des entreprises qui ont délocalisé de 2021 à 2023 citent une main-d'œuvre moins chère"
     source: { organisme: Insee, document: Insee Première n° 2115, annee: 2026 }
   # § 2b, [1] : le pendant du précédent, pour ceux qui visent aussi les licenciements.
   - valeur: "plus de 30 %"
-    legende: "de plans sociaux en plus entre 2023 et 2024 ; beaucoup ne sont pas des délocalisations"
+    legende: "de plans sociaux en 2024 qu'en 2023, beaucoup sans lien avec une délocalisation"
     source: { organisme: "Ministère du Travail (DGEFP)", document: "cité par le Sénat", annee: 2025 }
 # L'ordre est une échelle, de la plus exigeante à la moins exigeante pour l'entreprise (étude § 4) ; la règle actuelle
 # est D. La limite entre B et C : les baisses de cotisations, et le déclenchement par des licenciements.

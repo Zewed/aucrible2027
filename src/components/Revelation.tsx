@@ -161,7 +161,7 @@ function VoirLesSources({ question }: { question: Question }) {
   return (
     <>
       <button type="button" className="rev-voir-sources" popoverTarget={id}>
-        Voir les sources
+        Sources
       </button>
       <div className="rev-sources" id={id} popover="auto" role="dialog" aria-labelledby={`${id}-titre`}>
         <div className="rev-sources-tete">
@@ -366,12 +366,12 @@ export function Revelation({
                   Question suivante <Fleche />
                 </Link>
                 <Link className="rev-resultats" href="/resultats">
-                  Voir mes résultats
+                  Résultats en cours
                 </Link>
               </>
             ) : (
               <Link className="go" href="/resultats">
-                Voir mes résultats <Fleche />
+                Résultats <Fleche />
               </Link>
             )}
             {/* Ce que la réponse fait gagner : une ligne chacun ; un palier et le camembert complet ont leurs confettis. */}

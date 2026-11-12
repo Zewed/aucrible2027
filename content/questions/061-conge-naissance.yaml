@@ -24,17 +24,17 @@ contexte:
 chiffres:
   # § 2b, [22] : chiffres de 2021, publiés par la Drees en juillet 2023. Chaque camp s'en sert (étude, § 2b).
   - valeur: "71 %"
-    legende: "des pères qui y avaient droit ont pris un congé de paternité en 2021, contre 93 % des mères pour le congé de maternité"
+    legende: "des pères qui y avaient droit ont pris leur congé de paternité, en 2021"
     source: { organisme: "Drees", document: "Études et résultats n° 1275", annee: 2023 }
   # § 2a, [25] : salariés du privé, 2005-2015. L'Insee attribue l'écart surtout aux arrêts et au temps partiel, plus qu'à
   # une discrimination de l'employeur : la légende le dit, chaque camp lisant ce chiffre à sa façon.
   - valeur: "25 %"
-    legende: "de revenu salarial perdu par une mère cinq ans après une naissance, et 38 à 40 % pour les 5 % les moins bien payées, surtout à cause des arrêts et du temps partiel ; aucun écart notable pour les pères"
+    legende: "de revenu salarial perdu par une mère cinq ans après une naissance, surtout par les arrêts et le temps partiel"
     source: { organisme: "Insee", document: "Insee Analyses n° 48", annee: 2019 }
   # § 2e, [24] : le chiffre de ceux qui mettent la natalité en premier, face au précédent.
   - valeur: "645 000"
     unite: naissances
-    legende: "en France en 2025, 23,6 % de moins qu'en 2010 ; pour la première fois depuis 1945, il y a eu plus de décès que de naissances"
+    legende: "en France en 2025, moins que les décès pour la première fois depuis 1945"
     source: { organisme: "Insee", document: "Bilan démographique 2025", annee: 2026 }
 options:
   - id: A

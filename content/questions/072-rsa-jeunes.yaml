@@ -27,19 +27,19 @@ contexte:
 # premiers parlent pour l'ouverture, les deux derniers pour l'aide existante et contre la dépense.
 chiffres:
   - valeur: "18,6 %"
-    legende: "des 18-29 ans vivent sous le seuil de pauvreté en 2024, contre 15,4 % de l'ensemble de la population"
+    legende: "des 18-29 ans vivent sous le seuil de pauvreté en 2024, contre 15,4 % de la population"
     source: { organisme: "Insee", document: "Pauvreté selon l'âge et le seuil", annee: 2026 }
   - valeur: "600"
     unite: foyers
-    legende: "touchaient fin 2023 le RSA jeune, ouvert aux moins de 25 ans qui ont travaillé deux ans sur trois (3 100 fin 2012)"
+    legende: "touchaient fin 2023 le RSA ouvert aux moins de 25 ans qui ont travaillé deux ans sur trois"
     source: { organisme: "Drees", document: "Minima sociaux et prestations de solidarité, édition 2025", annee: 2025 }
   - valeur: "140 600"
     unite: jeunes
-    legende: "suivaient un contrat d'engagement jeune fin juillet 2026, en France métropolitaine"
+    legende: "suivaient un contrat d'engagement jeune à l'été 2026, en métropole"
     source: { organisme: "Dares", document: "tableau de bord du CEJ, Dreets Provence-Alpes-Côte d'Azur", annee: 2026 }
   - valeur: "4,6 à 5,8"
     unite: milliards d'euros par an
-    legende: "coût net estimé en 2016 d'une ouverture du RSA aux 18-24 ans hors étudiants, pour 1,4 million de bénéficiaires potentiels"
+    legende: "de coût net pour un RSA ouvert aux 18-24 ans non étudiants, selon une estimation de 2016"
     source: { organisme: "Drees", document: "estimation citée par le Sénat et par Terra Nova", annee: 2016 }
 # L'ordre est une échelle : du revenu le plus large (A, étudiants compris) à la règle actuelle (D) (étude § 4).
 options:

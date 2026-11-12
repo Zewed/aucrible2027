@@ -16,14 +16,14 @@ contexte:
 chiffres:
   - valeur: "800"
     unite: caméras
-    legende: "environ, équipées d'intelligence artificielle pendant l'essai de 2024, sur une trentaine d'événements"
+    legende: "environ, équipées d'intelligence artificielle pendant l'essai de 2024"
     source: { organisme: Comité d'évaluation, document: rapport sur l'expérimentation, annee: 2025 }
   - valeur: 78 %
-    legende: "de fausses alertes pour les objets abandonnés dans les transports parisiens pendant les Jeux, contre 21 % pour les intrusions"
+    legende: "des alertes pour objet abandonné étaient fausses dans les transports parisiens en 2024, contre 21 % pour les intrusions"
     source: { organisme: Comité d'évaluation, document: données de la RATP, annee: 2025 }
   - valeur: "60 674"
     unite: caméras
-    legende: "dans les rues fin 2018 selon le ministère de l'Intérieur, un décompte que la Cour des comptes juge approximatif"
+    legende: "dans les rues en 2018, selon un décompte du ministère jugé approximatif"
     source: { organisme: Cour des comptes, document: Les polices municipales, annee: 2020 }
 options:
   - id: A

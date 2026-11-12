@@ -17,7 +17,7 @@ chiffres:
     legende: "gagnés en moyenne par un enseignant fonctionnaire en 2024, primes comprises"
     source: { organisme: DEPP, document: "Note d'information n° 26.36", annee: 2026 }
   - valeur: "18 %"
-    legende: "de salaire en moins que la moyenne des pays de l'OCDE en milieu de carrière, contre 2 % en début de carrière"
+    legende: "de salaire en moins que la moyenne de l'OCDE, pour un enseignant à mi-carrière"
     source: { organisme: OCDE, document: "Regards sur l'éducation 2026, cité par L'Étudiant", annee: 2026 }
   - valeur: "4,2"
     unite: milliards d'euros

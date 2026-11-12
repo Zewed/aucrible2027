@@ -25,17 +25,17 @@ contexte:
 chiffres:
   # § 2a, [38].
   - valeur: "9,1 %"
-    legende: "de la population vivant en France est de nationalité étrangère en 2025, Européens compris : 6,3 millions de personnes"
+    legende: "des habitants de la France ont une nationalité étrangère en 2025, Européens compris"
     source: { organisme: Insee, document: "L'essentiel sur les immigrés et les étrangers", annee: 2026 }
   # § 1.1, [39].
   - valeur: "5"
     unite: ans
-    legende: "de titre de séjour sont exigés d'un étranger non européen avant le RSA ; aucune durée pour les allocations familiales"
+    legende: "de titre de séjour sont exigés d'un étranger non européen pour toucher le RSA"
     source: { organisme: "Service-public.gouv.fr", annee: 2026 }
   # § 2d, [37] [10] : foyers au 30/06/2022, réponse publiée au JO le 20/06/2023. Ne se compare pas
   # directement au 9,1 % (ni la même année ni la même unité, étude § 2d).
   - valeur: "15,6 %"
-    legende: "des foyers du RSA avaient pour responsable un étranger non européen en juin 2022 ; pour les autres aides, la nationalité des allocataires n'est pas enregistrée"
+    legende: "des foyers au RSA avaient pour responsable un étranger non européen, en 2022"
     source: { organisme: "Cnaf et MSA", document: "réponse ministérielle à la question écrite n° 5157", annee: 2023 }
 # L'ordre est une échelle, de la plus restrictive à la plus ouverte (étude § 4.1) ; la règle actuelle est D.
 # E est gardée sur décision de l'auteur, bien qu'aucun candidat ne la défende (seul le Gisti, association, la porte).

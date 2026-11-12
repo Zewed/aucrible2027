@@ -17,19 +17,19 @@ contexte:
 chiffres:
   - valeur: "28 241"
     unite: détenus
-    legende: "de plus que de places, prison par prison, au 1er septembre 2026 : deux fois plus qu'en 2016 (14 035)"
+    legende: "en surnombre dans les prisons en 2026, deux fois plus qu'en 2016"
     source: { organisme: Ministère de la Justice, document: mesure de l'incarcération, annee: 2026 }
   - valeur: 35 %
-    legende: "des places du plan lancé en 2018 étaient livrées en septembre 2025 ; sa fin est repoussée à 2031-2032"
+    legende: "des 15 000 places de prison promises en 2018 étaient livrées en 2025"
     source: { organisme: Cour des comptes, document: "Le plan 15 000 places de prison", annee: 2025 }
   # § 1.1, [2] : le chiffre de ceux qui veulent faire purger les peines en prison, face aux 35 % et aux 127 €.
   - valeur: "17 400"
     unite: condamnés
-    legende: "à de la prison ferme font leur peine hors d'une prison au 1er octobre 2026, le plus souvent sous bracelet"
+    legende: "à de la prison ferme font leur peine hors de prison en 2026, surtout sous bracelet"
     source: { organisme: Ministère de la Justice, document: personnes détenues au 1er octobre 2026, annee: 2026 }
   - valeur: "127"
     unite: €
-    legende: "par jour pour un détenu en prison, contre 13 € pour une personne sous bracelet électronique"
+    legende: "par jour : le coût d'un détenu en prison, contre 13 € sous bracelet électronique"
     source: { organisme: Cour des comptes, document: "chiffres de l'administration pénitentiaire", annee: 2022 }
 options:
   - id: A

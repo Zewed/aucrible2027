@@ -18,10 +18,10 @@ chiffres:
     legende: des 12-17 ans vont chaque jour sur les réseaux sociaux
     source: { organisme: "Crédoc, cité par l'Anses", document: baromètre du numérique, annee: 2025 }
   - valeur: "11 %"
-    legende: "des jeunes Européens de 11 à 15 ans ont un usage problématique des réseaux sociaux en 2022, contre 7 % en 2018"
+    legende: "des 11-15 ans en Europe ont un usage problématique des réseaux sociaux, en 2022"
     source: { organisme: OMS Europe, document: enquête HBSC, annee: 2024 }
   - valeur: "42 %"
-    legende: "des moins de 16 ans ont encore un compte en Australie trois mois après l'interdiction, contre 52 % avant"
+    legende: "des moins de 16 ans en Australie ont un compte malgré l'interdiction, contre 52 % avant"
     source: { organisme: eSafety Commissioner (Australie), document: évaluation à trois mois, annee: 2026 }
 options:
   - id: A

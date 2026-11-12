@@ -16,13 +16,13 @@ contexte:
 chiffres:
   - valeur: "4"
     unite: cultures
-    legende: "noisette, betterave, pomme et cerise : celles où l'Anses peut accorder une exception depuis août 2026, pour trois ans au plus"
+    legende: "noisette, betterave, pomme et cerise, où l'Anses peut accorder une exception depuis 2026"
     source: { organisme: Conseil constitutionnel, document: décision n° 2026-914 DC, annee: 2026 }
   - valeur: "1 sur 27"
-    legende: "la France est le seul pays de l'Union européenne à interdire les produits à base d'acétamipride"
+    legende: "la France est le seul pays de l'Union européenne à interdire l'acétamipride"
     source: { organisme: Sénat, document: rapport n° 762, annee: 2026 }
-  - valeur: "3 sur 10"
-    legende: "Français ont reçu au moins une fois en 2024 une eau du robinet dépassant la limite de qualité fixée pour les pesticides"
+  - valeur: "30 %"
+    legende: "des Français ont eu au moins une fois en 2024 une eau du robinet hors norme en pesticides"
     source: { organisme: Ministère de la Santé, document: bilan de la qualité de l'eau, annee: 2024 }
 options:
   - id: A

@@ -16,15 +16,15 @@ contexte:
 chiffres:
   - valeur: "3"
     unite: lignes
-    legende: "aériennes interdites par le décret de mai 2023, toutes depuis Paris-Orly, vers Bordeaux, Nantes et Lyon"
+    legende: "aériennes interdites en 2023 entre Orly et Bordeaux, Nantes ou Lyon"
     source: { organisme: Ministère de la Transition écologique, document: notre-environnement.gouv.fr, annee: 2023 }
   - valeur: "18 à 23"
     unite: lignes
-    legende: "seraient concernées par un seuil de 4 heures, selon deux associations qui le défendent, avec le trafic d'avant le Covid"
+    legende: "seraient touchées par un seuil de 4 heures, d'après deux associations qui le défendent"
     source: { organisme: "UFC-Que Choisir, Réseau Action Climat", annee: 2021 }
   - valeur: "1,5"
     unite: million de tonnes
-    legende: "de CO2 émises par les vols intérieurs en métropole en 2024, contre 2,1 en 2019"
+    legende: "de CO2 émises par les vols intérieurs en métropole en 2024"
     source: { organisme: DGAC, document: bilan des émissions du trafic aérien, annee: 2024 }
 options:
   - id: A

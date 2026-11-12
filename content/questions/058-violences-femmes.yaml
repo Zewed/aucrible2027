@@ -25,11 +25,11 @@ chiffres:
   # § 2a, [17].
   - valeur: "277 000"
     unite: femmes
-    legende: "majeures ont déclaré avoir subi en 2023 un viol, une tentative de viol ou une agression sexuelle ; 7 % disent avoir porté plainte"
+    legende: "majeures disent avoir subi des violences sexuelles en 2023"
     source: { organisme: "SSMSI", document: "enquête Vécu et ressenti en matière de sécurité", annee: 2024 }
   # § 2a et 2h, [17].
   - valeur: "54 %"
-    legende: "des victimes de violences sexuelles enregistrées par la police et la gendarmerie en 2024 sont mineures"
+    legende: "des victimes de violences sexuelles enregistrées en 2024 sont mineures"
     source: { organisme: "SSMSI", document: "cité par la MIPROF", annee: 2025 }
   # § 2a, [17] : le chiffre de la statistique publique, pas celui des collectifs, qui comptent autrement.
   - valeur: "107"
@@ -39,7 +39,7 @@ chiffres:
   # § 1.3, [9] [11] : le chiffre du gouvernement, partie au débat, dit comme tel.
   - valeur: "1,5"
     unite: "milliard d'euros"
-    legende: "par an environ : le « socle » annoncé par le gouvernement pour 2027, État et Sécurité sociale compris, en grande partie des moyens déjà engagés en 2026 ; la loi votée par les députés en programme 3"
+    legende: "environ, annoncé par le gouvernement pour 2027, en grande partie des moyens déjà engagés"
     source: { organisme: "Gouvernement", document: "tribune du Premier ministre, 15 septembre 2026", annee: 2026 }
 # L'ordre est une échelle (étude, § 4) : de l'option qui engage le plus de moyens et de protections (A) à celle qui met
 # l'accent sur la sanction (D). La frontière entre A et B repose surtout sur le vote de l'article 62 (victimes étrangères).

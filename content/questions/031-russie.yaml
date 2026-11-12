@@ -14,15 +14,15 @@ contexte:
 chiffres:
   - valeur: "21"
     unite: séries de sanctions
-    legende: "décidées par l'Union européenne contre la Russie depuis février 2022"
+    legende: "décidées par l'Union européenne contre la Russie depuis 2022"
     source: { organisme: Toute l'Europe, document: les sanctions de l'UE contre la Russie, annee: 2026 }
   - valeur: "210"
     unite: milliards d'euros
-    legende: "de la banque centrale russe bloqués dans l'Union européenne, dont 19 en France"
+    legende: "d'avoirs de la banque centrale russe gelés dans l'Union européenne"
     source: { organisme: Toute l'Europe, document: les avoirs russes gelés en Europe, annee: 2026 }
   - valeur: "3,2"
     unite: milliards d'euros
-    legende: "de gaz russe achetés par la France en 2025, plus des trois quarts de ce qu'elle achète à la Russie"
+    legende: "de gaz russe achetés par la France en 2025"
     source: { organisme: DG Trésor, document: relations économiques France-Russie, annee: 2026 }
 options:
   - id: A

@@ -14,14 +14,14 @@ contexte:
 chiffres:
   - valeur: "4,7"
     unite: millions
-    legende: de signatures d'électeurs, en plus de 185 parlementaires, pour demander un référendum d'initiative partagée
+    legende: "de signatures d'électeurs exigées pour un référendum d'initiative partagée"
     source: { organisme: Conseil constitutionnel, document: déclaration sur la proposition de loi Aéroports de Paris, annee: 2020 }
   - valeur: "1,09"
     unite: million
-    legende: de soutiens recueillis pour la seule demande validée, sur Aéroports de Paris (2019-2020)
+    legende: "de soutiens recueillis pour Aéroports de Paris en 2020, le seul recueil jamais ouvert"
     source: { organisme: Conseil constitutionnel, document: déclaration sur la proposition de loi Aéroports de Paris, annee: 2020 }
   - valeur: 26 %
-    legende: des Français déclarent avoir confiance dans la politique
+    legende: "des Français disent avoir confiance dans la politique, en 2025"
     source: { organisme: CEVIPOF, document: enquête sur la confiance politique, annee: 2025 }
 options:
   - id: A

@@ -17,7 +17,7 @@ contexte:
 chiffres:
   - valeur: "3 000"
     unite: jeunes
-    legende: "dans la première promotion du nouveau service militaire volontaire ; 10 000 sont prévus en 2030"
+    legende: "dans la première promotion du service militaire volontaire, en 2026"
     source: { organisme: Légifrance, document: "loi n° 2026-791 du 16 août 2026, rapport annexé", annee: 2026 }
   - valeur: "40 135"
     unite: jeunes

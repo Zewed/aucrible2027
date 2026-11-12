@@ -14,19 +14,19 @@ contexte:
   - "En 2025, 6,4 millions d'assurés n'avaient pas de médecin traitant ; aujourd'hui, trois Français sur quatre vivent dans une zone où l'accès aux médecins est jugé insuffisant, et les écarts entre territoires se creusent."
   - "Les députés ont voté en 2025 une loi qui limite l'installation hors des zones qui manquent de médecins ; en juin 2026, le Sénat a préféré que ceux qui s'installent là où ils sont très nombreux exercent aussi en partie là où ils manquent, sans finir l'examen : rien n'est en vigueur."
 chiffres:
-  - valeur: "6"
+  - valeur: "6,4"
     unite: millions
-    legende: et 400 000 assurés sans médecin traitant en 2025
+    legende: "d'assurés n'avaient pas de médecin traitant en 2025"
     source: { organisme: Sénat, document: rapport n° 668, annee: 2026 }
   - valeur: 87 %
-    legende: "des communes classées en zone où l'accès aux médecins est difficile, en 2023"
+    legende: "des communes étaient classées en zone d'accès difficile aux médecins en 2023"
     source: { organisme: Cour des comptes, document: "Les aides à l'installation des médecins libéraux", annee: 2025 }
   - valeur: "83"
-    legende: "généralistes libéraux pour 100 000 habitants en 2023, en métropole, après une baisse de 7 % de leur nombre depuis 2016"
+    legende: "généralistes libéraux pour 100 000 habitants en métropole, en 2023"
     source: { organisme: Insee, document: données Drees, annee: 2026 }
   - valeur: "10"
     unite: ans
-    legende: "d'études pour devenir médecin généraliste, avec la quatrième année d'internat qui commence le 2 novembre 2026"
+    legende: "d'études pour devenir généraliste, avec l'internat allongé d'un an en 2026"
     source: { organisme: Ministère de la Santé, document: instruction sur la quatrième année, annee: 2026 }
 options:
   - id: A

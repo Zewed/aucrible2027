@@ -22,16 +22,16 @@ contexte:
 chiffres:
   - valeur: "20"
     unite: mois
-    legende: "de salaire brut au plus : l'indemnité maximale, après 29 ans d'ancienneté ; le plafond est de 3,5 mois après 2 ans"
+    legende: "de salaire brut au plus pour un licenciement injustifié, après 29 ans d'ancienneté"
     source: { organisme: Code du travail, document: article L. 1235-3, annee: 2018 }
   - valeur: "6,6"
     unite: mois
     # Étude § 2b, [23] : 192 arrêts avant le barème, 94 après ; les auteurs signalent un échantillon faible.
-    legende: "de salaire en moyenne, accordés en appel après le barème, contre 7,9 avant, quand les montants allaient de 0,2 à 37,8 mois, selon une étude sur un petit échantillon de 286 arrêts"
+    legende: "de salaire accordés en moyenne en appel avec le barème, contre 7,9 avant, sur un petit échantillon"
     source: { organisme: IRES, document: "R. Dalmasso et C. Signoretto", annee: 2023 }
   - valeur: "131 536"
     unite: affaires
-    legende: "nouvelles devant les prud'hommes en 2025, en hausse de 11 % en un an"
+    legende: "nouvelles devant les prud'hommes en 2025, 11 % de plus qu'en 2024"
     source: { organisme: Ministère de la Justice, document: Références statistiques Justice, annee: 2026 }
 options:
   - id: A

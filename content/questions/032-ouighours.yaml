@@ -13,15 +13,15 @@ contexte:
   - "Depuis 2021, l'Union européenne sanctionne quatre responsables chinois, et la Chine a riposté. Une loi européenne interdira à partir de décembre 2027 les produits fabriqués avec du travail forcé, quel que soit le pays."
 chiffres:
   - valeur: "48,7 %"
-    legende: "de baisse de la natalité au Xinjiang entre 2017 et 2019, selon les statistiques chinoises"
+    legende: "de baisse de la natalité au Xinjiang de 2017 à 2019, d'après les chiffres chinois"
     source: { organisme: Nations unies (HCDH), document: évaluation sur le Xinjiang, annee: 2022 }
   - valeur: "4"
     unite: responsables
-    legende: "chinois et un service de police du Xinjiang sanctionnés par l'Union européenne depuis 2021"
+    legende: "chinois sanctionnés par l'Union européenne pour le Xinjiang depuis 2021"
     source: { organisme: Conseil de l'Union européenne, annee: 2021 }
   - valeur: "47"
     unite: milliards d'euros
-    legende: "de déficit commercial de la France avec la Chine en 2024, selon les douanes françaises"
+    legende: "de déficit commercial de la France avec la Chine en 2024"
     source: { organisme: Douanes (DGDDI), document: note du service économique de Pékin, annee: 2025 }
 # Pas de note d'axe : aucune option ne se range clairement sur l'axe économie ou sur l'axe société.
 options:

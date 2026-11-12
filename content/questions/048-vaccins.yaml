@@ -17,14 +17,14 @@ contexte:
 chiffres:
   - valeur: "11"
     unite: vaccins
-    legende: "obligatoires pour les enfants nés depuis le 1er janvier 2018, contre 3 auparavant"
+    legende: "obligatoires pour les enfants nés depuis 2018, contre 3 avant"
     source: { organisme: Santé publique France, document: "Extension des obligations vaccinales", annee: 2018 }
   - valeur: "20 %"
-    legende: "des professionnels des établissements de santé vaccinés contre la grippe en 2024-2025, entre 19 et 22 % depuis quatre hivers"
+    legende: "des personnels des hôpitaux et cliniques vaccinés contre la grippe en 2024-2025"
     source: { organisme: HAS, document: "Grippe saisonnière, pertinence d'une obligation vaccinale", annee: 2026 }
   - valeur: "873"
     unite: cas
-    legende: "de rougeole déclarés en 2025, 80 % de plus qu'en 2024 ; six malades sur dix n'étaient pas ou mal vaccinés"
+    legende: "de rougeole déclarés en 2025, surtout chez des personnes pas ou mal vaccinées"
     source: { organisme: Santé publique France, document: "Rougeole en France, bilan annuel 2025", annee: 2026 }
 options:
   - id: A

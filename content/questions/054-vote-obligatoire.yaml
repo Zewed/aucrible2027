@@ -17,13 +17,14 @@ contexte:
   - "Une vingtaine de pays obligent à voter, dont la Belgique, le Luxembourg et l'Australie ; en France, aucune des propositions de loi déposées en ce sens n'a été adoptée."
 chiffres:
   - valeur: "26,3 %"
-    legende: "des inscrits n'ont pas voté au premier tour de la présidentielle de 2022, contre 18,9 % en 1981"
+    legende: "des inscrits n'ont pas voté au premier tour de la présidentielle de 2022"
     source: { organisme: Conseil constitutionnel, document: "décision n° 2022-195 PDR", annee: 2022 }
-  - valeur: "1 sur 4"
-    legende: "parmi les inscrits les plus modestes n'a voté à aucun tour en 2022, trois fois plus que chez les plus aisés"
+  - valeur: "1"
+    unite: quart
+    legende: "des plus modestes n'ont voté à aucun tour en 2022, trois fois plus que les plus aisés"
     source: { organisme: Insee, document: "Insee Première n° 1928", annee: 2022 }
   - valeur: "90 %"
-    legende: "des inscrits environ votent aux élections nationales en Belgique, au Luxembourg et en Australie, où voter est obligatoire"
+    legende: "des inscrits environ votent en Belgique ou en Australie, où voter est obligatoire"
     source: { organisme: Assemblée nationale, document: "rapport n° 1291", annee: 2023 }
 options:
   - id: A

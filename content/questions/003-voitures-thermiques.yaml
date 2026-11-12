@@ -13,16 +13,16 @@ contexte:
   - En France, les transports sont le premier secteur émetteur de gaz à effet de serre, avec 34 % des émissions en 2024, et 19,9 % des voitures neuves vendues en 2025 étaient électriques.
 chiffres:
   - valeur: 34 %
-    legende: des émissions françaises de gaz à effet de serre viennent des transports, premier secteur émetteur
+    legende: "des émissions de gaz à effet de serre en France viennent des transports"
     source: { organisme: SDES, document: chiffres clés des transports, annee: 2024 }
   - valeur: 53 %
-    legende: des émissions des transports viennent des voitures particulières
+    legende: "des émissions des transports viennent des voitures particulières"
     source: { organisme: SDES, document: chiffres clés des transports, annee: 2024 }
   - valeur: 19,9 %
-    legende: "des voitures neuves vendues en France en 2025 sont électriques, contre 42,5 % d'hybrides non rechargeables et 26,7 % de thermiques"
+    legende: "des voitures neuves vendues en France en 2025 sont électriques"
     source: { organisme: SDES, document: immatriculations, annee: 2025 }
   - valeur: 77 %
-    legende: des achats de voitures en France sont des voitures d'occasion
+    legende: "des voitures achetées en France en 2025 étaient d'occasion"
     source: { organisme: SDES, document: immatriculations, annee: 2025 }
 options:
   - id: A
