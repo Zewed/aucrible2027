@@ -1,0 +1,3 @@
+# CORRECTIONS DE TEST : le jeu vide, lu par le serveur des tests de bout en bout quand aucun test n'a choisi de jeu.
+# Les vraies corrections (content/corrections.yaml) ne changent donc rien à ce que les tests attendent.
+[]

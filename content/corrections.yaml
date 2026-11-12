@@ -2,6 +2,107 @@
 # le thème de la fiche corrigée, la question (numéro et titre à la correction), pour une fiche candidat le candidat,
 # puis l'avant et l'après (une valeur et une précision facultative ; entre ==…==, ce qui a changé, surligné),
 # pourquoi la correction a été faite, et son origine (utilisateur : un signalement ; controle : le contrôle de
-# neutralité). Rien de la personne qui a signalé n'est écrit ici.
-# Vide au lancement : aucune correction n'a encore eu lieu.
-[]
+# neutralité ; auteur : l'auteur, à la relecture des documents des candidats). Rien de la personne qui a signalé n'est
+# écrit ici.
+#
+# 12/11/2026 : les positions dont l'option a changé au recodage d'après les nouveaux documents de campagne (PR n° 324).
+# Les positions qui gardent leur option avec une meilleure source n'y sont pas : le détail est dans les études.
+- date: "2026-11-12"
+  type: position
+  theme: travail-retraites
+  candidat: philippe
+  question: { numero: 24, titre: "L'âge de la retraite" }
+  avant: { valeur: "Option E : À la carte, avec un système à points", precision: "Position de démonstration, sans source" }
+  apres: { valeur: "Option D : ==65 ans ou plus==", precision: "Position officielle · vidéo de son projet de retraites, 29/09/2026" }
+  pourquoi: "La position affichée venait des maquettes, sans source : il propose de porter l'âge de départ à 65 ans."
+  origine: auteur
+- date: "2026-11-12"
+  type: position
+  theme: travail-retraites
+  candidat: attal
+  question: { numero: 24, titre: "L'âge de la retraite" }
+  avant: { valeur: "Option C : 64 ans", precision: "Position de démonstration, sans source" }
+  apres: { valeur: "Option E : ==À la carte, avec un système à points==", precision: "Position officielle · RMC, 01/05/2026" }
+  pourquoi: "La position affichée venait des maquettes, sans source : il veut supprimer l'âge légal et faire dépendre la pension de la durée de cotisation."
+  origine: auteur
+- date: "2026-11-12"
+  type: position
+  theme: travail-retraites
+  candidat: dupont-aignan
+  question: { numero: 24, titre: "L'âge de la retraite" }
+  avant: { valeur: "Option E : À la carte, avec un système à points", precision: "Position de démonstration, sans source" }
+  apres: { valeur: "Option B : ==62 ans==", precision: "Position officielle · Debout la France, projet « Retraites »" }
+  pourquoi: "La position affichée venait des maquettes, sans source : son projet garde l'âge fixé par la réforme de 2010."
+  origine: auteur
+- date: "2026-11-12"
+  type: position
+  theme: travail-retraites
+  candidat: retailleau
+  question: { numero: 13, titre: "La durée du chômage" }
+  avant: { valeur: "Option C : Garder les règles actuelles, dont la baisse pour les départs négociés", precision: "Position officielle · Public Sénat, 07/01/2026" }
+  apres: { valeur: "Option D : ==Réduire la durée pour tous : 12 mois avant 50 ans==", precision: "Position officielle · programme 2027, avecretailleau.fr, 12/10/2026" }
+  pourquoi: "Son programme ramène la durée maximale d'indemnisation de 18 à 15 mois pour tous."
+  origine: auteur
+- date: "2026-11-12"
+  type: position
+  theme: securite-justice
+  candidat: retailleau
+  question: { numero: 16, titre: "La majorité pénale" }
+  avant: { valeur: "Option B : Garder 18 ans, mais répondre plus vite et plus fermement", precision: "Position officielle · comparateur iFRAP, 10/2026" }
+  apres: { valeur: "Option C : ==Abaisser la majorité pénale à 16 ans==", precision: "Position officielle · programme 2027, avecretailleau.fr, 24/09/2026" }
+  pourquoi: "Son programme abaisse la majorité pénale à quinze ans."
+  origine: auteur
+- date: "2026-11-12"
+  type: position
+  theme: economie-impots
+  candidat: zemmour
+  question: { numero: 1, titre: "L'impôt sur la fortune" }
+  avant: { valeur: "Option C : Garder l'IFI", precision: "Position déduite · programme 2022" }
+  apres: { valeur: "Option D : ==Supprimer l'IFI==", precision: "Position officielle · site de campagne, « Nos priorités pour les Français »" }
+  pourquoi: "Son site de campagne annonce la fin de l'impôt sur la fortune."
+  origine: auteur
+- date: "2026-11-12"
+  type: position
+  theme: economie-impots
+  candidat: zemmour
+  question: { numero: 33, titre: "L'impôt sur l'héritage" }
+  avant: { valeur: "Option D : Alléger les droits", precision: "Position déduite · programme 2022" }
+  apres: { valeur: "Option E : ==Ne plus taxer l'héritage entre parents et enfants==", precision: "Position officielle · site de campagne, « Nos priorités pour les Français »" }
+  pourquoi: "Son site de campagne annonce la fin des droits de succession."
+  origine: auteur
+- date: "2026-11-12"
+  type: position
+  theme: securite-justice
+  candidat: zemmour
+  question: { numero: 16, titre: "La majorité pénale" }
+  avant: { valeur: "Option C : Abaisser la majorité pénale à 16 ans", precision: "Position déduite · programme 2022" }
+  apres: { valeur: "Option D : Abaisser la majorité pénale à 16 ans ==et faire de l'excuse de minorité l'exception dès 13 ans==", precision: "Position officielle · site de campagne, « Nos priorités pour les Français »" }
+  pourquoi: "Son site de campagne annonce la fin de l'excuse de minorité."
+  origine: auteur
+- date: "2026-11-12"
+  type: position
+  theme: europe-international
+  candidat: dupont-aignan
+  question: { numero: 31, titre: "Les sanctions contre la Russie" }
+  avant: { valeur: "Option C : Maintenir les sanctions", precision: "Position estimée · plan de paix pour l'Ukraine, 2022" }
+  apres: { valeur: "Option A : ==Lever les sanctions==", precision: "Position estimée · livret « Économie », 12/11/2026" }
+  pourquoi: "Son livret du 12/11/2026 réautorise les importations de gaz russe, et son projet veut relancer un partenariat avec la Russie."
+  origine: auteur
+- date: "2026-11-12"
+  type: position
+  theme: immigration
+  candidat: dupont-aignan
+  question: { numero: 62, titre: "Les aides sociales aux étrangers" }
+  avant: { valeur: "Option A : Réserver ces aides aux Français, en changeant la Constitution", precision: "Position officielle · projet « Immigration et assimilation », 03/2026" }
+  apres: { valeur: "Option B : ==Exiger cinq ans de résidence, voire de travail, avant ces aides==", precision: "Position officielle · livret « Économie », 12/11/2026" }
+  pourquoi: "Son livret du 12/11/2026, plus récent, conditionne ces aides à cinq ans de résidence."
+  origine: auteur
+- date: "2026-11-12"
+  type: position
+  theme: economie-impots
+  candidat: attal
+  question: { numero: 39, titre: "La taxe Zucman" }
+  avant: { valeur: "Option C : Viser les façons d'éviter l'impôt", precision: "Position déduite · ses votes sur le budget 2026, 31/10/2025" }
+  apres: { valeur: "Option D : ==Ne rien ajouter==", precision: "Position officielle · site de campagne, « Aucune hausse d'impôts pendant 5 ans »" }
+  pourquoi: "Son programme promet de n'augmenter aucun impôt pendant le quinquennat."
+  origine: auteur

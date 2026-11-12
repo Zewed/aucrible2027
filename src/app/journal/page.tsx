@@ -63,6 +63,7 @@ function Cote({ titre, cote, classe }: { titre: string; cote: CoteDeLaCorrection
 const ORIGINES: Record<Correction["origine"], string> = {
   utilisateur: "Signalé par un utilisateur",
   controle: "Repéré par le contrôle de neutralité",
+  auteur: "Repéré par l'auteur",
 };
 
 /** Les filtres du journal, dans l'ordre de la maquette ; un type sans correction garde son filtre, à 0 (à trancher). */

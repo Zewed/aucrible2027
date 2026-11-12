@@ -189,21 +189,25 @@ export type Correction = {
   apres: CoteDeLaCorrection;
   /** Pourquoi la correction a été faite, en une phrase. */
   pourquoi: string;
-  /** Qui l'a repérée : un signalement d'utilisateur, ou le contrôle de neutralité. Jamais rien de la personne. */
-  origine: "utilisateur" | "controle";
+  /**
+   * Qui l'a repérée : un signalement d'utilisateur, le contrôle de neutralité, ou l'auteur, à la relecture des documents
+   * des candidats. Jamais rien de la personne.
+   */
+  origine: "utilisateur" | "controle" | "auteur";
 };
 export type CoteDeLaCorrection = { valeur: string; precision?: string };
 
 /**
  * Les corrections de content/corrections.yaml. Pour les tests de bout en bout seulement, un jeu de corrections de test
- * (e2e/fiches/corrections/<nom>.yaml) les remplace.
+ * (e2e/fiches/corrections/<nom>.yaml) les remplace, et sans jeu choisi, le jeu vide (« aucune ») : les vraies corrections
+ * peuvent s'ajouter sans changer ce que les tests attendent.
  */
 export function lireCorrections(jeuDeTest?: string): Correction[] {
   const test = process.env.AUCRIBLE_FICHES_DE_TEST;
-  const fichier =
-    test && jeuDeTest && /^[a-z-]+$/.test(jeuDeTest)
-      ? path.join(/* turbopackIgnore: true */ process.cwd(), test, "corrections", `${jeuDeTest}.yaml`)
-      : path.join(RACINE, "corrections.yaml");
+  const jeu = jeuDeTest && /^[a-z-]+$/.test(jeuDeTest) ? jeuDeTest : "aucune";
+  const fichier = test
+    ? path.join(/* turbopackIgnore: true */ process.cwd(), test, "corrections", `${jeu}.yaml`)
+    : path.join(RACINE, "corrections.yaml");
   return lireYaml<Correction[]>(fichier).map((c) => ({ ...c, date: String(c.date) }));
 }
 
