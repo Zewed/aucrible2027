@@ -28,6 +28,14 @@ export async function base() {
     // Les visites (ticket 192) : un nombre par jour, rien d'autre ; ni appareil, ni adresse, ni réponse.
     () => connexion!`CREATE TABLE IF NOT EXISTS visites (jour date PRIMARY KEY, nombre integer NOT NULL DEFAULT 0)`,
   ).then(
+    // Le genre des appareils (12/11/2026) : trois compteurs de plus par jour, et les robots, comptés hors des visites.
+    () => connexion!`
+      ALTER TABLE visites
+        ADD COLUMN IF NOT EXISTS telephone integer NOT NULL DEFAULT 0,
+        ADD COLUMN IF NOT EXISTS tablette integer NOT NULL DEFAULT 0,
+        ADD COLUMN IF NOT EXISTS ordinateur integer NOT NULL DEFAULT 0,
+        ADD COLUMN IF NOT EXISTS robot integer NOT NULL DEFAULT 0`,
+  ).then(
     // Les réponses partagées (10/11/2026) : la session de l'onglet, la question, l'option, l'importance et le jour ;
     // ni appareil, ni adresse. Une question répondue deux fois dans la même session ne compte qu'une fois.
     () => connexion!`

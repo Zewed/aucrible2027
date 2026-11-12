@@ -1,9 +1,9 @@
-/* L'espace de l'auteur : sans maquette, avec les pièces du kit (titre, sections, cartes). */
-.adm { max-width: 760px; margin: 0 auto; padding: 4px 16px 40px; }
+/* L'espace de l'auteur : sans maquette, avec les pièces du kit (titre, sections, cartes, pions). */
+.adm { max-width: var(--max); margin: 0 auto; padding: 4px clamp(16px, 3vw, 40px) 56px; }
 .adm-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 20px; }
-.adm-head h1 { font: 800 clamp(40px, 11vw, 64px)/0.95 var(--display); font-variation-settings: "wdth" 82, "opsz" 96; letter-spacing: -0.03em; }
+.adm-head h1 { font: 800 clamp(40px, 9vw, 72px)/0.95 var(--display); font-variation-settings: "wdth" 82, "opsz" 96; letter-spacing: -0.03em; }
 .adm-head h1 span { color: var(--eco-texte); }
-.adm-qui { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); }
+.adm-qui { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 4px 20px; font-size: 14px; color: var(--muted); }
 .adm-qui button { border: 0; background: none; color: var(--sur-table); font: 700 14px/1 var(--text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; min-height: 44px; }
 .adm-login { margin-top: 26px; display: grid; gap: 14px; max-width: 420px; }
 .adm-mdp { width: 100%; min-height: 58px; background: var(--card); color: var(--ink); border: 3px solid var(--ink); border-radius: 12px; padding: 0 14px; font: 600 18px/1.2 var(--text); }
@@ -11,6 +11,71 @@
 .adm-mdp:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
 .adm-login .go { margin-top: 0; }
 .adm-refus { background: var(--theme-tint); color: var(--ink); border-radius: 12px; padding: 12px 14px; font: 700 15px/1.35 var(--text); }
+
+/* Les chiffres clés : de grands nombres posés à plat sur la table, séparés par un filet. */
+.an-kpis { margin-top: 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px 0; }
+.an-kpis p { display: grid; gap: 6px; padding: 2px 18px; border-left: 3px solid var(--table-3); min-width: 0; }
+.an-kpis b { font: 800 clamp(40px, 5vw, 64px)/0.9 var(--display); font-variation-settings: "wdth" 82, "opsz" 96; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; color: var(--sur-table); }
+.an-kpis span { font: 700 13px/1.2 var(--text); color: var(--muted); overflow-wrap: anywhere; }
+.an-kpis .an-kpi-texte span { font: 600 11px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.an-kpis .an-kpi-texte b { font-size: clamp(24px, 2.6vw, 34px); line-height: 1; }
+
+.an-grille { display: grid; gap: 0 28px; align-items: start; }
+@media (min-width: 1000px) {
+  .an-grille { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .an-grille--session { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+  /* Le classement de la session reste à l'écran pendant qu'on parcourt ses réponses. */
+  .an-grille--session > :first-child { position: sticky; top: 16px; }
+}
+.an-bloc { background: var(--table-2); border-radius: var(--r); padding: 18px clamp(14px, 2vw, 24px) 20px; overflow-x: auto; }
+.an-retour { display: inline-flex; align-items: center; min-height: 44px; width: 100%; color: var(--sur-table); font: 700 15px/1 var(--text); text-underline-offset: 3px; }
+
+/* Le filtre des sessions retenues : trois pastilles, celle qui s'applique pleine. */
+.an-filtre { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.an-filtre a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border-radius: 999px; border: 2px solid var(--table-3); color: var(--sur-table); font: 700 13px/1 var(--text); text-decoration: none; }
+.an-filtre a:hover { border-color: var(--sur-table); }
+.an-filtre a[aria-current] { background: var(--sur-table); border-color: var(--sur-table); color: var(--table); }
+
+/* Les tableaux : des lignes séparées par un filet plein, les nombres alignés à droite. */
+.an-table { margin-top: 12px; width: 100%; border-collapse: collapse; font: 600 14px/1.25 var(--text); color: var(--sur-table); }
+.an-table th, .an-table td { padding: 9px 6px; border-bottom: 1px solid var(--table-3); vertical-align: middle; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.an-table tr > :first-child { text-align: left; padding-left: 0; }
+.an-table thead th { font: 700 11px/1.2 var(--text); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.an-table tbody th { font-weight: 600; }
+.an-table .an-pc { font: 800 20px/1 var(--display); color: var(--sur-table); }
+.an-table .an-tete { font-weight: 800; }
+.an-table .an-robot { color: var(--muted); }
+.an-barre { width: 30%; min-width: 70px; }
+.an-barre--tete { width: 18%; min-width: 50px; }
+.an-barre i { display: block; height: 10px; border-radius: 4px; background: var(--sur-table); min-width: 2px; }
+.an-barre--tete i { background: var(--muted); }
+
+.an-qui { display: inline-flex; align-items: center; gap: 10px; text-align: left; }
+.an-qui .pawn { --size: 32px; font-size: 11px; }
+.an-qui > span { display: grid; gap: 2px; }
+.an-qui b { font: 800 15px/1.1 var(--display); }
+.an-qui small { font: 600 12px/1.2 var(--text); color: var(--muted); white-space: normal; }
+.an-qui--petit { gap: 6px; }
+.an-qui--petit .pawn { --size: 22px; font-size: 8px; box-shadow: none; }
+.an-qui--petit > span { display: inline; font: 600 13px/1.2 var(--text); }
+.an-qui--petit b { font: 800 13px/1 var(--text); }
+
+/* Les sessions : toute la ligne mène à la session. */
+.an-sessions tbody tr { position: relative; }
+.an-sessions tbody tr:hover { background: var(--table-3); }
+.an-sessions tbody th a { color: var(--sur-table); font: 800 15px/1 ui-monospace, SFMono-Regular, Menlo, monospace; text-underline-offset: 3px; }
+.an-sessions tbody th a::after { content: ""; position: absolute; inset: 0; }
+.an-sessions tbody th a:focus-visible { outline: none; }
+.an-sessions tbody tr:has(a:focus-visible) { outline: 3px solid var(--eco-texte); outline-offset: -3px; }
+
+/* Une réponse d'une session : la couleur de son thème sur le côté, le choix en gros. */
+.an-rep { border-left: 6px solid var(--theme, var(--table-3)); }
+.an-theme { background: var(--theme-tint, var(--slot)); }
+.an-question { margin-top: 8px; font: 600 15px/1.35 var(--text); color: var(--ink-soft); }
+.an-choix { margin-top: 8px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
+.an-choix b { font: 800 20px/1.15 var(--display); }
+.an-imp { font: 800 15px/1 var(--text); background: var(--ink); color: var(--card); border-radius: 999px; padding: 4px 9px; }
+.an-memes { margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; font: 700 12px/1.2 var(--text); color: var(--ink-soft); }
 
 .sg-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 12px; }
 .sg { background: var(--card); color: var(--ink); border-radius: var(--r); padding: 14px 16px 16px; box-shadow: 0 5px 0 var(--pawn-edge); }
@@ -22,17 +87,23 @@
 .sg-email { margin-top: 6px; font: 600 14px/1.4 var(--text); color: var(--ink-soft); overflow-wrap: anywhere; }
 .sg-email a, .sg-source a { color: var(--ink); font-weight: 700; text-underline-offset: 3px; }
 .sg-vide { margin-top: 14px; color: var(--muted); }
-.vi-table { margin-top: 14px; width: 100%; max-width: 360px; border-collapse: collapse; font: 600 15px/1.3 var(--text); }
-.vi-table th, .vi-table td { padding: 9px 4px; border-bottom: 1px dashed var(--table-3); }
-.vi-table th { text-align: left; font-weight: 600; color: var(--muted); }
-.vi-table td { text-align: right; font: 800 18px/1 var(--display); font-variant-numeric: tabular-nums; color: var(--sur-table); }
 
-.rp-csv { display: inline-flex; align-items: center; min-height: 44px; margin-top: 10px; color: var(--sur-table); font: 700 15px/1 var(--text); text-underline-offset: 3px; }
-.rp-list { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 12px; }
+.rp-csv { display: inline-flex; align-items: center; min-height: 44px; color: var(--sur-table); font: 700 14px/1 var(--text); text-underline-offset: 3px; }
+.rp-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 14px; }
+@media (min-width: 1000px) { .an-bloc > .rp-list { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } }
 .rp-table { margin-top: 10px; width: 100%; border-collapse: collapse; font: 600 14px/1.3 var(--text); }
 .rp-table th, .rp-table td { padding: 6px 4px; vertical-align: middle; }
 .rp-table th { text-align: left; font-weight: 600; width: 55%; }
 .rp-table td { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 800; }
 .rp-table .rp-barre { width: 30%; }
-.rp-barre i { display: block; height: 10px; border-radius: 999px; background: var(--ink); min-width: 2px; }
+.rp-barre i { display: block; height: 10px; border-radius: 4px; background: var(--ink); min-width: 2px; }
 .rp-table .rp-n { color: var(--ink-soft); font-weight: 600; }
+.an-grille--session .an-bloc > .rp-list { grid-template-columns: minmax(0, 1fr); }
+.an-sessions td:nth-child(n+4), .an-sessions thead th:nth-child(n+4) { text-align: left; }
+@media (max-width: 640px) {
+  .an-barre, .an-barre--tete { width: auto; min-width: 36px; }
+  .an-cands .an-qui small { display: none; }
+  .an-cands .an-qui .pawn { --size: 26px; }
+  .an-table .an-pc { font-size: 17px; }
+  .an-table thead th, .an-cands tbody th { white-space: normal; }
+}
