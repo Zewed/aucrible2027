@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Suspense } from "react";
+import { LienCookies } from "@/components/BandeauCookies";
 import { BoutonDuMode } from "@/components/BoutonDuMode";
 import { Reseaux } from "@/components/Reseaux";
 
@@ -45,6 +46,7 @@ export function PiedDePage({ videosVerrouillees, journal }: { videosVerrouillees
         <LiensDeLaPage journal={journal} />
       </Suspense>
       <BoutonDuMode />
+      <LienCookies />
       <Reseaux className="reseaux" />
       {/* Repère provisoire d'Antoine, à retirer avant le lancement avec la page /verrous. */}
       <Link className="repere-verrous" href="/verrous">
