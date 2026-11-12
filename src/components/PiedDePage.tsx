@@ -7,6 +7,7 @@ import { BoutonDuMode } from "@/components/BoutonDuMode";
 import { Reseaux } from "@/components/Reseaux";
 
 // « Changer d'appareil » n'y est plus (retour d'Antoine du 4 novembre) : la page /appareil reste, sans lien ici.
+// Tant qu'aucune correction n'est publiée, le journal n'a pas de lien (retour d'Antoine du 12 novembre).
 const LIENS = [
   ["/rattrapage", "Toutes les questions"],
   ["/methode", "Méthode de calcul"],
@@ -14,10 +15,10 @@ const LIENS = [
   ["/journal", "Journal des corrections"],
 ] as const;
 
-function Liens({ chemin }: { chemin: string | null }) {
+function Liens({ chemin, journal }: { chemin: string | null; journal: boolean }) {
   return (
     <nav aria-label="Pied de page">
-      {LIENS.map(([adresse, nom]) => (
+      {LIENS.filter(([adresse]) => journal || adresse !== "/journal").map(([adresse, nom]) => (
         <Link key={adresse} href={adresse} aria-current={chemin === adresse ? "page" : undefined}>
           {nom}
         </Link>
@@ -27,8 +28,8 @@ function Liens({ chemin }: { chemin: string | null }) {
 }
 
 /** Les liens du menu lisent l'adresse de la page : sous un <Suspense>, comme le veut Next pour les données d'URL. */
-function LiensDeLaPage() {
-  return <Liens chemin={usePathname()} />;
+function LiensDeLaPage({ journal }: { journal: boolean }) {
+  return <Liens chemin={usePathname()} journal={journal} />;
 }
 
 /**
@@ -36,11 +37,11 @@ function LiensDeLaPage() {
  * sur une ligne, puis les réseaux de l'auteur. « Rattraper les questions » de la maquette s'appelle « Toutes les questions », comme dans le menu, depuis
  * que toutes les questions se font d'un coup (décision du 25 octobre).
  */
-export function PiedDePage({ videosVerrouillees }: { videosVerrouillees: number }) {
+export function PiedDePage({ videosVerrouillees, journal }: { videosVerrouillees: number; journal: boolean }) {
   return (
     <footer className="site-foot">
-      <Suspense fallback={<Liens chemin={null} />}>
-        <LiensDeLaPage />
+      <Suspense fallback={<Liens chemin={null} journal={journal} />}>
+        <LiensDeLaPage journal={journal} />
       </Suspense>
       <BoutonDuMode />
       <Reseaux className="reseaux" />

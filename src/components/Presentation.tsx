@@ -30,6 +30,8 @@ export type DonneesDeLaPresentation = {
   themes: Theme[];
   questions: Pick<Question, "numero" | "theme" | "question">[];
   exemple: Exemple | null;
+  /** Au moins une correction publiée : sans elle, « journal public » n'est pas un lien. */
+  journal: boolean;
 };
 
 /** Une landing n'a pas de menu : ni la colonne d'icônes, ni la jauge, ni le pied de page de l'app. */
@@ -259,7 +261,7 @@ function GrilleDIllustration({ themes }: { themes: Theme[] }) {
  * menu : en haut, le seul logo ; tout mène au questionnaire. C'est l'accueil d'un appareil sans réponse, et la page
  * /presentation.
  */
-export function Presentation({ jour, candidats, themes, questions, exemple }: DonneesDeLaPresentation) {
+export function Presentation({ jour, candidats, themes, questions, exemple, journal }: DonneesDeLaPresentation) {
   const classe = (id: string) => themes.find((t) => t.id === id)?.classe ?? "";
   const jours = joursEntre(jour, PREMIER_TOUR);
 
@@ -360,7 +362,7 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
             <div className="theme-educ">
               <dt>Les erreurs sont corrigées.</dt>
               <dd>
-                Chaque erreur signalée est corrigée et notée dans un <Link href="/journal">journal public</Link>.
+                Chaque erreur signalée est corrigée et notée dans un {journal ? <Link href="/journal">journal public</Link> : "journal public"}.
               </dd>
             </div>
           </dl>
