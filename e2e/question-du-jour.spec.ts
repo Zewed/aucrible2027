@@ -6538,16 +6538,16 @@ test.describe("le pied de page mène aux pages secondaires", () => {
     ["Toutes les questions", "/rattrapage"],
     ["Méthode de calcul", "/methode"],
     ["À propos", "/a-propos"],
+    ["Changer d'appareil", "/appareil"],
   ];
   const pied = (page: Page) => page.getByRole("contentinfo").getByRole("navigation", { name: "Pied de page" });
 
   // Pas sur la première étape de la fiche (l'accueil), qui n'a pas de pied de page.
   for (const adresse of ["/resultats", "/a-propos", "/cette-page-n-existe-pas"]) {
     // Tant qu'aucune correction n'est publiée (content/corrections.yaml), le journal n'a pas de lien.
-    test(`en bas de ${adresse}, les trois liens sont là, dans l'ordre, sans le journal ni « Changer d'appareil »`, async ({ page }) => {
+    test(`en bas de ${adresse}, les quatre liens sont là, dans l'ordre, « Changer d'appareil » au bout, sans le journal`, async ({ page }) => {
       await page.goto(adresse);
       await expect(pied(page).getByRole("link")).toHaveText(LIENS.map(([nom]) => nom));
-      await expect(page.getByRole("contentinfo").getByRole("link", { name: "Changer d'appareil" })).toHaveCount(0);
     });
   }
 

@@ -5,7 +5,7 @@
    Page        : body (fond table) · .sr (texte pour lecteurs d'écran) · .one (une ligne, ellipsis)
    En-tête     : header.topbar (collant) > .brand + nav.topnav (a[aria-current]) + .streak (.die)
                  puis .strip (.countdown, .qnum, .back) · contenu dans main.today ou main.res
-   Pied        : footer.site-foot > nav > a (4 liens vers les écrans) + .mode + .reseaux + .repere-verrous
+   Pied        : footer.site-foot > nav > a (5 liens vers les écrans) + .mode + .reseaux + .repere-verrous
    Boutons     : .go (gros bouton d'action, couleur du thème) · .btn-link (bouton clair, flèche)
                  .act.primary / .act.second (actions empilées) · .back (retour)
    Cartes      : .deck > .qcard (.qcard-top .theme-chip h1, .qcard-body) · .label · .fig

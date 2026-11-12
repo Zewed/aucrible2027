@@ -6,13 +6,14 @@ import { Suspense } from "react";
 import { BoutonDuMode } from "@/components/BoutonDuMode";
 import { Reseaux } from "@/components/Reseaux";
 
-// « Changer d'appareil » n'y est plus (retour d'Antoine du 4 novembre) : la page /appareil reste, sans lien ici.
+// « Changer d'appareil » revient (retour d'Antoine du 12 novembre, après l'avoir retiré le 4) : emporter ses réponses.
 // Tant qu'aucune correction n'est publiée, le journal n'a pas de lien (retour d'Antoine du 12 novembre).
 const LIENS = [
   ["/rattrapage", "Toutes les questions"],
   ["/methode", "Méthode de calcul"],
   ["/a-propos", "À propos"],
   ["/journal", "Journal des corrections"],
+  ["/appareil", "Changer d'appareil"],
 ] as const;
 
 function Liens({ chemin, journal }: { chemin: string | null; journal: boolean }) {
@@ -33,7 +34,7 @@ function LiensDeLaPage({ journal }: { journal: boolean }) {
 }
 
 /**
- * Le pied de page commun à tous les écrans (maquettes/introuvable.html) : les quatre pages secondaires, la sienne marquée,
+ * Le pied de page commun à tous les écrans (maquettes/introuvable.html) : les pages secondaires, la sienne marquée,
  * sur une ligne, puis les réseaux de l'auteur. « Rattraper les questions » de la maquette s'appelle « Toutes les questions », comme dans le menu, depuis
  * que toutes les questions se font d'un coup (décision du 25 octobre).
  */
