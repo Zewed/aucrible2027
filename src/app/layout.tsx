@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Sans } from "next/font/google";
 import { Suspense } from "react";
+import { BandeauCookies } from "@/components/BandeauCookies";
 import { EnTete } from "@/components/EnTete";
 import { JaugeDesQuestions } from "@/components/JaugeDesQuestions";
 import { PiedDePage } from "@/components/PiedDePage";
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <PiedDePage videosVerrouillees={lireVideosVerrouillees().length} journal={lireCorrections().length > 0} />
         <SansReseau />
         <Visite />
+        <BandeauCookies />
       </body>
     </html>
   );
