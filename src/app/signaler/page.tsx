@@ -4,7 +4,7 @@ import { FormulaireDeSignalement } from "@/components/FormulaireDeSignalement";
 import { PageEnAttente } from "@/components/PageEnAttente";
 import { PuceTheme } from "@/components/PuceTheme";
 import { lireThemes, type Question, type Theme } from "@/lib/contenu";
-import { lireAujourdhui, lireQuestionsPubliees } from "@/lib/publication";
+import { lireAujourdhui, lireLesCorrections, lireQuestionsPubliees } from "@/lib/publication";
 import { TYPES } from "@/lib/signalement";
 import "./signaler.css";
 
@@ -55,7 +55,7 @@ function TypeDErreur() {
  * n'apparaît pas : ce cas reste à trancher. La source et l'e-mail viennent avec 165 et 166.
  */
 async function Signaler({ numero }: { numero?: string }) {
-  const [jour, publiees] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees()]);
+  const [jour, publiees, corrections] = await Promise.all([lireAujourdhui(), lireQuestionsPubliees(), lireLesCorrections()]);
   const question = publiees.find((q) => String(q.numero) === numero);
   const theme = question && lireThemes().find((t) => t.id === question.theme);
   return (
@@ -72,7 +72,7 @@ async function Signaler({ numero }: { numero?: string }) {
           </p>
         </section>
         {question && theme && (
-          <FormulaireDeSignalement numero={question.numero}>
+          <FormulaireDeSignalement numero={question.numero} journal={corrections.length > 0}>
             <SurQuelleFiche question={question} theme={theme} />
             <TypeDErreur />
           </FormulaireDeSignalement>

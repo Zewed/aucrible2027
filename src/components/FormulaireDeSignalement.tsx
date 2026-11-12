@@ -68,7 +68,8 @@ function Merci() {
  * ce qui est écrit n'est effacé quand il est refusé ou qu'il échoue. Chaque signalement porte une clé, tirée au premier
  * essai et gardée pour les suivants : renvoyé après une réponse perdue, il n'arrive qu'une fois.
  */
-export function FormulaireDeSignalement({ numero, children }: { numero: number; children: React.ReactNode }) {
+/** `journal` : au moins une correction publiée ; sans elle, « journal des corrections » n'est pas un lien. */
+export function FormulaireDeSignalement({ numero, journal, children }: { numero: number; journal: boolean; children: React.ReactNode }) {
   const [etat, envoyer, enCours] = useActionState(envoyerOuEchouer, { envoye: false });
   const [videIci, setVideIci] = useState(false);
   const cle = useRef<string | null>(null);
@@ -131,7 +132,7 @@ export function FormulaireDeSignalement({ numero, children }: { numero: number; 
           <path d="M12 7v5.5l3.5 2" />
         </svg>
         <span>
-          <b>On répond sous 72&nbsp;h.</b> Chaque correction est publiée dans le <Link href="/journal">journal des corrections</Link>.
+          <b>On répond sous 72&nbsp;h.</b> Chaque correction est publiée dans le {journal ? <Link href="/journal">journal des corrections</Link> : "journal des corrections"}.
         </span>
       </p>
       <button className="go" type="submit" disabled={enCours}>

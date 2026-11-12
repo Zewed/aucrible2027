@@ -2,7 +2,7 @@ import "server-only";
 import type { DonneesDeLaPresentation } from "@/components/Presentation";
 import { lireThemes, lireVideosVerrouillees, type Question } from "@/lib/contenu";
 import { melanger, tirerGraine } from "@/lib/melange";
-import { lireAujourdhui, lireCandidatsEnLice } from "@/lib/publication";
+import { lireAujourdhui, lireCandidatsEnLice, lireLesCorrections } from "@/lib/publication";
 
 /**
  * Ce que montre la landing, à partir des questions publiées. Elles y défilent dans un ordre tiré au hasard, et l'exemple
@@ -10,7 +10,7 @@ import { lireAujourdhui, lireCandidatsEnLice } from "@/lib/publication";
  * qu'un autre. Sa première option qui a un détail s'y montre ouverte, avec le premier argument de chaque camp.
  */
 export async function lireLaPresentation(questions: Question[]): Promise<DonneesDeLaPresentation> {
-  const [candidats, jour] = await Promise.all([lireCandidatsEnLice(), lireAujourdhui()]);
+  const [candidats, jour, corrections] = await Promise.all([lireCandidatsEnLice(), lireAujourdhui(), lireLesCorrections()]);
   const themes = lireThemes();
   const verrouillees = lireVideosVerrouillees();
   const melangees = melanger(questions, tirerGraine());
@@ -19,6 +19,7 @@ export async function lireLaPresentation(questions: Question[]): Promise<Donnees
   const ouverte = tiree?.options.find((o) => o.detail);
   return {
     jour,
+    journal: corrections.length > 0,
     candidats: candidats.length,
     themes,
     questions: melangees.map(({ numero, theme, question }) => ({ numero, theme, question })),
