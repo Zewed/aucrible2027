@@ -395,21 +395,6 @@ export function Revelation({
                 </span>
               </div>
             )}
-            {partGagnee && gagnes.length < themes.length && (
-              <div className="rev-gain" role="region" aria-label="Ton camembert">
-                <Camembert
-                  couleurs={themes.map((t) => (gagnes.includes(t) ? couleurDe(t) : null))}
-                  nouvelle={themes.indexOf(theme)}
-                  description={`Camembert : ${gagnes.length} parts sur ${themes.length}, la part ${theme.nom} vient d'être gagnée`}
-                />
-                <span>
-                  <b>
-                    +1 réponse en {theme.nom}&nbsp;: {REPONSES_PAR_PART}/{REPONSES_PAR_PART}, la part est gagnée&nbsp;!
-                  </b>
-                  Ton camembert passe à {gagnes.length} parts sur {themes.length}.
-                </span>
-              </div>
-            )}
           </div>
         </header>
         <section className="rev-tableau" aria-labelledby="qui-defend-quoi" style={{ "--n": colonnes.length + (inconnus.length ? 1 : 0) } as React.CSSProperties}>

@@ -1,5 +1,3 @@
-import { useId } from "react";
-
 /** Les 11 parts du camembert, une par thème, dans l'ordre de content/themes.yaml, à partir du haut. */
 const PARTS = 11;
 
@@ -16,49 +14,28 @@ export function Camembert({
   couleurs = [],
   interieur = 22,
   grand = false,
-  enJeu,
-  nouvelle,
   description,
 }: {
   couleurs?: (string | null)[];
   interieur?: number;
   grand?: boolean;
-  /** La part en jeu, rayée à la couleur de son thème (`couleur`), comme sur maquettes/index.html. */
-  enJeu?: { part: number; couleur: string };
-  /** La part qui vient d'être gagnée : elle se pose d'un clic (maquettes/revelation.html). */
-  nouvelle?: number;
   description?: string;
 }) {
-  const rayures = `rayures-${useId()}`;
   let gagnees = 0;
   return (
     <svg
       viewBox="0 0 200 200"
-      className={grand || nouvelle !== undefined ? "token-pop" : undefined}
+      className={grand ? "token-pop" : undefined}
       role={description ? "img" : undefined}
       aria-label={description}
       aria-hidden={description ? undefined : true}
     >
-      {enJeu && (
-        <defs>
-          <pattern id={rayures} width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-            <rect width="8" height="8" style={{ fill: `color-mix(in srgb, ${enJeu.couleur} 30%, #fff)` }} />
-            <rect width="4" height="8" style={{ fill: enJeu.couleur }} />
-          </pattern>
-        </defs>
-      )}
       <circle cx="100" cy="100" r="99" style={{ fill: "#fff" }} />
       {Array.from({ length: PARTS }, (_, i) => {
         const [debut, fin] = [angleDe(i), angleDe(i + 1)];
         const d = `M${point(90, debut)}A90 90 0 0 1 ${point(90, fin)}L${point(interieur, fin)}A${interieur} ${interieur} 0 0 0 ${point(interieur, debut)}Z`;
         const couleur = couleurs[i];
-        if (enJeu?.part === i)
-          return [
-            <path key={i} d={d} style={{ fill: "var(--slot)" }} />,
-            <path key={`${i}-en-jeu`} className="wedge next" d={d} style={{ fill: `url(#${rayures})` }} />,
-          ];
         if (!couleur) return <path key={i} d={d} style={{ fill: "var(--slot)" }} />;
-        if (nouvelle === i) return <path key={i} className="wedge fresh" d={d} style={{ fill: couleur }} />;
         const delai = grand ? `${(0.25 + 0.09 * gagnees++).toFixed(2)}s` : undefined;
         return <path key={i} className="wedge on" d={d} style={{ fill: couleur, animationDelay: delai }} />;
       })}
