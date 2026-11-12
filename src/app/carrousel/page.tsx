@@ -14,10 +14,10 @@ import "../visuels.css";
 import "./carrousel.css";
 
 // Un outil de l'auteur : la page n'a pas à être trouvée par les moteurs de recherche.
-export const metadata: Metadata = { title: "Carrousel du jour — Au crible 2027", robots: { index: false } };
+export const metadata: Metadata = { title: "Carrousel du jour — Décrypte 2027", robots: { index: false } };
 
-/** La signature du compte, écrite à l'identique sur chaque image (SPEC.md : « comptes @aucrible2027 partout »). */
-const SIGNATURE = "@aucrible2027";
+/** La signature du compte, écrite à l'identique sur chaque image (SPEC.md : « comptes @decrypte2027 partout »). */
+const SIGNATURE = "@decrypte2027";
 
 /** La flèche « Glisse », en bas des images 1 à 5. */
 function Fleche() {
@@ -35,7 +35,7 @@ function Visuel({ rang, nom, classe, children }: { rang: number; nom: string; cl
       <div className="s-top">
         <span className="s-brand">
           <Logo className="mark" />
-          Au crible <b>2027</b>
+          Décrypte <b>2027</b>
         </span>
         <span className="s-page">{rang}/6</span>
       </div>
@@ -142,7 +142,7 @@ function lesImages(question: Question, theme: Theme): React.ReactElement[] {
         <h3>Et toi&nbsp;?</h3>
         <p>Réponds et découvre de quels candidats tu es proche</p>
         <span className="s-url">
-          aucrible2027.fr <Fleche />
+          decrypte2027.com <Fleche />
         </span>
       </div>
     </Visuel>,
@@ -166,7 +166,7 @@ function Legende({ question }: { question: Question }) {
           {question.question} Fais défiler : le contexte, {EN_LETTRES[question.chiffres.length]} chiffres sourcés, les{" "}
           {EN_LETTRES[question.options.length]} options et le meilleur argument de chaque côté.
         </p>
-        <p>Réponds sur aucrible2027.fr (lien en bio). Sans compte : tes réponses sont anonymes.</p>
+        <p>Réponds sur decrypte2027.com (lien en bio). Sans compte : tes réponses sont anonymes.</p>
       </div>
       <div className="acts">
         <Link className="act second" href="/video">
@@ -262,7 +262,7 @@ function Story({ question, theme }: { question: Question; theme: Theme }) {
             <div className="s-top">
               <span className="s-brand">
                 <Logo className="mark" />
-                Au crible <b>2027</b>
+                Décrypte <b>2027</b>
               </span>
               <span className="s-page">{SIGNATURE}</span>
             </div>

@@ -2535,13 +2535,13 @@ test.describe("avant 10 réponses, la carte reste verrouillée", () => {
   });
 });
 
-test.describe("la carte affiche « Et toi ? aucrible2027.fr »", () => {
-  test("en bas de la carte « avec mon candidat », on lit « Et toi ? » et « aucrible2027.fr »", async ({ page }) => {
+test.describe("la carte affiche « Et toi ? decrypte2027.com »", () => {
+  test("en bas de la carte « avec mon candidat », on lit « Et toi ? » et « decrypte2027.com »", async ({ page }) => {
     await vingtTroisReponses(page);
     await page.goto("/carte");
     const bas = page.getByRole("article", { name: /Carte à partager : 81/ }).locator(".sc-ask");
     await expect(bas.getByText("Et toi ?", { exact: true })).toBeVisible();
-    await expect(bas.getByText("aucrible2027.fr", { exact: true })).toBeVisible();
+    await expect(bas.getByText("decrypte2027.com", { exact: true })).toBeVisible();
   });
 
   test("en bas de la carte « seulement mon camembert », on lit « Et toi, tu en es où ? » et la même adresse", async ({ page }) => {
@@ -2549,7 +2549,7 @@ test.describe("la carte affiche « Et toi ? aucrible2027.fr »", () => {
     await page.goto("/carte");
     const bas = page.getByRole("article", { name: "Carte à partager : mon camembert, sans nom de candidat" }).locator(".sc-ask");
     await expect(bas.getByText("Et toi, tu en es où ?", { exact: true })).toBeVisible();
-    await expect(bas.getByText("aucrible2027.fr", { exact: true })).toBeVisible();
+    await expect(bas.getByText("decrypte2027.com", { exact: true })).toBeVisible();
   });
 });
 
@@ -3326,13 +3326,13 @@ test("sur « Mes résultats », toucher « Méthode de calcul » ouvre la page �
 });
 
 test.describe("la page À propos dit qui fait l'app", () => {
-  const qui = (page: Page) => page.getByRole("article", { name: "Qui fait Au crible 2027 ?" });
+  const qui = (page: Page) => page.getByRole("article", { name: "Qui fait Décrypte 2027 ?" });
 
-  test("la page À propos s'ouvre sur « À propos. », puis « Qui fait Au crible 2027 ? » : « Je m'appelle Antoine », un projet fait par une seule personne", async ({ page }) => {
+  test("la page À propos s'ouvre sur « À propos. », puis « Qui fait Décrypte 2027 ? » : « Je m'appelle Antoine », un projet fait par une seule personne", async ({ page }) => {
     await page.goto("/a-propos");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("À propos.");
-    await expect(page.getByRole("article").first()).toHaveAccessibleName("Qui fait Au crible 2027 ?");
-    await expect(qui(page).getByText("Je m'appelle Antoine. Au crible 2027 est un projet perso, fait par une seule personne.")).toBeVisible();
+    await expect(page.getByRole("article").first()).toHaveAccessibleName("Qui fait Décrypte 2027 ?");
+    await expect(qui(page).getByText("Je m'appelle Antoine. Décrypte 2027 est un projet perso, fait par une seule personne.")).toBeVisible();
   });
 
   test("la section dit « pas de but lucratif » et « pas de pub », et la carte de visite affiche Antoine, « auteur, affiché publiquement » et ses trois sceaux", async ({ page }) => {
@@ -3344,7 +3344,7 @@ test.describe("la page À propos dit qui fait l'app", () => {
     await expect(carte.locator(".seals li")).toHaveText(["Non lucratif", "Sans pub", "Sans compte"]);
   });
 
-  test("« Aller à » propose cinq entrées numérotées ; « 1 Qui » amène à la section « Qui fait Au crible 2027 ? »", async ({ page }) => {
+  test("« Aller à » propose cinq entrées numérotées ; « 1 Qui » amène à la section « Qui fait Décrypte 2027 ? »", async ({ page }) => {
     await page.goto("/a-propos");
     const allerA = page.getByRole("navigation", { name: "Sur cette page" });
     await expect(allerA.getByText("Aller à")).toBeVisible();
@@ -3465,26 +3465,26 @@ test.describe("la page À propos dit ce que fait l'IA", () => {
   });
 });
 
-test.describe("la page À propos mène aux comptes @aucrible2027", () => {
+test.describe("la page À propos mène aux comptes @decrypte2027", () => {
   const comptes = (page: Page) =>
-    page.getByRole("article", { name: "Aller plus loin, ou nous suivre" }).getByRole("figure", { name: "Les comptes @aucrible2027" });
+    page.getByRole("article", { name: "Aller plus loin, ou nous suivre" }).getByRole("figure", { name: "Les comptes @decrypte2027" });
   const PROFILS = [
-    ["Instagram", "https://www.instagram.com/aucrible2027"],
-    ["TikTok", "https://www.tiktok.com/@aucrible2027"],
-    ["YouTube", "https://www.youtube.com/@aucrible2027"],
-    ["Facebook", "https://www.facebook.com/aucrible2027"],
+    ["Instagram", "https://www.instagram.com/decrypte2027"],
+    ["TikTok", "https://www.tiktok.com/@decrypte2027"],
+    ["YouTube", "https://www.youtube.com/@decrypte2027"],
+    ["Facebook", "https://www.facebook.com/decrypte2027"],
   ];
 
-  test("l'encadré montre « @aucrible2027 » et quatre liens, Instagram, TikTok, YouTube, Facebook, chacun marqué « @aucrible2027 »", async ({ page }) => {
+  test("l'encadré montre « @decrypte2027 » et quatre liens, Instagram, TikTok, YouTube, Facebook, chacun marqué « @decrypte2027 »", async ({ page }) => {
     await page.goto("/a-propos");
     await expect(page.getByRole("article").nth(4)).toHaveAccessibleName("Aller plus loin, ou nous suivre");
-    await expect(comptes(page).getByText("Le même compte partout : @aucrible2027")).toBeVisible();
+    await expect(comptes(page).getByText("Le même compte partout : @decrypte2027")).toBeVisible();
     const liens = comptes(page).getByRole("link");
-    await expect(liens).toHaveText(PROFILS.map(([plateforme]) => `${plateforme} @aucrible2027`));
-    await expect(liens.locator("span")).toHaveText(Array(4).fill("@aucrible2027"));
+    await expect(liens).toHaveText(PROFILS.map(([plateforme]) => `${plateforme} @decrypte2027`));
+    await expect(liens.locator("span")).toHaveText(Array(4).fill("@decrypte2027"));
   });
 
-  test("chaque lien ouvre le profil @aucrible2027 de sa plateforme dans un nouvel onglet, et l'onglet d'Au crible 2027 reste ouvert", async ({ page, context }) => {
+  test("chaque lien ouvre le profil @decrypte2027 de sa plateforme dans un nouvel onglet, et l'onglet de Décrypte 2027 reste ouvert", async ({ page, context }) => {
     // Les plateformes ne sont pas appelées pour de vrai : leurs pages sont remplacées par une page vide.
     for (const hote of ["instagram.com", "tiktok.com", "youtube.com", "facebook.com"])
       await context.route(`https://www.${hote}/**`, (route) => route.fulfill({ contentType: "text/html", body: "<title>profil</title>" }));
@@ -4353,10 +4353,10 @@ test.describe("l'en-tête mène aux deux écrans principaux", () => {
     test.describe(appareil, () => {
       test.use({ viewport: { width: largeur, height: 860 } });
 
-      test(`${appareil}, sur À propos, le Journal et une page introuvable, le logo « Au crible 2027 » ramène à l'accueil`, async ({ page }) => {
+      test(`${appareil}, sur À propos, le Journal et une page introuvable, le logo « Décrypte 2027 » ramène à l'accueil`, async ({ page }) => {
         for (const adresse of ["/a-propos", "/journal", "/une-page-qui-n-existe-pas"]) {
           await page.goto(adresse);
-          await page.getByRole("banner").getByRole("link", { name: "Au crible 2027" }).click();
+          await page.getByRole("banner").getByRole("link", { name: "Décrypte 2027" }).click();
           await page.waitForURL(/\/$/);
           await expect(page.getByRole("link", { name: "Commencer le questionnaire" }).first()).toBeVisible();
         }
@@ -4392,7 +4392,7 @@ test.describe("l'en-tête reste en haut au défilement", () => {
     await page.goto("/questionnaire");
     await page.getByRole("region", { name: "Pour aller plus loin" }).scrollIntoViewIfNeeded();
     expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(200);
-    const logo = page.getByRole("banner").getByRole("link", { name: "Au crible 2027" });
+    const logo = page.getByRole("banner").getByRole("link", { name: "Décrypte 2027" });
     await expect(logo).toBeInViewport();
     const boite = (await logo.boundingBox())!;
     expect(boite.y).toBeLessThan(80);
@@ -4529,12 +4529,12 @@ test.describe("une fiche ajoutée par l'auteur paraît à sa date", () => {
 test.describe("l'auteur génère le carrousel du jour depuis la fiche", () => {
   const images = (page: Page) => page.getByRole("region", { name: "Le carrousel" }).locator("article.slide");
 
-  test("le carrousel de la fiche du jour (n° 24) : 6 images 4:5, numérotées de 1/6 à 6/6, chacune sous la marque « Au crible 2027 »", async ({ page }) => {
+  test("le carrousel de la fiche du jour (n° 24) : 6 images 4:5, numérotées de 1/6 à 6/6, chacune sous la marque « Décrypte 2027 »", async ({ page }) => {
     await page.goto("/carrousel");
     await expect(page.getByText("question n° 24", { exact: false }).first()).toBeVisible();
     await expect(images(page)).toHaveCount(6);
     await expect(images(page).locator(".s-page")).toHaveText(["1/6", "2/6", "3/6", "4/6", "5/6", "6/6"]);
-    await expect(images(page).locator(".s-brand")).toHaveText(Array(6).fill("Au crible 2027"));
+    await expect(images(page).locator(".s-brand")).toHaveText(Array(6).fill("Décrypte 2027"));
     for (const boite of await images(page).evaluateAll((s) => s.map((e) => e.getBoundingClientRect()).map(({ width, height }) => ({ width, height }))))
       expect(boite.width / boite.height).toBeCloseTo(4 / 5, 3);
     // Dessinées à 320 px de large, elles s'exportent à 1080 px : 1080 × 1350.
@@ -4791,21 +4791,21 @@ const tiennentEnEntierDansLaStory = (story: Locator) =>
     });
   });
 
-test.describe("chaque image porte la signature @aucrible2027", () => {
-  test("les 6 images du carrousel portent « @aucrible2027 » en pied, écrit à l'identique, avec « Glisse » sur les images 1 à 5", async ({ page }) => {
+test.describe("chaque image porte la signature @decrypte2027", () => {
+  test("les 6 images du carrousel portent « @decrypte2027 » en pied, écrit à l'identique, avec « Glisse » sur les images 1 à 5", async ({ page }) => {
     await page.goto("/carrousel");
     const images = page.getByRole("region", { name: "Le carrousel" }).locator("article.slide");
     await expect(images).toHaveCount(6);
-    await expect(images.locator(".s-foot > span:first-child")).toHaveText(Array(6).fill("@aucrible2027"), { useInnerText: true });
+    await expect(images.locator(".s-foot > span:first-child")).toHaveText(Array(6).fill("@decrypte2027"), { useInnerText: true });
     await expect(images.locator(".s-foot .next")).toHaveText(Array(5).fill("Glisse"));
     await expect(images.nth(5).locator(".s-foot .next")).toHaveCount(0);
   });
 
-  test("la story porte « @aucrible2027 » en haut à droite", async ({ page }) => {
+  test("la story porte « @decrypte2027 » en haut à droite", async ({ page }) => {
     await page.goto("/carrousel");
     const story = page.getByRole("region", { name: "La story" }).getByRole("article", { name: "Story : la question avec un autocollant à deux choix" });
     const signature = story.locator(".s-top > :last-child");
-    await expect(signature).toHaveText("@aucrible2027", { useInnerText: true });
+    await expect(signature).toHaveText("@decrypte2027", { useInnerText: true });
     const [cadre, boite] = await Promise.all([story.boundingBox(), signature.boundingBox()]);
     expect(cadre!.x + cadre!.width - (boite!.x + boite!.width)).toBeLessThan(24);
     expect(boite!.y - cadre!.y).toBeLessThan(80);
@@ -4875,11 +4875,11 @@ test.describe("l'auteur génère la vidéo verticale du jour depuis la fiche", (
 test.describe("la dernière image invite à répondre sur l'app", () => {
   const derniere = (page: Page) => page.getByRole("region", { name: "Le carrousel" }).getByRole("article", { name: "Image 6 sur 6 : et toi ?" });
 
-  test("l'image 6/6 affiche « Et toi ? », « Réponds et découvre de quels candidats tu es proche » et l'adresse aucrible2027.fr", async ({ page }) => {
+  test("l'image 6/6 affiche « Et toi ? », « Réponds et découvre de quels candidats tu es proche » et l'adresse decrypte2027.com", async ({ page }) => {
     await page.goto("/carrousel");
     await expect(derniere(page).getByRole("heading", { level: 3 })).toHaveText("Et toi ?");
     await expect(derniere(page).getByText("Réponds et découvre de quels candidats tu es proche", { exact: true })).toBeVisible();
-    await expect(derniere(page).locator(".s-url")).toHaveText("aucrible2027.fr");
+    await expect(derniere(page).locator(".s-url")).toHaveText("decrypte2027.com");
   });
 
   test("elle montre le camembert des 11 thèmes", async ({ page }) => {
@@ -4919,10 +4919,10 @@ test.describe("l'auteur récupère la légende proposée", () => {
     );
   });
 
-  test("elle invite à répondre sur aucrible2027.fr (lien en bio) et dit « Sans compte : tes réponses sont anonymes. »", async ({ page }) => {
+  test("elle invite à répondre sur decrypte2027.com (lien en bio) et dit « Sans compte : tes réponses sont anonymes. »", async ({ page }) => {
     await carrouselDeLaMaquette(page);
     await expect(legende(page).locator("p").nth(1)).toHaveText(
-      "Réponds sur aucrible2027.fr (lien en bio). Sans compte : tes réponses sont anonymes.",
+      "Réponds sur decrypte2027.com (lien en bio). Sans compte : tes réponses sont anonymes.",
     );
   });
 });
@@ -6968,7 +6968,7 @@ test.describe("l'accueil montre la landing à un appareil sans réponse, et prop
     await choisir(page, "62 ans");
     await validerMaReponse(page);
     await expect(page).toHaveURL(/\/revelation$/);
-    await page.getByRole("banner").getByRole("link", { name: "Au crible 2027" }).click();
+    await page.getByRole("banner").getByRole("link", { name: "Décrypte 2027" }).click();
     await page.waitForURL(/\/$/);
     await expect(compte(page)).toHaveText("1 sur 24 questions");
     await expect(page.getByRole("link", { name: "Continuer le questionnaire" })).toBeVisible();
@@ -6988,7 +6988,7 @@ test.describe("l'accueil montre la landing à un appareil sans réponse, et prop
     await page.goto("/");
     await page.getByRole("link", { name: "Continuer le questionnaire" }).click();
     await expect(page.getByRole("navigation", { name: "Pied de page" })).toBeHidden();
-    await page.getByRole("banner").getByRole("link", { name: "Au crible 2027" }).click();
+    await page.getByRole("banner").getByRole("link", { name: "Décrypte 2027" }).click();
     await page.waitForURL(/\/$/);
     await expect(page.getByRole("link", { name: "Continuer le questionnaire" })).toBeVisible();
     await expect(page.getByRole("navigation", { name: "Pied de page" })).toBeVisible();

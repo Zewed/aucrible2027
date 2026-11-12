@@ -68,7 +68,7 @@ export function EnTete() {
       <Link className="brand" href="/">
         <Logo />
         <span>
-          Au crible <b>2027</b>
+          Décrypte <b>2027</b>
         </span>
       </Link>
       <Suspense fallback={<Menu chemin={null} />}>

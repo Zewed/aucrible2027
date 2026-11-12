@@ -1,6 +1,6 @@
 /* Copie de maquettes/carte-story.css. */
 
-/* Au crible 2027 — carte de résultat partageable, format story 9:16.
+/* Décrypte 2027 — carte de résultat partageable, format story 9:16.
    Chargé après style.css : jetons de style.css uniquement.
    Les cartes sont dessinées à 360 × 640 px ; toutes leurs mesures passent par --u (1 u = 1 px à 360 px de large),
    pour que la carte garde ses proportions même sur un écran plus étroit.

@@ -1,4 +1,4 @@
-/** Le logo d'Au crible 2027 : le camembert des onze thèmes (maquettes, en-tête). Décoratif : le nom le suit en texte. */
+/** Le logo de Décrypte 2027 : le camembert des onze thèmes (maquettes, en-tête). Décoratif : le nom le suit en texte. */
 export function Logo({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 200 200" aria-hidden="true">

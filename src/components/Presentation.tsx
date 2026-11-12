@@ -271,7 +271,7 @@ export function Presentation({ jour, candidats, themes, questions, exemple }: Do
           <Link className="lp-marque" href="/">
             <Logo />
             <span>
-              Au crible <b>2027</b>
+              Décrypte <b>2027</b>
             </span>
           </Link>
         </header>

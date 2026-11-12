@@ -1,6 +1,6 @@
 /* Copie de maquettes/appareil.css. */
 
-/* Au crible 2027 — « Changer d'appareil » : export et import des réponses par QR code ou lien.
+/* Décrypte 2027 — « Changer d'appareil » : export et import des réponses par QR code ou lien.
    Chargé après style.css : n'utilise que ses jetons (couleurs, rayons, courbe de mouvement).
    Classes propres à l'écran : .app (page) · .app-top · .promise · .app-grid > .app-col > .app-card
    (.app-card-top .app-step · .app-card-body) · .qr · .linkrow · .caution · .or · .app-input · .cases > .case */

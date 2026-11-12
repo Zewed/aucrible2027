@@ -68,7 +68,7 @@ function CarteVerrouillee({ comptees, pied }: { comptees: number; pied: string }
               <i key={i}></i>
             ))}
           </div>
-          <p className="story-k">Au crible 2027 · mes réponses</p>
+          <p className="story-k">Décrypte 2027 · mes réponses</p>
           <p className="story-lock">
             <Cadenas />
           </p>
@@ -116,7 +116,7 @@ export function ApercuDeLaCarte({ questions, candidats, themes }: { questions: Q
               <i key={theme.id} style={{ background: couleurDe(theme) }}></i>
             ))}
           </div>
-          <p className="story-k">Au crible 2027 · mes réponses</p>
+          <p className="story-k">Décrypte 2027 · mes réponses</p>
           <p className="story-big">
             {premier.pourcentage}
             <small>&nbsp;%</small>
@@ -176,8 +176,8 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
     const [candidat, camembert] = [carteDuCandidat.current, carteDuCamembert.current];
     const polices = lirePolices(candidat);
     images.current = {
-      candidat: polices.then((p) => dessinerLaCarte(candidat, p, "au-crible-2027-ma-carte.png")),
-      camembert: polices.then((p) => dessinerLaCarte(camembert, p, "au-crible-2027-mon-camembert.png")),
+      candidat: polices.then((p) => dessinerLaCarte(candidat, p, "decrypte-2027-ma-carte.png")),
+      camembert: polices.then((p) => dessinerLaCarte(camembert, p, "decrypte-2027-mon-camembert.png")),
     };
   }, [affichee]);
   if (!premier) return null;
@@ -224,7 +224,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
           <div className="sc-deck sc-deck--a">
             <article ref={carteDuCandidat} className="sc sc--a" aria-label={`Carte à partager : ${premier.pourcentage} % proche de ${premier.candidat.nom}`}>
               {frise}
-              <p className="sc-k">Au crible 2027 · mes réponses</p>
+              <p className="sc-k">Décrypte 2027 · mes réponses</p>
               <p className="sc-big">
                 {premier.pourcentage}
                 <small>&nbsp;%</small>
@@ -238,7 +238,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
               <p className="sc-f">{pied}</p>
               <p className="sc-ask">
                 <b>Et toi&nbsp;?</b>
-                <span className="sc-url">aucrible2027.fr</span>
+                <span className="sc-url">decrypte2027.com</span>
               </p>
             </article>
           </div>
@@ -254,7 +254,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
           <div className="sc-deck sc-deck--b">
             <article ref={carteDuCamembert} className="sc sc--b" aria-label="Carte à partager : mon camembert, sans nom de candidat">
               {frise}
-              <p className="sc-k">Au crible 2027 · mes réponses</p>
+              <p className="sc-k">Décrypte 2027 · mes réponses</p>
               <h2 className="sc-h">Mon camembert</h2>
               <div className="sc-gros">
                 <Camembert interieur={34} couleurs={camembert} description={`Camembert : ${nombre} ${nombre > 1 ? "thèmes" : "thème"} sur ${themes.length}`} />
@@ -262,7 +262,7 @@ export function CartesAPartager({ questions, candidats, themes }: { questions: Q
               <p className="sc-f">{pied}</p>
               <p className="sc-ask sc-ask--col">
                 <b>Et toi, tu en es où&nbsp;?</b>
-                <span className="sc-url">aucrible2027.fr</span>
+                <span className="sc-url">decrypte2027.com</span>
               </p>
             </article>
           </div>

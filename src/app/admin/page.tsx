@@ -11,7 +11,7 @@ import { seDeconnecter } from "./actions";
 import "./admin.css";
 
 // L'espace de l'auteur : privé, aucune page publique n'y mène, et les moteurs de recherche n'ont pas à le trouver.
-export const metadata: Metadata = { title: "Espace de l'auteur — Au crible 2027", robots: { index: false, follow: false } };
+export const metadata: Metadata = { title: "Espace de l'auteur — Décrypte 2027", robots: { index: false, follow: false } };
 
 const LE_JOUR_ET_L_HEURE = new Intl.DateTimeFormat("fr-FR", { timeZone: "Europe/Paris", dateStyle: "medium", timeStyle: "short" });
 
