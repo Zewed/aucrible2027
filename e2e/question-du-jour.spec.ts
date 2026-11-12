@@ -3995,22 +3995,24 @@ test.describe("l'auteur voit le nombre de visites par jour", () => {
   });
 });
 
-test.describe("chaque réponse part, anonyme, sous la session de l'onglet", () => {
-  const sessionDe = (page: Page) => page.evaluate(() => sessionStorage.getItem("aucrible:session"));
+test.describe("chaque réponse part, anonyme, sous la session de l'appareil", () => {
+  const sessionDe = (page: Page) => page.evaluate(() => localStorage.getItem("aucrible:session"));
   /** Les réponses gardées dans la base des tests pour cette session, par question. */
   const reponsesDe = async (session: string | null) =>
     [...(await baseDeTest`SELECT question, option, importance, to_char(jour, 'YYYY-MM-DD') AS jour FROM reponses_partagees WHERE session = ${session}::uuid ORDER BY question`)];
 
-  test("valider « 62 ans » ×1 sur la n° 24 envoie la question, l'option, l'importance et le jour, et la table n'a pas d'autre colonne que la session", async ({ page }) => {
+  test("valider « 62 ans » ×1 sur la n° 24 envoie la question, l'option, l'importance, le jour et l'heure à la minute, et la table n'a pas d'autre colonne que la session", async ({ page }) => {
     await repondre(page, "62 ans");
     const session = await sessionDe(page);
     expect(session).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
     await expect.poll(() => reponsesDe(session)).toEqual([{ question: 24, option: "B", importance: 1, jour: "2026-10-23" }]);
     const colonnes = await baseDeTest`SELECT column_name FROM information_schema.columns WHERE table_name = 'reponses_partagees' ORDER BY ordinal_position`;
-    expect(colonnes.map((c) => c.column_name)).toEqual(["session", "question", "option", "importance", "jour"]);
+    expect(colonnes.map((c) => c.column_name)).toEqual(["session", "question", "option", "importance", "jour", "recue_le"]);
+    const [{ secondes }] = await baseDeTest`SELECT extract(second FROM recue_le)::int AS secondes FROM reponses_partagees WHERE session = ${session}::uuid`;
+    expect(secondes).toBe(0);
   });
 
-  test("répondre à nouveau dans le même onglet remplace la réponse ; un nouvel onglet tire une autre session", async ({ page, context }) => {
+  test("répondre à nouveau remplace la réponse ; un autre onglet, ou l'onglet rouvert, garde la même session ; recommencer en tire une autre", async ({ page, context }) => {
     await repondre(page, "62 ans");
     const session = await sessionDe(page);
     await page.evaluate(() => localStorage.removeItem("aucrible:reponses"));
@@ -4018,6 +4020,7 @@ test.describe("chaque réponse part, anonyme, sous la session de l'onglet", () =
     await choisir(page, "64 ans");
     await validerMaReponse(page);
     await expect.poll(() => reponsesDe(session)).toEqual([{ question: 24, option: "C", importance: 1, jour: "2026-10-23" }]);
+    await page.close();
     const onglet = await context.newPage();
     await onglet.goto("/questionnaire");
     await onglet.evaluate(() => localStorage.removeItem("aucrible:reponses"));
@@ -4025,9 +4028,19 @@ test.describe("chaque réponse part, anonyme, sous la session de l'onglet", () =
     await choisir(onglet, "60 ans");
     await validerMaReponse(onglet);
     await expect(onglet).toHaveURL(/\/revelation$/);
+    expect(await sessionDe(onglet)).toBe(session);
+    await expect.poll(() => reponsesDe(session)).toEqual([{ question: 24, option: "A", importance: 1, jour: "2026-10-23" }]);
+    await onglet.goto("/");
+    await onglet.getByRole("button", { name: "Recommencer le questionnaire" }).click();
+    await onglet.getByRole("group", { name: "Effacer ta réponse ?" }).getByRole("button", { name: "Effacer" }).click();
+    await expect(onglet).toHaveURL(/\/questionnaire$/);
+    expect(await sessionDe(onglet)).toBeNull();
+    await choisir(onglet, "62 ans");
+    await validerMaReponse(onglet);
+    await expect(onglet).toHaveURL(/\/revelation$/);
     const autre = await sessionDe(onglet);
     expect(autre).not.toBe(session);
-    await expect.poll(() => reponsesDe(autre)).toEqual([{ question: 24, option: "A", importance: 1, jour: "2026-10-23" }]);
+    await expect.poll(() => reponsesDe(autre)).toEqual([{ question: 24, option: "B", importance: 1, jour: "2026-10-23" }]);
   });
 
   test("une option inconnue ou une importance hors de 1 à 3 est refusée sans rien garder ; « Je ne sais pas » est gardé sans importance", async ({ page }) => {
@@ -4062,6 +4075,9 @@ test.describe("chaque réponse part, anonyme, sous la session de l'onglet", () =
     await connecterLAuteur(page);
     await page.goto("/admin");
     await expect(page.getByRole("region", { name: "Candidats" }).getByRole("row")).not.toHaveCount(0);
+    // L'heure de la session, à Paris, à côté du jour.
+    const ligne = page.getByRole("region", { name: "Sessions" }).getByRole("row").filter({ hasText: session.slice(0, 8) });
+    await expect(ligne.getByRole("cell").first()).toHaveText(/^\d{1,2} \S+ \d{4}, \d{2}:\d{2}$/);
     await page.getByRole("region", { name: "Sessions" }).getByRole("link", { name: session.slice(0, 8), exact: true }).click();
     await expect(page).toHaveURL(`/admin/session/${session}`);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(`Session ${session.slice(0, 8)}.`);

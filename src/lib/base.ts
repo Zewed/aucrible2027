@@ -47,6 +47,9 @@ export async function base() {
         jour date NOT NULL,
         PRIMARY KEY (session, question)
       )`,
+  ).then(
+    // L'heure de la réponse (12/11/2026), à la minute : les réponses d'avant n'en ont pas.
+    () => connexion!`ALTER TABLE reponses_partagees ADD COLUMN IF NOT EXISTS recue_le timestamptz`,
   );
   await tablesPretes;
   return connexion;

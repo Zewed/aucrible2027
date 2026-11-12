@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Pion } from "@/components/Pion";
-import { analyserLesSessions, sessionCourte } from "@/lib/analyse";
+import { analyserLesSessions, quand, sessionCourte } from "@/lib/analyse";
 import { estLAuteur } from "@/lib/auteur";
 import { lireThemes } from "@/lib/contenu";
 import { dateCourte } from "@/lib/date";
@@ -30,7 +30,6 @@ async function Session({ id }: { id: string }) {
   if (reponses.length === 0) notFound();
   const [session] = analyserLesSessions(reponses, duCalcul, candidats);
   const themes = lireThemes();
-  const jours = session.premierJour === session.dernierJour ? dateCourte(session.premierJour) : `${dateCourte(session.premierJour)} → ${dateCourte(session.dernierJour)}`;
 
   return (
     <>
@@ -57,7 +56,7 @@ async function Session({ id }: { id: string }) {
           <span>« Je ne sais pas »</span>
         </p>
         <p className="an-kpi-texte">
-          <b>{jours}</b>
+          <b>{quand(session, true)}</b>
           <span>{session.session}</span>
         </p>
       </section>

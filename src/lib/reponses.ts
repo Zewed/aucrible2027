@@ -31,7 +31,11 @@ export function enregistrerReponse(numero: number, reponse: Reponse) {
   window.dispatchEvent(new Event(NOUVELLE_REPONSE));
 }
 
-/** La session de l'onglet, qui relie entre elles les réponses partagées : tirée à la première, oubliée avec l'onglet. */
+/**
+ * La session de l'appareil, qui relie entre elles les réponses partagées : tirée à la première réponse, gardée avec les
+ * réponses (fermer l'onglet ne la coupe pas), effacée quand on recommence le questionnaire. Une session ouverte dans un
+ * onglet avant le 12/11/2026 est reprise telle quelle.
+ */
 const SESSION = "aucrible:session";
 let sessionSansStockage: string | undefined;
 
@@ -41,11 +45,11 @@ const tirerUneSession = () =>
 
 function laSession() {
   try {
-    const deja = sessionStorage.getItem(SESSION);
-    if (deja) return deja;
-    const nouvelle = tirerUneSession();
-    sessionStorage.setItem(SESSION, nouvelle);
-    return nouvelle;
+    const deja = localStorage.getItem(SESSION) ?? sessionStorage.getItem(SESSION);
+    const session = deja ?? tirerUneSession();
+    localStorage.setItem(SESSION, session);
+    sessionStorage.removeItem(SESSION);
+    return session;
   } catch {
     return (sessionSansStockage ??= tirerUneSession());
   }
@@ -71,11 +75,13 @@ export function remplacerLesReponses(reponses: Record<number, Reponse>) {
 }
 
 /**
- * Efface toutes les réponses de l'appareil, pour recommencer le questionnaire. Sans prévenir la page : celle qui efface
+ * Efface toutes les réponses de l'appareil, et sa session, pour recommencer le questionnaire. Sans prévenir la page : celle qui efface
  * se recharge aussitôt, et l'accueil ne montre pas la landing d'un appareil vide entre-temps.
  */
 export function effacerLesReponses() {
   localStorage.removeItem(CLE);
+  localStorage.removeItem(SESSION);
+  sessionSansStockage = undefined;
 }
 
 /** Pour `useCoteClient` : relire les réponses quand l'une est enregistrée, ici ou dans un autre onglet. */

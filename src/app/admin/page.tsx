@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { Pion } from "@/components/Pion";
-import { analyserLesCandidats, analyserLesSessions, partDesJeNeSaisPas, sessionCourte, sessionsParJour } from "@/lib/analyse";
+import { analyserLesCandidats, analyserLesSessions, partDesJeNeSaisPas, quand, sessionCourte, sessionsParJour } from "@/lib/analyse";
 import { estLAuteur } from "@/lib/auteur";
 import { dateCourte } from "@/lib/date";
 import { lireAujourdhui, lireCandidatsEnLice, lireQuestionsDuCalcul, lireQuestionsPubliees } from "@/lib/publication";
@@ -242,7 +242,7 @@ async function TableauDeBord({ seuil }: { seuil: number }) {
             <thead>
               <tr>
                 <th scope="col">Session</th>
-                <th scope="col">Jour</th>
+                <th scope="col">Début</th>
                 <th scope="col">Réponses</th>
                 <th scope="col">En tête</th>
                 <th scope="col">Deuxième</th>
@@ -257,7 +257,7 @@ async function TableauDeBord({ seuil }: { seuil: number }) {
                       {sessionCourte(s.session)}
                     </Link>
                   </th>
-                  <td>{dateCourte(s.dernierJour)}</td>
+                  <td>{quand(s)}</td>
                   <td>{s.reponses.length}</td>
                   {s.classement.slice(0, 3).map(({ candidat, pourcentage }) => (
                     <td key={candidat.id}>
