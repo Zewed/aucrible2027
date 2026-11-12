@@ -89,15 +89,12 @@ export function Fiche({ question, theme, revelation }: { question: QuestionDeLaF
     if (matchMedia(EN_LISTE).matches) requestAnimationFrame(() => carte.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }));
   }
 
-  /** Valider : dans la feuille, toucher une importance valide aussitôt, avec ce poids. */
+  /** Valider : une option et son importance, ou « Je ne sais pas » seul, puis « Valider ma réponse ». */
   function valider(evenement: React.FormEvent<HTMLFormElement>) {
     evenement.preventDefault();
-    const touche = (evenement.nativeEvent as SubmitEvent).submitter;
-    const importance = touche instanceof HTMLButtonElement && touche.name === "poids" ? Number(touche.value) : poids;
-    const complete = choix === JE_NE_SAIS_PAS || (choix !== null && importance !== null);
-    if (!choix || !complete || !jour) return;
-    enregistrerReponse(question.numero, { option: choix, importance, graine: tirerGraine(), jour, rang: Object.keys(reponses).length + 1 });
-    partagerLaReponse(question.numero, { option: choix, importance });
+    if (!choix || !prete || !jour) return;
+    enregistrerReponse(question.numero, { option: choix, importance: poids, graine: tirerGraine(), jour, rang: Object.keys(reponses).length + 1 });
+    partagerLaReponse(question.numero, { option: choix, importance: poids });
     router.push(revelation);
   }
 
@@ -108,6 +105,13 @@ export function Fiche({ question, theme, revelation }: { question: QuestionDeLaF
     {etape === "repondre" && (
       <StylesDeLaPage>{"@media (max-width: 899.98px) { :root { --header-h: 64px; } .topbar, .jauge, .strip { display: none; } }"}</StylesDeLaPage>
     )}
+    {/* Le bandeau des cookies ne cache jamais de quoi répondre : au-dessus de la barre « Répondre », absent pendant la
+        réponse (il couvrait ×1, ×2 et ×3 sur iPad), de retour à la révélation. */}
+    <StylesDeLaPage>
+      {etape === "repondre"
+        ? ".bandeau-cookies { display: none; }"
+        : "@media (max-width: 1199.98px) { .bandeau-cookies { bottom: calc(112px + env(safe-area-inset-bottom)); } }"}
+    </StylesDeLaPage>
     <Bandeau jour={jour} question={question} />
     <main className={`today ${theme.classe} etape-${etape}`}>
       {etape === "lire" ? (
@@ -268,19 +272,6 @@ export function Fiche({ question, theme, revelation }: { question: QuestionDeLaF
                 ))}
               </div>
             </fieldset>
-            {/* Dans la feuille, chaque importance est un bouton qui valide ; « Je ne sais pas » garde « Valider ma réponse ». */}
-            <div className="mq-peser" role="group" aria-labelledby="peser">
-              <p id="peser">Ce sujet compte pour toi&nbsp;?</p>
-              <div className="mq-niveaux">
-                {IMPORTANCES.map((importance) => (
-                  <button key={importance.poids} type="submit" name="poids" value={importance.poids} className="mq-niveau">
-                    <span>
-                      <b>×{importance.poids}</b> <em>{importance.libelle}</em>
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
             <button type="submit" className="mq-valider" aria-disabled={!prete}>
               Valider ma réponse
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">

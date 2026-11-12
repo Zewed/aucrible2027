@@ -541,8 +541,7 @@ button.vid-carte:focus-visible { outline: 3px solid var(--eco-texte); outline-of
 .mq-importance legend { padding: 0; margin-bottom: 8px; font: 800 16px/1.1 var(--display); font-variation-settings: "wdth" 88; }
 .mq-niveaux { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
 .mq-niveau { position: relative; display: block; cursor: pointer; }
-button.mq-niveau { width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: inherit; }
-.mq-peser, .mq-replie { display: none; }
+.mq-replie { display: none; }
 .mq-niveau > span {
   min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 6px;
   background: var(--table-2); color: var(--sur-table); border-radius: var(--r); transition: background .15s var(--ease-out);
@@ -562,10 +561,10 @@ button.mq-niveau { width: 100%; padding: 0; border: 0; background: none; color: 
 .mq-valider:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--theme); }
 .mq-valider:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--theme); }
 .mq-valider[aria-disabled="true"] { background: var(--table-3); color: var(--muted); box-shadow: none; transform: none; cursor: not-allowed; }
-/* La liste : la question repliée en haut, et la feuille du bas, où toucher une importance valide. */
+/* La liste : la question repliée en haut, et la feuille du bas : l'importance, puis « Valider ma réponse ». */
 @media (max-width: 1099.98px) {
-  .mq-tuile, .mq-nsp { scroll-margin: 84px 0 160px; }
-  .mosaique.choisie .mq-pile { padding-bottom: 160px; }
+  .mq-tuile, .mq-nsp { scroll-margin: 84px 0 230px; }
+  .mosaique.choisie .mq-pile { padding-bottom: 230px; }
   .mq-replie {
     position: fixed; top: 0; left: var(--rail, 0px); right: 0; z-index: 30;
     display: flex; align-items: center; gap: 12px; padding: 8px 16px 10px; background: var(--theme); color: var(--on-theme);
@@ -585,25 +584,16 @@ button.mq-niveau { width: 100%; padding: 0; border: 0; background: none; color: 
     transform: translateY(105%); visibility: hidden; transition: transform .28s var(--ease-out), visibility 0s .28s;
   }
   .mosaique.choisie .mq-decision { transform: none; visibility: visible; transition: transform .28s var(--ease-out); }
-  .mq-importance { display: none; }
-  .mq-peser { display: grid; gap: 10px; }
-  .mq-peser p { margin: 0; font: 800 17px/1.1 var(--display); font-variation-settings: "wdth" 88; }
-  .mq-peser .mq-niveau > span {
-    min-height: 68px; flex-direction: column; gap: 4px;
-    background: var(--chalk); color: var(--ink); box-shadow: 0 5px 0 var(--theme);
-    transition: transform .12s var(--ease-out), box-shadow .12s var(--ease-out);
-  }
-  .mq-peser .mq-niveau { margin-bottom: 5px; }
-  .mq-peser .mq-niveau b { font-size: 24px; }
-  .mq-peser .mq-niveau:active > span { transform: translateY(4px); box-shadow: 0 1px 0 var(--theme); }
-  .mq-peser .mq-niveau:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 2px; border-radius: var(--r); }
+  .mq-importance legend { margin-bottom: 10px; font-size: 17px; }
+  .mq-importance .mq-niveau > span { min-height: 60px; flex-direction: column; gap: 4px; }
+  .mq-importance .mq-niveau b { font-size: 24px; }
   .mq-decision .mq-valider { background: var(--chalk); color: var(--ink); }
+  .mq-decision .mq-valider[aria-disabled="true"] { background: var(--table-3); color: var(--muted); }
   /* « Je ne sais pas » ne demande pas d'importance : la feuille n'a que « Valider ma réponse ». */
-  .mosaique:has(.mq-nsp input:checked) .mq-peser,
-  .mosaique:not(:has(.mq-nsp input:checked)) .mq-valider { display: none; }
+  .mosaique:has(.mq-nsp input:checked) .mq-importance { display: none; }
 }
 @media (max-width: 1099.98px) and (prefers-reduced-motion: reduce) {
-  .mq-replie, .mosaique.replie .mq-replie, .mq-decision, .mosaique.choisie .mq-decision, .mq-peser .mq-niveau > span { transition: none; }
+  .mq-replie, .mosaique.replie .mq-replie, .mq-decision, .mosaique.choisie .mq-decision { transition: none; }
 }
 @media (min-width: 600px) and (max-width: 1099px) {
   .mq-tete { padding: 18px 24px 26px; }
