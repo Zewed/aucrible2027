@@ -3657,8 +3657,7 @@ test.describe("le signalement arrive dans une boîte privée", () => {
     await page.goto("/admin");
     await page.getByLabel("Mot de passe").fill("pas-le-bon");
     await page.getByRole("button", { name: "Entrer" }).click();
-    // Le formulaire porte son alerte ; l'annonceur des changements de page de Next en est une autre, vide.
-    await expect(page.locator(".adm-login").getByRole("alert")).toHaveText("Mauvais mot de passe.");
+    await expect(page.getByRole("alert").filter({ hasText: "Mauvais mot de passe." })).toBeVisible();
     await expect(boite(page)).toHaveCount(0);
     expect(await page.content()).not.toContain(texte);
     expect((await page.request.get("/admin/reponses")).status()).toBe(403);
@@ -4104,7 +4103,14 @@ test.describe("le formulaire promet une réponse sous 72 h", () => {
     });
   }
 
-  test("« journal des corrections » mène au journal des corrections", async ({ page }) => {
+  test("sans correction publiée, « journal des corrections » n'est pas un lien", async ({ page }) => {
+    await page.goto("/signaler?question=24");
+    await expect(page.locator(".sig-card .promise")).toContainText("journal des corrections");
+    await expect(page.locator(".sig-card .promise").getByRole("link")).toHaveCount(0);
+  });
+
+  test("avec des corrections publiées, « journal des corrections » mène au journal des corrections", async ({ page }) => {
+    await page.context().addCookies([{ name: "aucrible-corrections-de-test", value: "maquette", url: "http://localhost:3127" }]);
     await page.goto("/signaler?question=24");
     await page.locator(".sig-card .promise").getByRole("link", { name: "journal des corrections" }).click();
     await page.waitForURL(/\/journal$/);
@@ -6547,13 +6553,13 @@ test.describe("le pied de page mène aux pages secondaires", () => {
     ["Toutes les questions", "/rattrapage"],
     ["Méthode de calcul", "/methode"],
     ["À propos", "/a-propos"],
-    ["Journal des corrections", "/journal"],
   ];
   const pied = (page: Page) => page.getByRole("contentinfo").getByRole("navigation", { name: "Pied de page" });
 
   // Pas sur la première étape de la fiche (l'accueil), qui n'a pas de pied de page.
   for (const adresse of ["/resultats", "/a-propos", "/cette-page-n-existe-pas"]) {
-    test(`en bas de ${adresse}, les quatre liens sont là, dans l'ordre, et plus « Changer d'appareil »`, async ({ page }) => {
+    // Tant qu'aucune correction n'est publiée (content/corrections.yaml), le journal n'a pas de lien.
+    test(`en bas de ${adresse}, les trois liens sont là, dans l'ordre, sans le journal ni « Changer d'appareil »`, async ({ page }) => {
       await page.goto(adresse);
       await expect(pied(page).getByRole("link")).toHaveText(LIENS.map(([nom]) => nom));
       await expect(page.getByRole("contentinfo").getByRole("link", { name: "Changer d'appareil" })).toHaveCount(0);
