@@ -357,6 +357,9 @@ Bilan (mis à jour le 11/11/2026, après le passage d'Attal de E à C) : 11 posi
 
 ---
 
+
+Décision de l'auteur (12/11/2026) : Roussel et Tondelier restent en C, Zemmour et Dupont-Aignan en D, malgré les remarques des relecteurs.
+
 ## 5. Sources
 
 Sources consultées le 10 novembre 2026.

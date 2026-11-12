@@ -376,6 +376,9 @@ Passe de recherche demandée par l'auteur : pour chaque candidat, programme 2027
 
 ---
 
+
+Décision de l'auteur (12/11/2026) : Le Pen passe de A à B, comme le seul vote FN sur le barème lui-même (barème relevé, amendement n° 180) ; Dupont-Aignan passe en « inconnue », un seul vote de 2017 sur l'ensemble des ordonnances ne suffisant pas.
+
 ## 5. Sources
 
 Sources consultées le 10 novembre 2026 ; sources 45 à 59 consultées le 11 novembre 2026 (vérification des positions, § 4.4).

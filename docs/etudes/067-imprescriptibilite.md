@@ -359,6 +359,9 @@ Recherche ciblée sur la suite du projet de loi relatif à la protection des enf
 
 ---
 
+
+Décision de l'auteur (12/11/2026) : Le Pen et Roussel passent de D à C (« estimée »), d'après le vote de leurs sénateurs pour la version « viols » le 28/10/2026 (scrutin n° 43).
+
 ## 5. Sources
 
 Consultées le 10 novembre 2026 ; [8] et [11] consultées de nouveau, et [28] à [30] consultées, le 11 novembre 2026.

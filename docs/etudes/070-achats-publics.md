@@ -318,6 +318,9 @@ Notes :
 
 ---
 
+
+Décision de l'auteur (12/11/2026) : Zemmour passe de A à B (« estimée »), parce que son programme 2022 demande un mécanisme européen plutôt qu'une sortie des règles.
+
 ## 5. Sources
 
 Consultées le 10 novembre 2026.

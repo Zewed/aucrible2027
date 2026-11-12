@@ -128,8 +128,8 @@ story:
     precision: "voire raccourcir le délai pour contester"
 # Positions de l'étude, § 4.3, vérifiées le 11/11/2026 (§ 4.4). Inconnus : Lisnard (rien sur le barème, les
 # prud'hommes ni le délai pour contester ; sa « judiciarisation pénalisante » vise la dualité CDI-CDD) et Zemmour
-# (rien dans ses programmes 2022 et 2027). Plus fragiles, que l'auteur peut juger trop indirectes : Glucksmann (texte
-# d'un autre parti) et Dupont-Aignan (un vote de 2017 sur l'ensemble des ordonnances).
+# (rien dans ses programmes 2022 et 2027), puis Dupont-Aignan, décision de l'auteur du 12/11/2026 (un seul vote de 2017
+# sur l'ensemble des ordonnances). Plus fragile : Glucksmann (texte d'un autre parti).
 positions:
   # L'Avenir en commun, programme 2027, partie 3, chapitre 1, section « Un emploi stable pour chacun » : https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre1/
   # L'ordonnance n° 2017-1387, qui a créé le barème, est l'une des ordonnances « Pénicaud ».
@@ -145,13 +145,11 @@ positions:
   ruffin: { option: A, source: "Cahier de campagne n° 01, « Pour un statut des travailleuses & travailleurs essentiels », avril 2026, sur les ordonnances de 2017", statut: deduite, citation: "en clair, on plafonne le prix de l'injustice, on normalise l'abus", lien: "https://nouspresident.fr/statut-travailleurs-essentiels/" }
   # Front national, communiqué du 31/08/2017 (lu par l'archive web du 06/10/2026) : https://rassemblementnational.fr/communiques/reaction-du-front-national-a-la-presentation-des-ordonnances-de-reforme-du-code-du-travail
   # Son vote contre la ratification des ordonnances, scrutin n° 314, 28/11/2017 : https://datan.fr/votes/legislature-15/vote_314
-  # Estimée : textes de 2017 ; le parti condamne le plafond sans proposer de le supprimer (B n'est pas exclu).
+  # Estimée : textes de 2017 ; le parti condamne le plafond sans proposer de le supprimer. Décision de l'auteur,
+  # 12/11/2026 : B, comme le seul vote FN sur le barème lui-même (barème relevé, amendement n° 180).
   # Citation retirée le 11/11/2026 : seule, elle décrit la mesure sans exprimer de position ; la source dit dans quel
   # cadre le communiqué la cite, et le vote du seul député FN sur le barème relevé (relectures droite et gauche).
-  le-pen: { option: A, source: "Front national, communiqué du 31/08/2017, qui range le plafonnement des indemnités prud'homales parmi les points qui « méritent une condamnation ferme » ; son vote contre la ratification des ordonnances, scrutin n° 314, 28/11/2017 ; le seul député FN votant a soutenu un barème relevé (amendement n° 180, 23/11/2017)", statut: estimee, lien: "https://rassemblementnational.fr/communiques/reaction-du-front-national-a-la-presentation-des-ordonnances-de-reforme-du-code-du-travail" }
-  # Son vote contre la ratification des ordonnances, scrutin n° 314, 28/11/2017 : https://datan.fr/votes/legislature-15/vote_314
-  # Estimée : ce vote porte sur les cinq ordonnances, pas sur le seul barème ; rien dans le projet de Debout la France.
-  dupont-aignan: { option: A, source: "Son vote contre la ratification des ordonnances de 2017, scrutin n° 314, 28/11/2017", statut: estimee, lien: "https://datan.fr/votes/legislature-15/vote_314" }
+  le-pen: { option: B, source: "Front national, communiqué du 31/08/2017, qui range le plafonnement des indemnités prud'homales parmi les points qui « méritent une condamnation ferme » ; son vote contre la ratification des ordonnances, scrutin n° 314, 28/11/2017 ; le seul député FN votant a soutenu un barème relevé (amendement n° 180, 23/11/2017)", statut: estimee, lien: "https://rassemblementnational.fr/communiques/reaction-du-front-national-a-la-presentation-des-ordonnances-de-reforme-du-code-du-travail" }
   # Proposition de loi n° 316, 11/10/2022, cosignée par les députés socialistes, dont Olivier Faure et Boris Vallaud : https://www.assemblee-nationale.fr/dyn/16/textes/l16b0316_proposition-loi.pdf
   # Estimée : texte du groupe socialiste, pas de Place publique ; rien trouvé dans les textes de Place publique.
   glucksmann: { option: A, source: "Proposition de loi n° 316, 11/10/2022, cosignée par les députés socialistes (pas par Place publique)", statut: estimee, citation: "Cette indemnité, à la charge de l'employeur, ne peut être inférieure aux salaires des six derniers mois.", lien: "https://www.assemblee-nationale.fr/dyn/16/textes/l16b0316_proposition-loi.pdf" }
