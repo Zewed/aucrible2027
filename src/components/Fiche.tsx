@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { CompteARebours } from "@/components/CompteARebours";
 import { NumeroQuestion } from "@/components/NumeroQuestion";
 import { PuceTheme } from "@/components/PuceTheme";
@@ -23,6 +23,9 @@ import { tenirALEcran } from "@/lib/tenir-a-l-ecran";
  */
 const tenirLaUne = tenirALEcran("(min-width: 1200px)", 1.3, true);
 const tenirLaMosaique = tenirALEcran("(min-width: 1100px)");
+
+/** En dessous, les options forment une liste, et l'importance se choisit dans une feuille qui monte du bas. */
+const EN_LISTE = "(max-width: 1099.98px)";
 
 const IMPORTANCES = [
   { poids: 1, libelle: "Un peu" },
@@ -49,6 +52,7 @@ export function Fiche({ question, theme, revelation }: { question: QuestionDeLaF
   const [etape, setEtape] = useState<"lire" | "repondre">("lire");
   const [choix, setChoix] = useState<string | null>(null);
   const [poids, setPoids] = useState<number | null>(null);
+  const [replie, setReplie] = useState(false);
   const jour = useCoteClient(() => aujourdhuiAParis());
   const reponses = lesReponses(useCoteClient(lireReponses));
   const dejaRepondue = question.numero in reponses;
@@ -56,6 +60,17 @@ export function Fiche({ question, theme, revelation }: { question: QuestionDeLaF
   useEffect(() => {
     if (dejaRepondue) router.replace(revelation);
   }, [dejaRepondue, revelation, router]);
+
+  /** Quand le bandeau de la question quitte l'écran, la question revient en petit, collée en haut. */
+  const suivreLeBandeau = useCallback((bandeau: HTMLElement | null) => {
+    if (!bandeau) return;
+    const observateur = new IntersectionObserver(([entree]) => setReplie(!entree.isIntersecting));
+    observateur.observe(bandeau);
+    return () => {
+      observateur.disconnect();
+      setReplie(false);
+    };
+  }, []);
 
   if (!jour || dejaRepondue) return null;
 
@@ -68,17 +83,31 @@ export function Fiche({ question, theme, revelation }: { question: QuestionDeLaF
   // Une réponse se valide avec son importance ; « Je ne sais pas » n'en demande pas.
   const prete = choix === JE_NE_SAIS_PAS || (choix !== null && poids !== null);
 
-  function valider(evenement: React.FormEvent) {
+  /** Choisir une option : dans la liste, elle reste visible au-dessus de la feuille qui monte. */
+  function choisir(option: string, carte: HTMLElement) {
+    setChoix(option);
+    if (matchMedia(EN_LISTE).matches) requestAnimationFrame(() => carte.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }));
+  }
+
+  /** Valider : dans la feuille, toucher une importance valide aussitôt, avec ce poids. */
+  function valider(evenement: React.FormEvent<HTMLFormElement>) {
     evenement.preventDefault();
-    if (!choix || !prete || !jour) return;
-    enregistrerReponse(question.numero, { option: choix, importance: poids, graine: tirerGraine(), jour, rang: Object.keys(reponses).length + 1 });
-    partagerLaReponse(question.numero, { option: choix, importance: poids });
+    const touche = (evenement.nativeEvent as SubmitEvent).submitter;
+    const importance = touche instanceof HTMLButtonElement && touche.name === "poids" ? Number(touche.value) : poids;
+    const complete = choix === JE_NE_SAIS_PAS || (choix !== null && importance !== null);
+    if (!choix || !complete || !jour) return;
+    enregistrerReponse(question.numero, { option: choix, importance, graine: tirerGraine(), jour, rang: Object.keys(reponses).length + 1 });
+    partagerLaReponse(question.numero, { option: choix, importance });
     router.push(revelation);
   }
 
   return (
     <>
     <StylesDeLaPage>{".site-foot { display: none; }"}</StylesDeLaPage>
+    {/* Au téléphone, pour répondre, la page n'a que la question et ses options : ni barre du site, ni jauge, ni bandeau. */}
+    {etape === "repondre" && (
+      <StylesDeLaPage>{"@media (max-width: 899.98px) { :root { --header-h: 64px; } .topbar, .jauge, .strip { display: none; } }"}</StylesDeLaPage>
+    )}
     <Bandeau jour={jour} question={question} />
     <main className={`today ${theme.classe} etape-${etape}`}>
       {etape === "lire" ? (
@@ -143,8 +172,16 @@ export function Fiche({ question, theme, revelation }: { question: QuestionDeLaF
           </div>
         </article>
       ) : (
-        <form className="mosaique" onSubmit={valider} ref={tenirLaMosaique}>
-          <header className="mq-tete">
+        <form className={`mosaique${choix ? " choisie" : ""}${replie ? " replie" : ""}`} onSubmit={valider} ref={tenirLaMosaique}>
+          <div className="mq-replie" inert={!replie}>
+            <button type="button" className="mq-contexte" onClick={() => allerA("lire")} aria-label="Le contexte">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 12H5M11 5.5 4.5 12l6.5 6.5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <p aria-hidden="true">{question.question}</p>
+          </div>
+          <header className="mq-tete" ref={suivreLeBandeau}>
             <div className="mq-meta">
               <PuceTheme theme={theme} />
               <button type="button" className="mq-contexte" onClick={() => allerA("lire")}>
@@ -156,14 +193,6 @@ export function Fiche({ question, theme, revelation }: { question: QuestionDeLaF
             </div>
             <h1 id="q" className="mq-question">{question.question}</h1>
           </header>
-          <nav className="mq-reperes" aria-label="Aller à une option">
-            {question.options.map((option, rang) => (
-              <a key={option.id} href={`#option-${option.id}`} className={choix === option.id ? "choisi" : undefined}>
-                {lettreOption(rang)}
-              </a>
-            ))}
-            <a href="#option-nsp" className={choix === JE_NE_SAIS_PAS ? "choisi" : undefined} aria-label="Je ne sais pas">?</a>
-          </nav>
           <div className="mq-pile" role="radiogroup" aria-label="Les options">
             {question.options.map((option, rang) => (
               <label key={option.id} className="mq-tuile" id={`option-${option.id}`}>
@@ -172,7 +201,7 @@ export function Fiche({ question, theme, revelation }: { question: QuestionDeLaF
                   name="choix"
                   value={option.id}
                   checked={choix === option.id}
-                  onChange={() => setChoix(option.id)}
+                  onChange={(evenement) => choisir(option.id, evenement.currentTarget.closest("label")!)}
                   aria-labelledby={`lettre-${option.id} titre-${option.id}`}
                   aria-describedby={`implique-${option.id} defenseurs-${option.id} critiques-${option.id}`}
                 />
@@ -206,7 +235,7 @@ export function Fiche({ question, theme, revelation }: { question: QuestionDeLaF
                 name="choix"
                 value={JE_NE_SAIS_PAS}
                 checked={choix === JE_NE_SAIS_PAS}
-                onChange={() => setChoix(JE_NE_SAIS_PAS)}
+                onChange={(evenement) => choisir(JE_NE_SAIS_PAS, evenement.currentTarget.closest("label")!)}
                 aria-labelledby="titre-nsp"
               />
               <span>
@@ -239,6 +268,19 @@ export function Fiche({ question, theme, revelation }: { question: QuestionDeLaF
                 ))}
               </div>
             </fieldset>
+            {/* Dans la feuille, chaque importance est un bouton qui valide ; « Je ne sais pas » garde « Valider ma réponse ». */}
+            <div className="mq-peser" role="group" aria-labelledby="peser">
+              <p id="peser">Ce sujet compte pour toi&nbsp;?</p>
+              <div className="mq-niveaux">
+                {IMPORTANCES.map((importance) => (
+                  <button key={importance.poids} type="submit" name="poids" value={importance.poids} className="mq-niveau">
+                    <span>
+                      <b>×{importance.poids}</b> <em>{importance.libelle}</em>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
             <button type="submit" className="mq-valider" aria-disabled={!prete}>
               Valider ma réponse
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">

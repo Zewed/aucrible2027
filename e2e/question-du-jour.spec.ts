@@ -64,7 +64,6 @@ test("le 23 octobre 2026, l'accueil affiche la question du jour, ses cinq option
   for (const option of ["60 ans", "62 ans", "64 ans", "65 ans ou plus", "À la carte, avec un système à points"]) {
     await expect(page.getByRole("radio", { name: option })).toBeVisible();
   }
-  await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeVisible();
   for (const nom of CANDIDATS) {
     await expect(page.getByText(nom)).toHaveCount(0);
   }
@@ -522,16 +521,32 @@ test.describe("les propositions en mosaïque", () => {
   test.describe("sur un petit téléphone", () => {
     test.use({ viewport: { width: 375, height: 812 } });
 
-    test("à 375 px, la question vient d'abord ; les options glissent de côté sans faire déborder la page, et le repère C mène à la carte C", async ({ page }) => {
+    test("à 375 px, la question vient d'abord, sans la barre du site ; les options s'empilent sans faire déborder la page", async ({ page }) => {
       await page.goto("/questionnaire");
       await voirLesPropositions(page);
+      await expect(page.getByRole("navigation", { name: "Navigation" })).toBeHidden();
       const question = await page.getByRole("heading", { level: 1 }).boundingBox();
       const options = await page.getByRole("radiogroup", { name: "Les options" }).boundingBox();
       expect(question!.y + question!.height).toBeLessThanOrEqual(options!.y);
+      const libelles = ["60 ans", "62 ans", "64 ans", "65 ans ou plus", "À la carte, avec un système à points"];
+      const cartes = await Promise.all(libelles.map((libelle) => carteReponse(page, libelle).boundingBox()));
+      for (const [rang, carte] of cartes.entries()) {
+        expect(carte!.width).toBeGreaterThan(375 - 2 * 16 - 1);
+        if (rang > 0) expect(carte!.y).toBeGreaterThanOrEqual(cartes[rang - 1]!.y + cartes[rang - 1]!.height);
+      }
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
-      await page.getByRole("navigation", { name: "Aller à une option" }).getByRole("link", { name: "C", exact: true }).click();
-      await expect(carteReponse(page, "64 ans")).toBeInViewport({ ratio: 0.9 });
-      await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeInViewport();
+    });
+
+    test("à 375 px, quand on descend sous le bandeau, la question revient en petit en haut, et sa flèche ramène au contexte", async ({ page }) => {
+      await page.goto("/questionnaire");
+      await voirLesPropositions(page);
+      const repliee = page.locator(".mq-replie");
+      await expect(repliee).toBeHidden();
+      await carteReponse(page, "65 ans ou plus").scrollIntoViewIfNeeded();
+      await expect(repliee).toBeInViewport();
+      await expect(repliee).toHaveText("À quel âge devrait-on pouvoir partir à la retraite ?");
+      await repliee.getByRole("button", { name: "Le contexte" }).click();
+      await expect(page.getByRole("region", { name: "Le contexte" })).toBeVisible();
     });
   });
 });
@@ -593,43 +608,50 @@ const reponsesEnregistrees = (page: Page) =>
     [...Object.keys(sessionStorage), ...Object.keys(localStorage)].filter((cle) => cle.startsWith("aucrible") && cle !== "aucrible:ordre" && cle !== "aucrible:visite"),
   );
 
-test("sans rien choisir, « Valider ma réponse » est inactif : le toucher n'ouvre pas la révélation et n'enregistre rien", async ({ page }) => {
+test("sans rien choisir, rien ne permet de valider : ni importance ni « Valider ma réponse » à l'écran", async ({ page }) => {
   await page.goto("/questionnaire");
   await voirLesPropositions(page);
-  const valider = page.getByRole("button", { name: "Valider ma réponse" });
-  await expect(valider).toBeVisible();
-  await expect(valider).toBeDisabled();
-  await valider.click({ force: true });
+  await expect(importance(page)).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeHidden();
+  expect(await reponsesEnregistrees(page)).toEqual([]);
+});
+
+test("toucher une option fait monter ×1, ×2 et ×3 en bas de l'écran ; rien n'est enregistré avant d'en toucher un", async ({ page }) => {
+  await page.goto("/questionnaire");
+  await choisir(page, "65 ans ou plus");
+  await expect(importance(page)).toBeInViewport();
+  await expect(importance(page).getByRole("button")).toHaveCount(3);
+  await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeHidden();
   await page.waitForTimeout(500);
   await expect(page).toHaveURL(/\/questionnaire$/);
   expect(await reponsesEnregistrees(page)).toEqual([]);
 });
 
-test("une option choisie sans importance laisse « Valider ma réponse » inactif : le toucher n'enregistre rien", async ({ page }) => {
+test("après une option, toucher ×2 valide aussitôt et ouvre la révélation", async ({ page }) => {
   await page.goto("/questionnaire");
-  const valider = page.getByRole("button", { name: "Valider ma réponse" });
   await choisir(page, "65 ans ou plus");
-  await expect(valider).toBeDisabled();
-  await valider.click({ force: true });
-  await page.waitForTimeout(500);
-  await expect(page).toHaveURL(/\/questionnaire$/);
-  expect(await reponsesEnregistrees(page)).toEqual([]);
-});
-
-test("dès qu'une option et son importance sont choisies, « Valider ma réponse » ouvre la révélation", async ({ page }) => {
-  await page.goto("/questionnaire");
-  const valider = page.getByRole("button", { name: "Valider ma réponse" });
-  await choisir(page, "65 ans ou plus");
-  await peser(page, "×2");
-  await expect(valider).toBeEnabled();
-  await valider.click();
+  await validerAvec(page, "×2");
   await expect(page).toHaveURL(/\/revelation$/);
 });
 
-test("« Je ne sais pas » se valide sans importance", async ({ page }) => {
+test("la carte touchée reste visible au-dessus de la feuille qui monte", async ({ page }) => {
+  await page.goto("/questionnaire");
+  await choisir(page, "À la carte, avec un système à points");
+  const carte = carteReponse(page, "À la carte, avec un système à points");
+  await expect
+    .poll(async () => {
+      const [c, f] = await Promise.all([carte.boundingBox(), page.locator(".mq-decision").boundingBox()]);
+      return c!.y + c!.height <= f!.y + 1;
+    })
+    .toBe(true);
+});
+
+test("« Je ne sais pas » se valide sans importance : la feuille n'a que « Valider ma réponse »", async ({ page }) => {
   await page.goto("/questionnaire");
   await choisir(page, "Je ne sais pas");
   await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeInViewport();
+  await expect(importance(page)).toHaveCount(0);
 });
 
 test("choisir « Je ne sais pas » puis valider enregistre la réponse et ouvre la révélation de la question n° 24", async ({ page }) => {
@@ -649,53 +671,79 @@ test("choisir « Je ne sais pas » après « 64 ans » décoche « 64 ans » : u
   await expect(page.getByRole("radio", { checked: true })).toHaveCount(1);
 });
 
-const importance = (page: Page) => page.getByRole("group", { name: "Ce sujet compte pour toi ?" });
+/** L'importance à l'écran : au téléphone, la feuille du bas ; sur grand écran, la tuile pour décider. */
+const importance = (page: Page) => page.getByRole("group", { name: "Ce sujet compte pour toi ?" }).filter({ visible: true });
 
-/** Choisir une importance comme le fait l'électeur : en touchant sa carte. */
+/** Au téléphone, valider avec une importance comme l'électeur : toucher ×1, ×2 ou ×3 dans la feuille valide aussitôt. */
+async function validerAvec(page: Page, poids: "×1" | "×2" | "×3") {
+  await importance(page).getByRole("button", { name: new RegExp(`^${poids} `) }).click();
+}
+
+/** Sur grand écran, choisir une importance comme l'électeur : en touchant sa carte. */
 async function peser(page: Page, poids: "×1" | "×2" | "×3") {
   await importance(page).getByText(poids, { exact: true }).click();
   await expect(importance(page).getByRole("radio", { name: new RegExp(`^${poids} `) })).toBeChecked();
 }
 
-test("sous « Ce sujet compte pour toi ? », la fiche n° 24 propose ×1 « Un peu », ×2 « Beaucoup », ×3 « Essentiel »", async ({ page }) => {
-  await page.goto("/questionnaire");
-  await voirLesPropositions(page);
-  const choix = importance(page).getByRole("radio");
-  await expect(choix).toHaveCount(3);
-  for (const [rang, nom] of ["×1 Un peu", "×2 Beaucoup", "×3 Essentiel"].entries()) {
-    await expect(choix.nth(rang)).toHaveAccessibleName(nom);
-    await expect(importance(page).getByText(nom.split(" ")[0], { exact: true })).toBeVisible();
-  }
-  const [options, groupe] = await Promise.all([page.getByRole("radiogroup", { name: "Les options" }).boundingBox(), importance(page).boundingBox()]);
-  expect(groupe!.y).toBeGreaterThan(options!.y + options!.height - 1);
-});
-
-test("toucher ×3 marque ×3 et décoche le choix précédent ; un seul est marqué à la fois", async ({ page }) => {
-  await page.goto("/questionnaire");
-  await voirLesPropositions(page);
-  await peser(page, "×1");
-  await peser(page, "×3");
-  await expect(importance(page).getByRole("radio", { name: /^×1 / })).not.toBeChecked();
-  await expect(importance(page).getByRole("radio", { checked: true })).toHaveCount(1);
-});
-
-test("changer d'importance ne change pas l'option choisie : la couleur reste sur la même carte", async ({ page }) => {
+test("sous « Ce sujet compte pour toi ? », la feuille de la n° 24 propose ×1 « Un peu », ×2 « Beaucoup », ×3 « Essentiel », collée en bas", async ({ page }) => {
   await page.goto("/questionnaire");
   await choisir(page, "64 ans");
-  await peser(page, "×2");
-  await peser(page, "×3");
-  await expect(page.getByRole("radio", { name: "64 ans" })).toBeChecked();
-  await expect.poll(() => fond(carteReponse(page, "64 ans").locator(".mq-face"))).toBe(ORANGE);
+  const boutons = importance(page).getByRole("button");
+  await expect(boutons).toHaveCount(3);
+  for (const [rang, nom] of ["×1 Un peu", "×2 Beaucoup", "×3 Essentiel"].entries()) {
+    await expect(boutons.nth(rang)).toHaveAccessibleName(nom);
+  }
+  const hauteur = page.viewportSize()!.height;
+  await expect.poll(async () => {
+    const feuille = await page.locator(".mq-decision").boundingBox();
+    return Math.round(feuille!.y + feuille!.height);
+  }).toBe(hauteur);
+});
+
+test.describe("sur grand écran, l'importance se marque puis se valide", () => {
+  test.use({ viewport: { width: 1440, height: 900 }, isMobile: false, hasTouch: false });
+
+  test("toucher ×3 marque ×3 et décoche le choix précédent ; un seul est marqué à la fois", async ({ page }) => {
+    await page.goto("/questionnaire");
+    await voirLesPropositions(page);
+    await peser(page, "×1");
+    await peser(page, "×3");
+    await expect(importance(page).getByRole("radio", { name: /^×1 / })).not.toBeChecked();
+    await expect(importance(page).getByRole("radio", { checked: true })).toHaveCount(1);
+  });
+
+  test("changer d'importance ne change pas l'option choisie : la couleur reste sur la même carte", async ({ page }) => {
+    await page.goto("/questionnaire");
+    await choisir(page, "64 ans");
+    await peser(page, "×2");
+    await peser(page, "×3");
+    await expect(page.getByRole("radio", { name: "64 ans" })).toBeChecked();
+    await expect.poll(() => fond(carteReponse(page, "64 ans").locator(".mq-face"))).toBe(ORANGE);
+  });
+
+  test("une option choisie sans importance laisse « Valider ma réponse » inactif ; avec ×2, il ouvre la révélation", async ({ page }) => {
+    await page.goto("/questionnaire");
+    const valider = page.getByRole("button", { name: "Valider ma réponse" });
+    await choisir(page, "65 ans ou plus");
+    await expect(valider).toBeDisabled();
+    await valider.click({ force: true });
+    await page.waitForTimeout(500);
+    await expect(page).toHaveURL(/\/questionnaire$/);
+    await peser(page, "×2");
+    await valider.click();
+    await expect(page).toHaveURL(/\/revelation$/);
+  });
 });
 
 /**
- * Valider la réponse comme l'électeur : une option choisie se valide avec son importance, donc on donne « ×1 » si
- * aucune n'est encore choisie (« Je ne sais pas » n'en demande pas, mais en accepte une).
+ * Valider la réponse comme l'électeur : au téléphone, une option se valide en touchant son importance, ×1 ici ; sur
+ * grand écran, on marque ×1 (si aucune ne l'est) puis « Valider ma réponse ». « Je ne sais pas » n'en demande pas.
  */
 async function validerMaReponse(page: Page) {
-  const niveaux = page.getByRole("group", { name: "Ce sujet compte pour toi ?" }).filter({ visible: true }).getByRole("radio");
+  if ((await importance(page).getByRole("button").count()) > 0) return validerAvec(page, "×1");
+  const niveaux = importance(page).getByRole("radio");
   if ((await niveaux.count()) > 0 && !(await niveaux.evaluateAll((radios) => radios.some((r) => (r as HTMLInputElement).checked)))) {
-    await page.getByRole("group", { name: "Ce sujet compte pour toi ?" }).filter({ visible: true }).getByText("×1", { exact: true }).click();
+    await peser(page, "×1");
   }
   await page.getByRole("button", { name: "Valider ma réponse" }).filter({ visible: true }).click();
 }
@@ -778,8 +826,7 @@ test.describe("la révélation rappelle l'importance donnée", () => {
     test(`après validation avec ${poids}, la colonne de ta réponse affiche « Importance ${poids} » avec ${pleines} pastille(s) pleine(s) sur 3`, async ({ page }) => {
       await page.goto("/questionnaire");
       await choisir(page, "62 ans");
-      await peser(page, poids);
-      await validerMaReponse(page);
+      await validerAvec(page, poids);
       const encart = quiDefendQuoi(page).getByRole("article", { name: "Option B : 62 ans" });
       await expect(encart.getByText(`Importance ${poids}`, { exact: true })).toBeVisible();
       const pastilles = encart.locator(".chips i");
@@ -1106,8 +1153,7 @@ test.describe("l'importance donnée est retrouvée en revenant", () => {
     await fixerLeJour(page, jour);
     await page.goto("/questionnaire");
     await choisir(page, libelle);
-    await peser(page, poids);
-    await validerMaReponse(page);
+    await validerAvec(page, poids);
     await expect(page).toHaveURL(/\/revelation$/);
   }
 
@@ -1146,7 +1192,7 @@ test.describe("l'importance donnée est retrouvée en revenant", () => {
 
 test("sous « Valider ma réponse », plus de phrase : la promesse sur les réponses est dans « À propos »", async ({ page }) => {
   await page.goto("/questionnaire");
-  await voirLesPropositions(page);
+  await choisir(page, "Je ne sais pas");
   await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeVisible();
   await expect(page.locator("form.mosaique .go-note")).toHaveCount(0);
 });
@@ -1160,7 +1206,7 @@ test("rien dans l'app ne demande de créer un compte ou de se connecter, ni avan
   };
   await page.goto("/questionnaire");
   await voirLesPropositions(page);
-  await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeVisible();
+  await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
   await verifier();
   await choisir(page, "64 ans");
   await validerMaReponse(page);
@@ -1358,9 +1404,9 @@ test.describe("la série de jours d'affilée n'existe plus", () => {
     for (const jour of SIX_JOURS) await repondreCeJour(page, jour);
     await fixerLeJour(page, "2026-10-28T09:00:00+01:00");
     await page.goto("/questionnaire");
+    await expect(page.getByRole("banner")).not.toContainText("affilée");
     await voirLesPropositions(page);
     await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
-    await expect(page.getByRole("banner")).not.toContainText("affilée");
     await expect(page.getByRole("radiogroup", { name: "Les options" })).not.toContainText("série");
     await voirLesPropositions(page);
     await page.getByRole("radiogroup", { name: "Les options" }).locator("label").first().click();
@@ -1413,8 +1459,6 @@ test.describe("une question de la liste s'ouvre sur sa fiche", () => {
       .filter({ has: page.getByRole("heading", { name: question, exact: true }) })
       .click();
     await expect(page.getByRole("heading", { level: 1, name: question })).toBeVisible();
-    await voirLesPropositions(page);
-    await expect(page.getByRole("radiogroup", { name: "Les options" })).toBeVisible();
   }
 
   test("toucher la carte n° 9 « Faut-il rétablir l'ISF ? » ouvre la fiche de la question n° 9, et non celle que propose l'accueil, la n° 24", async ({ page }) => {
@@ -1627,7 +1671,6 @@ test.describe("l'électeur ouvre « Mes résultats »", () => {
   test("depuis la fiche de la question n° 24, toucher « Mes résultats » ouvre la page « Mes résultats »", async ({ page }) => {
     await page.goto("/questionnaire");
     await expect(page.getByRole("heading", { level: 1, name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
-    await voirLesPropositions(page);
     await page.getByRole("banner").getByRole("link", { name: "Mes résultats" }).click();
     await expect(page).toHaveURL(/\/resultats$/);
     await expect(page.getByRole("heading", { level: 1, name: "Mes résultats." })).toBeVisible();
@@ -6021,15 +6064,14 @@ test.describe("la question suivante s'ouvre vierge", () => {
     await page.goto("/questionnaire");
     await voirLesPropositions(page);
     await choisir(page, "62 ans");
-    await peser(page, "×3");
-    await validerMaReponse(page);
+    await validerAvec(page, "×3");
     await expect(page).toHaveURL(/\/question\/24\/revelation$/);
     await page.getByRole("link", { name: "Question suivante" }).filter({ visible: true }).click();
     await expect(page.getByRole("heading", { level: 1, name: "Faut-il encadrer les loyers dans les grandes villes ?" }).filter({ visible: true })).toBeVisible();
     const fiche = page.locator("form.mosaique").filter({ visible: true });
     await voirLesPropositions(page);
     await expect(fiche.getByRole("radio", { checked: true })).toHaveCount(0);
-    await expect(fiche.getByRole("button", { name: "Valider ma réponse" })).toBeDisabled();
+    await expect(fiche.getByRole("group", { name: "Ce sujet compte pour toi ?" }).filter({ visible: true })).toHaveCount(0);
   });
 });
 
@@ -6322,8 +6364,7 @@ test.describe("scanner le QR code importe les réponses", () => {
   test("la n° 24, répondue E en ×2 sur l'ancien appareil, s'ouvre sur sa révélation avec « Ta carte » sur E et ×2 sur le nouveau", async ({ page, browser }) => {
     await page.goto("/questionnaire");
     await choisir(page, "À la carte, avec un système à points");
-    await peser(page, "×2");
-    await validerMaReponse(page);
+    await validerAvec(page, "×2");
     await expect(page).toHaveURL(/\/revelation$/);
     const adresse = await adresseDeLAppareil(page);
     const nouveau = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
@@ -6364,8 +6405,7 @@ test.describe("coller le lien importe les réponses", () => {
   test("la n° 24, répondue E en ×2 sur l'ancien appareil, s'ouvre sur sa révélation avec « Ta carte » sur E et ×2 sur le nouveau", async ({ page, browser }) => {
     await page.goto("/questionnaire");
     await choisir(page, "À la carte, avec un système à points");
-    await peser(page, "×2");
-    await validerMaReponse(page);
+    await validerAvec(page, "×2");
     await expect(page).toHaveURL(/\/revelation$/);
     const { nouveau, autre } = await collerSurUnNouvelAppareil(browser, await adresseDeLAppareil(page));
     await autre.goto("/question/24");
@@ -6569,12 +6609,11 @@ test.describe("la fiche se lit en deux étapes : le contexte, puis les propositi
     await expect(page.getByRole("button", { name: "Répondre" })).toBeVisible();
   });
 
-  test("« Répondre » montre la question, ses options et la validation, sans le contexte", async ({ page }) => {
+  test("« Répondre » montre la question et ses options, sans le contexte", async ({ page }) => {
     await page.goto("/questionnaire");
     await page.getByRole("button", { name: "Répondre" }).click();
     await expect(page.getByRole("heading", { name: "À quel âge devrait-on pouvoir partir à la retraite ?" })).toBeVisible();
     await expect(page.getByRole("radiogroup", { name: "Les options" }).getByRole("radio")).toHaveCount(6);
-    await expect(page.getByRole("button", { name: "Valider ma réponse" })).toBeVisible();
     await expect(page.getByRole("region", { name: "Le contexte" })).toHaveCount(0);
   });
 
