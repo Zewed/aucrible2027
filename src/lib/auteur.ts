@@ -1,18 +1,13 @@
 import "server-only";
+import { createHash, timingSafeEqual } from "node:crypto";
 import { getIronSession, type SessionOptions } from "iron-session";
 import { cookies } from "next/headers";
 import { connection } from "next/server";
 
-/**
- * Les comptes GitHub qui entrent dans l'espace de l'auteur (SPEC.md, « Décisions de l'auteur du 25/10/2026 ») : celui
- * de l'auteur, Zewed. Reconnu à son numéro GitHub, qui ne change pas, et non à son nom, qu'un autre pourrait reprendre.
- */
-const AUTEURS = [{ id: 44063631, login: "Zewed" }];
+/** Ce que garde la session : l'auteur est entré avec son mot de passe. */
+export type Session = { auteur?: true };
 
-/** Ce que garde la session : le compte GitHub connecté, et le « state » d'une connexion en cours. */
-export type Session = { github?: { id: number; login: string }; state?: string };
-
-/** La session de l'espace de l'auteur : un cookie chiffré par AUTH_SECRET, qui ne garde aucun jeton GitHub. */
+/** La session de l'espace de l'auteur : un cookie chiffré par AUTH_SECRET, qui ne garde pas le mot de passe. */
 function options(): SessionOptions {
   if (!process.env.AUTH_SECRET) throw new Error("AUTH_SECRET manque : pas de session possible.");
   return {
@@ -29,11 +24,17 @@ export async function lireLaSession() {
 }
 
 /**
- * Qui est connecté : l'auteur (son compte GitHub), un autre compte GitHub (« refuse »), ou personne. Chaque lecture de
- * l'espace de l'auteur passe par ici.
+ * Le mot de passe tapé est-il celui de l'auteur (ADMIN_PASSWORD) ? Comparé sans fuite de temps ; sans ADMIN_PASSWORD,
+ * personne n'entre.
  */
-export async function lAuteur(): Promise<{ login: string } | "refuse" | null> {
-  const { github } = await lireLaSession();
-  if (!github) return null;
-  return AUTEURS.some((a) => a.id === github.id) ? { login: github.login } : "refuse";
+export function bonMotDePasse(tape: string) {
+  const attendu = process.env.ADMIN_PASSWORD;
+  if (!attendu || !tape) return false;
+  const empreinte = (texte: string) => createHash("sha256").update(texte).digest();
+  return timingSafeEqual(empreinte(attendu), empreinte(tape));
+}
+
+/** L'auteur est-il entré ? Chaque lecture de l'espace de l'auteur passe par ici. */
+export async function estLAuteur() {
+  return (await lireLaSession()).auteur === true;
 }

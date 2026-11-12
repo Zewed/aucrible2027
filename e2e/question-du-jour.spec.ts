@@ -3600,11 +3600,11 @@ test.describe("l'électeur envoie un signalement", () => {
 });
 
 /**
- * Connecte ce navigateur à l'espace de l'auteur avec ce compte GitHub, comme le ferait le retour de GitHub : une session
- * chiffrée avec le secret des tests (playwright.config.ts). Seul le compte n° 44063631 (Zewed) est celui de l'auteur.
+ * Ouvre à ce navigateur l'espace de l'auteur, comme après le bon mot de passe : une session chiffrée avec le secret des
+ * tests (playwright.config.ts).
  */
-async function connecterAvecGitHub(page: Page, compte = { id: 44063631, login: "Zewed" }) {
-  const session = await sealData({ github: compte }, { password: process.env.AUTH_SECRET! });
+async function connecterLAuteur(page: Page) {
+  const session = await sealData({ auteur: true }, { password: process.env.AUTH_SECRET! });
   await page.context().addCookies([{ name: "aucrible-auteur", value: session, url: "http://localhost:3127", httpOnly: true, secure: true, sameSite: "Lax" }]);
 }
 
@@ -3622,7 +3622,7 @@ test.describe("le signalement arrive dans une boîte privée", () => {
   test("après l'envoi depuis la n° 24 avec « Un chiffre », l'auteur le retrouve dans sa boîte, avec la question, le type et le texte", async ({ page }) => {
     const texte = `Le chiffre de 1,7 cotisant pour 1 retraité me semble daté ${Date.now()}-${Math.random()}`;
     await signaler(page, texte);
-    await connecterAvecGitHub(page);
+    await connecterLAuteur(page);
     await page.goto("/admin");
     const signalement = boite(page).getByRole("article").filter({ hasText: texte });
     await expect(signalement).toHaveCount(1);
@@ -3641,38 +3641,37 @@ test.describe("le signalement arrive dans une boîte privée", () => {
     }
   });
 
-  test("sans connexion, /admin ne montre aucun signalement, seulement « Se connecter avec GitHub », qui part vers GitHub", async ({ page }) => {
+  test("sans connexion, /admin ne montre aucun signalement, seulement le mot de passe", async ({ page }) => {
     const texte = `Pas pour les visiteurs ${Date.now()}-${Math.random()}`;
     await signaler(page, texte);
     await page.goto("/admin");
-    await expect(page.getByRole("link", { name: "Se connecter avec GitHub" })).toBeVisible();
+    await expect(page.getByLabel("Mot de passe")).toBeVisible();
+    await expect(page.getByRole("button", { name: "Entrer" })).toBeVisible();
     await expect(boite(page)).toHaveCount(0);
     expect(await page.content()).not.toContain(texte);
-    const depart = await page.request.get("/admin/connexion", { maxRedirects: 0 });
-    expect(depart.status()).toBe(307);
-    const versGitHub = new URL(depart.headers()["location"]);
-    expect(versGitHub.origin + versGitHub.pathname).toBe("https://github.com/login/oauth/authorize");
-    expect(versGitHub.searchParams.get("client_id")).toBe("app-oauth-de-test");
-    expect(versGitHub.searchParams.get("redirect_uri")).toBe("http://localhost:3127/admin/retour");
-    expect(versGitHub.searchParams.get("state")).toMatch(/^[\w-]{20,}$/);
   });
 
-  test("connecté avec un autre compte GitHub que celui de l'auteur, /admin refuse : « Ce compte GitHub n'a pas accès. »", async ({ page }) => {
-    const texte = `Pas pour un autre compte ${Date.now()}-${Math.random()}`;
+  test("un mauvais mot de passe est refusé : « Mauvais mot de passe. », et rien ne s'ouvre", async ({ page }) => {
+    const texte = `Pas pour un mauvais mot de passe ${Date.now()}-${Math.random()}`;
     await signaler(page, texte);
-    await connecterAvecGitHub(page, { id: 1, login: "quelquun" });
     await page.goto("/admin");
-    await expect(page.getByText("Ce compte GitHub n'a pas accès.")).toBeVisible();
+    await page.getByLabel("Mot de passe").fill("pas-le-bon");
+    await page.getByRole("button", { name: "Entrer" }).click();
+    await expect(page.getByRole("alert")).toHaveText("Mauvais mot de passe.");
     await expect(boite(page)).toHaveCount(0);
     expect(await page.content()).not.toContain(texte);
+    expect((await page.request.get("/admin/reponses")).status()).toBe(403);
   });
 
-  test("un retour de GitHub dont le « state » n'est pas celui du départ est refusé, sans ouvrir de session", async ({ page }) => {
-    const retour = await page.request.get("/admin/retour?code=nimporte&state=pas-le-bon", { maxRedirects: 0 });
-    expect(retour.status()).toBe(307);
-    expect(new URL(retour.headers()["location"]).pathname).toBe("/admin");
+  test("le bon mot de passe ouvre la boîte ; « Se déconnecter » la referme", async ({ page }) => {
+    const texte = `Pour l'auteur seulement ${Date.now()}-${Math.random()}`;
+    await signaler(page, texte);
     await page.goto("/admin");
-    await expect(page.getByRole("link", { name: "Se connecter avec GitHub" })).toBeVisible();
+    await page.getByLabel("Mot de passe").fill(process.env.ADMIN_PASSWORD!);
+    await page.getByRole("button", { name: "Entrer" }).click();
+    await expect(boite(page).getByRole("article").filter({ hasText: texte })).toHaveCount(1);
+    await page.getByRole("button", { name: "Se déconnecter" }).click();
+    await expect(page.getByLabel("Mot de passe")).toBeVisible();
     await expect(boite(page)).toHaveCount(0);
   });
 });
@@ -3713,7 +3712,7 @@ test.describe("l'électeur joint une source à son signalement", () => {
     await champ(page).fill(lien);
     await page.getByRole("button", { name: "Envoyer" }).click();
     await expect(page.getByRole("status")).toContainText("Merci ! Ton signalement est arrivé.");
-    await connecterAvecGitHub(page);
+    await connecterLAuteur(page);
     await page.goto("/admin");
     const signalement = page.getByRole("region", { name: "Signalements" }).getByRole("article").filter({ hasText: texte });
     await expect(signalement.locator(".sg-source")).toHaveText(`Source : ${lien}`);
@@ -3749,7 +3748,7 @@ test.describe("l'électeur laisse un e-mail pour avoir une réponse", () => {
       await page.waitForLoadState("networkidle");
       expect(await page.content(), adresse).not.toContain("marie@exemple.fr");
     }
-    await connecterAvecGitHub(page);
+    await connecterLAuteur(page);
     await page.goto("/admin");
     const signalement = page.getByRole("region", { name: "Signalements" }).getByRole("article").filter({ hasText: texte });
     await expect(signalement.locator(".sg-email")).toHaveText("Répondre à : marie@exemple.fr");
@@ -3761,7 +3760,7 @@ test.describe("l'électeur laisse un e-mail pour avoir une réponse", () => {
     const recent = `Signalement récent ${Date.now()}-${Math.random()}`;
     // La boîte ouverte une première fois : l'app a créé ses tables. Puis deux signalements avec e-mail, d'il y a quatre
     // mois et d'il y a deux mois.
-    await connecterAvecGitHub(page);
+    await connecterLAuteur(page);
     await page.goto("/admin");
     await expect(page.getByRole("region", { name: "Signalements" })).toBeVisible();
     await baseDeTest`INSERT INTO signalements (recu_le, question, type, texte, email) VALUES (now() - interval '4 months', 24, 'chiffre', ${texte}, 'ancien@exemple.fr')`;
@@ -3920,7 +3919,7 @@ test.describe("l'auteur voit le nombre de visites par jour", () => {
     await ouvrirLAppSurUnAppareil(browser, jour, 3);
     await ouvrirLAppSurUnAppareil(browser, jour);
     await expect.poll(() => visitesDu(jour)).toBe(avant + 2);
-    await connecterAvecGitHub(page);
+    await connecterLAuteur(page);
     await fixerLeJour(page, `${jour}T18:00:00+01:00`);
     await page.goto("/admin");
     await expect(page.getByRole("region", { name: "Visites" }).getByRole("row", { name: /8 déc\. 2026/ })).toHaveText(new RegExp(`8 déc\\. 2026\\s*${avant + 2}`));
@@ -4003,7 +4002,7 @@ test.describe("chaque réponse part, anonyme, sous la session de l'onglet", () =
     const session = await sessionDe(page);
     await expect.poll(() => reponsesDe(session)).toHaveLength(1);
     expect((await page.request.get("/admin/reponses")).status()).toBe(403);
-    await connecterAvecGitHub(page);
+    await connecterLAuteur(page);
     await page.goto("/admin");
     const question = page.getByRole("region", { name: "Réponses" }).getByRole("listitem", { name: "Question n° 24" });
     await expect(question.getByRole("row", { name: /^B\. 62 ans/ })).toBeVisible();

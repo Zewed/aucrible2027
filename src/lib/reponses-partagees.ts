@@ -1,4 +1,4 @@
-import { lAuteur } from "@/lib/auteur";
+import { estLAuteur } from "@/lib/auteur";
 import { base } from "@/lib/base";
 
 /**
@@ -19,8 +19,7 @@ export async function enregistrerUneReponsePartagee({ session, question, option,
 }
 
 async function reserveeALAuteur() {
-  const auteur = await lAuteur();
-  if (!auteur || auteur === "refuse") throw new Error("Les réponses partagées sont réservées à l'auteur.");
+  if (!(await estLAuteur())) throw new Error("Les réponses partagées sont réservées à l'auteur.");
   return base();
 }
 

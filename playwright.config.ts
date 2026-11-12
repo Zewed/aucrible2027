@@ -4,10 +4,9 @@ const PORT = 3127;
 // La base Postgres des tests (scripts/base-locale.sh), jamais une autre : le serveur des tests y écrit, les tests y
 // relisent ce qui est arrivé.
 process.env.DATABASE_URL = "postgres://aucrible:aucrible@127.0.0.1:5447/aucrible_test";
-// L'espace de l'auteur (/admin) en test : un secret de session et une app OAuth GitHub de test, jamais les vrais. Les
-// tests fabriquent une session avec ce secret, comme si l'auteur s'était connecté ; l'app n'a pas d'autre porte.
+// L'espace de l'auteur (/admin) en test : un secret de session et un mot de passe de test, jamais les vrais.
 process.env.AUTH_SECRET = "secret-des-tests-de-bout-en-bout-seulement-0123456789";
-process.env.AUTH_GITHUB_ID = "app-oauth-de-test";
+process.env.ADMIN_PASSWORD = "mot-de-passe-des-tests";
 
 export default defineConfig({
   testDir: "./e2e",

@@ -5,8 +5,11 @@
 .adm-head h1 span { color: var(--eco-texte); }
 .adm-qui { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); }
 .adm-qui button { border: 0; background: none; color: var(--sur-table); font: 700 14px/1 var(--text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; min-height: 44px; }
-.adm-login { margin-top: 26px; display: grid; gap: 14px; justify-items: start; }
-.adm-login .go { width: auto; margin-top: 0; padding: 20px 26px 19px; text-decoration: none; }
+.adm-login { margin-top: 26px; display: grid; gap: 14px; max-width: 420px; }
+.adm-mdp { width: 100%; min-height: 58px; background: var(--card); color: var(--ink); border: 3px solid var(--ink); border-radius: 12px; padding: 0 14px; font: 600 18px/1.2 var(--text); }
+.adm-mdp::placeholder { color: var(--ink-soft); opacity: 1; }
+.adm-mdp:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
+.adm-login .go { margin-top: 0; }
 .adm-refus { background: var(--theme-tint); color: var(--ink); border-radius: 12px; padding: 12px 14px; font: 700 15px/1.35 var(--text); }
 
 .sg-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 12px; }

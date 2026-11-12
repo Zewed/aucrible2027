@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { lAuteur } from "@/lib/auteur";
+import { estLAuteur } from "@/lib/auteur";
 import { dateCourte } from "@/lib/date";
 import { lireQuestionsPubliees } from "@/lib/publication";
 import { JE_NE_SAIS_PAS } from "@/lib/reponses";
@@ -8,6 +8,7 @@ import { lireLesTotaux } from "@/lib/reponses-partagees";
 import { lireLesSignalements, TYPES } from "@/lib/signalement";
 import { lireLesVisites } from "@/lib/visites";
 import { seDeconnecter } from "./actions";
+import { Connexion } from "./Connexion";
 import "./admin.css";
 
 // L'espace de l'auteur : privé, aucune page publique n'y mène, et les moteurs de recherche n'ont pas à le trouver.
@@ -29,19 +30,6 @@ function Source({ source }: { source: string }) {
         source
       )}
     </p>
-  );
-}
-
-/** « Se connecter avec GitHub » ; après un compte GitHub qui n'est pas celui de l'auteur, le refus au-dessus. */
-function Connexion({ refuse }: { refuse: boolean }) {
-  return (
-    <div className="adm-login">
-      {refuse && <p className="adm-refus theme-sante">Ce compte GitHub n&apos;a pas accès.</p>}
-      {/* Une route qui part vers GitHub, pas une page : un lien ordinaire, sans préchargement. */}
-      <a className="go" href="/admin/connexion">
-        Se connecter avec GitHub
-      </a>
-    </div>
   );
 }
 
@@ -171,14 +159,12 @@ async function Reponses() {
   );
 }
 
-/** Qui est là : l'auteur voit sa boîte, ses visites et les réponses partagées ; tout autre compte, ou personne, voit seulement la connexion. */
+/** Qui est là : l'auteur voit sa boîte, ses visites et les réponses partagées ; sans le mot de passe, seulement la connexion. */
 async function Espace() {
-  const auteur = await lAuteur();
-  if (!auteur || auteur === "refuse") return <Connexion refuse={auteur === "refuse"} />;
+  if (!(await estLAuteur())) return <Connexion />;
   return (
     <>
       <form className="adm-qui" action={seDeconnecter}>
-        <span>Connecté : {auteur.login}</span>
         <button type="submit">Se déconnecter</button>
       </form>
       <Boite />
@@ -189,8 +175,8 @@ async function Espace() {
 }
 
 /**
- * L'espace de l'auteur (SPEC.md, « Décisions de l'auteur du 25/10/2026 ») : on y entre avec son compte GitHub, et seul
- * celui de l'auteur passe. Pour l'instant, la boîte privée des signalements ; les outils de l'auteur viendront ici.
+ * L'espace de l'auteur (SPEC.md, « Décisions de l'auteur du 25/10/2026 », amendé le 12/11/2026) : on y entre avec le
+ * mot de passe de l'auteur. Pour l'instant, la boîte privée des signalements ; les outils de l'auteur viendront ici.
  */
 export default function PageAdmin() {
   return (

@@ -1,4 +1,4 @@
-import { lAuteur } from "@/lib/auteur";
+import { estLAuteur } from "@/lib/auteur";
 import { base } from "@/lib/base";
 
 /** Les types d'erreur du formulaire, « Un chiffre » choisi au départ (maquettes/signaler.html). */
@@ -35,8 +35,7 @@ export type SignalementRecu = Signalement & { id: string; recuLe: Date };
  * l'auteur qui demande, et ne rend rien à personne d'autre.
  */
 export async function lireLesSignalements(): Promise<SignalementRecu[]> {
-  const auteur = await lAuteur();
-  if (!auteur || auteur === "refuse") throw new Error("La boîte des signalements est réservée à l'auteur.");
+  if (!(await estLAuteur())) throw new Error("La boîte des signalements est réservée à l'auteur.");
   const sql = await base();
   await effacerLesVieuxEmails(sql);
   return sql<SignalementRecu[]>`SELECT id, recu_le AS "recuLe", question, type, texte, source, email FROM signalements ORDER BY recu_le DESC, id DESC LIMIT 200`;
