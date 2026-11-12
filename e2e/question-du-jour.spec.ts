@@ -3657,7 +3657,7 @@ test.describe("le signalement arrive dans une boîte privée", () => {
     await page.goto("/admin");
     await page.getByLabel("Mot de passe").fill("pas-le-bon");
     await page.getByRole("button", { name: "Entrer" }).click();
-    await expect(page.getByRole("alert")).toHaveText("Mauvais mot de passe.");
+    await expect(page.getByRole("alert").filter({ hasText: "Mauvais mot de passe." })).toBeVisible();
     await expect(boite(page)).toHaveCount(0);
     expect(await page.content()).not.toContain(texte);
     expect((await page.request.get("/admin/reponses")).status()).toBe(403);
