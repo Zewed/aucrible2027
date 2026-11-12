@@ -1,0 +1,31 @@
+src/app/signaler/page.tsx
+  s_6fed57725ecfc2::t_57104a29f185e5 7,58,75
+src/app/layout.tsx
+  s_6fed57725ecfc2::t_b637c3d4f369e2 9,44
+src/lib/presentation.ts
+  s_6fed57725ecfc2::t_57104a29f185e5 5,13,22
+src/components/FormulaireDeSignalement.tsx
+  s_6fed57725ecfc2::t_57104a29f185e5 71-72,135
+src/components/PiedDePage.tsx
+  s_6fed57725ecfc2::t_b637c3d4f369e2 10,18,21,31-32,40,43-44
+src/components/Presentation.tsx
+  s_6fed57725ecfc2::t_b637c3d4f369e2 33-34,264,365
+e2e/question-du-jour.spec.ts
+  s_6fed57725ecfc2::t_57104a29f185e5 4073-4080,6528-6529
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b427c4cde9f26811e73c8a013dbd8ed69a397688",
+  "prompts": {},
+  "sessions": {
+    "s_6fed57725ecfc2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5022d14b-6c55-4ada-aa10-1f75195f7119",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
