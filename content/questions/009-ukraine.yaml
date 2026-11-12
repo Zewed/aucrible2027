@@ -126,16 +126,16 @@ story:
   - choix: "Limiter"
     precision: "ou arrêter"
 positions:
-  # Projet de Debout la France, mesure 22 : https://www.debout-la-france.fr/projet/economie-travail/
-  dupont-aignan: { option: A, source: "Projet de Debout la France, mesure 22", statut: officielle, citation: "Mettre fin aux aides à l'Ukraine", lien: "https://www.debout-la-france.fr/projet/economie-travail/" }
+  # Debout la France, livret « Économie », mesure 22, 12/11/2026 : https://www.dupontaignan.fr/wp-content/uploads/2026/11/Economie-2026_11-12_Livret.pdf (« Mettre fin aux aides à l'Ukraine (7 milliards d'euros par an […]) »)
+  dupont-aignan: { option: A, source: "Debout la France, livret « Économie – Produire en France et récompenser le travail », mesure 22, 12/11/2026", statut: officielle, citation: "Mettre fin aux aides à l'Ukraine", lien: "https://www.dupontaignan.fr/wp-content/uploads/2026/11/Economie-2026_11-12_Livret.pdf" }
   # LCI, 16/09/2026 : https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/face-a-l-etat-des-finances-publiques-marine-le-pen-estime-que-la-france-ne-peut-plus-aider-l-ukraine-autant-qu-actuellement_8197058.html ; franceinfo, 16/10/2026 : https://www.franceinfo.fr/replay-jt/franceinfo/21h-minuit/23-heures/presidentielle-2027-l-ukraine-un-enjeu-pour-la-campagne_8239765.html
   le-pen: { option: B, source: "LCI, 16/09/2026", statut: officielle, lien: "https://www.franceinfo.fr/monde/europe/manifestations-en-ukraine/face-a-l-etat-des-finances-publiques-marine-le-pen-estime-que-la-france-ne-peut-plus-aider-l-ukraine-autant-qu-actuellement_8197058.html" }
   # Sud Radio, 07/03/2024 : https://www.sudradio.fr/linvite-politique/ukraine-je-ne-veux-pas-que-la-france-entre-en-guerre-contre-la-russie-declare-fabien-roussel
   roussel: { option: B, source: "Sud Radio, 07/03/2024", statut: deduite, lien: "https://www.sudradio.fr/linvite-politique/ukraine-je-ne-veux-pas-que-la-france-entre-en-guerre-contre-la-russie-declare-fabien-roussel" }
   # Vote du groupe Horizons, scrutin n° 988 du 12/03/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/988
   philippe: { option: D, source: "Vote du groupe Horizons, 12/03/2025", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/988" }
-  # Vote du groupe socialiste, scrutin n° 988 du 12/03/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/988
-  glucksmann: { option: D, source: "Vote du groupe socialiste, 12/03/2025", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/988" }
+  # Le Grand Continent, réponses écrites des candidats à la primaire, 06/10/2026 : https://legrandcontinent.eu/fr/2026/10/06/quelle-geopolitique-pour-la-primaire-socialiste/ (« Il faut donc augmenter l’aide à l’Ukraine, travailler à l’instauration d’un bouclier anti-aérien pour protéger le ciel ukrainien […] »)
+  glucksmann: { option: D, source: "Le Grand Continent, réponses écrites des candidats à la primaire sociale-démocrate, 06/10/2026", statut: officielle, citation: "Il faut donc augmenter l’aide à l’Ukraine, travailler à l’instauration d’un bouclier anti-aérien pour protéger le ciel ukrainien […] et saisir les plus de 210 milliards d’euros d’avoirs russes gelés en Europe pour financer la résistance ukrainienne.", lien: "https://legrandcontinent.eu/fr/2026/10/06/quelle-geopolitique-pour-la-primaire-socialiste/" }
   # Vote du groupe Droite républicaine, scrutin n° 988 du 12/03/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/988
   retailleau: { option: D, source: "Vote du groupe Droite républicaine, 12/03/2025", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/988" }
   # Vote du groupe EPR, scrutin n° 988 du 12/03/2025 : https://www.assemblee-nationale.fr/dyn/17/scrutins/988

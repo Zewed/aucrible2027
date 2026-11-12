@@ -377,6 +377,10 @@ Options de la future fiche :
 
 ---
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option A (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 2, chap. 2, section « Augmenter les salaires », mesure clé, https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre2 — « Porter immédiatement le SMIC mensuel à 1 700 euros net et indexer les salaires sur l'inflation dans le privé comme dans la fonction publique » — La phrase de 2027 précise « dans le privé comme dans la fonction publique » : l'indexation de tous les salaires du privé, option A, est maintenant écrite noir sur blanc. ---
+
 ## 5. Sources
 
 Consultées le 10 novembre 2026.

@@ -406,6 +406,10 @@ les armes.
 - **Bruno Retailleau** : option B (estimee) — Vote nominatif au Parlement européen, 11/09/2025, résolution « Gaza at breaking point » (RC-B10-0372/2025), qui demande de sanctionner deux ministres israéliens et de suspendre le volet commercial de l'accord d'association : les eurodéputés LR Bellamy, Gomart et Morano votent contre, https://howtheyvote.eu/votes/179048 — « François-Xavier BELLAMY, Les Républicains : AGAINST ; Christophe GOMART, Les Républicains : AGAINST ; Nadine MORANO, Les Républicains : AGAINST » — Les élus de son parti ont rejeté un texte qui réclamait des sanctions contre les ministres et sur le commerce, ce qui écarte C et D ; rien de documenté ne le place sur un renforcement du soutien : B, qui change le moins la règle parmi A et B, est retenue.
 - **Éric Zemmour** : option B (estimee) — Vote de S. Knafo (Reconquête) contre la résolution du Parlement européen « Gaza at breaking point », 11/09/2025 (communiqué du Parlement), https://howtheyvote.eu/votes/179048 — « calls for sanctions on Israeli ministers Bezalel Smotrich and Itamar Ben-Gvir » — Son parti a voté contre ce texte, qui demandait des sanctions contre deux ministres et la suspension partielle du volet commercial de l'accord, ce qui écarte C et D ; rien de documenté sur un renforcement de la coopération de sécurité (A) : B, qui change le moins la règle.
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option D (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 6, chap. 2, section « Agir pour le respect du droit international contre les guerres », https://melenchon2027.fr/programme/livre/un-monde-ordonne/chapitre2 — « Mettre en place des sanctions contre le gouvernement Netanyahou, faire appliquer le mandat d'arrêt contre le Premier ministre israélien ainsi que les autres responsables israéliens visés, et suspendre l'accord d'association entre l'UE et l'État d'Israël » — La suspension de l'accord d'association fait partie de la définition de l'option D. La même section demande aussi « un embargo sur les armes et biens à double usage à destination d'Israël ».
+
 ## 5. Sources
 
 Consultées le 27/10/2026.

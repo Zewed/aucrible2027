@@ -365,6 +365,10 @@ Options de la fiche : A = supprimer l'interdiction ; B = la garder à 2 h 30 ; C
 - **Fabien Roussel** : option B (estimee) — F. Roussel, La France des Jours heureux, programme présidentiel 2022 (repris comme son programme par votons-2027.fr), mesures 48 et 49, https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf — « augmenter massivement le nombre des déplacements en modes peu ou pas polluants (vélo, transports publics, trains) […] financé par […] les modes de transport les plus polluants » — Son programme veut un report vers le train et faire payer les transports les plus polluants, ce qui écarte la suppression de l'interdiction (A) ; rien ne départage B et C, on garde B, qui change le moins la règle actuelle.
 - **Éric Zemmour** : option B (estimee) — Reconquête, « Notre projet pour l'Europe des nations et de la civilisation », européennes du 09/06/2024, introduction ; Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour (avion « 100 % biokérosène »), https://assets.ericzemmour.fr/document/Programme%20Reconqu%C3%AAte%20Europ%C3%A9ennes%202024.pdf — « sera toujours préférable à l'écologie de la punition et de la pénitence des adeptes de la décroissance » — Il préfère l'innovation à « l'écologie de la punition », ce qui écarte une interdiction élargie (C, D) ; rien ne vise l'interdiction actuelle, et entre A et B, B change le moins la règle.
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option C (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 1, chap. 3, section « Développer les transports publics écologiques, repenser la mobilité individuelle », https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3 — « Supprimer les lignes aériennes intérieures quand l'alternative en train est inférieure à quatre heures » — La mesure est identique dans l'édition 2027 ; seule la source change. La section ajoute l'interdiction des vols de nuit entre 23 h et 6 h, qui ne concerne pas cette question.
+
 ## 5. Sources
 
 Sources consultées le 27 octobre 2026.

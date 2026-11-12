@@ -383,6 +383,12 @@ Bilan : 11 positions sur 13 (A : 3, B : 2, C : 3, D : 3). Statuts : 1 officielle
 
 ---
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option D (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 3, chap. 3, section « Atteindre l'égalité salariale », https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre3 — « Remplacer le congé paternité et le congé maternité actuels par un congé d'accueil de l'enfant, identique et obligatoire pour les deux parents, d'une durée de 20 semaines par parent » — Un congé identique et obligatoire pour les deux parents, c'est l'option D (« le même congé que la mère »). Le programme va plus loin, avec 20 semaines par parent, plus que les 16 de l'option. Il remplace la proposition de loi : statut officielle.
+- **Bruno Retailleau** : option A (officielle) — Programme 2027, avecretailleau.fr, mesure « Prolonger le congé jusqu'aux six mois de l'enfant », 12/09/2026, https://www.avecretailleau.fr/projet/mesure/prolonger-le-conge-jusqu-aux-six-mois-de-l-enfant — « Ce congé sera ouvert à l'un ou l'autre parent, selon leur choix, et restera facultatif. » — un congé jusqu'aux six mois de l'enfant, payé 70 %, que le couple répartit librement, sans part réservée au père (« Le partage entre les parents n'est pas imposé ») : c'est A, que le texte de l'option cite presque à l'identique. On passe de bribes de presse au programme : officielle.
+- **Marine Tondelier** : option D (officielle) — Livret « Travailler mieux », campagne de Marine Tondelier, novembre 2026, p. 28, https://marinetondelier.fr/s/livret-travail.pdf — « Instaurer l’égalité des congés de parentalité : rendre obligatoire et aligner le congé d’accueil de l’enfant entre la mère et le second parent avec 16 semaines rémunérées à 100% du salaire mensuel de base. » — un congé obligatoire, aligné sur celui de la mère, 16 semaines pour chacun : c'est l'option D, le même congé que la mère. Le texte est celui de la campagne et dit « obligatoire » en toutes lettres, ce qui manquait aux sources actuelles ; le statut passe de « déduite » à « officielle ».
+
 ## 5. Sources
 
 Sources consultées le 7 novembre 2026.

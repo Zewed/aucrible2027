@@ -351,6 +351,10 @@ Bilan : 11 positions sur 13 (A : 3, B : 5, C : 2, D : 1). Statuts : 1 officielle
 
 ---
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option A (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 3, chap. 2, section « Protéger les enfants », https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre2 — « Recentraliser la protection de l'enfance en augmentant significativement ses moyens financiers et humains pour une égalité entre tous les enfants de la République et un accompagnement éducatif de qualité » — Même mesure (recentraliser, donc option A) ; la phrase de 2027 diffère un peu de celle de 2025, d'où la nouvelle citation.
+
 ## 5. Sources
 
 Consultées du 7 au 9 novembre 2026.

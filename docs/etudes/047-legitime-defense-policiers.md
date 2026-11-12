@@ -280,6 +280,10 @@ Règle appliquée : le vote d'ensemble du 7 juillet 2026 (scrutin n° 7987) port
 - **Raphaël Glucksmann** : option B (estimee) — Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 29, p. 60, https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing — « Améliorer les conditions de travail des policiers et gendarmes, recentrer leurs missions sur leur cœur de métier en allégeant les tâches administratives, revaloriser les carrières, et améliorer la formation. » — Son projet mise sur la formation, la police de proximité et une doctrine de maintien de l'ordre revue, sans présomption pour les forces de l'ordre (C peu probable) ni retour sur la loi de 2017 ; entre A et B, on retient B, qui change le moins la règle.
 - **Fabien Roussel** : option A (deduite) — Amendement CL17 cosigné par F. Roussel (GDR) à la PPL n° 557 sur la présomption de légitime défense, 09/12/2022, https://www.assemblee-nationale.fr/dyn/16/amendements/0557/CION_LOIS/CL17.pdf — « l'article L 435-1 du Code de sécurité intérieure issue de la loi Cazeneuve de 2017 […] a ouvert la voie à la multiplication des tirs mortels pour refus d'obtempérer. » — Il a signé contre la présomption (ni C) en mettant en cause la règle de tir de 2017 : c'est A ; ses députés GDR ont voté contre la présomption en 2026.
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option A (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 5, chap. 2, section « Refonder une police républicaine », https://melenchon2027.fr/programme/livre/fonder-la-6e-republique/chapitre2 — « Abroger la loi dite « Cazeneuve » sur le refus d'obtempérer et refuser la loi dite « permis de tuer XXL » instaurant une présomption de légitime défense pour les policiers » — L'édition 2027 abroge la règle de 2017 et refuse en toutes lettres la présomption de légitime défense : c'est l'option A, dite plus nettement qu'en 2025. Les guillemets de la citation (« permis de tuer XXL ») sont ceux du programme, pas les nôtres.
+
 ## 5. Sources
 
 Sources consultées le 28 octobre 2026.

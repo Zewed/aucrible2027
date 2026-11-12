@@ -299,6 +299,10 @@ Options de la fiche : **A** rétablir une condition médicale ; **B** garder le 
 - **Raphaël Glucksmann** : option C (estimee) — Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 39, p. 79, https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing — « Respecter les identités et garantir le droit à l’autodétermination de genre et encadrer les parcours de transition » — L'autodétermination de genre écarte A et B ; rien sur les mineurs, donc entre C et D on retient C, qui change le moins la règle.
 - **Éric Zemmour** : option A (estimee) — Programme présidentiel 2022 « Pour que la France reste la France », É. Zemmour, ch. famille, https://xn--ambitionsant2022-mqb.fhf.fr/medias/ez-programme-2022-final6-compressed-623218e2a2ef4036050815.pdf — « Ne reconnaître que la notion de sexe et non de « genre » dans le droit français » — La loi de 2016 (B) fonde le changement sur le sexe vécu, sans critère médical, ce que son programme refuse, et il écarte a fortiori la simple déclaration (C, D) : A, la plus restrictive des options, est la plus proche.
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option D (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 3, chap. 2, section « Une nouvelle étape des libertés et de l'émancipation individuelle », https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre2 — « Déjudiciariser le changement de sexe à l'état civil en le rendant libre et gratuit devant un officier d'état civil ; tendre vers la suppression de la mention du sexe sur la carte nationale d'identité et le passeport ; pour les mineurs, permettre cette modification avec l'accord d'un des parents » — Une déclaration libre en mairie, ouverte aussi aux mineurs avec l'accord d'un parent : c'est l'option D. L'édition 2027 ajoute qu'elle veut tendre vers la suppression de la mention du sexe sur les papiers d'identité.
+
 ## 5. Sources
 
 Sources consultées le 27 octobre 2026.

@@ -401,6 +401,10 @@ Une relecture à trois points de vue (droite, centre, gauche) a relevé que la r
 - **Philippe** : la citation de 2018 fonde l'index actuel, pas l'option B ; la fiche s'appuie sur les votes de l'eurodéputé Horizons.
 - **La question** devient « Faut-il durcir les obligations et les sanctions des entreprises pour l'égalité de salaire entre femmes et hommes ? » : l'ancienne supposait la faute, et oubliait le travail « de valeur égale ».
 
+### Positions mises à jour le 12/11/2026
+
+- **Marine Tondelier** : option A (officielle) — Livret « Travailler mieux », campagne de Marine Tondelier, novembre 2026, p. 27, https://marinetondelier.fr/s/livret-travail.pdf — « Conditionner les allègements de cotisation sociale au respect par les entreprises de leurs obligations en matière d’égalité salariale » — le livret transpose la directive, mais va plus loin : une loi avec des « sanctions financières dissuasives » et la perte des allègements de cotisations pour l'entreprise qui ne respecte pas l'égalité salariale. La perte des réductions de cotisations est la marque de l'option A. Un document de campagne de 2026 remplace le programme 2022, et la position passe d'« estimée » à « officielle ».
+
 ## 5. Sources
 
 Sources consultées le 7 novembre 2026.

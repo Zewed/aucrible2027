@@ -114,8 +114,8 @@ story:
 positions:
   # Programme de juillet 2026, p. 184, cité par https://monvote2027.fr/candidat/tondelier
   tondelier: { option: A, source: "Programme de juillet 2026, p. 184", statut: officielle, citation: "Légaliser et encadrer la production, la vente et la consommation de cannabis", lien: "https://monvote2027.fr/candidat/tondelier" }
-  # https://www.assemblee-nationale.fr/dyn/15/textes/l15b4746_proposition-loi.pdf
-  melenchon: { option: A, source: "Proposition de loi n° 4746, 30/11/2021", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/15/textes/l15b4746_proposition-loi.pdf" }
+  # L'Avenir en commun, édition 2027 (06/11/2026), partie 4, chap. 4, section « Addictions et drogues : pour une stratégie sanitaire », mesure clé : https://melenchon2027.fr/programme/livre/le-gout-du-futur-aux-nouvelles-frontieres-de-l-humanite/chapitre4 (« Légaliser et encadrer par un monopole d'État la consommation, la production et la vente de cannabis à des fins médicales et récréatives dans des conditions permettant de lutter publiquement contre l'addiction »)
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2027 (06/11/2026), partie 4, chap. 4, section « Addictions et drogues : pour une stratégie sanitaire », mesure clé", statut: officielle, citation: "Légaliser et encadrer par un monopole d'État la consommation, la production et la vente de cannabis à des fins médicales et récréatives dans des conditions permettant de lutter publiquement contre l'addiction", lien: "https://melenchon2027.fr/programme/livre/le-gout-du-futur-aux-nouvelles-frontieres-de-l-humanite/chapitre4" }
   # https://www.assemblee-nationale.fr/dyn/15/textes/l15b4746_proposition-loi.pdf
   ruffin: { option: A, source: "Proposition de loi n° 4746, 30/11/2021", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/15/textes/l15b4746_proposition-loi.pdf" }
   # https://www.publicsenat.fr/actualites/non-classe/cannabis-70-personnalites-appellent-a-legaliser-au-nom-du-pragmatisme-142235

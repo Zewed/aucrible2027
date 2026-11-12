@@ -386,6 +386,10 @@ Notes :
 
 ---
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option A (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 2, chap. 3, section « Définanciariser l'économie réelle », https://melenchon2027.fr/programme/livre/une-economie-au-service-des-besoins/chapitre3 — « Interdire les licenciements boursiers et économiques par les entreprises qui versent des dividendes ou bénéficient des aides de l'État » — L'option A réunit l'interdiction de licencier et le remboursement des aides en cas de non-respect des contreparties. Les deux mesures sont dans l'édition 2027, cette fois lues sur la page d'origine.
+
 ## 5. Sources
 
 Consultées du 7 au 9 novembre 2026.
