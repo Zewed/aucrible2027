@@ -1025,7 +1025,7 @@ test("avec « réduire les animations », les blocs sont posés d'emblée, sans 
   expect(poses).toEqual(["1", "1", "1", "1", "1", "1"]);
 });
 
-/** La fenêtre « Sources », ouverte par « Sources » sous le tableau (6 novembre 2026). */
+/** La fenêtre « Sources », ouverte par « Sources », en haut à côté de « Signaler une erreur » depuis le 12 novembre 2026. */
 async function ouvrirLesSources(page: Page) {
   await page.getByRole("button", { name: "Sources", exact: true }).filter({ visible: true }).click();
   const fenetre = page.getByRole("dialog", { name: "Sources" });
@@ -5842,56 +5842,25 @@ test.describe("au téléphone, les icônes du menu sont en haut, à droite du lo
   }
 });
 
-test.describe("toutes les 5 réponses, un palier", () => {
-  /** `n` réponses déjà données (les n° 1 à n), puis la réponse à la n° 24, la prochaine question de l'accueil. */
-  async function repondreApres(page: Page, n: number) {
+test.describe("la révélation ne pousse pas à sortir", () => {
+  // 12 novembre 2026 : plus de palier (la jauge compte déjà les réponses) ni de « Résultats en cours » ; « Sources » est
+  // en haut, à côté de « Signaler une erreur ».
+  test("la 15e réponse n'a ni palier ni « Résultats en cours », et « Sources » est à côté de « Signaler une erreur »", async ({ page }) => {
     await page.goto("/questionnaire");
-    await page.evaluate((n) => {
+    await page.evaluate(() => {
       const reponses: Record<number, object> = {};
-      for (let numero = 1; numero <= n; numero++) reponses[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22" };
+      for (let numero = 1; numero <= 14; numero++) reponses[numero] = { option: "A", importance: 1, graine: 1, jour: "2026-10-22", rang: numero };
       localStorage.setItem("aucrible:reponses", JSON.stringify(reponses));
-    }, n);
+    });
     await page.goto("/questionnaire");
     await choisir(page, "64 ans");
     await validerMaReponse(page);
     await expect(page).toHaveURL(/\/question\/24\/revelation$/);
-  }
-  const palier = (page: Page) => page.getByRole("region", { name: "Palier" }).filter({ visible: true });
-
-  for (const [rang, message] of [
-    [5, "Encore 5 pour ton classement."],
-    [10, "Ton classement est prêt."],
-    [15, "Ton classement s'affine."],
-  ] as const) {
-    test(`la ${rang}e réponse : la révélation fête le palier, « ${rang} réponses » et « ${message} »`, async ({ page }) => {
-      await repondreApres(page, rang - 1);
-      await expect(palier(page)).toBeVisible();
-      await expect(palier(page).locator(".palier-n")).toHaveText(String(rang));
-      await expect(palier(page)).toContainText(`${rang} réponses`);
-      await expect(palier(page)).toContainText(message);
-    });
-  }
-
-  test("la 7e réponse n'a pas de palier", async ({ page }) => {
-    await repondreApres(page, 6);
     await expect(page.getByRole("region", { name: "Qui défend quoi" })).toBeVisible();
-    await expect(page.getByRole("region", { name: "Palier" })).toHaveCount(0);
-  });
-
-  test("le palier reste attaché à sa réponse : rouvrir la révélation de la 5e le montre, celle d'une autre question non", async ({ page }) => {
-    await repondreApres(page, 4);
-    await page.goto("/question/24/revelation");
-    await expect(palier(page)).toBeVisible();
-    await page.goto("/question/3/revelation");
-    await expect(page.getByRole("region", { name: "Qui défend quoi" })).toBeVisible();
-    await expect(page.getByRole("region", { name: "Palier" })).toHaveCount(0);
-  });
-
-  test("avec « réduire les animations », le palier s'affiche sans confettis", async ({ page }) => {
-    await page.emulateMedia({ reducedMotion: "reduce" });
-    await repondreApres(page, 4);
-    await expect(palier(page)).toBeVisible();
-    await expect(palier(page).locator(".confetti")).toBeHidden();
+    await expect(page.getByText("15 réponses")).toHaveCount(0);
+    await expect(page.getByText("Ton classement s'affine.")).toHaveCount(0);
+    await expect(page.getByRole("link", { name: "Résultats en cours" })).toHaveCount(0);
+    await expect(page.locator(".rev-meta").getByRole("button", { name: "Sources", exact: true })).toBeVisible();
   });
 });
 

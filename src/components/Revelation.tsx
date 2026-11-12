@@ -15,7 +15,6 @@ import { useCoteClient } from "@/lib/cote-client";
 import { aujourdhuiAParis } from "@/lib/date";
 import { REPONSES_PAR_PART, reponsesParTheme } from "@/lib/proximite";
 import { lireOrdre, prochaineQuestionDuTheme } from "@/lib/ordre";
-import { messageDuPalier } from "@/lib/paliers";
 import { JE_NE_SAIS_PAS, lesReponses, lireReponses } from "@/lib/reponses";
 import { tenirALEcran } from "@/lib/tenir-a-l-ecran";
 
@@ -316,7 +315,6 @@ export function Revelation({
   if (!reponse || !theme) return null;
   const suite = ordre ? prochaineQuestionDuTheme(ordre, questions, Object.keys(reponses).map(Number), filtre) : undefined;
   const suivante = suite?.numero;
-  const palier = reponse.rang ? messageDuPalier(reponse.rang) : null;
 
   // Un candidat retiré au jour de la réponse ou avant n'est plus révélé. Rouvrir une révélation répondue avant
   // son retrait le montre encore : ce cas reste à trancher.
@@ -356,35 +354,21 @@ export function Revelation({
             <div className="rev-meta">
               <PuceTheme theme={theme} />
               <Drapeau question={question} />
+              <VoirLesSources question={question} />
             </div>
             <h1>{question.question}</h1>
           </div>
           <div className="rev-suite">
             {suivante !== undefined ? (
-              <>
-                <Link className="go" href={suite?.dansLeTheme ? `/questionnaire?theme=${filtre}` : "/questionnaire"}>
-                  Question suivante <Fleche />
-                </Link>
-                <Link className="rev-resultats" href="/resultats">
-                  Résultats en cours
-                </Link>
-              </>
+              <Link className="go" href={suite?.dansLeTheme ? `/questionnaire?theme=${filtre}` : "/questionnaire"}>
+                Question suivante <Fleche />
+              </Link>
             ) : (
               <Link className="go" href="/resultats">
                 Résultats <Fleche />
               </Link>
             )}
-            {/* Ce que la réponse fait gagner : une ligne chacun ; un palier et le camembert complet ont leurs confettis. */}
-            {palier && reponse.rang && (
-              <div className="rev-gain palier" role="region" aria-label="Palier">
-                <Confettis themes={themes} />
-                <span className="palier-n">{reponse.rang}</span>
-                <span>
-                  <b>{reponse.rang} réponses</b>
-                  {palier}
-                </span>
-              </div>
-            )}
+            {/* Le camembert complet a ses confettis. */}
             {partGagnee && gagnes.length === themes.length && (
               <div className="rev-gain palier" role="region" aria-label="Camembert complet">
                 <Confettis themes={themes} />
@@ -408,7 +392,6 @@ export function Revelation({
         </section>
         <footer className="rev-pied">
           <Legende />
-          <VoirLesSources question={question} />
         </footer>
       </main>
     </>
