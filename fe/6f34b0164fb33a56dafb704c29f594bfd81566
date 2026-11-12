@@ -1,0 +1,21 @@
+content/questions/070-achats-publics.yaml
+  s_eefd24e14ae76a::t_d0dce893d47c88 17
+content/videos-verrouillees.yaml
+  s_eefd24e14ae76a::t_bd6669b4c26ee0 72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "fe6f34b0164fb33a56dafb704c29f594bfd81566",
+  "prompts": {},
+  "sessions": {
+    "s_eefd24e14ae76a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0d7e65f6-06fd-4902-95da-933a5af28615",
+        "model": "unknown"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
