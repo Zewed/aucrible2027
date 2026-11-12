@@ -398,7 +398,6 @@ button.vid-carte:focus-visible { outline: 3px solid var(--eco-texte); outline-of
 .une .plus-loin { padding: 28px var(--padX) 0; display: flex; flex-direction: column; gap: 12px; }
 .plus-loin-tete { min-height: 30px; }
 .une .suite { padding: 0 var(--padX); }
-.etape-lire .stake { margin-top: 18px; }
 /* Au téléphone, « Voir les propositions » est dans une barre collée en bas, qui garde sa place sous la page. */
 .actionbar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
@@ -441,7 +440,6 @@ button.vid-carte:focus-visible { outline: 3px solid var(--eco-texte); outline-of
   .vid-titre { font-size: clamp(20px, 2.9 * var(--u), 32px); }
   .vid-duree { font-size: clamp(13px, 1.6 * var(--u), 17px); }
   .une > .suite { grid-area: suite; padding: clamp(18px, 3 * var(--u), 36px) var(--padX) var(--padY) 0; }
-  .etape-lire .stake { margin: 0 0 clamp(18px, 3 * var(--u), 36px); }
   .actionbar { position: static; padding: 0; background: none; box-shadow: none; }
   .actionbar .go { margin: 0; font-size: clamp(22px, min(1.8vw, 3.2 * var(--u)), 34px); padding: clamp(18px, 2.9 * var(--u), 34px) 18px; box-shadow: 0 8px 0 var(--theme-edge); }
 }
