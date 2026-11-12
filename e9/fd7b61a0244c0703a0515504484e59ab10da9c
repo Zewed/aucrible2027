@@ -1,0 +1,41 @@
+SPEC.md
+  s_68b306a7b282ec::t_f62807230846b2 196
+src/lib/auteur.ts
+  s_68b306a7b282ec::t_f83150d0166dcb 2,7-8,10,27-28,30-39
+src/lib/visites.ts
+  s_68b306a7b282ec::t_d742df82f68e4b 1,18
+src/app/admin/admin.css
+  s_68b306a7b282ec::t_f62807230846b2 8-12
+src/app/admin/actions.ts
+  s_68b306a7b282ec::t_483185b57674a4 4-22
+src/app/admin/reponses/route.ts
+  s_68b306a7b282ec::t_f62807230846b2 1,17
+playwright.config.ts
+  s_68b306a7b282ec::t_f62807230846b2 7,9
+src/app/admin/Connexion.tsx
+  s_68b306a7b282ec::t_b79d98f3d7b193 1-31
+src/app/admin/page.tsx
+  s_68b306a7b282ec::t_f62807230846b2 3,11,162,164,178-179
+src/lib/reponses-partagees.ts
+  s_68b306a7b282ec::t_d742df82f68e4b 1,22
+src/lib/signalement.ts
+  s_68b306a7b282ec::t_d742df82f68e4b 1,38
+e2e/question-du-jour.spec.ts
+  s_68b306a7b282ec::t_35e120439a5ed8 3637-3638,3640-3641,3659,3678,3682-3683,3688-3689,3692-3694,3697,3700-3702,3704-3708,3749,3785,3797,3956,4039
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e9fd7b61a0244c0703a0515504484e59ab10da9c",
+  "prompts": {},
+  "sessions": {
+    "s_68b306a7b282ec": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b2b4ccaa-872b-4bc4-a634-ce4377201a70",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
