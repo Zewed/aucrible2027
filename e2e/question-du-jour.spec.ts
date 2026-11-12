@@ -1,5 +1,5 @@
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
-import { expect, test, type BrowserContext, type Locator, type Page } from "@playwright/test";
+import { devices, expect, test, type BrowserContext, type Locator, type Page } from "@playwright/test";
 import { sealData } from "iron-session";
 import postgres from "postgres";
 import { parse } from "yaml";
@@ -3896,14 +3896,18 @@ test.describe("un envoi raté garde le texte et propose de réessayer", () => {
 
 test.describe("l'auteur voit le nombre de visites par jour", () => {
   /** Les visites d'un jour (AAAA-MM-JJ) dans la base des tests, 0 s'il n'y en a pas. */
-  const visitesDu = async (jour: string) => {
-    const [ligne] = await baseDeTest`SELECT nombre FROM visites WHERE jour = ${jour}`.catch(() => []);
-    return ligne ? Number(ligne.nombre) : 0;
+  const visitesDu = async (jour: string) => (await compteursDu(jour)).nombre;
+  /** Tous les compteurs d'un jour : les visites, leur genre d'appareil, et les robots écartés. */
+  const compteursDu = async (jour: string) => {
+    const [ligne] = await baseDeTest`SELECT nombre, telephone, tablette, ordinateur, robot FROM visites WHERE jour = ${jour}`.catch(() => []);
+    return { nombre: 0, telephone: 0, tablette: 0, ordinateur: 0, robot: 0, ...(ligne && Object.fromEntries(Object.entries(ligne).map(([k, v]) => [k, Number(v)]))) };
   };
+  const ORDINATEUR = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36";
+  const GOOGLEBOT = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)";
 
-  /** Ouvre l'app ce jour-là sur un appareil neuf (un contexte de navigateur à lui), puis le referme. */
-  async function ouvrirLAppSurUnAppareil(browser: import("@playwright/test").Browser, jour: string, fois = 1) {
-    const appareil = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+  /** Ouvre l'app ce jour-là sur un appareil neuf (un contexte de navigateur à lui, un téléphone sauf `agent`), puis le referme. */
+  async function ouvrirLAppSurUnAppareil(browser: import("@playwright/test").Browser, jour: string, fois = 1, agent?: string) {
+    const appareil = await browser.newContext({ ...devices["Pixel 7"], ...(agent && { userAgent: agent }), locale: "fr-FR", timezoneId: "Europe/Paris" });
     const page = await appareil.newPage();
     await fixerLeJour(page, `${jour}T10:00:00+01:00`);
     for (let i = 0; i < fois; i++) {
@@ -3937,7 +3941,7 @@ test.describe("l'auteur voit le nombre de visites par jour", () => {
   });
 
   test("le même appareil, revenu le lendemain, compte une visite ce jour-là", async ({ browser }) => {
-    const appareil = await browser.newContext({ locale: "fr-FR", timezoneId: "Europe/Paris" });
+    const appareil = await browser.newContext({ ...devices["Pixel 7"], locale: "fr-FR", timezoneId: "Europe/Paris" });
     const page = await appareil.newPage();
     const [premier, second] = ["2026-12-22", "2026-12-23"];
     const avant = await visitesDu(second);
@@ -3947,6 +3951,46 @@ test.describe("l'auteur voit le nombre de visites par jour", () => {
     await fixerLeJour(page, `${second}T10:00:00+01:00`);
     await page.goto("/questionnaire");
     await expect.poll(() => visitesDu(second)).toBe(avant + 1);
+    await appareil.close();
+  });
+
+  test("un téléphone et un ordinateur comptent chacun dans leur colonne ; Googlebot compte dans les robots, pas dans les visites", async ({ browser, page }) => {
+    const jour = "2026-12-29";
+    const avant = await compteursDu(jour);
+    await ouvrirLAppSurUnAppareil(browser, jour);
+    await ouvrirLAppSurUnAppareil(browser, jour, 1, ORDINATEUR);
+    await ouvrirLAppSurUnAppareil(browser, jour, 1, GOOGLEBOT);
+    await expect
+      .poll(() => compteursDu(jour))
+      .toEqual({ ...avant, nombre: avant.nombre + 2, telephone: avant.telephone + 1, ordinateur: avant.ordinateur + 1, robot: avant.robot + 1 });
+    await connecterLAuteur(page);
+    await fixerLeJour(page, `${jour}T18:00:00+01:00`);
+    await page.goto("/admin");
+    const ligne = page.getByRole("region", { name: "Visites" }).getByRole("row", { name: /29 déc\. 2026/ });
+    await expect(ligne.getByRole("cell")).toHaveText([
+      String(avant.nombre + 2),
+      "",
+      String(avant.telephone + 1),
+      String(avant.ordinateur + 1),
+      String(avant.tablette),
+      /\d+/,
+      String(avant.robot + 1),
+    ]);
+  });
+
+  test("un appareil où l'auteur est entré ne compte plus de visite", async ({ browser }) => {
+    const jour = "2026-12-30";
+    const appareil = await browser.newContext({ ...devices["Pixel 7"], locale: "fr-FR", timezoneId: "Europe/Paris" });
+    const page = await appareil.newPage();
+    await connecterLAuteur(page);
+    await fixerLeJour(page, `${jour}T10:00:00+01:00`);
+    await page.goto("/admin");
+    await expect(page.getByRole("region", { name: "Visites" })).toBeVisible();
+    await expect.poll(() => page.evaluate(() => localStorage.getItem("aucrible:auteur"))).toBe("1");
+    const avant = await visitesDu(jour);
+    await page.goto("/questionnaire");
+    await page.waitForLoadState("networkidle");
+    expect(await visitesDu(jour)).toBe(avant);
     await appareil.close();
   });
 });
@@ -4009,6 +4053,30 @@ test.describe("chaque réponse part, anonyme, sous la session de l'onglet", () =
     const csv = (await (await page.request.get("/admin/reponses")).text()).replace(/^\uFEFF/, "").split("\n");
     expect(csv[0]).toBe("session;question;option;libelle;importance;jour");
     expect(csv).toContain(`${session};24;B;62 ans;1;2026-10-23`);
+  });
+
+  test("l'auteur ouvre une session depuis le tableau de bord et y voit sa réponse, son classement et les candidats de même réponse", async ({ page }) => {
+    await repondre(page, "62 ans");
+    const session = (await sessionDe(page))!;
+    await expect.poll(() => reponsesDe(session)).toHaveLength(1);
+    await connecterLAuteur(page);
+    await page.goto("/admin");
+    await expect(page.getByRole("region", { name: "Candidats" }).getByRole("row")).not.toHaveCount(0);
+    await page.getByRole("region", { name: "Sessions" }).getByRole("link", { name: session.slice(0, 8), exact: true }).click();
+    await expect(page).toHaveURL(`/admin/session/${session}`);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(`Session ${session.slice(0, 8)}.`);
+    const reponse = page.getByRole("region", { name: "Réponses" }).getByRole("listitem", { name: "Question n° 24" });
+    await expect(reponse.locator(".an-choix")).toHaveText("B. 62 ans×1");
+    await expect(page.getByRole("region", { name: "Classement" }).getByRole("row")).not.toHaveCount(0);
+  });
+
+  test("sans être l'auteur, une session ne montre que le mot de passe", async ({ page }) => {
+    await repondre(page, "62 ans");
+    const session = (await sessionDe(page))!;
+    await expect.poll(() => reponsesDe(session)).toHaveLength(1);
+    await page.goto(`/admin/session/${session}`);
+    await expect(page.getByLabel("Mot de passe")).toBeVisible();
+    expect(await page.content()).not.toContain("62 ans");
   });
 });
 

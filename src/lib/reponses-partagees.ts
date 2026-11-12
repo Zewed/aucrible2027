@@ -46,6 +46,15 @@ export async function lireLesTotaux(): Promise<TotauxDesReponses> {
   return { ...ensemble, parQuestion };
 }
 
+/** Les réponses d'une session, par question ; aucune si l'identifiant n'en est pas un. */
+export async function lireLesReponsesDeLaSession(session: string): Promise<ReponsePartagee[]> {
+  const sql = await reserveeALAuteur();
+  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(session)) return [];
+  return sql<ReponsePartagee[]>`
+    SELECT session::text, question, option, importance, to_char(jour, 'YYYY-MM-DD') AS jour
+    FROM reponses_partagees WHERE session = ${session}::uuid ORDER BY question`;
+}
+
 /** Toutes les réponses, une ligne chacune, rangées par session : l'export CSV de /admin, pour les croiser ailleurs. */
 export async function lireToutesLesReponses(): Promise<ReponsePartagee[]> {
   const sql = await reserveeALAuteur();
