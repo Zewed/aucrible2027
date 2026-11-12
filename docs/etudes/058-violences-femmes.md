@@ -418,6 +418,10 @@ Le statu quo pur (pas de loi intégrale du tout) n'est défendu par aucun groupe
 
 ---
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option A (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 3, chap. 3, section « Éradiquer les violences sexistes et sexuelles », mesure clé, https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre3 — « Adopter une loi de lutte contre les violences sexistes et sexuelles et allouer les 3 milliards de budget demandés par les associations » — Seul le nom de l'édition change : la phrase et le lien sont déjà ceux de 2027, mais la source disait « édition 2025 ». Même option.
+
 ## 5. Sources
 
 Sources consultées le 7 novembre 2026.

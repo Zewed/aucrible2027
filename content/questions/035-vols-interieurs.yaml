@@ -137,9 +137,8 @@ story:
   - choix: "2 h 30"
     precision: "ou pas d'interdiction"
 positions:
-  # https://votons-2027.fr/candidats/melenchon/programme/climat (mesure 47 : « Supprimer les lignes aériennes quand l'alternative en train est inférieure à quatre heures », reprend melenchon2027.fr/programme2025/livre/ ; page d'origine non lue) ; même mesure relevée par https://www.ifrap.org/comparateurs/presidentielles-2027
-  # L'Avenir en commun, édition 2025, chap. 13 : https://melenchon2027.fr/programme2025/livre/chapitre13/s2/
-  melenchon: { option: C, source: "L'Avenir en commun, édition 2025, chap. 13", statut: officielle, citation: "Supprimer les lignes aériennes quand l'alternative en train est inférieure à quatre heures", lien: "https://melenchon2027.fr/programme2025/livre/" }
+  # L'Avenir en commun, édition 2027 (06/11/2026), partie 1, chap. 3, section « Développer les transports publics écologiques, repenser la mobilité individuelle » : https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3 (« Supprimer les lignes aériennes intérieures quand l'alternative en train est inférieure à quatre heures »)
+  melenchon: { option: C, source: "L'Avenir en commun, édition 2027 (06/11/2026), partie 1, chap. 3, section « Développer les transports publics écologiques, repenser la mobilité individuelle »", statut: officielle, citation: "Supprimer les lignes aériennes intérieures quand l'alternative en train est inférieure à quatre heures", lien: "https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3" }
   # Cahier « Travaillisme écologique », 09/09/2026 : https://nouspresident.fr/travaillisme-ecologique/
   ruffin: { option: C, source: "Cahier « Travaillisme écologique », 09/09/2026", statut: officielle, citation: "Interdiction des vols intérieurs là où existe une alternative en train avec un trajet de moins de 4 heures", lien: "https://nouspresident.fr/travaillisme-ecologique/" }
   # Vote du groupe LREM, 10/04/2021 : https://datan.fr/votes/legislature-15/vote_3615

@@ -265,6 +265,10 @@ Méthode : aucun scrutin public portant sur le décompte des blancs n'a été tr
 - **Fabien Roussel** : option B (estimee) — S. Peu pour le groupe GDR, commission des lois, rapport n° 4039 sur la PPL constitutionnelle de reconnaissance du vote blanc, 31/03/2021, https://www.assemblee-nationale.fr/dyn/15/rapports/cion_lois/l15b4039_rapport-fond.pdf — « Il doit donc à ce titre être compté dans les suffrages exprimés. Nous sommes favorables à la disposition proposée à ce titre. L'article 2, qui pose plus de problèmes » — Son groupe, dont il était membre, veut compter les blancs (ni A) mais émet des réserves sur l'article qui refait l'élection : entre B et C, on garde B, qui change le moins la règle.
 - **Marine Tondelier** : option B (estimee) — Sénat, compte rendu de la séance du 12/02/2014, amendement n° 3 d'H. Lipietz (groupe écologiste) à la loi sur le vote blanc, https://www.senat.fr/cra/s20140212/s20140212_4.html — « Est un suffrage exprimé le vote par un bulletin nominatif ou par un bulletin blanc. » — La dernière position documentée des élus de son parti compte les blancs dans les suffrages exprimés, sauf au second tour de la présidentielle, sans annuler l'élection (option B) ; rien de plus récent trouvé (programme 2026 illisible).
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option C (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 5, chap. 1, section « Une République de la souveraineté populaire permanente », https://melenchon2027.fr/programme/livre/fonder-la-6e-republique/chapitre1 — « Reconnaître le vote blanc, mettre en place le vote obligatoire et instaurer un seuil de votes exprimés pour valider une élection » — Reconnaître le vote blanc et fixer un seuil sous lequel l'élection n'est pas validée, c'est l'option C. Le programme, rang 1, devient la source principale, et l'amendement de 2026 peut rester dans l'étude.
+
 ## 5. Sources
 
 Sources consultées le 28 octobre 2026.

@@ -360,6 +360,11 @@ Bilan (mis à jour le 11/11/2026, après le passage d'Attal de E à C) : 11 posi
 
 Décision de l'auteur (12/11/2026) : Roussel et Tondelier restent en C, Zemmour et Dupont-Aignan en D, malgré les remarques des relecteurs.
 
+### Positions mises à jour le 12/11/2026
+
+- **Nicolas Dupont-Aignan** : option D (officielle) — Debout la France, « Cahier rouge », financement du programme, 12/11/2026 ; projet « Famille », mesure 2, https://www.dupontaignan.fr/wp-content/uploads/2026/11/Cahier-rouge-2026_11-12.pdf — « Rétablir le quotient familial, les allocations familiales et la PAJE au niveau de 2012 » — En 2012, les allocations commençaient au deuxième enfant et ne dépendaient pas des revenus : revenir au « niveau de 2012 », c'est exactement D. Le premier enfant n'est donc plus déduit d'un silence, d'où « officielle ». L'option D, choisie par l'auteur le 12/11/2026, ne change pas.
+- **Bruno Retailleau** : option A (officielle) — Programme 2027, avecretailleau.fr, mesure « Verser 240 euros par mois par enfant mineur », 12/09/2026, https://www.avecretailleau.fr/projet/mesure/verser-240-euros-par-mois-par-enfant-mineur — « Fusionner douze dispositifs en un Revenu familial de 240 euros par enfant, versé chaque mois à tous, dès le premier enfant, de la naissance à dix-huit ans. » — une allocation unique de 240 € par enfant dès le premier, qui remplace les allocations familiales, le complément familial et le quotient familial : c'est A. La note du fichier envisageait de passer en B ; le programme ne le permet pas. On passe de propos rapportés au programme, avec citation.
+
 ## 5. Sources
 
 Sources consultées le 10 novembre 2026.

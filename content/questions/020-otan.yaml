@@ -102,8 +102,8 @@ story:
   - choix: "Y rester"
     precision: "dans l'OTAN"
 positions:
-  # https://melenchon2027.fr/programme2025/livre/
-  melenchon: { option: A, source: "L'Avenir en commun, édition 2025", statut: officielle, lien: "https://melenchon2027.fr/programme2025/livre/" }
+  # L'Avenir en commun, édition 2027 (06/11/2026), partie 6, chap. 2, section « Assumer l'indépendance de la France dans le monde », mesure clé : https://melenchon2027.fr/programme/livre/un-monde-ordonne/chapitre2 (« Se retirer immédiatement du commandement intégré de l'OTAN puis, par étapes, de l'organisation elle-même »)
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2027 (06/11/2026), partie 6, chap. 2, section « Assumer l'indépendance de la France dans le monde », mesure clé", statut: officielle, citation: "Se retirer immédiatement du commandement intégré de l'OTAN puis, par étapes, de l'organisation elle-même", lien: "https://melenchon2027.fr/programme/livre/un-monde-ordonne/chapitre2" }
   # https://www.pcf.fr/rompre_avec_l_otan_pour_assurer_la_securit_collective
   roussel: { option: A, source: "PCF, Rompre avec l'OTAN, 2022", statut: deduite, lien: "https://www.pcf.fr/rompre_avec_l_otan_pour_assurer_la_securit_collective" }
   # https://actu.orange.fr/videos/politique/marine-le-pen-je-pense-qu-il-faut-sortir-du-commandement-integre-de-l-otan-CNT000002pxmsf.html

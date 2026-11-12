@@ -123,8 +123,8 @@ story:
 positions:
   # Programme de juillet 2026, p. 162, cité par https://monvote2027.fr/candidat/tondelier
   tondelier: { option: A, source: "Programme de juillet 2026, p. 162", statut: officielle, citation: "Instaurer la proportionnelle intégrale sans prime majoritaire", lien: "https://monvote2027.fr/candidat/tondelier" }
-  # https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/generaliser-la-representation-proportionnelle/
-  melenchon: { option: A, source: "Programme 2022, Institut Montaigne", statut: deduite, lien: "https://www.institutmontaigne.org/presidentielle-2022/jean-luc-melenchon/generaliser-la-representation-proportionnelle/" }
+  # L'Avenir en commun, édition 2027 (06/11/2026), partie 5, chap. 1, section « Abolir la monarchie présidentielle » : https://melenchon2027.fr/programme/livre/fonder-la-6e-republique/chapitre1 (« Élire l'Assemblée nationale au scrutin proportionnel »)
+  melenchon: { option: A, source: "L'Avenir en commun, édition 2027 (06/11/2026), partie 5, chap. 1, section « Abolir la monarchie présidentielle »", statut: officielle, citation: "Élire l'Assemblée nationale au scrutin proportionnel", lien: "https://melenchon2027.fr/programme/livre/fonder-la-6e-republique/chapitre1" }
   # https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L16B2508.html
   ruffin: { option: A, source: "Proposition de loi n° 2508, 11/04/2024", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/opendata/PIONANR5L16B2508.html" }
   # CNews du 25/10/2026, cité par https://monvote2027.fr/candidat/le-pen

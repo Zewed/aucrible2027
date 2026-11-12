@@ -156,6 +156,10 @@ Option A : légaliser et encadrer la production et la vente. Option B : dépéna
 
 - **Édouard Philippe** : option C (deduite) — É. Philippe, « Pour une France plus sûre », edouardphilippe.fr (consulté le 29/10/2026), https://www.edouardphilippe.fr/priorites/pour-une-france-plus-sure — « Être intraitable avec les consommateurs : opérations « place nette » dans les boîtes de nuit et festivals » — Sanctionner les consommateurs exclut la dépénalisation de l'usage (B) comme la légalisation (A) : il maintient l'interdiction.
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option A (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 4, chap. 4, section « Addictions et drogues : pour une stratégie sanitaire », mesure clé, https://melenchon2027.fr/programme/livre/le-gout-du-futur-aux-nouvelles-frontieres-de-l-humanite/chapitre4 — « Légaliser et encadrer par un monopole d'État la consommation, la production et la vente de cannabis à des fins médicales et récréatives dans des conditions permettant de lutter publiquement contre l'addiction » — La légalisation sous monopole d'État est une mesure clé de 2027. Le programme remplace une proposition de loi de 2021 : statut officielle.
+
 ## 5. Sources
 1. OFDT, page « Cannabis » (chiffres 2022-2023) : https://www.ofdt.fr/produits-et-addictions/de-z/cannabis/
 2. Conseil d'analyse économique, note n° 52 « Cannabis : comment reprendre le contrôle ? », 20/06/2019 : https://www.cae-eco.fr/staticfiles/pdf/cae-note052.pdf

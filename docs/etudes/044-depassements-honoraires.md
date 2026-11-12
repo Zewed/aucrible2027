@@ -303,6 +303,10 @@ Bilan : 4 positions sur 13 (Mélenchon, Roussel, Arthaud en A ; Tondelier en B) 
 - **Édouard Philippe** : option C (estimee) — Votes du groupe Horizons contre les taxes sur les dépassements d'honoraires (05/12/2025 et 21/10/2026) ; programme « Pour une France plus prospère » (moratoire normatif), https://www.edouardphilippe.fr/priorites/pour-une-france-plus-prospere — « Sceller un moratoire normatif et fiscal : pas de nouvelle norme et de nouvel impôt sur le quinquennat » — Son groupe a refusé de taxer les dépassements et son programme exclut toute nouvelle norme, ce qui rend A et B peu probables ; rien ne documente une ouverture du secteur 2 à tous : entre C et D, C est retenue comme l'option qui change le moins la règle actuelle.
 - **Bruno Retailleau** : option C (estimee) — Amendement n° 1756 du groupe Droite républicaine (L. Wauquiez et 42 députés LR) au PLFSS 2026, 31/10/2025 ; votes du groupe contre les cotisations sur les dépassements, 05/12/2025 et 21/10/2026, https://www.assemblee-nationale.fr/dyn/17/amendements/1907/AN/1756.pdf — « Dans certaines spécialités, les dépassements d'honoraires financent l'innovation médicale ou sont des compléments indispensables à l'activité médicale. » — Ses députés défendent les dépassements et refusent de les taxer, ce qui écarte A et B ; rien ne montre qu'il veuille les ouvrir à tous les médecins : C, qui change le moins la règle parmi C et D, est retenue.
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option A (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 3, chap. 1, section « Construire la Sécurité sociale intégrale », https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre1 — « Mettre fin aux dépassements d'honoraires dans le secteur conventionné en révisant les inadéquations tarifaires » — Supprimer les dépassements chez tous les médecins conventionnés, avec des tarifs revus en échange, c'est l'option A. Le programme, rang 1, remplace un amendement du groupe : statut officielle.
+
 ## 5. Sources
 
 Consultées le 28 octobre 2026.

@@ -110,8 +110,8 @@ story:
 positions:
   # https://www.ifrap.org/comparateurs/presidentielles-2027
   le-pen: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle, citation: "redéfinir le mode de financement de l'hôpital public en revenant à un budget sous forme de dotation globale", lien: "https://www.ifrap.org/comparateurs/presidentielles-2027" }
-  # https://www.ifrap.org/comparateurs/presidentielles-2027
-  melenchon: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle, citation: "par une dotation globale, un prix de journée et une tarification à l'acte pour les seules activités techniques programmées", lien: "https://www.ifrap.org/comparateurs/presidentielles-2027" }
+  # L'Avenir en commun, édition 2027 (06/11/2026), partie 4, chap. 4, section « Faire passer la santé d'abord et reconstruire les établissements de santé publics, notamment les hôpitaux » : https://melenchon2027.fr/programme/livre/le-gout-du-futur-aux-nouvelles-frontieres-de-l-humanite/chapitre4 (« Sortir de la tarification à l'acte (T2A) à l'hôpital par un financement diversifié (dotation forfaitaire et en fonction de la population, prix de la journée, etc.) »)
+  melenchon: { option: C, source: "L'Avenir en commun, édition 2027 (06/11/2026), partie 4, chap. 4, section « Faire passer la santé d'abord et reconstruire les établissements de santé publics, notamment les hôpitaux »", statut: officielle, citation: "Sortir de la tarification à l'acte (T2A) à l'hôpital par un financement diversifié (dotation forfaitaire et en fonction de la population, prix de la journée, etc.)", lien: "https://melenchon2027.fr/programme/livre/le-gout-du-futur-aux-nouvelles-frontieres-de-l-humanite/chapitre4" }
   # https://www.ifrap.org/comparateurs/presidentielles-2027
   glucksmann: { option: C, source: "Programme 2027, comparateur iFRAP, 10/2026", statut: officielle, citation: "en finir avec la tarification à l'acte à l'hôpital, proposer un financement global, territorial et pluriannuel", lien: "https://www.ifrap.org/comparateurs/presidentielles-2027" }
   # https://www.ifrap.org/comparateurs/presidentielles-2027

@@ -300,6 +300,10 @@ Règle de déduction appliquée à tous : quand un candidat n'a rien dit sur le 
 - **François Ruffin** : option A confirmée (deduite) — Vote du groupe écologiste, 10/07/2026, https://www.assemblee-nationale.fr/dyn/17/scrutins/8194 — « Scrutin public n°8194 sur l'amendement n° 907 du Gouvernement de rétablissement de l'article 19 (supprimé) »
 - **Marine Tondelier** : option A confirmée (deduite) — Projet 2027 et vote du groupe écologiste, 10/07/2026, https://datan.fr/votes/legislature-17/vote_8194 — « Interdire la reconnaissance faciale et évaluer de manière indépendante les dispositifs de vidéosurveillance en lien avec la Défenseure des droits. »
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option A (deduite) — L'Avenir en commun, édition 2027 (06/11/2026), partie 5, chap. 2, section « Une police de proximité au service de la sûreté des citoyens » ; votes du groupe LFI, 2023 et 2026, https://melenchon2027.fr/programme/livre/fonder-la-6e-republique/chapitre2 — « Interdire la reconnaissance faciale et les dispositifs de « technopolice » reposant sur une surveillance biométrique généralisée dans les espaces publics, incompatibles avec les libertés publiques et le respect de la vie privée » — L'édition 2027 interdit la reconnaissance faciale et la « technopolice » dans l'espace public. La partie 4, chap. 7, interdit aussi l'« identification biométrique » et la « police prédictive ». Le texte ne nomme pas l'essai de vidéosurveillance algorithmique ; le choix de A, plutôt qu'une interdiction de la seule reconnaissance faciale, repose encore sur les votes du groupe : statut deduite maintenu.
+
 ## 5. Sources
 
 Sources consultées le 27 octobre 2026.

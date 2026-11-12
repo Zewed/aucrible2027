@@ -85,6 +85,11 @@
 - **Ruffin** : inconnue.
 - **Arthaud** : inconnue.
 
+### Positions mises à jour le 12/11/2026
+
+- **Bruno Retailleau** : option B (officielle) — Programme 2027, avecretailleau.fr, mesure « Inscrire le droit à la sécurité dans la Constitution », 24/09/2026, https://www.avecretailleau.fr/projet/mesure/inscrire-le-droit-a-la-securite-dans-la-constitution — « C'est cette inscription qui rendra possibles des réformes aujourd'hui hors d'atteinte : les peines minimales que les juges devront obligatoirement prononcer pour les infractions les plus graves […] » — les peines minimales visent « les infractions les plus graves », et le Manifeste parle de « peines plancher pour les récidivistes ». Elles sont ciblées, pas générales : c'est B. Le programme apporte la citation qui manquait.
+- **Éric Zemmour** : option C (officielle) — franceinfo, émission « Nos services publics », 12/11/2026, https://www.franceinfo.fr/elections/presidentielle/presidentielle-eric-zemmour-souhaite-supprimer-800-000-postes-dans-la-fonction-publique_8279303.html — « moi ce que je propose ce sont des peines planchers pour imposer un minimum de peine à un délinquant » — La peine minimale vise « un délinquant », sans réserver la mesure à la récidive ni à certains faits : c'est la règle générale de C, comme en 2022 (« pour chaque crime et délit »). Déclaration du candidat de moins de 12 mois : officielle. La phrase de 2026 est moins explicite sur la portée que celle de 2022, à trancher par l'auteur.
+
 ## Compléments pour le reportage (28/10/2026)
 
 > Ajoutés pour le reportage vidéo de la fiche. Sources numérotées à la suite de la liste du § 5 ([14] à [16]). Les

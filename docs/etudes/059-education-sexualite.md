@@ -364,6 +364,10 @@ Options de la fiche :
 
 ---
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option D (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 4, chap. 2, section « Disposer d'une communauté éducative complète et solide », https://melenchon2027.fr/programme/livre/le-gout-du-futur-aux-nouvelles-frontieres-de-l-humanite/chapitre2 — « Fournir les moyens réels pour assurer à tous les élèves en collège et lycée les trois séances annuelles d'éducation à la vie affective, relationnelle et à la sexualité (EVARS) prévues par la loi ; ces séances incluront les problématiques liées au consentement, à l'orientation sexuelle, à l'identité de genre et à la lutte contre les LGBTIphobies » — Le programme garde les séances, y compris sur l'identité de genre, ce qui écarte B, et leur donne des « moyens réels » pour qu'elles aient lieu partout : c'est l'option D. Il ne parle que du collège et du lycée, sans rien dire de l'école primaire (à trancher par l'auteur).
+
 ## 5. Sources
 
 Sources consultées le 7 novembre 2026.

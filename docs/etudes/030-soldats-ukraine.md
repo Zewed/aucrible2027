@@ -407,6 +407,10 @@ cessez-le-feu ; D. Oui, sans attendre un cessez-le-feu.
 
 - **Marine Tondelier** : option C (estimee) — AFP, réunion des chefs de parti à l'Élysée sur la force en Ukraine, 09/01/2026 (Arab News en français) ; Les Écologistes, projet 2027, mesure Europe n° 2, https://www.arabnews.fr/node/504954/france — « Permettez-nous de douter de la sincérité de ces avancées et de leur stabilité dans le temps » — Après la présentation de la force de la coalition, elle a dit « oui » aux garanties de sécurité pour l'Ukraine tout en doutant de Trump, et son programme veut « soutenir militairement l'Ukraine » : la participation après un cessez-le-feu (C) est la plus probable ; rien ne documente un envoi avant (D) ni l'exigence d'un mandat de l'ONU (B).
 
+### Positions mises à jour le 12/11/2026
+
+- **Jean-Luc Mélenchon** : option B (officielle) — L'Avenir en commun, édition 2027 (06/11/2026), partie 6, chap. 2, section « Construire une défense souveraine au service de la paix », https://melenchon2027.fr/programme/livre/un-monde-ordonne/chapitre2 — « Organiser une capacité de projection des forces armées françaises, dont le déploiement se ferait exclusivement dans le cadre d'un mandat de l'ONU » — Le programme réserve tout déploiement de soldats à un mandat de l'ONU, ce qui est l'option B. Il ne vise pas l'Ukraine en particulier mais pose une règle pour tout déploiement ; pour l'Ukraine, il demande aussi la protection des réacteurs « par la présence de l'ONU ». Statut officielle proposé, à garder en deduite si l'on veut une phrase propre à l'Ukraine (à trancher par l'auteur).
+
 ## 5. Sources
 
 Sources consultées le 27/10/2026.

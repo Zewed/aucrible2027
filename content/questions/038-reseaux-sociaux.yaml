@@ -124,9 +124,8 @@ story:
   - choix: "Ne pas interdire"
     precision: "éduquer et encadrer"
 positions:
-  # Vote contre du groupe LFI (63 voix), 21/07/2026 : https://nosparlementaires.fr/actualites/reseaux-sociaux-interdits-15-ans-adoption-definitive ; saisine du Conseil constitutionnel (M. Panot) : https://www.conseil-constitutionnel.fr/decision/2026/2026911DC.htm
-  # Vote du groupe Horizons, 21/07/2026 : https://www.assemblee-nationale.fr/dyn/17/scrutins/8431
-  philippe: { option: D, source: "Vote du groupe Horizons, 21/07/2026", statut: deduite, lien: "https://www.assemblee-nationale.fr/dyn/17/scrutins/8431" }
+  # edouardphilippe.fr, « L'école : vos questions, les réponses d'Édouard Philippe », 23/10/2026 : https://www.edouardphilippe.fr/questions-reponses/ecoles (« Édouard Philippe est favorable à l'interdiction des réseaux sociaux aux moins de 15 ans. »)
+  philippe: { option: D, source: "edouardphilippe.fr, « L'école : vos questions, les réponses d'Édouard Philippe », 23/10/2026", statut: officielle, citation: "Édouard Philippe est favorable à l'interdiction des réseaux sociaux aux moins de 15 ans.", lien: "https://www.edouardphilippe.fr/questions-reponses/ecoles" }
   # Programme École, 2026 : https://attalpresident.fr/programme/education
   attal: { option: D, source: "Programme École, 2026", statut: officielle, citation: "C'est pour cela que nous irons au bout de leur interdiction pour les moins de 15 ans, pour les protéger.", lien: "https://attalpresident.fr/programme/education" }
   # Communiqué de N. Dupont-Aignan, 22/07/2026 : https://www.debout-la-france.fr/actualite/communique-la-protection-de-nos-enfants-se-joue-sur-le-terrain/
