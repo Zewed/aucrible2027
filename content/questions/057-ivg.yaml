@@ -69,7 +69,7 @@ options:
     detail:
       chiffrage:
         # § 1.1, [6].
-        texte: "La garder ne change rien. Aucun chiffre ne dit combien de soignants l'invoquent : en 2013, le Haut Conseil à l'égalité jugeait son usage « très mal connu »."
+        texte: "Garder la clause propre à l'IVG ne change rien. Aucun chiffre ne dit combien de soignants l'invoquent : en 2013, le Haut Conseil à l'égalité jugeait son usage « très mal connu »."
         source: { organisme: "Haut Conseil à l'égalité entre les femmes et les hommes", annee: 2013 }
       defenseurs:
         - texte: "L'IVG n'est pas un acte médical comme les autres : une clause qui lui est propre reconnaît cette singularité, sans rien retirer aux femmes."
@@ -78,7 +78,7 @@ options:
         # § 1.1, 1.5 et 2a, [2] [4] [5] [6].
         - texte: "Toutes les lois qui ont élargi l'IVG depuis 1975 ont gardé cette clause : dans les hôpitaux publics, qui ne peuvent pas refuser l'IVG, elle garantit par la loi à chaque soignant qu'il ne sera pas obligé de la pratiquer lui-même."
       critiques:
-        - texte: "Elle n'apporte aux soignants aucune protection de plus que la clause générale, et fait de l'IVG un acte toléré plutôt qu'un droit à part entière."
+        - texte: "La clause propre à l'IVG n'apporte aux soignants aucune protection de plus que la clause générale, et fait de l'IVG un acte toléré plutôt qu'un droit à part entière."
         - texte: "Certains médecins l'invoquent à partir d'un certain terme de la grossesse, ce qui raccourcit de fait le délai légal."
         # § 2b, [6] : relevés des agences régionales de santé, cités par le HCE en 2013.
         - texte: "En 2013, les agences régionales de santé relevaient des refus visant des mineures sans autorisation parentale ou des femmes jugées « récidivistes »."

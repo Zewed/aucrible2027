@@ -42,7 +42,7 @@ chiffres:
 # est au milieu (étude § 4).
 options:
   - id: A
-    libelle: "La réserver de nouveau aux couples homme-femme"
+    libelle: "Réserver de nouveau la PMA aux couples homme-femme"
     implique: "Comme avant 2021, la PMA serait réservée aux couples formés d'un homme et d'une femme, en cas d'infertilité médicalement constatée ou de risque de transmettre une maladie grave. Les couples de femmes et les femmes seules n'y auraient plus accès en France ; les propositions ne disent pas ce que deviendraient les parcours déjà commencés."
     defenseurs: "Un enfant a besoin, autant que possible, d'un père et d'une mère : la vie en prive parfois un enfant, mais la loi ne doit pas l'organiser à l'avance."
     critiques: "Ces familles existaient déjà : revenir en arrière renverrait les femmes vers la Belgique ou l'Espagne, à leurs frais et sans accès de l'enfant à ses origines."
@@ -62,7 +62,7 @@ options:
         - texte: "L'attente des couples infertiles tient au manque de personnel et de centres, pas à la loi : les candidats au don de spermatozoïdes sont passés de 380 par an avant la loi à 1 015 en 2025."
           source: { organisme: "Agence de la biomédecine", annee: 2026 }
   - id: B
-    libelle: "La garder, remboursée seulement pour raison médicale"
+    libelle: "Garder la PMA, remboursée seulement pour raison médicale"
     implique: "Les couples de femmes et les femmes seules gardent l'accès à la PMA, mais paient elles-mêmes tout ou partie des actes : l'assurance maladie ne rembourse que les PMA faites pour une raison médicale. Le Sénat l'avait voté en 2020 ; l'Assemblée nationale l'a rejeté."
     defenseurs: "La Sécurité sociale est là pour soigner : on peut laisser le choix aux femmes sans faire payer à tous une PMA faite sans raison médicale."
     critiques: "Une PMA payante redeviendrait réservée aux femmes aisées, et le remboursement dépendrait de l'orientation sexuelle."
@@ -80,7 +80,7 @@ options:
         - texte: "Le coût est modeste : environ 5 % des près de 300 millions d'euros que la PMA coûte chaque année à l'assurance maladie, selon l'estimation faite avant la loi."
           source: { organisme: "Gouvernement", document: "étude d'impact du projet de loi de bioéthique", annee: 2019 }
   - id: C
-    libelle: "La garder telle quelle, remboursée à 100 %"
+    libelle: "Garder la PMA telle quelle, remboursée à 100 %"
     implique: "Les couples de femmes et les femmes seules gardent l'accès à la PMA, remboursée à 100 % comme pour tous. Rien ne s'ajoute : la PMA après le décès du conjoint et le don d'ovocytes entre conjointes restent interdits. L'effort porte sur l'attente, de 17,7 mois en moyenne en 2025."
     defenseurs: "La loi de 2021 a fait entrer ces familles dans un cadre français, médical et gratuit : il faut maintenant des moyens pour réduire l'attente, pas changer la règle."
     critiques: "Pour les uns, la loi organise la naissance d'enfants sans père désigné ; pour les autres, elle laisse de côté les veuves et les couples de femmes qui voudraient partager la maternité."
@@ -95,11 +95,11 @@ options:
           source: { organisme: "Agence de la biomédecine", annee: 2026 }
       critiques:
         - texte: "Une fois la PMA ouverte au nom de l'égalité, la même égalité sera invoquée pour les couples d'hommes, et donc pour la GPA."
-        - texte: "Elle laisse de côté les veuves : une femme dont le conjoint est mort peut recourir au don d'un inconnu, mais pas aux embryons conçus avec lui."
+        - texte: "La loi actuelle laisse de côté les veuves : une femme dont le conjoint est mort peut recourir au don d'un inconnu, mais pas aux embryons conçus avec lui."
         - texte: "L'accès en France reste trop lent : les demandes de remboursement de PMA faites à l'étranger ont doublé de 2019 à 2025."
           source: { organisme: "OPECST", document: "évaluation de la loi de bioéthique", annee: 2026 }
   - id: D
-    libelle: "L'élargir aux veuves et au don d'ovocytes entre conjointes"
+    libelle: "Élargir la PMA aux veuves et au don d'ovocytes entre conjointes"
     implique: "En plus de la loi de 2021, une femme dont le conjoint est mort pourrait poursuivre la PMA avec les embryons du couple ou les spermatozoïdes conservés de son conjoint, s'il y avait consenti par écrit de son vivant. Dans un couple de femmes, l'une pourrait porter l'enfant conçu avec les ovocytes de l'autre."
     defenseurs: "Interdire à une veuve les embryons conçus avec son conjoint, alors qu'elle peut recourir au don d'un inconnu, est une injustice ; et deux femmes doivent pouvoir partager la maternité."
     critiques: "Ce serait faire naître un enfant déjà orphelin, sur une décision prise en plein deuil, et imposer une ponction d'ovocytes à une femme qui n'en a pas besoin pour sa santé."
@@ -110,14 +110,14 @@ options:
       defenseurs:
         - texte: "Interdire à une veuve les embryons conçus avec son conjoint, alors qu'elle peut recourir au don d'un inconnu, est une profonde injustice."
         - texte: "Le don d'ovocytes entre conjointes permet aux deux femmes de partager la maternité : l'une donne ses ovocytes, l'autre porte l'enfant."
-        - texte: "Il évite de chercher une donneuse, alors qu'elles manquent : en 2025, plus de 2 700 personnes attendaient un don d'ovocytes, avec 22 mois de délai."
+        - texte: "Le don d'ovocytes entre conjointes évite de chercher une donneuse, alors qu'elles manquent : en 2025, plus de 2 700 personnes attendaient un don d'ovocytes, avec 22 mois de délai."
           source: { organisme: "Agence de la biomédecine", annee: 2026 }
       critiques:
         - texte: "Après un décès, ce serait faire naître un enfant déjà orphelin, sur une décision prise en plein deuil."
         - texte: "Le don d'ovocytes entre conjointes impose une stimulation hormonale et une ponction à une femme qui n'en a pas besoin pour sa santé."
         - texte: "Un enfant conçu après la mort de son père aurait une filiation et un héritage plus compliqués à établir."
   - id: E
-    libelle: "L'ouvrir aussi aux hommes trans pouvant porter un enfant"
+    libelle: "Ouvrir aussi la PMA aux hommes trans pouvant porter un enfant"
     implique: "En plus de la PMA après le décès du conjoint et du don d'ovocytes entre conjointes, la PMA serait ouverte aux hommes trans : des personnes nées avec un corps de femme, dont l'état civil indique « homme », et qui peuvent porter un enfant. Aujourd'hui, la PMA leur est fermée dès que l'état civil indique « homme »."
     defenseurs: "La PMA doit être ouverte à toutes les personnes en capacité de procréer, sans exclure celles dont l'état civil a changé."
     critiques: "L'accès repose sur l'état civil, et le changer toucherait toute la filiation ; chaque élargissement ajoute des demandes dans des centres déjà saturés."

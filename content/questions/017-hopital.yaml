@@ -36,7 +36,7 @@ options:
     axes: { economie: 1 }
     detail:
       chiffrage:
-        texte: "Il garderait le paiement au séjour, qui faisait 54 % de ce que l'Assurance maladie versait aux hôpitaux publics en 2019, dernière année de pleine application."
+        texte: "La T2A simplifiée garderait le paiement au séjour, qui faisait 54 % de ce que l'Assurance maladie versait aux hôpitaux publics en 2019, dernière année de pleine application."
         source: { organisme: "Cour des comptes", annee: 2023 }
       defenseurs:
         - texte: "Le paiement au séjour n'a pas fait exploser l'activité : 5,6 % de séjours en plus seulement de 2014 à 2019."
@@ -59,15 +59,15 @@ options:
         texte: "La réforme engagée vise à financer la moitié des ressources des établissements autrement qu'à l'activité."
         source: { organisme: "Drees", annee: 2026 }
       defenseurs:
-        - texte: "Elle garde une incitation à soigner, tout en finançant à part ce qui ne se paie pas au séjour : urgences, psychiatrie, santé publique."
+        - texte: "La réforme en cours garde une incitation à soigner, tout en finançant à part ce qui ne se paie pas au séjour : urgences, psychiatrie, santé publique."
         - texte: "Les hôpitaux peuvent avoir de la visibilité sans budget global : de 2020 à 2022, un accord garantissait au moins 2,4 % de hausse par an de leur enveloppe nationale."
           source: { organisme: "Cour des comptes", annee: 2023 }
         - texte: "Les hôpitaux de proximité, souvent ruraux, ont déjà une garantie de financement qui tient compte des besoins du territoire."
       critiques:
         - texte: "Le déficit reste élevé malgré les dotations ajoutées : environ 2,1 % des recettes des hôpitaux publics en 2025."
           source: { organisme: "Drees", annee: 2026 }
-        - texte: "Elle ne va pas assez loin : le paiement au séjour reste la principale source de revenus des hôpitaux."
-        - texte: "Elle empile les règles, entre tarifs, dotations de santé publique et dotations de missions, et rend le système encore plus complexe."
+        - texte: "La réforme en cours ne va pas assez loin : le paiement au séjour reste la principale source de revenus des hôpitaux."
+        - texte: "La réforme en cours empile les règles, entre tarifs, dotations de santé publique et dotations de missions, et rend le système encore plus complexe."
   - id: C
     libelle: "En finir avec la tarification à l'activité : une dotation globale selon les besoins du territoire"
     implique: "L'hôpital public reçoit un budget annuel global fixé selon la population et les besoins de son territoire, comme avant 2004, sans paiement à chaque séjour (ou seulement pour certains actes techniques programmés)."
@@ -76,7 +76,7 @@ options:
     axes: { economie: -2 }
     detail:
       chiffrage:
-        texte: "Il changerait la façon de verser ce que l'Assurance maladie donne aux hôpitaux publics : 78,1 milliards d'euros en 2024, 76,8 % de leurs recettes."
+        texte: "Une dotation globale changerait la façon de verser ce que l'Assurance maladie donne aux hôpitaux publics : 78,1 milliards d'euros en 2024, 76,8 % de leurs recettes."
         source: { organisme: "Drees", annee: 2026 }
       defenseurs:
         - texte: "Payer à l'acte pousse à multiplier certains soins : les opérations de la cataracte ont augmenté de 23 % de 2002 à 2009, quand les prothèses de hanche stagnaient."

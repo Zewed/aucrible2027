@@ -29,14 +29,14 @@ chiffres:
     source: { organisme: Gouvernement, document: cité par LCP et les Échos, annee: 2026 }
 options:
   - id: A
-    libelle: Les supprimer
+    libelle: "Supprimer les franchises"
     implique: "Les franchises et les participations forfaitaires disparaissent : les soins prescrits sont remboursés à 100 %."
     defenseurs: "Faire payer chaque boîte ou chaque consultation revient à faire payer la maladie : c'est un impôt sur la maladie."
     critiques: Il faudrait financer ce que rapportent ces sommes, environ 2,5 milliards d'euros par an de dépenses en moins pour les régimes de base, par d'autres recettes ou des économies.
     axes: { economie: -2 }
     detail:
       chiffrage:
-        texte: "Les supprimer priverait l'Assurance maladie de ce qu'elles lui font économiser : environ 2,5 milliards d'euros en 2025."
+        texte: "Supprimer les franchises priverait l'Assurance maladie de ce qu'elles lui font économiser : environ 2,5 milliards d'euros en 2025."
         source: { organisme: "Cour des comptes", annee: 2026 }
       defenseurs:
         - texte: "Se soigner ne devrait rien coûter de sa poche : il faut prolonger l'acquis de la Sécurité sociale jusqu'au remboursement intégral des soins prescrits."
@@ -51,7 +51,7 @@ options:
           source: { organisme: "Eurostat", annee: 2025 }
         - texte: "Mieux vaut des franchises qu'un déremboursement : elles ne font pas monter les cotisations des complémentaires santé de tous les assurés."
   - id: B
-    libelle: Ne pas les augmenter
+    libelle: "Ne pas augmenter les franchises"
     implique: Les montants, 1 euro par boîte et 2 euros par consultation, restent inchangés et le plafond annuel revient à 100 euros, comme avant octobre 2026.
     defenseurs: "Ceux qui en paient le plus sont les plus malades : une hausse pénalise davantage les ménages en mauvaise santé et peut conduire à renoncer à des soins."
     critiques: Sans nouvelle recette, il faut trouver ailleurs les économies d'une dépense de santé qui progresse de 3,3 % par an.
@@ -71,7 +71,7 @@ options:
         - texte: "Trouver l'argent par des impôts ou des cotisations pèserait davantage sur ceux qui travaillent, et pourrait coûter des emplois."
         - texte: "Prélevées après coup, les franchises se voient peu, ce qui limite leur effet sur le recours aux soins."
   - id: C
-    libelle: Les relever progressivement
+    libelle: "Relever les franchises progressivement"
     implique: Le plafond passe à 140 euros par an, puis une nouvelle étape est prévue en 2028 et une revalorisation selon l'inflation.
     defenseurs: Une hausse mesurée, qui laisse environ 18 millions de personnes exemptées, dont les mineurs et les bénéficiaires de la complémentaire santé solidaire.
     critiques: "Les plus gros consommateurs de soins paient le plus : les patients en affection de longue durée paient en moyenne 78 euros par an, contre 41 pour les autres."
@@ -93,7 +93,7 @@ options:
           source: { organisme: "Direction de la recherche, des études, de l'évaluation et des statistiques", annee: 2026 }
         - texte: "Faire payer davantage les patients revient à taxer la maladie."
   - id: D
-    libelle: Les doubler
+    libelle: "Doubler les franchises"
     implique: Les plafonds sont doublés, à 200 euros par an, et les franchises s'étendent aux soins dentaires et aux dispositifs médicaux, comme proposé en 2025 et en 2026.
     defenseurs: "L'assurance maladie doit maîtriser ses dépenses : le doublement rapporterait 750 millions d'euros par an, pour continuer à investir dans l'hôpital."
     critiques: C'est un impôt sur la maladie, dont le coût rapporté au revenu est environ deux fois plus élevé pour les ménages modestes que pour les aisés, et qui peut faire renoncer à des soins.
@@ -113,7 +113,7 @@ options:
           source: { organisme: "Elabe", annee: 2025 }
         - texte: "Les députés l'ont déjà rejetée : en novembre 2025, l'Assemblée a supprimé leur extension et leur hausse par 197 voix contre 23."
           source: { organisme: "Assemblée nationale", annee: 2025 }
-        - texte: "Elle ferait aussi payer les soins dentaires et le matériel médical, jusqu'ici épargnés par les franchises."
+        - texte: "La réforme proposée en 2025 et 2026 ferait aussi payer les soins dentaires et le matériel médical, jusqu'ici épargnés par les franchises."
 pourAllerPlusLoin:
   - titre: DREES, Déremboursement de soins, qui paie ?, 2026
     url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/les-dossiers-de-la-drees/260218_DD_%C3%A9valuation-impact-m%C3%A9nages-d%C3%A9remboursement-partiel-soins

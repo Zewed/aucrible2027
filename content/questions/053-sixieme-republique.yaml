@@ -51,7 +51,7 @@ options:
         - texte: "Changer de texte n'a jamais garanti la stabilité : la France a eu 14 Constitutions de 1791 à 1946."
           source: { organisme: "Conseil constitutionnel", annee: 2026 }
   - id: B
-    libelle: "La réviser pour renforcer le Parlement"
+    libelle: "Réviser la Constitution pour renforcer le Parlement"
     implique: "La Constitution de 1958 reste, mais elle est révisée : le 49.3 est supprimé ou limité, le Premier ministre est investi par l'Assemblée, et les pouvoirs propres du président, comme les nominations, sont réduits."
     defenseurs: "On peut rééquilibrer les pouvoirs sans tout réécrire : de 2022 à 2024, le 49.3 a fait adopter des textes sans vote 23 fois, et les députés doivent retrouver le dernier mot sur les lois et les nominations."
     critiques: "Sans 49.3 ni majorité stable, un gouvernement peut ne plus réussir à faire voter son budget ; et toute révision doit passer par le Sénat, qui a rejeté en 2026 un texte réduisant les pouvoirs du président."
@@ -70,7 +70,7 @@ options:
         - texte: "Le 49.3 n'échappe pas au contrôle des députés : après l'un d'eux, ils ont renversé le gouvernement en décembre 2024, par 331 voix."
           source: { organisme: "Assemblée nationale", annee: 2024 }
   - id: C
-    libelle: "La réviser pour renforcer le référendum"
+    libelle: "Réviser la Constitution pour renforcer le référendum"
     implique: "La Constitution de 1958 reste et le président garde ses pouvoirs, mais le peuple est plus souvent consulté : référendum ouvert à tous les sujets, y compris la Constitution ; selon les projets, mandat de sept ans et référendum pour passer outre une censure du Conseil constitutionnel."
     defenseurs: "« La souveraineté nationale appartient au peuple » : quand l'Assemblée ne parvient plus à trancher, c'est au peuple de décider, alors qu'aucun référendum national n'a eu lieu depuis 2005 et que 79 % des Français veulent y recourir plus souvent."
     critiques: "Passer outre le juge constitutionnel affaiblirait la protection des libertés, selon des constitutionnalistes ; et réviser la Constitution par référendum sans le vote du Sénat est une pratique contestée en droit depuis 1962."
@@ -91,16 +91,16 @@ options:
   # Aucun candidat n'y est rangé avec une source (étude, § 4), mais l'option est défendue dans le débat
   # (« moins on la touche, mieux on se porte », J.-P. Raffarin) et 32 % des sondés du CEVIPOF ne veulent pas changer.
   - id: D
-    libelle: "La garder telle qu'elle est"
+    libelle: "Garder la Constitution telle qu'elle est"
     implique: "L'équilibre des pouvoirs ne change pas : le président, le gouvernement et l'Assemblée gardent leurs règles ; on change les pratiques et les lois ordinaires, comme le mode de scrutin, pas la Constitution."
     defenseurs: "« Moins on la touche, mieux on se porte » : la Constitution de 1958 a tenu face à une Assemblée sans majorité et à la censure d'un gouvernement en 2024 ; la crise vient des divisions politiques, qu'aucun texte ne fera disparaître."
     critiques: "Garder le texte tel quel ne répond pas à une défiance record : 20 % des Français font confiance à l'Assemblée, 22 % à l'institution présidentielle, et 58 % disent qu'il faudrait changer de Constitution."
     detail:
       chiffrage:
-        texte: "La garder ne change rien : depuis 1958, elle a été révisée 25 fois, la dernière en 2024."
+        texte: "Garder la Constitution ne change rien : depuis 1958, elle a été révisée 25 fois, la dernière en 2024."
         source: { organisme: "Assemblée nationale", annee: 2024 }
       defenseurs:
-        - texte: "Elle donne des gouvernements solides : depuis 1958, deux seulement ont été renversés par une motion de censure, en 1962 et en 2024."
+        - texte: "La Constitution de 1958 donne des gouvernements solides : depuis 1958, deux seulement ont été renversés par une motion de censure, en 1962 et en 2024."
           source: { organisme: "Assemblée nationale", annee: 2024 }
         - texte: "La dissolution rend la parole aux électeurs, qui ne donnent pas toujours raison au président : son camp n'a pas gagné après deux des six dissolutions."
           source: { organisme: "Public Sénat", annee: 2024 }

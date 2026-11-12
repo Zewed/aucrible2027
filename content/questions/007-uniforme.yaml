@@ -40,13 +40,13 @@ options:
       defenseurs:
         - texte: "Les élèves n'en veulent pas : 57 % des écoliers interrogés n'aiment pas porter la tenue, et 69 % en CM2."
           source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
-        - texte: "Elle change peu ce qui compte à l'école : 7 % seulement des directeurs d'école voient un progrès sur ce que les élèves apprennent."
+        - texte: "L'uniforme change peu ce qui compte à l'école : 7 % seulement des directeurs d'école voient un progrès sur ce que les élèves apprennent."
           source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
         - texte: "C'est une égalité de façade, qui ne règle ni les classes surchargées ni le manque de professeurs."
       critiques:
-        - texte: "Elle soude l'établissement : 13 chefs d'établissement sur 16 voient les élèves plus attachés à leur collège ou lycée."
+        - texte: "L'uniforme soude l'établissement : 13 chefs d'établissement sur 16 voient les élèves plus attachés à leur collège ou lycée."
           source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
-        - texte: "Elle allège la pression sur les familles : 50 % des parents de collégiens en sentent moins sur la façon de s'habiller."
+        - texte: "L'uniforme allège la pression sur les familles : 50 % des parents de collégiens en sentent moins sur la façon de s'habiller."
           source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
         - texte: "Sans tenue commune, la course aux marques continue dans la cour."
   - id: B
@@ -70,7 +70,7 @@ options:
           source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
         - texte: "Une règle nationale serait la même pour tous les élèves, quelle que soit leur commune."
   - id: C
-    libelle: L'imposer à tous les élèves du public
+    libelle: "Imposer l'uniforme à tous les élèves du public"
     implique: Une loi rend la tenue obligatoire dans les écoles et collèges publics (certains textes vont jusqu'au lycée) ; chaque établissement en fixe la coupe et la couleur.
     defenseurs: Une tenue commune réduit les inégalités sociales, aide à lutter contre le harcèlement et donne un cadre clair sur les signes religieux.
     critiques: Les effets sur les comportements et les apprentissages restent limités, et les élèves du second degré y adhèrent peu.
@@ -80,13 +80,13 @@ options:
         texte: "Aucun chiffrage officiel n'a été trouvé. Un ordre de grandeur pour tous les élèves, calculé sur 200 euros chacun et environ 12 millions d'élèves, donne 2,4 milliards d'euros."
         source: { organisme: "Banque des Territoires", annee: 2026 }
       defenseurs:
-        - texte: "Elle aide contre le harcèlement : 10 chefs d'établissement sur 16 voient un progrès depuis la tenue."
+        - texte: "L'uniforme aide contre le harcèlement : 10 chefs d'établissement sur 16 voient un progrès depuis la tenue."
           source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
-        - texte: "Elle réduit les moqueries sur les vêtements : 43 % des écoliers trouvent qu'on critique moins ceux des autres, 32 % non."
+        - texte: "L'uniforme réduit les moqueries sur les vêtements : 43 % des écoliers trouvent qu'on critique moins ceux des autres, 32 % non."
           source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
         - texte: "Une tenue unique donne aux chefs d'établissement une règle simple pour faire respecter la laïcité."
       critiques:
-        - texte: "Elle ne fait pas reculer le harcèlement dans la plupart des écoles : 71 % des directeurs n'y voient pas de changement notable."
+        - texte: "L'uniforme ne fait pas reculer le harcèlement dans la plupart des écoles : 71 % des directeurs n'y voient pas de changement notable."
           source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }
         - texte: "Les élèves se comparent autrement : 64 % des parents d'écoliers trouvent que la tenue n'empêche pas les jugements entre eux."
           source: { organisme: "Direction de l'évaluation, de la prospective et de la performance", annee: 2026 }

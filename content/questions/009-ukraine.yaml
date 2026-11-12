@@ -46,7 +46,7 @@ options:
         - texte: "La France se retirerait d'un effort que l'Europe porte désormais : 201,4 milliards d'euros d'aide européenne fin 2025, contre 115,3 venus des États-Unis."
           source: { organisme: "Institut de Kiel", annee: 2026 }
   - id: B
-    libelle: Les limiter au matériel de défense
+    libelle: "Limiter les livraisons au matériel de défense"
     implique: Formation et armes de défense seulement, sans nouveau financement et sans arme permettant de frapper en territoire russe.
     defenseurs: On aide l'Ukraine à se défendre sans que la France devienne cobelligérante ni qu'elle s'endette davantage.
     critiques: Une aide plafonnée laisse l'Ukraine en position de faiblesse dans d'éventuelles négociations.
@@ -65,7 +65,7 @@ options:
         - texte: "Avec une aide plafonnée, l'Ukraine arriverait affaiblie à la table des négociations."
         - texte: "Livrer des armes, même défensives, prolonge la guerre au lieu d'y mettre fin."
   - id: C
-    libelle: Les poursuivre au niveau actuel
+    libelle: "Poursuivre les livraisons au niveau actuel"
     implique: Les livraisons et la formation continuent, dans le cadre de l'accord de sécurité conclu en 2024 pour dix ans.
     defenseurs: "Il faut continuer de former les soldats ukrainiens et de livrer des armes : l'Ukraine est la sentinelle de la sécurité de l'Europe."
     critiques: Certains jugent l'effort trop lourd pour les finances publiques, d'autres insuffisant pour que l'Ukraine négocie en position de force.
@@ -86,7 +86,7 @@ options:
           source: { organisme: "Institut de Kiel", annee: 2025 }
         - texte: "Les quantités livrées restent secrètes : les Français ne savent pas exactement ce qu'ils financent."
   - id: D
-    libelle: Les renforcer
+    libelle: "Renforcer les livraisons"
     implique: Plus de livraisons, notamment de défense aérienne, plus de financement et, pour certains, des armes de longue portée.
     defenseurs: Relâcher le soutien fragiliserait l'Ukraine ; il faut l'aider à tenir et à négocier en position de force.
     critiques: Le coût pèse sur des finances publiques tendues, et la France risque d'être entraînée dans une escalade face à une puissance nucléaire.

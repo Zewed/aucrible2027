@@ -34,7 +34,7 @@ options:
     axes: { economie: 2 }
     detail:
       chiffrage:
-        texte: "Ses partisans prévoient de 140 à 200 milliards d'euros d'économies d'ici 2032, selon les plans, dont une partie rendue en baisses d'impôts. Aucun chiffrage indépendant n'a été trouvé."
+        texte: "Les partisans de fortes économies prévoient de 140 à 200 milliards d'euros d'économies d'ici 2032, selon les plans, dont une partie rendue en baisses d'impôts. Aucun chiffrage indépendant n'a été trouvé."
         source: { organisme: "Programmes des candidats", annee: 2026 }
       defenseurs:
         - texte: "La France dépense bien plus que ses voisins : 57,3 % de sa richesse en 2025, contre 49,4 % en moyenne dans l'Union européenne."
@@ -78,7 +78,7 @@ options:
     axes: { economie: -2 }
     detail:
       chiffrage:
-        texte: "Ses partisans en attendent un peu plus de 100 milliards d'euros de recettes en plus dès 2027, dont plus de 80 financeraient des dépenses nouvelles. Aucun chiffrage indépendant n'a été trouvé."
+        texte: "Les partisans de hausses d'impôts pour les plus riches en attendent un peu plus de 100 milliards d'euros de recettes en plus dès 2027, dont plus de 80 financeraient des dépenses nouvelles. Aucun chiffrage indépendant n'a été trouvé."
         source: { organisme: "La France insoumise", annee: 2026 }
       defenseurs:
         - texte: "Les baisses d'impôts ont creusé le déficit : décidées de 2018 à 2023, elles coûtaient 62 milliards d'euros en 2023, sans économies en face."

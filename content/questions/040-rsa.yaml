@@ -57,7 +57,7 @@ options:
     axes: { economie: 0 }
     detail:
       chiffrage:
-        texte: "La garder ne change pas la dépense. Depuis 2025, la loi a fait inscrire d'office à France Travail 1 million d'allocataires du RSA."
+        texte: "Garder la règle actuelle ne change pas la dépense. Depuis 2025, la loi a fait inscrire d'office à France Travail 1 million d'allocataires du RSA."
         source: { organisme: "France Travail", annee: 2025 }
       defenseurs:
         - texte: "Dans l'essai, les participants ont plus souvent trouvé un emploi salarié : 3,2 points de plus dans l'année que des allocataires semblables d'autres territoires."
@@ -72,7 +72,7 @@ options:
           source: { organisme: "Assemblée nationale", annee: 2025 }
         - texte: "Sans écart plus grand entre les aides et le salaire, la règle actuelle n'incite pas assez à reprendre un travail."
   - id: C
-    libelle: "Les durcir : 15 heures pour tous, moins d'aide sans activité"
+    libelle: "Durcir la règle : 15 heures pour tous, moins d'aide sans activité"
     implique: "Le RSA est fusionné avec d'autres aides : une part est versée sans condition, 300 euros par mois dans la proposition des Républicains, le reste à condition de justifier 15 heures d'activité, et le total des aides est plafonné à 70 % du Smic net."
     defenseurs: "Le travail doit toujours rapporter plus que les aides : une allocation plus haute pour ceux qui se forment ou cherchent un emploi récompense l'effort, et deux allocataires sur trois sont orientés vers un parcours qui vise l'emploi."
     critiques: "Ceux qui ne peuvent pas faire 15 heures vivraient avec moins, alors que huit allocataires sur dix ont au moins une difficulté de transport, de santé, d'argent ou de logement, et aucune économie n'est chiffrée par l'administration."

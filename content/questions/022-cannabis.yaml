@@ -80,12 +80,12 @@ options:
     axes: { societe: 0 }
     detail:
       chiffrage:
-        texte: "Le maintenir ne change pas la dépense : la lutte contre le cannabis coûte environ 568 millions d'euros par an, selon une estimation de 2019."
+        texte: "Maintenir l'interdiction ne change pas la dépense : la lutte contre le cannabis coûte environ 568 millions d'euros par an, selon une estimation de 2019."
         source: { organisme: "Conseil d'analyse économique", annee: 2019 }
       defenseurs:
         - texte: "Les jeunes s'en éloignent : en 2022, 29,9 % des jeunes de 17 ans en avaient déjà pris, le niveau le plus bas depuis 2000."
           source: { organisme: "Observatoire français des drogues et des tendances addictives", annee: 2023 }
-        - texte: "À l'adolescence, il peut nuire durablement à la mémoire et à l'attention, et précipiter des troubles psychotiques."
+        - texte: "À l'adolescence, le cannabis peut nuire durablement à la mémoire et à l'attention, et précipiter des troubles psychotiques."
         - texte: "Autoriser la vente banaliserait l'usage : ce serait un signal dramatique, surtout pour les plus jeunes."
       critiques:
         - texte: "La France consomme plus que ses voisins malgré l'interdit : en 2021, 21,8 % des 15-34 ans en avaient pris dans l'année, le niveau le plus haut de l'Union."

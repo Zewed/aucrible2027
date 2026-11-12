@@ -51,7 +51,7 @@ options:
     axes: { economie: -1 }
     detail:
       chiffrage:
-        texte: "Ses partisans en attendent 15 milliards d'euros par an. Aucune administration n'a chiffré ces recettes."
+        texte: "Les partisans d'une hausse sur les gros héritages en attendent 15 milliards d'euros par an. Aucune administration n'a chiffré ces recettes."
         source: { organisme: "Les Écologistes", annee: 2026 }
       defenseurs:
         - texte: "Les plus gros héritages échappent en partie à l'impôt : les 0,1 % d'héritiers qui reçoivent le plus paient à peine 10 % de droits."
@@ -112,7 +112,7 @@ options:
           source: { organisme: "Conseil d'analyse économique", annee: 2021 }
         - texte: "Donner sans impôt tous les dix ans au lieu de quinze profiterait surtout à ceux qui ont assez pour donner plusieurs fois."
   - id: E
-    libelle: Les supprimer entre parents et enfants
+    libelle: "Ne plus taxer l'héritage entre parents et enfants"
     implique: "Plus aucun impôt n'est dû quand des parents transmettent à leurs enfants, de leur vivant ou au décès ; les autres héritiers continuent de payer."
     defenseurs: "Cet argent a déjà été taxé quand il a été gagné, et douze pays riches, dont la Norvège, ont supprimé l'impôt sur les successions."
     critiques: "L'État perdrait une grande partie des 16,6 milliards d'euros de droits de succession, les plus gros héritiers y gagneraient le plus, et une part des biens transmis n'a jamais été taxée, comme les gains des placements gardés jusqu'au décès."

@@ -50,7 +50,7 @@ options:
         - texte: "Un enfant victime de violences dans sa propre famille n'a parfois que l'école pour apprendre qu'il peut en parler, et à qui."
         - texte: "Le programme ne remplace pas les parents : il est public, et les parents sont représentés dans les instances de l'école."
   - id: B
-    libelle: "Les garder, mais recentrées et annoncées aux parents"
+    libelle: "Garder les séances, mais recentrées et annoncées aux parents"
     implique: "Les trois séances restent obligatoires, mais elles sont assurées par les enseignants plutôt que par des associations, sans la notion d'identité de genre, et les parents sont informés à l'avance de chaque séance."
     defenseurs: "Les parents doivent savoir à l'avance ce qui est dit à leur enfant, et l'école doit rester à l'abri de tout militantisme : des séances par les professeurs, sans identité de genre."
     critiques: "Annoncer chaque séance exposerait les enseignants aux pressions, et l'identité de genre sert, dans le programme, à combattre des discriminations que la loi interdit."
@@ -73,20 +73,20 @@ options:
     critiques: "Les uns le jugent trop précoce et trop éloigné des familles, les autres trop peu appliqué, faute d'un budget propre."
     detail:
       chiffrage:
-        texte: "Le garder ne change rien : le ministère valorise son effort à 119 millions d'euros, surtout en temps de travail des personnels, sans budget affecté."
+        texte: "Garder le programme de 2025 ne change rien : le ministère valorise son effort à 119 millions d'euros, surtout en temps de travail des personnels, sans budget affecté."
         source: { organisme: "Ministère de l'Éducation nationale", annee: 2026 }
       defenseurs:
         - texte: "Le programme suit l'âge des élèves : en primaire, il parle du corps, des émotions, du consentement et des violences, pas de sexualité."
-        - texte: "Il ne remplace pas les familles, il les complète : le programme est public, et les parents connaissent les objectifs de chaque année."
+        - texte: "Le programme ne remplace pas les familles, il les complète : il est public, et les parents connaissent les objectifs de chaque année."
         - texte: "Les programmes scolaires de prévention des abus sexuels donnent aux enfants des connaissances et des réflexes pour se protéger, sans les rendre plus anxieux : c'est le bilan de 24 essais menés auprès de 5 802 enfants."
           source: { organisme: "Revue Cochrane", annee: 2015 }
       critiques:
-        - texte: "Dès la maternelle, il apprend aux enfants à repérer des « adultes de confiance », mis sur le même plan que leurs parents."
+        - texte: "Dès la maternelle, le programme apprend aux enfants à repérer des « adultes de confiance », mis sur le même plan que leurs parents."
         - texte: "Les parents ne sont plus prévenus de la date ni du contenu de chaque séance, seulement des objectifs de l'année."
         - texte: "Sans budget propre, le programme n'a pas lieu partout : fin 2025, 35 % des lycéens avaient eu au moins une séance depuis la rentrée."
           source: { organisme: "Ministère de l'Éducation nationale", annee: 2026 }
   - id: D
-    libelle: "L'appliquer partout, avec un budget dédié"
+    libelle: "Appliquer le programme partout, avec un budget dédié"
     implique: "Un budget propre, des heures réservées dans l'emploi du temps, des personnels formés, des associations agréées aussi en primaire et des contrôles dans le privé sous contrat. Des associations demandent jusqu'à 620 millions d'euros par an, contre 119 millions valorisés aujourd'hui par le ministère."
     defenseurs: "Une loi votée en 2001 doit s'appliquer : sans budget, sans heures réservées ni personnes formées, des élèves traversent toute leur scolarité sans une seule séance."
     critiques: "L'effort existe déjà, avec un plan national de formation, et faire parler de ces sujets à de jeunes enfants par des intervenants extérieurs ne devrait pas se généraliser."

@@ -71,11 +71,11 @@ options:
           source: { organisme: "Cour des comptes", annee: 2025 }
         - texte: "Ces peines doivent devenir plus fréquentes, exécutées plus vite et mieux suivies, au lieu d'enfermer pour quelques mois."
       critiques:
-        - texte: "Elles n'ont pas vidé les prisons : les personnes suivies hors de prison sont passées de 71 000 en 1980 à 174 000 en 2022, sans faire baisser le nombre de détenus."
+        - texte: "Les peines purgées hors de prison n'ont pas vidé les prisons : les personnes suivies hors de prison sont passées de 71 000 en 1980 à 174 000 en 2022, sans faire baisser le nombre de détenus."
           source: { organisme: "Cour des comptes", annee: 2023 }
         - texte: "Le travail d'intérêt général ne fait pas moins récidiver que la courte prison : à profil égal, l'écart n'est que de 0,1 point."
           source: { organisme: "Cour des comptes", annee: 2025 }
-        - texte: "Elles s'imposent mal comme de vraies sanctions, et pas davantage comme de vrais outils de réinsertion."
+        - texte: "Les peines purgées hors de prison s'imposent mal comme de vraies sanctions, et pas davantage comme de vrais outils de réinsertion."
   - id: C
     libelle: Construire et punir aussi hors de la prison
     implique: "On construit plus vite, y compris en modules préfabriqués, et les courtes peines continuent de se faire souvent sous bracelet ou en travail d'intérêt général, sans changer leurs règles ni fixer de plafond."

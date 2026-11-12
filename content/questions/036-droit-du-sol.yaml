@@ -23,7 +23,7 @@ chiffres:
     source: { organisme: Elabe, document: "sondage pour BFMTV", annee: 2024 }
 options:
   - id: A
-    libelle: "L'élargir, français dès la naissance"
+    libelle: "Élargir le droit du sol : français dès la naissance"
     implique: "Tout enfant né en France, Mayotte comprise, est français dès sa naissance, quelle que soit la situation de ses parents, sans attendre 13 ou 18 ans."
     defenseurs: "Un enfant né en France est un enfant de la République : le faire français dès la naissance, comme aux États-Unis, l'aide à s'intégrer et met fin aux règles à part de Mayotte."
     critiques: "La nationalité serait donnée sans exiger d'avoir vécu en France, y compris à des enfants qui partiront ensuite ; ses opposants y voient un facteur d'attraction pour l'immigration irrégulière, en particulier à Mayotte."
@@ -43,14 +43,14 @@ options:
           source: { organisme: "Ministère allemand des Affaires étrangères", annee: 2024 }
         - texte: "La nationalité de l'enfant ouvre un droit au séjour à ses parents : la donner dès la naissance attirerait davantage l'immigration irrégulière."
   - id: B
-    libelle: "Le garder tel qu'il est"
+    libelle: "Garder le droit du sol tel qu'il est"
     implique: "Les règles actuelles restent : un enfant né en France de parents étrangers devient français à 18 ans s'il y a vécu au moins cinq ans depuis ses 11 ans, ou dès 13 ans sur demande."
     defenseurs: "La règle, en place depuis 1998, demande déjà cinq ans de vie en France, et 94 % des enfants de deux parents immigrés se sentent français : rien ne justifie de la durcir."
     critiques: "La nationalité reste acquise sans démarche à 18 ans et, hors Mayotte, sans condition sur la situation des parents, ce que ses opposants jugent trop large face à l'immigration irrégulière."
     axes: { societe: 0 }
     detail:
       chiffrage:
-        texte: "Le garder ne change rien : en 2025, 98 139 personnes sont devenues françaises, dont 34 904 par le droit du sol."
+        texte: "Garder le droit du sol ne change rien : en 2025, 98 139 personnes sont devenues françaises, dont 34 904 par le droit du sol."
         source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
       defenseurs:
         - texte: "Les enfants d'immigrés nés en France se sentent français : 94 % de ceux qui ont deux parents immigrés, presque autant que les personnes sans origine immigrée, 97 %."
@@ -63,7 +63,7 @@ options:
         - texte: "Le droit du sol n'exige aucun niveau de français, alors que la naturalisation demande désormais le niveau B2."
           source: { organisme: "Ministère de l'Intérieur", annee: 2026 }
   - id: C
-    libelle: "Le restreindre"
+    libelle: "Restreindre le droit du sol"
     implique: "Le droit du sol reste, avec des conditions plus strictes : une démarche obligatoire du jeune, comme de 1993 à 1998, ou un séjour régulier des parents à la naissance, comme à Mayotte."
     defenseurs: "On ne devient pas français par hasard : la nationalité doit être un choix exprimé et ne pas profiter d'un séjour irrégulier des parents ; le Conseil constitutionnel a admis la démarche en 1993 et la condition sur les parents à Mayotte."
     critiques: "De 1993 à 1998, la démarche obligatoire a laissé de côté des jeunes mal informés, et les filles la demandaient moins souvent ; hors de Mayotte, une condition sur les parents n'a jamais été jugée et ses opposants y voient une atteinte à l'égalité."
@@ -83,7 +83,7 @@ options:
         - texte: "Une condition sur les parents ne freine pas forcément les arrivées : à Mayotte, la part des bébés de deux parents étrangers a continué de monter, jusqu'à 46 % en 2024."
           source: { organisme: "Insee", annee: 2025 }
   - id: D
-    libelle: "Le supprimer"
+    libelle: "Supprimer le droit du sol"
     implique: "Naître et grandir en France ne donne plus droit à la nationalité : il faut un parent français ou une naturalisation ; ses partisans proposent de le décider par référendum."
     defenseurs: "La nationalité se demande et se mérite : elle doit couronner une assimilation vérifiée, par la naturalisation, et non découler du lieu de naissance ; la plupart des pays européens appliquent le droit du sang."
     critiques: "Des enfants nés et élevés en France resteraient étrangers s'ils ne sont pas naturalisés, ce qui rompt avec une règle appliquée depuis 1889 ; ses opposants y voient une inégalité entre enfants nés au même endroit."

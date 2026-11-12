@@ -57,12 +57,12 @@ options:
       defenseurs:
         - texte: "La loi vise tout le travail forcé, sans cibler un pays : il touchait 28 millions de personnes dans le monde en 2021."
           source: { organisme: "Organisation internationale du travail", annee: 2022 }
-        - texte: "Elle permet d'interdire un produit même sans preuve absolue qu'il vient du travail forcé."
-        - texte: "Sans viser la Chine nommément, elle placera inévitablement le Xinjiang en haut de la liste des risques."
+        - texte: "Le règlement européen permet d'interdire un produit même sans preuve absolue qu'il vient du travail forcé."
+        - texte: "Sans viser la Chine nommément, le règlement européen placera inévitablement le Xinjiang en haut de la liste des risques."
       critiques:
         - texte: "Le travail forcé au Xinjiang vient d'une politique d'État : il mérite mieux qu'une enquête produit par produit."
         - texte: "Ce sera aux autorités, et non aux entreprises, de prouver le travail forcé, enquête par enquête."
-        - texte: "Elle tarde : applicable seulement en décembre 2027, elle n'avait fin septembre 2026 d'autorité désignée que dans 10 États membres."
+        - texte: "Le règlement européen tarde : applicable seulement en décembre 2027, il n'avait fin septembre 2026 d'autorité désignée que dans 10 États membres."
           source: { organisme: "Osborne Clarke", annee: 2026 }
   - id: C
     libelle: "Sanctions ciblées et produits du Xinjiang bloqués"

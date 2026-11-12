@@ -24,7 +24,7 @@ chiffres:
     source: { organisme: Cour des comptes, document: rapport sur la lutte contre les logements vacants, annee: 2025 }
 options:
   - id: A
-    libelle: "Les réquisitionner"
+    libelle: "Réquisitionner les logements vides"
     implique: "En plus de la taxe, le préfet ou le maire peut occuper pour quelques années un logement vide depuis longtemps et y loger des personnes ; le propriétaire reste propriétaire et touche un loyer garanti par l'État."
     defenseurs: "Des gens dorment dehors quand des logements restent vides : la réquisition ne prive pas le propriétaire de son bien, il est payé, et sa seule menace pousse à relouer."
     critiques: "C'est une atteinte au droit de propriété, coûteuse et exposée aux recours en justice ; beaucoup de logements vides sont à rénover, et l'outil n'a presque plus servi depuis 2001."
@@ -37,14 +37,14 @@ options:
         - texte: "Des gens dorment dehors pendant que des logements restent vides : 1,1 million de logements privés l'étaient depuis plus de deux ans en 2022."
           source: { organisme: "Cour des comptes", annee: 2025 }
         - texte: "Ce n'est ni une expropriation ni une sanction : le propriétaire garde son bien, peut le vendre, et l'organisme qui le loue paie les travaux."
-        - texte: "Sa seule menace suffit souvent : en 2014, plusieurs centaines de logements vides ont été remis sur le marché avant toute procédure."
+        - texte: "La seule menace d'une réquisition suffit souvent : en 2014, plusieurs centaines de logements vides ont été remis sur le marché avant toute procédure."
       critiques:
         - texte: "C'est une atteinte au droit de propriété, que garantit la Déclaration des droits de l'homme et du citoyen."
-        - texte: "Elle n'a jamais fait ses preuves : en 2001, 48 logements ont été réquisitionnés, sur 300 annoncés."
+        - texte: "La réquisition n'a jamais fait ses preuves : en 2001, 48 logements ont été réquisitionnés, sur 300 annoncés."
           source: { organisme: "Assemblée nationale", annee: 2026 }
         - texte: "La procédure est longue, fragile en justice, et coûterait cher aux communes en indemnités, en procès et en remise en état."
   - id: B
-    libelle: "Les taxer plus fort"
+    libelle: "Taxer plus fort les logements vides"
     implique: "Sans réquisition, la taxe payée par les propriétaires de logements vides augmente, par exemple plus fort si le logement reste vide longtemps ou si son propriétaire en possède plusieurs."
     defenseurs: "Garder un logement vide là où des familles cherchent un toit doit coûter cher : une taxe plus lourde pousse à louer ou à vendre, et une étude a mesuré son effet."
     critiques: "Près de la moitié de la taxe réclamée en 2022 a été rendue à des propriétaires qui ne pouvaient pas louer, et la Cour des comptes juge son effet non démontré."
@@ -62,11 +62,11 @@ options:
       critiques:
         - texte: "Une grande partie de la taxe est rendue, car le logement ne trouvait pas preneur : 95 millions d'euros sur 201 millions réclamés en 2022."
           source: { organisme: "Cour des comptes", annee: 2025 }
-        - texte: "Elle repose sur des fichiers qui se trompent : sur le terrain, environ 25 % des logements réputés vides ne le sont pas ou plus."
+        - texte: "La taxe sur les logements vides repose sur des fichiers qui se trompent : sur le terrain, environ 25 % des logements réputés vides ne le sont pas ou plus."
           source: { organisme: "Cour des comptes", annee: 2025 }
         - texte: "Plus lourde et plus étendue, la taxe n'a pas fait reculer les logements vides de longue durée : rien ne montre qu'elle pousse à louer."
   - id: C
-    libelle: "Aider à les remettre en location"
+    libelle: "Aider à remettre les logements vides en location"
     implique: "La taxe et les règles actuelles restent ; l'État et les communes financent des travaux, garantissent les loyers et accordent des avantages fiscaux aux propriétaires qui louent."
     defenseurs: "Beaucoup de logements vides sont vieux, petits ou en mauvais état, et leurs propriétaires âgés ou modestes : mieux vaut les aider à faire les travaux que les sanctionner."
     critiques: "Les aides se paient avec l'argent public et touchent peu de logements ; là où le logement manque, peu de propriétaires répondent quand la mairie les contacte."
@@ -80,7 +80,7 @@ options:
           source: { organisme: "Service des données et études statistiques", annee: 2023 }
         - texte: "Les garanties de loyer et les avantages fiscaux donnent des résultats : environ 40 000 logements auraient été remis sur le marché entre 2017 et 2022."
           source: { organisme: "Cour des comptes", annee: 2025 }
-        - texte: "Leurs propriétaires sont souvent âgés, ou n'ont pas les moyens des travaux : mieux vaut les accompagner que les sanctionner."
+        - texte: "Les propriétaires de logements vides sont souvent âgés, ou n'ont pas les moyens des travaux : mieux vaut les accompagner que les sanctionner."
       critiques:
         - texte: "Les aides attirent de moins en moins de propriétaires : 150 000 logements loués moins cher sous convention en 2017, 100 000 en 2022."
           source: { organisme: "Cour des comptes", annee: 2025 }
@@ -88,7 +88,7 @@ options:
           source: { organisme: "Cour des comptes", annee: 2025 }
         - texte: "Les aides se paient avec l'argent public, et aucun indicateur ne permet de mesurer ce qu'elles rapportent."
   - id: D
-    libelle: "Alléger les règles pour les louer"
+    libelle: "Alléger les règles pour louer les logements vides"
     implique: "Les interdictions de louer les logements les plus mal isolés sont levées ou assouplies, pour que ceux qui sont vides puissent être loués, et les propriétaires qui louent paient moins d'impôts ; ni réquisition, ni taxe nouvelle."
     defenseurs: "Aucun propriétaire n'a intérêt à garder un bien vide : les logements vides sont plus souvent mal isolés que les autres, et alléger les normes et les impôts les remettrait sur le marché."
     critiques: "Des logements mal isolés seraient reloués avec de lourdes factures de chauffage, et aucune étude n'a mesuré l'effet de ces interdictions sur les logements vides."

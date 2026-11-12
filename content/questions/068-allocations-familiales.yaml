@@ -144,7 +144,7 @@ options:
         - texte: "Les allocations vont déjà surtout aux familles modestes, 3 milliards d'euros au premier dixième des niveaux de vie contre 300 millions au dernier : leur budget doit aller d'abord à celles qui en ont le plus besoin."
           source: { organisme: "Cour des comptes", document: "citée par l'Assemblée nationale", annee: 2024 }
         # § 1.1 et 2a, [3].
-        - texte: "Elle ne change rien pour les parents d'un seul enfant, qui restent sans allocations familiales."
+        - texte: "Une allocation à partir du deuxième enfant ne change rien pour les parents d'un seul enfant, qui restent sans allocations familiales."
   - id: E
     libelle: "Comme aujourd'hui : deuxième enfant, montant selon les revenus"
     implique: "Les allocations restent versées à partir du deuxième enfant, avec un montant divisé par deux ou par quatre pour les familles aux revenus les plus élevés. Aucune dépense nouvelle."

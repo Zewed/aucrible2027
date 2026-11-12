@@ -55,7 +55,7 @@ options:
     axes: { economie: -1 }
     detail:
       chiffrage:
-        texte: "Il s'appuierait sur des sanctions déjà alourdies : jusqu'à 100 000 euros d'amende pour un loueur sans autorisation, contre 50 000 euros avant novembre 2024."
+        texte: "Un durcissement s'appuierait sur des sanctions déjà alourdies : jusqu'à 100 000 euros d'amende pour un loueur sans autorisation, contre 50 000 euros avant novembre 2024."
         source: { organisme: "Ministère du Logement", annee: 2025 }
       defenseurs:
         - texte: "Les autorisations restent l'exception : à Paris, seules 248 ont été accordées avec compensation depuis 2010, pour 548 logements."
@@ -75,7 +75,7 @@ options:
     axes: { economie: 0 }
     detail:
       chiffrage:
-        texte: "Il garde les outils de 2024 : chaque commune peut, par exemple, ramener de 120 à 90 jours par an la location d'une résidence principale."
+        texte: "Le cadre de 2024 reste en place : chaque commune peut, par exemple, ramener de 120 à 90 jours par an la location d'une résidence principale."
         source: { organisme: "Ministère du Logement", annee: 2025 }
       defenseurs:
         - texte: "Les règles commencent à marcher : à Paris, l'offre de logements entiers sur Airbnb a baissé de 14 % depuis le passage à 90 jours, en janvier 2025."

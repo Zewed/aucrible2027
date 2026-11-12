@@ -23,7 +23,7 @@ chiffres:
     source: { organisme: Sénat, document: rapport n° 47, annee: 2026 }
 options:
   - id: A
-    libelle: "Le généraliser et baisser les loyers"
+    libelle: "Généraliser l'encadrement et baisser les loyers"
     implique: "L'encadrement devient permanent dans tout le pays, et ses plafonds sont abaissés dans les grandes villes pour faire baisser les loyers."
     defenseurs: "Les locataires du privé consacrent un quart de leur revenu à se loger : il faut des loyers plus bas partout, pas un frein de quelques pour cent dans quelques villes."
     critiques: "Des loyers fixés sous le niveau du marché coûteraient aux propriétaires et à l'État, et la plupart des études étrangères trouvent qu'ils font reculer l'offre de logements à louer."
@@ -45,7 +45,7 @@ options:
           source: { organisme: "Cour des comptes", annee: 2026 }
         - texte: "À Berlin, le gel des loyers de 2020 a fait baisser les loyers, mais l'offre de logements a fortement diminué."
   - id: B
-    libelle: "Le rendre permanent et l'étendre"
+    libelle: "Étendre l'encadrement et le rendre permanent"
     implique: "L'encadrement devient permanent et s'applique dans bien plus de villes, voire dans tout le pays ; le plafond reste fixé à 20 % au-dessus du loyer habituel du quartier."
     defenseurs: "Selon l'évaluation remise au Parlement, il a fait baisser les loyers de 2 à 4 % ; les villes où le logement manque doivent pouvoir l'appliquer sans attendre l'accord de l'État."
     critiques: "Selon la même évaluation, son effet sur l'offre reste inconnu et, à Paris, ses gains vont surtout à des ménages aisés ; l'étendre à toutes les villes où le logement manque coûterait à l'État 320 millions d'euros d'impôts perçus en moins, selon une estimation."
@@ -62,21 +62,21 @@ options:
         - texte: "Quand la commune contrôle, les propriétaires remboursent : à Paris, 648 dossiers ont été régularisés après une mise en demeure."
           source: { organisme: "Cour des comptes", annee: 2026 }
       critiques:
-        - texte: "À Paris, il profite d'abord aux plus aisés : la majorité des gains va aux 30 % de ménages les plus aisés du pays."
+        - texte: "À Paris, l'encadrement profite d'abord aux plus aisés : la majorité des gains va aux 30 % de ménages les plus aisés du pays."
           source: { organisme: "G. Chapelle et G. Fack", annee: 2026 }
         - texte: "Le plafond est de moins en moins respecté : à Paris, 46 % des annonces le dépassaient en 2026, contre 31 % un an plus tôt."
           source: { organisme: "Fondation pour le logement des défavorisés", annee: 2026 }
-        - texte: "Ses plafonds reposent sur des bases fragiles : leurs critères n'expliquent qu'environ 48 % des écarts de loyer, et cinq arrêtés ont été annulés."
+        - texte: "Les plafonds de l'encadrement reposent sur des bases fragiles : leurs critères n'expliquent qu'environ 48 % des écarts de loyer, et cinq arrêtés ont été annulés."
           source: { organisme: "Cour des comptes", annee: 2026 }
   - id: C
-    libelle: "Le prolonger à l'essai"
+    libelle: "Prolonger l'encadrement à l'essai"
     implique: "L'encadrement continue deux ans de plus dans les 70 communes qui l'appliquent, sans nouvelles villes, le temps de collecter les loyers déclarés aux impôts pour mieux l'évaluer."
     defenseurs: "Les données manquent pour juger de ses effets sur l'offre : deux ans de plus, avec les loyers déclarés aux impôts, permettent de décider sur des chiffres fiables."
     critiques: "Pour les uns, c'est repousser encore la décision et refuser l'outil aux villes qui le demandent ; pour les autres, c'est prolonger un dispositif que la Cour des comptes propose d'arrêter, à défaut d'une profonde réforme."
     axes: { economie: 0 }
     detail:
       chiffrage:
-        texte: "Le prolonger ne change rien à la dépense : le plafond coûte chaque année à l'État 181 millions d'euros d'impôts en moins."
+        texte: "Prolonger l'encadrement ne change rien à la dépense : le plafond coûte chaque année à l'État 181 millions d'euros d'impôts en moins."
         source: { organisme: "G. Chapelle et G. Fack", annee: 2026 }
       defenseurs:
         - texte: "On manque de données pour juger : les loyers déclarés aux impôts ne couvrent que 65 % des logements loués, et la déclaration ne sera obligatoire qu'en 2028."
@@ -87,16 +87,16 @@ options:
         - texte: "Prolonger, c'est garder un plafond rarement sanctionné : Paris n'a infligé que 17 amendes en trois ans."
           source: { organisme: "Cour des comptes", annee: 2026 }
         - texte: "Sans réforme, l'outil reste compliqué : c'est au locataire de faire valoir ses droits."
-        - texte: "Sans nouvelles villes, il laisse de côté celles qui l'ont demandé, comme Marseille ou des communes de la métropole de Nantes."
+        - texte: "Sans nouvelles villes, la prolongation laisse de côté celles qui ont demandé l'encadrement, comme Marseille ou des communes de la métropole de Nantes."
   - id: D
-    libelle: "Y mettre fin"
+    libelle: "Mettre fin à l'encadrement"
     implique: "L'essai s'arrête : le loyer d'un nouveau bail n'a plus de plafond par quartier ; restent les règles nationales qui limitent les hausses en cours de bail et, là où le logement manque, entre deux locataires."
     defenseurs: "Un plafond ne crée aucun logement et décourage les propriétaires de louer : mieux vaut construire, et s'appuyer sur la limite des hausses qui existe déjà, une solution plus simple selon la Cour des comptes."
     critiques: "Les locataires des villes concernées pourraient perdre en moyenne 500 à 800 euros par an, et la limite des hausses entre deux locataires est, selon l'évaluation remise au Parlement, peu appliquée."
     axes: { economie: 1 }
     detail:
       chiffrage:
-        texte: "Y mettre fin rendrait à l'État ce que le plafond lui coûte : 181 millions d'euros d'impôts par an."
+        texte: "Mettre fin à l'encadrement rendrait à l'État ce que le plafond lui coûte : 181 millions d'euros d'impôts par an."
         source: { organisme: "G. Chapelle et G. Fack", annee: 2026 }
       defenseurs:
         - texte: "Les annonces de location reculent dans les villes encadrées : environ 8 % de moins hors Île-de-France, de 2019 à 2024."
@@ -107,7 +107,7 @@ options:
       critiques:
         - texte: "Le plafond n'a pas vidé Paris : les annonces de location y ont augmenté de près de 50 % de 2019 à 2022, en partie à cause du Covid."
           source: { organisme: "G. Chapelle et G. Fack", annee: 2026 }
-        - texte: "Hors d'Île-de-France, il profite davantage aux plus modestes : pour 2 euros versés aux 10 % les plus modestes, 1 euro va aux 10 % les plus aisés."
+        - texte: "Hors d'Île-de-France, l'encadrement profite davantage aux plus modestes : pour 2 euros versés aux 10 % les plus modestes, 1 euro va aux 10 % les plus aisés."
           source: { organisme: "G. Chapelle et G. Fack", annee: 2026 }
         - texte: "Sans plafond, il ne resterait que la limite des hausses entre deux locataires, une règle peu appliquée faute de sanction."
 pourAllerPlusLoin:

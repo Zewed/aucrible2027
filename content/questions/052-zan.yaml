@@ -50,7 +50,7 @@ options:
           source: { organisme: "Cerema", annee: 2026 }
         - texte: "La baisse récente suit d'abord le recul de la construction : sans plafond, les terres prises pourraient repartir à la hausse avec la reprise."
   - id: B
-    libelle: "L'assouplir"
+    libelle: "Assouplir l'objectif"
     implique: "L'objectif de 2050 reste, mais l'étape de 2031 est supprimée ou repoussée, chaque région fixe sa propre trajectoire, et des projets sortent du décompte, comme les usines, l'énergie renouvelable ou les logements sociaux des communes en retard, comme le prévoit le texte voté par le Sénat en 2025."
     defenseurs: "Diviser par deux d'ici 2031 est jugé impossible sur le terrain, pénalise les communes qui ont peu construit et freine la réindustrialisation : mieux vaut un chemin fixé avec les élus locaux, en gardant le cap de 2050."
     critiques: "Supprimer l'étape de 2031 permettrait de prendre plus de 80 000 hectares supplémentaires d'ici 2031, selon la Fondation pour la nature et l'homme, et obligerait les collectivités qui ont déjà revu leurs plans à recommencer."
@@ -80,7 +80,7 @@ options:
     axes: { societe: 0 }
     detail:
       chiffrage:
-        texte: "Le garder ne change rien : en 2024, 15 119 hectares ont été pris pour bâtir, le plus bas niveau depuis 2011, selon des chiffres encore provisoires."
+        texte: "Garder l'objectif ne change rien : en 2024, 15 119 hectares ont été pris pour bâtir, le plus bas niveau depuis 2011, selon des chiffres encore provisoires."
         source: { organisme: "Cerema", annee: 2026 }
       defenseurs:
         - texte: "Les élus ont déjà fait le travail : les deux tiers des régions ont adopté leur nouveau plan d'aménagement. Changer encore la loi les ferait recommencer."
@@ -89,12 +89,12 @@ options:
         - texte: "L'effort peut encore s'accélérer : les plans des communes, qui appliquent la règle sur le terrain, doivent être revus d'ici 2028."
       critiques:
         - texte: "Les maires ruraux y voient une mise sous cloche des campagnes, sous la tutelle des régions qui répartissent les terres."
-        - texte: "Elle traite comme perdus des sols qui ne sont pas recouverts : 47,5 % seulement des sols artificialisés sont imperméables, le reste surtout des jardins et des pelouses."
+        - texte: "La règle actuelle traite comme perdus des sols qui ne sont pas recouverts : 47,5 % seulement des sols artificialisés sont imperméables, le reste surtout des jardins et des pelouses."
           source: { organisme: "Insee", annee: 2026 }
         - texte: "Les exceptions laissent filer des terres : les grands projets nationaux sont comptés à part, et les bâtiments agricoles comme une partie des panneaux solaires ne le sont pas."
     # La règle en vigueur après la censure du 21/05/2026 ; pas de note.
   - id: D
-    libelle: "Le renforcer"
+    libelle: "Renforcer l'objectif"
     implique: "La France va plus vite ou plus loin : zéro artificialisation nette avant 2050, par exemple dès 2040, un plafond ferme pour 2031-2041, et un décompte qui inclut tout ce qui est pris, carrières et grands projets compris."
     defenseurs: "Une terre bâtie l'est presque pour toujours : ces sols nourrissent, filtrent l'eau et abritent la vie, et l'on peut construire autrement, sur les friches, en hauteur ou en rénovant les logements vides."
     critiques: "Les communes rurales, qui ont peu de terrains déjà bâtis, ne pourraient presque plus construire, et reconstruire la ville sur elle-même coûte cher aux communes, qui manquent selon leur association d'un « modèle économique » pour le faire."

@@ -28,13 +28,13 @@ chiffres:
     source: { organisme: "Ifop pour le groupe Union centriste du Sénat", document: "Les Français et les moyens de renforcer la participation électorale", annee: 2020 }
 options:
   - id: A
-    libelle: "Non, le garder à part comme aujourd'hui"
+    libelle: "Non, garder le vote blanc à part, comme aujourd'hui"
     implique: "Les bulletins blancs restent comptés à part et publiés dans les résultats, sans entrer dans les suffrages exprimés : les pourcentages, la majorité et les seuils se calculent sur les seuls votes pour un candidat, une liste ou une réponse."
     defenseurs: "Une élection sert à choisir quelqu'un : le vote blanc « agrège les rejets » sans désigner personne (Emmanuel Macron, 2019). Le compter rendrait aussi plus durs les seuils de voix qui donnent des sièges ou le remboursement des campagnes, au détriment des petites listes."
     critiques: "Plus de deux millions de bulletins blancs au second tour de 2022 n'ont rien changé au résultat ; tant que le vote blanc reste sans effet, « les électeurs seront toujours plus tentés par l'abstention » (le député Pacôme Rupin, 2021)."
     detail:
       chiffrage:
-        texte: "Le garder ne change rien : au second tour de la présidentielle de 2022, 2,2 millions de bulletins blancs ont été publiés à part, hors des suffrages exprimés."
+        texte: "Garder le vote blanc à part ne change rien : au second tour de la présidentielle de 2022, 2,2 millions de bulletins blancs ont été publiés à part, hors des suffrages exprimés."
         source: { organisme: "Conseil constitutionnel", annee: 2022 }
       defenseurs:
         - texte: "Une élection sert à choisir : un bulletin blanc refuse sans désigner personne, ni dire quel autre choix l'électeur voudrait."
@@ -61,7 +61,7 @@ options:
         - texte: "Compter les blancs ne bloquerait pas l'élection : en 2017, le président élu aurait encore eu 60,3 % des voix."
           source: { organisme: "Conseil constitutionnel", document: "calcul d'après ses résultats", annee: 2017 }
         - texte: "Depuis 2014, le vote blanc est séparé des bulletins nuls : il faut aller au bout, et le faire peser dans les pourcentages."
-        - texte: "Il peut peser sans bloquer les institutions : on peut ne le compter qu'au premier tour, ou élire au second le candidat arrivé en tête."
+        - texte: "Le vote blanc peut peser sans bloquer les institutions : on peut ne le compter qu'au premier tour, ou élire au second le candidat arrivé en tête."
       critiques:
         - texte: "Un président pourrait être élu sans la majorité absolue que demande la Constitution : en 2012, le gagnant aurait eu 49,45 % des voix, d'après une estimation."
           source: { organisme: "Assemblée nationale", annee: 2021 }

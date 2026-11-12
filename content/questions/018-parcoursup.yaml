@@ -45,7 +45,7 @@ options:
         - texte: "Garantir une place à chacun demanderait d'en créer beaucoup, ce qui coûte cher et prend des années."
         - texte: "Sans tri sur dossier, il faudrait départager autrement les formations trop demandées, comme avec le tirage au sort d'avant Parcoursup."
   - id: B
-    libelle: "Oui, et le remplacer par un nouvel outil"
+    libelle: "Oui, et remplacer Parcoursup par un nouvel outil"
     implique: "Parcoursup est abandonné pour une nouvelle procédure d'admission, dont les règles restent à définir."
     defenseurs: "La confiance dans Parcoursup est entamée : un outil conçu avec les lycéens, les familles et les établissements peut offrir des règles plus claires et une attente plus courte."
     critiques: "Un nouvel outil prendra des années et pourrait reproduire les mêmes défauts, au risque de désorganiser les admissions."
@@ -57,41 +57,41 @@ options:
         - texte: "La confiance s'effrite : 67 % des nouveaux bacheliers disent que Parcoursup a facilité leur entrée dans le supérieur, contre 81 % en 2020."
           source: { organisme: "Institut CSA", annee: 2026 }
         - texte: "Le contrôle continu n'est pas noté pareil partout : un tri sur dossier avantage les élèves des lycées réputés."
-        - texte: "Son système informatique était déjà jugé fragile en 2020 : mieux vaut le reconstruire que le rapiécer."
+        - texte: "Le système informatique de Parcoursup était déjà jugé fragile en 2020 : mieux vaut le reconstruire que le rapiécer."
       critiques:
         - texte: "Un nouvel outil ne crée pas une place de plus : le manque de places existait déjà avant Parcoursup."
-        - texte: "Ses règles restent à écrire, et rien ne garantit qu'il évite les défauts de l'ancien."
+        - texte: "Les règles du nouvel outil restent à écrire, et rien ne garantit qu'il évite les défauts de l'ancien."
         - texte: "Changer d'outil d'un coup risque de désorganiser les admissions : 1 046 000 candidats ont confirmé un vœu en 2026."
           source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
   - id: C
-    libelle: "Non, mais le réformer"
+    libelle: "Non, mais réformer Parcoursup"
     implique: "La plateforme reste, avec des critères de sélection publics, un calendrier et un accompagnement revus."
     defenseurs: "Parcoursup fonctionne pour la plupart des candidats : mieux vaut corriger ses défauts que repartir de zéro."
     critiques: "Des corrections ne changent pas le fond : les formations restent maîtres du tri et le sentiment d'arbitraire demeure."
     detail:
       chiffrage:
-        texte: "Elle garderait la plateforme et ses plus de 25 000 formations, avec des règles revues dès la campagne 2027."
+        texte: "La réforme garderait la plateforme et ses plus de 25 000 formations, avec des règles revues dès la campagne 2027."
         source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
       defenseurs:
         - texte: "Le système corrige déjà des inégalités : près de 19 400 lycéens boursiers ont été admis grâce aux quotas de boursiers, selon une estimation."
           source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
-        - texte: "Ses défauts se corrigent sans tout reconstruire : publier les critères des formations, cacher le lycée d'origine des candidats."
+        - texte: "Les défauts de Parcoursup se corrigent sans tout reconstruire : publier les critères des formations, cacher le lycée d'origine des candidats."
         - texte: "La procédure reste claire pour la plupart : 70 % des nouveaux bacheliers le disent."
           source: { organisme: "Institut CSA", annee: 2026 }
       critiques:
         - texte: "Des corrections ne changent pas le fond : les formations restent maîtres du tri."
         - texte: "Le sentiment d'injustice demeure : seuls 29 % des nouveaux bacheliers jugent qu'il traite tous les candidats de manière équitable."
           source: { organisme: "Institut CSA", annee: 2026 }
-        - texte: "Il reste perçu comme opaque : 49 % des nouveaux bacheliers le jugent transparent, contre 53 % en 2025."
+        - texte: "Parcoursup reste perçu comme opaque : 49 % des nouveaux bacheliers le jugent transparent, contre 53 % en 2025."
           source: { organisme: "Institut CSA", annee: 2026 }
   - id: D
-    libelle: "Non, le garder tel quel"
+    libelle: "Non, garder Parcoursup tel quel"
     implique: "Le fonctionnement actuel est conservé."
     defenseurs: "Il organise chaque année l'entrée de près d'un million de candidats, avec des millions de propositions envoyées dès le premier jour : un système éprouvé."
     critiques: "Il laisse des candidats dans l'attente et sans comprendre les critères retenus."
     detail:
       chiffrage:
-        texte: "Le garder ne change rien au fonctionnement : 4,3 millions de propositions d'admission ont été envoyées en 2026."
+        texte: "Garder Parcoursup ne change rien au fonctionnement : 4,3 millions de propositions d'admission ont été envoyées en 2026."
         source: { organisme: "Ministère de l'Enseignement supérieur", annee: 2026 }
       defenseurs:
         - texte: "Presque tous les lycéens reçoivent une proposition : 91,4 % des élèves de Terminale en 2026."

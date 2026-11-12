@@ -42,7 +42,7 @@ chiffres:
 # est D. La limite entre B et C : les baisses de cotisations, et le déclenchement par des licenciements.
 options:
   - id: A
-    libelle: "Rembourser, et lui interdire de licencier"
+    libelle: "Rembourser, et interdire à l'entreprise de licencier"
     implique: "Une entreprise qui verse des dividendes ou reçoit des aides de l'État ne peut plus faire de licenciements économiques ; chaque aide est liée à des objectifs sociaux et écologiques, et remboursée s'ils ne sont pas tenus. En cas de délocalisation, l'État peut réquisitionner le site."
     defenseurs: "Une entreprise qui fait des bénéfices ou touche de l'argent public ne doit pas pouvoir licencier : l'argent public ne doit plus servir à financer les dividendes des actionnaires."
     critiques: "Licencier est souvent le dernier recours pour sauver le reste de l'entreprise : l'interdire l'empêcherait d'anticiper ses difficultés et dissuaderait d'embaucher et d'investir en France."
