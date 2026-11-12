@@ -1,0 +1,31 @@
+src/components/Fiche.tsx
+  s_c9e941570f74a1::t_fe6287538a4bfd 5,27-29,55,64-74,86-88,90-93,95-100,107-110,175-184,204,238,271-283
+  s_c9e941570f74a1::t_00a3bbc39bbfe5 89
+src/app/globals.css
+  s_c9e941570f74a1::t_d7470d1a2a19a1 567-568
+  s_c9e941570f74a1::t_00a3bbc39bbfe5 451-453,467-468,544-545,565-566,569-599,601-607,611-612
+  s_c9e941570f74a1::t_d16915f2e754de 600
+e2e/question-du-jour.spec.ts
+  s_c9e941570f74a1::t_94bee5b6eb3d32 524,527,531-536,538-549,611,614-615,619,622-624,630,633,637-639,649,653-654,674-680,682,688,690-692,694,696-700,703-704,706-735,829,1156,1195,1209,6067,6074,6367,6408,6612
+  s_c9e941570f74a1::t_eff6f8b07d6ab5 739-740,743-744,746,1407
+  s_c9e941570f74a1::t_ac05767db416a2 640-646
+  s_c9e941570f74a1::t_2a3bba90592ac5 647-648
+SPEC.md
+  s_c9e941570f74a1::t_eaf15274242853 223
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e48aac1db0fa18340fa449fa8da746041fe1da06",
+  "prompts": {},
+  "sessions": {
+    "s_c9e941570f74a1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "412beb3a-7bb1-43af-b4a4-6dbf17f357da",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
