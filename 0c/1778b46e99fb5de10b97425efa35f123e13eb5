@@ -1,0 +1,29 @@
+src/app/presentation/presentation.css
+  s_285f4fd390be16::t_370eb6d4afb7cd 25,27,32-37,54-55,85,90-107,113,136-137,176-178,207,213
+src/components/ProchaineQuestion.tsx
+  s_285f4fd390be16::t_370eb6d4afb7cd 84
+src/components/Fiche.tsx
+  s_285f4fd390be16::t_370eb6d4afb7cd 11,17,47
+src/components/Presentation.tsx
+  s_285f4fd390be16::t_370eb6d4afb7cd 281-282,288-290,304,314,328,346,350,354,360
+src/app/kit.css
+  s_285f4fd390be16::t_370eb6d4afb7cd 13,16
+src/components/Camembert.tsx
+  s_285f4fd390be16::t_370eb6d4afb7cd 28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0c1778b46e99fb5de10b97425efa35f123e13eb5",
+  "prompts": {},
+  "sessions": {
+    "s_285f4fd390be16": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "63244244-11a6-4ded-9ecd-03183ebe78f5",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Zewed <dewez.antoine2@gmail.com>"
+    }
+  }
+}
