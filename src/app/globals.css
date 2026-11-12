@@ -448,8 +448,9 @@ button.vid-carte:focus-visible { outline: 3px solid var(--eco-texte); outline-of
 }
 
 /* Étape « répondre » : la mosaïque. La question en bandeau, une tuile par option (toutes du même poids), et la
-   tuile pour décider : « Je ne sais pas », l'importance, « Valider ma réponse ». Au téléphone, les options forment un
-   paquet qui glisse, avec leurs repères A, B, C… au-dessus, et la décision reste en bas. */
+   tuile pour décider : « Je ne sais pas », l'importance, « Valider ma réponse ». Au téléphone et sur tablette, les
+   options forment une liste qu'on descend ; la question revient en petit en haut quand son bandeau est passé, et la
+   décision monte du bas une fois une option touchée (décision du 12 novembre 2026). */
 .today.etape-repondre { display: block; max-width: none; padding: 0; }
 .mosaique { --r: 8px; display: flex; flex-direction: column; min-width: 0; margin: 0; }
 .mq-tete { background: var(--theme); color: var(--on-theme); padding: 14px 16px 20px; display: grid; gap: 14px; grid-template-areas: "meta" "q"; }
@@ -463,18 +464,8 @@ button.vid-carte:focus-visible { outline: 3px solid var(--eco-texte); outline-of
 .mq-contexte svg { width: 18px; height: 18px; }
 .mq-contexte:hover { background: var(--ink); color: var(--chalk); }
 .mq-question { grid-area: q; font: 800 36px/0.94 var(--display); font-variation-settings: "wdth" 80, "opsz" 96; letter-spacing: -0.025em; text-wrap: balance; color: var(--on-theme); }
-.mq-reperes { display: flex; gap: 8px; padding: 12px 16px 0; }
-.mq-reperes a {
-  flex: 1; min-height: 44px; display: grid; place-items: center; background: var(--table-2); color: var(--sur-table);
-  border-radius: var(--r); text-decoration: none; font: 800 22px/1 var(--display);
-}
-.mq-reperes a.choisi { background: var(--theme); color: var(--on-theme); }
-.mq-pile {
-  flex: 1; display: flex; gap: 10px; overflow-x: auto; overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory; scroll-padding-inline: 16px; padding: 12px 16px 14px; scrollbar-width: none;
-}
-.mq-pile::-webkit-scrollbar { display: none; }
-.mq-tuile, .mq-nsp { flex: 0 0 min(calc(100% - 26px), 440px); scroll-snap-align: start; display: flex; position: relative; cursor: pointer; container-type: inline-size; }
+.mq-pile { display: grid; gap: 10px; padding: 12px 16px 24px; }
+.mq-tuile, .mq-nsp { display: flex; position: relative; cursor: pointer; container-type: inline-size; }
 .mq-tuile input, .mq-nsp input, .mq-niveau input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
 .mq-face {
   flex: 1; min-width: 0; position: relative;
@@ -550,6 +541,8 @@ button.vid-carte:focus-visible { outline: 3px solid var(--eco-texte); outline-of
 .mq-importance legend { padding: 0; margin-bottom: 8px; font: 800 16px/1.1 var(--display); font-variation-settings: "wdth" 88; }
 .mq-niveaux { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
 .mq-niveau { position: relative; display: block; cursor: pointer; }
+button.mq-niveau { width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: inherit; }
+.mq-peser, .mq-replie { display: none; }
 .mq-niveau > span {
   min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 6px;
   background: var(--table-2); color: var(--sur-table); border-radius: var(--r); transition: background .15s var(--ease-out);
@@ -569,12 +562,54 @@ button.vid-carte:focus-visible { outline: 3px solid var(--eco-texte); outline-of
 .mq-valider:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--theme); }
 .mq-valider:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--theme); }
 .mq-valider[aria-disabled="true"] { background: var(--table-3); color: var(--muted); box-shadow: none; transform: none; cursor: not-allowed; }
+/* La liste : la question repliée en haut, et la feuille du bas, où toucher une importance valide. */
+@media (max-width: 1099.98px) {
+  .mq-tuile, .mq-nsp { scroll-margin: 84px 0 160px; }
+  .mosaique.choisie .mq-pile { padding-bottom: 160px; }
+  .mq-replie {
+    position: fixed; top: 0; left: var(--rail, 0px); right: 0; z-index: 30;
+    display: flex; align-items: center; gap: 12px; padding: 8px 16px 10px; background: var(--theme); color: var(--on-theme);
+    box-shadow: 0 10px 20px -14px rgb(11 9 25 / .6);
+    transform: translateY(-105%); visibility: hidden; transition: transform .22s var(--ease-out), visibility 0s .22s;
+  }
+  .mosaique.replie .mq-replie { transform: none; visibility: visible; transition: transform .22s var(--ease-out); }
+  .mq-replie .mq-contexte { flex: none; width: 44px; padding: 0; justify-content: center; border-radius: 50%; }
+  .mq-replie p {
+    flex: 1; min-width: 0; margin: 0; font: 800 19px/1 var(--display); font-variation-settings: "wdth" 80, "opsz" 96;
+    letter-spacing: -0.02em; text-wrap: balance;
+  }
+  .mq-decision {
+    position: fixed; left: var(--rail, 0px); right: 0; bottom: 0; z-index: 30;
+    padding: 14px 16px calc(16px + env(safe-area-inset-bottom)); border-radius: 18px 18px 0 0;
+    box-shadow: 0 -18px 30px -16px rgb(11 9 25 / .7);
+    transform: translateY(105%); visibility: hidden; transition: transform .28s var(--ease-out), visibility 0s .28s;
+  }
+  .mosaique.choisie .mq-decision { transform: none; visibility: visible; transition: transform .28s var(--ease-out); }
+  .mq-importance { display: none; }
+  .mq-peser { display: grid; gap: 10px; }
+  .mq-peser p { margin: 0; font: 800 17px/1.1 var(--display); font-variation-settings: "wdth" 88; }
+  .mq-peser .mq-niveau > span {
+    min-height: 68px; flex-direction: column; gap: 4px;
+    background: var(--chalk); color: var(--ink); box-shadow: 0 5px 0 var(--theme);
+    transition: transform .12s var(--ease-out), box-shadow .12s var(--ease-out);
+  }
+  .mq-peser .mq-niveau { margin-bottom: 5px; }
+  .mq-peser .mq-niveau b { font-size: 24px; }
+  .mq-peser .mq-niveau:active > span { transform: translateY(4px); box-shadow: 0 1px 0 var(--theme); }
+  .mq-peser .mq-niveau:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 2px; border-radius: var(--r); }
+  .mq-decision .mq-valider { background: var(--chalk); color: var(--ink); }
+  /* « Je ne sais pas » ne demande pas d'importance : la feuille n'a que « Valider ma réponse ». */
+  .mosaique:has(.mq-nsp input:checked) .mq-peser,
+  .mosaique:not(:has(.mq-nsp input:checked)) .mq-valider { display: none; }
+}
+@media (max-width: 1099.98px) and (prefers-reduced-motion: reduce) {
+  .mq-replie, .mosaique.replie .mq-replie, .mq-decision, .mosaique.choisie .mq-decision, .mq-peser .mq-niveau > span { transition: none; }
+}
 @media (min-width: 600px) and (max-width: 1099px) {
   .mq-tete { padding: 18px 24px 26px; }
   .mq-question { font-size: clamp(32px, 6vw, 56px); }
-  .mq-reperes, .mq-pile { padding-inline: 24px; }
-  .mq-pile { scroll-padding-inline: 24px; }
-  .mq-decision { padding-inline: 24px; }
+  .mq-pile { padding-inline: 24px; }
+  .mq-decision, .mq-replie { padding-inline: 24px; }
 }
 /* Grand écran : la mosaïque plein écran, rien ne défile. Le texte se resserre (`--fit`, voir tenirALEcran) pour tenir ;
    une tuile ne coupe jamais son texte : si elle ne tient toujours pas, sa rangée grandit et la page défile. */
@@ -592,7 +627,6 @@ button.vid-carte:focus-visible { outline: 3px solid var(--eco-texte); outline-of
   }
   .mq-meta { flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 12px; }
   .mq-question { font-size: calc(var(--fit, 1) * clamp(44px, min(9.4 * var(--u), 6vw), 128px)); font-variation-settings: "wdth" 78, "opsz" 96; align-self: center; }
-  .mq-reperes { display: none; }
   .mq-pile { display: contents; }
   .mq-tuile { flex: none; }
   .mq-arguments { margin-top: auto; padding-top: 4px; }
