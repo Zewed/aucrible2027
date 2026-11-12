@@ -1,0 +1,180 @@
+# BROUILLON À VÉRIFIER : rédigé par IA le 11/11/2026 à partir de sources publiques.
+# Chaque chiffre et chaque position doit être vérifié par l'auteur avant toute mise en ligne.
+# Étude des enjeux : docs/etudes/072-rsa-jeunes.md (tout ce qui suit y est sourcé).
+# La question porte sur qui peut toucher le RSA, et à partir de quel âge ; les 15 heures d'activité du RSA relèvent de
+# la question 040 et ne sont pas rediscutées ici.
+# Mots disputés, attribués ou évités (étude, « Règles de lecture ») : « assistanat » (opposants à l'ouverture) : évité.
+# « Majorité sociale », « minorité sociale » (partisans) : évités, la fiche écrit « l'âge d'accès au RSA ».
+# « Contrepartie » (défenseurs du CEJ) et « revenu fortement conditionné » (ses critiques) : la fiche écrit
+# « accompagnement obligatoire ». « Garantie d'autonomie », « minimum jeunesse », « allocation d'autonomie » : noms de
+# propositions précises, absents de la fiche, qui écrit « revenu d'autonomie ».
+# Décision de l'auteur : l'option C, défendue par aucun candidat, est gardée ; la fiche ne nomme pas qui la défend.
+# Montant de l'allocation du CEJ : 566,17 € selon Service-public (page vérifiée le 01/04/2026), 561,65 € selon l'avis
+# de l'Assemblée nationale de novembre 2025 ; l'étude ne dit pas lequel vaut pour 2026 : la fiche écrit « 566 € » avec
+# sa source (Service-public, 2026).
+numero: 72
+date: 2026-08-18
+theme: education-jeunesse
+question: "Faut-il ouvrir le RSA, ou un autre revenu minimum, aux jeunes de 18 à 25 ans ?"
+titreCourt: "Le RSA avant 25 ans"
+contexte:
+  - "Le RSA, jusqu'à 651,69 € par mois pour une personne seule sans ressources, n'est ouvert qu'à partir de 25 ans, sauf pour les parents et pour les jeunes qui ont travaillé deux ans sur les trois dernières années."
+  - "Avant 25 ans, un jeune sans emploi ni formation peut signer un contrat d'engagement jeune : 15 à 20 heures d'accompagnement par semaine, avec une allocation selon ses ressources, dans la limite des places financées chaque année."
+  - "Toutes les propositions d'ouvrir le RSA avant 25 ans ont été rejetées au Parlement entre 2020 et 2023 ; certains veulent l'ouvrir dès 18 ans ou créer un revenu propre aux jeunes, d'autres préfèrent élargir le contrat d'engagement jeune ou garder la règle actuelle."
+# Quatre chiffres qui posent le sujet : la pauvreté des jeunes adultes, ce que touche l'exception actuelle, ce que
+# couvre le contrat d'engagement jeune, ce que coûterait l'ouverture du RSA (étude § 1.1, 2a, 2e, 2f). Les deux
+# premiers parlent pour l'ouverture, les deux derniers pour l'aide existante et contre la dépense.
+chiffres:
+  - valeur: "18,6 %"
+    legende: "des 18-29 ans vivent sous le seuil de pauvreté en 2024, contre 15,4 % de l'ensemble de la population"
+    source: { organisme: "Insee", document: "Pauvreté selon l'âge et le seuil", annee: 2026 }
+  - valeur: "600"
+    unite: foyers
+    legende: "touchaient fin 2023 le RSA jeune, ouvert aux moins de 25 ans qui ont travaillé deux ans sur trois (3 100 fin 2012)"
+    source: { organisme: "Drees", document: "Minima sociaux et prestations de solidarité, édition 2025", annee: 2025 }
+  - valeur: "140 600"
+    unite: jeunes
+    legende: "suivaient un contrat d'engagement jeune fin juillet 2026, en France métropolitaine"
+    source: { organisme: "Dares", document: "tableau de bord du CEJ, Dreets Provence-Alpes-Côte d'Azur", annee: 2026 }
+  - valeur: "4,6 à 5,8"
+    unite: milliards d'euros par an
+    legende: "coût net estimé en 2016 d'une ouverture du RSA aux 18-24 ans hors étudiants, pour 1,4 million de bénéficiaires potentiels"
+    source: { organisme: "Drees", document: "estimation citée par le Sénat et par Terra Nova", annee: 2016 }
+# L'ordre est une échelle : du revenu le plus large (A, étudiants compris) à la règle actuelle (D) (étude § 4).
+options:
+  - id: A
+    libelle: "Un revenu d'autonomie pour les jeunes, étudiants compris"
+    implique: "Chaque jeune majeur qui ne dépend plus fiscalement de ses parents reçoit un revenu garanti à son nom, étudiants compris. Le montant varie selon les propositions : jusqu'au seuil de pauvreté, soit 1 337 € par mois pour une personne seule, ou 850 € par mois pour tous les étudiants et le RSA pour les autres jeunes."
+    defenseurs: "Un jeune majeur vote et paie des impôts : il doit avoir un revenu à son nom, sans dépendre des moyens de ses parents ni travailler au détriment de ses études."
+    critiques: "Les étudiants relèvent des bourses, qu'il vaut mieux augmenter pour ceux qui en ont besoin, et un tel revenu n'a aucun chiffrage officiel."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage officiel n'a été trouvé. Pour mesurer l'enjeu : 70 % des 18-24 ans et 90 % des étudiants reçoivent une aide régulière de leurs parents."
+        source: { organisme: "Drees et Insee", document: "enquête sur les ressources des jeunes, citée par l'Assemblée nationale", annee: 2014 }
+      defenseurs:
+        - texte: "Un jeune majeur vote et paie des impôts : il doit être un adulte pour la protection sociale aussi, avec un revenu à son nom."
+        - texte: "L'aide des parents dépend de leurs moyens et de l'entente avec eux : un jeune ne devrait pas en dépendre pour vivre."
+        - texte: "Les jeunes qui ont quitté leurs parents sont les plus exposés : 55 % de ceux qui ont fini leurs études, sans emploi et avec leur propre logement, vivent sous le seuil de pauvreté."
+          source: { organisme: "Drees", document: "données de 2014", annee: 2023 }
+      critiques:
+        - texte: "Les étudiants relèvent des bourses : il vaut mieux les augmenter et les réserver aux jeunes qui en ont besoin."
+        - texte: "La loi oblige déjà les parents à entretenir leur enfant majeur : la solidarité familiale doit être encouragée, pas remplacée."
+        - texte: "Le coût serait très élevé : ouvrir le seul RSA aux jeunes non étudiants coûterait déjà 4,6 à 5,8 milliards d'euros par an, et un revenu étudiants compris n'a aucun chiffrage officiel."
+          source: { organisme: "Drees", annee: 2016 }
+  - id: B
+    libelle: "Ouvrir le RSA dès 18 ans, aux mêmes conditions"
+    implique: "Les jeunes de 18 à 25 ans ont droit au RSA aux mêmes conditions qu'après 25 ans : 651,69 € par mois au plus pour une personne seule, sous condition de ressources, étudiants exclus, avec les mêmes devoirs (inscription à France Travail, accompagnement). Le RSA jeune disparaît."
+    defenseurs: "Les 18-25 ans sont plus pauvres que la moyenne et, sauf exceptions, restent privés du RSA : rien ne justifie de les exclure de cette solidarité."
+    critiques: "La réponse à la pauvreté des jeunes est l'emploi et la formation : un minimum social dès 18 ans risque d'enfermer dans l'aide au lieu d'accompagner vers l'emploi."
+    detail:
+      chiffrage:
+        texte: "Un coût net estimé de 4,6 à 5,8 milliards d'euros par an, pour 1,4 million de bénéficiaires potentiels de 18 à 24 ans, hors étudiants et apprentis. L'estimation date de 2016, avec un RSA d'environ 524 € par mois."
+        source: { organisme: "Drees", annee: 2016 }
+      defenseurs:
+        - texte: "Rien ne justifie que les jeunes majeurs, qui paient des impôts et des cotisations, soient privés de cette solidarité en cas de difficulté."
+        - texte: "Quand on ne sait pas comment manger ni payer son loyer, on n'a pas le temps de se former ni de chercher un emploi : un revenu stable aide à s'en sortir."
+        - texte: "La France fait presque exception en Europe : 24 États de l'Union sur 28 ouvrent leur revenu minimum dès la majorité."
+          source: { organisme: "Cnaf", document: "étude comparée, citée par l'Assemblée nationale", annee: 2020 }
+      critiques:
+        - texte: "La réponse à la pauvreté des jeunes, c'est l'accompagnement vers l'emploi durable : un minimum social sans accompagnement intensif risque d'enfermer les jeunes dans l'aide."
+        - texte: "Le RSA aide peu à retrouver un emploi : sept ans après leur entrée, 34 % des allocataires travaillent, et 42 % touchent encore le RSA."
+          source: { organisme: "Cour des comptes", annee: 2022 }
+        - texte: "Un revenu minimum peut éloigner du travail : dans les années 1990, le droit au RMI à 25 ans a réduit de 7 à 10 % l'activité des hommes seuls, sans enfant et peu diplômés, sans effet chez les plus diplômés."
+          source: { organisme: "O. Bargain et K. Doorley", document: "Journal of Public Economics", annee: 2011 }
+  - id: C
+    libelle: "Faire du contrat d'engagement jeune un droit pour tous"
+    implique: "Tout jeune de 16 à 25 ans sans emploi ni formation qui le demande obtient un contrat d'engagement jeune, sans plafond de places ni limite de durée : une allocation jusqu'à 566 € par mois, avec un accompagnement obligatoire de 15 à 20 heures par semaine. Le RSA reste ouvert à partir de 25 ans."
+    defenseurs: "Une allocation n'aide vraiment un jeune que liée à un accompagnement intensif : il faut l'ouvrir à tous ceux qui le demandent, sans plafond ni limite de durée."
+    critiques: "Pour les uns, une allocation plus basse que le RSA et liée à un accompagnement obligatoire laisse de côté les jeunes qui ne peuvent pas encore chercher un emploi ; pour les autres, une dépense sans plafond n'a pas été chiffrée."
+    detail:
+      chiffrage:
+        texte: "Aucun chiffrage d'un contrat ouvert à tous n'a été trouvé. Aujourd'hui, l'allocation du contrat d'engagement jeune coûte 755 millions d'euros en 2026, 31 millions de moins qu'en 2025."
+        source: { organisme: "Assemblée nationale", document: "avis sur le budget 2026", annee: 2025 }
+      defenseurs:
+        - texte: "Pour lutter contre la pauvreté des jeunes, une allocation doit aller avec un accompagnement intensif et personnalisé : c'est ce que fait le contrat d'engagement jeune."
+        - texte: "Le nombre de contrats est limité chaque année : en faire un droit, sans plafond ni limite de durée, couvrirait tous les jeunes qui cherchent un emploi."
+        - texte: "L'accompagnement intensif a fait ses preuves : la Garantie jeunes, qui a précédé ce contrat, a augmenté de 7,1 points le taux d'emploi de ses premiers bénéficiaires, environ 16 mois après leur entrée."
+          source: { organisme: "Dares", document: "évaluation de la Garantie jeunes", annee: 2018 }
+      critiques:
+        - texte: "L'allocation reste plus basse que le RSA : au plus 566 € par mois, quand le RSA va jusqu'à 651,69 €."
+          source: { organisme: "Service-public.gouv.fr", annee: 2026 }
+        - texte: "Un revenu lié à 15 à 20 heures d'activité par semaine laisse de côté les jeunes qui ne peuvent pas encore chercher un emploi."
+        - texte: "Un contrat sans plafond de places ni limite de durée deviendrait une dépense ouverte, qu'aucun chiffrage n'a mesurée."
+  - id: D
+    libelle: "Garder la règle actuelle : le RSA à 25 ans"
+    implique: "Le RSA reste ouvert à partir de 25 ans, ou avant pour les parents et pour les jeunes qui ont travaillé deux ans sur les trois dernières années. Le contrat d'engagement jeune continue dans la limite des places financées chaque année. Pas de dépense nouvelle."
+    defenseurs: "Les jeunes ont déjà des aides qui leur sont propres, dont le contrat d'engagement jeune : une allocation liée à un accompagnement intensif mène plus sûrement à l'emploi qu'un minimum social."
+    critiques: "Les 18-25 ans restent, sauf exceptions, privés du RSA, alors que leur taux de pauvreté dépasse la moyenne et que le RSA jeune ne touche presque personne."
+    detail:
+      chiffrage:
+        texte: "Pas de dépense nouvelle. 140 600 jeunes suivaient un contrat d'engagement jeune fin juillet 2026 en France métropolitaine."
+        source: { organisme: "Dares", annee: 2026 }
+      defenseurs:
+        - texte: "Verser le RSA dès 18 ans sans exiger de chercher un emploi dévaloriserait le travail : à cet âge, la place d'un jeune est en formation ou en emploi."
+        - texte: "Une allocation n'aide vraiment un jeune que liée à un accompagnement intensif : la Garantie jeunes, devenue le contrat d'engagement jeune, a augmenté de 7,1 points le taux d'emploi de ses premiers bénéficiaires."
+          source: { organisme: "Dares", document: "évaluation de la Garantie jeunes", annee: 2018 }
+        - texte: "Le pays n'a pas les moyens d'une nouvelle dépense : ouvrir le RSA aux 18-24 ans hors étudiants coûterait de 4,6 à 5,8 milliards d'euros par an, avec des prélèvements obligatoires déjà parmi les plus élevés."
+          source: { organisme: "Drees", annee: 2016 }
+      critiques:
+        - texte: "Les jeunes adultes sont plus pauvres que la moyenne : 18,6 % des 18-29 ans vivent sous le seuil de pauvreté, contre 15,4 % de l'ensemble de la population."
+          source: { organisme: "Insee", annee: 2026 }
+        - texte: "L'exception actuelle ne joue presque aucun rôle : seuls 600 foyers touchaient le RSA jeune fin 2023."
+          source: { organisme: "Drees", annee: 2025 }
+        - texte: "Le contrat d'engagement jeune est limité en places et dans le temps, et les missions locales, financées selon les sorties vers l'emploi, sont poussées à choisir les jeunes les plus proches de l'emploi."
+pourAllerPlusLoin:
+  - titre: "Drees, Mesurer le niveau de vie et la pauvreté des jeunes adultes de 18 à 24 ans, 2023"
+    url: https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/les-dossiers-de-la-drees/mesurer-le-niveau-de-vie-et-la-pauvrete
+  - titre: "Drees, Minima sociaux et prestations de solidarité, fiche « Le revenu de solidarité active », 2025"
+    url: https://www.drees.solidarites-sante.gouv.fr/sites/default/files/2025-12/MS2025%20-%20Fiche%2023%20-%20Le%20revenu%20de%20solidarit%C3%A9%20active%20%28RSA%29.pdf
+  - titre: "Service-public.gouv.fr, Contrat d'engagement jeune (CEJ)"
+    url: https://www.service-public.gouv.fr/particuliers/vosdroits/F32700
+# Les deux côtés de l'image 5 du carrousel, chacun avec l'argument que ses défenseurs signeraient (repris des options).
+cotes:
+  - titre: "Pour un revenu dès 18 ans"
+    argument: "Les 18-25 ans sont plus pauvres que la moyenne et, sauf exceptions, restent privés du RSA : rien ne justifie de les exclure de cette solidarité."
+  - titre: "Pour garder le RSA à 25 ans"
+    argument: "La réponse à la pauvreté des jeunes est l'emploi et la formation : un minimum social dès 18 ans risque d'enfermer dans l'aide au lieu d'accompagner vers l'emploi."
+# Les deux choix de l'autocollant « Et toi ? » de la story : A et B contre C et D.
+story:
+  - choix: "Un revenu dès 18 ans"
+    precision: "le RSA, ou un revenu étudiants compris"
+  - choix: "Le RSA à 25 ans"
+    precision: "avec le contrat d'engagement jeune, élargi ou non"
+# Positions sourcées seulement (étude, § 4). Inconnus : aucun. Aucun candidat ne défend l'option C (étude, § 4).
+# Classement de l'étude gardé par décision de l'auteur, Tondelier en A, Roussel en A et Arthaud en B compris.
+positions:
+  # Amendement n° 5 à la PPL n° 884, « M. Bryan Masson et les membres du groupe Rassemblement National », 30/03/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/0884/AN/5.pdf
+  le-pen: { option: D, source: "Amendement n° 5 du groupe Rassemblement national à la proposition de loi n° 884, Assemblée nationale, 30/03/2023", statut: deduite, citation: "automatiser le dispositif du RSA à tous les jeunes de 18 à 25 ans sans exigence de recherche active d'emploi ne permettra pas d'enrayer le fléau du chômage", lien: "https://www.assemblee-nationale.fr/dyn/16/amendements/0884/AN/5.pdf" }
+  # L'Avenir en commun, programme 2027, « Mettre en sécurité sociale », chapitre 2 : https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre2
+  melenchon: { option: A, source: "L'Avenir en commun, programme 2027, « Mettre en sécurité sociale », chapitre 2", statut: officielle, citation: "Financer l'autonomie des jeunes détachés du foyer fiscal parental grâce à la garantie d'autonomie qui les portera au-dessus du seuil de pauvreté (1 337 euros pour une personne seule)", lien: "https://melenchon2027.fr/programme/livre/mettre-en-securite-sociale/chapitre2" }
+  # Paul Christophe (Horizons), commission des affaires sociales, 29/03/2023, rapport n° 1027 : https://www.assemblee-nationale.fr/dyn/16/rapports/cion-soc/l16b1027_rapport-fond.pdf
+  philippe: { option: D, source: "Paul Christophe (Horizons), commission des affaires sociales de l'Assemblée nationale, 29/03/2023", statut: deduite, citation: "Nous avons d'autres perspectives pour la jeunesse qu'un minimum social.", lien: "https://www.assemblee-nationale.fr/dyn/16/rapports/cion-soc/l16b1027_rapport-fond.pdf" }
+  # Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 25, p. 53 : https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing
+  glucksmann: { option: B, source: "Place publique, « Notre vision pour la France, Acte I », 23/06/2025, chantier 25, p. 53", statut: officielle, citation: "Ouvrir une grande conférence sociale pour aller vers un minimum social unique, accessible à toutes et tous, y compris pour les moins de 25 ans", lien: "https://drive.google.com/file/d/1Ols_EJxRAxOJeR-fLEKp7IzEk8-TSI1Q/view?usp=sharing" }
+  # Sénat, scrutin public n° 54 du 20/01/2021, article 1er de la PPL « droits nouveaux dès dix-huit ans » : https://www.senat.fr/scrutin-public/2020/scr2020-54.html
+  # Vote personnel contre, avec 146 sénateurs LR sur 148 ; rien de plus récent trouvé sur l'âge (étude, § 4).
+  retailleau: { option: D, source: "Sénat, scrutin public n° 54, 20/01/2021 : vote contre l'ouverture du RSA dès 18 ans", statut: deduite, lien: "https://www.senat.fr/scrutin-public/2020/scr2020-54.html" }
+  # Nouvelle Énergie, FAQ du 16/10/2026 (reprise de l'étude 040, page non rouverte) : https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-regrouper-les-aides-sociales-en-une-allocation-unique/
+  # Rien sur l'âge : D est l'option qui change le moins la règle actuelle (étude, § 4).
+  lisnard: { option: D, source: "Nouvelle Énergie, FAQ « Quel candidat veut regrouper les aides sociales en une allocation unique ? », 16/10/2026", statut: estimee, citation: "regroupant l'ensemble des aides en une allocation unique, plafonner […] un pourcentage du SMIC", lien: "https://www.unenouvelleenergie.fr/questions/quel-candidat-veut-regrouper-les-aides-sociales-en-une-allocation-unique/" }
+  # Amendement n° 33 (Claire Guichard et le groupe Renaissance) à la PPL n° 884, 03/04/2023 : https://www.assemblee-nationale.fr/dyn/16/amendements/0884/AN/33.pdf
+  attal: { option: D, source: "Amendement n° 33 du groupe Renaissance à la proposition de loi n° 884, Assemblée nationale, 03/04/2023", statut: deduite, citation: "L'efficacité et la justice sociale imposent de privilégier cet outil [le contrat d'engagement jeune] plutôt que d'étendre le RSA aux moins de 25 ans.", lien: "https://www.assemblee-nationale.fr/dyn/16/amendements/0884/AN/33.pdf" }
+  # S. Knafo (Reconquête), plan « 140 milliards d'économies », budget2027.fr, 2026, mesure 4 (reprise de l'étude 040) : https://www.budget2027.fr/
+  zemmour: { option: D, source: "Sarah Knafo (Reconquête), plan « 140 milliards d'économies », 2026, mesure 4", statut: estimee, citation: "Limitation à trois ans de l'allocation RSA pour les bénéficiaires en capacité de travailler.", lien: "https://www.budget2027.fr/" }
+  # Les Écologistes, projet 2027, volet Éducation, mesure 5, lu via Votons 2027 (programme original non ouvert, à confirmer) : https://votons-2027.fr/candidats/tondelier/programme/education
+  # Statut abaissé à « deduite » (l'étude dit « officielle, à confirmer ») : programme non ouvert, A ou B selon que les
+  # étudiants sont inclus.
+  tondelier: { option: A, source: "Les Écologistes, projet 2027, volet Éducation, mesure 5 (lu via l'agrégateur Votons 2027)", statut: deduite, citation: "l'extension de la garantie d'autonomie dès 18 ans pour toutes les personnes indépendantes fiscalement", lien: "https://votons-2027.fr/candidats/tondelier/programme/education" }
+  # F. Roussel, « La France des Jours heureux », programme 2022, mesures 37 et 42 : https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf
+  # Aussi : « Le revenu de solidarité active (RSA) sera ouvert aux moins de 25 ans » (mesure 37) ; vote pour, scrutin n° 3434, 18/02/2021.
+  roussel: { option: A, source: "Fabien Roussel, « La France des Jours heureux », programme présidentiel 2022, mesures 37 et 42", statut: deduite, citation: "Un revenu, fixé à 850 euros par mois, pour tous les étudiants et toutes les étudiantes, sera mis en place", lien: "https://d3n8a8pro7vhmx.cloudfront.net/fabienroussel2022/pages/217/attachments/original/1643038967/exe_la_france_des_jours_heureux_LIVRE_stc.pdf" }
+  # N. Dupont-Aignan, « 100 décisions pour la France », 2022, décision 22 (archive, reprise de l'étude 040) : https://web.archive.org/web/20220405000000/https://2022nda.fr/projet/lessentiel/
+  dupont-aignan: { option: D, source: "Nicolas Dupont-Aignan, « 100 décisions pour la France », projet présidentiel 2022, décision 22", statut: estimee, citation: "Une journée par semaine de service pour la collectivité exigée pour les bénéficiaires du RSA.", lien: "https://web.archive.org/web/20220405000000/https://2022nda.fr/projet/lessentiel/" }
+  # PPL n° 4014 et rapport n° 4080 de F. Ruffin, 14/04/2021 : https://www.assemblee-nationale.fr/dyn/15/rapports/cion-soc/l15b4080_rapport-fond.pdf
+  # Aussi : scrutins n° 3434 et 3740 (2021) ; cosignataire de la PPL n° 884 (2023).
+  ruffin: { option: B, source: "François Ruffin, rapport n° 4080 sur sa proposition de loi visant à étendre le RSA aux jeunes de 18 à 25 ans, Assemblée nationale, 14/04/2021", statut: deduite, citation: "Il faut donc en ajouter un troisième, l'assumer, pleinement : la solidarité sociale, la solidarité nationale.", lien: "https://www.assemblee-nationale.fr/dyn/15/rapports/cion-soc/l15b4080_rapport-fond.pdf" }
+  # Lutte ouvrière, 20/04/2016 : https://www.lutte-ouvriere.org/journal/article/2016-04-20-rsa-jeunes-des-promesses-pour-lavenir-des-attaques-en-perspective_67419.html
+  # et 03/11/2021 : https://www.lutte-ouvriere.org/journal/article/2021-11-03-contrat-engagement-macron-se-moque-des-jeunes_185684.html
+  # Fragile : aucune revendication explicite ; rien ne départage A et B, B change le moins la règle actuelle (étude, § 4).
+  # Pas de citation : la phrase de l'étude décrit la règle actuelle, dans un article qui n'est pas d'Arthaud.
+  arthaud: { option: B, source: "Lutte ouvrière, articles du 20/04/2016 et du 03/11/2021", statut: estimee, lien: "https://www.lutte-ouvriere.org/journal/article/2016-04-20-rsa-jeunes-des-promesses-pour-lavenir-des-attaques-en-perspective_67419.html" }
