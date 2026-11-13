@@ -11,6 +11,7 @@ import { lireCandidatsEnLice, lireQuestionsDuCalcul, lireQuestionsPubliees } fro
 import { JE_NE_SAIS_PAS } from "@/lib/reponses";
 import { lireLesReponsesDeLaSession } from "@/lib/reponses-partagees";
 import { Connexion } from "../../Connexion";
+import { SupprimerLaSession } from "../../SupprimerDesSessions";
 import "../../admin.css";
 
 export const metadata: Metadata = { title: "Session — Espace de l'auteur — Décrypte 2027", robots: { index: false, follow: false } };
@@ -41,6 +42,7 @@ async function Session({ id }: { id: string }) {
           Session {sessionCourte(session.session)}
           <span>.</span>
         </h1>
+        <SupprimerLaSession session={session.session} />
       </section>
       <section className="an-kpis" aria-label="Chiffres clés">
         <p>

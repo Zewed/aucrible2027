@@ -4142,6 +4142,52 @@ test.describe("chaque réponse part, anonyme, sous la session de l'appareil", ()
     await expect(page.getByLabel("Mot de passe")).toBeVisible();
     expect(await page.content()).not.toContain("62 ans");
   });
+
+  test("un appareil où l'auteur est entré n'envoie plus ses réponses ; connecté, même une réponse envoyée n'est pas gardée", async ({ page }) => {
+    await repondre(page, "62 ans");
+    await page.evaluate(() => {
+      localStorage.removeItem("aucrible:reponses");
+      localStorage.removeItem("aucrible:session");
+      localStorage.setItem("aucrible:auteur", "1");
+    });
+    const envois: string[] = [];
+    page.on("request", (r) => r.url().endsWith("/reponse") && envois.push(r.url()));
+    await page.goto("/questionnaire");
+    await choisir(page, "64 ans");
+    await validerMaReponse(page);
+    await expect(page).toHaveURL(/\/revelation$/);
+    await page.waitForLoadState("networkidle");
+    expect(envois).toEqual([]);
+    await connecterLAuteur(page);
+    const session = crypto.randomUUID();
+    expect((await page.request.post("/reponse", { data: { session, question: 24, option: "B", importance: 1 } })).status()).toBe(204);
+    expect(await reponsesDe(session)).toEqual([]);
+  });
+
+  test("l'auteur coche une session sur le tableau de bord et la supprime ; une autre, depuis sa page", async ({ page }) => {
+    await repondre(page, "62 ans");
+    const premiere = (await sessionDe(page))!;
+    await repondre(page, "64 ans");
+    const seconde = (await sessionDe(page))!;
+    await expect.poll(async () => (await reponsesDe(premiere)).length + (await reponsesDe(seconde)).length).toBe(2);
+    await connecterLAuteur(page);
+    await page.goto("/admin");
+    await page.getByRole("region", { name: "Cookies" }).getByRole("button", { name: "Refuser" }).click();
+    const sessions = page.getByRole("region", { name: "Sessions" });
+    await expect(sessions.getByRole("button", { name: /^Supprimer/ })).toHaveCount(0);
+    await sessions.getByRole("checkbox", { name: `Choisir la session ${premiere.slice(0, 8)}` }).check();
+    page.once("dialog", (d) => d.accept());
+    await sessions.getByRole("button", { name: "Supprimer la session" }).click();
+    await expect(sessions.getByRole("link", { name: premiere.slice(0, 8), exact: true })).toHaveCount(0);
+    expect(await reponsesDe(premiere)).toEqual([]);
+    expect(await reponsesDe(seconde)).toHaveLength(1);
+    await sessions.getByRole("link", { name: seconde.slice(0, 8), exact: true }).click();
+    await expect(page).toHaveURL(`/admin/session/${seconde}`);
+    page.once("dialog", (d) => d.accept());
+    await page.getByRole("button", { name: "Supprimer la session" }).click();
+    await expect(page).toHaveURL("/admin");
+    expect(await reponsesDe(seconde)).toEqual([]);
+  });
 });
 
 test.describe("le formulaire promet une réponse sous 72 h", () => {

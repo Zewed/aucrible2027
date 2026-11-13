@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import { estLAppareilDeLAuteur } from "@/lib/appareil-de-l-auteur";
 import { aujourdhuiAParis } from "@/lib/date";
 
 const CLE = "aucrible:visite";
-
-/** Posé par l'espace de l'auteur sur chacun de ses appareils (app/admin/AppareilDeLAuteur.tsx) : ils ne comptent plus. */
-export const APPAREIL_DE_L_AUTEUR = "aucrible:auteur";
 
 /**
  * Compte cet appareil une fois par jour dans les statistiques de visite de l'auteur. Le jour déjà compté reste dans
@@ -18,7 +16,7 @@ export function Visite() {
     if (location.pathname.startsWith("/admin")) return;
     let deja: string | null = null;
     try {
-      if (localStorage.getItem(APPAREIL_DE_L_AUTEUR)) return;
+      if (estLAppareilDeLAuteur()) return;
       deja = localStorage.getItem(CLE);
     } catch {
       return;

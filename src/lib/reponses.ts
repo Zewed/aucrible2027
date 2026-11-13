@@ -1,3 +1,5 @@
+import { estLAppareilDeLAuteur } from "@/lib/appareil-de-l-auteur";
+
 /** Une réponse validée, gardée sur l'appareil ; seule une copie anonyme en part (`partagerLaReponse`). */
 export type Reponse = {
   option: string;
@@ -57,9 +59,11 @@ function laSession() {
 
 /**
  * Envoie une copie anonyme de la réponse (lib/reponses-partagees.ts) : la session de l'onglet, la question, l'option et
- * l'importance, rien d'autre. Sans réseau, la copie se perd ; la réponse, elle, reste sur l'appareil.
+ * l'importance, rien d'autre. Sans réseau, la copie se perd ; la réponse, elle, reste sur l'appareil. Rien ne part d'un
+ * appareil de l'auteur : ses essais ne faussent pas les chiffres.
  */
 export function partagerLaReponse(numero: number, { option, importance }: Pick<Reponse, "option" | "importance">) {
+  if (estLAppareilDeLAuteur()) return;
   fetch("/reponse", {
     method: "POST",
     keepalive: true,

@@ -1,5 +1,5 @@
 import posthog from "posthog-js";
-import { APPAREIL_DE_L_AUTEUR } from "@/components/Visite";
+import { estLAppareilDeLAuteur } from "@/lib/appareil-de-l-auteur";
 import { CLE_POSTHOG } from "@/lib/mesure";
 
 /**
@@ -7,14 +7,6 @@ import { CLE_POSTHOG } from "@/lib/mesure";
  * répondu au bandeau ; s'il refuse, la mesure continue sans cookie (cookieless_mode « on_reject », à activer aussi dans
  * les réglages du projet PostHog). Les appareils de l'auteur ne sont pas mesurés, comme pour les visites.
  */
-function estLAppareilDeLAuteur() {
-  try {
-    return Boolean(localStorage.getItem(APPAREIL_DE_L_AUTEUR));
-  } catch {
-    return false;
-  }
-}
-
 if (CLE_POSTHOG && !estLAppareilDeLAuteur()) {
   try {
     posthog.init(CLE_POSTHOG, {

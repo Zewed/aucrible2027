@@ -100,6 +100,14 @@
 .rp-table .rp-n { color: var(--ink-soft); font-weight: 600; }
 .an-grille--session .an-bloc > .rp-list { grid-template-columns: minmax(0, 1fr); }
 .an-sessions td:nth-child(n+4), .an-sessions thead th:nth-child(n+4) { text-align: left; }
+/* La case de chaque session, au-dessus du lien qui couvre la ligne. */
+.an-case { position: relative; z-index: 1; width: 20px; height: 20px; margin: 0 12px 0 0; vertical-align: middle; accent-color: var(--sur-table); cursor: pointer; }
+/* Supprimer : en bas à droite tant qu'une session est cochée ; sur la page d'une session, dans l'en-tête. */
+.an-supprimer { min-height: 48px; padding: 0 20px; border: 0; border-radius: 12px; background: var(--sur-table); color: var(--table); font: 800 16px/1 var(--display); cursor: pointer; }
+.an-supprimer:disabled { opacity: 0.6; cursor: wait; }
+.an-supprimer:focus-visible { outline: 3px solid var(--eco-texte); outline-offset: 3px; }
+.an-barre-suppr { position: fixed; right: clamp(16px, 3vw, 40px); bottom: 24px; z-index: 10; }
+.an-barre-suppr .an-supprimer { box-shadow: 0 8px 24px rgb(0 0 0 / 0.25); }
 @media (max-width: 640px) {
   .an-barre, .an-barre--tete { width: auto; min-width: 36px; }
   .an-cands .an-qui small { display: none; }
