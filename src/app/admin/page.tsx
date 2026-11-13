@@ -13,6 +13,7 @@ import { lireLesVisites } from "@/lib/visites";
 import { seDeconnecter } from "./actions";
 import { AppareilDeLAuteur } from "./AppareilDeLAuteur";
 import { Connexion } from "./Connexion";
+import { ChoixDesSessions } from "./SupprimerDesSessions";
 import "./admin.css";
 
 // L'espace de l'auteur : privé, aucune page publique n'y mène, et les moteurs de recherche n'ont pas à le trouver.
@@ -238,45 +239,51 @@ async function TableauDeBord({ seuil }: { seuil: number }) {
         {retenues.length === 0 ? (
           <p className="sg-vide">Aucune session pour l&apos;instant.</p>
         ) : (
-          <table className="an-table an-sessions">
-            <thead>
-              <tr>
-                <th scope="col">Session</th>
-                <th scope="col">Début</th>
-                <th scope="col">Réponses</th>
-                <th scope="col">En tête</th>
-                <th scope="col">Deuxième</th>
-                <th scope="col">Troisième</th>
-              </tr>
-            </thead>
-            <tbody>
-              {retenues.slice(0, 300).map((s) => (
-                <tr key={s.session}>
-                  <th scope="row">
-                    <Link href={`/admin/session/${s.session}`} prefetch={false}>
-                      {sessionCourte(s.session)}
-                    </Link>
+          <ChoixDesSessions>
+            <table className="an-table an-sessions">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <input className="an-case" type="checkbox" name="toutes" aria-label="Choisir toutes les sessions" />
+                    Session
                   </th>
-                  <td>{quand(s)}</td>
-                  <td>{s.reponses.length}</td>
-                  {s.classement.slice(0, 3).map(({ candidat, pourcentage }) => (
-                    <td key={candidat.id}>
-                      {pourcentage == null ? (
-                        "—"
-                      ) : (
-                        <span className="an-qui an-qui--petit">
-                          <Pion candidat={candidat} clair />
-                          <span>
-                            {candidat.nom} <b>{pourcentage} %</b>
-                          </span>
-                        </span>
-                      )}
-                    </td>
-                  ))}
+                  <th scope="col">Début</th>
+                  <th scope="col">Réponses</th>
+                  <th scope="col">En tête</th>
+                  <th scope="col">Deuxième</th>
+                  <th scope="col">Troisième</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {retenues.slice(0, 300).map((s) => (
+                  <tr key={s.session}>
+                    <th scope="row">
+                      <input className="an-case" type="checkbox" name="session" value={s.session} aria-label={`Choisir la session ${sessionCourte(s.session)}`} />
+                      <Link href={`/admin/session/${s.session}`} prefetch={false}>
+                        {sessionCourte(s.session)}
+                      </Link>
+                    </th>
+                    <td>{quand(s)}</td>
+                    <td>{s.reponses.length}</td>
+                    {s.classement.slice(0, 3).map(({ candidat, pourcentage }) => (
+                      <td key={candidat.id}>
+                        {pourcentage == null ? (
+                          "—"
+                        ) : (
+                          <span className="an-qui an-qui--petit">
+                            <Pion candidat={candidat} clair />
+                            <span>
+                              {candidat.nom} <b>{pourcentage} %</b>
+                            </span>
+                          </span>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </ChoixDesSessions>
         )}
       </section>
 

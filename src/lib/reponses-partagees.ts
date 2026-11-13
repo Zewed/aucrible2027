@@ -1,6 +1,9 @@
 import { estLAuteur } from "@/lib/auteur";
 import { base } from "@/lib/base";
 
+/** Une session : un numéro au format UUID. */
+export const UNE_SESSION = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 /**
  * Les réponses partagées (décision du 10/11/2026) : chaque réponse validée part au serveur, pour tout le monde, sans case
  * à cocher. Elle n'emporte que la session de l'onglet (un numéro tiré au hasard, oublié quand l'onglet se ferme), la
@@ -53,7 +56,7 @@ export async function lireLesTotaux(): Promise<TotauxDesReponses> {
 /** Les réponses d'une session, par question ; aucune si l'identifiant n'en est pas un. */
 export async function lireLesReponsesDeLaSession(session: string): Promise<ReponseLue[]> {
   const sql = await reserveeALAuteur();
-  if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(session)) return [];
+  if (!UNE_SESSION.test(session)) return [];
   return sql<ReponseLue[]>`
     SELECT session::text, question, option, importance, to_char(jour, 'YYYY-MM-DD') AS jour, recue_le AS "recueLe"
     FROM reponses_partagees WHERE session = ${session}::uuid ORDER BY question`;
@@ -65,4 +68,13 @@ export async function lireToutesLesReponses(): Promise<ReponseLue[]> {
   return sql<ReponseLue[]>`
     SELECT session::text, question, option, importance, to_char(jour, 'YYYY-MM-DD') AS jour, recue_le AS "recueLe"
     FROM reponses_partagees ORDER BY session, question`;
+}
+
+/** Efface toutes les réponses de ces sessions : les tests de l'auteur, pour qu'ils ne faussent plus les chiffres. */
+export async function supprimerLesSessions(sessions: string[]) {
+  const sql = await reserveeALAuteur();
+  const valides = sessions.filter((s) => UNE_SESSION.test(s));
+  if (valides.length === 0) return 0;
+  const { count } = await sql`DELETE FROM reponses_partagees WHERE session = ANY(${sql.array(valides)}::uuid[])`;
+  return count;
 }

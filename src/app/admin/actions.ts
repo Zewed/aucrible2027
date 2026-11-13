@@ -1,7 +1,9 @@
 "use server";
 
+import { refresh } from "next/cache";
 import { redirect } from "next/navigation";
 import { bonMotDePasse, lireLaSession } from "@/lib/auteur";
+import { supprimerLesSessions } from "@/lib/reponses-partagees";
 
 export type EtatDeLaConnexion = { refuse: boolean };
 
@@ -24,5 +26,17 @@ export async function entrer(_precedent: EtatDeLaConnexion, donnees: FormData): 
 /** « Se déconnecter » : la session de l'espace de l'auteur est effacée. */
 export async function seDeconnecter() {
   (await lireLaSession()).destroy();
+  redirect("/admin");
+}
+
+/** Les sessions cochées (des numéros de session) : leurs réponses sont effacées, et le tableau de bord se recalcule. */
+export async function supprimerDesSessions(donnees: FormData) {
+  await supprimerLesSessions(donnees.getAll("session").filter((s) => typeof s === "string"));
+  refresh();
+}
+
+/** Une seule session, depuis sa page : effacée, retour au tableau de bord. */
+export async function supprimerLaSession(donnees: FormData) {
+  await supprimerLesSessions(donnees.getAll("session").filter((s) => typeof s === "string"));
   redirect("/admin");
 }
